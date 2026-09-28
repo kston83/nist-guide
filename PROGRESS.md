@@ -2,9 +2,20 @@
 
 Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task.
 
-## Current phase: 2 Template system and first kit
+## Current phase: 3 Full program kit
 
-Phase 1 is complete: approved by the owner and merged (2026-09-28). **Phase 2 exit criteria are met** (2026-09-28): all Phase 2 work is merged to `main` (#11 to #41, one squash commit each) and kit v1.0.0 is released. Waiting for the owner's Phase 2 review before Phase 3 starts.
+Phases 1 and 2 are complete and approved by the owner (Phase 2 approved by merging PRD v3, #43, 2026-09-28). PRD 3.1 sets the order: finish what the guide already covers first, the RMF program kit (Phase 3, kit v2.0.0); then methods and the SSDF (Phase 4, kit v2.1.0); then the AI security guide (Phase 5, kit v2.2.0).
+
+### Phase 3 exit criteria
+
+- [ ] Every Low and Moderate control has a policy clause at `draft` or better: **111 of 287** (the -1 controls of AC, AU, CM, IA and IR are met through `_common.md`). About 171 to go, across AT, CA, CP, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR, plus PM and PT, which need their own shared sections
+- [ ] Every [artifact catalog](docs/PRD.md#artifact-catalog) artifact published except the SSDF-based SA artifacts, which move to Phase 4 (3 of 50 done: SSP, IR plan, POA&M), plus the consolidated policy (TPL-09)
+- [ ] Program path complete: artifact checklist (PROG-03) and scaling guidance (PROG-04)
+- [ ] Kit v2.0.0 released
+
+Also in scope: TPL-11, FEAT-01, PRES-02, NAV-02. Decide first: whether FEAT-01 may add the `starlight-blog` plugin. Methods and the SSDF are Phase 4; the AI guide is Phase 5.
+
+## Phase 2: Template system and first kit (approved)
 
 ### Phase 2 exit criteria
 
@@ -46,7 +57,7 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). **Phase 2 ex
 
 ### Carried from Phase 1
 
-- **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 5 (industries and technology; renumbered by PRD v3).
+- **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 6 (industries and technology; renumbered by PRD 3.1).
 
 Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_common.md` variables (2026-09-28).
 
@@ -54,6 +65,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| PRD 3.1 | Proposed (PR) | 2026-09-28 | Owner decision: finish what the guide already covers first. Seven phases: 3 full program kit (kit v2.0.0), 4 methods and the SSDF (v2.1.0), 5 AI security guide (v2.2.0), 6 industries and technology, 7 depth. "RMF complete" means the full program kit; Moderate guidance for the other 146 controls and High clauses stay in Phase 7 (Depth). Phase 2 recorded as approved; Phase 3 exit criteria set up above |
 | PRD v3 | Proposed (PR) | 2026-09-28 | Owner direction: methods (the SSDF first) are how NIST says to meet controls, shown in a Methods section on control pages; an AI security guide as a separate section, built only on NIST and OWASP guidance (OWASP Top 10 for LLM and for Agentic Applications, CC BY-SA 4.0, own words and links only; OWASP AI Exchange, CC0), and high priority. No AI-specific control selections until NIST's COSAIS overlays are final (owner decision). Phases: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth. New requirements METH-01 to METH-03 and AI-01 to AI-12; SSDF moved under `methods/`. NIST AI sources checked at the source on Sep 28, 2026 (table in the PRD) |
 | TPL-10 | Done | 2026-09-28 | Released: `v1.0.0` pushed on #41's merge commit after the owner's go-ahead; the Release kit workflow passed on its first run and published [Template kit v1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) with 9 zips and notes from the changelog. |
 | TPL-10 (PR) | Done | 2026-09-28 | `package.json` version 1.0.0 (every document and template page prints it). `.github/workflows/release.yml`: on a pushed `vX.Y.Z` tag, fails unless the tag is on `main` and matches `package.json`, installs pinned pandoc 3.11, runs `npm run kit`, and creates a GitHub Release ("Template kit vX.Y.Z") with `rmf-field-guide-kit.zip`, `starter-kit-{low,moderate,high}.zip` and the five family packs. Notes: the NIST release basis, a license and not-legal-advice line, then `build-changelog.mjs --notes <tag>`. Same allow-listed actions pinned by SHA as `check.yml`; release created with the runner's `gh`; job permission `contents: write` only, top level `permissions: {}`. README "Releasing the template kit" |
@@ -116,10 +128,10 @@ From the PRD. The owner deferred every open item on 2026-09-28; raise each again
 - [x] Template voice: any organization, federal-only requirements in `:::federal` sections (2026-09-27)
 - [x] `.docx` tool: pandoc, pinned, in CI (2026-09-27)
 - [x] Employer publishing policy: no issues (2026-09-28)
-- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services); deferred, needed by Phase 5
-- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes); deferred, needed by Phase 5
-- [ ] Privacy-friendly analytics: yes or no; deferred (PRES-05, Phase 6)
-- [ ] AI RMF machine-readable source for AI-02 (NIST AI RMF Playbook data, CPRT, or another NIST export); decide at the start of Phase 3
+- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services); deferred, needed by Phase 6
+- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes); deferred, needed by Phase 6
+- [ ] Privacy-friendly analytics: yes or no; deferred (PRES-05, Phase 7)
+- [ ] AI RMF machine-readable source for AI-02 (NIST AI RMF Playbook data, CPRT, or another NIST export); decide at the start of Phase 5
 - [ ] SSDF source for SSDF-01: the SP 800-218 Excel table or CPRT; decide at the start of Phase 4
 - [ ] Confirm OMB M-25-21 is still current federal AI policy at an OMB page before writing AI-08 (secondary sources only so far)
 - [ ] TODO(verify), `templates/policy/au/au-11.md`: federal log retention. OMB M-21-31 required 12 months active and 18 months cold storage; a search on 2026-09-28 indicates OMB M-26-14 (May 2026) replaced it, but its PDF could not be read here. Confirm M-26-14's requirements, then add a federal block to AU-11 (and AU-2 if it sets event types)

@@ -4,14 +4,17 @@ import starlight from '@astrojs/starlight';
 
 // ---------------------------------------------------------------------------
 // Edit these three values, then push. Everything else can stay as it is.
-// GITHUB_USER: your GitHub username. The repository must be named
-//   <username>.github.io so the site is served from the root of that address.
+// GITHUB_USER: your GitHub username.
+// REPO_NAME: the repository name. If it's named <username>.github.io, the
+//   site is served from the root and BASE_PATH should be '/'.
 // SITE_URL: switch to your custom domain later (for example https://rmfguide.com)
-//   and add the domain to public/CNAME.
+//   and add the domain to public/CNAME. If you do, also set BASE_PATH back to '/'.
 // ---------------------------------------------------------------------------
-const GITHUB_USER = 'your-username';
+const GITHUB_USER = 'kston83';
+const REPO_NAME = 'nist-guide';
 const SITE_URL = `https://${GITHUB_USER}.github.io`;
-const REPO_URL = `https://github.com/${GITHUB_USER}/${GITHUB_USER}.github.io`;
+const BASE_PATH = `/${REPO_NAME}`;
+const REPO_URL = `https://github.com/${GITHUB_USER}/${REPO_NAME}`;
 
 // The 20 SP 800-53 Rev. 5 families, in catalog order.
 const families = [
@@ -27,6 +30,7 @@ const families = [
 
 export default defineConfig({
 	site: SITE_URL,
+	base: BASE_PATH,
 	integrations: [
 		starlight({
 			title: 'RMF Field Guide',

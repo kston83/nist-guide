@@ -90,6 +90,8 @@ export function templateSchemas(catalog: CatalogData) {
 			title: z.string().min(1),
 			// Key in templates/variables.yml for the role accountable for the family policy.
 			role: key,
+			// When a new program should adopt the family policy (PRD artifact catalog).
+			stage: z.enum(STAGES),
 			questions: z
 				.array(
 					z

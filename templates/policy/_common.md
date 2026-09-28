@@ -6,7 +6,7 @@ status: draft
 # {{family:title}} Policy
 
 :::guidance
-Every family policy is built from this file plus the family's clauses, so the sections below appear in all twenty. Together they meet the -1 control of the family (for example AC-1): purpose, scope, roles, responsibilities, management commitment, coordination, compliance, procedures, dissemination, a designated official, and review. Each statement cites the -1 item it meets. Clauses for the family's other controls are inserted under Policy statements, in catalog order, for the chosen baseline.
+The sections before and after Policy statements meet XX-1, which asks for a policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination and compliance, plus procedures, dissemination, a designated official and a review cycle. Assessors check each element, so keep every section even when it is short. Each statement cites the XX-1 item it meets. If you adopt several family policies, the same sections repeat in each; that is expected, and it lets each policy stand alone.
 :::
 
 ## Purpose

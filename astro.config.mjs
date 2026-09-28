@@ -137,6 +137,13 @@ export default defineConfig({
 						})),
 					],
 				},
+				{
+					label: 'Templates',
+					items: [
+						{ label: 'All templates', slug: 'templates' },
+						{ label: 'Policies', collapsed: true, items: [{ autogenerate: { directory: 'templates/policies' } }] },
+					],
+				},
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },
 				{ label: 'Technology playbooks', items: [{ autogenerate: { directory: 'technology' } }] },
 				{ label: 'Reference', items: [{ autogenerate: { directory: 'reference' } }] },

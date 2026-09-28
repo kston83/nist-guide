@@ -46,6 +46,13 @@ jobs:
         run: |
           npm run controls
           git diff --exit-code -- src/content/docs/controls src/data/control-ids.json src/data/catalog.json
+      - name: Check generated template pages are up to date
+        # Regenerates from templates/; any diff or new file means a page was
+        # hand-edited or a source changed without running npm run templates.
+        run: |
+          npm run templates
+          git add --intent-to-add src/content/docs/templates
+          git diff --exit-code -- src/content/docs/templates
       - name: Build the site
         run: npm run build
       - name: Check internal links and anchors

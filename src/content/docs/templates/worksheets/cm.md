@@ -13,7 +13,7 @@ controls: [cm-1, cm-2, cm-2.2, cm-2.3, cm-2.7, cm-3, cm-3.1, cm-3.2, cm-3.4, cm-
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Core](/program/core/) | Draft | 0.1.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

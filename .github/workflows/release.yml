@@ -1,0 +1,80 @@
+name: Release kit
+
+# Pushing a version tag (vX.Y.Z) on main builds the template kit and publishes
+# it as a GitHub Release (PRD TPL-10). The notes come from the changelog
+# (scripts/build-changelog.mjs --notes, PRD FEAT-04); the tag must match the
+# version in package.json, which the documents print.
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+
+# No token permissions beyond what each job asks for.
+permissions: {}
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and publish the kit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # create the release and upload its files
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # full history and tags for the release notes
+          persist-credentials: false
+      - name: Check the tag is on main and matches package.json
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || { echo "::error::$TAG is not on main"; exit 1; }
+          version="$(node -p "require('./package.json').version")"
+          [ "v$version" = "$TAG" ] || { echo "::error::tag $TAG does not match package.json version $version"; exit 1; }
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install pandoc (pinned) for the .docx kit
+        # Keep in step with check.yml and deploy.yml. Checksum from the release's published sha256 digest.
+        env:
+          PANDOC_VERSION: '3.11'
+          PANDOC_SHA256: 89d4c9d97818c62a97157f0072844e4602c6cee795bf84abd1aee7273abcda99
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          echo "${PANDOC_SHA256}  $RUNNER_TEMP/pandoc.deb" | sha256sum -c -
+          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+          pandoc --version | head -1
+      - name: Build the template kit
+        run: npm run kit
+      - name: Write the release notes
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          basis="$(node -p "require('./src/data/catalog.json').source.replace(/^SP 800-53 release/, 'SP 800-53 Rev. 5, release')")"
+          homepage="$(node -p "require('./package.json').homepage")"
+          {
+            echo "Program template kit $TAG, based on NIST $basis. Previews and the latest version: ${homepage}templates/"
+            echo
+            echo "Download \`rmf-field-guide-kit.zip\` for every template, a \`starter-kit-<baseline>.zip\` for the starter set, or one family's pack. Templates are dedicated to the public domain under CC0 1.0; tailor them before adoption, as they are not legal advice."
+            echo
+            node scripts/build-changelog.mjs --notes "$TAG"
+          } > "$RUNNER_TEMP/notes.md"
+          cat "$RUNNER_TEMP/notes.md"
+      - name: Publish the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" --verify-tag --title "Template kit $TAG" --notes-file "$RUNNER_TEMP/notes.md" \
+            dist/downloads/rmf-field-guide-kit.zip \
+            dist/downloads/starter-kit-*.zip \
+            dist/downloads/packs/*.zip

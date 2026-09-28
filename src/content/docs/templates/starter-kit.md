@@ -10,7 +10,7 @@ sidebar:
 
 <p class="tpl-lead" data-pagefind-weight="10">Starter kit template: the minimal set of documents to adopt first when building a program from nothing.</p>
 
-Download one file for your baseline and you have the documents a new program adopts first: the plans and policies the [Foundation](/program/foundation/) and [Core](/program/core/) stages call for, with the decision worksheets that tell you what to fill in. Each document comes ready to adopt and annotated, in Word and Markdown. Template version 0.1.0, based on NIST SP 800-53 Rev. 5, release 5.2.0.
+Download one file for your baseline and you have the documents a new program adopts first: the plans and policies the [Foundation](/program/foundation/) and [Core](/program/core/) stages call for, with the decision worksheets that tell you what to fill in. Each document comes ready to adopt and annotated, in Word and Markdown. Template version 1.0.0, based on NIST SP 800-53 Rev. 5, release 5.2.0.
 
 ## What it contains
 

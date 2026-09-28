@@ -61,6 +61,14 @@ The generator reads NIST's [oscal-content](https://github.com/usnistgov/oscal-co
 2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page and the list of valid control ids (`src/data/control-ids.json`). Guidance sections and hand-set front matter are kept.
 3. Review the changes with `git diff` and open a pull request.
 
+## Releasing the template kit
+
+Kit versions follow `version` in `package.json`, which every document prints.
+
+1. In a pull request, set the new version in `package.json` (for example with `npm version 1.1.0 --no-git-tag-version`), run `npm run templates`, and merge.
+2. Tag the merge commit on `main` and push the tag: `git tag v1.1.0 origin/main` and `git push origin v1.1.0`.
+3. The **Release kit** workflow checks the tag is on `main` and matches `package.json`, builds the kit, and publishes a GitHub Release with the full kit, starter kits and family packs. Its notes are the changelog section for the tag (`node scripts/build-changelog.mjs --notes v1.1.0`).
+
 ## Using a custom domain later
 
 1. Buy the domain and add it under **Settings → Pages → Custom domain** in the repository.

@@ -1,32 +1,119 @@
 ---
-// Adds "Referenced by" to the end of control pages (PRD LINK-01), listing pages
-// whose `controls` front matter names the control or its enhancements.
-// Control files are never edited; the list is built at build time.
+// Adds template sections to control pages; control files are never edited.
+//   Policy statement (PRD TPL-06): the control's clause and its enhancements'
+//     clauses from templates/policy/, clean edition, placed right after the
+//     generated NIST block. A -1 control points to the family policy instead.
+//   Artifacts (PRD TPL-06): template pages whose `controls` name the control.
+//   Referenced by (PRD LINK-01): every other page whose `controls` name it.
 import Default from '@astrojs/starlight/components/MarkdownContent.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import catalog from '../data/catalog.json';
 import { referencesFor } from '../lib/references';
 import { withBase } from '../lib/url';
 
+const NIST_END = '<!-- nist:end -->';
 const controlId = Astro.locals.starlightRoute.entry.data.control?.id;
+const base = controlId?.toLowerCase();
+const family = base?.split('-')[0];
+
 let refs: ReturnType<typeof referencesFor> = [];
-if (controlId) {
+let statements: { label: string; title: string; enhancement: boolean; Content: any }[] = [];
+let policy: { title: string; href: string } | undefined;
+let draft = false;
+let isPolicyControl = false;
+
+if (base && family) {
 	const pages = (await getCollection('docs', (e) => !!e.data.controls?.length)).map((e) => ({
 		id: e.id,
 		title: e.data.title,
 		controls: e.data.controls ?? [],
 	}));
 	refs = referencesFor(controlId, pages);
+
+	const fam = (await getCollection('families')).find((f) => f.id === family);
+	if (fam) policy = { title: `${fam.data.title} Policy`, href: `/templates/policies/${family}/` };
+	isPolicyControl = !!fam && base === `${family}-1`;
+
+	const order = new Map(catalog.controls.map((c, i) => [c.id, i]));
+	const labels = new Map(catalog.controls.map((c) => [c.id, c.label]));
+	const clauses = (await getCollection('clauses', (c) => c.data.control === base || c.data.control.startsWith(`${base}.`))).sort(
+		(a, b) => order.get(a.data.control)! - order.get(b.data.control)!,
+	);
+	draft = clauses.some((c) => c.data.status !== 'reviewed');
+	statements = await Promise.all(
+		clauses.map(async (c) => ({
+			label: labels.get(c.data.control)!,
+			title: c.data.title,
+			enhancement: c.data.control !== base,
+			Content: (await render(c)).Content,
+		})),
+	);
 }
+const artifacts = refs.filter((r) => r.kind === 'Template');
+const others = refs.filter((r) => r.kind !== 'Template');
+
+// Insert the policy statement after the NIST block; pages without markers get it at the end.
+const html = await Astro.slots.render('default');
+const cut = html.indexOf(NIST_END);
+const [before, after] = cut < 0 ? [html, ''] : [html.slice(0, cut + NIST_END.length), html.slice(cut + NIST_END.length)];
+const showStatement = policy && (isPolicyControl || statements.length > 0);
 ---
 
 <Default>
-	<slot />
+	<Fragment set:html={before} />
 	{
-		refs.length > 0 && (
+		showStatement && (
+			<section class="policy-statement">
+				<h2 id="policy-statement">Policy statement</h2>
+				{isPolicyControl ? (
+					<p>
+						{controlId} is met by the sections every family policy shares: purpose, scope, roles and responsibilities,
+						management commitment, coordination, compliance, procedures, dissemination, and review and update. Each
+						statement there cites the {controlId} item it meets. See the <a href={withBase(policy!.href)}>{policy!.title}</a>.
+					</p>
+				) : (
+					statements.map((s) =>
+						s.enhancement ? (
+							<>
+								<h3>{s.label} {s.title}</h3>
+								<s.Content />
+							</>
+						) : (
+							<s.Content />
+						),
+					)
+				)}
+				{!isPolicyControl && (
+					<p class="source">
+						From the <a href={withBase(policy!.href)}>{policy!.title}</a> template{draft && ' (draft)'}. Highlighted fields are values
+						your organization sets.
+					</p>
+				)}
+			</section>
+		)
+	}
+	<Fragment set:html={after} />
+	{
+		artifacts.length > 0 && (
+			<section class="artifacts">
+				<h2 id="artifacts">Artifacts</h2>
+				<ul>
+					{artifacts.map((r) => (
+						<li>
+							<a href={withBase(r.href)}>{r.title}</a>
+							{r.enhancements.length > 0 && ` (${r.enhancements.join(', ')})`}
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+	{
+		others.length > 0 && (
 			<section class="referenced-by">
 				<h2 id="referenced-by">Referenced by</h2>
 				<ul>
-					{refs.map((r) => (
+					{others.map((r) => (
 						<li>
 							<a href={withBase(r.href)}>{r.title}</a>
 							{r.enhancements.length > 0 && ` (${r.enhancements.join(', ')})`}
@@ -41,7 +128,8 @@ if (controlId) {
 </Default>
 
 <style>
-	.kind {
+	.kind,
+	.source {
 		font-size: var(--sl-text-xs);
 		color: var(--sl-color-gray-3);
 	}

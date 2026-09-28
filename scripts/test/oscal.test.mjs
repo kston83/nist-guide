@@ -206,6 +206,7 @@ test('selections list choices with nested parameters rendered', () => {
 	assert.deepEqual(data.params['ac-01_odp.04'].select, {
 		howMany: 'one',
 		choices: ['[Assignment: organization-defined frequency]', 'never'],
+		nested: ['ac-01_odp.05'],
 	});
 });
 

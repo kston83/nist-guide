@@ -72,6 +72,15 @@ test('every parameter must be a field or listed under set, not both', () => {
 	);
 });
 
+test('a shown selection also handles the parameters nested in its choices', () => {
+	const problems = lint((s) => {
+		catalog.params['ac-02_odp.01'] = { select: { howMany: 'one', choices: ['x'], nested: ['ac-02_odp.03'] } };
+		delete s.clauses[0].set;
+	});
+	catalog.params['ac-02_odp.01'] = {};
+	assert.deepEqual(problems, []);
+});
+
 test('typical values must belong to a parameter shown as a field', () => {
 	assert.deepEqual(
 		lint((s) => (s.clauses[0].typical['ac-02_odp.03'] = 'y')),

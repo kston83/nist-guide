@@ -97,8 +97,9 @@ const promptFrom = (guideline) =>
  *   label      NIST label ("time period"); absent on selections
  *   prompt     what the organization must decide, from the 800-53A guideline
  *              ("time period within which to notify account managers when ...")
- *   select     { howMany: "one" | "one-or-more", choices: [...] } with nested
- *              parameters rendered in NIST's [Assignment: ...] style
+ *   select     { howMany: "one" | "one-or-more", choices: [...], nested?: [...] }
+ *              with nested parameters rendered in NIST's [Assignment: ...] style
+ *              and listed by id in `nested`
  *   aggregates ids of the parameters this one combines, for parameters the
  *              control statement uses in place of several 800-53A ones
  *   text       the placeholder as it appears on the control page
@@ -130,11 +131,17 @@ export function buildControlData(catalog, profiles) {
 			if (p.label) entry.label = p.label;
 			const prompt = promptFrom(p.guidelines?.[0]?.prose);
 			if (prompt) entry.prompt = prompt;
-			if (p.select)
+			if (p.select) {
 				entry.select = {
 					howMany: p.select['how-many'] ?? 'one',
 					choices: (p.select.choice ?? []).map((ch) => insertParams(ch)),
 				};
+				// Parameters inside the choices ("lock the account for [time period]").
+				const nested = (p.select.choice ?? []).flatMap((ch) =>
+					[...ch.matchAll(/\{\{\s*insert:\s*param,\s*([\w.-]+)\s*\}\}/g)].map((m) => m[1]),
+				);
+				if (nested.length) entry.select.nested = nested;
+			}
 			const aggregates = (p.props ?? []).filter((x) => x.name === 'aggregates').map((x) => x.value);
 			if (aggregates.length) entry.aggregates = aggregates;
 			entry.text = renderParam(p.id);

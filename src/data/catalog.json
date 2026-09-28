@@ -12325,6 +12325,9 @@
 					"blocking the flow of the encrypted information",
 					"terminating communications sessions attempting to pass encrypted information",
 					"[Assignment: organization-defined procedure or method] "
+				],
+				"nested": [
+					"ac-04.04_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined procedure or method] ]"
@@ -12820,6 +12823,11 @@
 					"delay next logon prompt per [Assignment: organization-defined delay algorithm] ",
 					"notify system administrator",
 					"take other [Assignment: organization-defined action] "
+				],
+				"nested": [
+					"ac-07_odp.04",
+					"ac-07_odp.05",
+					"ac-07_odp.06"
 				]
 			},
 			"text": "[Selection (one or more): lock the account or node for [Assignment: organization-defined time period] ; lock the account or node until released by an administrator; delay next logon prompt per [Assignment: organization-defined delay algorithm] ; notify system administrator; take other [Assignment: organization-defined action] ]"
@@ -12971,6 +12979,9 @@
 				"choices": [
 					"initiating a device lock after [Assignment: organization-defined time period] of inactivity",
 					"requiring the user to initiate a device lock before leaving the system unattended"
+				],
+				"nested": [
+					"ac-11_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): initiating a device lock after [Assignment: organization-defined time period] of inactivity; requiring the user to initiate a device lock before leaving the system unattended]"
@@ -13601,6 +13612,10 @@
 				"choices": [
 					"establish [Assignment: organization-defined terms and conditions] ",
 					"identify [Assignment: organization-defined controls asserted] "
+				],
+				"nested": [
+					"ac-20_odp.02",
+					"ac-20_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): establish [Assignment: organization-defined terms and conditions] ; identify [Assignment: organization-defined controls asserted] ]"
@@ -14294,6 +14309,9 @@
 					"performance data",
 					"system monitoring information",
 					"[Assignment: organization-defined data/information collected from other sources] "
+				],
+				"nested": [
+					"au-06.05_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): vulnerability scanning information; performance data; system monitoring information; [Assignment: organization-defined data/information collected from other sources] ]"
@@ -14715,6 +14733,9 @@
 					"performance and load testing",
 					"data leakage or data loss assessment",
 					"[Assignment: organization-defined other forms of assessment] "
+				],
+				"nested": [
+					"ca-02.02_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): in-depth monitoring; security instrumentation; automated security test cases; vulnerability scanning; malicious user testing; insider threat assessment; performance and load testing; data leakage or data loss assessment; [Assignment: organization-defined other forms of assessment] ]"
@@ -14760,6 +14781,9 @@
 					"user agreements",
 					"non-disclosure agreements",
 					"[Assignment: organization-defined type of agreement] "
+				],
+				"nested": [
+					"ca-03_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): interconnection security agreements; information exchange security agreements; memoranda of understanding or agreement; service level agreements; user agreements; non-disclosure agreements; [Assignment: organization-defined type of agreement] ]"
@@ -15099,6 +15123,10 @@
 				"choices": [
 					"[Assignment: organization-defined frequency] ",
 					"when [Assignment: organization-defined configuration change conditions] "
+				],
+				"nested": [
+					"cm-03_odp.04",
+					"cm-03_odp.05"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined frequency] ; when [Assignment: organization-defined configuration change conditions] ]"
@@ -15459,6 +15487,9 @@
 				"choices": [
 					"[Assignment: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions] ",
 					"rules authorizing the terms and conditions of software program usage"
+				],
+				"nested": [
+					"cm-07.02_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions] ; rules authorizing the terms and conditions of software program usage]"
@@ -15633,6 +15664,9 @@
 					"disable network access by unauthorized components",
 					"isolate unauthorized components",
 					"notify [Assignment: organization-defined personnel or roles] "
+				],
+				"nested": [
+					"cm-08.03_odp.06"
 				]
 			},
 			"text": "[Selection (one or more): disable network access by unauthorized components; isolate unauthorized components; notify [Assignment: organization-defined personnel or roles] ]"
@@ -17723,6 +17757,9 @@
 				"choices": [
 					"remotely",
 					"under [Assignment: organization-defined conditions] "
+				],
+				"nested": [
+					"mp-06.08_odp.03"
 				]
 			},
 			"text": "[Selection: remotely; under [Assignment: organization-defined conditions] ]"
@@ -17899,6 +17936,9 @@
 					"formal access authorizations for all information contained within the system",
 					"need for access to all information contained within the system",
 					"[Assignment: organization-defined physical access authorizations] "
+				],
+				"nested": [
+					"pe-02.03_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): security clearances for all information contained within the system; formal access authorizations for all information contained within the system; need for access to all information contained within the system; [Assignment: organization-defined physical access authorizations] ]"
@@ -17934,6 +17974,9 @@
 				"choices": [
 					"[Assignment: organization-defined systems or devices] ",
 					"guards"
+				],
+				"nested": [
+					"pe-03_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined systems or devices] ; guards]"
@@ -18319,6 +18362,9 @@
 					"pressure",
 					"radiation",
 					"[Assignment: organization-defined environmental control] "
+				],
+				"nested": [
+					"pe-14_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): temperature; humidity; pressure; radiation; [Assignment: organization-defined environmental control] ]"
@@ -18565,6 +18611,9 @@
 				"choices": [
 					"[Assignment: organization-defined frequency] ",
 					"when the rules are revised or updated"
+				],
+				"nested": [
+					"pl-04_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined frequency] ; when the rules are revised or updated]"
@@ -19068,6 +19117,9 @@
 				"choices": [
 					"notify [Assignment: organization-defined personnel or roles] of individual termination actions",
 					"disable access to system resources"
+				],
+				"nested": [
+					"ps-04.02_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): notify [Assignment: organization-defined personnel or roles] of individual termination actions; disable access to system resources]"
@@ -19475,6 +19527,9 @@
 					"security and privacy plans",
 					"risk assessment report",
 					"[Assignment: organization-defined document] "
+				],
+				"nested": [
+					"ra-03_odp.02"
 				]
 			},
 			"text": "[Selection: security and privacy plans; risk assessment report; [Assignment: organization-defined document] ]"
@@ -19604,6 +19659,9 @@
 					"[Assignment: organization-defined frequency] ",
 					"prior to a new scan",
 					"when new vulnerabilities are identified and reported"
+				],
+				"nested": [
+					"ra-05.02_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined frequency] ; prior to a new scan; when new vulnerabilities are identified and reported]"
@@ -19672,6 +19730,10 @@
 				"choices": [
 					"[Assignment: organization-defined frequency] ",
 					"when [Assignment: organization-defined events or indicators] "
+				],
+				"nested": [
+					"ra-06_odp.03",
+					"ra-06_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined frequency] ; when [Assignment: organization-defined events or indicators] ]"
@@ -19797,6 +19859,9 @@
 				"choices": [
 					"standardized contract language",
 					"[Assignment: organization-defined contract language] "
+				],
+				"nested": [
+					"sa-04_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): standardized contract language; [Assignment: organization-defined contract language] ]"
@@ -19819,6 +19884,9 @@
 					"low-level design",
 					"source code or hardware schematics",
 					"[Assignment: organization-defined design and implementation information] "
+				],
+				"nested": [
+					"sa-04.02_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): security-relevant external system interfaces; high-level design; low-level design; source code or hardware schematics; [Assignment: organization-defined design and implementation information] ]"
@@ -19852,6 +19920,10 @@
 				"choices": [
 					"[Assignment: organization-defined system security engineering methods] ",
 					"[Assignment: organization-defined privacy engineering methods] "
+				],
+				"nested": [
+					"sa-04.03_odp.03",
+					"sa-04.03_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined system security engineering methods] ; [Assignment: organization-defined privacy engineering methods] ]"
@@ -19879,6 +19951,11 @@
 					"[Assignment: organization-defined software development methods] ",
 					"[Assignment: organization-defined testing, evaluation, assessment, verification, and validation methods] ",
 					"[Assignment: organization-defined quality control processes] "
+				],
+				"nested": [
+					"sa-04.03_odp.06",
+					"sa-04.03_odp.07",
+					"sa-04.03_odp.08"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined software development methods] ; [Assignment: organization-defined testing, evaluation, assessment, verification, and validation methods] ; [Assignment: organization-defined quality control processes] ]"
@@ -20602,6 +20679,10 @@
 					"[Assignment: organization-defined frequency] ",
 					"[Assignment: organization-defined program review] ",
 					"upon delivery"
+				],
+				"nested": [
+					"sa-15.01_odp.02",
+					"sa-15.01_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined frequency] ; [Assignment: organization-defined program review] ; upon delivery]"
@@ -20797,6 +20878,9 @@
 				"choices": [
 					"in-house support",
 					"[Assignment: organization-defined support from external providers] "
+				],
+				"nested": [
+					"sa-22_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): in-house support; [Assignment: organization-defined support from external providers] ]"
@@ -21004,6 +21088,9 @@
 					"priority",
 					"quota",
 					"[Assignment: organization-defined controls] "
+				],
+				"nested": [
+					"sc-06_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): priority; quota; [Assignment: organization-defined controls] ]"
@@ -21042,6 +21129,9 @@
 				"choices": [
 					"at managed interfaces",
 					"for [Assignment: organization-defined systems] "
+				],
+				"nested": [
+					"sc-07.05_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): at managed interfaces; for [Assignment: organization-defined systems] ]"
@@ -21585,6 +21675,9 @@
 				"choices": [
 					"[Assignment: organization-defined safeguards] ",
 					"hardware-protected key store"
+				],
+				"nested": [
+					"sc-28.03_odp.02"
 				]
 			},
 			"text": "[Selection: [Assignment: organization-defined safeguards] ; hardware-protected key store]"
@@ -21653,6 +21746,9 @@
 				"choices": [
 					"[Assignment: organization-defined time frequency] ",
 					"random time intervals"
+				],
+				"nested": [
+					"sc-30.03_odp.03"
 				]
 			},
 			"text": "[Selection: [Assignment: organization-defined time frequency] ; random time intervals]"
@@ -22010,6 +22106,11 @@
 				"choices": [
 					"the use of devices possessing [Assignment: organization-defined environmental sensing capabilities] in [Assignment: organization-defined facilities, areas, or systems] ",
 					"the remote activation of environmental sensing capabilities on organizational systems or system components with the following exceptions: [Assignment: organization-defined exceptions where remote activation of sensors is allowed] "
+				],
+				"nested": [
+					"sc-42_odp.02",
+					"sc-42_odp.03",
+					"sc-42_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): the use of devices possessing [Assignment: organization-defined environmental sensing capabilities] in [Assignment: organization-defined facilities, areas, or systems] ; the remote activation of environmental sensing capabilities on organizational systems or system components with the following exceptions: [Assignment: organization-defined exceptions where remote activation of sensors is allowed] ]"
@@ -22368,6 +22469,9 @@
 					"block malicious code",
 					"quarantine malicious code",
 					"take [Assignment: organization-defined action] "
+				],
+				"nested": [
+					"si-03_odp.05"
 				]
 			},
 			"text": "[Selection (one or more): block malicious code; quarantine malicious code; take [Assignment: organization-defined action] ]"
@@ -22463,6 +22567,9 @@
 				"choices": [
 					"as needed",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-04_odp.06"
 				]
 			},
 			"text": "[Selection (one or more): as needed; [Assignment: organization-defined frequency] ]"
@@ -22654,6 +22761,9 @@
 				"choices": [
 					"audit",
 					"alert [Assignment: organization-defined personnel or roles] "
+				],
+				"nested": [
+					"si-04.22_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): audit; alert [Assignment: organization-defined personnel or roles] ]"
@@ -22709,6 +22819,11 @@
 					"[Assignment: organization-defined personnel or roles] ",
 					"[Assignment: organization-defined elements] ",
 					"[Assignment: organization-defined external organizations] "
+				],
+				"nested": [
+					"si-05_odp.03",
+					"si-05_odp.04",
+					"si-05_odp.05"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined personnel or roles] ; [Assignment: organization-defined elements] ; [Assignment: organization-defined external organizations] ]"
@@ -22773,6 +22888,10 @@
 					"[Assignment: organization-defined system transitional states] ",
 					"upon command by user with appropriate privilege",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-06_odp.04",
+					"si-06_odp.05"
 				]
 			},
 			"text": "[Selection (one or more): [Assignment: organization-defined system transitional states] ; upon command by user with appropriate privilege; [Assignment: organization-defined frequency] ]"
@@ -22807,6 +22926,9 @@
 					"shut the system down",
 					"restart the system",
 					"[Assignment: organization-defined alternative action(s)] "
+				],
+				"nested": [
+					"si-06_odp.08"
 				]
 			},
 			"text": "[Selection (one or more): shut the system down; restart the system; [Assignment: organization-defined alternative action(s)] ]"
@@ -22905,6 +23027,10 @@
 					"at startup",
 					"at [Assignment: organization-defined transitional states or security-relevant events] ",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-7.1_prm_3",
+					"si-7.1_prm_4"
 				]
 			},
 			"aggregates": [
@@ -22950,6 +23076,10 @@
 					"at startup",
 					"at [Assignment: organization-defined transitional states or security-relevant events] ",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-07.01_odp.03",
+					"si-07.01_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): at startup; at [Assignment: organization-defined transitional states or security-relevant events] ; [Assignment: organization-defined frequency] ]"
@@ -22984,6 +23114,10 @@
 					"at startup",
 					"at [Assignment: organization-defined transitional states or security-relevant events] ",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-07.01_odp.07",
+					"si-07.01_odp.08"
 				]
 			},
 			"text": "[Selection (one or more): at startup; at [Assignment: organization-defined transitional states or security-relevant events] ; [Assignment: organization-defined frequency] ]"
@@ -23018,6 +23152,10 @@
 					"at startup",
 					"at [Assignment: organization-defined transitional states or security-relevant events] ",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-07.01_odp.11",
+					"si-07.01_odp.12"
 				]
 			},
 			"text": "[Selection (one or more): at startup; at [Assignment: organization-defined transitional states or security-relevant events] ; [Assignment: organization-defined frequency] ]"
@@ -23052,6 +23190,9 @@
 					"shut down the system",
 					"restart the system",
 					"implement [Assignment: organization-defined controls] "
+				],
+				"nested": [
+					"si-07.05_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): shut down the system; restart the system; implement [Assignment: organization-defined controls] ]"
@@ -23080,6 +23221,10 @@
 					"alert current user",
 					"alert [Assignment: organization-defined personnel or roles] ",
 					"[Assignment: organization-defined other actions] "
+				],
+				"nested": [
+					"si-07.08_odp.02",
+					"si-07.08_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): generate an audit record; alert current user; alert [Assignment: organization-defined personnel or roles] ; [Assignment: organization-defined other actions] ]"
@@ -23325,6 +23470,10 @@
 					"activate [Assignment: organization-defined alarm] ",
 					"automatically shut down the system",
 					"[Assignment: organization-defined action] "
+				],
+				"nested": [
+					"si-13.04_odp.03",
+					"si-13.04_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): activate [Assignment: organization-defined alarm] ; automatically shut down the system; [Assignment: organization-defined action] ]"
@@ -23377,6 +23526,9 @@
 				"choices": [
 					"upon end of session of use",
 					"[Assignment: organization-defined frequency] "
+				],
+				"nested": [
+					"si-14_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): upon end of session of use; [Assignment: organization-defined frequency] ]"
@@ -23403,6 +23555,11 @@
 				"choices": [
 					"refresh [Assignment: organization-defined information] [Assignment: organization-defined frequency] ",
 					"generate [Assignment: organization-defined information] on demand"
+				],
+				"nested": [
+					"si-14.02_odp.02",
+					"si-14.02_odp.03",
+					"si-14.02_odp.04"
 				]
 			},
 			"text": "[Selection: refresh [Assignment: organization-defined information] [Assignment: organization-defined frequency] ; generate [Assignment: organization-defined information] on demand]"
@@ -23736,6 +23893,9 @@
 					"security and privacy plans",
 					"supply chain risk management plan",
 					"[Assignment: organization-defined document] "
+				],
+				"nested": [
+					"sr-03_odp.05"
 				]
 			},
 			"text": "[Selection (one or more): security and privacy plans; supply chain risk management plan; [Assignment: organization-defined document] ]"
@@ -23899,6 +24059,9 @@
 				"choices": [
 					"notification of supply chain compromises",
 					"[Assignment: organization-defined results of assessments or audits] "
+				],
+				"nested": [
+					"sr-08_odp.02"
 				]
 			},
 			"text": "[Selection (one or more): notification of supply chain compromises; [Assignment: organization-defined results of assessments or audits] ]"
@@ -23926,6 +24089,10 @@
 					"at random",
 					"at [Assignment: organization-defined frequency] ",
 					"upon [Assignment: organization-defined indications of need for inspection] "
+				],
+				"nested": [
+					"sr-10_odp.03",
+					"sr-10_odp.04"
 				]
 			},
 			"text": "[Selection (one or more): at random; at [Assignment: organization-defined frequency] ; upon [Assignment: organization-defined indications of need for inspection] ]"
@@ -23953,6 +24120,10 @@
 					"source of counterfeit component",
 					"[Assignment: organization-defined external reporting organizations] ",
 					"[Assignment: organization-defined personnel or roles] "
+				],
+				"nested": [
+					"sr-11_odp.02",
+					"sr-11_odp.03"
 				]
 			},
 			"text": "[Selection (one or more): source of counterfeit component; [Assignment: organization-defined external reporting organizations] ; [Assignment: organization-defined personnel or roles] ]"

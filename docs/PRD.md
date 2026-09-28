@@ -189,20 +189,33 @@ Template sources live outside `src/content/docs` so they are not pages themselve
 
 ```yaml
 # templates/policy/ac/ac-2.md
-control: ac-2                  # must exist in the OSCAL catalog
+control: ac-2                  # must exist in the OSCAL catalog; file must be policy/<family>/<control>.md
 title: Account management
 status: none | draft | reviewed
 reviewed: 2026-09-27
 stage: foundation | core | operate | mature   # when a new program should adopt it
 variables: [param:ac-02_odp.01, org:access-approver]  # optional; derived if omitted
+typical:                       # optional: typical value shown with each {{param:...}} field
+  ac-02_odp.10: quarterly for privileged accounts
+set:                           # optional: parameters the clause fixes in its text, with a note
+  ac-02_odp.04: Set to this policy and the account management procedure.
 
 # templates/plans/incident-response-plan.md (and other non-policy templates)
 title: Incident Response Plan
-type: plan | standard | procedure | form
+type: plan | standard | procedure | form      # folder must match: plans/, standards/, procedures/, forms/
+description: One sentence on what the artifact is for
 controls: [ir-8, ir-4, ir-6]   # controls this artifact satisfies or supports
 ssdf: [RV.1]                   # SSDF practices it supports, if any
 status, reviewed, stage        # as above
+
+# templates/policy/ac/_family.yml
+title: Access Control
+role: ciso                     # key in variables.yml: the role accountable for the family policy
+questions:                     # decisions beyond the parameters, for the worksheet (TPL-08)
+  - { question: ..., controls: [ac-2], typical: ..., decides: System owner }
 ```
+
+`typical` and `set` together let the template lint (QA-05) check that every parameter is handled. Validation lives in `src/lib/template-schema.ts`; a bad source fails the build.
 
 ### Fill-in variables
 
@@ -212,7 +225,14 @@ status, reviewed, stage        # as above
 | `{{param:ac-02_odp.01}}` | A NIST organization-defined parameter, looked up from the OSCAL catalog | Field with the parameter label and the typical value from guidance | `[Fill in: <label>. Typical: <value>]` |
 | `{{fill:prompt text}}` | One-off fill-in with no NIST parameter | Field with the prompt | `[Fill in: prompt text]` |
 
-An unknown variable or parameter fails the build. Parameter labels always come from OSCAL, never retyped.
+An unknown variable or parameter fails the build. Parameter labels always come from OSCAL, never retyped. The fill-in text uses the parameter's 800-53A description, which is more specific than its label ("time period within which to disable accounts" rather than "time period").
+
+Two additions apply only in `policy/_common.md`, the sections every family policy shares (approved Sep 28, 2026):
+
+| Syntax | Meaning |
+| --- | --- |
+| `{{family:title}}`, `{{family:role}}` | The family's title, and its accountable role from `_family.yml` (rendered as that `org:` variable) |
+| `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set and needs its own sections (Phase 3) |
 
 ### Outputs
 
@@ -549,6 +569,9 @@ None of these block Phase 1.
 | Employer publishing policy | No issues | Sep 28, 2026 |
 | Employer in the bio | Not named; keep the employer out of the site | Sep 28, 2026 |
 | Phase 1 | Approved; remaining open questions deferred to the phase that needs them | Sep 28, 2026 |
+| YAML parser | `yaml` package, for `build-templates.mjs` | Sep 28, 2026 |
+| Zip packs | `fflate` package, so zips build the same on Windows and in CI | Sep 28, 2026 |
+| `_common.md` variables | `{{family:title}}`, `{{family:role}}` and the `xx-` parameter prefix (see Fill-in variables) | Sep 28, 2026 |
 
 ## Revision history
 

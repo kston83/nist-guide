@@ -1,0 +1,23 @@
+# Organization-wide fill-in values, used in template sources as {{org:<key>}}.
+# Each renders as a highlighted field showing its label, for example
+# [Organization name]. Roles are titles, never names of people.
+#
+# Keys are lowercase with single hyphens. An unknown key fails the build.
+
+name:
+  label: Organization name
+ciso:
+  label: Chief Information Security Officer
+  description: Title of the senior official accountable for the security program. Some organizations use Head of Security or Information Security Officer.
+system-owner:
+  label: System owner
+  description: Title of the official responsible for a system's development, operation and security. Often the business or mission owner.
+account-manager:
+  label: Account manager
+  description: Title of the person or team that creates, changes and removes accounts on a system, such as the identity team or system administrators.
+supervisor:
+  label: Supervisor
+  description: Title of the person who manages a user's work and confirms their need for access, such as line manager or contract officer's representative.
+hr-office:
+  label: Human resources office
+  description: Name of the function that records hires, transfers and departures.

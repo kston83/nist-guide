@@ -4,13 +4,13 @@ Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task
 
 ## Current phase: 2 Template system and first kit
 
-Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 work so far is merged to `main` (#11 to #33, one squash commit each) and deployed.
+Phase 1 is complete: approved by the owner and merged (2026-09-28). **Phase 2 exit criteria are met** (2026-09-28): all Phase 2 work is merged to `main` (#11 to #41, one squash commit each) and kit v1.0.0 is released. Waiting for the owner's Phase 2 review before Phase 3 starts.
 
 ### Phase 2 exit criteria
 
 - [x] 31 controls at `guidance: draft` or better: **31 of 31** (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9, IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9, SC-7, SC-8, SC-13, SC-28, SI-2, SI-4)
 - [x] 5 family policies downloadable per baseline: AC, AU, CM, IA, IR (draft), each Low, Moderate and High in Word and Markdown, clean and annotated
-- [ ] Kit v1.0.0 released (TPL-10)
+- [x] Kit v1.0.0 released (TPL-10): [GitHub Release v1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0), 2026-09-28, with the full kit, three starter kits and five family packs
 
 ### Phase 2 status
 
@@ -28,7 +28,7 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
 | CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges (P2) | Merged | #38 |
 | QA-03 spell check with cspell (P2; the PRD names cspell) | Merged | #39 |
 | PRES-06 professional Word styling (P2) | Merged; owner checked sample documents in Word | #40 |
-| TPL-10 kit v1.0.0 release | PR open; after merge, the owner confirms, then tag `v1.0.0` on `main` | |
+| TPL-10 kit v1.0.0 release | Merged; `v1.0.0` tagged with the owner's go-ahead and released | #41 |
 
 ### Notes for the next session
 
@@ -36,7 +36,9 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
   - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
   - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.
   - Rechecked 2026-09-28 for RA-5: BOD 26-04 revokes BOD 19-02 as well as 22-01, and its clock starts when CISA adds a vulnerability to KEV or the agency identifies it, whichever is first. BOD 20-01 (vulnerability disclosure policy, September 2, 2020) remains in effect.
-- Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it; SC-13 will need the current FIPS 140 status.
+- Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it.
+- **Recheck FIPS 140-2 status for SC-13.** The CMVP transition schedule moves all FIPS 140-2 certificates to the Historical List on September 22, 2026, but neither NIST page (updated April and August 2026) yet confirmed it happened; SC-13 cites it as the schedule. Once CMVP confirms, reword it as done.
+- Releases: bump `version` in a PR, merge, then tag the merge commit `vX.Y.Z` (README, "Releasing the template kit"). Tagging needs the owner's go-ahead. The Release kit workflow's first run (v1.0.0) passed. GitHub noted `ubuntu-latest` moves to Ubuntu 26 from October 19, 2026; watch the first runs after that.
 - Guidance follows the AC-2 format, with typical values matching the policy clauses. Set `guidance: draft` in the control's front matter; `npm run controls` keeps it.
 - Local `.docx` builds need pandoc: set `PANDOC` to a pandoc 3.11 binary (CI pins 3.11).
 - Dependabot: 2 high-severity alerts, both on `extract-zip`, a transitive dev dependency of pa11y-ci's Puppeteer (used only by the CI accessibility check). Review whether an update is available.
@@ -52,7 +54,8 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
-| TPL-10 | Done (release pending tag) | 2026-09-28 | `package.json` version 1.0.0 (every document and template page prints it). `.github/workflows/release.yml`: on a pushed `vX.Y.Z` tag, fails unless the tag is on `main` and matches `package.json`, installs pinned pandoc 3.11, runs `npm run kit`, and creates a GitHub Release ("Template kit vX.Y.Z") with `rmf-field-guide-kit.zip`, `starter-kit-{low,moderate,high}.zip` and the five family packs. Notes: the NIST release basis, a license and not-legal-advice line, then `build-changelog.mjs --notes <tag>`. Same allow-listed actions pinned by SHA as `check.yml`; release created with the runner's `gh`; job permission `contents: write` only, top level `permissions: {}`. README "Releasing the template kit" |
+| TPL-10 | Done | 2026-09-28 | Released: `v1.0.0` pushed on #41's merge commit after the owner's go-ahead; the Release kit workflow passed on its first run and published [Template kit v1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) with 9 zips and notes from the changelog. |
+| TPL-10 (PR) | Done | 2026-09-28 | `package.json` version 1.0.0 (every document and template page prints it). `.github/workflows/release.yml`: on a pushed `vX.Y.Z` tag, fails unless the tag is on `main` and matches `package.json`, installs pinned pandoc 3.11, runs `npm run kit`, and creates a GitHub Release ("Template kit vX.Y.Z") with `rmf-field-guide-kit.zip`, `starter-kit-{low,moderate,high}.zip` and the five family packs. Notes: the NIST release basis, a license and not-legal-advice line, then `build-changelog.mjs --notes <tag>`. Same allow-listed actions pinned by SHA as `check.yml`; release created with the runner's `gh`; job permission `contents: write` only, top level `permissions: {}`. README "Releasing the template kit" |
 | PRES-06 | Done | 2026-09-28 | `templates/reference.docx` (made by `npm run reference-docx`) sets the owner's chosen look: Calibri body and Georgia headings (installed with Office, close to the site's fonts; recorded in the PRD), teal headings, links and table header rows, bordered tables, US Letter with 1 inch margins, a header with the document title and "Version x.y.z", and a "Page X of Y" footer; no guide name or logo. `toDocx` fills the header's `{{title}}` (first heading) and `{{version}}` (`package.json`) per document (`fillDocxHeader`, 1 test; the pandoc test checks header, footer and styles). Owner opened sample policy, annotated policy and SSP files in Word and approved the look |
 | QA-03 | Done | 2026-09-28 | `npm run spell` (cspell 10, dev dependency named in the PRD), run by `npm run lint` and so by CI. Config `cspell.config.yaml`, domain dictionary `cspell-words.txt` (RMF, SP 800-53, SSDF, federal program and product terms). Checks hand-written `.md`/`.mdx` and template sources; skips text between the nist markers, the generated baseline and changelog pages, inline code, link targets and `{{...}}` variables. 517 files, 0 issues. Fixed two British spellings of "colors" in the PRD and README (the site is en-US) |
 | CTRL-04, CTRL-05, CTRL-06 | Done | 2026-09-28 | CTRL-04: `npm run controls` writes `controls/baselines/{low,moderate,high,privacy}.md` (fully generated, no guidance marker), every control and enhancement by family with links; the run fails if a count differs from the NIST profile (Low 149, Moderate 287, High 370, Privacy 96). CTRL-05: `controls/coverage.mdx` renders `ControlCoverage.astro` at build time from the collections: guidance and clause status for all 300 controls, totals by baseline and family; added to the axe check (0 errors, both themes). CTRL-06: `StatusBadges.astro` at the top of every control page via the `MarkdownContent` override. A -1 control's clause status is its family policy's `_common.md` status. Logic in `src/lib/coverage.ts` (3 tests), loader cached per build in `src/lib/coverage-data.ts`. Sidebar: "Guidance coverage" link and "Baselines" group under SP 800-53 controls |

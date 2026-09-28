@@ -3,3 +3,4 @@ dist/
 .astro/
 .cache/
 .DS_Store
+src/content/docs/reference/changelog.md

@@ -332,7 +332,7 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | FEAT-01 | Articles section with dated posts and an RSS feed | P2 | Use the `starlight-blog` plugin if compatible with the installed Starlight; otherwise a separate content collection. Feed validates |
 | FEAT-02 | Toolkit of downloadable templates | — | Superseded by the TPL requirements |
 | FEAT-03 | Crosswalk pages from NIST-published mappings only | P3 | 800-53 to CSF 2.0, to SP 800-171 Rev. 3 and to SSDF, imported from NIST files, with source and version cited |
-| FEAT-04 | Changelog page and versioned releases | P2 | Git tags `vX.Y.Z`; `CHANGELOG.md` rendered as a page; shares versions with the kit (TPL-10) |
+| FEAT-04 | Changelog page and versioned releases | P2 | A changelog page generated at build time from the squash-merge history of `main`, one entry per merged pull request, grouped by release tag `vX.Y.Z` (by month before the first tag), so every merge updates it on the next deploy. `node scripts/build-changelog.mjs --notes vX.Y.Z` prints a release's notes for its GitHub Release; shares versions with the kit (TPL-10). Replaces a hand-kept `CHANGELOG.md` (owner decision, Sep 28, 2026) |
 
 ### Presentation, SEO and sharing (PRES)
 

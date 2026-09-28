@@ -4,7 +4,7 @@ Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task
 
 ## Current phase: 1 Launch foundation
 
-Done: CTRL-01, CTRL-02, CTRL-03, LINK-03, PRES-04, QA-04, QA-02, LINK-01, NAV-01 (control ids; template titles in Phase 2), QA-01 (Phase 1 scope; the kit build step joins CI in Phase 2).
+Done: CTRL-01, CTRL-02, CTRL-03, LINK-03, PRES-04, QA-04, QA-02, LINK-01, NAV-01 (control ids; template titles in Phase 2), PRES-01, QA-01 (Phase 1 scope; the kit build step joins CI in Phase 2).
 
 Next up, in this order (one requirement per branch and PR):
 
@@ -12,7 +12,7 @@ Next up, in this order (one requirement per branch and PR):
 2. ~~**QA-02** Markdown lint~~ (done; completes QA-01)
 3. ~~**LINK-01** Referenced by~~ (done)
 4. ~~**NAV-01** Search for control ids~~ (done)
-5. **PRES-01** Open Graph and Twitter card images (`astro-og-canvas` is named in the PRD, or a branded default)
+5. ~~**PRES-01** Social preview images~~ (done)
 6. **PRES-03** Automated axe accessibility check on home, a step page, a control page and an industry page. Needs a test tool the PRD doesn't name: ask the owner before adding it
 
 Then stop for the Phase 1 owner review (home and About), before Phase 2 (template system).
@@ -28,6 +28,7 @@ Then stop for the Phase 1 owner review (home and About), before Phase 2 (templat
 | QA-01 | Done | 2026-09-28 | `check.yml` runs tests, lint, generated-page check, build and link check on every PR. The PRD also lists the kit build; add that step when the kit exists (Phase 2) |
 | — | Done | 2026-09-27 | Fixed home page links that 404'd under the `/nist-guide/` base path (hero, step strip, cards) |
 | — | Done | 2026-09-27 | Repo hardening: `main` ruleset (PR + required check), SHA-pinned actions, least-privilege workflow permissions, Dependabot |
+| PRES-01 | Done | 2026-09-28 | Owner chose a branded default over per-page images. `public/og-default.png` (1200x630, Source Serif 4 and Public Sans, theme teal) made by `npm run og-image` with sharp (no new dependency) and committed; `og:image`, size, alt and `twitter:image` on every page via Starlight `head`. Starlight already sets og:title and og:site_name |
 | NAV-01 | Done (control ids) | 2026-09-28 | Pagefind drops punctuation, so "AC-2(3)" matched AC-23 first. A rehype plugin adds a hidden token (`ac2e3`) after each of the 714 enhancement headings; a Vite alias wraps `@pagefind/default-ui` so the search box rewrites enhancement ids to the token and strips it from excerpts. `npm run check:search` (CI) checks 12 queries and that the wrapper is in the bundle. The PRD's "incident response plan returns the template first" case waits for templates (Phase 2): add it to `scripts/check-search.mjs` then |
 | LINK-01 | Done | 2026-09-28 | `MarkdownContent` override adds "Referenced by" to control pages from any page's `controls` front matter (templates, SSDF, industries, technology, then other pages); enhancement-only citations are named, for example "(IA-2(1))". Hidden when nothing refers to the control. Logic in `src/lib/references.ts`, 4 tests |
 | QA-02 | Done | 2026-09-28 | `markdownlint-cli2` (`npm run lint`, config `.markdownlint-cli2.jsonc`) in CI. Line length, inline HTML and table column style off. Generator wraps the NIST block in `markdownlint-disable`/`restore` so only hand-written content is linted. Fixed tabs in `index.mdx`, a README code fence, two PRD pseudo-headings |

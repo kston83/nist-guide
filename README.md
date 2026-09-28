@@ -21,6 +21,7 @@ npm run check:search # after a build: control and enhancement ids find their pag
 npm test           # generator tests (fixture catalog, no network)
 npm run lint       # markdown lint (.markdownlint-cli2.jsonc)
 npm run controls   # regenerate control pages; should produce no git diff
+npm run og-image   # remake the social preview image, public/og-default.png
 ```
 
 ## Where things live
@@ -65,6 +66,7 @@ The generator reads NIST's [oscal-content](https://github.com/usnistgov/oscal-co
 2. Create `public/CNAME` containing just the domain, for example `rmfguide.com`.
 3. In `astro.config.mjs`, set `SITE_URL` to `https://rmfguide.com`.
 4. Follow GitHub's DNS instructions on the same Settings page, then tick **Enforce HTTPS** once it's available.
+5. Update `URL` in `scripts/make-og-image.mjs`, run `npm run og-image` and commit the new `public/og-default.png` (the social preview image shows the address).
 
 ## License
 

@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "controls": "node scripts/import-oscal.mjs",
+    "og-image": "node scripts/make-og-image.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:search": "node scripts/check-search.mjs",
     "lint": "markdownlint-cli2",

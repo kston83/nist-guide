@@ -2,56 +2,84 @@
 
 Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task.
 
-## Current phase: 1 Launch foundation
+## Current phase: 1 Launch foundation (approved by the owner 2026-09-28)
 
-Done: CTRL-01, CTRL-02, CTRL-03, LINK-03, PRES-04, QA-04, QA-02, LINK-01, NAV-01 (control ids; template titles in Phase 2), PRES-01, PRES-03, QA-01 (Phase 1 scope; the kit build step joins CI in Phase 2).
+Every Phase 1 requirement is built: CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03, NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04. All are merged to `main` except PRES-03, which is in PR #10 (checks green, waiting for the owner to merge).
 
-Next up, in this order (one requirement per branch and PR):
+Phase 1 exit criteria:
 
-1. ~~**QA-04** Front matter validation~~ (done)
-2. ~~**QA-02** Markdown lint~~ (done; completes QA-01)
-3. ~~**LINK-01** Referenced by~~ (done)
-4. ~~**NAV-01** Search for control ids~~ (done)
-5. ~~**PRES-01** Social preview images~~ (done)
-6. ~~**PRES-03** Accessibility check~~ (done)
+- [x] Site live: `main` deploys to `https://kston83.github.io/nist-guide/` (Deploy to GitHub Pages workflow)
+- [x] PR checks green: `check.yml` runs tests, lint, generated-page check, build, link check, search check and accessibility check
+- [x] Placeholders replaced (PRES-04)
+- [ ] PR #10 (PRES-03) merged
+- [x] Owner approves home and About (2026-09-28)
 
-Then stop for the Phase 1 owner review (home and About), before Phase 2 (template system).
+Phase 2 can start once PR #10 is merged.
+
+### Carried into Phase 2
+
+Parts of Phase 1 requirements that need templates or other later pages to exist:
+
+- **QA-01:** add the kit build step to `check.yml` once `build-templates` exists (TPL-05).
+- **NAV-01:** add the "incident response plan returns the template first" case to `scripts/check-search.mjs` once the IR plan template page exists.
+- **PRES-03:** add a template page to `.pa11yci.json` (Phase 2) and an industry guide (Phase 4).
+
+## Next: Phase 2 Template system and first kit
+
+Proposed order, P1 first and by dependency (one requirement per branch and PR):
+
+1. **CTRL-08** Parameter data (ID, label, selections) exported by the generator for templates
+2. **TPL-01** Template content collection and schema, with `templates/policy/_common.md` and the AC-2 clause as the first sources
+3. **TPL-02** Variable renderer (`org:`, `param:`, `fill:`) for site, `.md` and `.docx`
+4. **TPL-03** Family policy assembly per baseline (baseline membership from the NIST OSCAL profiles)
+5. **TPL-04** Annotated and clean editions, `:::guidance` and `:::federal` blocks
+6. **TPL-07** Generated template pages
+7. **TPL-06** Policy statement and Artifacts sections on control pages
+8. **TPL-08** Decision worksheet per family (`.csv` and page)
+9. **TPL-05** Downloads: `.docx` (pinned pandoc, CI only), `.md`, family and kit `.zip`
+10. **QA-05** Template lint
+11. **PROG-01**, **PROG-05**, **PROG-02** Program path stages, Prepare alignment, starter kit
+12. P2: **CTRL-04** baseline pages, **CTRL-05** coverage page, **CTRL-06** status badges, **QA-03** spell check, **PRES-06** `.docx` styling, **FEAT-04** changelog, **TPL-10** kit v1.0.0 release
+
+Content runs alongside, once the pipeline can render it: guidance for the 30 priority controls; clauses, family policies and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M.
+
+Owner decisions likely needed in Phase 2: the `reference.docx` look (visual design), and any dependency the PRD does not name (for example a `.zip` or YAML library). Deferred by the owner until the work reaches them (2026-09-28); ask then.
 
 ## Log
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
-| LINK-03 | Done | 2026-09-27 | `scripts/check-links.mjs` (`npm run check:links`) fails on missing pages and `#anchors`; runs in `.github/workflows/check.yml` |
-| CTRL-01 | Done | 2026-09-28 | Generator keeps hand-set front matter keys (anything but `title`, `description`, `sidebar`, `control`); `guidance` and `reviewed` added to the content schema |
-| CTRL-02 | Done | 2026-09-28 | Generator idempotent; NIST source pinned to oscal-content v1.5.0 (release 5.2.0); CI fails if regenerating changes any page |
-| CTRL-03 | Done | 2026-09-28 | `npm test` (node:test, fixture catalog, no network): 17 tests for parameters, withdrawn controls, markers, front matter merge, idempotency. Fixed doubled "organization-defined organization-defined" in 121 places |
-| QA-01 | Done | 2026-09-28 | `check.yml` runs tests, lint, generated-page check, build and link check on every PR. The PRD also lists the kit build; add that step when the kit exists (Phase 2) |
-| — | Done | 2026-09-27 | Fixed home page links that 404'd under the `/nist-guide/` base path (hero, step strip, cards) |
-| — | Done | 2026-09-27 | Repo hardening: `main` ruleset (PR + required check), SHA-pinned actions, least-privilege workflow permissions, Dependabot |
-| PRES-03 | Done | 2026-09-28 | Owner chose `pa11y-ci` (dev dependency). `npm run check:a11y` (CI) serves the build and runs axe on home, About, a step page (Prepare), a control page (AC-2) and the industries index, in light and dark themes; fails on serious or critical issues. First run found 11 unlabelled task-list checkboxes on Prepare (51 across the seven step pages): fixed with a rehype plugin that wraps each in a `<label>`. Add a template page and an industry guide to `.pa11yci.json` when they exist. `npm audit` flags `extract-zip` (used only by Puppeteer to unpack its Chrome download); dev only |
-| PRES-01 | Done | 2026-09-28 | Owner chose a branded default over per-page images. `public/og-default.png` (1200x630, Source Serif 4 and Public Sans, theme teal) made by `npm run og-image` with sharp (no new dependency) and committed; `og:image`, size, alt and `twitter:image` on every page via Starlight `head`. Starlight already sets og:title and og:site_name |
-| NAV-01 | Done (control ids) | 2026-09-28 | Pagefind drops punctuation, so "AC-2(3)" matched AC-23 first. A rehype plugin adds a hidden token (`ac2e3`) after each of the 714 enhancement headings; a Vite alias wraps `@pagefind/default-ui` so the search box rewrites enhancement ids to the token and strips it from excerpts. `npm run check:search` (CI) checks 12 queries and that the wrapper is in the bundle. The PRD's "incident response plan returns the template first" case waits for templates (Phase 2): add it to `scripts/check-search.mjs` then |
-| LINK-01 | Done | 2026-09-28 | `MarkdownContent` override adds "Referenced by" to control pages from any page's `controls` front matter (templates, SSDF, industries, technology, then other pages); enhancement-only citations are named, for example "(IA-2(1))". Hidden when nothing refers to the control. Logic in `src/lib/references.ts`, 4 tests |
-| QA-02 | Done | 2026-09-28 | `markdownlint-cli2` (`npm run lint`, config `.markdownlint-cli2.jsonc`) in CI. Line length, inline HTML and table column style off. Generator wraps the NIST block in `markdownlint-disable`/`restore` so only hand-written content is linted. Fixed tabs in `index.mdx`, a README code fence, two PRD pseudo-headings |
-| QA-04 | Done | 2026-09-28 | Schema rejects unknown or withdrawn `controls` ids (checked against `src/data/control-ids.json`, 1,014 active ids written by `npm run controls` and covered by the CI diff check) and malformed `industries`/`technologies` slugs; rules documented on the Page templates page |
-| PRES-04 | Done | 2026-09-28 | Name, bio (AI security lead, CISSP) and LinkedIn on About and home; LinkedIn in header; "Your Name" replaced everywhere. Headshot optional; add if the owner provides one |
-| — | Done | 2026-09-27 | PRD version 2: template system, artifact catalog, program path, SSDF; phases reordered |
+| PRES-03 | Done (PR #10 open) | 2026-09-28 | Owner chose `pa11y-ci` (dev dependency). `npm run check:a11y` (CI) serves the build and runs axe on home, About, a step page (Prepare), a control page (AC-2) and the industries index, in light and dark themes; fails on serious or critical issues. First run found 11 unlabelled task-list checkboxes on Prepare (51 across the seven step pages): fixed with a rehype plugin that wraps each in a `<label>`. Add a template page and an industry guide to `.pa11yci.json` when they exist. `npm audit` flags `extract-zip` (used only by Puppeteer to unpack its Chrome download); dev only |
+| PRES-01 | Done | 2026-09-28 | PR #9. Owner chose a branded default over per-page images. `public/og-default.png` (1200x630, Source Serif 4 and Public Sans, theme teal) made by `npm run og-image` with sharp (no new dependency) and committed; `og:image`, size, alt and `twitter:image` on every page via Starlight `head`. Starlight already sets og:title and og:site_name |
+| NAV-01 | Done (control ids) | 2026-09-28 | PR #8. Pagefind drops punctuation, so "AC-2(3)" matched AC-23 first. A rehype plugin adds a hidden token (`ac2e3`) after each of the 714 enhancement headings; a Vite alias wraps `@pagefind/default-ui` so the search box rewrites enhancement ids to the token and strips it from excerpts. `npm run check:search` (CI) checks 12 queries and that the wrapper is in the bundle. The PRD's "incident response plan returns the template first" case waits for templates (Phase 2): add it to `scripts/check-search.mjs` then |
+| LINK-01 | Done | 2026-09-28 | PR #7. `MarkdownContent` override adds "Referenced by" to control pages from any page's `controls` front matter (templates, SSDF, industries, technology, then other pages); enhancement-only citations are named, for example "(IA-2(1))". Hidden when nothing refers to the control. Logic in `src/lib/references.ts`, 4 tests |
+| QA-02 | Done | 2026-09-28 | PR #6. `markdownlint-cli2` (`npm run lint`, config `.markdownlint-cli2.jsonc`) in CI. Line length, inline HTML and table column style off. Generator wraps the NIST block in `markdownlint-disable`/`restore` so only hand-written content is linted. Fixed tabs in `index.mdx`, a README code fence, two PRD pseudo-headings |
+| QA-04 | Done | 2026-09-28 | PR #5. Schema rejects unknown or withdrawn `controls` ids (checked against `src/data/control-ids.json`, 1,014 active ids written by `npm run controls` and covered by the CI diff check) and malformed `industries`/`technologies` slugs; rules documented on the Page templates page |
+| QA-01 | Done (Phase 1 scope) | 2026-09-28 | `check.yml` runs tests, lint, generated-page check, build and link check on every PR. The PRD also lists the kit build; add that step when the kit exists (Phase 2) |
+| PRES-04 | Done | 2026-09-28 | PR #2, #4. Name, bio (AI security lead, CISSP) and LinkedIn on About and home; LinkedIn in header; "Your Name" replaced everywhere. Headshot optional; add if the owner provides one |
+| CTRL-03 | Done | 2026-09-28 | PR #3. `npm test` (node:test, fixture catalog, no network): 17 tests for parameters, withdrawn controls, markers, front matter merge, idempotency. Fixed doubled "organization-defined organization-defined" in 121 places |
+| CTRL-02 | Done | 2026-09-28 | PR #3. Generator idempotent; NIST source pinned to oscal-content v1.5.0 (release 5.2.0); CI fails if regenerating changes any page |
+| CTRL-01 | Done | 2026-09-28 | PR #3. Generator keeps hand-set front matter keys (anything but `title`, `description`, `sidebar`, `control`); `guidance` and `reviewed` added to the content schema |
+| — | Done | 2026-09-27 | PR #2. PRD version 2: template system, artifact catalog, program path, SSDF; phases reordered |
+| LINK-03 | Done | 2026-09-27 | PR #1. `scripts/check-links.mjs` (`npm run check:links`) fails on missing pages and `#anchors`; runs in `.github/workflows/check.yml` |
+| — | Done | 2026-09-27 | PR #1. Fixed home page links that 404'd under the `/nist-guide/` base path (hero, step strip, cards) |
+| — | Done | 2026-09-27 | PR #1. Repo hardening: `main` ruleset (PR + required check), SHA-pinned actions, least-privilege workflow permissions, Dependabot |
 
 ## Open questions
 
-From the PRD, still open:
+From the PRD. The owner deferred every open item on 2026-09-28; raise each again when its phase starts.
 
 - [x] Name, short bio and LinkedIn URL for the About page (2026-09-28)
-- [ ] Headshot for the About page
-- [ ] Name the current employer in the bio? (optional; left out for now)
+- [ ] Headshot for the About page (deferred)
+- [x] Name the current employer in the bio: no; keep the employer out of the site (2026-09-28)
 - [x] GitHub username: `kston83`; site is at `https://kston83.github.io/nist-guide/`
-- [ ] Custom domain now or later
+- [ ] Custom domain now or later (deferred)
 - [x] Site title: keep "RMF Field Guide" for now; may change later (2026-09-28)
 - [x] Template license: CC0 1.0 for templates and the kit (2026-09-27)
 - [x] Packaging: free kit only; revisit if it becomes something to sell (2026-09-27)
 - [x] Template voice: any organization, federal-only requirements in `:::federal` sections (2026-09-27)
 - [x] `.docx` tool: pandoc, pinned, in CI (2026-09-27)
 - [x] Employer publishing policy: no issues (2026-09-28)
-- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
-- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
-- [ ] Privacy-friendly analytics: yes or no
+- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services); deferred, needed by Phase 4
+- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes); deferred, needed by Phase 4
+- [ ] Privacy-friendly analytics: yes or no; deferred (PRES-05, Phase 5)

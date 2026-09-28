@@ -547,6 +547,8 @@ None of these block Phase 1.
 | `.docx` tool | pandoc, pinned, in CI | Sep 27, 2026 |
 | Site title | Keep "RMF Field Guide" for now; may change later | Sep 28, 2026 |
 | Employer publishing policy | No issues | Sep 28, 2026 |
+| Employer in the bio | Not named; keep the employer out of the site | Sep 28, 2026 |
+| Phase 1 | Approved; remaining open questions deferred to the phase that needs them | Sep 28, 2026 |
 
 ## Revision history
 

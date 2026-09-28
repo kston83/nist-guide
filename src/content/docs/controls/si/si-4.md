@@ -8,6 +8,7 @@ control:
   id: SI-4
   family: SI
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -661,4 +662,39 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+SI-4 asks you to watch the system for attacks, unauthorized connections and misuse, place monitoring where it sees the important activity, analyze what it finds, increase monitoring when risk rises, and get legal review of how you monitor. It works with [AU-6](/controls/au/au-6/) (reviewing audit records) and [IR-4](/controls/ir/ir-4/) (handling what monitoring finds).
+
+**Common implementations.** A security information and event management (SIEM) platform collecting logs from the identity provider, endpoints, network and cloud services, with detection rules mapped to known attack techniques. Endpoint detection and response on servers and workstations. Network intrusion detection or cloud-native threat detection at boundaries and key internal points. A security operations team or managed provider that triages alerts continuously. Legal or privacy review of monitoring, and a login banner under [AC-8](/controls/ac/ac-8/).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Monitoring objectives (a.1) | Detecting attacks, malware, unauthorized access, privilege misuse and data exfiltration |
+| Techniques to identify unauthorized use (b) | Log correlation in the SIEM, endpoint detection and response, network intrusion detection and user behavior analytics |
+| Monitoring information to provide, to whom and how often (g) | Alerts and monitoring reports, to the system owner and the incident response team, as needed and at least monthly |
+| Traffic monitoring frequency and what to look for (SI-4(4)) | Continuously, for unusual or unauthorized activities or conditions such as connections to known malicious destinations, unusual data volumes and unapproved protocols |
+| Who is alerted and on which indicators (SI-4(5)) | The security operations team, on indicators of compromise from the detection tools and threat intelligence feeds |
+
+**Evidence assessors ask for.**
+
+- The monitoring strategy or architecture: what is monitored, where and by which tool
+- The list of log sources in the SIEM, compared with the component inventory
+- A sample of alerts and how each was triaged
+- Records of legal review of monitoring (f)
+- Evidence that monitoring increased when risk changed (e)
+
+**Inheritance.** A central security operations center and its tools are usually common controls. The system owns sending its logs and events to them, application-specific detections, and making sure its components are covered.
+
+**Common findings.**
+
+- Components not sending logs, or endpoint agents missing from some servers.
+- Alerts generated but not reviewed, or closed with no notes.
+- Detection rules left at vendor defaults and never tuned.
+- No legal review of monitoring activities.
+
+**Enhancements in the Moderate baseline.** [SI-4(2)](#si-4.2) automated real-time analysis, [SI-4(4)](#si-4.4) monitoring inbound and outbound traffic and [SI-4(5)](#si-4.5) system-generated alerts. High adds [SI-4(10)](#si-4.10), [SI-4(12)](#si-4.12), [SI-4(14)](#si-4.14), [SI-4(20)](#si-4.20) and [SI-4(22)](#si-4.22).

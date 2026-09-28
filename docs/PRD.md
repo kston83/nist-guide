@@ -1,24 +1,30 @@
 # RMF Field Guide: Product Requirements
 
-Version 2.1 · Sep 27, 2026 · @Kris · [Revision history](#revision-history)
+Version 3 · Sep 28, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
 The RMF Field Guide is a free, public, static website that helps an organization **learn, build and prove** a security program based on the NIST Risk Management Framework (RMF) and SP 800-53. It explains every step and control, and it ships the artifacts to act on them: policy templates for every control family, procedures, plans, forms and worksheets, ready to fill in or modify. A reader with no program can start from zero and follow a staged path; a reader with a program can take just the pieces they need.
 
-The same templates serve three uses: as teaching material inside the guide, as a downloadable, versioned kit other organizations can adopt, and as the owner's consulting playbook. Secure software development (the NIST SSDF, SP 800-218) is folded in as part of the same program, not a separate site.
+The same templates serve three uses: as teaching material inside the guide, as a downloadable, versioned kit other organizations can adopt, and as the owner's consulting playbook.
+
+Two further strands build on the controls, each kept as its own topic:
+
+- **Methods.** For many controls NIST also publishes *how* to meet them: an established process or practice set. The Secure Software Development Framework (SSDF, SP 800-218) is the first example; its task table cites the SP 800-53 controls each task supports, mainly in the SA and SR families. Others include SP 800-61 for incident handling and SP 800-34 for contingency planning. Each control page names the NIST methods that implement it, so a reader meeting SA-15 is pointed to the SSDF.
+- **AI security guide.** A guide within the guide for adopting and securing AI in an organization and in a system authorized under the RMF and SP 800-53, built only on NIST guidance: the AI Risk Management Framework (AI RMF) and its profiles, NIST's AI security publications, and NIST's SP 800-53 control overlays for AI systems once NIST publishes them. It links into the RMF steps, control pages and templates, but it is a separate section with its own entry point.
 
 This document tells a Claude Code session what to build on top of the existing repo, in what order, and how to know each piece is done.
 
 ### Vision
 
-Every control on the site answers five questions, in order, and every answer after the first is something the reader can copy:
+Every control on the site answers six questions, in order, and every answer after the first is something the reader can copy or follow:
 
 ```text
 Requirement   What NIST requires              Generated from OSCAL (exists)
 Policy        What we commit to               Policy clause template, per control
-Procedure     How we do it                    Procedure or standard template
-Implementation Where it's configured          Technology playbook (Phase 4)
+Method        The established way to do it    NIST implementation guidance (SSDF, SP 800-61 ...) (Phase 4)
+Procedure     How we do it here               Procedure or standard template
+Implementation Where it's configured          Technology playbook (Phase 5)
 Evidence      How we prove it                 Evidence list and forms
 ```
 
@@ -29,7 +35,7 @@ Families roll the per-control pieces up into artifacts an organization actually 
 1. Be the most practical free reference for applying the RMF and SP 800-53: every page answers "what do I actually do, and what will the assessor ask for?"
 2. Let an organization build a program from scratch: a staged path plus a plug-and-play artifact for every requirement that needs one.
 3. Keep the guide and the kit as one source: a policy clause is written once and appears on its control page, in its family policy, in the consolidated policy and in the downloadable kit.
-4. Cover five layers: the framework, every control, program templates, industry-specific application, and technology-specific implementation, with secure software development (SSDF) woven through.
+4. Cover five layers: the framework, every control, program templates, industry-specific application, and technology-specific implementation. Point every control to the NIST methods that implement it (the SSDF first), and give AI its own guide that uses the same layers.
 5. Present the owner as a credible, organized leader in the field: professional look, accurate content, cited sources, visible upkeep.
 6. Stay cheap and low-maintenance: static site, GitHub Pages, no paid services, one command to refresh NIST content, one command to rebuild the kit.
 
@@ -37,13 +43,14 @@ Families roll the per-control pieces up into artifacts an organization actually 
 
 | Measure | Target |
 | --- | --- |
-| Controls with written guidance | 30 highest-value controls in Phase 2; all Moderate-baseline controls in Phase 5 |
-| Controls with a policy clause | Controls in 5 families in Phase 2; every Low and Moderate control and enhancement in Phase 3; High in Phase 5 |
-| Family policy templates | 5 in Phase 2; all 20 plus a consolidated policy in Phase 3 |
-| Plans, procedures and forms | Every artifact in the [artifact catalog](#artifact-catalog) by end of Phase 3 |
+| Controls with written guidance | 30 highest-value controls in Phase 2; all Moderate-baseline controls in Phase 6 |
+| Controls with a policy clause | Controls in 5 families in Phase 2; every Low and Moderate control and enhancement in Phase 4; High in Phase 6 |
+| Family policy templates | 5 in Phase 2; all 20 plus a consolidated policy in Phase 4 |
+| Plans, procedures and forms | Every artifact in the [artifact catalog](#artifact-catalog) by end of Phase 4 |
 | Program kit | Versioned release with every template in `.docx` and `.md`, per baseline, from Phase 2 |
-| SSDF | Every SSDF practice has a page and a mapping to 800-53 by end of Phase 3 |
-| Industry guides and technology playbooks | 3 and 4 in Phase 4 |
+| AI security guide | Overview, AI RMF pages, securing AI through the RMF steps, and AI templates by end of Phase 3; NIST's AI control overlays reflected within one release of each final publication |
+| Methods | Every family hub names NIST's implementation guidance; every SSDF practice has a page and its NIST-published 800-53 references, shown on the control pages, by end of Phase 4 |
+| Industry guides and technology playbooks | 3 and 4 in Phase 5 |
 | Broken internal links | 0 on every build |
 | Build time | Under 3 minutes in CI, including kit generation |
 | Accessibility | WCAG 2.2 AA on all page templates |
@@ -60,7 +67,8 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 | Control assessor | A control to test | Assessment objectives, what good evidence looks like, common findings | Control pages |
 | New practitioner or student | A new job or certification goal | Plain explanations, glossary, the big picture | RMF overview, glossary |
 | Engineer or cloud architect | A platform to harden | Which settings meet which controls, customer vs provider responsibility | Technology playbooks, standards |
-| Software producer | Customers or contracts asking about secure development | SSDF practices, a secure development policy, attestation readiness | SSDF, SA family templates |
+| Software producer | Customers or contracts asking about secure development | SSDF practices, a secure development policy, attestation readiness | Methods (SSDF), SA family templates |
+| AI adopter or AI system owner | An AI tool, model or agent heading into the organization or into an authorized system | What NIST expects, how the RMF steps change for AI, an AI use policy and inventory, what to tell the authorizing official | AI security guide, RMF steps, templates |
 | Compliance lead in a regulated industry | A sector rule (HIPAA, NERC CIP, PCI DSS) | How 800-53 overlaps, what extra is required | Industry guides |
 | Hiring manager or prospective client | The owner's name | Evidence of depth, clarity and currency | Home, About, articles |
 | The owner, as consultant | A client engagement | The kit, tailored per client; checklists and talking points | Everything, plus the kit |
@@ -104,7 +112,14 @@ src/content/docs/
     crosswalks/             NEW: NIST-published mappings (CSF 2.0, 800-171, SSDF)
   templates/                Layer 3 (NEW, generated): one page per template, with preview and downloads
     policies/  plans/  procedures/  standards/  forms/  worksheets/
-  ssdf/                     NEW: SSDF overview and one page per practice
+  methods/                  NEW (Phase 4): NIST implementation guidance, by family
+    index.md                What a method is; each family's NIST methods, with versions
+    ssdf/                   SSDF overview and one page per practice (the first method)
+  ai/                       NEW (Phase 3): AI security guide, its own sidebar group
+    index.md                Start here: what applies, NIST AI publications and their status
+    ai-rmf/                 AI RMF overview and one page per function (GOVERN, MAP, MEASURE, MANAGE)
+    securing-ai-systems.md  An AI system through the seven RMF steps
+    ...                     Topic pages (generative AI profile, adversarial ML, AI in the SDLC, federal)
   industries/               Layer 4: one page per industry
   technology/               Layer 5: one folder per platform area
     <area>/<platform>.md
@@ -122,9 +137,11 @@ scripts/build-templates.mjs NEW: renders template pages and the downloadable kit
 | Program stage | One stage of building a program | Outcome, artifacts to produce (linked), decisions to make, roles, done checklist |
 | RMF step | Explain one step | Purpose, tasks table, how to apply, done checklist, common findings, key references |
 | Family hub | Entry point to a control family | What the family covers, decisions it forces, artifacts (policy, plans, forms), control list |
-| Control | Requirement plus everything needed to meet it | Generated NIST block; then Policy statement, How to apply it, parameters, procedure outline, evidence, inheritance, common findings, artifacts |
+| Control | Requirement plus everything needed to meet it | Generated NIST block; then Policy statement, Methods (NIST implementation guidance that cites the control), How to apply it, parameters, procedure outline, evidence, inheritance, common findings, artifacts |
 | Template | Preview and download one artifact | What it is, when to use it, controls satisfied, decisions to make first, preview, downloads (clean, annotated, per baseline), version |
-| SSDF practice | Explain one SSDF practice | Practice and tasks (NIST text), how to apply it, 800-53 mapping (NIST-published), related templates, evidence |
+| Method | Explain one NIST method: a process or practice set that implements controls | What it is and who it is for, version and status ("as of" month), the controls it implements (only as NIST states), how to adopt it, related templates |
+| SSDF practice | Explain one SSDF practice | Practice and tasks (NIST text), how to apply it, 800-53 references (NIST-published), related templates, evidence |
+| AI guide page | One topic in the AI security guide | What NIST says (cited, with version and status), what to do, how it connects to the RMF steps and controls (NIST-stated links only; see AI-07), templates, federal notes in `:::federal`-style asides |
 | Industry guide | Apply RMF and 800-53 under sector rules | Rules that apply, how the steps change, controls with extra weight, findings, references |
 | Technology playbook | Implement controls on a platform | Controls covered, recommended configuration, evidence to collect, findings, references |
 | Article | Opinion, lessons learned, news analysis | Date, author, summary, body, sources |
@@ -139,11 +156,20 @@ control: { id: AC-2, family: AC, baselines: [Low, Moderate, High] }
 # NEW, hand-set; the generator must preserve it (requirement CTRL-01)
 guidance: none | draft | reviewed
 
-# Industry guides, technology playbooks, SSDF pages
+# Industry guides, technology playbooks, method, SSDF and AI guide pages
 industries: [healthcare]               # slug list
 technologies: [entra-id]               # slug list
 controls: [ac-2, ia-2, ia-5]           # NEW: controls this page gives guidance on
 reviewed: 2026-09-27                   # NEW: date of last full accuracy review
+
+# Method and SSDF pages
+implements: [sa-15, sa-11]             # NEW: controls the method implements, only as NIST cites them;
+                                       # feeds the Methods section on control pages (METH-01)
+source: { id: 'SP 800-218', version: '1.1', status: final, checked: 2026-09 }
+
+# AI guide pages and AI templates
+airmf: [GOVERN 1.6, MAP 1.1]           # NEW: AI RMF subcategories the page or template supports;
+                                       # validated against the imported AI RMF core (AI-02)
 ```
 
 Template source front matter is defined in [Template system](#template-system).
@@ -206,6 +232,7 @@ type: plan | standard | procedure | form      # folder must match: plans/, stand
 description: One sentence on what the artifact is for
 controls: [ir-8, ir-4, ir-6]   # controls this artifact satisfies or supports
 ssdf: [RV.1]                   # SSDF practices it supports, if any
+airmf: [GOVERN 1.6]            # AI RMF subcategories it supports, if any (AI templates)
 status, reviewed, stage        # as above
 
 # templates/policy/ac/_family.yml
@@ -232,7 +259,7 @@ Two additions apply only in `policy/_common.md`, the sections every family polic
 | Syntax | Meaning |
 | --- | --- |
 | `{{family:title}}`, `{{family:role}}` | The family's title, and its accountable role from `_family.yml` (rendered as that `org:` variable) |
-| `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set and needs its own sections (Phase 3) |
+| `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set and needs its own sections (Phase 4) |
 | `(XX-1c.1)` in text | Control references to the -1 control become the family's label: `(AC-1c.1)` |
 
 Clauses are inserted under the `## Policy statements` heading of `_common.md`, each under a `### <title> (<control label>)` heading.
@@ -298,21 +325,49 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | PROG-04 | Scaling guidance | P2 | One page on which artifacts can be merged or skipped for a small organization, and which a federal system cannot skip, with sources |
 | PROG-05 | Alignment with RMF Prepare | P1 | Each stage page links the organization-level Prepare tasks it fulfills (SP 800-37 Rev. 2) |
 
-### Secure software development (SSDF)
+### Methods (METH)
+
+A method is an established process or practice set that NIST publishes for meeting controls. The control says what; the method says how it is normally done. Methods are linked to controls only where NIST itself makes the link (for example the SSDF task table's SP 800-53 references). Phase 4, delivered family by family alongside the family policies.
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| SSDF-01 | SSDF section with one page per practice in the four groups (PO, PS, PW, RV) | P1 | Practice and task text from SP 800-218 v1.1 (final), imported from a NIST machine-readable source, with source and version cited |
-| SSDF-02 | SSDF to 800-53 mapping from NIST's own references | P1 | Shown on SSDF practice pages and on the mapped control pages; only mappings NIST publishes |
+| METH-01 | "Methods" section on control pages | P1 | Built from the `implements` front matter of method and SSDF pages; lists each method with its version, links to the page, and names the task or section that cites the control. Hidden when there is none. No edit to control files |
+| METH-02 | Methods index by family | P1 | `methods/index.md`: for each family, NIST's implementation publications (number, title, version, status, "as of" month), each checked at csrc.nist.gov before writing; family hubs link their row |
+| METH-03 | One method page per family's main NIST guide | P2 | Page-type sections; `implements` only from controls the publication itself cites, otherwise the page names the family without control-level links. Candidates to verify before writing: SP 800-61 (incident response), SP 800-34 (contingency planning), SP 800-40 (patch management), SP 800-92 (log management), SP 800-128 (configuration management), SP 800-137 (continuous monitoring), SP 800-161 (supply chain), SP 800-88 (media sanitization), SP 800-50 (awareness and training), SP 800-30 (risk assessment), SP 800-63 (digital identity), SP 800-57 (key management) |
+
+### Secure software development (SSDF)
+
+The SSDF is the first method: NIST's practice set for SA and SR controls on secure development and acquisition. Pages live under `methods/ssdf/`.
+
+| ID | Requirement | Priority | Acceptance criteria |
+| --- | --- | --- | --- |
+| SSDF-01 | SSDF section with one page per practice in the four groups (PO, PS, PW, RV) | P1 | Practice and task text from SP 800-218 v1.1 (final), imported from NIST's machine-readable SSDF table (the Excel supplement published with SP 800-218, or CPRT if the owner prefers), with source and version cited |
+| SSDF-02 | SSDF to 800-53 references from NIST's own table | P1 | Shown on SSDF practice pages and in the Methods section (METH-01) of every cited control, for example SA-15 lists the tasks that cite it; only references NIST publishes |
 | SSDF-03 | Secure Software Development Policy and SDLC standard | P1 | Templates organized by SSDF practice, cross-referenced to SA controls, with `ssdf` front matter |
-| SSDF-04 | Software producer artifacts | P2 | Vulnerability disclosure policy, SBOM guidance, and attestation readiness checklist; every program-status claim carries an "as of" month |
-| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) is an initial public draft (Dec 2025). Note it on the SSDF overview; migrate when final, in a dedicated PR |
+| SSDF-04 | Software producer artifacts | P2 | Vulnerability disclosure policy, SBOM guidance, and attestation readiness checklist; every program-status claim (including current federal secure software attestation policy) is checked at the source and carries an "as of" month |
+| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Sep 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
+
+### AI security guide (AI)
+
+A guide within the guide: how an organization adopts and secures AI, and how an AI system is taken through the RMF under SP 800-53. Built only on NIST publications (and, for federal notes, OMB and CISA). A separate section with its own sidebar group and entry page, linked from the RMF steps, the home page and relevant control pages. Phase 3.
+
+| ID | Requirement | Priority | Acceptance criteria |
+| --- | --- | --- | --- |
+| AI-01 | AI guide entry page | P1 | `ai/index.md`: who it is for, how the AI RMF relates to the RMF (SP 800-37) and SP 800-53, the path through the guide, and a status table of every NIST AI publication the guide uses (number, title, version, status, date, "as of" month), rechecked at every kit release |
+| AI-02 | AI RMF core pages | P1 | Overview plus one page per function (GOVERN, MAP, MEASURE, MANAGE) with its categories and subcategories from AI RMF 1.0 (NIST AI 100-1), imported from a NIST machine-readable source chosen with the owner, cached like the OSCAL catalog, with source and version cited; each subcategory links its NIST AI RMF Playbook entry. `airmf` front matter is validated against the imported IDs |
+| AI-03 | The AI RMF alongside the RMF | P1 | One page on how AI RMF functions sit with the RMF steps and the organization-level Prepare tasks. Any alignment NIST does not publish is labelled as the author's mapping, as the program pages do |
+| AI-04 | Securing an AI system through the RMF steps | P1 | `ai/securing-ai-systems.md` walks a system with AI components (a hosted model, an AI service, an agent) through the seven steps: inventory and categorization of AI components and their data, the boundary (models, endpoints, data pipelines, tools an agent can call, third-party AI services), what the SSP records, supply chain and external services, assessment and monitoring. Draws only on published NIST text (AI 600-1, AI 100-2 E2025, SP 800-218A, and IR 8596 once final); names controls only where those publications do (see AI-07) |
+| AI-05 | Topic pages | P2 | Generative AI Profile (NIST AI 600-1): its risks and suggested actions. Adversarial machine learning (NIST AI 100-2 E2025): attack classes and mitigations as NIST describes them. Secure AI development (SP 800-218A), linked to the SSDF method pages. Cyber AI Profile (NIST IR 8596) once a public draft or final is out |
+| AI-06 | AI templates | P2 | AI acceptable use standard, AI system and use-case inventory (register), AI system description appendix for the SSP, AI risk and impact assessment form, third-party AI service review checklist. Each has `airmf` front matter, and `controls` only where the link is direct (for example the SSP appendix supports PL-2). In the kit from the Phase 3 release |
+| AI-07 | NIST AI control overlays (COSAIS) | P1 | Until NIST publishes an overlay, the guide makes **no AI-specific control selections, tailoring or control mappings of its own** (owner decision). Track each COSAIS use case on the entry page's status table. When an overlay is final, publish its use-case page and an "AI overlay" note on each control it changes, one PR per overlay, imported from NIST's machine-readable form if one is published. Public drafts are noted with an "as of" month but not built into control pages |
+| AI-08 | Federal AI requirements | P2 | OMB AI policy (M-25-21, April 3, 2025, which replaced M-24-10, unless since replaced: confirm first) and related federal requirements in federal asides and `:::federal` template blocks, each with an "as of" month, rechecked at every kit release |
+| AI-09 | Track AI RMF changes | P2 | AI RMF 1.0 is being revised under the White House AI Action Plan (NIST, as of Sep 2026). Note new versions and profiles on the entry page; migrate AI-02 pages in a dedicated PR when a new version is final |
 
 ### Cross-linking (LINK)
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| LINK-01 | "Referenced by" section on control pages, built from the `controls` front matter of industry, technology, SSDF and template pages | P1 | Adding `controls: [ac-2]` to a playbook makes it appear on the AC-2 page after build, with no edit to `ac-2.md` |
+| LINK-01 | "Referenced by" section on control pages, built from the `controls` front matter of industry, technology, AI guide and template pages (method and SSDF pages feed the Methods section instead, METH-01) | P1 | Adding `controls: [ac-2]` to a playbook makes it appear on the AC-2 page after build, with no edit to `ac-2.md` |
 | LINK-02 | Industry and technology pages list the controls they cover, with titles, from front matter | P2 | Rendered automatically from `controls` |
 | LINK-03 | Build fails on broken internal links and anchors | P1 | Done: `npm run check:links` in `check.yml` |
 | LINK-04 | Control IDs in prose can be written as a short component or remark plugin that renders a link | P3 | Writing the ID token renders a link to the control or enhancement anchor |
@@ -380,7 +435,8 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 ### Sourcing and accuracy
 
 - Every claim about a law, rule, deadline, version or program status cites a primary source: NIST, OMB, CISA, FedRAMP, DoD, the regulator, or the standards body.
-- Program facts that change (FedRAMP, DoD CSRMC, CMMC, CISA secure software attestation) carry an "as of" month and are re-checked at each release.
+- Program facts that change (FedRAMP, DoD CSRMC, CMMC, CISA secure software attestation, NIST AI publications and their draft status, OMB AI policy) carry an "as of" month and are re-checked at each release.
+- AI guidance states only what NIST (or OMB and CISA, for federal notes) publishes. No AI-specific control selections, tailoring or control mappings of the author's own until NIST's overlays are final (AI-07).
 - Never invent numbers, control mappings or requirements. If a fact cannot be verified, leave an HTML comment `<!-- TODO(verify): ... -->` and add it to the open questions list instead of guessing.
 - Cross-framework mappings come only from published sources (NIST OLIR and CPRT, the SSDF's own references, the regulator's own crosswalks). Label any author-made mapping as the author's judgment.
 
@@ -450,14 +506,32 @@ Every family gets a policy and a decision worksheet. The table lists the other a
 
 **Starter kit (PROG-02):** Information Security Program Plan, Risk Management Strategy, consolidated policy at the chosen baseline, System Security Plan, Rules of Behavior, Incident Response Plan, POA&M, system inventory, and the decision worksheets. Until the consolidated policy exists (TPL-09), the starter kit carries the Phase 2 family policies.
 
-### SSDF content (Phase 3)
+### AI security guide (Phase 3)
 
-- Overview: what the SSDF is, who it applies to, how it relates to SA and SR controls, current version status with an "as of" month.
+NIST sources, as checked at csrc.nist.gov and nist.gov on Sep 28, 2026. Recheck each before writing; this table seeds the AI-01 status table.
+
+| Publication | Status (Sep 2026) | Used for |
+| --- | --- | --- |
+| AI RMF 1.0, NIST AI 100-1 (Jan 26, 2023), with the AI RMF Playbook | Current; NIST states it is being revised under the White House AI Action Plan | AI-02, AI-03 |
+| Generative AI Profile, NIST AI 600-1 (Jul 26, 2024) | Final | AI-04, AI-05 |
+| Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations, NIST AI 100-2 E2025 (Mar 24, 2025) | Final | AI-04, AI-05 |
+| Secure Software Development Practices for Generative AI and Dual-Use Foundation Models, SP 800-218A (Jul 26, 2024) | Final; an SSDF community profile | AI-05, link to the SSDF method |
+| Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile), NIST IR 8596 | Preliminary draft (Dec 16, 2025) | AI-05 once a public draft or final is out |
+| SP 800-53 Control Overlays for Securing AI Systems (COSAIS) | Concept paper (Aug 14, 2025); predictive AI annotated outline (Jan 8, 2026). No overlay published. Five planned use cases: generative AI assistant/LLM, predictive AI, single agent, multi-agent, AI developers | AI-07, when final |
+| AI RMF Profile on Trustworthy AI in Critical Infrastructure | Concept note (Apr 7, 2026) | AI-09 |
+| OMB M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust (Apr 3, 2025) | Replaced M-24-10; agency compliance plans cite it (Sep 2025). Not yet confirmed at an OMB page: confirm current status before writing AI-08 | AI-08 |
+
+Pages (P1 first): entry page, AI RMF overview and four function pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps; then the topic pages and the five AI templates (AI-06).
+
+### Methods and SSDF (Phase 4)
+
+- Methods index: each family's NIST implementation publications, verified, with versions (METH-02). Delivered with each family's policy, so a family is finished when its clauses, artifacts and methods are in place.
+- SSDF overview: what the SSDF is, who it applies to (software producers, and acquirers who require it of suppliers), how it relates to SA and SR controls, current version status with an "as of" month.
 - One page per practice, grouped: Prepare the Organization (PO), Protect the Software (PS), Produce Well-Secured Software (PW), Respond to Vulnerabilities (RV).
 - Templates: Secure Software Development Policy, SDLC standard, vulnerability disclosure policy, SBOM guidance, attestation readiness checklist.
-- Mapping: NIST's 800-53 references for each task, shown both ways.
+- References: NIST's 800-53 references for each task, on the practice page and in the Methods section of each cited control.
 
-### Industry guides (Phase 4, proposed)
+### Industry guides (Phase 5, proposed)
 
 | Guide | Main rules alongside 800-53 |
 | --- | --- |
@@ -465,7 +539,7 @@ Every family gets a policy and a decision worksheet. The table lists the other a
 | Healthcare | HIPAA Security Rule (45 CFR Part 164), HHS 405(d) practices |
 | Financial services | GLBA Safeguards Rule, FFIEC guidance, PCI DSS (paraphrased only) |
 
-### Technology playbooks (Phase 4, proposed)
+### Technology playbooks (Phase 5, proposed)
 
 | Playbook | Folder | First controls to cover |
 | --- | --- | --- |
@@ -487,8 +561,8 @@ The site stays fully static and free to host; anything that needs a server, a da
 | Limits | Published site under 1 GB (GitHub Pages limit), including downloads; current build is about 41 MB. Deploy job under 10 minutes |
 | Performance | Build under 3 minutes in CI; home and control pages score 90+ on Lighthouse performance and accessibility |
 | Dependencies | Prefer Starlight built-ins. Each new dependency needs a one-line reason in the pull request. No client-side frameworks for static content. Build-time tools (pandoc, approved for `.docx`) are pinned and installed only in CI; local kit builds need pandoc on the path |
-| External services | None required at build or run time except fetching NIST data (OSCAL, SSDF) in import scripts |
-| Data sources | NIST [oscal-content](https://github.com/usnistgov/oscal-content) SP 800-53 Rev. 5 catalog and baseline profiles, cached in `.cache/oscal`; SSDF from a NIST machine-readable source, cached in `.cache/ssdf` |
+| External services | None required at build or run time except fetching NIST data (OSCAL, SSDF, AI RMF) in import scripts |
+| Data sources | NIST [oscal-content](https://github.com/usnistgov/oscal-content) SP 800-53 Rev. 5 catalog and baseline profiles, cached in `.cache/oscal`; SSDF from NIST's SSDF table (SP 800-218 supplement) or CPRT, cached in `.cache/ssdf`; AI RMF core from a NIST machine-readable source chosen with the owner, cached in `.cache/airmf`; COSAIS overlays from NIST's machine-readable form when published. Each import is pinned to a version and committed as data, like `catalog.json` |
 | Generated files | Pages committed to git so edit links and diffs work; never hand-edited between `nist:start` and `nist:end`. Binary downloads built in CI, never committed |
 | Browsers | Last two versions of Chrome, Edge, Firefox and Safari; mobile layout from 360 px wide |
 | Documents | `.docx` opens cleanly in current Microsoft Word and LibreOffice |
@@ -497,15 +571,18 @@ The site stays fully static and free to host; anything that needs a server, a da
 
 ## Delivery phases
 
-Work in five phases; each ends with an owner review before the next starts. Phases are ordered by dependency, not by date. Templates now come before industry and technology content because they depend only on the controls layer and deliver the most value to a program builder.
+Work in six phases; each ends with an owner review before the next starts. Phases are ordered by dependency and priority, not by date. Templates come before industry and technology content because they depend only on the controls layer and deliver the most value to a program builder. The AI security guide comes next because the owner ranks it highest and it depends only on the RMF and controls layers. Methods ship with the full program kit, family by family.
 
 | Phase | Scope | Requirements | Exit criteria |
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
-| 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | 31 controls at `guidance: draft` or better; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 Full program kit and SSDF | Remaining 15 family policies, consolidated policy, every catalog artifact, program path complete, SSDF section | TPL-09, TPL-11, PROG-03, PROG-04, SSDF-01 to SSDF-05, FEAT-01, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every catalog artifact published; SSDF pages and mapping live; kit v2.0.0 |
-| 4 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
-| 5 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05 | Coverage page shows every Moderate control at `draft` or better; High variants complete; monthly NIST check running |
+| 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
+| 3 AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, topic pages, AI templates, federal notes; tracking of NIST's AI overlays | AI-01 to AI-09 | Entry page with a current NIST AI status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; five AI templates at `draft` in the kit; kit v1.1.0 |
+| 4 Full program kit and methods | Remaining 15 family policies, consolidated policy, every catalog artifact, program path complete, each family's NIST methods, the SSDF | TPL-09, TPL-11, PROG-03, PROG-04, METH-01 to METH-03, SSDF-01 to SSDF-05, FEAT-01, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every catalog artifact published; methods index complete; SSDF pages live and shown in control pages' Methods sections; kit v2.0.0 |
+| 5 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
+| 6 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05 | Coverage page shows every Moderate control at `draft` or better; High variants complete; monthly NIST check running |
+
+AI-07's tracking is part of Phase 3; publishing an overlay happens whenever NIST finalizes one, in whatever phase is current.
 
 ## Non-goals
 
@@ -514,6 +591,8 @@ Work in five phases; each ends with an owner review before the next starts. Phas
 - No reproduction or close paraphrase of copyrighted standards or commercial template libraries; write from the NIST requirement up.
 - No official or legal advice; the disclaimer stays on every page and in every generated document.
 - No private or client-specific content in this repository.
+- No AI tooling: the site does not test, evaluate, red-team or monitor models, and runs no AI at build or run time. The AI guide is guidance and templates only.
+- No home-made AI control overlays: the guide waits for NIST's (AI-07).
 
 ## Instructions for Claude Code
 
@@ -541,6 +620,7 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 - If a fact cannot be verified, write `<!-- TODO(verify): what and why -->` and add it to Open questions in `PROGRESS.md`. Do not guess.
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.
+- Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST (or OMB and CISA, for federal notes) publishes, with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final.
 
 ### When to stop and ask the owner
 
@@ -559,6 +639,9 @@ None of these block Phase 1.
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
 - [ ] Privacy-friendly analytics: yes or no
+- [ ] AI RMF machine-readable source for AI-02 (Phase 3): NIST's AI RMF Playbook data, CPRT, or another NIST export
+- [ ] SSDF source for SSDF-01 (Phase 4): the SP 800-218 Excel table or CPRT
+- [ ] AI templates (AI-06): confirm the list of five before Phase 3 writing starts
 
 ### Decided
 
@@ -575,6 +658,10 @@ None of these block Phase 1.
 | YAML parser | `yaml` package, for `build-templates.mjs` | Sep 28, 2026 |
 | Zip packs | `fflate` package, so zips build the same on Windows and in CI | Sep 28, 2026 |
 | `_common.md` variables | `{{family:title}}`, `{{family:role}}` and the `xx-` parameter prefix (see Fill-in variables) | Sep 28, 2026 |
+| Word styling | Calibri body, Georgia headings, teal accent, title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026 |
+| Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
+| AI security guide | A separate section (a guide within the guide), high priority: Phase 3. Kept separate from the SSDF and methods work | Sep 28, 2026 |
+| AI control guidance | Wait for NIST's COSAIS overlays; no AI-specific control selections, tailoring or mappings of the author's own until they are final | Sep 28, 2026 |
 
 ## Revision history
 
@@ -583,3 +670,4 @@ None of these block Phase 1.
 | 1 | Sep 27, 2026 | First version |
 | 2 | Sep 27, 2026 | Vision widened to learn, build and prove a program. Added Template system, artifact catalog, starter kit, Build your program (PROG), SSDF, template lint (QA-05) and `.docx` styling (PRES-06). FEAT-02 superseded by TPL. Phases reordered: templates before industries and technology; five phases. Current state updated for the subpath deploy and CI |
 | 2.1 | Sep 27, 2026 | Owner decisions recorded: CC0 templates, free kit, any-organization voice with `:::federal` sections, pandoc approved |
+| 3 | Sep 28, 2026 | Phase 2 marked done. Methods added: NIST implementation guidance as a sixth question on each control and a Methods section on control pages (METH-01 to METH-03); the SSDF becomes the first method, under `methods/ssdf/`. AI security guide added as a separate section built only on NIST guidance (AI-01 to AI-09), with a checked status table of NIST AI publications; no author-made AI control overlays. New persona, page types and `implements` and `airmf` front matter. Phases now six: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth |

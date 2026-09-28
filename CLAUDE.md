@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](docs/PRD.md). The PRD is the source of truth for vision, scope, priorities and acceptance criteria. The site teaches the RMF and SP 800-53 **and** ships ready-to-adopt program templates (policies, plans, procedures, forms), with the SSDF folded in; see the PRD's Template system section.
+This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](docs/PRD.md). The PRD is the source of truth for vision, scope, priorities and acceptance criteria. The site teaches the RMF and SP 800-53 **and** ships ready-to-adopt program templates (policies, plans, procedures, forms); see the PRD's Template system section. Two further strands, each its own topic: **methods** (NIST's published ways to meet controls, the SSDF first, shown on control pages) and an **AI security guide** (the AI RMF and securing AI systems under the RMF, from NIST guidance only).
 
 ## Getting oriented
 
@@ -25,6 +25,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.
 - Templates are CC0 and written for any organization. Put federal-only requirements in `:::federal` blocks, written as carefully as the body and citing the federal source.
+- Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST (or OMB and CISA, for federal notes) publishes, with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final.
 
 ## When to stop and ask the owner
 

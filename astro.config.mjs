@@ -142,6 +142,11 @@ export default defineConfig({
 					items: [
 						{ label: 'All templates', slug: 'templates' },
 						{ label: 'Policies', collapsed: true, items: [{ autogenerate: { directory: 'templates/policies' } }] },
+						{
+							label: 'Decision worksheets',
+							collapsed: true,
+							items: [{ autogenerate: { directory: 'templates/worksheets' } }],
+						},
 					],
 				},
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },

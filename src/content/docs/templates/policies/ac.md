@@ -37,6 +37,8 @@ The policy has 18 organization-defined parameters across all variants; each appe
 | Which account types are allowed on each system, and which are prohibited? | [AC-2](/controls/ac/ac-2/) | Individual, privileged, service and emergency accounts allowed with a named owner; shared and guest accounts prohibited unless the system owner approves an exception. | System owner |
 | Which identity provider is the authoritative source for accounts? | [AC-2](/controls/ac/ac-2/) | The organization's central directory or identity provider, fed by the human resources system. | Chief Information Security Officer |
 
+Record your values in the [Access Control decision worksheet](/templates/worksheets/ac/), which lists every parameter with its typical value.
+
 ## Downloads
 
 | Variant | Ready to adopt | Annotated |

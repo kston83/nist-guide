@@ -11,17 +11,30 @@
  * Family policies: policy/_common.md plus each family's clauses, in catalog
  * order, one file per baseline (TPL-03), in a clean and an annotated edition
  * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. Plans,
- * standards, procedures and forms: one file per edition.
+ * standards, procedures and forms: one file per edition. Decision worksheets
+ * (TPL-08): worksheets/<family>-decisions-<baseline>.csv.
  *
  * Downloads are build output and never committed.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { loadSources } from './lib/template-sources.mjs';
-import { GENERATED_NOTE, indexPage, policyFile, policyPage, templateFile, templatePage } from './lib/template-pages.mjs';
+import {
+	GENERATED_NOTE,
+	indexPage,
+	policyFile,
+	policyPage,
+	templateFile,
+	templatePage,
+	worksheetBaselines,
+	worksheetFile,
+	worksheetInput,
+	worksheetPage,
+} from './lib/template-pages.mjs';
 import { assemblePolicy, policyBaselines } from '../src/lib/template-assemble.ts';
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
+import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
 
 // Clean (ready to adopt) is the default file; annotated keeps the guidance (TPL-04).
 const EDITIONS = ['clean', 'annotated'];
@@ -71,6 +84,10 @@ if (pagesMode) {
 		await attempt(`${family.id.toUpperCase()} policy page`, () =>
 			pages.push(policyPage({ family, clauses, common, catalog, variables, version, order: i + 1 })),
 		);
+	for (const [i, family] of orderedFamilies.entries())
+		await attempt(`${family.id.toUpperCase()} worksheet page`, () =>
+			pages.push(worksheetPage({ family, clauses, catalog, variables, version, order: i + 1 })),
+		);
 	for (const [i, template] of templates.entries())
 		await attempt(`templates/${template.id}.md page`, () =>
 			pages.push(templatePage({ template, catalog, variables, version, order: i + 1 })),
@@ -114,6 +131,13 @@ if (pagesMode) {
 				const ctx = { variables, params: catalog.params, typical: policy.typical, family };
 				return editions(policy.source, ctx, (e) => policyFile(family.id, baseline, e));
 			});
+		for (const baseline of worksheetBaselines(family.id, catalog.controls))
+			await attempt(`${family.id.toUpperCase()} worksheet (${baseline})`, () =>
+				write(
+					`${worksheetFile(family.id, baseline)}.csv`,
+					worksheetCsv(worksheetRows(worksheetInput({ family, baseline, clauses, catalog, variables }))),
+				),
+			);
 	}
 	for (const template of templates)
 		await attempt(`templates/${template.id}.md`, () =>

@@ -2,53 +2,40 @@
 
 Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task.
 
-## Current phase: 1 Launch foundation (approved by the owner 2026-09-28)
+## Current phase: 2 Template system and first kit
 
-Every Phase 1 requirement is built: CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03, NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04. All are merged to `main` except PRES-03, which is in PR #10 (checks green, waiting for the owner to merge).
+Phase 1 is complete: approved by the owner and merged (2026-09-28).
 
-Phase 1 exit criteria:
+Phase 2 work is in stacked pull requests, each based on the one before it, starting at #11. Merge them in order; after each merge, point the next one at `main`.
 
-- [x] Site live: `main` deploys to `https://kston83.github.io/nist-guide/` (Deploy to GitHub Pages workflow)
-- [x] PR checks green: `check.yml` runs tests, lint, generated-page check, build, link check, search check and accessibility check
-- [x] Placeholders replaced (PRES-04)
-- [ ] PR #10 (PRES-03) merged
-- [x] Owner approves home and About (2026-09-28)
+### Phase 2 status
 
-Phase 2 can start once PR #10 is merged.
+| Item | Status | Pull request |
+| --- | --- | --- |
+| CTRL-08, TPL-01 to TPL-08, QA-05 | Built | #11 to #20 |
+| PROG-01, PROG-05 | Built | #21 |
+| PROG-02 Starter kit | Waiting for the SSP, IR plan and POA&M templates | |
+| Family policies: AC, AU, CM | Draft | #22 to #24 |
+| Family policy: IA | Draft | #25 |
+| Family policy: IR | In progress | |
+| Guidance for the 30 priority controls | Not started | |
+| SSP, IR plan, POA&M templates | Not started | |
+| P2: CTRL-04, CTRL-05, CTRL-06, QA-03, PRES-06, FEAT-04, TPL-10 | Not started; PRES-06 needs the owner's input on the Word look | |
 
-### Carried into Phase 2
+Exit criteria: 31 controls at `guidance: draft` or better; 5 family policies downloadable per baseline; kit v1.0.0 released.
 
-Parts of Phase 1 requirements that need templates or other later pages to exist:
+### Carried from Phase 1
 
-- ~~**QA-01:** add the kit build step to `check.yml` once `build-templates` exists~~ (done in TPL-03: `npm run build` runs the kit).
 - **NAV-01:** add the "incident response plan returns the template first" case to `scripts/check-search.mjs` once the IR plan template page exists.
-- **PRES-03:** ~~add a template page to `.pa11yci.json`~~ (done in TPL-07); add an industry guide in Phase 4.
+- **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 4.
 
-## Next: Phase 2 Template system and first kit
-
-Proposed order, P1 first and by dependency (one requirement per branch and PR):
-
-1. **CTRL-08** Parameter data (ID, label, selections) exported by the generator for templates
-2. **TPL-01** Template content collection and schema, with `templates/policy/_common.md` and the AC-2 clause as the first sources
-3. **TPL-02** Variable renderer (`org:`, `param:`, `fill:`) for site, `.md` and `.docx`
-4. **TPL-03** Family policy assembly per baseline (baseline membership from the NIST OSCAL profiles)
-5. **TPL-04** Annotated and clean editions, `:::guidance` and `:::federal` blocks
-6. **TPL-07** Generated template pages
-7. **TPL-06** Policy statement and Artifacts sections on control pages
-8. **TPL-08** Decision worksheet per family (`.csv` and page)
-9. **TPL-05** Downloads: `.docx` (pinned pandoc, CI only), `.md`, family and kit `.zip`
-10. **QA-05** Template lint
-11. **PROG-01**, **PROG-05**, **PROG-02** Program path stages, Prepare alignment, starter kit
-12. P2: **CTRL-04** baseline pages, **CTRL-05** coverage page, **CTRL-06** status badges, **QA-03** spell check, **PRES-06** `.docx` styling, **FEAT-04** changelog, **TPL-10** kit v1.0.0 release
-
-Content runs alongside, once the pipeline can render it: guidance for the 30 priority controls; clauses, family policies and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M.
-
-Owner decisions likely needed in Phase 2: the `reference.docx` look (visual design), and any dependency the PRD does not name (for example a `.zip` or YAML library). Deferred by the owner until the work reaches them (2026-09-28); ask then.
+Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_common.md` variables (2026-09-28).
 
 ## Log
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: IA policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 25 IA controls and enhancements in the Low, Moderate and High baselines. Password typical values follow NIST SP 800-63B-4 (final, July 2025; checked at csrc.nist.gov): 15 characters when used alone, 8 with another factor, no composition rules, no periodic change. IA-2(12) has a federal block (HSPD-12, FIPS 201-3, January 2022, checked); IA-2(12) and IA-8(1) are conditional in the body for non-federal use |
 | Content: CM policy | Draft | 2026-09-28 | `_family.yml` (three worksheet questions) and clauses for all 31 CM controls and enhancements in the Low, Moderate and High baselines; CM-6 guidance points to vendor baselines and the NIST National Checklist Program (SP 800-70 Rev. 4) |
 | Content: AU policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 24 AU controls and enhancements in the Low, Moderate and High baselines; new `security-operations` variable. AU-11 has a TODO(verify) for federal retention (see Open questions) |
 | Content: AC policy | Draft | 2026-09-28 | Clauses for all 45 AC controls and enhancements in the Low, Moderate and High baselines (AC-1 through `_common.md`), each written from the NIST statement, every parameter a field with a typical value or set; AC-8 has a federal block for the two U.S. Government notices (AC-8a.1, a.3). Assembled policy: Low 10 statement groups, Moderate 38, High 45. Privacy-only AC-3(14) not yet written. Added a remote access question to `_family.yml`. Also: `catalog.json` lists parameters nested in selections (lint counts them), and downloads use absolute links |

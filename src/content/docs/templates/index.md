@@ -19,6 +19,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
+| [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
 
 ## Decision worksheets
 
@@ -27,3 +28,4 @@ Each template is written once and assembled for your baseline. Download the read
 | [Access Control Decision Worksheet](/templates/worksheets/ac/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
+| [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |

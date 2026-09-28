@@ -1,0 +1,18 @@
+# Identification and Authentication (IA) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Identification and Authentication
+role: ciso
+stage: core
+questions:
+  - question: Which multi-factor methods are accepted, and which are phishing-resistant enough for privileged access?
+    controls: [ia-2.1, ia-2.2, ia-2.8]
+    typical: FIDO2 security keys, platform authenticators or PKI smart cards for privileged users; authenticator apps with number matching as a minimum for everyone else.
+    decides: Chief Information Security Officer
+  - question: Which identity provider authenticates users, and which systems may keep local accounts?
+    controls: [ia-2, ia-8]
+    typical: One organization identity provider for all users; local accounts only for break-glass and service use, recorded in the security plan.
+    decides: Chief Information Security Officer

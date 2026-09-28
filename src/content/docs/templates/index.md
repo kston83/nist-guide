@@ -37,3 +37,4 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
+| [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |

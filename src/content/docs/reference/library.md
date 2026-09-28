@@ -11,7 +11,7 @@ The core RMF documents are listed in [How to use this guide](/rmf/#core-source-d
 | --- | --- | --- | --- |
 | [FISMA 2014](https://www.cisa.gov/topics/cyber-threats-and-advisories/federal-information-security-modernization-act) | Law requiring agency security programs | 2014 | All steps |
 | [SP 800-39](https://csrc.nist.gov/pubs/sp/800/39/final) | Organization-wide risk management, three tiers | 2011 | Prepare, Authorize |
-| [SP 800-18 Rev. 1](https://csrc.nist.gov/pubs/sp/800/18/r1/final) | Writing system security plans | 2006 | Select |
+| [SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) | Writing system security, privacy and supply chain risk management plans | 2026 | Select |
 | [SP 800-47 Rev. 1](https://csrc.nist.gov/pubs/sp/800/47/r1/final) | Interconnection security | 2021 | Prepare, Implement |
 | [SP 800-115](https://csrc.nist.gov/pubs/sp/800/115/final) | Technical testing and assessment | 2008 | Assess |
 | [SP 800-128](https://csrc.nist.gov/pubs/sp/800/128/upd1/final) | Security-focused configuration management | 2011, updated 2019 | Implement, Monitor |

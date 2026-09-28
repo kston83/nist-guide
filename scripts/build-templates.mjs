@@ -144,7 +144,7 @@ if (pagesMode) {
 		finish();
 	}
 	if (!pandoc) console.warn('pandoc not found: skipping .docx files. Put pandoc on PATH or set PANDOC to build them.');
-	const docxOptions = { pandoc, referenceDoc: REFERENCE_DOC, sourceDateEpoch: lastCommitTime() };
+	const docxOptions = { pandoc, referenceDoc: REFERENCE_DOC, sourceDateEpoch: lastCommitTime(), version };
 
 	const files = {}; // path under downloads/ -> contents, kept for the zips
 	const write = async (rel, data) => {

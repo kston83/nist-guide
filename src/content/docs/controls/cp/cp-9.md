@@ -8,6 +8,7 @@ control:
   id: CP-9
   family: CP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -232,3 +233,32 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-9 requires backups of user data, system data and system documentation, at frequencies that meet the recovery point objectives from the business impact analysis, and protection of those backups. Assessors increasingly ask how backups are protected from ransomware, not only whether they exist.
+
+**Common implementations.** Automated backups with at least one copy offline, immutable or logically separated from the production environment. Backups encrypted (CP-9(8)) and access limited to backup administrators. Periodic restore tests to prove the backups work (CP-9(1)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Components with user-level backups (a) | All servers and cloud storage that hold user data |
+| Backup frequencies (a, b, c) | Set from the recovery point objectives; commonly daily incremental and weekly full backups, and system documentation on each change |
+
+**Evidence assessors ask for.**
+
+- Backup schedules and recent job reports
+- Results of the latest restore test
+- Configuration showing backup encryption and access restrictions
+
+**Inheritance.** Enterprise backup services are often common; the system owns defining what is backed up and how often.
+
+**Common findings.**
+
+- Backups never tested by restoring them.
+- Backup storage reachable with the same administrator credentials as production.
+- System documentation and configuration not included in backups.
+
+**Enhancements in the Moderate baseline.** [CP-9(1)](#cp-9.1) testing for reliability and integrity and [CP-9(8)](#cp-9.8) cryptographic protection. High adds [CP-9(2)](#cp-9.2), [CP-9(3)](#cp-9.3) and [CP-9(5)](#cp-9.5).

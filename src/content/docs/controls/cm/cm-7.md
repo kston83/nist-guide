@@ -8,6 +8,7 @@ control:
   id: CM-7
   family: CM
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -306,3 +307,34 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+Least functionality removes what the system does not need: unused services, open ports, protocols and software. Every function left running is attack surface, so CM-7 pairs a defined set of essential capabilities with periodic reviews and, at Moderate, execution control.
+
+**Common implementations.** Hardened images with unneeded services disabled. Host and network firewalls that allow only documented ports and protocols. Periodic port and service scans compared against the approved list (CM-7(1)). Application allow listing on servers and, increasingly, workstations (CM-7(2), CM-7(5)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Mission-essential capabilities (a) | The capabilities documented in the system security plan |
+| Prohibited or restricted functions, ports, protocols, software and services (b) | Those listed as prohibited or restricted in the baseline configuration standard |
+| Review frequency (CM-7(1)) | At least quarterly |
+| Authorized software list review (CM-7(5)) | At least quarterly |
+
+**Evidence assessors ask for.**
+
+- The list of approved ports, protocols and services for the system
+- Recent scan results compared against that list
+- The authorized software list and the allow-listing configuration
+
+**Inheritance.** Network firewalls and allow-listing platforms may be common; the system owns its list of approved functions.
+
+**Common findings.**
+
+- Open ports or running services not on the approved list.
+- Allow listing deployed in audit mode only.
+- No record of the periodic review.
+
+**Enhancements in the Moderate baseline.** [CM-7(1)](#cm-7.1) periodic review, [CM-7(2)](#cm-7.2) prevent program execution and [CM-7(5)](#cm-7.5) authorized software by exception.

@@ -10,7 +10,7 @@ typical:
 ---
 
 :::guidance
-Pick a published secure configuration for each component type rather than writing your own: vendor security baselines and checklists from the NIST National Checklist Program (SP 800-70 Rev. 4) are common starting points. Record each deviation with its reason and approval; assessors compare scan results against the baseline and ask for the approval of every difference.
+Pick a published secure configuration for each component type rather than writing your own: vendor security baselines and checklists from the NIST National Checklist Program ([SP 800-70 Rev. 5](https://csrc.nist.gov/pubs/sp/800/70/r5/final), May 2026) are common starting points. Record each deviation with its reason and approval; assessors compare scan results against the baseline and ask for the approval of every difference.
 :::
 
 - The {{org:system-owner}} shall establish and document configuration settings for system components that reflect the most restrictive mode consistent with operational requirements, using {{param:cm-06_odp.01}}. (CM-6a)

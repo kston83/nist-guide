@@ -191,7 +191,7 @@ CM-3 is where most programs either show discipline or show a gap. Keep one chang
 #### Configuration settings (CM-6)
 
 :::note[Guidance]
-Pick a published secure configuration for each component type rather than writing your own: vendor security baselines and checklists from the NIST National Checklist Program (SP 800-70 Rev. 4) are common starting points. Record each deviation with its reason and approval; assessors compare scan results against the baseline and ask for the approval of every difference.
+Pick a published secure configuration for each component type rather than writing your own: vendor security baselines and checklists from the NIST National Checklist Program ([SP 800-70 Rev. 5](https://csrc.nist.gov/pubs/sp/800/70/r5/final), May 2026) are common starting points. Record each deviation with its reason and approval; assessors compare scan results against the baseline and ask for the approval of every difference.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall establish and document configuration settings for system components that reflect the most restrictive mode consistent with operational requirements, using <span class="tpl-field tpl-param">Fill in: common secure configurations to establish and document configuration settings for components employed within the system <span class="tpl-typical">Typical: the secure configuration baselines named in the baseline configuration standard</span></span>. (CM-6a)

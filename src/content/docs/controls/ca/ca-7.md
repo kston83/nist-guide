@@ -8,6 +8,7 @@ control:
   id: CA-7
   family: CA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -205,3 +206,33 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+Continuous monitoring keeps the authorization current between full assessments. The system-level strategy sets what is measured, how often controls are monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. It follows the organization-level strategy set in the Prepare step (P-7).
+
+**Common implementations.** A continuous monitoring strategy that assigns each control an assessment frequency, often by volatility: frequently changing controls such as vulnerability management monthly, stable ones such as physical security annually. Automated feeds from vulnerability scanning, configuration compliance and inventory tools. A monthly status report to the system owner and a periodic report to the authorizing official. Independent assessors for the ongoing assessments (CA-7(1)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| System-level metrics (a) | Open vulnerabilities by severity and age, configuration compliance rate, POA&M items past due, and unauthorized components found |
+| Monitoring and assessment frequencies (b) | Monitoring monthly or continuously for automated metrics; assessment per the control schedule in the strategy |
+| Status reporting (g) | To the authorizing official and the Chief Information Security Officer, at least quarterly |
+
+**Evidence assessors ask for.**
+
+- The system-level continuous monitoring strategy
+- Recent status reports and the metrics behind them
+- Examples of response actions taken from monitoring results (CA-7f)
+
+**Inheritance.** The organization-level strategy and shared monitoring tools are common; the system owns its strategy, metrics and reports.
+
+**Common findings.**
+
+- A strategy that exists on paper with no reports produced.
+- Metrics collected but not tied to decisions or POA&M items.
+- Ongoing assessments done by the system's own administrators.
+
+**Enhancements in the Moderate baseline.** [CA-7(1)](#ca-7.1) independent assessment and [CA-7(4)](#ca-7.4) risk monitoring (also Low).

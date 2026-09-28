@@ -8,6 +8,7 @@ control:
   id: CM-6
   family: CM
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -119,3 +120,33 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CM-6 asks you to set every component to the most restrictive settings that still let the system do its job, using a published secure configuration, and to approve and record every deviation. It is one of the most tested controls because scanners make it easy to measure.
+
+**Common implementations.** Vendor security baselines or checklists from the NIST National Checklist Program ([SP 800-70 Rev. 5](https://csrc.nist.gov/pubs/sp/800/70/r5/final), May 2026) chosen per component type and recorded in a baseline configuration standard. Settings applied through group policy, configuration management or infrastructure as code. Compliance scans compare components against the standard, and deviations are approved and recorded with their reason.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Common secure configurations (a) | The secure configuration baselines named in the baseline configuration standard |
+| Components needing approved deviations (c) | All system components |
+| Operational requirements justifying deviations (c) | Documented operational needs that the system owner approves and the security team reviews |
+
+**Evidence assessors ask for.**
+
+- The baseline configuration standard naming the secure configurations used
+- Recent configuration compliance scan results
+- The list of approved deviations, with approvals
+
+**Inheritance.** Standard images and centrally managed policies are often common; the system owns application settings and its deviations.
+
+**Common findings.**
+
+- Scan results showing failed settings with no recorded deviation.
+- Deviations approved once and never revisited.
+- Application and database settings left out of scope.
+
+**Enhancements in the Moderate baseline.** None beyond the base control. High adds [CM-6(1)](#cm-6.1) automated management and [CM-6(2)](#cm-6.2) response to unauthorized changes.

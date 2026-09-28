@@ -8,6 +8,7 @@ control:
   id: CM-2
   family: CM
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -169,3 +170,33 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+A baseline configuration is the approved, documented state of the system: its components, their versions and their settings. Every later configuration control, from change control (CM-3) to settings (CM-6), measures against it.
+
+**Common implementations.** Infrastructure as code or configuration management tooling that records the approved state (CM-2(2)), images or templates for each component type, and version control that keeps previous baselines for rollback (CM-2(3)). The baseline is updated through change control, not by hand. Loaner devices for high-risk travel get a minimal configuration (CM-2(7)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review frequency (b.1) | At least annually |
+| Circumstances requiring review (b.2) | A significant change to the system, a new version of the secure configuration it is based on, or a security incident |
+| Previous baselines retained (CM-2(3)) | At least the two most recent |
+
+**Evidence assessors ask for.**
+
+- The baseline configuration document or repository, with its version history
+- Evidence of the last review and the changes approved since
+- A comparison of a sample of components against the baseline
+
+**Inheritance.** Platform images and cloud landing zones may be common; the system owns its own baseline.
+
+**Common findings.**
+
+- A baseline document that no longer matches the running system.
+- No record of previous versions, so rollback is guesswork.
+- Components added outside change control and never added to the baseline.
+
+**Enhancements in the Moderate baseline.** [CM-2(2)](#cm-2.2) automation support, [CM-2(3)](#cm-2.3) retention of previous configurations and [CM-2(7)](#cm-2.7) configurations for high-risk areas.

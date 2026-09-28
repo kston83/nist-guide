@@ -11,6 +11,7 @@ control:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 | Baselines | Implementation level | Enhancements |
@@ -98,6 +99,7 @@ Determine if:
 **Test:** Organizational processes for scheduling, performing, documenting, reviewing, approving, and monitoring maintenance and repairs for the system; organizational processes for sanitizing system components; mechanisms supporting and/or implementing controlled maintenance; mechanisms implementing the sanitization of system components.
 
 </details>
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

@@ -1,0 +1,18 @@
+// Markdown lint (PRD QA-02). Run with `npm run lint`; CI runs it on every PR.
+// Generated NIST text on control pages is skipped by markdownlint-disable
+// comments the generator writes; everything people write is linted.
+{
+	"config": {
+		"default": true,
+		// Prose is written one paragraph per line; tables and URLs run long.
+		"MD013": false,
+		// Starlight pages use <details>, anchors and MDX components.
+		"MD033": false,
+		// Tables are written compactly (`| --- |`), not column-aligned.
+		"MD060": false,
+		// Headings may repeat in different sections (for example "Common findings").
+		"MD024": { "siblings_only": true }
+	},
+	"globs": ["**/*.{md,mdx}"],
+	"ignores": ["node_modules/**", "dist/**", ".astro/**", ".cache/**"]
+}

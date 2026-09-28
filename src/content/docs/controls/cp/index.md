@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Contingency Planning family has 12 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -27,6 +28,7 @@ The Contingency Planning family has 12 active controls in SP 800-53 release 5.2.
 | [CP-13](/controls/cp/cp-13/) | Alternative Security Mechanisms |  |  |  |  |
 
 *Withdrawn controls: CP-5.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

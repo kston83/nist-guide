@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { activeControlIds, buildPages, collectParams, createParamRenderer } from '../lib/oscal.mjs';
-import { mergeGenerated, START, END, GUIDE } from '../lib/generated.mjs';
+import { mergeGenerated, START, END, GUIDE, LINT_OFF, LINT_ON } from '../lib/generated.mjs';
 
 const { catalog } = JSON.parse(fs.readFileSync(new URL('./fixtures/catalog.json', import.meta.url), 'utf8'));
 const profile = (ids) => ({ imports: [{ 'include-controls': [{ 'with-ids': ids }] }] });
@@ -105,7 +105,15 @@ test('files without markers are left alone', () => {
 test('frontmatter null keeps the file’s own front matter and intro', () => {
 	const existing = `---\ntitle: Using the control pages\n---\n\nIntro text.\n\n${START}\nold\n${END}\n\nMore.\n`;
 	const out = mergeGenerated(existing, { frontmatter: null, body: 'new table' });
-	assert.equal(out, `---\ntitle: Using the control pages\n---\n\nIntro text.\n\n${START}\nnew table\n${END}\n\nMore.\n`);
+	assert.equal(
+		out,
+		`---\ntitle: Using the control pages\n---\n\nIntro text.\n\n${START}\n${LINT_OFF}\nnew table\n${LINT_ON}\n${END}\n\nMore.\n`,
+	);
+});
+
+test('the generated block is wrapped so markdown lint skips NIST text (QA-02)', () => {
+	const out = mergeGenerated(null, ac2);
+	assert.ok(out.includes(`${START}\n${LINT_OFF}\n`) && out.includes(`\n${LINT_ON}\n${END}\n`));
 });
 
 // ---------- front matter merge (CTRL-01) ----------

@@ -4,6 +4,9 @@
 export const START = '<!-- nist:start -->';
 export const END = '<!-- nist:end -->';
 export const GUIDE = '<!-- guidance: write below this line -->';
+// Markdown lint skips the generated NIST text (QA-02); hand-written content is linted.
+export const LINT_OFF = '<!-- markdownlint-disable -->';
+export const LINT_ON = '<!-- markdownlint-restore -->';
 
 // Front matter keys the generator writes. Every other top-level key in an
 // existing file (guidance, reviewed, anything added later) is hand-set and kept.
@@ -48,7 +51,7 @@ export function mergeFrontmatter(generated, existingYaml) {
 // Next contents of a generated file, or null when the file exists but has no
 // markers (hand-written; leave it alone). `frontmatter` null keeps the file's own.
 export function mergeGenerated(existing, { frontmatter, body, tail = `\n${GUIDE}\n` }) {
-	const block = `${START}\n${body.trim()}\n${END}`;
+	const block = `${START}\n${LINT_OFF}\n${body.trim()}\n${LINT_ON}\n${END}`;
 	if (existing == null) return `${frontmatter ?? ''}\n\n${block}\n${tail}`;
 	const text = normalize(existing);
 	if (!text.includes(START) || !text.includes(END)) return null;

@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Media Protection family has 8 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -21,6 +22,7 @@ The Media Protection family has 8 active controls in SP 800-53 release 5.2.0. "Y
 | [MP-6](/controls/mp/mp-6/) | Media Sanitization | Yes | Yes | Yes | Yes |
 | [MP-7](/controls/mp/mp-7/) | Media Use | Yes | Yes | Yes |  |
 | [MP-8](/controls/mp/mp-8/) | Media Downgrading |  |  |  |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

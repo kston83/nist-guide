@@ -17,6 +17,7 @@ Every active SP 800-53 Rev. 5 control has its own page, generated from NIST's of
 ## Families
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 | Family | Name | Active controls |
@@ -41,6 +42,7 @@ Every active SP 800-53 Rev. 5 control has its own page, generated from NIST's of
 | [SC](/controls/sc/) | System and Communications Protection | 47 |
 | [SI](/controls/si/) | System and Information Integrity | 22 |
 | [SR](/controls/sr/) | Supply Chain Risk Management | 12 |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 Control text is reproduced from NIST SP 800-53 Rev. 5 and SP 800-53A Rev. 5, which are U.S. government works in the public domain.

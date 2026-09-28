@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Program Management family has 32 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -45,6 +46,7 @@ The Program Management family has 32 active controls in SP 800-53 release 5.2.0.
 | [PM-30](/controls/pm/pm-30/) | Supply Chain Risk Management Strategy |  |  |  |  |
 | [PM-31](/controls/pm/pm-31/) | Continuous Monitoring Strategy |  |  |  | Yes |
 | [PM-32](/controls/pm/pm-32/) | Purposing |  |  |  |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

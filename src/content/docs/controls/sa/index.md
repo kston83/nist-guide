@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The System and Services Acquisition family has 17 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -32,6 +33,7 @@ The System and Services Acquisition family has 17 active controls in SP 800-53 r
 | [SA-24](/controls/sa/sa-24/) | Design For Cyber Resiliency |  |  |  |  |
 
 *Withdrawn controls: SA-6, SA-7, SA-12, SA-13, SA-14, SA-18, SA-19.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

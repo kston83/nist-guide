@@ -11,6 +11,7 @@ control:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 | Baselines | Implementation level | Enhancements |
@@ -115,6 +116,7 @@ Determine if the [Assignment: organization-defined tools or mechanisms] are impl
 **Test:** Organizational processes for the collection of personally identifiable information; consent tools or mechanisms for users to authorize the processing of their personally identifiable information; mechanisms implementing consent.
 
 </details>
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

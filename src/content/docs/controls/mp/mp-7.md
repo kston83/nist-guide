@@ -11,6 +11,7 @@ control:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 | Baselines | Implementation level | Enhancements |
@@ -78,6 +79,7 @@ Determine if:
 **Test:** Organizational processes for media use; mechanisms restricting or prohibiting the use of system media on systems or system components.
 
 </details>
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Physical and Environmental Protection family has 22 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -37,6 +38,7 @@ The Physical and Environmental Protection family has 22 active controls in SP 80
 | [PE-23](/controls/pe/pe-23/) | Facility Location |  |  |  |  |
 
 *Withdrawn controls: PE-7.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

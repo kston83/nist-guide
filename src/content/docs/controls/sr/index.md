@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Supply Chain Risk Management family has 12 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -25,6 +26,7 @@ The Supply Chain Risk Management family has 12 active controls in SP 800-53 rele
 | [SR-10](/controls/sr/sr-10/) | Inspection of Systems or Components | Yes | Yes | Yes |  |
 | [SR-11](/controls/sr/sr-11/) | Component Authenticity | Yes | Yes | Yes |  |
 | [SR-12](/controls/sr/sr-12/) | Component Disposal | Yes | Yes | Yes |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

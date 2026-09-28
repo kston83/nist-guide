@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Identification and Authentication family has 13 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -26,6 +27,7 @@ The Identification and Authentication family has 13 active controls in SP 800-53
 | [IA-11](/controls/ia/ia-11/) | Re-authentication | Yes | Yes | Yes |  |
 | [IA-12](/controls/ia/ia-12/) | Identity Proofing |  | Yes | Yes |  |
 | [IA-13](/controls/ia/ia-13/) | Identity Providers and Authorization Servers |  |  |  |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

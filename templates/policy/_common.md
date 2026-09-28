@@ -1,5 +1,5 @@
 ---
-title: Common policy sections
+# Sections shared by every family policy; see the guidance block below.
 status: draft
 ---
 
@@ -63,4 +63,5 @@ Each statement below comes from the clause for one control or enhancement in the
 For federal information systems, this policy also carries out the agency's information security responsibilities under the Federal Information Security Modernization Act of 2014 ([44 U.S.C. § 3554](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title44-section3554&num=0&edition=prelim), Federal agency responsibilities) and [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, Responsibilities for Protecting and Managing Federal Information Resources.
 
 - Where the agency's organization-wide policy sets a value for a parameter in this policy, each system shall use that value or a stricter one. (XX-1a.1(b))
+
 :::

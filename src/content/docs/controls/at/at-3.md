@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Provide role-based security and privacy training to personnel with the following roles and responsibilities: [Assignment: organization-defined organization-defined roles and responsibilities]:
+- **a.** Provide role-based security and privacy training to personnel with the following roles and responsibilities: [Assignment: organization-defined roles and responsibilities]:
   - **1.** Before authorizing access to the system, information, or performing assigned duties, and [Assignment: organization-defined frequency] thereafter; and
   - **2.** When required by system changes;
 - **b.** Update role-based training content [Assignment: organization-defined frequency] and following [Assignment: organization-defined events] ; and

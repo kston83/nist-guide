@@ -73,7 +73,7 @@ Determine if:
 
 *Baselines: High*
 
-Maintain the currency, completeness, accuracy, and availability of the inventory of system components using [Assignment: organization-defined organization-defined automated mechanisms].
+Maintain the currency, completeness, accuracy, and availability of the inventory of system components using [Assignment: organization-defined automated mechanisms].
 
 <details>
 <summary>Discussion and assessment objectives for CM-8(2)</summary>
@@ -101,7 +101,7 @@ Determine if:
 
 *Baselines: Moderate, High*
 
-- **(a)** Detect the presence of unauthorized hardware, software, and firmware components within the system using [Assignment: organization-defined organization-defined automated mechanisms] [Assignment: organization-defined frequency] ; and
+- **(a)** Detect the presence of unauthorized hardware, software, and firmware components within the system using [Assignment: organization-defined automated mechanisms] [Assignment: organization-defined frequency] ; and
 - **(b)** Take the following actions when unauthorized components are detected: [Selection (one or more): disable network access by unauthorized components; isolate unauthorized components; notify [Assignment: organization-defined personnel or roles] ].
 
 <details>

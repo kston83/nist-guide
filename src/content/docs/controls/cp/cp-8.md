@@ -111,7 +111,7 @@ Determine if alternate telecommunications services from providers that are separ
 
 - **(a)** Require primary and alternate telecommunications service providers to have contingency plans;
 - **(b)** Review provider contingency plans to ensure that the plans meet organizational contingency requirements; and
-- **(c)** Obtain evidence of contingency testing and training by providers [Assignment: organization-defined organization-defined frequency].
+- **(c)** Obtain evidence of contingency testing and training by providers [Assignment: organization-defined frequency].
 
 <details>
 <summary>Discussion and assessment objectives for CP-8(4)</summary>

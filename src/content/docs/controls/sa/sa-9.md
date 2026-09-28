@@ -88,7 +88,7 @@ Determine if providers of [Assignment: organization-defined external system serv
 
 *Baselines: Not in a baseline*
 
-Establish, document, and maintain trust relationships with external service providers based on the following requirements, properties, factors, or conditions: [Assignment: organization-defined organization-defined security and privacy requirements, properties, factors, or conditions defining acceptable trust relationships].
+Establish, document, and maintain trust relationships with external service providers based on the following requirements, properties, factors, or conditions: [Assignment: organization-defined security and privacy requirements, properties, factors, or conditions defining acceptable trust relationships].
 
 <details>
 <summary>Discussion and assessment objectives for SA-9(3)</summary>

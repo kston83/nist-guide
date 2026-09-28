@@ -90,7 +90,7 @@ Determine if:
 
 *Baselines: Not in a baseline*
 
-Employ the following controls to validate that the system or system component received is genuine and has not been altered: [Assignment: organization-defined organization-defined controls].
+Employ the following controls to validate that the system or system component received is genuine and has not been altered: [Assignment: organization-defined controls].
 
 <details>
 <summary>Discussion and assessment objectives for SR-4(3)</summary>

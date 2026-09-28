@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Protect and control [Assignment: organization-defined types of system media] during transport outside of controlled areas using [Assignment: organization-defined organization-defined controls];
+- **a.** Protect and control [Assignment: organization-defined types of system media] during transport outside of controlled areas using [Assignment: organization-defined controls];
 - **b.** Maintain accountability for system media during transport outside of controlled areas;
 - **c.** Document activities associated with the transport of system media; and
 - **d.** Restrict the activities associated with the transport of system media to authorized personnel.

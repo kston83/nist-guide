@@ -65,7 +65,7 @@ Determine if:
 
 *Baselines: Not in a baseline*
 
-Enforce dual authorization for implementing changes to [Assignment: organization-defined organization-defined system components and system-level information].
+Enforce dual authorization for implementing changes to [Assignment: organization-defined system components and system-level information].
 
 <details>
 <summary>Discussion and assessment objectives for CM-5(4)</summary>
@@ -92,7 +92,7 @@ Determine if:
 *Baselines: Not in a baseline*
 
 - **(a)** Limit privileges to change system components and system-related information within a production or operational environment; and
-- **(b)** Review and reevaluate privileges [Assignment: organization-defined organization-defined frequency].
+- **(b)** Review and reevaluate privileges [Assignment: organization-defined frequency].
 
 <details>
 <summary>Discussion and assessment objectives for CM-5(5)</summary>

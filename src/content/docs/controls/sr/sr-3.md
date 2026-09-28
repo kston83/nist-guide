@@ -40,7 +40,7 @@ Supply chain elements include organizations, entities, or tools employed for the
 
 *Baselines: Not in a baseline*
 
-Employ a diverse set of sources for the following system components and services: [Assignment: organization-defined organization-defined system components and services].
+Employ a diverse set of sources for the following system components and services: [Assignment: organization-defined system components and services].
 
 <details>
 <summary>Discussion and assessment objectives for SR-3(1)</summary>

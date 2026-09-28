@@ -28,12 +28,12 @@ control:
   - **4.** Addresses maintaining essential mission and business functions despite a system disruption, compromise, or failure;
   - **5.** Addresses eventual, full system restoration without deterioration of the controls originally planned and implemented;
   - **6.** Addresses the sharing of contingency information; and
-  - **7.** Is reviewed and approved by [Assignment: organization-defined organization-defined personnel or roles];
-- **b.** Distribute copies of the contingency plan to [Assignment: organization-defined organization-defined key contingency personnel (identified by name and/or by role) and organizational elements];
+  - **7.** Is reviewed and approved by [Assignment: organization-defined personnel or roles];
+- **b.** Distribute copies of the contingency plan to [Assignment: organization-defined key contingency personnel (identified by name and/or by role) and organizational elements];
 - **c.** Coordinate contingency planning activities with incident handling activities;
 - **d.** Review the contingency plan for the system [Assignment: organization-defined frequency];
 - **e.** Update the contingency plan to address changes to the organization, system, or environment of operation and problems encountered during contingency plan implementation, execution, or testing;
-- **f.** Communicate contingency plan changes to [Assignment: organization-defined organization-defined key contingency personnel (identified by name and/or by role) and organizational elements];
+- **f.** Communicate contingency plan changes to [Assignment: organization-defined key contingency personnel (identified by name and/or by role) and organizational elements];
 - **g.** Incorporate lessons learned from contingency plan testing, training, or actual contingency activities into contingency testing and training; and
 - **h.** Protect the contingency plan from unauthorized disclosure and modification.
 

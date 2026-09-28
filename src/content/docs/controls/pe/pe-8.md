@@ -40,7 +40,7 @@ Visitor access records include the names and organizations of individuals visiti
 
 *Baselines: High*
 
-Maintain and review visitor access records using [Assignment: organization-defined organization-defined automated mechanisms].
+Maintain and review visitor access records using [Assignment: organization-defined automated mechanisms].
 
 <details>
 <summary>Discussion and assessment objectives for PE-8(1)</summary>

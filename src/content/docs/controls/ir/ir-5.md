@@ -38,7 +38,7 @@ Documenting incidents includes maintaining records about each incident, the stat
 
 *Baselines: High*
 
-Track incidents and collect and analyze incident information using [Assignment: organization-defined organization-defined automated mechanisms].
+Track incidents and collect and analyze incident information using [Assignment: organization-defined automated mechanisms].
 
 <details>
 <summary>Discussion and assessment objectives for IR-5(1)</summary>

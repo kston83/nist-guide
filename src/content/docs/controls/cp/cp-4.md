@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Test the contingency plan for the system [Assignment: organization-defined frequency] using the following tests to determine the effectiveness of the plan and the readiness to execute the plan: [Assignment: organization-defined organization-defined tests].
+- **a.** Test the contingency plan for the system [Assignment: organization-defined frequency] using the following tests to determine the effectiveness of the plan and the readiness to execute the plan: [Assignment: organization-defined tests].
 - **b.** Review the contingency plan test results; and
 - **c.** Initiate corrective actions, if needed.
 

@@ -61,7 +61,7 @@ Determine if dual authorization is enforced for [Assignment: organization-define
 
 *Baselines: Not in a baseline*
 
-Enforce [Assignment: organization-defined organization-defined mandatory access control policy] over the set of covered subjects and objects specified in the policy, and where the policy:
+Enforce [Assignment: organization-defined mandatory access control policy] over the set of covered subjects and objects specified in the policy, and where the policy:
 
 - **(a)** Is uniformly enforced across the covered subjects and objects within the system;
 - **(b)** Specifies that a subject that has been granted access to information is constrained from doing any of the following;
@@ -108,7 +108,7 @@ Determine if:
 
 *Baselines: Not in a baseline*
 
-Enforce [Assignment: organization-defined organization-defined discretionary access control policy] over the set of covered subjects and objects specified in the policy, and where the policy specifies that a subject that has been granted access to information can do one or more of the following:
+Enforce [Assignment: organization-defined discretionary access control policy] over the set of covered subjects and objects specified in the policy, and where the policy specifies that a subject that has been granted access to information can do one or more of the following:
 
 - **(a)** Pass the information to any other subjects or objects;
 - **(b)** Grant its privileges to other subjects;
@@ -168,7 +168,7 @@ Determine if access to [Assignment: organization-defined security-relevant infor
 
 *Baselines: Not in a baseline*
 
-Enforce a role-based access control policy over defined subjects and objects and control access based upon [Assignment: organization-defined organization-defined roles and users authorized to assume such roles].
+Enforce a role-based access control policy over defined subjects and objects and control access based upon [Assignment: organization-defined roles and users authorized to assume such roles].
 
 <details>
 <summary>Discussion and assessment objectives for AC-3(7)</summary>
@@ -377,8 +377,8 @@ Determine if [Assignment: organization-defined mechanisms] are provided to enabl
 
 *Baselines: Not in a baseline*
 
-- **(a)** Enforce [Assignment: organization-defined organization-defined mandatory access control policy] over the set of covered subjects and objects specified in the policy; and
-- **(b)** Enforce [Assignment: organization-defined organization-defined discretionary access control policy] over the set of covered subjects and objects specified in the policy.
+- **(a)** Enforce [Assignment: organization-defined mandatory access control policy] over the set of covered subjects and objects specified in the policy; and
+- **(b)** Enforce [Assignment: organization-defined discretionary access control policy] over the set of covered subjects and objects specified in the policy.
 
 <details>
 <summary>Discussion and assessment objectives for AC-3(15)</summary>

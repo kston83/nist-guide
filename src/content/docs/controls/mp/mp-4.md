@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Physically control and securely store [Assignment: organization-defined organization-defined types of digital and/or non-digital media] within [Assignment: organization-defined organization-defined controlled areas] ; and
+- **a.** Physically control and securely store [Assignment: organization-defined types of digital and/or non-digital media] within [Assignment: organization-defined controlled areas] ; and
 - **b.** Protect system media types defined in MP-4a until the media are destroyed or sanitized using approved equipment, techniques, and procedures.
 
 <details>
@@ -39,7 +39,7 @@ System media includes digital and non-digital media. Digital media includes flas
 
 *Baselines: Not in a baseline*
 
-Restrict access to media storage areas and log access attempts and access granted using [Assignment: organization-defined organization-defined automated mechanisms].
+Restrict access to media storage areas and log access attempts and access granted using [Assignment: organization-defined automated mechanisms].
 
 <details>
 <summary>Discussion and assessment objectives for MP-4(2)</summary>

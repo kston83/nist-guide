@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Monitor and scan for vulnerabilities in the system and hosted applications [Assignment: organization-defined organization-defined frequency and/or randomly in accordance with organization-defined process] and when new vulnerabilities potentially affecting the system are identified and reported;
+- **a.** Monitor and scan for vulnerabilities in the system and hosted applications [Assignment: organization-defined frequency and/or randomly in accordance with organization-defined process] and when new vulnerabilities potentially affecting the system are identified and reported;
 - **b.** Employ vulnerability monitoring tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for:
   - **1.** Enumerating platforms, software flaws, and improper configurations;
   - **2.** Formatting checklists and test procedures; and

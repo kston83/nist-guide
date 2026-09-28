@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Develop, document, and disseminate to [Assignment: organization-defined organization-defined personnel or roles]:
+- **a.** Develop, document, and disseminate to [Assignment: organization-defined personnel or roles]:
   - **1.** [Selection (one or more): organization-level; mission/business process-level; system-level] contingency planning policy that:
     - **(a)** Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and
     - **(b)** Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and

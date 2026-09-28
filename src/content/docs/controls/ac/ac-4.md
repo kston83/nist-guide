@@ -40,7 +40,7 @@ Organizations commonly employ information flow control policies and enforcement 
 
 *Baselines: Not in a baseline*
 
-Use [Assignment: organization-defined organization-defined security and privacy attributes] associated with [Assignment: organization-defined organization-defined information, source, and destination objects] to enforce [Assignment: organization-defined information flow control policies] as a basis for flow control decisions.
+Use [Assignment: organization-defined security and privacy attributes] associated with [Assignment: organization-defined information, source, and destination objects] to enforce [Assignment: organization-defined information flow control policies] as a basis for flow control decisions.
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(1)</summary>
@@ -112,14 +112,14 @@ Determine if [Assignment: organization-defined information flow control policies
 
 *Baselines: High*
 
-Prevent encrypted information from bypassing [Assignment: organization-defined information flow control mechanisms] by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined organization-defined procedure or method] ].
+Prevent encrypted information from bypassing [Assignment: organization-defined information flow control mechanisms] by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined procedure or method] ].
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(4)</summary>
 
 Flow control mechanisms include content checking, security policy filters, and data type identifiers. The term encryption is extended to cover encoded data not recognized by filtering mechanisms.
 
-Determine if encrypted information is prevented from bypassing [Assignment: organization-defined information flow control mechanisms] by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined organization-defined procedure or method] ].
+Determine if encrypted information is prevented from bypassing [Assignment: organization-defined information flow control mechanisms] by [Selection (one or more): decrypting the information; blocking the flow of the encrypted information; terminating communications sessions attempting to pass encrypted information; [Assignment: organization-defined procedure or method] ].
 
 **Examine:** Access control policy; information flow control policies; procedures addressing information flow enforcement; system design documentation; system configuration settings and associated documentation; system audit records; system security plan; other relevant documents or records.
 
@@ -204,8 +204,8 @@ Determine if one-way information flows are enforced through hardware-based flow 
 
 *Baselines: Not in a baseline*
 
-- **(a)** Enforce information flow control using [Assignment: organization-defined organization-defined security or privacy policy filters] as a basis for flow control decisions for [Assignment: organization-defined organization-defined information flows] ; and
-- **(b)** [Selection (one or more): block; strip; modify; quarantine] data after a filter processing failure in accordance with [Assignment: organization-defined organization-defined security or privacy policy].
+- **(a)** Enforce information flow control using [Assignment: organization-defined security or privacy policy filters] as a basis for flow control decisions for [Assignment: organization-defined information flows] ; and
+- **(b)** [Selection (one or more): block; strip; modify; quarantine] data after a filter processing failure in accordance with [Assignment: organization-defined security or privacy policy].
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(8)</summary>
@@ -258,7 +258,7 @@ Determine if human reviews are used for [Assignment: organization-defined inform
 
 *Baselines: Not in a baseline*
 
-Provide the capability for privileged administrators to enable and disable [Assignment: organization-defined organization-defined security or privacy policy filters] under the following conditions: [Assignment: organization-defined organization-defined conditions].
+Provide the capability for privileged administrators to enable and disable [Assignment: organization-defined security or privacy policy filters] under the following conditions: [Assignment: organization-defined conditions].
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(10)</summary>
@@ -284,7 +284,7 @@ Determine if:
 
 *Baselines: Not in a baseline*
 
-Provide the capability for privileged administrators to configure [Assignment: organization-defined organization-defined security or privacy policy filters] to support different security or privacy policies.
+Provide the capability for privileged administrators to configure [Assignment: organization-defined security or privacy policy filters] to support different security or privacy policies.
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(11)</summary>
@@ -356,7 +356,7 @@ Determine if when transferring information between different security domains, i
 
 *Baselines: Not in a baseline*
 
-When transferring information between different security domains, implement [Assignment: organization-defined organization-defined security or privacy policy filters] requiring fully enumerated formats that restrict data structure and content.
+When transferring information between different security domains, implement [Assignment: organization-defined security or privacy policy filters] requiring fully enumerated formats that restrict data structure and content.
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(14)</summary>
@@ -382,7 +382,7 @@ Determine if:
 
 *Baselines: Not in a baseline*
 
-When transferring information between different security domains, examine the information for the presence of [Assignment: organization-defined unsanctioned information] and prohibit the transfer of such information in accordance with the [Assignment: organization-defined organization-defined security or privacy policy].
+When transferring information between different security domains, examine the information for the presence of [Assignment: organization-defined unsanctioned information] and prohibit the transfer of such information in accordance with the [Assignment: organization-defined security or privacy policy].
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(15)</summary>
@@ -432,7 +432,7 @@ Determine if source and destination points are uniquely identified and authentic
 
 *Baselines: Not in a baseline*
 
-When transferring information between different security domains, implement [Assignment: organization-defined organization-defined security or privacy policy filters] on metadata.
+When transferring information between different security domains, implement [Assignment: organization-defined security or privacy policy filters] on metadata.
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(19)</summary>
@@ -481,7 +481,7 @@ Determine if [Assignment: organization-defined solutions in approved configurati
 
 *Baselines: Not in a baseline*
 
-Separate information flows logically or physically using [Assignment: organization-defined organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations].
+Separate information flows logically or physically using [Assignment: organization-defined mechanisms and/or techniques] to accomplish [Assignment: organization-defined required separations].
 
 <details>
 <summary>Discussion and assessment objectives for AC-4(21)</summary>

@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-Restrict access to [Assignment: organization-defined organization-defined types of digital and/or non-digital media] to [Assignment: organization-defined organization-defined personnel or roles].
+Restrict access to [Assignment: organization-defined types of digital and/or non-digital media] to [Assignment: organization-defined personnel or roles].
 
 <details>
 <summary>NIST discussion</summary>

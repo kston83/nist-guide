@@ -29,7 +29,8 @@ const CASES = [
 	['SC-7(21)', '/controls/sc/sc-7/', '#sc-721-'],
 	['SI-4(5)', '/controls/si/si-4/', '#si-45-'],
 	['account management', '/controls/ac/ac-2/'],
-	// Template titles (the PRD's "incident response plan" case) are added when templates exist (Phase 2).
+	// Template titles: the PRD's "incident response plan" case.
+	['incident response plan', '/templates/plans/incident-response-plan/'],
 ];
 
 // The search box must use the wrapped Pagefind UI (Vite alias in astro.config.mjs).

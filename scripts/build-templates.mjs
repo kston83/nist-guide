@@ -40,7 +40,7 @@ import { assemblePolicy, policyBaselines } from '../src/lib/template-assemble.ts
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
-import { documentHeader, findPandoc, kitReadme, NO_DOCX, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
+import { documentHeader, findPandoc, kitReadme, NO_DOCX, registerCsv, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
 
 // Clean (ready to adopt) is the default file; annotated keeps the guidance (TPL-04).
 const EDITIONS = ['clean', 'annotated'];
@@ -174,7 +174,14 @@ if (pagesMode) {
 				),
 			);
 	}
-	for (const template of templates)
+	for (const template of templates) {
+		// Forms: the register as a spreadsheet too.
+		if (template.type === 'form')
+			await attempt(`templates/${template.id}.md register`, async () => {
+				const csv = registerCsv(template.body);
+				if (!csv) throw new Error('a form needs a table under a "## Register" heading');
+				await write(`${templateFile(template.id, 'clean')}.csv`, csv);
+			});
 		await attempt(`templates/${template.id}.md`, () =>
 			editions(
 				// Sources carry the title in front matter only; the document gets it as its heading.
@@ -184,6 +191,7 @@ if (pagesMode) {
 				{ url: `${homepage}templates/${template.id}/` },
 			),
 		);
+	}
 
 	// Zips: one pack per family, and the full kit (TPL-05).
 	const documents = { ...files };

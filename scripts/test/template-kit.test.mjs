@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { strFromU8, unzipSync } from 'fflate';
-import { documentHeader, findPandoc, kitReadme, toDocx, withHeader, zipDeterministic } from '../lib/template-kit.mjs';
+import { documentHeader, findPandoc, kitReadme, registerCsv, toDocx, withHeader, zipDeterministic } from '../lib/template-kit.mjs';
 
 const header = documentHeader({
 	version: '1.0.0',
@@ -34,6 +34,12 @@ test('zips are deterministic, sorted, and hold the files unchanged', () => {
 	const back = unzipSync(first);
 	assert.deepEqual(Object.keys(back), ['a/one.csv', 'b/two.md']);
 	assert.equal(strFromU8(back['b/two.md']), 'two');
+});
+
+test('a form register becomes a CSV header row; forms without one give null', () => {
+	const body = 'Intro.\n\n| Field | Meaning |\n| --- | --- |\n| A | B |\n\n## Register\n\n| ID | Weakness, short | Owner |\n| --- | --- | --- |\n| {{fill:ID}} | x | y |\n';
+	assert.equal(registerCsv(body), '﻿ID,"Weakness, short",Owner\r\n');
+	assert.equal(registerCsv('## Other\n\n| A |\n'), null);
 });
 
 test('the kit readme states version, basis, license and the not-legal-advice notice', () => {

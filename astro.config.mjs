@@ -149,6 +149,11 @@ export default defineConfig({
 							items: [{ autogenerate: { directory: 'templates/worksheets' } }],
 						},
 						{ label: 'Plans', collapsed: true, items: [{ autogenerate: { directory: 'templates/plans' } }] },
+						{
+							label: 'Forms and registers',
+							collapsed: true,
+							items: [{ autogenerate: { directory: 'templates/forms' } }],
+						},
 					],
 				},
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },

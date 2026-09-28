@@ -28,6 +28,26 @@ export function kitReadme({ version, basis, url }) {
 	].join('\r\n');
 }
 
+const csvCell = (s) => (/[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s);
+
+/**
+ * A form's register as a CSV file: the header row of the first table under its
+ * "## Register" heading, ready to fill in a spreadsheet. UTF-8 with a byte order
+ * mark and CRLF line ends, like the decision worksheets. Null when the form has
+ * no register table.
+ */
+export function registerCsv(body) {
+	const section = body.split(/^## Register\s*$/m)[1];
+	const header = section?.split('\n').find((l) => l.trim().startsWith('|'));
+	if (!header) return null;
+	const cells = header
+		.trim()
+		.replace(/^\||\|$/g, '')
+		.split('|')
+		.map((c) => c.trim());
+	return `﻿${cells.map(csvCell).join(',')}\r\n`;
+}
+
 // Fixed timestamp inside zips, so the same files always give the same bytes.
 const ZIP_TIME = new Date('2026-01-01T00:00:00Z');
 

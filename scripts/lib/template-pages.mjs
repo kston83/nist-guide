@@ -175,6 +175,9 @@ export function templatePage({ template, catalog, variables, version, order }) {
 		template.ssdf?.length ? `**SSDF practices:** ${template.ssdf.join(', ')}` : '',
 		'## Downloads',
 		downloadRows([{ label: 'All baselines', file: (e) => templateFile(template.id, e) }]),
+		template.type === 'form'
+			? `The register as a spreadsheet: [CSV](/downloads/${templateFile(template.id, 'clean')}.csv), with one column per field.`
+			: '',
 		'## Preview (annotated)',
 		preview(template.body, { variables, params: catalog.params, typical: template.typical }),
 	]

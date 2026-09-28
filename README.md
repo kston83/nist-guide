@@ -42,7 +42,7 @@ public/diagrams/       SVG diagrams used in pages
 scripts/import-oscal.mjs   Generates the control pages from NIST's OSCAL catalog
 scripts/lib/           Page-building logic for the generator (tested in scripts/test/)
 astro.config.mjs       Site settings and sidebar
-src/styles/theme.css   Colours and typefaces
+src/styles/theme.css   Colors and typefaces
 ```
 
 ## Writing guidance

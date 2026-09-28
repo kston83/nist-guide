@@ -1,0 +1,34 @@
+# Spell check (PRD QA-03): npm run spell. Hand-written prose only; NIST text
+# between the nist markers is generated and left as NIST wrote it.
+version: '0.2'
+language: en-US
+dictionaryDefinitions:
+  - name: rmf-terms
+    path: ./cspell-words.txt
+    addWords: true
+dictionaries: [rmf-terms]
+files:
+  - '**/*.{md,mdx}'
+  - 'templates/**/*.{md,yml}'
+ignorePaths:
+  - node_modules/**
+  - dist/**
+  - .astro/**
+  - .cache/**
+  - src/content/docs/reference/changelog.md
+  - src/content/docs/controls/baselines/**
+  - package-lock.json
+ignoreRegExpList:
+  - nist-block
+  - template-variable
+  - markdown-link-target
+  - inline-code
+patterns:
+  - name: inline-code
+    pattern: '/`[^`\n]*`/g'
+  - name: nist-block
+    pattern: '/<!-- nist:start -->[\s\S]*?<!-- nist:end -->/g'
+  - name: template-variable
+    pattern: '/\{\{[^}]*\}\}/g'
+  - name: markdown-link-target
+    pattern: '/\]\([^)]*\)/g'

@@ -492,7 +492,7 @@ The site stays fully static and free to host; anything that needs a server, a da
 | Generated files | Pages committed to git so edit links and diffs work; never hand-edited between `nist:start` and `nist:end`. Binary downloads built in CI, never committed |
 | Browsers | Last two versions of Chrome, Edge, Firefox and Safari; mobile layout from 360 px wide |
 | Documents | `.docx` opens cleanly in current Microsoft Word and LibreOffice |
-| Styling | Keep the existing tokens in `theme.css` (Public Sans, Source Serif 4, one teal accent). No new colours without a reason |
+| Styling | Keep the existing tokens in `theme.css` (Public Sans, Source Serif 4, one teal accent). No new colors without a reason |
 | Actions security | Actions pinned to full commit SHAs; `permissions: {}` at top level with per-job least privilege; only allow-listed actions |
 
 ## Delivery phases

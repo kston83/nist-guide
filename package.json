@@ -12,7 +12,8 @@
     "check:links": "node scripts/check-links.mjs",
     "check:search": "node scripts/check-search.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
-    "lint": "markdownlint-cli2 && npm run lint:templates",
+    "lint": "markdownlint-cli2 && npm run lint:templates && npm run spell",
+    "spell": "cspell --no-progress --gitignore \"**/*.{md,mdx}\" \"templates/**/*.{md,yml}\"",
     "test": "node --test \"scripts/test/*.test.mjs\"",
     "astro": "astro",
     "kit": "node --disable-warning=ExperimentalWarning scripts/build-templates.mjs",
@@ -33,6 +34,7 @@
     "yaml": "^2.9.1"
   },
   "devDependencies": {
+    "cspell": "^10.3.5",
     "markdownlint-cli2": "^0.23.3",
     "pa11y-ci": "^4.1.1"
   },

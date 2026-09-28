@@ -36,6 +36,13 @@ One or two sentences on what this control really asks for in practice.
 **Technology notes.** Links to technology playbooks that implement it.
 ```
 
+## Front matter rules
+
+The build checks these fields and fails with a message naming the page and the bad value:
+
+- `controls` lists lowercase ids of active SP 800-53 controls or enhancements, as NIST writes them in OSCAL: `ac-2` for AC-2, `ac-2.3` for AC-2(3). Withdrawn controls are rejected. The list of valid ids is `src/data/control-ids.json`, written by `npm run controls`.
+- `industries` and `technologies` are slugs: lowercase letters and digits, with single hyphens between words (`entra-id`, not `Entra_ID`).
+
 ## Industry guide
 
 Save as `src/content/docs/industries/<industry>.md`.
@@ -45,6 +52,7 @@ Save as `src/content/docs/industries/<industry>.md`.
 title: Healthcare
 description: Applying the RMF and SP 800-53 to systems that handle protected health information.
 industries: [healthcare]
+controls: [ac-2, au-2]           # controls this page gives guidance on
 ---
 
 One-paragraph summary: who this applies to and the main rules alongside 800-53.
@@ -77,6 +85,7 @@ Save as `src/content/docs/technology/<platform>.md`.
 title: Microsoft Entra ID
 description: Meeting and evidencing identity and access controls in Microsoft Entra ID.
 technologies: [entra-id]
+controls: [ac-2, ia-2, ia-5]      # controls this page gives guidance on
 ---
 
 One-paragraph summary: what the platform is and which controls it helps with.

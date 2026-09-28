@@ -28,6 +28,20 @@ export function collectParams(catalog) {
 	return params;
 }
 
+// Every active (not withdrawn) control and enhancement id, in catalog order,
+// for example "ac-2" and "ac-2.3". The content schema checks `controls`
+// front matter against this list (PRD QA-04).
+export function activeControlIds(catalog) {
+	const ids = [];
+	for (const g of catalog.groups)
+		for (const c of g.controls) {
+			if (isWithdrawn(c)) continue;
+			ids.push(c.id);
+			for (const e of c.controls ?? []) if (!isWithdrawn(e)) ids.push(e.id);
+		}
+	return ids;
+}
+
 // Parameter placeholders in NIST's own style: [Assignment: ...] or [Selection: ...].
 export function createParamRenderer(params) {
 	function renderParam(id) {

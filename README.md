@@ -54,7 +54,7 @@ src/styles/theme.css   Colours and typefaces
 The generator reads NIST's [oscal-content](https://github.com/usnistgov/oscal-content) repository at a pinned commit (`OSCAL_REF` in `scripts/import-oscal.mjs`), so every machine and CI run produces the same pages. When NIST publishes a new SP 800-53 release:
 
 1. Set `OSCAL_REF` to the commit of the new oscal-content release tag.
-2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page. Guidance sections and hand-set front matter are kept.
+2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page and the list of valid control ids (`src/data/control-ids.json`). Guidance sections and hand-set front matter are kept.
 3. Review the changes with `git diff` and open a pull request.
 
 ## Using a custom domain later

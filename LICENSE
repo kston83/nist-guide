@@ -6,6 +6,16 @@ except text reproduced from NIST publications) is licensed under the Creative
 Commons Attribution 4.0 International License (CC BY 4.0):
 https://creativecommons.org/licenses/by/4.0/
 
+Template license
+================
+
+Program templates (the files under templates/, the template pages generated
+from them under src/content/docs/templates, and the downloadable kit built from
+them) are dedicated to the public domain under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/
+You may adopt, modify and redistribute them, including inside your own
+policies and plans, without attribution.
+
 Control statements, discussion and assessment objectives reproduced from NIST
 SP 800-53 Rev. 5 and SP 800-53A Rev. 5 are works of the U.S. government and are
 not subject to copyright in the United States.
@@ -15,7 +25,7 @@ Code license
 
 The site configuration, components and scripts are licensed under the MIT License.
 
-Copyright (c) 2026 Your Name
+Copyright (c) 2026 Kristopher Stone
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

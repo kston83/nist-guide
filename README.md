@@ -1,24 +1,12 @@
 # RMF Field Guide
 
-A practitioner's guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems. Built with [Astro Starlight](https://starlight.astro.build) and published on GitHub Pages.
+A practitioner's guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems, by Kristopher Stone. Built with [Astro Starlight](https://starlight.astro.build) and published on GitHub Pages at <https://kston83.github.io/nist-guide/>.
 
-## Publish it (one time, about 10 minutes)
+Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); progress is in [`PROGRESS.md`](PROGRESS.md).
 
-1. **Create the repository.** On GitHub, create a new public repository named exactly `<your-username>.github.io`. This name makes the site appear at `https://<your-username>.github.io`.
-2. **Set your username.** In `astro.config.mjs`, change `GITHUB_USER` to your GitHub username. Replace "Your Name" in `src/content/docs/index.mdx`, `src/content/docs/about.md` and `LICENSE`.
-3. **Push the code.**
-   ```sh
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-username>.github.io.git
-   git push -u origin main
-   ```
-4. **Turn on Pages.** In the repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-5. **Wait for the first deploy.** The **Actions** tab shows the "Deploy to GitHub Pages" run. When it finishes (about two minutes), the site is live.
+## How it's published
 
-Every later push to `main` rebuilds and republishes the site automatically.
+`main` is protected. Changes land through a pull request, and the **Check** workflow (build and link check) must pass before merge. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.
 
 ## Work on it locally
 

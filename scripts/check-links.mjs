@@ -42,6 +42,11 @@ function pageUrl(file) {
 	return new URL(base + rel.replace(/index\.html$/, ''), origin);
 }
 
+// A local build without pandoc skips .docx downloads and leaves this marker
+// (scripts/build-templates.mjs); CI always builds them, so there it never applies.
+const noDocx = !process.env.CI && fs.existsSync(path.join(DIST, 'downloads', '.no-docx'));
+let skippedDocx = 0;
+
 const broken = [];
 for (const [file, html] of pages) {
 	// The 404 page is served at every missing URL, and its canonical link points at /404/.
@@ -53,7 +58,9 @@ for (const [file, html] of pages) {
 		const url = new URL(value, here);
 		if (url.origin !== origin.origin) continue;
 		const target = resolveFile(url.pathname);
-		if (!target) {
+		if (!target && noDocx && url.pathname.startsWith(`${base}downloads/`) && url.pathname.endsWith('.docx')) {
+			skippedDocx++;
+		} else if (!target) {
 			broken.push(`${file}: ${value} (no such page)`);
 		} else if (url.hash && target.endsWith('.html')) {
 			const id = decodeURIComponent(url.hash.slice(1));
@@ -67,4 +74,5 @@ if (broken.length) {
 	for (const b of broken) console.error(`  ${b}`);
 	process.exit(1);
 }
+if (skippedDocx) console.warn(`Skipped ${skippedDocx} .docx link(s): this build has no .docx files (pandoc not found).`);
 console.log(`Checked ${pages.size} pages under ${base}: no broken internal links.`);

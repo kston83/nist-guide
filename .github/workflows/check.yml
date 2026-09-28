@@ -53,7 +53,17 @@ jobs:
           npm run templates
           git add --intent-to-add src/content/docs/templates
           git diff --exit-code -- src/content/docs/templates
-      - name: Build the site
+      - name: Install pandoc (pinned) for the .docx kit
+        # Keep in step with deploy.yml. Checksum from the release's published sha256 digest.
+        env:
+          PANDOC_VERSION: '3.11'
+          PANDOC_SHA256: 89d4c9d97818c62a97157f0072844e4602c6cee795bf84abd1aee7273abcda99
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/pandoc.deb" "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          echo "${PANDOC_SHA256}  $RUNNER_TEMP/pandoc.deb" | sha256sum -c -
+          sudo dpkg -i "$RUNNER_TEMP/pandoc.deb"
+          pandoc --version | head -1
+      - name: Build the site and the template kit
         run: npm run build
       - name: Check internal links and anchors
         run: npm run check:links

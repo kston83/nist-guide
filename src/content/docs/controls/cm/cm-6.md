@@ -125,7 +125,7 @@ Determine if:
 
 CM-6 asks you to set every component to the most restrictive settings that still let the system do its job, using a published secure configuration, and to approve and record every deviation. It is one of the most tested controls because scanners make it easy to measure.
 
-**Common implementations.** Vendor security baselines or checklists from the NIST National Checklist Program ([SP 800-70 Rev. 4](https://csrc.nist.gov/pubs/sp/800/70/r4/final)) chosen per component type and recorded in a baseline configuration standard. Settings applied through group policy, configuration management or infrastructure as code. Compliance scans compare components against the standard, and deviations are approved and recorded with their reason.
+**Common implementations.** Vendor security baselines or checklists from the NIST National Checklist Program ([SP 800-70 Rev. 5](https://csrc.nist.gov/pubs/sp/800/70/r5/final), May 2026) chosen per component type and recorded in a baseline configuration standard. Settings applied through group policy, configuration management or infrastructure as code. Compliance scans compare components against the standard, and deviations are approved and recorded with their reason.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

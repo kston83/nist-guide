@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { visit } from 'unist-util-visit';
 
 // ---------------------------------------------------------------------------
 // Edit these three values, then push. Everything else can stay as it is.
@@ -15,6 +16,31 @@ const REPO_NAME = 'nist-guide';
 const SITE_URL = `https://${GITHUB_USER}.github.io`;
 const BASE_PATH = `/${REPO_NAME}`;
 const REPO_URL = `https://github.com/${GITHUB_USER}/${REPO_NAME}`;
+
+// Content pages write internal links/images as root-relative paths (e.g.
+// "/rmf/roles/"), which Astro does not rebase automatically the way it does
+// for Starlight's own sidebar and pagination links. This rehype plugin
+// prepends BASE_PATH to any href/src that starts with "/" but not already
+// with the base, so content links keep working under a repo subpath.
+function rehypeRebaseLinks() {
+	return (tree) => {
+		if (BASE_PATH === '/') return;
+		visit(tree, 'element', (node) => {
+			for (const attr of ['href', 'src']) {
+				const value = node.properties?.[attr];
+				if (
+					typeof value === 'string' &&
+					value.startsWith('/') &&
+					!value.startsWith('//') &&
+					!value.startsWith(`${BASE_PATH}/`) &&
+					value !== BASE_PATH
+				) {
+					node.properties[attr] = `${BASE_PATH}${value}`;
+				}
+			}
+		});
+	};
+}
 
 // The 20 SP 800-53 Rev. 5 families, in catalog order.
 const families = [
@@ -31,6 +57,9 @@ const families = [
 export default defineConfig({
 	site: SITE_URL,
 	base: BASE_PATH,
+	markdown: {
+		rehypePlugins: [rehypeRebaseLinks],
+	},
 	integrations: [
 		starlight({
 			title: 'RMF Field Guide',

@@ -74,6 +74,7 @@ export function templateSchemas(catalog: CatalogData) {
 		});
 
 	// templates/{plans,standards,procedures,forms}/**/*.md: one file per artifact.
+	// `typical` gives the typical value for a {{param:...}} field of one of its controls.
 	const template = z
 		.object({
 			...common,
@@ -81,8 +82,19 @@ export function templateSchemas(catalog: CatalogData) {
 			description: z.string().min(1),
 			controls: z.array(controlId).min(1, 'List the controls this artifact satisfies or supports.'),
 			ssdf: z.array(ssdfId).optional(),
+			typical: z.record(z.string(), z.string().min(1)).optional(),
 		})
-		.strict();
+		.strict()
+		.superRefine((t, ctx) => {
+			const own = new Set(t.controls.flatMap((c) => [...(paramsOf.get(c) ?? [])]));
+			for (const id of Object.keys(t.typical ?? {}))
+				if (!own.has(id))
+					ctx.addIssue({
+						code: 'custom',
+						path: ['typical', id],
+						message: `"${id}" is not a parameter of any control this template lists (${t.controls.join(', ')}).`,
+					});
+		});
 
 	// templates/policy/<family>/_family.yml: family metadata and decision questions.
 	const family = z

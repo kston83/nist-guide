@@ -100,6 +100,9 @@ export function lintTemplates({ variables, common, families, clauses, templates 
 	for (const template of templates) {
 		const where = `templates/${template.id}.md`;
 		if (!template.controls?.length) problems.push(`${where}: lists no controls`);
+		const shown = new Set(variablesIn(template.body).filter((r) => r.startsWith('param:')).map((r) => r.slice(6)));
+		for (const id of Object.keys(template.typical ?? {}))
+			if (!shown.has(id)) problems.push(`${where}: typical value for ${id}, which the template never shows as a field`);
 		problems.push(...statementProblems(where, template.body).problems);
 		noteUses(template.body);
 	}

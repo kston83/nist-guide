@@ -63,6 +63,14 @@ test('templates need a known type, at least one control, and valid SSDF ids', ()
 	assert.match(messages(template.safeParse({ ...goodTemplate, ssdf: ['XX.1'] }))[0], /SSDF practice id/);
 });
 
+test('template typical values must belong to one of the listed controls', () => {
+	assert.ok(template.safeParse({ ...goodTemplate, controls: ['ac-2', 'ir-8'], typical: { 'ac-02_odp.01': 'x' } }).success);
+	assert.match(
+		messages(template.safeParse({ ...goodTemplate, typical: { 'ac-02_odp.01': 'x' } }))[0],
+		/^typical\.ac-02_odp\.01: "ac-02_odp\.01" is not a parameter of any control this template lists \(ir-8\)/,
+	);
+});
+
 test('family metadata needs a title and role key; questions name controls and who decides', () => {
 	const good = {
 		title: 'Access Control',

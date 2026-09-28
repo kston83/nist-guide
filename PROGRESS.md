@@ -26,6 +26,16 @@ Phase 2 work is in stacked pull requests, each based on the one before it, start
 
 Exit criteria: 31 controls at `guidance: draft` or better; 5 family policies downloadable per baseline; kit v1.0.0 released.
 
+### Next session (handoff, 2026-09-28)
+
+1. Merge the stack #11 to #33 in order; after each merge, retarget the next PR to `main`.
+2. Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9. Batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4. Scratch scripts are not in the repo; write guidance below each control's marker and add `guidance: draft`.
+3. Verified 2026-09-28 for RA-5 and SI-2 federal notes (cite with "as of September 2026"):
+   - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
+   - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.
+4. P2 items: CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges, QA-03 spell check (cspell), PRES-06 Word styling (ask the owner about the look first), FEAT-04 changelog, TPL-10 kit v1.0.0 release.
+5. Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it.
+
 ### Carried from Phase 1
 
 - ~~**NAV-01:** "incident response plan" returns the template first~~ (done, #27).

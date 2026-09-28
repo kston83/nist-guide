@@ -8,6 +8,7 @@ control:
   id: CA-5
   family: CA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -78,3 +79,29 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+The plan of action and milestones (POA&M) records every known weakness until it is fixed or formally accepted. It is the connection between assessments and remediation, and assessors read it closely because it shows whether the organization acts on what it finds.
+
+**Common implementations.** One POA&M per system, kept in a spreadsheet or GRC tool, fed by assessment reports, vulnerability scans, audits and continuous monitoring. Each item has an owner, milestones and a scheduled completion date; changes to dates are explained. The [POA&M template](/templates/forms/plan-of-action-and-milestones/) lists the fields.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Update frequency (b) | At least monthly, and whenever an assessment, audit, scan or monitoring activity finds a new weakness |
+
+**Evidence assessors ask for.**
+
+- The current POA&M and its update history
+- Traceability from each "other than satisfied" finding and each unremediated scan result to a POA&M item
+- Evidence for items marked completed
+
+**Inheritance.** Each system keeps its own POA&M; weaknesses in inherited common controls belong on the provider's POA&M.
+
+**Common findings.**
+
+- Assessment findings or scan results missing from the POA&M.
+- Scheduled completion dates moved repeatedly without explanation.
+- Items closed without evidence of the fix.

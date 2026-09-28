@@ -8,6 +8,7 @@ control:
   id: CM-8
   family: CM
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -279,3 +280,33 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+You cannot protect what you have not counted. CM-8 requires an inventory of every component in the system boundary, accurate, without duplicates, and detailed enough to track ownership, versions and location. Nearly every other control depends on it.
+
+**Common implementations.** Automated discovery through endpoint management, cloud asset inventory and network scans, reconciled into one authoritative inventory. Inventory updated as part of installations and removals (CM-8(1)). Network access control or scans that detect unauthorized devices and software (CM-8(3)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Information recorded per component (a.5) | Name, type, manufacturer and model, serial number or asset tag, software version, location, network address, owner and administrator |
+| Review frequency (b) | At least quarterly |
+| Unauthorized component detection (CM-8(3)) | Continuously, and at least weekly by scan, with network access disabled for unauthorized components and the security operations team notified |
+
+**Evidence assessors ask for.**
+
+- The inventory, with the fields listed above
+- A reconciliation of a network scan or cloud asset list against the inventory
+- Records of recent additions and removals
+
+**Inheritance.** Discovery tools are often common; each system owns an inventory scoped to its boundary.
+
+**Common findings.**
+
+- Components found by scans that are not in the inventory.
+- Cloud resources and virtual machines missing because the inventory tracks only hardware.
+- Components listed in two systems' inventories.
+
+**Enhancements in the Moderate baseline.** [CM-8(1)](#cm-8.1) updates during installation and removal and [CM-8(3)](#cm-8.3) automated unauthorized component detection. High adds [CM-8(2)](#cm-8.2) and [CM-8(4)](#cm-8.4).

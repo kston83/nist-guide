@@ -8,6 +8,7 @@ control:
   id: CA-2
   family: CA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -151,3 +152,28 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CA-2 is the formal control assessment: an assessor, independent at Moderate (CA-2(1)), tests whether each control is implemented correctly, operating as intended and producing the desired outcome. The assessment plan is approved before testing starts, and the report goes to the people who decide on the system's authorization.
+
+**Common implementations.** An assessment before initial authorization, then an annual assessment of a subset of controls under the continuous monitoring strategy (CA-7), so every control is assessed over the authorization period. Assessments follow the objectives and methods in SP 800-53A, shown on each control page. Independence comes from a separate internal team or a third-party assessor.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Assessment frequency (d) | Annually for a subset of controls, set by the continuous monitoring strategy, so all controls are assessed within the authorization period |
+| Who receives results (f) | The authorizing official, the system owner and the Chief Information Security Officer |
+
+**Evidence assessors ask for.** Assessors produce CA-2 evidence rather than request it: the approved assessment plan, the assessment report, and proof the report reached the named recipients.
+
+**Inheritance.** The assessment of common controls is done once by their provider and reused; the system assessment covers system-specific and hybrid controls.
+
+**Common findings.**
+
+- Assessment plans approved after testing started.
+- Assessors who also operate the system they assess.
+- Reports that list findings without recording them in the POA&M (CA-5).
+
+**Enhancements in the Moderate baseline.** [CA-2(1)](#ca-2.1) independent assessors. High adds [CA-2(2)](#ca-2.2) specialized assessments.

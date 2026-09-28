@@ -8,6 +8,7 @@ control:
   id: CP-2
   family: CP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -266,3 +267,33 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+The contingency plan says how the system's essential functions continue, and how the system is restored, after a disruption. [NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final), Contingency Planning Guide for Federal Information Systems, describes the plan's structure and the business impact analysis that sets recovery objectives.
+
+**Common implementations.** A business impact analysis that sets recovery time and recovery point objectives. A plan with activation criteria, roles and contacts, recovery procedures and a restoration order. Coordination with incident response (CP-2c) and with related plans such as continuity of operations (CP-2(1)). The plan is tested (CP-4), and lessons learned update it (CP-2g).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Plan reviewers and approvers (a.7) | The system owner, with approval by the authorizing official or business owner |
+| Distribution and change communication (b, f) | The contingency team members, by role, and the operations, facilities and communications functions |
+| Review frequency (d) | Annually |
+
+**Evidence assessors ask for.**
+
+- The approved contingency plan and business impact analysis
+- Records of plan distribution and of the last review
+- Test results and the changes made from them
+
+**Inheritance.** Data center and cloud provider resilience is often inherited; the system owns its plan and recovery objectives.
+
+**Common findings.**
+
+- Recovery objectives with no business impact analysis behind them.
+- Contact lists out of date.
+- Plans never tested, or tested without recording the results.
+
+**Enhancements in the Moderate baseline.** [CP-2(1)](#cp-2.1) coordinate with related plans, [CP-2(3)](#cp-2.3) resume mission and business functions and [CP-2(8)](#cp-2.8) identify critical assets. High adds [CP-2(2)](#cp-2.2) and [CP-2(5)](#cp-2.5).

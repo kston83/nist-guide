@@ -18,7 +18,7 @@ Phase 2 work is in stacked pull requests, each based on the one before it, start
 | Family policies: AC, AU, CM | Draft | #22 to #24 |
 | Family policy: IA | Draft | #25 |
 | Family policy: IR | Draft | #26 |
-| Guidance for the 30 priority controls | Batch 1 of 4 (7 controls + AC-2) | #31 |
+| Guidance for the 30 priority controls | Batches 1 and 2 of 4 (16 controls + AC-2) | #31, #32 |
 | Incident Response Plan | Draft | #27 |
 | System Security Plan | Draft | #28 |
 | POA&M template | Draft | #29 |
@@ -37,6 +37,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: guidance batch 2 | Draft | 2026-09-28 | Guidance for CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2 and CP-9; CM-6 cites SP 800-70 Rev. 4 and CP-2 cites SP 800-34 Rev. 1 (both current, checked at csrc.nist.gov) |
 | Content: guidance batch 1 | Draft | 2026-09-28 | Guidance (`guidance: draft`) for AC-3, AC-6, AC-17, AT-2, AU-2, AU-6 and AU-12, in the AC-2 format: how to apply it, common implementations, typical parameter values (matching the policy clauses), evidence, inheritance, common findings, baseline enhancements. AC-2 marked `guidance: draft` and its parameter note reworded for any organization |
 | PROG-02 | Done | 2026-09-28 | `templates/starter-kit.yml` names the PRD set; items are a template, `include: policies` or `worksheets`, or a planned artifact. `npm run kit` builds `starter-kit-<baseline>.zip` (Low, Moderate, High) (Moderate: SSP, IR plan, POA&M with CSV, five family policies and five worksheets, both editions, Word and Markdown). Generated page `/templates/starter-kit/` lists each item as included or coming (Information Security Program Plan, Risk Management Strategy, Rules of Behavior and system inventory are Phase 3 artifacts), links from the sidebar and program overview. 3 tests |
 | Content: POA&M | Draft | 2026-09-28 | `templates/forms/plan-of-action-and-milestones.md` (stage Operate): usage rules citing CA-5a and CA-5b, a field guide, and a register. The kit exports any form register (the table under `## Register`) as a CSV header row; form pages link it. Forms sidebar group |

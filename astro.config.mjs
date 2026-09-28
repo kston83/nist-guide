@@ -131,6 +131,8 @@ export default defineConfig({
 					label: 'SP 800-53 controls',
 					items: [
 						{ label: 'Using the control pages', slug: 'controls' },
+						{ label: 'Guidance coverage', slug: 'controls/coverage' },
+						{ label: 'Baselines', collapsed: true, items: [{ autogenerate: { directory: 'controls/baselines' } }] },
 						...families.map(([id, name]) => ({
 							label: `${name} (${id.toUpperCase()})`,
 							collapsed: true,

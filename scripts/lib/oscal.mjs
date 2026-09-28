@@ -345,5 +345,54 @@ export function buildPages(catalog, profiles) {
 		body: [note, `| Family | Name | Active controls |\n| --- | --- | --- |\n${familyRows.join('\n')}`].join('\n\n'),
 	});
 
+	pages.push(...baselinePages(catalog, inBaseline, note, Object.keys(profiles)));
+
 	return { version, pages };
+}
+
+// One page per baseline (PRD CTRL-04): every control and enhancement in it, by
+// family in catalog order. `count` is checked against the profile by the caller.
+function baselinePages(catalog, inBaseline, note, names) {
+	const version = catalog.metadata.version;
+	return names.map((name, i) => {
+		const sections = [];
+		let controls = 0;
+		let enhancements = 0;
+		for (const group of catalog.groups) {
+			const rows = [];
+			for (const c of group.controls) {
+				if (isWithdrawn(c)) continue;
+				const members = [c, ...(c.controls ?? []).filter((e) => !isWithdrawn(e))].filter((x) =>
+					(inBaseline.get(x.id) ?? []).includes(name),
+				);
+				for (const x of members) {
+					rows.push(`| [${label(x)}](${controlUrl(x.id)}) | ${x.title} |`);
+					if (x === c) controls++;
+					else enhancements++;
+				}
+			}
+			if (rows.length)
+				sections.push(
+					`## ${group.title} (${group.id.toUpperCase()})\n\n${rows.length} in this baseline.\n\n| Control | Title |\n| --- | --- |\n${rows.join('\n')}`,
+				);
+		}
+		const count = controls + enhancements;
+		const n = (k, word) => `${k} ${word}${k === 1 ? '' : 's'}`;
+		const kind = name === 'Privacy' ? 'privacy baseline' : `${name} security control baseline`;
+		const frontmatter = [
+			'---',
+			`title: ${yaml(`${name} baseline`)}`,
+			`description: ${yaml(`Every control and enhancement in the NIST SP 800-53B ${kind}, by family, with links to each control page.`)}`,
+			'sidebar:',
+			`  label: ${yaml(name)}`,
+			`  order: ${i + 1}`,
+			'---',
+		].join('\n');
+		const body = [
+			note,
+			`The SP 800-53B ${kind} in SP 800-53 release ${version} has **${count}** controls and enhancements: ${n(controls, 'control')} and ${n(enhancements, 'enhancement')}, in ${sections.length === 1 ? '1 family' : `${sections.length} families`}. Start from it in the [Select](/rmf/steps/select/) step, then tailor it to the system.`,
+			...sections,
+		].join('\n\n');
+		return { file: `baselines/${name.toLowerCase()}.md`, frontmatter, body, tail: '', baseline: name, count };
+	});
 }

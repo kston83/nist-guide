@@ -1,0 +1,85 @@
+---
+// Coverage page (PRD CTRL-05): guidance and policy-clause status for every
+// active control, with totals by family and by baseline. Built from the
+// collections at build time, so it is current after every merge.
+import catalog from '../data/catalog.json';
+import { BASELINES, coverageRows, totalsBy, type Totals } from '../lib/coverage';
+import { coverageSources } from '../lib/coverage-data';
+import { withBase } from '../lib/url';
+
+const rows = coverageRows(catalog.controls, await coverageSources());
+const byFamily = totalsBy(rows, (r) => [r.family]);
+const byBaseline = totalsBy(rows, (r) => r.baselines, BASELINES);
+const all = totalsBy(rows, () => ['All controls'])[0];
+const done = (n: Record<string, number>) => n.draft + n.reviewed;
+const cell = (t: Totals, key: 'guidance' | 'clause') =>
+	`${done(t[key])} (${t[key].reviewed} reviewed)`;
+const href = (id: string) => withBase(`/controls/${id.split('-')[0]}/${id}/`);
+---
+
+<p>
+	Of {all.controls} active controls, <strong>{done(all.guidance)}</strong> have guidance ({all.guidance.reviewed} reviewed)
+	and <strong>{done(all.clause)}</strong> have a policy clause ({all.clause.reviewed} reviewed).
+</p>
+
+<h2 id="by-baseline">By baseline</h2>
+<p>Base controls only; enhancements are covered on their control's page.</p>
+<table>
+	<thead><tr><th>Baseline</th><th>Controls</th><th>With guidance</th><th>With a policy clause</th></tr></thead>
+	<tbody>
+		{
+			byBaseline.map((t) => (
+				<tr>
+					<td><a href={withBase(`/controls/baselines/${t.group.toLowerCase()}/`)}>{t.group}</a></td>
+					<td>{t.controls}</td>
+					<td>{cell(t, 'guidance')}</td>
+					<td>{cell(t, 'clause')}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+
+<h2 id="by-family">By family</h2>
+<table>
+	<thead><tr><th>Family</th><th>Controls</th><th>With guidance</th><th>With a policy clause</th></tr></thead>
+	<tbody>
+		{
+			byFamily.map((t) => (
+				<tr>
+					<td><a href={withBase(`/controls/${t.group}/`)}>{t.group.toUpperCase()}</a></td>
+					<td>{t.controls}</td>
+					<td>{cell(t, 'guidance')}</td>
+					<td>{cell(t, 'clause')}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+
+<h2 id="all-controls">All controls</h2>
+<table>
+	<thead><tr><th>Control</th><th>Title</th><th>Baselines</th><th>Guidance</th><th>Policy clause</th></tr></thead>
+	<tbody>
+		{
+			rows.map((r) => (
+				<tr>
+					<td><a href={href(r.id)}>{r.label}</a></td>
+					<td>{r.title}</td>
+					<td>{r.baselines.join(', ') || '—'}</td>
+					<td class={`s-${r.guidance}`}>{r.guidance}</td>
+					<td class={`s-${r.clause}`}>{r.clause}</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+
+<style>
+	.s-none {
+		color: var(--sl-color-gray-3);
+	}
+	.s-reviewed {
+		font-weight: 600;
+	}
+</style>

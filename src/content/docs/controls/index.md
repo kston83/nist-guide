@@ -14,6 +14,8 @@ Every active SP 800-53 Rev. 5 control has its own page, generated from NIST's of
 - **Assessment objectives.** The SP 800-53A "determine if" statements and the examine, interview and test objects an assessor will use (see [Assess](/rmf/steps/assess/)).
 - **How to apply it.** Practical guidance from this guide: common implementations, evidence, inheritance and findings. This section is being written control by control, starting with the most-assessed controls; [AC-2](/controls/ac/ac-2/) shows the format.
 
+Badges near each title show whether the page has guidance and a policy clause yet, and whether each is a draft or reviewed; [Guidance coverage](/controls/coverage/) totals them. To see every control in one baseline, use the baseline lists: [Low](/controls/baselines/low/), [Moderate](/controls/baselines/moderate/), [High](/controls/baselines/high/) and [Privacy](/controls/baselines/privacy/).
+
 ## Families
 
 <!-- nist:start -->

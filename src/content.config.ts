@@ -5,7 +5,10 @@ import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 import controlIds from './data/control-ids.json';
 import catalog from './data/catalog.json';
+import { readFileSync } from 'node:fs';
+import { parse as parseYaml } from 'yaml';
 import { clauseProblems, templateProblems, templateSchemas, type SourceEntry } from './lib/template-schema';
+import { renderVariables, VariableError } from './lib/template-vars';
 
 // Template sources in templates/ (PRD TPL-01). Ids are paths without the
 // extension ("policy/ac/ac-2.3"); the default slug would drop the dot.
@@ -24,6 +27,30 @@ function checked(loader: Loader, check: (entries: SourceEntry[]) => string[]): L
 	};
 }
 const families = new Set(catalog.controls.map((c) => c.family));
+
+// Every {{...}} in a source must render in all three targets (PRD TPL-02).
+const orgVariables = parseYaml(readFileSync('./templates/variables.yml', 'utf8')) ?? {};
+function variableProblems(entries: SourceEntry[]): string[] {
+	const problems: string[] = [];
+	for (const e of entries as (SourceEntry & { body?: string })[]) {
+		const ctx = {
+			variables: orgVariables,
+			params: catalog.params,
+			typical: e.data.typical as Record<string, string> | undefined,
+		};
+		try {
+			for (const target of ['site', 'md', 'docx'] as const) renderVariables(e.body ?? '', ctx, target);
+		} catch (err) {
+			if (!(err instanceof VariableError)) throw err;
+			problems.push(`templates/${e.id}.md: ${err.message}`);
+		}
+	}
+	return problems;
+}
+const both =
+	(...checks: ((entries: SourceEntry[]) => string[])[]) =>
+	(entries: SourceEntry[]) =>
+		checks.flatMap((check) => check(entries));
 
 // Front matter validation (PRD QA-04): a bad value fails the build.
 
@@ -71,7 +98,7 @@ export const collections = {
 	clauses: defineCollection({
 		loader: checked(
 			glob({ base: './templates', pattern: ['policy/*/*.md', '!policy/*/_*.md'], generateId: pathId }),
-			clauseProblems,
+			both(clauseProblems, variableProblems),
 		),
 		schema: templates.clause,
 	}),
@@ -79,7 +106,7 @@ export const collections = {
 	templates: defineCollection({
 		loader: checked(
 			glob({ base: './templates', pattern: '{plans,standards,procedures,forms}/**/*.md', generateId: pathId }),
-			templateProblems,
+			both(templateProblems, variableProblems),
 		),
 		schema: templates.template,
 	}),

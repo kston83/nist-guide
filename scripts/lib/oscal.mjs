@@ -86,7 +86,7 @@ const promptFrom = (guideline) =>
 	unlink(guideline ?? '')
 		.trim()
 		.replace(/[\s;.]*(?:\(if selected\))?[\s;.]*$/i, '')
-		.replace(/\s+(?:is|are|is\/are|has been|have been)\s+(?:defined|selected|identified|determined)$/i, '')
+		.replace(/\s+(?:is|are|is\/are|has been|have been)\s+(?:defined|selected|identified|determined|assigned)$/i, '')
 		.trim();
 
 /**

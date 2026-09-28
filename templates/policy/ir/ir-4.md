@@ -6,7 +6,7 @@ stage: core
 ---
 
 :::guidance
-The phases in IR-4a follow the incident handling life cycle NIST describes for incident response; the Incident Response Plan template carries the detail. Assessors ask for records of recent incidents that show each phase, and for evidence that a lesson learned changed a procedure.
+IR-4a names the phases of the incident handling life cycle from NIST SP 800-61 Rev. 2. Its successor, [SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025), organizes incident response around the CSF 2.0 Functions instead; the Incident Response Plan template follows Rev. 3 and still covers every IR-4a phase. Assessors ask for records of recent incidents that show each phase, and for evidence that a lesson learned changed a procedure.
 :::
 
 - The {{org:incident-response-team}} shall implement an incident handling capability, consistent with the incident response plan, that includes preparation, detection and analysis, containment, eradication and recovery. (IR-4a)

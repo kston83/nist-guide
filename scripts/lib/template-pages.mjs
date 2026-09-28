@@ -66,10 +66,16 @@ function page({ title, description, label, order, controls, body }) {
 		'',
 		GENERATED_NOTE,
 		'',
+		// Weighted so searching a template's name finds the template before the
+		// control page it serves (PRD NAV-01).
+		`<p class="tpl-lead" data-pagefind-weight="10">${escapeHtml(title)} template: ${escapeHtml(description)}</p>`,
+		'',
 		body.trim(),
 		'',
 	].join('\n');
 }
+
+const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const formats = (file) => `[Word](/downloads/${file}.docx) · [Markdown](/downloads/${file}.md)`;
 

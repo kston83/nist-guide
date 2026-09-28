@@ -177,7 +177,8 @@ if (pagesMode) {
 	for (const template of templates)
 		await attempt(`templates/${template.id}.md`, () =>
 			editions(
-				template.body,
+				// Sources carry the title in front matter only; the document gets it as its heading.
+				`# ${template.title}\n\n${template.body.replace(/^\n+/, '')}`,
 				{ variables, params: catalog.params, typical: template.typical },
 				(e) => templateFile(template.id, e),
 				{ url: `${homepage}templates/${template.id}/` },

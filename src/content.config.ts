@@ -55,6 +55,30 @@ const both =
 	(entries: SourceEntry[]) =>
 		checks.flatMap((check) => check(entries));
 
+// Control pages show each clause's statements (PRD TPL-06): replace the raw
+// rendering with the clean edition, variables as highlighted fields, rendered
+// through the site's Markdown pipeline. Runs after the checks above pass.
+function withStatements(loader: Loader): Loader {
+	return {
+		...loader,
+		load: async (context) => {
+			await loader.load(context);
+			for (const entry of context.store.values()) {
+				const ctx = { variables: orgVariables, params: catalog.params, typical: entry.data.typical as Record<string, string> };
+				const text = renderVariables(renderBlocks(entry.body ?? '', 'clean', 'site'), ctx, 'site');
+				// deferredRender off, or render() would compile the raw source file instead;
+				// a new digest, or the store keeps the glob loader's raw rendering.
+				context.store.set({
+					...entry,
+					digest: context.generateDigest(`statements:${text}`),
+					deferredRender: false,
+					rendered: await context.renderMarkdown(text),
+				});
+			}
+		},
+	};
+}
+
 // Front matter validation (PRD QA-04): a bad value fails the build.
 
 // Active SP 800-53 control and enhancement ids, written by `npm run controls`
@@ -99,9 +123,11 @@ export const collections = {
 	}),
 	// One policy clause per control or enhancement: templates/policy/<family>/<control>.md.
 	clauses: defineCollection({
-		loader: checked(
-			glob({ base: './templates', pattern: ['policy/*/*.md', '!policy/*/_*.md'], generateId: pathId }),
-			both(clauseProblems, variableProblems),
+		loader: withStatements(
+			checked(
+				glob({ base: './templates', pattern: ['policy/*/*.md', '!policy/*/_*.md'], generateId: pathId }),
+				both(clauseProblems, variableProblems),
+			),
 		),
 		schema: templates.clause,
 	}),

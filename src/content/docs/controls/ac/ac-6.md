@@ -8,6 +8,7 @@ control:
   id: AC-6
   family: AC
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -297,3 +298,35 @@ Determine if the principle of least privilege is employed, allowing only authori
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+Least privilege means every user and process has only the access its task needs. In practice that is two disciplines: separating privileged work from everyday work, and reviewing access often enough that privileges do not accumulate as people change roles.
+
+**Common implementations.** Separate administrator accounts for privileged work (AC-6(2)), with no email or web browsing from them. Privileged access management tooling that grants elevation just in time and records its use. Local administrator rights removed from workstations. Service accounts scoped to the resources they use. Periodic privilege reviews (AC-6(7)) run with the account reviews under AC-2.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who may access security functions (AC-6(1)) | The system administrators and security personnel named in the system security plan |
+| Who may hold privileged accounts (AC-6(5)) | The system administrators named in the system security plan |
+| Privilege review frequency (AC-6(7)) | Quarterly for privileged roles and at least annually for all other roles |
+
+**Evidence assessors ask for.**
+
+- A list of privileged accounts with their owners and justification
+- Proof that administrators use separate accounts for privileged work
+- Records of the last privilege review and the changes it made
+- Log entries showing privileged functions are recorded (AC-6(9))
+
+**Inheritance.** Privileged access management tools and workstation baselines are often common controls; the system still owns which roles are privileged and who holds them.
+
+**Common findings.**
+
+- Administrators using one account for email, browsing and administration.
+- Users with local administrator rights they do not need.
+- Service accounts with domain-wide or tenant-wide privileges.
+- Privilege reviews that never remove anything.
+
+**Enhancements in the Moderate baseline.** [AC-6(1)](#ac-6.1) access to security functions, [AC-6(2)](#ac-6.2) non-privileged accounts for nonsecurity functions, [AC-6(5)](#ac-6.5) privileged accounts, [AC-6(7)](#ac-6.7) review of user privileges, [AC-6(9)](#ac-6.9) logging privileged functions and [AC-6(10)](#ac-6.10) preventing non-privileged users from executing privileged functions. High adds [AC-6(3)](#ac-6.3).

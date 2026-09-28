@@ -8,6 +8,7 @@ control:
   id: AC-3
   family: AC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -423,3 +424,27 @@ Determine if approved authorizations for logical access to information and syste
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AC-3 is the enforcement half of access control: AC-2 decides who gets an account and what they are approved for, and AC-3 makes the system allow exactly that and nothing more. It applies to every layer that makes an access decision, from the operating system and database to the application and the cloud management console.
+
+**Common implementations.** Role-based access control in the identity provider and each application, with roles mapped to the access authorizations approved under AC-2. File and database permissions granted to groups, not individuals. Cloud identity and access management policies attached to roles, with no standing wildcard permissions. Application authorization checks enforced on the server, not only in the user interface.
+
+**Organization-defined parameters.** None in the base control.
+
+**Evidence assessors ask for.**
+
+- The access control policy and the role definitions for the system
+- A sample of accounts compared against their approved access requests
+- Screenshots or exports of permission settings for key roles, groups and cloud policies
+- Test results showing a user cannot reach functions or data outside their role
+
+**Inheritance.** The identity provider and platform permission models are often common controls, but each system owns its own roles and the mapping of roles to data, so AC-3 is usually hybrid.
+
+**Common findings.**
+
+- Permissions granted directly to individuals instead of through roles, so reviews miss them.
+- Application roles that do not match the approved access requests.
+- Cloud policies with broad wildcard permissions left over from setup.
+- Authorization enforced only in the user interface, bypassable through the API.

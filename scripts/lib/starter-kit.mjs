@@ -2,7 +2,7 @@
 // sources, lists the files it contains per baseline, and builds its page.
 // No file access, so npm test can run it.
 import { policyBaselines } from '../../src/lib/template-assemble.ts';
-import { GENERATED_NOTE, policyFile, templateFile, worksheetBaselines, worksheetFile } from './template-pages.mjs';
+import { GENERATED_NOTE, organizationWide, policyFile, templateFile, worksheetBaselines, worksheetFile } from './template-pages.mjs';
 
 export const STARTER_BASELINES = ['Low', 'Moderate', 'High'];
 export const starterKitFile = (baseline) => `starter-kit-${baseline.toLowerCase()}.zip`;
@@ -34,9 +34,12 @@ export function resolveStarterKit({ starterKit, families, clauses, templates, ca
 				controls: familyList.map((f) => `${f.id}-1`),
 				planned: false,
 				files: (b) =>
-					familyList
-						.filter((f) => policyBaselines(f.id, clauses.filter((c) => c.id.startsWith(`policy/${f.id}/`)), catalog.controls).includes(b))
-						.flatMap((f) => editions((e) => policyFile(f.id, b, e))),
+					// An organization-wide policy (PM) goes in every baseline's kit.
+					familyList.flatMap((f) => {
+						const variants = policyBaselines(f.id, clauses.filter((c) => c.id.startsWith(`policy/${f.id}/`)), catalog.controls, organizationWide(f));
+						const v = organizationWide(f) ? variants[0] : variants.includes(b) ? b : null;
+						return v ? editions((e) => policyFile(f.id, v, e)) : [];
+					}),
 			};
 		if (item.include === 'worksheets')
 			return {
@@ -45,7 +48,11 @@ export function resolveStarterKit({ starterKit, families, clauses, templates, ca
 				controls: [],
 				planned: false,
 				files: (b) =>
-					familyList.filter((f) => worksheetBaselines(f.id, catalog.controls).includes(b)).map((f) => `${worksheetFile(f.id, b)}.csv`),
+					familyList.flatMap((f) => {
+						const variants = worksheetBaselines(f.id, catalog.controls, organizationWide(f));
+						const v = organizationWide(f) ? variants[0] : variants.includes(b) ? b : null;
+						return v ? [`${worksheetFile(f.id, v)}.csv`] : [];
+					}),
 			};
 		if (item.planned && item.title && item.controls?.length)
 			return { title: item.title, controls: item.controls, planned: true, files: () => [] };

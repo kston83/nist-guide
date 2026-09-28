@@ -55,3 +55,16 @@ test('the page marks planned items and links a zip per baseline', () => {
 	assert.match(page, /\| Rules of Behavior \| PL-4 \| Coming in a later kit version \|/);
 	assert.ok(page.includes(`(/downloads/${starterKitFile('High')})`));
 });
+
+test('an organization-wide policy and worksheet go in every baseline kit', () => {
+	const pm = { id: 'pm', title: 'Program Management', baseline: 'none' };
+	const rows = resolveStarterKit({
+		...sources,
+		families: new Map([...sources.families, ['pm', pm]]),
+		starterKit: { items: [{ include: 'policies' }, { include: 'worksheets' }] },
+	});
+	for (const b of ['Low', 'High']) {
+		assert.ok(rows[0].files(b).includes('policies/pm-policy-organization.md'));
+		assert.ok(rows[1].files(b).includes('worksheets/pm-decisions-organization.csv'));
+	}
+});

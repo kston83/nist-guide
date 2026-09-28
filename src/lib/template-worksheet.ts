@@ -1,9 +1,10 @@
 // Decision worksheet per family and baseline (PRD TPL-08): every choice the
 // family forces. Rows come from the family's _family.yml questions, then the
-// organization-defined parameters of every family control in the baseline,
-// whether or not it has a clause yet, in catalog order. Pure, so npm test can
+// organization-defined parameters of every family control in the baseline
+// (every family control, for the Organization variant), whether or not it has
+// a clause yet, in catalog order. Pure, so npm test can
 // run it; scripts/build-templates.mjs writes the .csv and the page.
-import type { Baseline, CatalogControl } from './template-assemble';
+import { ORGANIZATION, type Baseline, type CatalogControl } from './template-assemble.ts';
 import { paramPrompt, type Param } from './template-vars.ts';
 
 export interface WorksheetRow {
@@ -53,7 +54,7 @@ export function worksheetRows({
 		decides: q.decides,
 	}));
 	for (const c of controls) {
-		if (c.family !== family || !c.baselines.includes(baseline)) continue;
+		if (c.family !== family || (baseline !== ORGANIZATION && !c.baselines.includes(baseline))) continue;
 		for (const id of c.params) {
 			const p = params[id];
 			// Aggregating parameters repeat the ones they combine.

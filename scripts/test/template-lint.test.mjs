@@ -111,3 +111,16 @@ test('variables used by no template fail; a family role counts as a use', () => 
 		'templates/variables.yml: "ciso" is used by no template',
 	]);
 });
+
+test("a family's own common sections are checked for its -1 parameters, written in full", () => {
+	const own = (s, body) => {
+		s.families.set('ac', { id: 'ac', role: 'ciso', common: { body } });
+	};
+	assert.deepEqual(lint((s) => own(s, '# P\n\n- The owner shall share it with {{param:ac-01_odp.01}} and {{param:ac-01_odp.02}}. (AC-1a)\n')), []);
+	assert.deepEqual(lint((s) => own(s, '# P\n\n- The owner shall share it with {{param:ac-01_odp.01}}. (AC-1a)\n')), [
+		'templates/policy/ac/_common.md: ac-01_odp.02 (AC-1) is not a field; add {{param:ac-01_odp.02}}',
+	]);
+	assert.deepEqual(lint((s) => own(s, '# P\n\n- The owner shall share it. \n')).slice(0, 1), [
+		'templates/policy/ac/_common.md: statement has no trailing control reference: "- The owner shall share it."',
+	]);
+});

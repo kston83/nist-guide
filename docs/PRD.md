@@ -202,6 +202,8 @@ templates/
                                    management commitment, coordination, compliance, review),
                                    which is what each -1 control requires
     <family>/_family.yml           Family title, accountable role, decision questions, artifact list
+    <family>/_common.md            Optional: the family's own shared sections, where its -1 control
+                                   differs from the rest (PM-1)
     <family>/<control>.md          Clause for one control or enhancement, e.g. ac/ac-2.md, ac/ac-2.3.md
   standards/<slug>.md
   procedures/<family>/<slug>.md
@@ -239,6 +241,8 @@ status, reviewed, stage        # as above
 # templates/policy/ac/_family.yml
 title: Access Control
 role: ciso                     # key in variables.yml: the role accountable for the family policy
+baseline: none                 # optional: SP 800-53B allocates no control of the family to a
+                               # baseline (PM), so the policy has one organization-wide edition
 questions:                     # decisions beyond the parameters, for the worksheet (TPL-08)
   - { question: ..., controls: [ac-2], typical: ..., decides: System owner }
 ```
@@ -260,7 +264,7 @@ Two additions apply only in `policy/_common.md`, the sections every family polic
 | Syntax | Meaning |
 | --- | --- |
 | `{{family:title}}`, `{{family:role}}` | The family's title, and its accountable role from `_family.yml` (rendered as that `org:` variable) |
-| `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set and needs its own sections (Phase 3) |
+| `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set, so PM has its own `policy/pm/_common.md`, which may give `typical` values for PM-1's parameters |
 | `(XX-1c.1)` in text | Control references to the -1 control become the family's label: `(AC-1c.1)` |
 
 Clauses are inserted under the `## Policy statements` heading of `_common.md`, each under a `### <title> (<control label>)` heading.
@@ -594,10 +598,10 @@ Work in seven phases; each ends with an owner review before the next starts. Pha
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, the program path | TPL-09, TPL-11, PROG-03, PROG-04, FEAT-01, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
+| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, the program path | TPL-09, TPL-11, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
 | 4 Methods and the SSDF | Each family's NIST methods, the SSDF section, and the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01 to METH-03, SSDF-01 to SSDF-05 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; SSDF templates at `draft` in the kit; kit v2.1.0 |
 | 5 AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v2.2.0 |
-| 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
+| 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02, FEAT-01 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
 | 7 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05 | Coverage page shows every Moderate control at `draft` or better; High variants complete; monthly NIST check running |
 
 AI-07's tracking is part of Phase 5; publishing an overlay happens whenever NIST finalizes one, in whatever phase is current.
@@ -683,6 +687,9 @@ None of these block Phase 1.
 | Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit, not Moderate guidance or High clauses, which stay in Depth | Sep 28, 2026 |
 | AI control guidance | Wait for NIST's COSAIS overlays; no AI-specific control selections, tailoring or mappings of the author's own until they are final | Sep 28, 2026 |
 | AI guide sources | NIST and OWASP only (plus OMB and CISA for federal notes): the OWASP Top 10 for LLM and for Agentic Applications, and the OWASP AI Exchange | Sep 28, 2026 |
+| Articles (FEAT-01) | Deferred to Phase 6, with the first article; `starlight-blog` is compatible with Starlight 0.42 and remains the first choice | Sep 28, 2026 |
+| PM policy | One organization-wide edition (`baseline: none` in `_family.yml`), included in every baseline's kit, with PM-1's own shared sections in `policy/pm/_common.md` | Sep 28, 2026 |
+| Privacy-baseline clauses | Written in Phase 3 with each family (the PT policy and the privacy-only controls of other families), so each Privacy variant is complete | Sep 28, 2026 |
 
 ## Revision history
 
@@ -693,3 +700,4 @@ None of these block Phase 1.
 | 2.1 | Sep 27, 2026 | Owner decisions recorded: CC0 templates, free kit, any-organization voice with `:::federal` sections, pandoc approved |
 | 3 | Sep 28, 2026 | Phase 2 marked done. Methods added: NIST implementation guidance as a sixth question on each control and a Methods section on control pages (METH-01 to METH-03); the SSDF becomes the first method, under `methods/ssdf/`. AI security guide added as a separate section built on NIST guidance (AI-01 to AI-09), with a checked status table of NIST AI publications; no author-made AI control overlays. New persona, page types and `implements` and `airmf` front matter. Phases now six: 3 full program kit and methods, 4 AI security guide, 5 industries and technology, 6 depth (order set in 3.1). OWASP added as the AI guide's second source (AI-10 to AI-12): the Top 10 for LLM and for Agentic Applications (CC BY-SA 4.0: own words and links only) and the AI Exchange (CC0), with a checked status and license table |
 | 3.1 | Sep 28, 2026 | Phase order (owner decision): finish what the guide already covers first. Seven phases: 3 full program kit (kit v2.0.0), 4 methods and the SSDF (kit v2.1.0), 5 AI security guide (kit v2.2.0), 6 industries and technology, 7 depth. "RMF complete" means the full program kit; Moderate guidance and High clauses stay in Depth |
+| 3.2 | Sep 28, 2026 | Owner decisions at the start of Phase 3: FEAT-01 moves to Phase 6; one organization-wide PM policy (`baseline: none`, `policy/pm/_common.md`); privacy-baseline clauses written with each family |

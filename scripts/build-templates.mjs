@@ -8,7 +8,7 @@
  *   npm run kit                   write downloads into dist/downloads (part of npm run build)
  *   npm run kit -- --out <dir>    write them somewhere else
  *
- * Family policies: policy/_common.md plus each family's clauses, in catalog
+ * Family policies: policy/_common.md (or the family's own) plus each family's clauses, in catalog
  * order, one file per baseline (TPL-03), in a clean and an annotated edition
  * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. Plans,
  * standards, procedures and forms: one file per edition. Decision worksheets
@@ -24,8 +24,10 @@ import path from 'node:path';
 import { loadSources } from './lib/template-sources.mjs';
 import {
 	GENERATED_NOTE,
+	commonFor,
 	indexPage,
 	KIT_FILE,
+	organizationWide,
 	packFile,
 	policyFile,
 	policyPage,
@@ -167,13 +169,13 @@ if (pagesMode) {
 	for (const family of orderedFamilies) {
 		const own = clauses.filter((c) => c.id.startsWith(`policy/${family.id}/`));
 		const url = `${homepage}templates/policies/${family.id}/`;
-		for (const baseline of policyBaselines(family.id, own, catalog.controls))
+		for (const baseline of policyBaselines(family.id, own, catalog.controls, organizationWide(family)))
 			await attempt(`${family.id.toUpperCase()} policy (${baseline})`, () => {
-				const policy = assemblePolicy({ common: common.body, family, clauses: own, controls: catalog.controls, baseline });
-				const ctx = { variables, params: catalog.params, typical: policy.typical, family };
+				const policy = assemblePolicy({ common: commonFor(family, common).body, family, clauses: own, controls: catalog.controls, baseline });
+				const ctx = { variables, params: catalog.params, typical: { ...commonFor(family, common).data.typical, ...policy.typical }, family };
 				return editions(policy.source, ctx, (e) => policyFile(family.id, baseline, e), { baseline, url });
 			});
-		for (const baseline of worksheetBaselines(family.id, catalog.controls))
+		for (const baseline of worksheetBaselines(family.id, catalog.controls, organizationWide(family)))
 			await attempt(`${family.id.toUpperCase()} worksheet (${baseline})`, () =>
 				write(
 					`${worksheetFile(family.id, baseline)}.csv`,

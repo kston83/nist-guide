@@ -42,6 +42,13 @@ export async function loadSources(root = 'templates') {
 		} catch (err) {
 			if (err.code !== 'ENOENT') throw err;
 		}
+		// A family whose -1 control differs from the shared layout (PM-1) has its own common sections.
+		try {
+			const own = await readMarkdown(path.join(folder, '_common.md'));
+			if (families.has(dir.name)) families.get(dir.name).common = own;
+		} catch (err) {
+			if (err.code !== 'ENOENT') throw err;
+		}
 		for (const f of await list(folder)) {
 			if (!f.isFile() || !f.name.endsWith('.md') || f.name.startsWith('_')) continue;
 			const { data, body } = await readMarkdown(path.join(folder, f.name));

@@ -1,0 +1,25 @@
+# Program Management (PM) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# baseline: none, because NIST SP 800-53B allocates no PM control to a security
+#   baseline; the policy has one organization-wide edition.
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Program Management
+role: ciso
+stage: foundation
+baseline: none
+questions:
+  - question: Who leads the security program, and who approves the program plan and sets the organization's risk tolerance?
+    controls: [pm-1, pm-2, pm-28]
+    typical: The Chief Information Security Officer leads the program; the senior leader approves the plan and sets risk tolerance.
+    decides: Senior leader
+  - question: Who leads the privacy program, and is it combined with another role?
+    controls: [pm-18, pm-19]
+    typical: A senior privacy official who reports to the senior leader. A small organization may give the role to its general counsel or compliance lead.
+    decides: Senior leader
+  - question: Which PM controls do not apply, and why?
+    controls: [pm-8, pm-17, pm-24]
+    typical: PM-8 applies only to owners or operators of critical infrastructure, PM-17 only where the organization holds controlled unclassified information, and PM-24 only to organizations that run matching programs. Record each decision in the program plan.
+    decides: Chief Information Security Officer

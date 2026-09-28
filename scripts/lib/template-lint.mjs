@@ -54,22 +54,26 @@ export function lintTemplates({ variables, common, families, clauses, templates 
 		for (const ref of variablesIn(text)) if (ref.startsWith('org:')) used.add(ref.slice(4));
 	};
 
-	// Common sections.
-	{
-		const where = 'templates/policy/_common.md';
-		problems.push(...statementProblems(where, common.body).problems);
-		noteUses(common.body);
-		const refs = new Set(variablesIn(common.body).filter((r) => r.startsWith('param:xx-')).map((r) => r.slice(9)));
-		// Every -1 control of a family with a policy must have each parameter shown.
-		for (const family of families.values()) {
+	// Common sections: policy/_common.md, shared by most families, and a
+	// family's own policy/<family>/_common.md (PM-1 has different parameters).
+	const lintCommon = (where, body, users) => {
+		problems.push(...statementProblems(where, body).problems);
+		noteUses(body);
+		const refs = variablesIn(body).filter((r) => r.startsWith('param:')).map((r) => r.slice(6));
+		// Every -1 control of a family using these sections must have each parameter shown.
+		for (const family of users) {
+			const shown = new Set(refs.map((r) => (r.startsWith('xx-') ? family.id + r.slice(2) : r)));
 			const policyControl = controls.get(`${family.id}-1`);
 			for (const id of policyControl?.params ?? []) {
 				if (catalog.params[id]?.aggregates) continue;
-				if (!refs.has(id.slice(family.id.length + 1)))
-					problems.push(`${where}: ${id} (${policyControl.label}) is not a field; add {{param:xx-${id.slice(family.id.length + 1)}}}`);
+				if (!shown.has(id))
+					problems.push(`${where}: ${id} (${policyControl.label}) is not a field; add {{param:${family.common ? id : `xx-${id.slice(family.id.length + 1)}`}}}`);
 			}
 		}
-	}
+	};
+	const all = [...families.values()];
+	lintCommon('templates/policy/_common.md', common.body, all.filter((f) => !f.common));
+	for (const family of all.filter((f) => f.common)) lintCommon(`templates/policy/${family.id}/_common.md`, family.common.body, [family]);
 
 	for (const family of families.values()) used.add(family.role);
 

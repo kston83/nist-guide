@@ -8,12 +8,40 @@ Phases 1 and 2 are complete and approved by the owner (Phase 2 approved by mergi
 
 ### Phase 3 exit criteria
 
-- [ ] Every Low and Moderate control has a policy clause at `draft` or better: **111 of 287** (the -1 controls of AC, AU, CM, IA and IR are met through `_common.md`). About 171 to go, across AT, CA, CP, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR, plus PM and PT, which need their own shared sections
+- [ ] Every Low and Moderate control has a policy clause at `draft` or better: **111 of 287** (the -1 controls of AC, AU, CM, IA and IR are met through `_common.md`). 171 to go, across AT, CA, CP, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR. Outside the count: PM, 37 of 37 (no baseline; PM-1 through `policy/pm/_common.md`); PT and the privacy-only clauses of other families, 0 of 29
 - [ ] Every [artifact catalog](docs/PRD.md#artifact-catalog) artifact published except the SSDF-based SA artifacts, which move to Phase 4 (3 of 50 done: SSP, IR plan, POA&M), plus the consolidated policy (TPL-09)
 - [ ] Program path complete: artifact checklist (PROG-03) and scaling guidance (PROG-04)
 - [ ] Kit v2.0.0 released
 
-Also in scope: TPL-11, FEAT-01, PRES-02, NAV-02. Decide first: whether FEAT-01 may add the `starlight-blog` plugin. Methods and the SSDF are Phase 4; the AI guide is Phase 5.
+Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI guide is Phase 5.
+
+**Owner decisions, 2026-09-28** (recorded in PRD 3.2): FEAT-01 deferred to Phase 6, with the first article. One organization-wide PM policy (`baseline: none`), in every baseline's kit. Privacy-baseline clauses (PT, and privacy-only controls in other families) written with each family. PR plan: "split big, combine small", below. One PR at a time; the owner merges each before the next starts.
+
+### Phase 3 plan
+
+| # | Pull request | Status |
+| --- | --- | --- |
+| 1 | Content: PM policy (organization-wide edition, PM-1 sections, 37 clauses) | PR open |
+| 2 | Content: Information Security Program Plan and Risk Management Strategy | |
+| 3 | Content: Rules of Behavior and system inventory (completes the starter kit) | |
+| 4 | Content: PL policy | |
+| 5 | Content: RA policy | |
+| 6 | Content: RA artifacts (categorization worksheet, risk assessment report, risk register, vulnerability management standard) | |
+| 7 | Content: AT policy, training plan and training record log | |
+| 8, 9 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | |
+| 10 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | |
+| 11, 12 | Content: SC policy; SC standards (encryption and key management, boundary protection) | |
+| 13, 14 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | |
+| 15, 16 | Content: SI policy; SI standards (patch and flaw remediation, system monitoring) | |
+| 17, 18 | Content: CA policy; CA artifacts (assessment plan and report, Continuous Monitoring Strategy, information exchange agreement) | |
+| 19, 20 | Content: SA policy; SA artifacts (acquisition security requirements, external service review; the SSDF-based ones are Phase 4) | |
+| 21 | Content: MA policy and maintenance log | |
+| 22 | Content: MP policy and media sanitization record | |
+| 23 | Content: PE policy, physical access list and visitor log | |
+| 24, 25 | Content: SR policy; SR artifacts (Supply Chain Risk Management Plan, supplier assessment questionnaire) | |
+| 26 | TPL-09 consolidated policy, and the starter kit uses it | |
+| 27 to 31 | PROG-03, PROG-04, TPL-11, NAV-02, PRES-02 | |
+| 32 | TPL-10 kit v2.0.0 version bump; tag only with the owner's go-ahead | |
 
 ## Phase 2: Template system and first kit (approved)
 
@@ -65,6 +93,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: PM policy | Draft (PR) | 2026-09-28 | `_family.yml` (`baseline: none`, three worksheet questions), `policy/pm/_common.md` (PM-1: purpose, scope, roles, commitment, coordination, compliance and the program plan rules for PM-1a to c, with typical values for PM-1's two parameters) and clauses for the other 36 PM controls and enhancements. Assembly: an organization-wide family has one `Organization` variant with every clause (`pm-policy-organization.md`) and one worksheet, and both go in every baseline's starter kit; its page lists controls with a Privacy-baseline column. A family may have its own `_common.md` (loader, lint, coverage, PM-1 control page text). New `privacy-official` variable. Federal blocks checked at the source: 44 U.S.C. § 3554(a)(3)(A) and (b) (PM-2, PM-1), 44 U.S.C. § 3505(c) (PM-5), 32 CFR 2002.14(h) and SP 800-171 Rev. 3 (PM-17), OMB A-130 Appendices I and II (PM-18, PM-19), OMB M-23-22 (PM-20), 5 U.S.C. § 552a(c) and (u) (PM-21, PM-24). Guidance cites SP 800-137 (September 2011) and SP 800-161 Rev. 1 Update 1 (November 2024), both current. 4 tests |
 | PRD 3.1 | Proposed (PR) | 2026-09-28 | Owner decision: finish what the guide already covers first. Seven phases: 3 full program kit (kit v2.0.0), 4 methods and the SSDF (v2.1.0), 5 AI security guide (v2.2.0), 6 industries and technology, 7 depth. "RMF complete" means the full program kit; Moderate guidance for the other 146 controls and High clauses stay in Phase 7 (Depth). Phase 2 recorded as approved; Phase 3 exit criteria set up above |
 | PRD v3 | Proposed (PR) | 2026-09-28 | Owner direction: methods (the SSDF first) are how NIST says to meet controls, shown in a Methods section on control pages; an AI security guide as a separate section, built only on NIST and OWASP guidance (OWASP Top 10 for LLM and for Agentic Applications, CC BY-SA 4.0, own words and links only; OWASP AI Exchange, CC0), and high priority. No AI-specific control selections until NIST's COSAIS overlays are final (owner decision). Phases: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth. New requirements METH-01 to METH-03 and AI-01 to AI-12; SSDF moved under `methods/`. NIST AI sources checked at the source on Sep 28, 2026 (table in the PRD) |
 | TPL-10 | Done | 2026-09-28 | Released: `v1.0.0` pushed on #41's merge commit after the owner's go-ahead; the Release kit workflow passed on its first run and published [Template kit v1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) with 9 zips and notes from the changelog. |
@@ -134,4 +163,5 @@ From the PRD. The owner deferred every open item on 2026-09-28; raise each again
 - [ ] AI RMF machine-readable source for AI-02 (NIST AI RMF Playbook data, CPRT, or another NIST export); decide at the start of Phase 5
 - [ ] SSDF source for SSDF-01: the SP 800-218 Excel table or CPRT; decide at the start of Phase 4
 - [ ] Confirm OMB M-25-21 is still current federal AI policy at an OMB page before writing AI-08 (secondary sources only so far)
-- [ ] TODO(verify), `templates/policy/au/au-11.md`: federal log retention. OMB M-21-31 required 12 months active and 18 months cold storage; a search on 2026-09-28 indicates OMB M-26-14 (May 2026) replaced it, but its PDF could not be read here. Confirm M-26-14's requirements, then add a federal block to AU-11 (and AU-2 if it sets event types)
+- [ ] TODO(verify), `templates/policy/au/au-11.md`: federal log retention. OMB M-21-31 required 12 months active and 18 months cold storage; a search on 2026-09-28 indicates OMB M-26-14 (May 2026) replaced it, but its PDF could not be read here. Confirm M-26-14's requirements, then add a federal block to AU-11 (and AU-2 if it sets event types). Lead from a Phase 3 source sweep: M-26-14 rescinds M-21-31 and requires six months of searchable and twelve months of retrievable log data; read the memo itself before writing it
+- [ ] TODO(verify), `templates/policy/pm/pm-12.md`: federal block for the insider threat program. Confirm Executive Order 13587 (October 7, 2011) and the National Insider Threat Policy and Minimum Standards (November 2012) are still in effect as of 2026 at a primary source; a sweep found no rescission, but no affirmative statement either

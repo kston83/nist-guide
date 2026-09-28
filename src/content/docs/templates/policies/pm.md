@@ -186,7 +186,7 @@ PM-4 is the organization-level process; CA-5 is each system's plan of action and
 #### System inventory (PM-5)
 
 :::note[Guidance]
-The system inventory is the list of systems the program is responsible for: each with an owner, a categorization, an authorization status and its boundary. CM-8 is the component inventory inside each system. An assessor compares the inventory with the authorization records, so keep both in step.
+The system inventory is the list of systems the program is responsible for: each with an owner, a categorization, an authorization status and its boundary. CM-8 is the component inventory inside each system. Start from the [System Inventory template](/templates/forms/system-inventory/). An assessor compares the inventory with the authorization records, so keep both in step.
 :::
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall maintain an inventory of organizational systems and update it <span class="tpl-field tpl-param">Fill in: the frequency at which to update the inventory of organizational systems <span class="tpl-typical">Typical: quarterly, and whenever a system is authorized, significantly changed or retired</span></span>. (PM-5)

@@ -48,3 +48,5 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
+| [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
+| [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |

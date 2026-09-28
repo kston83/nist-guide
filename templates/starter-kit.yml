@@ -15,12 +15,8 @@ items:
   - template: plans/risk-management-strategy
   - include: policies
   - template: plans/system-security-plan
-  - title: Rules of Behavior
-    controls: [pl-4]
-    planned: true
+  - template: forms/rules-of-behavior
   - template: plans/incident-response-plan
   - template: forms/plan-of-action-and-milestones
-  - title: System inventory
-    controls: [pm-5]
-    planned: true
+  - template: forms/system-inventory
   - include: worksheets

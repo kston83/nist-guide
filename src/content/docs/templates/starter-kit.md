@@ -20,10 +20,10 @@ Download one file for your baseline and you have the documents a new program ado
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | PM-9, PM-28, PM-29, PM-31 | Included |
 | [Family policies (AC, AU, CM, IA, IR, PM)](/templates/#policies) | AC-1, AU-1, CM-1, IA-1, IR-1, PM-1 | Included |
 | [System Security Plan](/templates/plans/system-security-plan/) | PL-2, RA-2, CM-8, CA-3, CA-5 | Included |
-| Rules of Behavior | PL-4 | Coming in a later kit version |
+| [Rules of Behavior](/templates/forms/rules-of-behavior/) | PL-4, PL-4(1) | Included |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | IR-8, IR-4, IR-5, IR-6, IR-7, IR-2, IR-3 | Included |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | CA-5, CA-7, PM-4 | Included |
-| System inventory | PM-5 | Coming in a later kit version |
+| [System Inventory](/templates/forms/system-inventory/) | PM-5, PM-5(1) | Included |
 | [Decision worksheets for those families](/templates/#decision-worksheets) |  | Included |
 
 Until the consolidated policy is published, the kit carries the family policies for your baseline.

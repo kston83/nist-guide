@@ -8,6 +8,7 @@ control:
   id: IR-8
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -117,4 +118,38 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+IR-8 asks for a written incident response plan that sets out how the capability is organized, what counts as a reportable incident, how the capability is measured and resourced, and who is responsible. The plan is approved, distributed, kept current and protected. Start from the [Incident Response Plan template](/templates/plans/incident-response-plan/), which covers each IR-8a element.
+
+**Common implementations.** One organization-wide plan, approved by the Chief Information Security Officer, with system-specific appendices for contacts and recovery steps. Reportable incidents defined by severity with examples. Metrics such as time to detect, time to contain and number of incidents by type. The plan stored in a controlled document repository with access limited to the response team and named functions, and a copy kept offline so it is available during an outage.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who reviews and approves the plan (a.9) | The Chief Information Security Officer |
+| Review and approval frequency (a.9) | Annually |
+| Who holds responsibility for incident response (a.10) | The incident response team, led by its designated lead |
+| Who receives copies (b) | The incident response team members, by role, and the security operations, legal, communications and human resources functions |
+| Who is told of changes (d) | Everyone who received the plan |
+
+**Evidence assessors ask for.**
+
+- The current plan, with its approval signature and date
+- The distribution list and evidence the latest version reached it
+- The change history, including changes made after tests or incidents (IR-8c)
+- Access controls on the plan's storage location
+
+**Inheritance.** The organization-wide plan is usually a common control. The system provides its appendix and confirms the plan covers its incident types.
+
+**Common findings.**
+
+- The plan not reviewed or re-approved in over a year.
+- No definition of a reportable incident, or one that differs from the reporting procedure.
+- Metrics listed in the plan but never collected.
+- Changes after an exercise made in practice but not in the plan.
+
+**Enhancements in the Moderate baseline.** None. [IR-8(1)](#ir-8.1), breaches, is in the Privacy baseline.

@@ -8,6 +8,7 @@ control:
   id: IA-2
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -249,4 +250,36 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+IA-2 asks that every organizational user has a unique identity and proves it before using the system, and that anything running on a user's behalf carries that identity. In practice, the baseline enhancements do most of the work: multi-factor authentication for every account, privileged or not, at every impact level.
+
+**Common implementations.** A central identity provider (for example Microsoft Entra ID, Okta or Active Directory) issues one account per person and handles single sign-on to applications, so each application logs the same identity. Multi-factor authentication is enforced at the identity provider, preferably with phishing-resistant authenticators such as PIV smart cards or FIDO2 security keys and passkeys, which are also replay resistant (IA-2(8)). Service and batch processes run under their own named accounts, and administrators use a separate privileged account.
+
+**Organization-defined parameters.** The base control has none. The one baseline parameter is in IA-2(8). Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Accounts needing replay-resistant authentication (IA-2(8)) | Privileged accounts and non-privileged accounts |
+
+**Evidence assessors ask for.**
+
+- The identity provider's authentication policy, showing multi-factor authentication required for all users
+- A list of accounts showing each maps to one person, with shared accounts justified under IA-2(5) where used
+- Sign-in logs showing the authentication method used, drawn by the assessor
+- The list of applications that bypass the identity provider, and how each authenticates users
+
+**Inheritance.** The enterprise identity provider and its multi-factor settings are usually common controls. The system owns any application that authenticates on its own, local and emergency accounts, and exceptions to multi-factor authentication.
+
+**Common findings.**
+
+- Local application or database accounts that skip multi-factor authentication.
+- Exceptions (legacy protocols, conditional access exclusions) nobody reviews.
+- Shared administrator accounts with no way to tie an action to a person.
+- Command-line, API or remote administration paths that accept a password alone while the web sign-in requires multi-factor authentication.
+
+**Enhancements in the Moderate baseline.** [IA-2(1)](#ia-2.1) multi-factor authentication for privileged accounts, [IA-2(2)](#ia-2.2) for non-privileged accounts, [IA-2(8)](#ia-2.8) replay-resistant authentication and [IA-2(12)](#ia-2.12) acceptance of PIV credentials, all also in Low. High adds [IA-2(5)](#ia-2.5) individual authentication before group authentication.
+
+**Federal systems.** Federal employees and contractors hold PIV credentials under HSPD-12 and [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022), so IA-2(12) applies in full. Authenticator assurance levels come from [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025).

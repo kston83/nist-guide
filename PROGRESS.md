@@ -8,7 +8,7 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
 
 ### Phase 2 exit criteria
 
-- [ ] 31 controls at `guidance: draft` or better: **17 of 31** done (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9)
+- [ ] 31 controls at `guidance: draft` or better: **25 of 31** done (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9, IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9)
 - [x] 5 family policies downloadable per baseline: AC, AU, CM, IA, IR (draft), each Low, Moderate and High in Word and Markdown, clean and annotated
 - [ ] Kit v1.0.0 released (TPL-10)
 
@@ -22,18 +22,20 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
 | Family policies: AC, AU, CM, IA, IR | Merged (draft) | #22 to #26 |
 | Incident Response Plan, System Security Plan, POA&M | Merged (draft) | #27 to #29 |
 | Guidance, batches 1 and 2 (16 controls, plus AC-2 marked draft) | Merged (draft) | #31, #32 |
-| Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9 | Not started | |
+| FEAT-04 changelog page (P2) | Merged | #35 |
+| Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9 | PR open (draft) | |
 | Guidance batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4 | Not started | |
 | CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges (P2) | Not started | |
 | QA-03 spell check with cspell (P2; the PRD names cspell) | Not started | |
 | PRES-06 professional Word styling (P2) | Not started; ask the owner about the look first | |
-| FEAT-04 changelog page (P2), TPL-10 kit v1.0.0 release | Not started | |
+| TPL-10 kit v1.0.0 release | Not started; confirm with the owner before tagging | |
 
 ### Notes for the next session
 
 - **Verified 2026-09-28**, for the RA-5 and SI-2 guidance (cite with "as of September 2026"):
   - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
   - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.
+  - Rechecked 2026-09-28 for RA-5: BOD 26-04 revokes BOD 19-02 as well as 22-01, and its clock starts when CISA adds a vulnerability to KEV or the agency identifies it, whichever is first. BOD 20-01 (vulnerability disclosure policy, September 2, 2020) remains in effect.
 - Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it; SC-13 will need the current FIPS 140 status.
 - Guidance follows the AC-2 format, with typical values matching the policy clauses. Set `guidance: draft` in the control's front matter; `npm run controls` keeps it.
 - Local `.docx` builds need pandoc: set `PANDOC` to a pandoc 3.11 binary (CI pins 3.11).
@@ -50,6 +52,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: guidance batch 3 | Draft | 2026-09-28 | Guidance for IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5 and SA-9, typical values matching the IA and IR clauses and the SSP template. Citations checked at the source: SP 800-63B-4, FIPS 201-3, SP 800-61 Rev. 3, SP 800-18 Rev. 2, SP 800-30 Rev. 1 (September 2012, still current), CISA KEV catalog, BOD 26-04, BOD 23-01 and BOD 20-01 (RA-5 federal note, "as of September 2026"), and OMB M-24-15 (July 25, 2024; SA-9 federal note, read from the memo's Scope section) |
 | FEAT-04 | Done | 2026-09-28 | `/reference/changelog/` generated before every build by `scripts/build-changelog.mjs` from the first-parent history of `main` (one entry per squash-merged PR, bold requirement ID, PR link), grouped by month until the first `vX.Y.Z` tag, then by release with an Unreleased section. Not committed (gitignored), so each merge updates the page on the next deploy. `--notes <tag>` prints a release's notes for TPL-10. CI checks out full history. PRD updated (owner chose generated over a hand-kept CHANGELOG.md). 6 tests |
 | Content: guidance batch 2 | Draft | 2026-09-28 | Guidance for CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2 and CP-9; CM-6 cites SP 800-70 Rev. 5 (May 2026; Rev. 4 was withdrawn on May 8, 2026) and CP-2 cites SP 800-34 Rev. 1 (current), both checked at csrc.nist.gov |
 | Content: guidance batch 1 | Draft | 2026-09-28 | Guidance (`guidance: draft`) for AC-3, AC-6, AC-17, AT-2, AU-2, AU-6 and AU-12, in the AC-2 format: how to apply it, common implementations, typical parameter values (matching the policy clauses), evidence, inheritance, common findings, baseline enhancements. AC-2 marked `guidance: draft` and its parameter note reworded for any organization |

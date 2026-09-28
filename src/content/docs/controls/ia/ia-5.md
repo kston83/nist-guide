@@ -8,6 +8,7 @@ control:
   id: IA-5
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -455,4 +456,36 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+IA-5 covers the life cycle of every authenticator the system accepts: passwords, tokens, certificates, API keys and service account secrets. Each needs a verified recipient, adequate strength, a way to replace it when lost or compromised, and protection wherever it is stored.
+
+**Common implementations.** Passwords follow [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025): length over composition rules, a check against breached and common passwords, and a forced change only on evidence of compromise. Identity proofing at the help desk before a reset or token issue. Certificates from a managed public key infrastructure with automated renewal. Secrets for services and applications held in a vault (for example HashiCorp Vault, AWS Secrets Manager or Azure Key Vault) and rotated on a schedule. Default passwords changed as part of the build standard.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Change or refresh period by authenticator type (f) | No scheduled change for user passwords; certificates at expiry; shared and service account secrets at least annually |
+| Events that trigger a change (f) | Evidence or suspicion of compromise, and departure of a person who knew a shared authenticator |
+
+**Evidence assessors ask for.**
+
+- The authenticator management procedure, covering issue, loss, compromise and revocation
+- Password settings from the identity provider and each system that keeps its own passwords
+- Help desk records showing identity verification before a reset
+- The inventory of service account and API secrets with their last rotation dates
+- Build or scan evidence that default passwords are changed
+
+**Inheritance.** Enterprise password policy, the public key infrastructure and the secrets vault are often common controls. The system owns its own local accounts, application secrets, and device defaults.
+
+**Common findings.**
+
+- Secrets hard-coded in scripts, configuration files or source code.
+- Service account passwords never rotated, including after administrators leave.
+- Password rules still requiring periodic changes and complexity, against the organization's own policy.
+- Default credentials left on network devices, appliances or management interfaces.
+
+**Enhancements in the Moderate baseline.** [IA-5(1)](#ia-5.1) password-based authentication (also Low), [IA-5(2)](#ia-5.2) public key-based authentication and [IA-5(6)](#ia-5.6) protection of authenticators. High adds none.

@@ -8,6 +8,7 @@ control:
   id: IR-4
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -430,4 +431,34 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+IR-4 asks for a working incident handling capability, not only a plan: people, tools and procedures that take an incident from preparation and detection through containment, eradication and recovery, then feed what was learned back into procedures, training and tests. IR-4a names the life cycle phases of NIST SP 800-61 Rev. 2; its successor, [SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025), organizes incident response around the CSF 2.0 Functions but still covers every phase.
+
+**Common implementations.** A security operations team or managed detection and response provider triages alerts from the logging and endpoint tools. Incidents are tracked in a case management system with severity levels, playbooks per incident type (malware, phishing, account compromise, data loss) and a record of each phase. Contingency planners are named in the playbooks so recovery follows the contingency plan (IR-4b). A post-incident review after each significant incident produces tracked actions (IR-4c).
+
+**Organization-defined parameters.** The base control has none. The Moderate baseline adds one in IR-4(1). Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Automated mechanisms supporting incident handling (IR-4(1)) | The case management system and automated playbooks in the security operations platform |
+
+**Evidence assessors ask for.**
+
+- Incident handling procedures and playbooks
+- Records of recent incidents showing each phase, from detection to closure
+- Post-incident reviews and the procedure, training or test changes that came from them
+- Evidence of coordination with contingency planning, such as a joint exercise or a shared playbook step
+
+**Inheritance.** An enterprise security operations center, its tools and a retained incident response firm are usually common controls. The system owns its system-specific playbook steps, contacts and recovery procedures.
+
+**Common findings.**
+
+- Incident tickets closed with no record of root cause or containment.
+- Lessons learned written but never turned into changes.
+- Playbooks that name people who have left, or tools no longer in use.
+- No link between incident recovery and the contingency plan.
+
+**Enhancements in the Moderate baseline.** [IR-4(1)](#ir-4.1) automated incident handling processes. High adds [IR-4(4)](#ir-4.4) information correlation and [IR-4(11)](#ir-4.11) an integrated incident response team.

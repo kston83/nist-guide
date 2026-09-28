@@ -1,0 +1,22 @@
+# Configuration Management (CM) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Configuration Management
+role: ciso
+stage: core
+questions:
+  - question: Which published secure configurations does each component type start from?
+    controls: [cm-6]
+    typical: Vendor security baselines or checklists from the NIST National Checklist Program, tailored in the baseline configuration standard.
+    decides: Chief Information Security Officer
+  - question: Who sits on the change control board, and which changes may skip it?
+    controls: [cm-3, cm-3.4]
+    typical: The system owner, technical leads and a security representative; preapproved standard changes and emergency changes reviewed after the fact.
+    decides: System owner
+  - question: Which tool is the authoritative component inventory?
+    controls: [cm-8, cm-8.2]
+    typical: The asset discovery or endpoint management tool, reconciled with the system inventory.
+    decides: Chief Information Security Officer

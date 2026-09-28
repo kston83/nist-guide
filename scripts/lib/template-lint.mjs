@@ -83,7 +83,9 @@ export function lintTemplates({ variables, common, families, clauses, templates 
 		const control = controls.get(clause.control);
 		if (!control) continue; // the content schema reports unknown controls
 		const shown = new Set(variablesIn(clause.body).filter((r) => r.startsWith('param:')).map((r) => r.slice(6)));
-		for (const id of [...shown]) for (const inner of catalog.params[id]?.aggregates ?? []) shown.add(inner);
+		// A shown parameter also shows the ones it aggregates and those nested in its choices.
+		for (const id of [...shown])
+			for (const inner of [...(catalog.params[id]?.aggregates ?? []), ...(catalog.params[id]?.select?.nested ?? [])]) shown.add(inner);
 		const set = new Set(Object.keys(clause.set ?? {}));
 		for (const id of control.params) {
 			if (catalog.params[id]?.aggregates) continue;

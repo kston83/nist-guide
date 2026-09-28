@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import { fileURLToPath } from 'node:url';
 import { visit } from 'unist-util-visit';
 import { rehypeEnhancementTokens } from './src/lib/search-tokens.mjs';
+import { rehypeTaskListLabels } from './src/lib/task-list-labels.mjs';
 
 // ---------------------------------------------------------------------------
 // Edit these three values, then push. Everything else can stay as it is.
@@ -61,7 +62,7 @@ export default defineConfig({
 	site: SITE_URL,
 	base: BASE_PATH,
 	markdown: {
-		rehypePlugins: [rehypeRebaseLinks, rehypeEnhancementTokens],
+		rehypePlugins: [rehypeRebaseLinks, rehypeEnhancementTokens, rehypeTaskListLabels],
 	},
 	// Search for enhancement ids such as "AC-2(3)" (PRD NAV-01): wrap the Pagefind UI
 	// that Starlight loads so it can rewrite them. See src/lib/search-tokens.mjs.

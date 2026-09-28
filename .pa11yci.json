@@ -1,0 +1,17 @@
+{
+	"defaults": {
+		"runners": ["axe"],
+		"standard": "WCAG2AA",
+		"timeout": 60000,
+		"chromeLaunchConfig": {
+			"args": ["--no-sandbox"]
+		}
+	},
+	"urls": [
+		"http://localhost:4321/nist-guide/",
+		"http://localhost:4321/nist-guide/about/",
+		"http://localhost:4321/nist-guide/rmf/steps/prepare/",
+		"http://localhost:4321/nist-guide/controls/ac/ac-2/",
+		"http://localhost:4321/nist-guide/industries/"
+	]
+}

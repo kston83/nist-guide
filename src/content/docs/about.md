@@ -17,7 +17,7 @@ The guide has five layers, from general to specific:
 
 ## About the author
 
-**Kristopher Stone, CISSP** is a father and a cybersecurity engineer who works on federal systems, where the RMF and SP 800-53 are part of everyday work. Kristopher holds the CISSP along with CompTIA and ITIL certifications, and studied at Western Governors University.
+**Kristopher Stone, CISSP** is a father and an AI security lead who works on federal systems, where the RMF and SP 800-53 are part of everyday work. Kristopher holds the CISSP along with CompTIA and ITIL certifications, and studied at Western Governors University.
 
 This guide collects the practical side of that work: what each step and control actually asks for, what assessors look for, and the documents that make a security program real.
 

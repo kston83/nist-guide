@@ -148,6 +148,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [{ autogenerate: { directory: 'templates/worksheets' } }],
 						},
+						{ label: 'Plans', collapsed: true, items: [{ autogenerate: { directory: 'templates/plans' } }] },
 					],
 				},
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },

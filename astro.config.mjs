@@ -66,7 +66,10 @@ export default defineConfig({
 			description:
 				'A practical guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems.',
 			favicon: '/favicon.svg',
-			social: [{ icon: 'github', label: 'Source on GitHub', href: REPO_URL }],
+			social: [
+				{ icon: 'linkedin', label: 'Kristopher Stone on LinkedIn', href: 'https://www.linkedin.com/in/kristopher-stone-cissp-655b4866' },
+				{ icon: 'github', label: 'Source on GitHub', href: REPO_URL },
+			],
 			editLink: { baseUrl: `${REPO_URL}/edit/main/` },
 			lastUpdated: true,
 			customCss: [

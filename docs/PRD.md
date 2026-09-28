@@ -83,7 +83,7 @@ The repo builds 340 pages with zero broken internal links; `npm run check:links`
 | Industries, technology | Overview pages with planned topics only | `industries/`, `technology/` |
 | Reference | Library, glossary, page templates | `reference/` |
 | Footer | Disclaimer and CC BY 4.0 notice | `src/components/Footer.astro` |
-| Placeholders | "Your Name" | `index.mdx`, `about.md`, `LICENSE` |
+| Author identity | Name, bio and LinkedIn in place; LinkedIn in the header. Headshot still to come | `about.md`, `index.mdx`, `LICENSE`, `astro.config.mjs` |
 
 ## Information architecture
 

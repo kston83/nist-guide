@@ -1,0 +1,30 @@
+# The starter kit (PRD PROG-02): the minimal set of artifacts a new program
+# adopts first, downloadable as one .zip per baseline.
+#
+# Each item is one of:
+#   template: <id under templates/>       a plan, standard, procedure or form
+#   include: policies | worksheets        every family policy, or every decision
+#                                         worksheet, at the chosen baseline
+#   title + controls + planned: true      an artifact the kit will include when its
+#                                         template exists (listed on the page as coming)
+#
+# Until the consolidated policy exists (TPL-09), the kit carries the family policies.
+
+items:
+  - title: Information Security Program Plan
+    controls: [pm-1]
+    planned: true
+  - title: Risk Management Strategy
+    controls: [pm-9]
+    planned: true
+  - include: policies
+  - template: plans/system-security-plan
+  - title: Rules of Behavior
+    controls: [pl-4]
+    planned: true
+  - template: plans/incident-response-plan
+  - template: forms/plan-of-action-and-milestones
+  - title: System inventory
+    controls: [pm-5]
+    planned: true
+  - include: worksheets

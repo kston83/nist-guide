@@ -40,6 +40,7 @@ import { assemblePolicy, policyBaselines } from '../src/lib/template-assemble.ts
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
+import { resolveStarterKit, STARTER_BASELINES, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
 import { documentHeader, findPandoc, kitReadme, NO_DOCX, registerCsv, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
 
 // Clean (ready to adopt) is the default file; annotated keeps the guidance (TPL-04).
@@ -64,7 +65,7 @@ const catalog = JSON.parse(await fs.readFile('src/data/catalog.json', 'utf8'));
 // package.json: `version` is the template version; `homepage` is the site URL for "Latest version" links.
 const { version, homepage } = JSON.parse(await fs.readFile('package.json', 'utf8'));
 if (!homepage?.endsWith('/')) throw new Error('package.json needs "homepage": the site URL with a trailing slash.');
-const { variables, common, families, clauses, templates } = await loadSources();
+const { variables, common, families, clauses, templates, starterKit } = await loadSources();
 // Families in catalog order.
 const familyOrder = [...new Set(catalog.controls.map((c) => c.family))];
 const orderedFamilies = [...families.values()].sort((a, b) => familyOrder.indexOf(a.id) - familyOrder.indexOf(b.id));
@@ -111,6 +112,12 @@ if (pagesMode) {
 			pages.push(templatePage({ template, catalog, variables, version, order: i + 1 })),
 		);
 	pages.push({ file: 'index.md', text: indexPage(pages.map((p) => p.summary)) });
+	await attempt('starter kit page', () =>
+		pages.push({
+			file: 'starter-kit.md',
+			text: starterKitPage({ rows: resolveStarterKit({ starterKit, families, clauses, templates, catalog }), catalog, version }),
+		}),
+	);
 
 	let changed = 0;
 	for (const p of pages) if (await writeIfChanged(path.join(PAGES, p.file), p.text)) changed++;
@@ -209,6 +216,16 @@ if (pagesMode) {
 			),
 		);
 	await attempt('full kit', () => zip(KIT_FILE, 'rmf-field-guide-kit', Object.keys(documents)));
+	// Starter kit (PROG-02): the named minimal set, one zip per baseline.
+	await attempt('starter kit', async () => {
+		const rows = resolveStarterKit({ starterKit, families, clauses, templates, catalog });
+		for (const b of STARTER_BASELINES)
+			await zip(
+				starterKitFile(b),
+				`starter-kit-${b.toLowerCase()}`,
+				rows.flatMap((r) => r.files(b)).filter((n) => documents[n]),
+			);
+	});
 
 	// Tells the link check that .docx links are expected to be missing in this build.
 	if (!pandoc) await fs.writeFile(path.join(OUT, NO_DOCX), '');

@@ -16254,14 +16254,14 @@
 			"control": "cp-10",
 			"odp": "CP-10_ODP[01]",
 			"label": "time period",
-			"prompt": "time period consistent with recovery time and recovery point objectives for the recovery of the system is determined",
+			"prompt": "time period consistent with recovery time and recovery point objectives for the recovery of the system",
 			"text": "[Assignment: organization-defined time period]"
 		},
 		"cp-10_odp.02": {
 			"control": "cp-10",
 			"odp": "CP-10_ODP[02]",
 			"label": "time period",
-			"prompt": "time period consistent with recovery time and recovery point objectives for the reconstitution of the system is determined",
+			"prompt": "time period consistent with recovery time and recovery point objectives for the reconstitution of the system",
 			"text": "[Assignment: organization-defined time period]"
 		},
 		"cp-10.04_odp": {
@@ -17044,7 +17044,7 @@
 			"control": "ir-8",
 			"odp": "IR-08_ODP[01]",
 			"label": "personnel or roles",
-			"prompt": "personnel or roles that review and approve the incident response plan is/are identified",
+			"prompt": "personnel or roles that review and approve the incident response plan",
 			"text": "[Assignment: organization-defined personnel or roles]"
 		},
 		"ir-08_odp.02": {

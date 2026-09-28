@@ -13,7 +13,7 @@ controls: [ir-1, ir-2, ir-2.1, ir-2.2, ir-3, ir-3.2, ir-4, ir-4.1, ir-4.4, ir-4.
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Core](/program/core/) | Draft | 0.1.0 | SP 800-53 release 5.2.0 |
+| Policy | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

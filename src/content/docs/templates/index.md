@@ -31,3 +31,9 @@ Each template is written once and assembled for your baseline. Download the read
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
+
+## Plans
+
+| Template | Program stage | Status |
+| --- | --- | --- |
+| [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |

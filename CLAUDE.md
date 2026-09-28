@@ -11,7 +11,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 ## How to work
 
 - One requirement or one content item per branch and commit, with the ID in the message, for example `CTRL-01: preserve hand-set front matter` or `TPL-03: assemble family policies`.
-- `main` is protected: open a pull request; the Check workflow must pass before merge.
+- `main` is protected: open a pull request; the Check workflow must pass before merge. The owner merges PRs; don't merge them yourself.
 - Before every commit: `npm test` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls` produces no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
 - Keep `PROGRESS.md` at the repo root: requirement ID, status, date, notes. Update it at the end of each task.

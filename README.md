@@ -18,12 +18,13 @@ npm run dev        # live preview at http://localhost:4321
 npm run build      # full production build into dist/
 npm run check:links  # after a build: fail on broken internal links or anchors
 npm test           # generator tests (fixture catalog, no network)
+npm run lint       # markdown lint (.markdownlint-cli2.jsonc)
 npm run controls   # regenerate control pages; should produce no git diff
 ```
 
 ## Where things live
 
-```
+```text
 src/content/docs/
   index.mdx            Home page
   about.md             About the guide and author

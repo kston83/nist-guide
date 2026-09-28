@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Configuration Management family has 14 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -27,6 +28,7 @@ The Configuration Management family has 14 active controls in SP 800-53 release 
 | [CM-12](/controls/cm/cm-12/) | Information Location |  | Yes | Yes |  |
 | [CM-13](/controls/cm/cm-13/) | Data Action Mapping |  |  |  |  |
 | [CM-14](/controls/cm/cm-14/) | Signed Components |  |  |  |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

@@ -10,7 +10,8 @@
     "controls": "node scripts/import-oscal.mjs",
     "check:links": "node scripts/check-links.mjs",
     "test": "node --test \"scripts/test/*.test.mjs\"",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "markdownlint-cli2"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",
@@ -20,5 +21,8 @@
     "astro": "^7.2.10",
     "sharp": "^0.35.3",
     "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.23.3"
   }
 }

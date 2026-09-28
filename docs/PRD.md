@@ -24,7 +24,7 @@ Evidence      How we prove it                 Evidence list and forms
 
 Families roll the per-control pieces up into artifacts an organization actually adopts: a policy per family (or one consolidated policy), the plans the controls require (SSP, incident response plan, contingency plan and so on), and a decision worksheet listing every choice the family forces the organization to make.
 
-**Goals**
+#### Goals
 
 1. Be the most practical free reference for applying the RMF and SP 800-53: every page answers "what do I actually do, and what will the assessor ask for?"
 2. Let an organization build a program from scratch: a staged path plus a plug-and-play artifact for every requirement that needs one.
@@ -33,7 +33,7 @@ Families roll the per-control pieces up into artifacts an organization actually 
 5. Present the owner as a credible, organized leader in the field: professional look, accurate content, cited sources, visible upkeep.
 6. Stay cheap and low-maintenance: static site, GitHub Pages, no paid services, one command to refresh NIST content, one command to rebuild the kit.
 
-**Success measures**
+#### Success measures
 
 | Measure | Target |
 | --- | --- |
@@ -506,7 +506,7 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 
 - One requirement or one content item per branch and commit, with the ID in the message, for example `CTRL-01: preserve hand-set front matter` or `TPL-03: assemble family policies`.
 - `main` is protected: open a pull request; the Check workflow must pass before merge.
-- Before every commit: `npm run build` passes, the link check passes, and `npm run controls` produces no diff.
+- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes, and `npm run controls` produces no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
 - Keep a `PROGRESS.md` at the repo root: requirement ID, status, date, notes. Update it at the end of each task.
 - Prefer small, reviewable changes over large rewrites. Do not rename folders or slugs; existing links depend on them.

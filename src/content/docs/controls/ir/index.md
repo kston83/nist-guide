@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Incident Response family has 9 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -24,6 +25,7 @@ The Incident Response family has 9 active controls in SP 800-53 release 5.2.0. "
 | [IR-9](/controls/ir/ir-9/) | Information Spillage Response |  |  |  |  |
 
 *Withdrawn controls: IR-10.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

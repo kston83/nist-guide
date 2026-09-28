@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Access Control family has 23 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -38,6 +39,7 @@ The Access Control family has 23 active controls in SP 800-53 release 5.2.0. "Ye
 | [AC-25](/controls/ac/ac-25/) | Reference Monitor |  |  |  |  |
 
 *Withdrawn controls: AC-13, AC-15.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

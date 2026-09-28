@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Planning family has 8 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -23,6 +24,7 @@ The Planning family has 8 active controls in SP 800-53 release 5.2.0. "Yes" mark
 | [PL-11](/controls/pl/pl-11/) | Baseline Tailoring | Yes | Yes | Yes |  |
 
 *Withdrawn controls: PL-3, PL-5, PL-6.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

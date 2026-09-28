@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Personnel Security family has 9 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -22,6 +23,7 @@ The Personnel Security family has 9 active controls in SP 800-53 release 5.2.0. 
 | [PS-7](/controls/ps/ps-7/) | External Personnel Security | Yes | Yes | Yes |  |
 | [PS-8](/controls/ps/ps-8/) | Personnel Sanctions | Yes | Yes | Yes |  |
 | [PS-9](/controls/ps/ps-9/) | Position Descriptions | Yes | Yes | Yes |  |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

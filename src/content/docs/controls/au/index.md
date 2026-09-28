@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Audit and Accountability family has 15 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -30,6 +31,7 @@ The Audit and Accountability family has 15 active controls in SP 800-53 release 
 | [AU-16](/controls/au/au-16/) | Cross-organizational Audit Logging |  |  |  |  |
 
 *Withdrawn controls: AU-15.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

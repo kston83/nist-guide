@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The System and Communications Protection family has 47 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -62,6 +63,7 @@ The System and Communications Protection family has 47 active controls in SP 800
 | [SC-51](/controls/sc/sc-51/) | Hardware-based Protection |  |  |  |  |
 
 *Withdrawn controls: SC-9, SC-14, SC-19, SC-33.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Risk Assessment family has 9 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -24,6 +25,7 @@ The Risk Assessment family has 9 active controls in SP 800-53 release 5.2.0. "Ye
 | [RA-10](/controls/ra/ra-10/) | Threat Hunting |  |  |  |  |
 
 *Withdrawn controls: RA-4.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

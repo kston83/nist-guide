@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Personally Identifiable Information Processing and Transparency family has 8 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -21,6 +22,7 @@ The Personally Identifiable Information Processing and Transparency family has 8
 | [PT-6](/controls/pt/pt-6/) | System of Records Notice |  |  |  | Yes |
 | [PT-7](/controls/pt/pt-7/) | Specific Categories of Personally Identifiable Information |  |  |  | Yes |
 | [PT-8](/controls/pt/pt-8/) | Computer Matching Requirements |  |  |  | Yes |
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

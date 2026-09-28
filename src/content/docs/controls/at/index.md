@@ -7,6 +7,7 @@ sidebar:
 ---
 
 <!-- nist:start -->
+<!-- markdownlint-disable -->
 <!-- Generated from NIST SP 800-53 release 5.2.0 (OSCAL). Edits between the nist markers are overwritten by npm run controls. -->
 
 The Awareness and Training family has 5 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
@@ -20,6 +21,7 @@ The Awareness and Training family has 5 active controls in SP 800-53 release 5.2
 | [AT-6](/controls/at/at-6/) | Training Feedback |  |  |  |  |
 
 *Withdrawn controls: AT-5.*
+<!-- markdownlint-restore -->
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->

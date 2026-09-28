@@ -52,3 +52,6 @@ jobs:
         run: npm run check:links
       - name: Check search finds control ids
         run: npm run check:search
+      - name: Check accessibility (axe, light and dark themes)
+        # pa11y-ci runs axe in headless Chrome, which Puppeteer downloads during npm ci.
+        run: npm run check:a11y

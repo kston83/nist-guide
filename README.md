@@ -18,6 +18,7 @@ npm run dev        # live preview at http://localhost:4321
 npm run build      # full production build into dist/
 npm run check:links  # after a build: fail on broken internal links or anchors
 npm run check:search # after a build: control and enhancement ids find their page first
+npm run check:a11y   # after a build: axe finds no serious or critical issues (.pa11yci.json lists the pages)
 npm test           # generator tests (fixture catalog, no network)
 npm run lint       # markdown lint (.markdownlint-cli2.jsonc)
 npm run controls   # regenerate control pages; should produce no git diff

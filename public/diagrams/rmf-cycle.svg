@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" role="img" aria-labelledby="t">
+<title id="t">Prepare sets the context, then six steps repeat across the life cycle</title>
+<style>
+text{font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;fill:#1b2430}
+.q{fill:#5a6573}.b{fill:none;stroke:#8a94a0;stroke-width:1.25}.acc{fill:#0f5c5a;fill-opacity:.1;stroke:#0f5c5a;stroke-width:2}
+.band{fill:#0f5c5a;fill-opacity:.05;stroke:#8a94a0;stroke-width:1.25}.ln{fill:none;stroke:#8a94a0;stroke-width:1.25}.ah{fill:#8a94a0}
+@media (prefers-color-scheme:dark){text{fill:#e6ebef}.q{fill:#a7b0ba}.acc{fill:#4fb3a8;fill-opacity:.15;stroke:#4fb3a8}.band{fill:#4fb3a8;fill-opacity:.07}}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
+<text x="24" y="30" font-size="15" font-weight="600">Prepare sets the context, then six steps repeat across the life cycle</text>
+<rect x="24" y="48" width="712" height="60" rx="8" class="band"/>
+<text x="380" y="72" text-anchor="middle" font-size="13" font-weight="600">Step 0: Prepare (tasks P-1 to P-18)</text>
+<text x="380" y="94" text-anchor="middle" font-size="11.5" class="q">Organization: roles, risk strategy, common controls. System: mission, boundary, assets, information types</text>
+<g class="ln" marker-end="url(#a)"><path d="M128 108V136" marker-end="url(#a)"/><path d="M232 172H276" marker-end="url(#a)"/><path d="M484 172H528" marker-end="url(#a)"/><path d="M632 208V256" marker-end="url(#a)"/><path d="M528 292H484" marker-end="url(#a)"/><path d="M276 292H232" marker-end="url(#a)"/><path d="M128 256V208" marker-end="url(#a)"/></g>
+<rect x="24" y="136" width="208" height="72" rx="8" class="b"/><text x="128" y="160" text-anchor="middle" font-size="13" font-weight="600">Step 1: Categorize</text><text x="128" y="176" text-anchor="middle" font-size="11.5" class="q">Tasks C-1 to C-3</text><text x="128" y="192" text-anchor="middle" font-size="11.5">FIPS 199 security category</text>
+<rect x="276" y="136" width="208" height="72" rx="8" class="b"/><text x="380" y="160" text-anchor="middle" font-size="13" font-weight="600">Step 2: Select</text><text x="380" y="176" text-anchor="middle" font-size="11.5" class="q">Tasks S-1 to S-6</text><text x="380" y="192" text-anchor="middle" font-size="11.5">Approved SSP and ConMon plan</text>
+<rect x="528" y="136" width="208" height="72" rx="8" class="b"/><text x="632" y="160" text-anchor="middle" font-size="13" font-weight="600">Step 3: Implement</text><text x="632" y="176" text-anchor="middle" font-size="11.5" class="q">Tasks I-1 and I-2</text><text x="632" y="192" text-anchor="middle" font-size="11.5">As-built SSP and evidence</text>
+<rect x="528" y="256" width="208" height="72" rx="8" class="b"/><text x="632" y="280" text-anchor="middle" font-size="13" font-weight="600">Step 4: Assess</text><text x="632" y="296" text-anchor="middle" font-size="11.5" class="q">Tasks A-1 to A-6</text><text x="632" y="312" text-anchor="middle" font-size="11.5">SAR and POA&amp;M</text>
+<rect x="276" y="256" width="208" height="72" rx="8" class="acc"/><text x="380" y="280" text-anchor="middle" font-size="13" font-weight="600">Step 5: Authorize</text><text x="380" y="296" text-anchor="middle" font-size="11.5" class="q">Tasks R-1 to R-5</text><text x="380" y="312" text-anchor="middle" font-size="11.5">ATO or denial, by the AO</text>
+<rect x="24" y="256" width="208" height="72" rx="8" class="b"/><text x="128" y="280" text-anchor="middle" font-size="13" font-weight="600">Step 6: Monitor</text><text x="128" y="296" text-anchor="middle" font-size="11.5" class="q">Tasks M-1 to M-7</text><text x="128" y="312" text-anchor="middle" font-size="11.5">Ongoing authorization</text>
+<text x="138" y="236" font-size="11.5" class="q">significant change triggers re-entry</text>
+</svg>

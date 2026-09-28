@@ -1,0 +1,82 @@
+// @ts-check
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+
+// ---------------------------------------------------------------------------
+// Edit these three values, then push. Everything else can stay as it is.
+// GITHUB_USER: your GitHub username. The repository must be named
+//   <username>.github.io so the site is served from the root of that address.
+// SITE_URL: switch to your custom domain later (for example https://rmfguide.com)
+//   and add the domain to public/CNAME.
+// ---------------------------------------------------------------------------
+const GITHUB_USER = 'your-username';
+const SITE_URL = `https://${GITHUB_USER}.github.io`;
+const REPO_URL = `https://github.com/${GITHUB_USER}/${GITHUB_USER}.github.io`;
+
+// The 20 SP 800-53 Rev. 5 families, in catalog order.
+const families = [
+	['ac', 'Access Control'], ['at', 'Awareness and Training'], ['au', 'Audit and Accountability'],
+	['ca', 'Assessment, Authorization, and Monitoring'], ['cm', 'Configuration Management'],
+	['cp', 'Contingency Planning'], ['ia', 'Identification and Authentication'], ['ir', 'Incident Response'],
+	['ma', 'Maintenance'], ['mp', 'Media Protection'], ['pe', 'Physical and Environmental Protection'],
+	['pl', 'Planning'], ['pm', 'Program Management'], ['ps', 'Personnel Security'],
+	['pt', 'PII Processing and Transparency'], ['ra', 'Risk Assessment'], ['sa', 'System and Services Acquisition'],
+	['sc', 'System and Communications Protection'], ['si', 'System and Information Integrity'],
+	['sr', 'Supply Chain Risk Management'],
+];
+
+export default defineConfig({
+	site: SITE_URL,
+	integrations: [
+		starlight({
+			title: 'RMF Field Guide',
+			description:
+				'A practical guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems.',
+			favicon: '/favicon.svg',
+			social: [{ icon: 'github', label: 'Source on GitHub', href: REPO_URL }],
+			editLink: { baseUrl: `${REPO_URL}/edit/main/` },
+			lastUpdated: true,
+			customCss: [
+				'@fontsource/public-sans/400.css',
+				'@fontsource/public-sans/600.css',
+				'@fontsource/source-serif-4/600.css',
+				'./src/styles/theme.css',
+			],
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
+			sidebar: [
+				{
+					label: 'Start here',
+					items: [
+						{ label: 'About this guide', slug: 'about' },
+						{ label: 'How to use it', slug: 'rmf' },
+					],
+				},
+				{
+					label: 'Risk Management Framework',
+					items: [
+						{ label: 'Roles and responsibilities', slug: 'rmf/roles' },
+						{ label: 'The seven steps', items: [{ autogenerate: { directory: 'rmf/steps' } }] },
+						{ label: 'ATO package checklist', slug: 'rmf/ato-package' },
+						{ label: 'Program variants', slug: 'rmf/program-variants' },
+					],
+				},
+				{
+					label: 'SP 800-53 controls',
+					items: [
+						{ label: 'Using the control pages', slug: 'controls' },
+						...families.map(([id, name]) => ({
+							label: `${name} (${id.toUpperCase()})`,
+							collapsed: true,
+							items: [{ autogenerate: { directory: `controls/${id}` } }],
+						})),
+					],
+				},
+				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },
+				{ label: 'Technology playbooks', items: [{ autogenerate: { directory: 'technology' } }] },
+				{ label: 'Reference', items: [{ autogenerate: { directory: 'reference' } }] },
+			],
+		}),
+	],
+});

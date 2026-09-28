@@ -1,0 +1,99 @@
+---
+// The seven RMF steps as a linked sequence: the signature element of the home page.
+const steps = [
+	{ n: 0, name: 'Prepare', q: 'Context, roles and boundary', href: '/rmf/steps/prepare/' },
+	{ n: 1, name: 'Categorize', q: 'How bad would a loss be?', href: '/rmf/steps/categorize/' },
+	{ n: 2, name: 'Select', q: 'Which controls, and who owns them?', href: '/rmf/steps/select/' },
+	{ n: 3, name: 'Implement', q: 'Built and documented as built', href: '/rmf/steps/implement/' },
+	{ n: 4, name: 'Assess', q: 'Do the controls work?', href: '/rmf/steps/assess/' },
+	{ n: 5, name: 'Authorize', q: 'Is the remaining risk acceptable?', href: '/rmf/steps/authorize/' },
+	{ n: 6, name: 'Monitor', q: 'Is it still acceptable today?', href: '/rmf/steps/monitor/' },
+];
+---
+
+<nav class="steps not-content" aria-label="The seven RMF steps">
+	<ol>
+		{
+			steps.map((s) => (
+				<li>
+					<a href={s.href}>
+						<span class="num" aria-hidden="true">{s.n}</span>
+						<span class="name">{s.name}</span>
+						<span class="q">{s.q}</span>
+					</a>
+				</li>
+			))
+		}
+	</ol>
+	<p class="loop">Steps 1 to 6 repeat whenever the system or its risk changes.</p>
+</nav>
+
+<style>
+	.steps {
+		margin-block: 1rem 3rem;
+	}
+	ol {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+		border-top: 3px solid var(--sl-color-accent);
+	}
+	li + li a {
+		border-inline-start: 1px solid var(--sl-color-hairline);
+	}
+	a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		height: 100%;
+		padding: 0.9rem 0.8rem 1rem;
+		text-decoration: none;
+		color: var(--sl-color-gray-2);
+	}
+	a:hover {
+		background: var(--sl-color-accent-low);
+	}
+	a:focus-visible {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: -2px;
+	}
+	.num {
+		font-family: var(--rfg-serif);
+		font-size: 2.25rem;
+		line-height: 1;
+		color: var(--sl-color-text-accent);
+	}
+	.name {
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.q {
+		font-size: var(--sl-text-sm);
+		line-height: 1.35;
+	}
+	.loop {
+		margin-top: 0.75rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	@media (max-width: 50rem) {
+		ol {
+			grid-template-columns: 1fr;
+		}
+		li + li a {
+			border-inline-start: 0;
+			border-top: 1px solid var(--sl-color-hairline);
+		}
+		a {
+			display: grid;
+			grid-template-columns: 2.5rem 1fr;
+			column-gap: 0.75rem;
+		}
+		.num {
+			grid-row: span 2;
+			font-size: 1.75rem;
+		}
+	}
+</style>

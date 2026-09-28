@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="t">
+<title id="t">Only significant changes go back to the AO</title>
+<style>
+text{font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;fill:#1b2430}
+.q{fill:#5a6573}.b{fill:none;stroke:#8a94a0;stroke-width:1.25}.acc{fill:#0f5c5a;fill-opacity:.1;stroke:#0f5c5a;stroke-width:2}.ln{fill:none;stroke:#8a94a0;stroke-width:1.25}.ah{fill:#8a94a0}
+@media (prefers-color-scheme:dark){text{fill:#e6ebef}.q{fill:#a7b0ba}.acc{fill:#4fb3a8;fill-opacity:.15;stroke:#4fb3a8}}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
+<text x="24" y="34" font-size="15" font-weight="600">Only significant changes go back to the AO</text>
+<g class="ln"><path d="M192 110H216" marker-end="url(#a)"/><path d="M384 110H406" marker-end="url(#a)"/><path d="M534 110H566" marker-end="url(#a)"/><path d="M470 150V202" marker-end="url(#a)"/><path d="M650 138V202" marker-end="url(#a)"/><path d="M520 230H566" marker-end="url(#a)"/><path d="M650 258V290H108V138" marker-end="url(#a)"/></g>
+<rect x="24" y="82" width="168" height="56" rx="8" class="b"/><text x="108" y="114" text-anchor="middle" font-size="13">Change proposed</text>
+<rect x="216" y="82" width="168" height="56" rx="8" class="b"/><text x="300" y="106" text-anchor="middle" font-size="13">Impact analysis</text><text x="300" y="124" text-anchor="middle" font-size="11.5" class="q">CM-4, before the change</text>
+<polygon points="406,110 470,70 534,110 470,150" class="b"/><text x="470" y="114" text-anchor="middle" font-size="13">Significant?</text>
+<rect x="566" y="82" width="168" height="56" rx="8" class="acc"/><text x="650" y="106" text-anchor="middle" font-size="13" font-weight="600">Reassess affected</text><text x="650" y="124" text-anchor="middle" font-size="11.5">controls; AO decides</text>
+<rect x="380" y="202" width="140" height="56" rx="8" class="b"/><text x="450" y="226" text-anchor="middle" font-size="13">Record via CM</text><text x="450" y="244" text-anchor="middle" font-size="11.5" class="q">update SSP</text>
+<rect x="566" y="202" width="168" height="56" rx="8" class="b"/><text x="650" y="226" text-anchor="middle" font-size="13">Continue monitoring</text><text x="650" y="244" text-anchor="middle" font-size="11.5" class="q">tasks M-2 to M-6</text>
+<text x="550" y="102" text-anchor="middle" font-size="11.5" class="q">yes</text><text x="478" y="174" font-size="11.5" class="q">no</text><text x="250" y="282" text-anchor="middle" font-size="11.5" class="q">next change</text>
+</svg>

@@ -1,0 +1,58 @@
+/*
+ * Visual identity: the typefaces of the U.S. Web Design System (Public Sans for
+ * text, Source Serif for headings) with one accent colour, a deep archival teal.
+ * Everything else uses Starlight's defaults so the pages stay quiet and readable.
+ */
+:root {
+	--sl-font: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--rfg-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+	/* Dark theme (Starlight's default) */
+	--sl-color-accent-low: #0e3634;
+	--sl-color-accent: #4fb3a8;
+	--sl-color-accent-high: #c6e9e4;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #d4ece9;
+	--sl-color-accent: #0f5c5a;
+	--sl-color-accent-high: #093a39;
+}
+
+/* Serif headings carry the voice of the site; body text stays in Public Sans. */
+h1#_top,
+.hero h1,
+.sl-markdown-content :is(h2, h3) {
+	font-family: var(--rfg-serif);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.sl-markdown-content h2 {
+	margin-top: 2.25rem;
+}
+
+/* Long NIST text blocks: slightly smaller and indented so the guidance stands out. */
+.sl-markdown-content details {
+	border-inline-start: 2px solid var(--sl-color-gray-5);
+	padding-inline-start: 1rem;
+}
+
+.sl-markdown-content details summary {
+	cursor: pointer;
+	color: var(--sl-color-text-accent);
+	font-weight: 600;
+}
+
+.sl-markdown-content details[open] summary {
+	margin-bottom: 0.5rem;
+}
+
+.sl-markdown-content details > :not(summary) {
+	font-size: var(--sl-text-sm);
+}
+
+/* Control ID badges in family index tables */
+.sl-markdown-content td:first-child {
+	white-space: nowrap;
+}

@@ -1,0 +1,49 @@
+---
+title: RMF Field Guide
+description: A practitioner's guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems.
+template: splash
+hero:
+  title: Apply the NIST RMF to real systems
+  tagline: A practitioner's guide to the Risk Management Framework and SP 800-53 controls. What each step asks for, how to do it well, and what assessors and authorizing officials look for.
+  actions:
+    - text: Start with the RMF
+      link: /rmf/
+      icon: right-arrow
+    - text: Browse the controls
+      link: /controls/
+      variant: minimal
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import StepStrip from '../../components/StepStrip.astro';
+
+<StepStrip />
+
+## What's in the guide
+
+<CardGrid>
+	<LinkCard
+		title="The Risk Management Framework"
+		description="All seven steps and 47 tasks from SP 800-37, with owners, outputs, checklists and common findings."
+		href="/rmf/"
+	/>
+	<LinkCard
+		title="SP 800-53 controls"
+		description="Every Rev. 5 control with its baselines, enhancements and assessment objectives, plus implementation guidance."
+		href="/controls/"
+	/>
+	<LinkCard
+		title="Industry guides"
+		description="How the RMF and 800-53 map onto healthcare, finance, energy, defense and other regulated sectors."
+		href="/industries/"
+	/>
+	<LinkCard
+		title="Technology playbooks"
+		description="Control implementation on specific platforms: cloud, identity, endpoints, containers and more."
+		href="/technology/"
+	/>
+</CardGrid>
+
+## About
+
+This guide is written and maintained by **Your Name**, a practitioner in security risk management and system authorization. It is independent work, drawn from NIST publications and field experience, and is not an official NIST or government product. [Read more about the guide](/about/).

@@ -1,0 +1,22 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default />
+<p class="site-notice">
+	Independent guidance, not an official NIST publication. Control text is from NIST SP 800-53 Rev. 5
+	and SP 800-53A (public domain). Original content is licensed <a
+		href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a
+	>.
+</p>
+
+<style>
+	.site-notice {
+		margin-top: 2rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.site-notice a {
+		color: var(--sl-color-text-accent);
+	}
+</style>

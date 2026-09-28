@@ -9,6 +9,7 @@ import { readFileSync } from 'node:fs';
 import { parse as parseYaml } from 'yaml';
 import { clauseProblems, templateProblems, templateSchemas, type SourceEntry } from './lib/template-schema';
 import { renderVariables, VariableError } from './lib/template-vars';
+import { BlockError, renderBlocks } from './lib/template-editions';
 
 // Template sources in templates/ (PRD TPL-01). Ids are paths without the
 // extension ("policy/ac/ac-2.3"); the default slug would drop the dot.
@@ -28,7 +29,8 @@ function checked(loader: Loader, check: (entries: SourceEntry[]) => string[]): L
 }
 const families = new Set(catalog.controls.map((c) => c.family));
 
-// Every {{...}} in a source must render in all three targets (PRD TPL-02).
+// Every :::guidance and :::federal block must be well formed (PRD TPL-04), and
+// every {{...}} must render in all three targets (PRD TPL-02).
 const orgVariables = parseYaml(readFileSync('./templates/variables.yml', 'utf8')) ?? {};
 function variableProblems(entries: SourceEntry[]): string[] {
 	const problems: string[] = [];
@@ -39,9 +41,10 @@ function variableProblems(entries: SourceEntry[]): string[] {
 			typical: e.data.typical as Record<string, string> | undefined,
 		};
 		try {
-			for (const target of ['site', 'md', 'docx'] as const) renderVariables(e.body ?? '', ctx, target);
+			for (const target of ['site', 'md', 'docx'] as const)
+				renderVariables(renderBlocks(e.body ?? '', 'annotated', target), ctx, target);
 		} catch (err) {
-			if (!(err instanceof VariableError)) throw err;
+			if (!(err instanceof VariableError || err instanceof BlockError)) throw err;
 			problems.push(`templates/${e.id}.md: ${err.message}`);
 		}
 	}

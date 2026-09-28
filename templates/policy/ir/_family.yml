@@ -1,0 +1,18 @@
+# Incident Response (IR) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Incident Response
+role: ciso
+stage: core
+questions:
+  - question: Who runs incident response, and who is on call outside business hours?
+    controls: [ir-4, ir-7]
+    typical: An internal incident response team with a named lead and an on-call rotation, backed by a retained incident response provider for major incidents.
+    decides: Chief Information Security Officer
+  - question: Which outside parties must be notified of an incident, and who decides to notify them?
+    controls: [ir-6]
+    typical: Regulators, customers and partners named in laws and contracts; legal counsel decides, with the Chief Information Security Officer.
+    decides: Chief Information Security Officer

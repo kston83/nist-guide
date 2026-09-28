@@ -17,7 +17,7 @@ Phase 2 work is in stacked pull requests, each based on the one before it, start
 | PROG-02 Starter kit | Waiting for the SSP, IR plan and POA&M templates | |
 | Family policies: AC, AU, CM | Draft | #22 to #24 |
 | Family policy: IA | Draft | #25 |
-| Family policy: IR | In progress | |
+| Family policy: IR | Draft | #26 |
 | Guidance for the 30 priority controls | Not started | |
 | SSP, IR plan, POA&M templates | Not started | |
 | P2: CTRL-04, CTRL-05, CTRL-06, QA-03, PRES-06, FEAT-04, TPL-10 | Not started; PRES-06 needs the owner's input on the Word look | |
@@ -35,6 +35,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: IR policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 17 IR controls and enhancements in the Low, Moderate and High baselines; new `incident-response-team` variable. IR-6 federal block: report to CISA within one hour, per the CISA Federal Incident Notification Guidelines (effective April 1, 2017; checked at cisa.gov, "as of September 2026"). Privacy-only IR-2(3) and IR-8(1), and AC-3(14), are not written yet, so Privacy variants cover security-baseline clauses only. Also: prompts drop "is identified" and "is determined" |
 | Content: IA policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 25 IA controls and enhancements in the Low, Moderate and High baselines. Password typical values follow NIST SP 800-63B-4 (final, July 2025; checked at csrc.nist.gov): 15 characters when used alone, 8 with another factor, no composition rules, no periodic change. IA-2(12) has a federal block (HSPD-12, FIPS 201-3, January 2022, checked); IA-2(12) and IA-8(1) are conditional in the body for non-federal use |
 | Content: CM policy | Draft | 2026-09-28 | `_family.yml` (three worksheet questions) and clauses for all 31 CM controls and enhancements in the Low, Moderate and High baselines; CM-6 guidance points to vendor baselines and the NIST National Checklist Program (SP 800-70 Rev. 4) |
 | Content: AU policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 24 AU controls and enhancements in the Low, Moderate and High baselines; new `security-operations` variable. AU-11 has a TODO(verify) for federal retention (see Open questions) |

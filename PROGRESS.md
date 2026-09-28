@@ -20,7 +20,8 @@ Phase 2 work is in stacked pull requests, each based on the one before it, start
 | Family policy: IR | Draft | #26 |
 | Guidance for the 30 priority controls | Not started | |
 | Incident Response Plan | Draft | #27 |
-| SSP, POA&M templates | In progress | |
+| System Security Plan | Draft | #28 |
+| POA&M template | In progress | |
 | P2: CTRL-04, CTRL-05, CTRL-06, QA-03, PRES-06, FEAT-04, TPL-10 | Not started; PRES-06 needs the owner's input on the Word look | |
 
 Exit criteria: 31 controls at `guidance: draft` or better; 5 family policies downloadable per baseline; kit v1.0.0 released.
@@ -36,6 +37,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: System Security Plan | Draft | 2026-09-28 | `templates/plans/system-security-plan.md` follows the System Security Plan Outline Example published with NIST SP 800-18 Rev. 2 (final, June 30, 2026; it replaced Rev. 1, withdrawn the same day; checked at csrc.nist.gov) and cites every PL-2a to PL-2e element; federal blocks for SP 800-60 and FIPS 199 categorization and the SP 800-63-4 Digital Identity Acceptance Statement. Library and Select step now cite SP 800-18 Rev. 2 |
 | Content: Incident Response Plan | Draft | 2026-09-28 | `templates/plans/incident-response-plan.md`: the ten IR-8a elements, handling organized by the CSF 2.0 Functions as NIST SP 800-61 Rev. 3 (final, April 2025; checked at csrc.nist.gov) does, CISA federal block, contact appendix. Template pages get a Pagefind-weighted lead so "incident response plan" finds the template first (NAV-01 carry-over done). Templates may now give `typical` values; downloads take their H1 from `title`. Plans sidebar group |
 | Content: IR policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 17 IR controls and enhancements in the Low, Moderate and High baselines; new `incident-response-team` variable. IR-6 federal block: report to CISA within one hour, per the CISA Federal Incident Notification Guidelines (effective April 1, 2017; checked at cisa.gov, "as of September 2026"). Privacy-only IR-2(3) and IR-8(1), and AC-3(14), are not written yet, so Privacy variants cover security-baseline clauses only. Also: prompts drop "is identified" and "is determined" |
 | Content: IA policy | Draft | 2026-09-28 | `_family.yml` and clauses for all 25 IA controls and enhancements in the Low, Moderate and High baselines. Password typical values follow NIST SP 800-63B-4 (final, July 2025; checked at csrc.nist.gov): 15 characters when used alone, 8 with another factor, no composition rules, no periodic change. IA-2(12) has a federal block (HSPD-12, FIPS 201-3, January 2022, checked); IA-2(12) and IA-8(1) are conditional in the body for non-federal use |

@@ -12,12 +12,13 @@
     "check:links": "node scripts/check-links.mjs",
     "check:search": "node scripts/check-search.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
-    "lint": "markdownlint-cli2",
+    "lint": "markdownlint-cli2 && npm run lint:templates",
     "test": "node --test \"scripts/test/*.test.mjs\"",
     "astro": "astro",
     "kit": "node --disable-warning=ExperimentalWarning scripts/build-templates.mjs",
     "templates": "node --disable-warning=ExperimentalWarning scripts/build-templates.mjs --pages",
-    "reference-docx": "node scripts/make-reference-docx.mjs"
+    "reference-docx": "node scripts/make-reference-docx.mjs",
+    "lint:templates": "node --disable-warning=ExperimentalWarning scripts/lint-templates.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",

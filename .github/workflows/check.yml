@@ -37,7 +37,7 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: Lint Markdown
+      - name: Lint Markdown and template sources
         run: npm run lint
       - name: Check generated control pages are up to date
         # Regenerates from the pinned NIST catalog; any diff means a page (or

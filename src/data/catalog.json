@@ -14106,12 +14106,12 @@
 		},
 		"au-2_prm_2": {
 			"control": "au-2",
-			"label": "organization-defined event types (subset of the event types defined in [AU-2a.](#au-2_smt.a)) along with the frequency of (or situation requiring) logging for each identified event type",
+			"label": "organization-defined event types (subset of the event types defined in AU-2a.) along with the frequency of (or situation requiring) logging for each identified event type",
 			"aggregates": [
 				"au-02_odp.02",
 				"au-02_odp.03"
 			],
-			"text": "[Assignment: organization-defined event types (subset of the event types defined in [AU-2a.](#au-2_smt.a)) along with the frequency of (or situation requiring) logging for each identified event type]"
+			"text": "[Assignment: organization-defined event types (subset of the event types defined in AU-2a.) along with the frequency of (or situation requiring) logging for each identified event type]"
 		},
 		"au-02_odp.01": {
 			"control": "au-2",

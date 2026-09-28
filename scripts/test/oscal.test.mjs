@@ -215,6 +215,11 @@ test('aggregating parameters list the parameters they combine', () => {
 	assert.equal(data.params['ac-2_prm_1'].odp, undefined);
 });
 
+test('links to catalog anchors are removed, even inside an [Assignment: ...] bracket', () => {
+	assert.equal(data.params['ac-2_prm_1'].label, 'organization-defined time period (from AC-2a.)');
+	assert.equal(data.params['ac-2_prm_1'].text, '[Assignment: organization-defined time period (from AC-2a.)]');
+});
+
 test('parameters of withdrawn controls are left out', () => {
 	for (const p of Object.values(data.params)) assert.ok(['ac-1', 'ac-2', 'ac-2.1'].includes(p.control));
 });

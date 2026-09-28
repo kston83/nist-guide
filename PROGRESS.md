@@ -20,7 +20,7 @@ Phase 2 can start once PR #10 is merged.
 
 Parts of Phase 1 requirements that need templates or other later pages to exist:
 
-- **QA-01:** add the kit build step to `check.yml` once `build-templates` exists (TPL-05).
+- ~~**QA-01:** add the kit build step to `check.yml` once `build-templates` exists~~ (done in TPL-03: `npm run build` runs the kit).
 - **NAV-01:** add the "incident response plan returns the template first" case to `scripts/check-search.mjs` once the IR plan template page exists.
 - **PRES-03:** add a template page to `.pa11yci.json` (Phase 2) and an industry guide (Phase 4).
 
@@ -49,6 +49,7 @@ Owner decisions likely needed in Phase 2: the `reference.docx` look (visual desi
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| TPL-03 | Done | 2026-09-28 | `src/lib/template-assemble.ts` inserts the family's clauses under `## Policy statements` in `policy/_common.md`, in catalog order, keeping only controls in the chosen baseline (from `catalog.json`, so a control NIST adds to a baseline appears with no manual step); `XX-1` references become the family label. Low, Moderate and High always; Privacy only when a clause is in it. `scripts/build-templates.mjs` (`npm run kit`, now part of `npm run build`, so CI, deploy and the link check all include it) writes `dist/downloads/policies/<family>-policy-<baseline>.md`. `_common.md` written (draft) for the 19 families that share the -1 parameter layout; federal block cites 44 U.S.C. § 3554 and OMB A-130 Appendix I. 8 tests. Completes the QA-01 kit-build carry-over |
 | TPL-02 | Done | 2026-09-28 | `src/lib/template-vars.ts` renders `org:`, `param:`, `fill:` and (in `_common.md`) `family:` and `xx-` variables for site (HTML field with typical value), `.md` (`[Fill in: ... Typical: ...]`) and `.docx` (pandoc span in a `Fill-in` character style for `reference.docx`). Parameters show their 800-53A description; selections list choices. Unknown variables and parameters fail the build via the `clauses` and `templates` collection checks, all listed at once. 9 tests. Adds the approved `yaml` dependency |
 | TPL-01 | Done | 2026-09-28 | Collections `clauses`, `templates`, `families`, `variables` over `templates/` (glob and file loaders; ids are paths, so `ac-2.3` keeps its dot). Schemas and whole-collection checks in `src/lib/template-schema.ts`, 10 tests. Build fails on an unknown control, bad `status`/`stage`/`type`, a clause not at `policy/<family>/<control>.md`, a duplicate clause, a template in the wrong type folder, or `typical`/`set` naming another control's parameter. First sources: `variables.yml`, `policy/ac/_family.yml`, the AC-2 clause (`status: draft`). Owner decisions recorded in the PRD: `yaml` and `fflate` dependencies, `family:` variables and the `xx-` prefix in `_common.md`; `typical`, `set` and `description` front matter added |
 | CTRL-08 | Done | 2026-09-28 | `npm run controls` also writes `src/data/catalog.json` (committed; CI diff check covers it): 1,014 active controls and enhancements in catalog order with baselines and parameter ids, and 1,600 parameters with 800-53A label, NIST label, selection choices, aggregated parameters, the control page placeholder text and a `prompt` taken from the 800-53A guideline ("time period within which to disable accounts"). 6 new tests on the fixture catalog |

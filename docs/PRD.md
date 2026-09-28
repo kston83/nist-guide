@@ -233,6 +233,9 @@ Two additions apply only in `policy/_common.md`, the sections every family polic
 | --- | --- |
 | `{{family:title}}`, `{{family:role}}` | The family's title, and its accountable role from `_family.yml` (rendered as that `org:` variable) |
 | `{{param:xx-01_odp.05}}` | The `xx` becomes the family id, so one sentence fills AC-1, AU-1 and so on. PM-1 has a different parameter set and needs its own sections (Phase 3) |
+| `(XX-1c.1)` in text | Control references to the -1 control become the family's label: `(AC-1c.1)` |
+
+Clauses are inserted under the `## Policy statements` heading of `_common.md`, each under a `### <title> (<control label>)` heading.
 
 ### Outputs
 

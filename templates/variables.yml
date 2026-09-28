@@ -9,6 +9,9 @@ name:
 ciso:
   label: Chief Information Security Officer
   description: Title of the senior official accountable for the security program. Some organizations use Head of Security or Information Security Officer.
+senior-leader:
+  label: Senior leader
+  description: Title of the executive who approves security policy for the organization, such as Chief Executive Officer, Chief Information Officer or agency head.
 system-owner:
   label: System owner
   description: Title of the official responsible for a system's development, operation and security. Often the business or mission owner.

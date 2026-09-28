@@ -8,6 +8,7 @@ control:
   id: SA-9
   family: SA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -250,4 +251,39 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+SA-9 covers services the system relies on but does not run: cloud platforms, software as a service, managed security, hosting and outsourced operations. You set the security requirements a provider must meet, usually by contract, define who oversees the provider and who does what, and check compliance on an ongoing basis rather than only at purchase.
+
+**Common implementations.** Security requirements written into contracts and service agreements: the controls or framework the provider must meet, incident notification times, right to audit and data location. Compliance shown through independent attestations (for example a SOC 2 Type II report, ISO/IEC 27001 certification, or a FedRAMP authorization for federal use), reviewed each year by the vendor risk team. A shared responsibility matrix for each service, recorded in the security plan as inherited, shared or system-owned controls. Service reviews that cover the provider's incidents, findings and changes.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Controls providers must employ (a) | The controls of the system's baseline that the provider is responsible for, per the shared responsibility matrix, with evidence from an independent attestation |
+| Processes to monitor provider compliance (c) | Annual review of independent attestation reports, review of the provider's continuous monitoring or status reports, and contract service reviews |
+| Services whose functions, ports, protocols and services must be identified (SA-9(2)) | All external system services that connect to the system |
+
+**Evidence assessors ask for.**
+
+- The list of external services the system uses, with owners
+- Contract clauses or agreements stating the security requirements
+- The shared responsibility matrix for each significant service
+- Current attestation reports and the record of their review, including follow-up on exceptions
+- Provider-supplied lists of required ports, protocols and services (SA-9(2))
+
+**Inheritance.** The procurement process and vendor risk program are often common controls. The system owns its list of providers, the responsibility split and the review of each provider's evidence.
+
+**Common findings.**
+
+- Software as a service in use with no security terms in the contract.
+- Attestation reports collected but not read, or exceptions and complementary user controls not followed up.
+- No responsibility matrix, so controls fall between provider and customer.
+- Expired attestation reports, or reports that do not cover the service actually used.
+
+**Enhancements in the Moderate baseline.** [SA-9(2)](#sa-9.2) identification of functions, ports, protocols and services, also in High.
+
+**Federal systems.** Under [OMB M-24-15](https://www.fedramp.gov/2026/authority/m-24-15/), Modernizing the Federal Risk and Authorization Management Program (July 25, 2024), agencies must obtain and maintain a FedRAMP authorization for cloud products and services that create, collect, process, store or maintain federal information on the agency's behalf, unless the memo places them out of scope. Agencies presume the security assessment in a FedRAMP authorization package is adequate for their own authorizations at or below its FIPS 199 impact level, and still issue their own authorization to operate or use. FedRAMP itself is changing in 2026; see [Program variants](/rmf/program-variants/).

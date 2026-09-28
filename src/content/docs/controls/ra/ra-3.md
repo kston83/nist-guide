@@ -8,6 +8,7 @@ control:
   id: RA-3
   family: RA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -171,4 +172,37 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+RA-3 asks you to identify threats and vulnerabilities, estimate the likelihood and impact of harm to the organization and, where personal information is processed, to individuals, and to record, review, share and update the results. The system-level assessment should build on the organization's own risk decisions from the Prepare step rather than start from scratch.
+
+**Common implementations.** A risk assessment report following [NIST SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) (September 2012), the current guide for conducting risk assessments: threat sources and events, vulnerabilities and predisposing conditions, likelihood, impact and resulting risk, usually in a risk register table. Threat information comes from threat intelligence feeds, sector sharing groups and past incidents; vulnerability information from scans and assessments. A privacy impact assessment covers risks to individuals (a.3). Results feed the POA&M and the authorization decision.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Where results are documented (c) | A risk assessment report, summarized in the security plan |
+| Review frequency (d) | Annually |
+| Who receives results (e) | The authorizing official, the system owner and the Chief Information Security Officer |
+| Update frequency (f) | At least every three years, and whenever a significant change occurs |
+
+**Evidence assessors ask for.**
+
+- The current risk assessment report, with its date and author
+- Evidence of the last annual review
+- Records showing results were given to the authorizing official
+- The link from identified risks to POA&M items or risk acceptances
+
+**Inheritance.** The organization's risk management strategy and enterprise threat information are common inputs. The system-level assessment itself is always system-specific.
+
+**Common findings.**
+
+- A generic threat list copied between systems with no system-specific analysis.
+- A risk assessment never updated after a major change.
+- Risks identified with no resulting POA&M item, acceptance or other decision.
+- No supply chain risk assessment (RA-3(1)).
+
+**Enhancements in the Moderate baseline.** [RA-3(1)](#ra-3.1) supply chain risk assessment, also in Low and High.

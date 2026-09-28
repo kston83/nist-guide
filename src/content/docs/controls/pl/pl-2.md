@@ -8,6 +8,7 @@ control:
   id: PL-2
   family: PL
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -133,4 +134,37 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+PL-2 asks for a security plan (and a privacy plan where the system processes personally identifiable information) that describes the system, its boundary, roles, information types, categorization, threats, environment, connections, requirements and the controls that meet them. The authorizing official approves it before it is put into effect, and it is reviewed, updated and protected afterward. The plan is the main input to the assessment and the authorization decision.
+
+**Common implementations.** A system security plan following the outline NIST publishes with [SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026); the [System Security Plan template](/templates/plans/system-security-plan/) follows it and names the PL-2a item each section meets. Control implementation details are often kept in a GRC tool and exported into the plan, increasingly in the machine-readable OSCAL format. One integrated security and privacy plan is allowed, as is a separate privacy plan.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who plans and coordinates security and privacy activities (a.14) | The system's stakeholders, the common control providers, and the security and privacy teams |
+| Who receives the plan and its changes (b) | The authorizing official, the system owner, the system security officer and the assessor |
+| Review frequency (c) | Annually |
+
+**Evidence assessors ask for.**
+
+- The current plan, with the authorizing official's approval and date (a.15)
+- A boundary diagram and component inventory that match the plan (a.2, a.9)
+- Tailoring decisions with their rationale (a.12)
+- The plan's review and change history
+- The distribution list and the access controls on the plan's storage
+
+**Inheritance.** None as a whole: every system needs its own plan. Common control providers supply the descriptions of inherited controls that the plan references.
+
+**Common findings.**
+
+- Implementation statements that repeat the control text instead of describing what the system does.
+- A boundary or inventory that no longer matches the running system.
+- The plan not updated after significant changes or assessments.
+- Inherited controls claimed with no reference to the provider's documentation.
+
+**Enhancements in the Moderate baseline.** None; PL-2 has no active enhancements.

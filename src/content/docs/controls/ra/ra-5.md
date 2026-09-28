@@ -8,6 +8,7 @@ control:
   id: RA-5
   family: RA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -265,4 +266,47 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+RA-5 asks you to find vulnerabilities on a schedule and whenever new ones are announced, analyze the results, fix real vulnerabilities within set times based on risk, and share what you learn. Scanning tools must use standard naming and scoring (for example CVE, CPE and CVSS) and be able to take new vulnerability checks quickly.
+
+**Common implementations.** Authenticated infrastructure scanning of servers, workstations, network devices and databases (for example Tenable, Qualys or Rapid7), container image and cloud configuration scanning, and web application scanning. Results flow into a ticketing system with due dates set by severity and exploitation status, using a known-exploited list such as CISA's [Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) to move urgent items forward. Vulnerabilities not fixed on time become POA&M items or approved risk acceptances. A published vulnerability disclosure policy receives outside reports (RA-5(11)).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Scan frequency (a) | At least monthly for infrastructure and before each major release for applications, and when a new vulnerability affecting the system is reported |
+| Remediation times (d) | Known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days |
+| Who receives shared results (e) | System owners of similar systems and the security operations team |
+| When scanner checks are updated (RA-5(2)) | Before each new scan |
+| Components and scans needing privileged access (RA-5(5)) | Operating systems, databases and web applications, for credentialed scans |
+
+**Evidence assessors ask for.**
+
+- The vulnerability management procedure, with remediation times
+- Recent scan results showing authenticated scans and full coverage of the inventory
+- A sample of findings with ticket dates, fix dates and any POA&M entries
+- Scanner plug-in or signature update records
+- The vulnerability disclosure policy and a record of reports handled
+
+**Inheritance.** Scanning platforms and a central vulnerability management team are often common controls. The system owns remediation, coverage of its components and its own application testing.
+
+**Common findings.**
+
+- Unauthenticated scans only, which miss most missing patches.
+- Scans that cover fewer hosts than the inventory lists.
+- Old high and critical vulnerabilities with no POA&M item or risk acceptance.
+- False positives closed with no documented analysis.
+
+**Enhancements in the Moderate baseline.** [RA-5(2)](#ra-5.2) updating the vulnerabilities scanned and [RA-5(11)](#ra-5.11) public disclosure program (both also Low), and [RA-5(5)](#ra-5.5) privileged access for scanning. High adds [RA-5(4)](#ra-5.4) discoverable information.
+
+**Federal systems** (as of September 2026). CISA binding operational directives set minimums for federal civilian agencies:
+
+- [BOD 26-04](https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk), Prioritizing Security Updates Based on Risk (June 10, 2026), sets remediation deadlines by exposure, KEV status, whether exploitation can be automated, and technical impact, from 3 days for a publicly exposed, known exploited, automatable vulnerability with total impact to "fix on system upgrade" for the lowest-risk cases. The clock starts when CISA adds a vulnerability to the KEV catalog or the agency identifies it, whichever is first. BOD 26-04 revoked BOD 22-01 and BOD 19-02.
+- [BOD 23-01](https://www.cisa.gov/news-events/directives/bod-23-01-improving-asset-visibility-and-vulnerability-detection-federal-networks), Improving Asset Visibility and Vulnerability Detection on Federal Networks (October 3, 2022), requires automated asset discovery every 7 days and vulnerability enumeration across discovered assets every 14 days.
+- [BOD 20-01](https://www.cisa.gov/news-events/directives/bod-20-01-develop-and-publish-vulnerability-disclosure-policy) (September 2, 2020) requires a published vulnerability disclosure policy, which meets RA-5(11).
+
+Set the RA-5a and RA-5d values no weaker than these.

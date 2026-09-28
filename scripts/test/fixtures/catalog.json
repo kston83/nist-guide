@@ -57,7 +57,7 @@
                   { "name": "aggregates", "value": "ac-02_odp.01" },
                   { "name": "aggregates", "value": "ac-02_odp.02" }
                 ],
-                "label": "organization-defined time period"
+                "label": "organization-defined time period (from [AC-2a.](#ac-2_smt.a))"
               },
               {
                 "id": "ac-02_odp.01",

@@ -77,11 +77,14 @@ export function baselineMembership(profiles) {
 	return inBaseline;
 }
 
+// Links to anchors inside the NIST catalog ("[AU-2a.](#au-2_smt.a)") mean nothing
+// outside it; keep their text.
+const unlink = (s) => s.replace(/\[([^[\]]*)\]\(#[^)]*\)/g, '$1');
+
 // "time period within which to notify ... is defined;" -> "time period within which to notify ..."
 const promptFrom = (guideline) =>
-	guideline
-		?.trim()
-		.replace(/\[([^\]]*)\]\(#[^)]*\)/g, '$1') // links to other parameters
+	unlink(guideline ?? '')
+		.trim()
 		.replace(/[\s;.]*(?:\(if selected\))?[\s;.]*$/i, '')
 		.replace(/\s+(?:is|are|is\/are|has been|have been)\s+(?:defined|selected)$/i, '')
 		.trim();
@@ -128,7 +131,7 @@ export function buildControlData(catalog, profiles) {
 			const entry = { control: c.id };
 			const odp = prop(p, 'label', 'sp800-53a');
 			if (odp) entry.odp = odp;
-			if (p.label) entry.label = p.label;
+			if (p.label) entry.label = unlink(p.label);
 			const prompt = promptFrom(p.guidelines?.[0]?.prose);
 			if (prompt) entry.prompt = prompt;
 			if (p.select) {
@@ -144,7 +147,7 @@ export function buildControlData(catalog, profiles) {
 			}
 			const aggregates = (p.props ?? []).filter((x) => x.name === 'aggregates').map((x) => x.value);
 			if (aggregates.length) entry.aggregates = aggregates;
-			entry.text = renderParam(p.id);
+			entry.text = unlink(renderParam(p.id));
 			paramData[p.id] = entry;
 		}
 	};
@@ -183,7 +186,7 @@ export function buildPages(catalog, profiles) {
 
 	function clean(text = '') {
 		return insertParams(text)
-			.replace(/\[([^\]]*)\]\(#[^)]*\)/g, '$1') // links to NIST back-matter anchors
+			.replace(/\[([^[\]]*)\]\(#[^)]*\)/g, '$1') // links to NIST anchors; innermost brackets only
 			.replace(/</g, '&lt;')
 			.trim();
 	}

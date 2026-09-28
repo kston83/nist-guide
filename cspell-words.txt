@@ -1,5 +1,6 @@
 # Domain dictionary for cspell (PRD QA-03): RMF, SP 800-53, SSDF and federal
 # program terms, plus project words. One per line, lines starting # ignored.
+airmf
 AODR
 automatability
 automatable
@@ -13,6 +14,7 @@ CMMC
 CMVP
 CNSS
 CNSSI
+COSAIS
 Crowell
 CSAM
 CSIRT

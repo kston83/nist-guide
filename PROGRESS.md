@@ -46,7 +46,7 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). **Phase 2 ex
 
 ### Carried from Phase 1
 
-- **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 4.
+- **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 5 (industries and technology; renumbered by PRD v3).
 
 Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_common.md` variables (2026-09-28).
 
@@ -54,6 +54,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| PRD v3 | Proposed (PR) | 2026-09-28 | Owner direction: methods (the SSDF first) are how NIST says to meet controls, shown in a Methods section on control pages; an AI security guide as a separate section, built only on NIST and OWASP guidance (OWASP Top 10 for LLM and for Agentic Applications, CC BY-SA 4.0, own words and links only; OWASP AI Exchange, CC0), and high priority. No AI-specific control selections until NIST's COSAIS overlays are final (owner decision). Phases: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth. New requirements METH-01 to METH-03 and AI-01 to AI-12; SSDF moved under `methods/`. NIST AI sources checked at the source on Sep 28, 2026 (table in the PRD) |
 | TPL-10 | Done | 2026-09-28 | Released: `v1.0.0` pushed on #41's merge commit after the owner's go-ahead; the Release kit workflow passed on its first run and published [Template kit v1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) with 9 zips and notes from the changelog. |
 | TPL-10 (PR) | Done | 2026-09-28 | `package.json` version 1.0.0 (every document and template page prints it). `.github/workflows/release.yml`: on a pushed `vX.Y.Z` tag, fails unless the tag is on `main` and matches `package.json`, installs pinned pandoc 3.11, runs `npm run kit`, and creates a GitHub Release ("Template kit vX.Y.Z") with `rmf-field-guide-kit.zip`, `starter-kit-{low,moderate,high}.zip` and the five family packs. Notes: the NIST release basis, a license and not-legal-advice line, then `build-changelog.mjs --notes <tag>`. Same allow-listed actions pinned by SHA as `check.yml`; release created with the runner's `gh`; job permission `contents: write` only, top level `permissions: {}`. README "Releasing the template kit" |
 | PRES-06 | Done | 2026-09-28 | `templates/reference.docx` (made by `npm run reference-docx`) sets the owner's chosen look: Calibri body and Georgia headings (installed with Office, close to the site's fonts; recorded in the PRD), teal headings, links and table header rows, bordered tables, US Letter with 1 inch margins, a header with the document title and "Version x.y.z", and a "Page X of Y" footer; no guide name or logo. `toDocx` fills the header's `{{title}}` (first heading) and `{{version}}` (`package.json`) per document (`fillDocxHeader`, 1 test; the pandoc test checks header, footer and styles). Owner opened sample policy, annotated policy and SSP files in Word and approved the look |
@@ -115,7 +116,10 @@ From the PRD. The owner deferred every open item on 2026-09-28; raise each again
 - [x] Template voice: any organization, federal-only requirements in `:::federal` sections (2026-09-27)
 - [x] `.docx` tool: pandoc, pinned, in CI (2026-09-27)
 - [x] Employer publishing policy: no issues (2026-09-28)
-- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services); deferred, needed by Phase 4
-- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes); deferred, needed by Phase 4
-- [ ] Privacy-friendly analytics: yes or no; deferred (PRES-05, Phase 5)
+- [ ] Which three industries to cover first (proposed: defense, healthcare, financial services); deferred, needed by Phase 5
+- [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes); deferred, needed by Phase 5
+- [ ] Privacy-friendly analytics: yes or no; deferred (PRES-05, Phase 6)
+- [ ] AI RMF machine-readable source for AI-02 (NIST AI RMF Playbook data, CPRT, or another NIST export); decide at the start of Phase 3
+- [ ] SSDF source for SSDF-01: the SP 800-218 Excel table or CPRT; decide at the start of Phase 4
+- [ ] Confirm OMB M-25-21 is still current federal AI policy at an OMB page before writing AI-08 (secondary sources only so far)
 - [ ] TODO(verify), `templates/policy/au/au-11.md`: federal log retention. OMB M-21-31 required 12 months active and 18 months cold storage; a search on 2026-09-28 indicates OMB M-26-14 (May 2026) replaced it, but its PDF could not be read here. Confirm M-26-14's requirements, then add a federal block to AU-11 (and AU-2 if it sets event types)

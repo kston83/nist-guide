@@ -11,7 +11,7 @@ The same templates serve three uses: as teaching material inside the guide, as a
 Two further strands build on the controls, each kept as its own topic:
 
 - **Methods.** For many controls NIST also publishes *how* to meet them: an established process or practice set. The Secure Software Development Framework (SSDF, SP 800-218) is the first example; its task table cites the SP 800-53 controls each task supports, mainly in the SA and SR families. Others include SP 800-61 for incident handling and SP 800-34 for contingency planning. Each control page names the NIST methods that implement it, so a reader meeting SA-15 is pointed to the SSDF.
-- **AI security guide.** A guide within the guide for adopting and securing AI in an organization and in a system authorized under the RMF and SP 800-53, built only on NIST guidance: the AI Risk Management Framework (AI RMF) and its profiles, NIST's AI security publications, and NIST's SP 800-53 control overlays for AI systems once NIST publishes them. It links into the RMF steps, control pages and templates, but it is a separate section with its own entry point.
+- **AI security guide.** A guide within the guide for adopting and securing AI in an organization and in a system authorized under the RMF and SP 800-53, built on two sources only: NIST guidance (the AI Risk Management Framework (AI RMF) and its profiles, NIST's AI security publications, and NIST's SP 800-53 control overlays for AI systems once NIST publishes them) and OWASP's AI security guidance (the OWASP Top 10 lists for LLM and agentic applications and the OWASP AI Exchange) for application-level threats and mitigations. It links into the RMF steps, control pages and templates, but it is a separate section with its own entry point.
 
 This document tells a Claude Code session what to build on top of the existing repo, in what order, and how to know each piece is done.
 
@@ -48,7 +48,7 @@ Families roll the per-control pieces up into artifacts an organization actually 
 | Family policy templates | 5 in Phase 2; all 20 plus a consolidated policy in Phase 4 |
 | Plans, procedures and forms | Every artifact in the [artifact catalog](#artifact-catalog) by end of Phase 4 |
 | Program kit | Versioned release with every template in `.docx` and `.md`, per baseline, from Phase 2 |
-| AI security guide | Overview, AI RMF pages, securing AI through the RMF steps, and AI templates by end of Phase 3; NIST's AI control overlays reflected within one release of each final publication |
+| AI security guide | Overview, AI RMF pages, securing AI through the RMF steps, OWASP LLM and agentic Top 10 pages, and AI templates by end of Phase 3; new OWASP editions reflected within one release; NIST's AI control overlays reflected within one release of each final publication |
 | Methods | Every family hub names NIST's implementation guidance; every SSDF practice has a page and its NIST-published 800-53 references, shown on the control pages, by end of Phase 4 |
 | Industry guides and technology playbooks | 3 and 4 in Phase 5 |
 | Broken internal links | 0 on every build |
@@ -119,6 +119,7 @@ src/content/docs/
     index.md                Start here: what applies, NIST AI publications and their status
     ai-rmf/                 AI RMF overview and one page per function (GOVERN, MAP, MEASURE, MANAGE)
     securing-ai-systems.md  An AI system through the seven RMF steps
+    owasp/                  OWASP Top 10 for LLM Applications and for Agentic Applications
     ...                     Topic pages (generative AI profile, adversarial ML, AI in the SDLC, federal)
   industries/               Layer 4: one page per industry
   technology/               Layer 5: one folder per platform area
@@ -141,7 +142,7 @@ scripts/build-templates.mjs NEW: renders template pages and the downloadable kit
 | Template | Preview and download one artifact | What it is, when to use it, controls satisfied, decisions to make first, preview, downloads (clean, annotated, per baseline), version |
 | Method | Explain one NIST method: a process or practice set that implements controls | What it is and who it is for, version and status ("as of" month), the controls it implements (only as NIST states), how to adopt it, related templates |
 | SSDF practice | Explain one SSDF practice | Practice and tasks (NIST text), how to apply it, 800-53 references (NIST-published), related templates, evidence |
-| AI guide page | One topic in the AI security guide | What NIST says (cited, with version and status), what to do, how it connects to the RMF steps and controls (NIST-stated links only; see AI-07), templates, federal notes in `:::federal`-style asides |
+| AI guide page | One topic in the AI security guide | What NIST and OWASP say (cited, with version or edition and status), what to do, how it connects to the RMF steps and controls (NIST-stated links only; see AI-07), templates, federal notes in `:::federal`-style asides |
 | Industry guide | Apply RMF and 800-53 under sector rules | Rules that apply, how the steps change, controls with extra weight, findings, references |
 | Technology playbook | Implement controls on a platform | Controls covered, recommended configuration, evidence to collect, findings, references |
 | Article | Opinion, lessons learned, news analysis | Date, author, summary, body, sources |
@@ -349,19 +350,22 @@ The SSDF is the first method: NIST's practice set for SA and SR controls on secu
 
 ### AI security guide (AI)
 
-A guide within the guide: how an organization adopts and secures AI, and how an AI system is taken through the RMF under SP 800-53. Built only on NIST publications (and, for federal notes, OMB and CISA). A separate section with its own sidebar group and entry page, linked from the RMF steps, the home page and relevant control pages. Phase 3.
+A guide within the guide: how an organization adopts and secures AI, and how an AI system is taken through the RMF under SP 800-53. Built only on NIST publications and OWASP's AI security guidance (and, for federal notes, OMB and CISA). NIST sets the framework and, once published, the controls; OWASP supplies the practitioner view of how AI applications and agents are attacked and defended. A separate section with its own sidebar group and entry page, linked from the RMF steps, the home page and relevant control pages. Phase 3.
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| AI-01 | AI guide entry page | P1 | `ai/index.md`: who it is for, how the AI RMF relates to the RMF (SP 800-37) and SP 800-53, the path through the guide, and a status table of every NIST AI publication the guide uses (number, title, version, status, date, "as of" month), rechecked at every kit release |
+| AI-01 | AI guide entry page | P1 | `ai/index.md`: who it is for, how the AI RMF relates to the RMF (SP 800-37) and SP 800-53, what NIST and OWASP each contribute, the path through the guide, and a status table of every NIST and OWASP AI publication the guide uses (number or name, title, version or edition, status, date, license for OWASP, "as of" month), rechecked at every kit release |
 | AI-02 | AI RMF core pages | P1 | Overview plus one page per function (GOVERN, MAP, MEASURE, MANAGE) with its categories and subcategories from AI RMF 1.0 (NIST AI 100-1), imported from a NIST machine-readable source chosen with the owner, cached like the OSCAL catalog, with source and version cited; each subcategory links its NIST AI RMF Playbook entry. `airmf` front matter is validated against the imported IDs |
 | AI-03 | The AI RMF alongside the RMF | P1 | One page on how AI RMF functions sit with the RMF steps and the organization-level Prepare tasks. Any alignment NIST does not publish is labelled as the author's mapping, as the program pages do |
-| AI-04 | Securing an AI system through the RMF steps | P1 | `ai/securing-ai-systems.md` walks a system with AI components (a hosted model, an AI service, an agent) through the seven steps: inventory and categorization of AI components and their data, the boundary (models, endpoints, data pipelines, tools an agent can call, third-party AI services), what the SSP records, supply chain and external services, assessment and monitoring. Draws only on published NIST text (AI 600-1, AI 100-2 E2025, SP 800-218A, and IR 8596 once final); names controls only where those publications do (see AI-07) |
+| AI-04 | Securing an AI system through the RMF steps | P1 | `ai/securing-ai-systems.md` walks a system with AI components (a hosted model, an AI service, an agent) through the seven steps: inventory and categorization of AI components and their data, the boundary (models, endpoints, data pipelines, tools an agent can call, third-party AI services), what the SSP records, supply chain and external services, assessment and monitoring. Draws only on published NIST text (AI 600-1, AI 100-2 E2025, SP 800-218A, and IR 8596 once final) and OWASP guidance (AI-10); names 800-53 controls only where NIST does (see AI-07) |
 | AI-05 | Topic pages | P2 | Generative AI Profile (NIST AI 600-1): its risks and suggested actions. Adversarial machine learning (NIST AI 100-2 E2025): attack classes and mitigations as NIST describes them. Secure AI development (SP 800-218A), linked to the SSDF method pages. Cyber AI Profile (NIST IR 8596) once a public draft or final is out |
-| AI-06 | AI templates | P2 | AI acceptable use standard, AI system and use-case inventory (register), AI system description appendix for the SSP, AI risk and impact assessment form, third-party AI service review checklist. Each has `airmf` front matter, and `controls` only where the link is direct (for example the SSP appendix supports PL-2). In the kit from the Phase 3 release |
-| AI-07 | NIST AI control overlays (COSAIS) | P1 | Until NIST publishes an overlay, the guide makes **no AI-specific control selections, tailoring or control mappings of its own** (owner decision). Track each COSAIS use case on the entry page's status table. When an overlay is final, publish its use-case page and an "AI overlay" note on each control it changes, one PR per overlay, imported from NIST's machine-readable form if one is published. Public drafts are noted with an "as of" month but not built into control pages |
+| AI-06 | AI templates | P2 | AI acceptable use standard, AI system and use-case inventory (register), AI system description appendix for the SSP, AI risk and impact assessment form, third-party AI service review checklist. Written from the AI RMF and the OWASP AI Exchange (CC0), with OWASP Top 10 entries referenced by ID. Each has `airmf` front matter, and `controls` only where the link is direct (for example the SSP appendix supports PL-2). In the kit from the Phase 3 release |
+| AI-07 | NIST AI control overlays (COSAIS) | P1 | Until NIST publishes an overlay, the guide makes **no AI-specific control selections, tailoring or control mappings of its own** (owner decision). OWASP's own published crosswalks may be cited on AI guide pages as OWASP's mapping, never as NIST's, and do not add anything to control pages (see Open questions). Track each COSAIS use case on the entry page's status table. When an overlay is final, publish its use-case page and an "AI overlay" note on each control it changes, one PR per overlay, imported from NIST's machine-readable form if one is published. Public drafts are noted with an "as of" month but not built into control pages |
 | AI-08 | Federal AI requirements | P2 | OMB AI policy (M-25-21, April 3, 2025, which replaced M-24-10, unless since replaced: confirm first) and related federal requirements in federal asides and `:::federal` template blocks, each with an "as of" month, rechecked at every kit release |
 | AI-09 | Track AI RMF changes | P2 | AI RMF 1.0 is being revised under the White House AI Action Plan (NIST, as of Sep 2026). Note new versions and profiles on the entry page; migrate AI-02 pages in a dedicated PR when a new version is final |
+| AI-10 | OWASP AI risk lists | P1 | One page per list: OWASP Top 10 for LLM Applications (current edition) and OWASP Top 10 for Agentic Applications, each entry with its OWASP ID and title, what it is and how it is mitigated, in the author's own words with a link to the OWASP entry (CC BY-SA 4.0: no copied text; see Copyright). The OWASP Machine Learning Security Top Ten is linked only, since OWASP still marks it a draft (v0.3). AI-04 and the AI templates link the relevant entries |
+| AI-11 | OWASP AI Exchange as the threat and control reference | P2 | The AI Exchange (CC0 1.0, an OWASP Flagship project) is the source for AI threat and mitigation detail beyond the Top 10 lists; its text may be adapted into pages and templates, credited as a courtesy. Mitigations are described as AI-application practices, not as SP 800-53 control selections |
+| AI-12 | Track OWASP changes | P2 | OWASP lists get new editions yearly or faster (the LLM list went from 2025 to 2026 in 2026). Note new editions on the entry page with an "as of" month; update AI-10 pages in a dedicated PR per edition, keeping old IDs findable |
 
 ### Cross-linking (LINK)
 
@@ -436,7 +440,7 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 
 - Every claim about a law, rule, deadline, version or program status cites a primary source: NIST, OMB, CISA, FedRAMP, DoD, the regulator, or the standards body.
 - Program facts that change (FedRAMP, DoD CSRMC, CMMC, CISA secure software attestation, NIST AI publications and their draft status, OMB AI policy) carry an "as of" month and are re-checked at each release.
-- AI guidance states only what NIST (or OMB and CISA, for federal notes) publishes. No AI-specific control selections, tailoring or control mappings of the author's own until NIST's overlays are final (AI-07).
+- AI guidance states only what NIST or OWASP publishes (and OMB and CISA, for federal notes), attributing each point to its source. No AI-specific control selections, tailoring or control mappings of the author's own until NIST's overlays are final (AI-07).
 - Never invent numbers, control mappings or requirements. If a fact cannot be verified, leave an HTML comment `<!-- TODO(verify): ... -->` and add it to the open questions list instead of guessing.
 - Cross-framework mappings come only from published sources (NIST OLIR and CPRT, the SSDF's own references, the regulator's own crosswalks). Label any author-made mapping as the author's judgment.
 
@@ -447,6 +451,8 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 | NIST SPs (including SP 800-218), FIPS, OMB circulars and memos, U.S. regulations (for example 45 CFR Part 164) | Yes, public domain | Quote as needed; cite |
 | U.S. government templates (for example FedRAMP, CISA) | Generally yes | Adapt with citation after confirming the page carries no restrictive terms |
 | DISA STIGs | Generally yes (U.S. government work) | Quote settings sparingly; link the STIG and version |
+| OWASP AI Exchange | Yes, CC0 1.0 (checked Sep 28, 2026) | May be adapted into pages and templates; credit and link as a courtesy |
+| OWASP GenAI Security Project (Top 10 for LLM Applications, Top 10 for Agentic Applications, crosswalk) and the OWASP ML Security Top Ten | Not into this site: CC BY-SA 4.0, whose share-alike terms conflict with the site's CC BY 4.0 and the templates' CC0 | Cite IDs and titles, explain in your own words, link each entry. Never copy descriptions, examples or mitigation text into pages or templates |
 | Commercial policy template libraries (for example SANS), PCI DSS, ISO/IEC 27001, HITRUST, CIS Benchmarks, NERC CIP standards text, vendor documentation | No | Never copy or closely paraphrase; write templates from the NIST requirement up. Link where useful |
 | Client or employer material | No | Never include names, system details, findings, policies or artifacts from real engagements, even as a starting point |
 | Controlled Unclassified Information or nonpublic government material | No | Never include, even if anonymized |
@@ -521,7 +527,18 @@ NIST sources, as checked at csrc.nist.gov and nist.gov on Sep 28, 2026. Recheck 
 | AI RMF Profile on Trustworthy AI in Critical Infrastructure | Concept note (Apr 7, 2026) | AI-09 |
 | OMB M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust (Apr 3, 2025) | Replaced M-24-10; agency compliance plans cite it (Sep 2025). Not yet confirmed at an OMB page: confirm current status before writing AI-08 | AI-08 |
 
-Pages (P1 first): entry page, AI RMF overview and four function pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps; then the topic pages and the five AI templates (AI-06).
+OWASP sources, as checked at `genai.owasp.org`, `owaspai.org` and `owasp.org` on Sep 28, 2026:
+
+| Publication | Status (Sep 2026) | License | Used for |
+| --- | --- | --- | --- |
+| OWASP Top 10 for LLM Applications 2026 (v1.0) | Published; resource page dated Aug 3, 2026, announced Sep 1, 2026 (confirm the date before citing). The 2025 edition (Nov 2024) is still listed | CC BY-SA 4.0 | AI-10 |
+| OWASP Top 10 for Agentic Applications for 2026 | Published Dec 9, 2025 | CC BY-SA 4.0 | AI-10 |
+| OWASP AI Exchange | Living guidance; OWASP Flagship project since Mar 2025; contributes to ISO/IEC 27090 and the EU AI Act standards | CC0 1.0 | AI-11, AI templates |
+| GenAI Security Industry Framework Crosswalk | Released Sep 1, 2026; maps 51 GenAI risks to controls in 25 frameworks "including NIST" (which NIST documents is not stated on the page) | CC BY-SA 4.0 | Possibly AI-07 note (open question) |
+| OWASP Machine Learning Security Top Ten | Draft, v0.3 (2023 edition) | CC BY-SA 4.0 | Link only |
+| Agent Control Standard | Donated to the GenAI Security Project (announced Sep 1, 2026); status unclear | Check | Track only (AI-12) |
+
+Pages (P1 first): entry page, AI RMF overview and four function pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, the two OWASP Top 10 pages; then the topic pages and the five AI templates (AI-06).
 
 ### Methods and SSDF (Phase 4)
 
@@ -577,7 +594,7 @@ Work in six phases; each ends with an owner review before the next starts. Phase
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, topic pages, AI templates, federal notes; tracking of NIST's AI overlays | AI-01 to AI-09 | Entry page with a current NIST AI status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; five AI templates at `draft` in the kit; kit v1.1.0 |
+| 3 AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v1.1.0 |
 | 4 Full program kit and methods | Remaining 15 family policies, consolidated policy, every catalog artifact, program path complete, each family's NIST methods, the SSDF | TPL-09, TPL-11, PROG-03, PROG-04, METH-01 to METH-03, SSDF-01 to SSDF-05, FEAT-01, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every catalog artifact published; methods index complete; SSDF pages live and shown in control pages' Methods sections; kit v2.0.0 |
 | 5 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
 | 6 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05 | Coverage page shows every Moderate control at `draft` or better; High variants complete; monthly NIST check running |
@@ -620,7 +637,7 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 - If a fact cannot be verified, write `<!-- TODO(verify): what and why -->` and add it to Open questions in `PROGRESS.md`. Do not guess.
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.
-- Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST (or OMB and CISA, for federal notes) publishes, with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final.
+- Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST or OWASP publishes (or OMB and CISA, for federal notes), with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final. OWASP GenAI Security Project text is CC BY-SA 4.0: cite IDs and titles and write in your own words, never copy; the OWASP AI Exchange is CC0 and may be adapted.
 
 ### When to stop and ask the owner
 
@@ -642,6 +659,7 @@ None of these block Phase 1.
 - [ ] AI RMF machine-readable source for AI-02 (Phase 3): NIST's AI RMF Playbook data, CPRT, or another NIST export
 - [ ] SSDF source for SSDF-01 (Phase 4): the SP 800-218 Excel table or CPRT
 - [ ] AI templates (AI-06): confirm the list of five before Phase 3 writing starts
+- [ ] OWASP's GenAI framework crosswalk (Sep 2026) maps AI risks to controls in 25 frameworks "including NIST". If it maps to SP 800-53, may AI guide pages cite it as OWASP's mapping before NIST's overlays exist? Default until decided: yes on AI guide pages, clearly labelled as OWASP's; never on control pages
 
 ### Decided
 
@@ -662,6 +680,7 @@ None of these block Phase 1.
 | Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
 | AI security guide | A separate section (a guide within the guide), high priority: Phase 3. Kept separate from the SSDF and methods work | Sep 28, 2026 |
 | AI control guidance | Wait for NIST's COSAIS overlays; no AI-specific control selections, tailoring or mappings of the author's own until they are final | Sep 28, 2026 |
+| AI guide sources | NIST and OWASP only (plus OMB and CISA for federal notes): the OWASP Top 10 for LLM and for Agentic Applications, and the OWASP AI Exchange | Sep 28, 2026 |
 
 ## Revision history
 
@@ -670,4 +689,4 @@ None of these block Phase 1.
 | 1 | Sep 27, 2026 | First version |
 | 2 | Sep 27, 2026 | Vision widened to learn, build and prove a program. Added Template system, artifact catalog, starter kit, Build your program (PROG), SSDF, template lint (QA-05) and `.docx` styling (PRES-06). FEAT-02 superseded by TPL. Phases reordered: templates before industries and technology; five phases. Current state updated for the subpath deploy and CI |
 | 2.1 | Sep 27, 2026 | Owner decisions recorded: CC0 templates, free kit, any-organization voice with `:::federal` sections, pandoc approved |
-| 3 | Sep 28, 2026 | Phase 2 marked done. Methods added: NIST implementation guidance as a sixth question on each control and a Methods section on control pages (METH-01 to METH-03); the SSDF becomes the first method, under `methods/ssdf/`. AI security guide added as a separate section built only on NIST guidance (AI-01 to AI-09), with a checked status table of NIST AI publications; no author-made AI control overlays. New persona, page types and `implements` and `airmf` front matter. Phases now six: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth |
+| 3 | Sep 28, 2026 | Phase 2 marked done. Methods added: NIST implementation guidance as a sixth question on each control and a Methods section on control pages (METH-01 to METH-03); the SSDF becomes the first method, under `methods/ssdf/`. AI security guide added as a separate section built on NIST guidance (AI-01 to AI-09), with a checked status table of NIST AI publications; no author-made AI control overlays. New persona, page types and `implements` and `airmf` front matter. Phases now six: 3 AI security guide, 4 full program kit and methods, 5 industries and technology, 6 depth. OWASP added as the AI guide's second source (AI-10 to AI-12): the Top 10 for LLM and for Agentic Applications (CC BY-SA 4.0: own words and links only) and the AI Exchange (CC0), with a checked status and license table |

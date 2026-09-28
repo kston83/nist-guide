@@ -8,6 +8,7 @@ control:
   id: SI-2
   family: SI
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -223,4 +224,39 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+SI-2 asks you to find, report and fix flaws, test fixes before installing them, install security updates within set times, and run patching through configuration management. It pairs with [RA-5](/controls/ra/ra-5/): scanning finds the flaws, and SI-2 is the process that fixes them.
+
+**Common implementations.** Patch management tools for operating systems and third-party software (for example Microsoft Intune, Configuration Manager, WSUS, or Linux package management through Ansible), with a test group that gets updates before production. Container images and infrastructure rebuilt from patched base images instead of patched in place. Vendor security advisories monitored for appliances and applications that the patch tools do not cover. Emergency changes for actively exploited flaws, and standard or pre-approved changes for routine monthly patching, recorded under [CM-3](/controls/cm/cm-3/).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Time to install security updates (c) | Known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days, from the update's release |
+| Automated mechanisms to check update status (SI-2(2)) | The patch management and vulnerability scanning tools |
+| How often to check update status (SI-2(2)) | At least weekly |
+
+**Evidence assessors ask for.**
+
+- The flaw remediation or patch management procedure, with installation times
+- Patch compliance reports by component
+- Test records for a sample of updates
+- Change records for recent patching
+- A sample of vendor advisories with the date each update was installed
+
+**Inheritance.** Enterprise patch management tools and operating system patching are often common controls. The system owns patching of its applications, middleware, containers and appliances.
+
+**Common findings.**
+
+- Patching measured for operating systems only, with applications and appliances left out.
+- Unsupported software or firmware with no fixes available and no POA&M item.
+- Remediation times in the procedure that differ from those in the policy or the scanner's reports.
+- Servers excluded from patching "temporarily" for months.
+
+**Enhancements in the Moderate baseline.** [SI-2(2)](#si-2.2) automated flaw remediation status, also in High.
+
+**Federal systems** (as of September 2026). CISA [BOD 26-04](https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk), Prioritizing Security Updates Based on Risk (June 10, 2026), sets deadlines for federal civilian agencies by exposure, KEV status, whether exploitation can be automated and technical impact, from 3 days to "fix on system upgrade". It replaced BOD 22-01. Set the SI-2c value no weaker than its deadlines.

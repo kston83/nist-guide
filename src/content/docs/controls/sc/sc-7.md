@@ -8,6 +8,7 @@ control:
   id: SC-7
   family: SC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -713,4 +714,41 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+SC-7 asks you to control what crosses the system boundary and key internal boundaries: every external connection goes through a managed interface, public-facing components sit in their own subnetwork, and traffic is monitored and filtered at each interface according to a documented architecture. The boundary diagram in the security plan is the starting point for testing it.
+
+**Common implementations.** Firewalls or cloud security groups and network access control lists at each managed interface, with rules that deny by default. Public-facing services in a demilitarized zone or a separate cloud network (virtual private cloud or virtual network), behind a web application firewall or load balancer. Outbound web traffic through a secure web gateway or authenticated proxy. Remote access through a virtual private network or a zero trust access service with split tunneling disabled. A firewall rule review that removes rules nobody can justify.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Separation of public components (b) | Logically separated subnetworks, such as a demilitarized zone or separate cloud network |
+| Review of traffic flow policy exceptions (SC-7(4)(e)) | At least annually, and when the system changes |
+| Where traffic is denied by default (SC-7(5)) | At managed interfaces |
+| Safeguards allowing split tunneling (SC-7(7)) | None; split tunneling is disabled for organization-managed remote devices |
+| Traffic routed through authenticated proxy servers (SC-7(8)) | Outbound web traffic from internal users to the internet |
+
+**Evidence assessors ask for.**
+
+- The boundary and data flow diagrams, matching the security plan
+- Firewall, security group and proxy rule sets, with the business reason for each rule
+- The last rule review and the changes it produced
+- Remote access configuration showing split tunneling disabled
+- Monitoring records from the boundary devices
+
+**Inheritance.** Enterprise perimeter firewalls, the internet connection and the cloud landing zone are often common controls. The system owns its own security groups, application firewall rules and internal segmentation.
+
+**Common findings.**
+
+- "Any-any" or overly broad rules added for troubleshooting and never removed.
+- Undocumented connections that are not on the boundary diagram.
+- Management interfaces reachable from the internet.
+- Cloud storage or databases exposed publicly outside the managed interfaces.
+
+**Enhancements in the Moderate baseline.** [SC-7(3)](#sc-7.3) limiting access points, [SC-7(4)](#sc-7.4) external telecommunications services, [SC-7(5)](#sc-7.5) deny by default, [SC-7(7)](#sc-7.7) split tunneling and [SC-7(8)](#sc-7.8) authenticated proxy servers. High adds [SC-7(18)](#sc-7.18) fail secure and [SC-7(21)](#sc-7.21) isolation of system components.
+
+**Federal systems.** Federal civilian agencies also follow CISA's [Trusted Internet Connections (TIC) 3.0](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic) guidance, required by OMB M-19-26, Update to the Trusted Internet Connections (TIC) Initiative.

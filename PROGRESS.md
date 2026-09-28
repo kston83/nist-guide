@@ -8,7 +8,7 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
 
 ### Phase 2 exit criteria
 
-- [ ] 31 controls at `guidance: draft` or better: **25 of 31** done (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9, IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9)
+- [x] 31 controls at `guidance: draft` or better: **31 of 31** (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9, IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9, SC-7, SC-8, SC-13, SC-28, SI-2, SI-4)
 - [x] 5 family policies downloadable per baseline: AC, AU, CM, IA, IR (draft), each Low, Moderate and High in Word and Markdown, clean and annotated
 - [ ] Kit v1.0.0 released (TPL-10)
 
@@ -23,8 +23,8 @@ Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 
 | Incident Response Plan, System Security Plan, POA&M | Merged (draft) | #27 to #29 |
 | Guidance, batches 1 and 2 (16 controls, plus AC-2 marked draft) | Merged (draft) | #31, #32 |
 | FEAT-04 changelog page (P2) | Merged | #35 |
-| Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9 | PR open (draft) | |
-| Guidance batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4 | Not started | |
+| Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9 | Merged (draft) | #36 |
+| Guidance batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4 | PR open (draft) | |
 | CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges (P2) | Not started | |
 | QA-03 spell check with cspell (P2; the PRD names cspell) | Not started | |
 | PRES-06 professional Word styling (P2) | Not started; ask the owner about the look first | |
@@ -52,6 +52,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| Content: guidance batch 4 | Draft | 2026-09-28 | Guidance for SC-7, SC-8, SC-13, SC-28, SI-2 and SI-4; typical values match related clauses (CM-3(6) cryptographic uses, AU-6 reporting) and the RA-5 remediation times. Checked at the source: FIPS 140-3 (March 22, 2019) and the CMVP FIPS 140-3 transition schedule (FIPS 140-2 modules usable for new systems until September 21, 2026; all FIPS 140-2 certificates to the Historical List September 22, 2026; still supported for existing systems; neither page yet confirms the move happened, so SC-13 cites it as the schedule, "as of September 2026"), FIPS 203 (August 13, 2024), SP 800-52 Rev. 2 (August 2019; under review per a May 2026 NIST note), CISA TIC 3.0 (OMB M-19-26; memo date not cited), BOD 26-04 (SI-2) |
 | Content: guidance batch 3 | Draft | 2026-09-28 | Guidance for IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5 and SA-9, typical values matching the IA and IR clauses and the SSP template. Citations checked at the source: SP 800-63B-4, FIPS 201-3, SP 800-61 Rev. 3, SP 800-18 Rev. 2, SP 800-30 Rev. 1 (September 2012, still current), CISA KEV catalog, BOD 26-04, BOD 23-01 and BOD 20-01 (RA-5 federal note, "as of September 2026"), and OMB M-24-15 (July 25, 2024; SA-9 federal note, read from the memo's Scope section) |
 | FEAT-04 | Done | 2026-09-28 | `/reference/changelog/` generated before every build by `scripts/build-changelog.mjs` from the first-parent history of `main` (one entry per squash-merged PR, bold requirement ID, PR link), grouped by month until the first `vX.Y.Z` tag, then by release with an Unreleased section. Not committed (gitignored), so each merge updates the page on the next deploy. `--notes <tag>` prints a release's notes for TPL-10. CI checks out full history. PRD updated (owner chose generated over a hand-kept CHANGELOG.md). 6 tests |
 | Content: guidance batch 2 | Draft | 2026-09-28 | Guidance for CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2 and CP-9; CM-6 cites SP 800-70 Rev. 5 (May 2026; Rev. 4 was withdrawn on May 8, 2026) and CP-2 cites SP 800-34 Rev. 1 (current), both checked at csrc.nist.gov |

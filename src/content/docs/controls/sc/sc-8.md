@@ -8,6 +8,7 @@ control:
   id: SC-8
   family: SC
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -170,4 +171,35 @@ Determine if the [Selection (one or more): confidentiality; integrity] of transm
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write below this line -->
+<!-- guidance: write bel
+
+## How to apply it
+
+SC-8 asks you to protect information while it moves, inside the system as well as across its boundary. At Moderate and High, SC-8(1) makes that protection cryptographic, so in practice this is a control about encrypting and integrity-protecting every connection, using the cryptography chosen under [SC-13](/controls/sc/sc-13/).
+
+**Common implementations.** TLS 1.2 or later for web, API and database connections, following [NIST SP 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final) (August 2019; NIST noted in May 2026 that it is under review), which also calls for TLS 1.3 support. SSH for administration, IPsec or TLS virtual private networks for site and remote connections, and encryption on internal service-to-service traffic, often through a service mesh with mutual TLS. Certificates issued and renewed automatically. Older protocols (SSL, TLS 1.0 and 1.1, unencrypted FTP, Telnet) disabled.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| What to protect (SC-8) | Confidentiality and integrity |
+| What cryptography does (SC-8(1)) | Prevent unauthorized disclosure of information and detect changes to information |
+
+**Evidence assessors ask for.**
+
+- The list of data flows and the protocol protecting each one
+- TLS configuration scans of external and internal endpoints (for example, allowed protocol versions and cipher suites)
+- Evidence that cleartext protocols are disabled
+- Certificate inventory and expiry monitoring
+
+**Inheritance.** Cloud load balancers, the enterprise virtual private network and the certificate service are often common controls. The system owns encryption between its own components and its application settings.
+
+**Common findings.**
+
+- Encryption at the edge only, with cleartext traffic behind the load balancer.
+- Old TLS versions or weak cipher suites still enabled for compatibility.
+- Certificates that are self-signed, expired or not validated by clients.
+- Database and message queue connections left unencrypted.
+
+**Enhancements in the Moderate baseline.** [SC-8(1)](#sc-8.1) cryptographic protection, also in High.

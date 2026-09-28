@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-The system inventory is the list of systems the program is responsible for: each with an owner, a categorization, an authorization status and its boundary. CM-8 is the component inventory inside each system. An assessor compares the inventory with the authorization records, so keep both in step.
+The system inventory is the list of systems the program is responsible for: each with an owner, a categorization, an authorization status and its boundary. CM-8 is the component inventory inside each system. Start from the [System Inventory template](/templates/forms/system-inventory/). An assessor compares the inventory with the authorization records, so keep both in step.
 :::
 
 - The {{org:ciso}} shall maintain an inventory of organizational systems and update it {{param:pm-05_odp}}. (PM-5)

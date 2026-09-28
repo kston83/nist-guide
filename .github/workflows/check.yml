@@ -50,3 +50,5 @@ jobs:
         run: npm run build
       - name: Check internal links and anchors
         run: npm run check:links
+      - name: Check search finds control ids
+        run: npm run check:search

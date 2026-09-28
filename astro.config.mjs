@@ -1,7 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { fileURLToPath } from 'node:url';
 import { visit } from 'unist-util-visit';
+import { rehypeEnhancementTokens } from './src/lib/search-tokens.mjs';
 
 // ---------------------------------------------------------------------------
 // Edit these three values, then push. Everything else can stay as it is.
@@ -58,7 +60,19 @@ export default defineConfig({
 	site: SITE_URL,
 	base: BASE_PATH,
 	markdown: {
-		rehypePlugins: [rehypeRebaseLinks],
+		rehypePlugins: [rehypeRebaseLinks, rehypeEnhancementTokens],
+	},
+	// Search for enhancement ids such as "AC-2(3)" (PRD NAV-01): wrap the Pagefind UI
+	// that Starlight loads so it can rewrite them. See src/lib/search-tokens.mjs.
+	vite: {
+		resolve: {
+			alias: [
+				{
+					find: /^@pagefind\/default-ui$/,
+					replacement: fileURLToPath(new URL('./src/lib/pagefind-ui.mjs', import.meta.url)),
+				},
+			],
+		},
 	},
 	integrations: [
 		starlight({

@@ -35,6 +35,15 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Check generated control pages are up to date
+        # Regenerates from the pinned NIST catalog; any diff means a page was
+        # hand-edited inside the NIST markers or the generator changed without
+        # regenerating.
+        run: |
+          npm run controls
+          git diff --exit-code -- src/content/docs/controls
       - name: Build the site
         run: npm run build
       - name: Check internal links and anchors

@@ -21,8 +21,8 @@ control:
 
 ## Control statement
 
-- **a.** Employ integrity verification tools to detect unauthorized changes to the following software, firmware, and information: [Assignment: organization-defined organization-defined software, firmware, and information] ; and
-- **b.** Take the following actions when unauthorized changes to the software, firmware, and information are detected: [Assignment: organization-defined organization-defined actions].
+- **a.** Employ integrity verification tools to detect unauthorized changes to the following software, firmware, and information: [Assignment: organization-defined software, firmware, and information] ; and
+- **b.** Take the following actions when unauthorized changes to the software, firmware, and information are detected: [Assignment: organization-defined actions].
 
 <details>
 <summary>NIST discussion</summary>
@@ -39,7 +39,7 @@ Unauthorized changes to software, firmware, and information can occur due to err
 
 *Baselines: Moderate, High*
 
-Perform an integrity check of [Assignment: organization-defined organization-defined software, firmware, and information] [Selection (one or more): at startup; at [Assignment: organization-defined organization-defined transitional states or security-relevant events] ; [Assignment: organization-defined organization-defined frequency] ].
+Perform an integrity check of [Assignment: organization-defined software, firmware, and information] [Selection (one or more): at startup; at [Assignment: organization-defined transitional states or security-relevant events] ; [Assignment: organization-defined frequency] ].
 
 <details>
 <summary>Discussion and assessment objectives for SI-7(1)</summary>

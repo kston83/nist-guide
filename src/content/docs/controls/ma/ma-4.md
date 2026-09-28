@@ -42,7 +42,7 @@ Nonlocal maintenance and diagnostic activities are conducted by individuals who 
 
 *Baselines: Not in a baseline*
 
-- **(a)** Log [Assignment: organization-defined organization-defined audit events] for nonlocal maintenance and diagnostic sessions; and
+- **(a)** Log [Assignment: organization-defined audit events] for nonlocal maintenance and diagnostic sessions; and
 - **(b)** Review the audit records of the maintenance and diagnostic sessions to detect anomalous behavior.
 
 <details>

@@ -134,7 +134,7 @@ Determine if:
 
 *Baselines: Moderate, High*
 
-Require [Assignment: organization-defined organization-defined security and privacy representatives] to be members of the [Assignment: organization-defined configuration change control element].
+Require [Assignment: organization-defined security and privacy representatives] to be members of the [Assignment: organization-defined configuration change control element].
 
 <details>
 <summary>Discussion and assessment objectives for CM-3(4)</summary>

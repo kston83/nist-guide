@@ -22,7 +22,7 @@ control:
 ## Control statement
 
 - **a.** Screen individuals prior to authorizing access to the system; and
-- **b.** Rescreen individuals in accordance with [Assignment: organization-defined organization-defined conditions requiring rescreening and, where rescreening is so indicated, the frequency of rescreening].
+- **b.** Rescreen individuals in accordance with [Assignment: organization-defined conditions requiring rescreening and, where rescreening is so indicated, the frequency of rescreening].
 
 <details>
 <summary>NIST discussion</summary>

@@ -45,7 +45,7 @@ Implementation of a common secure configuration may be mandated at the organizat
 
 *Baselines: High*
 
-Manage, apply, and verify configuration settings for [Assignment: organization-defined system components] using [Assignment: organization-defined organization-defined automated mechanisms].
+Manage, apply, and verify configuration settings for [Assignment: organization-defined system components] using [Assignment: organization-defined automated mechanisms].
 
 <details>
 <summary>Discussion and assessment objectives for CM-6(1)</summary>

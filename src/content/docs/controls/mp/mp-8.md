@@ -62,7 +62,7 @@ Determine if system media downgrading actions are documented.
 
 *Baselines: Not in a baseline*
 
-Test downgrading equipment and procedures [Assignment: organization-defined organization-defined frequency] to ensure that downgrading actions are being achieved.
+Test downgrading equipment and procedures [Assignment: organization-defined frequency] to ensure that downgrading actions are being achieved.
 
 <details>
 <summary>Discussion and assessment objectives for MP-8(2)</summary>

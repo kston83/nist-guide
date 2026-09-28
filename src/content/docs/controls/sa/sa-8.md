@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-Apply the following systems security and privacy engineering principles in the specification, design, development, implementation, and modification of the system and system components: [Assignment: organization-defined organization-defined systems security and privacy engineering principles].
+Apply the following systems security and privacy engineering principles in the specification, design, development, implementation, and modification of the system and system components: [Assignment: organization-defined systems security and privacy engineering principles].
 
 <details>
 <summary>NIST discussion</summary>
@@ -88,7 +88,7 @@ Determine if [Assignment: organization-defined systems or system components] imp
 
 *Baselines: Not in a baseline*
 
-Implement the security design principles of modularity and layering in [Assignment: organization-defined organization-defined systems or system components].
+Implement the security design principles of modularity and layering in [Assignment: organization-defined systems or system components].
 
 <details>
 <summary>Discussion and assessment objectives for SA-8(3)</summary>
@@ -536,7 +536,7 @@ Determine if [Assignment: organization-defined systems or system components] imp
 
 *Baselines: Not in a baseline*
 
-Implement the security design principle of accountability and traceability in [Assignment: organization-defined organization-defined systems or system components].
+Implement the security design principle of accountability and traceability in [Assignment: organization-defined systems or system components].
 
 <details>
 <summary>Discussion and assessment objectives for SA-8(22)</summary>
@@ -589,7 +589,7 @@ Determine if [Assignment: organization-defined systems or system components] imp
 
 *Baselines: Not in a baseline*
 
-Implement the security design principle of secure failure and recovery in [Assignment: organization-defined organization-defined systems or system components].
+Implement the security design principle of secure failure and recovery in [Assignment: organization-defined systems or system components].
 
 <details>
 <summary>Discussion and assessment objectives for SA-8(24)</summary>

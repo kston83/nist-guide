@@ -29,7 +29,7 @@ control:
 - **d.** Escort visitors and control visitor activity [Assignment: organization-defined circumstances];
 - **e.** Secure keys, combinations, and other physical access devices;
 - **f.** Inventory [Assignment: organization-defined physical access devices] every [Assignment: organization-defined frequency] ; and
-- **g.** Change combinations and keys [Assignment: organization-defined organization-defined frequency] and/or when keys are lost, combinations are compromised, or when individuals possessing the keys or combinations are transferred or terminated.
+- **g.** Change combinations and keys [Assignment: organization-defined frequency] and/or when keys are lost, combinations are compromised, or when individuals possessing the keys or combinations are transferred or terminated.
 
 <details>
 <summary>NIST discussion</summary>

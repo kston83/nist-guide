@@ -22,7 +22,7 @@ control:
 ## Control statement
 
 - **a.** Configure the system to provide only [Assignment: organization-defined mission-essential capabilities] ; and
-- **b.** Prohibit or restrict the use of the following functions, ports, protocols, software, and/or services: [Assignment: organization-defined organization-defined prohibited or restricted functions, system ports, protocols, software, and/or services].
+- **b.** Prohibit or restrict the use of the following functions, ports, protocols, software, and/or services: [Assignment: organization-defined prohibited or restricted functions, system ports, protocols, software, and/or services].
 
 <details>
 <summary>NIST discussion</summary>
@@ -40,7 +40,7 @@ Systems provide a wide variety of functions and services. Some of the functions 
 *Baselines: Moderate, High*
 
 - **(a)** Review the system [Assignment: organization-defined frequency] to identify unnecessary and/or nonsecure functions, ports, protocols, software, and services; and
-- **(b)** Disable or remove [Assignment: organization-defined organization-defined functions, ports, protocols, software, and services within the system deemed to be unnecessary and/or nonsecure].
+- **(b)** Disable or remove [Assignment: organization-defined functions, ports, protocols, software, and services within the system deemed to be unnecessary and/or nonsecure].
 
 <details>
 <summary>Discussion and assessment objectives for CM-7(1)</summary>

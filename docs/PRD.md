@@ -529,12 +529,10 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 
 ## Open questions for the owner
 
-Phase 1 cannot finish until the first four are answered.
+None of these block Phase 1.
 
-- [ ] Name, short professional bio, headshot and LinkedIn URL for the About page
+- [ ] Headshot for the About page (optional; name, bio and LinkedIn are in place)
 - [ ] Custom domain now or later (site is at `kston83.github.io/nist-guide` today)
-- [ ] Site title: keep "RMF Field Guide" or choose another
-- [ ] Any employer policy on publishing, such as a required disclaimer or pre-publication review
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
 - [ ] Privacy-friendly analytics: yes or no
@@ -547,6 +545,8 @@ Phase 1 cannot finish until the first four are answered.
 | Packaging | Free kit only; revisit if it ever becomes something to sell | Sep 27, 2026 |
 | Template voice | Any organization, with federal-only requirements in marked `:::federal` sections | Sep 27, 2026 |
 | `.docx` tool | pandoc, pinned, in CI | Sep 27, 2026 |
+| Site title | Keep "RMF Field Guide" for now; may change later | Sep 28, 2026 |
+| Employer publishing policy | No issues | Sep 28, 2026 |
 
 ## Revision history
 

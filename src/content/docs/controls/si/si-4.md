@@ -126,7 +126,7 @@ Determine if:
 *Baselines: Moderate, High*
 
 - **(a)** Determine criteria for unusual or unauthorized activities or conditions for inbound and outbound communications traffic;
-- **(b)** Monitor inbound and outbound communications traffic [Assignment: organization-defined organization-defined frequency] for [Assignment: organization-defined organization-defined unusual or unauthorized activities or conditions].
+- **(b)** Monitor inbound and outbound communications traffic [Assignment: organization-defined frequency] for [Assignment: organization-defined unusual or unauthorized activities or conditions].
 
 <details>
 <summary>Discussion and assessment objectives for SI-4(4)</summary>

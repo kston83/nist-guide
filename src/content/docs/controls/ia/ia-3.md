@@ -61,7 +61,7 @@ Determine if [Assignment: organization-defined devices and/or types of devices] 
 
 *Baselines: Not in a baseline*
 
-- **(a)** Where addresses are allocated dynamically, standardize dynamic address allocation lease information and the lease duration assigned to devices in accordance with [Assignment: organization-defined organization-defined lease information and lease duration] ; and
+- **(a)** Where addresses are allocated dynamically, standardize dynamic address allocation lease information and the lease duration assigned to devices in accordance with [Assignment: organization-defined lease information and lease duration] ; and
 - **(b)** Audit lease information when assigned to a device.
 
 <details>

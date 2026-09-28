@@ -123,7 +123,7 @@ Determine if the current cyber threat environment is determined on an ongoing ba
 
 *Baselines: Not in a baseline*
 
-Employ the following advanced automation and analytics capabilities to predict and identify risks to [Assignment: organization-defined systems or system components]: [Assignment: organization-defined organization-defined advanced automation and analytics capabilities].
+Employ the following advanced automation and analytics capabilities to predict and identify risks to [Assignment: organization-defined systems or system components]: [Assignment: organization-defined advanced automation and analytics capabilities].
 
 <details>
 <summary>Discussion and assessment objectives for RA-3(4)</summary>

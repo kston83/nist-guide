@@ -41,7 +41,7 @@ System-level information includes system state information, operating system sof
 
 *Baselines: Moderate, High*
 
-Test backup information [Assignment: organization-defined organization-defined frequency] to verify media reliability and information integrity.
+Test backup information [Assignment: organization-defined frequency] to verify media reliability and information integrity.
 
 <details>
 <summary>Discussion and assessment objectives for CP-9(1)</summary>
@@ -111,7 +111,7 @@ Determine if backup copies of [Assignment: organization-defined critical system 
 
 *Baselines: High*
 
-Transfer system backup information to the alternate storage site [Assignment: organization-defined organization-defined time period and transfer rate consistent with the recovery time and recovery point objectives].
+Transfer system backup information to the alternate storage site [Assignment: organization-defined time period and transfer rate consistent with the recovery time and recovery point objectives].
 
 <details>
 <summary>Discussion and assessment objectives for CP-9(5)</summary>

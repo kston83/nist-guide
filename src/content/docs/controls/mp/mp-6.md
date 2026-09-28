@@ -21,7 +21,7 @@ control:
 
 ## Control statement
 
-- **a.** Sanitize [Assignment: organization-defined organization-defined system media] prior to disposal, release out of organizational control, or release for reuse using [Assignment: organization-defined organization-defined sanitization techniques and procedures] ; and
+- **a.** Sanitize [Assignment: organization-defined system media] prior to disposal, release out of organizational control, or release for reuse using [Assignment: organization-defined sanitization techniques and procedures] ; and
 - **b.** Employ sanitization mechanisms with the strength and integrity commensurate with the security category or classification of the information.
 
 <details>
@@ -68,7 +68,7 @@ Determine if:
 
 *Baselines: High*
 
-Test sanitization equipment and procedures [Assignment: organization-defined organization-defined frequency] to ensure that the intended sanitization is being achieved.
+Test sanitization equipment and procedures [Assignment: organization-defined frequency] to ensure that the intended sanitization is being achieved.
 
 <details>
 <summary>Discussion and assessment objectives for MP-6(2)</summary>

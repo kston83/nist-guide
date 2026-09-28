@@ -40,7 +40,7 @@ Organizations employ least privilege for specific duties and systems. The princi
 
 Authorize access for [Assignment: organization-defined individuals and roles] to:
 
-- **(a)** [Assignment: organization-defined organization-defined security functions (deployed in hardware, software, and firmware)] ; and
+- **(a)** [Assignment: organization-defined security functions (deployed in hardware, software, and firmware)] ; and
 - **(b)** [Assignment: organization-defined security-relevant information].
 
 <details>

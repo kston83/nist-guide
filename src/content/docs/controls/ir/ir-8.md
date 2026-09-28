@@ -34,7 +34,7 @@ control:
   - **10.** Explicitly designates responsibility for incident response to [Assignment: organization-defined entities, personnel, or roles].
 - **b.** Distribute copies of the incident response plan to [Assignment: organization-defined incident response personnel];
 - **c.** Update the incident response plan to address system and organizational changes or problems encountered during plan implementation, execution, or testing;
-- **d.** Communicate incident response plan changes to [Assignment: organization-defined organization-defined incident response personnel (identified by name and/or by role) and organizational elements] ; and
+- **d.** Communicate incident response plan changes to [Assignment: organization-defined incident response personnel (identified by name and/or by role) and organizational elements] ; and
 - **e.** Protect the incident response plan from unauthorized disclosure and modification.
 
 <details>

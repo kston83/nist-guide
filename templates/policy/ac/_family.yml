@@ -1,0 +1,17 @@
+# Access Control (AC) family policy metadata (PRD TPL-01).
+# title: family name as SP 800-53 gives it.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet (TPL-08). Typical values are marked as typical.
+
+title: Access Control
+role: ciso
+questions:
+  - question: Which account types are allowed on each system, and which are prohibited?
+    controls: [ac-2]
+    typical: Individual, privileged, service and emergency accounts allowed with a named owner; shared and guest accounts prohibited unless the system owner approves an exception.
+    decides: System owner
+  - question: Which identity provider is the authoritative source for accounts?
+    controls: [ac-2]
+    typical: The organization's central directory or identity provider, fed by the human resources system.
+    decides: Chief Information Security Officer

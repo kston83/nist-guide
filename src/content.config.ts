@@ -1,8 +1,29 @@
 import { defineCollection } from 'astro:content';
+import { file, glob, type Loader } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 import controlIds from './data/control-ids.json';
+import catalog from './data/catalog.json';
+import { clauseProblems, templateProblems, templateSchemas, type SourceEntry } from './lib/template-schema';
+
+// Template sources in templates/ (PRD TPL-01). Ids are paths without the
+// extension ("policy/ac/ac-2.3"); the default slug would drop the dot.
+const pathId = ({ entry }: { entry: string }) => entry.replace(/\.(md|ya?ml)$/, '');
+const templates = templateSchemas(catalog);
+
+// Runs checks that need the whole collection after it loads; any problem fails the build.
+function checked(loader: Loader, check: (entries: SourceEntry[]) => string[]): Loader {
+	return {
+		...loader,
+		load: async (context) => {
+			await loader.load(context);
+			const problems = check(context.store.values());
+			if (problems.length) throw new Error(`Template sources:\n  ${problems.join('\n  ')}`);
+		},
+	};
+}
+const families = new Set(catalog.controls.map((c) => c.family));
 
 // Front matter validation (PRD QA-04): a bad value fails the build.
 
@@ -45,5 +66,45 @@ export const collections = {
 				controls: z.array(controlId).optional(),
 			}),
 		}),
+	}),
+	// One policy clause per control or enhancement: templates/policy/<family>/<control>.md.
+	clauses: defineCollection({
+		loader: checked(
+			glob({ base: './templates', pattern: ['policy/*/*.md', '!policy/*/_*.md'], generateId: pathId }),
+			clauseProblems,
+		),
+		schema: templates.clause,
+	}),
+	// Plans, standards, procedures and forms: templates/<type folder>/**/*.md.
+	templates: defineCollection({
+		loader: checked(
+			glob({ base: './templates', pattern: '{plans,standards,procedures,forms}/**/*.md', generateId: pathId }),
+			templateProblems,
+		),
+		schema: templates.template,
+	}),
+	// Family metadata: templates/policy/<family>/_family.yml, with the family id as the entry id.
+	families: defineCollection({
+		loader: checked(
+			glob({
+				base: './templates',
+				pattern: 'policy/*/_family.yml',
+				generateId: ({ entry }) => entry.split('/')[1],
+			}),
+			(entries) =>
+				entries
+					.filter((e) => !families.has(e.id))
+					.map((e) => `templates/policy/${e.id}/: "${e.id}" is not an SP 800-53 family id.`),
+		),
+		schema: templates.family,
+	}),
+	// Organization-wide fill-in values, used as {{org:<key>}}.
+	variables: defineCollection({
+		loader: checked(file('./templates/variables.yml'), (entries) =>
+			entries
+				.filter((e) => !templates.key.safeParse(e.id).success)
+				.map((e) => `templates/variables.yml: "${e.id}" must be a lowercase key with single hyphens.`),
+		),
+		schema: templates.variable,
 	}),
 };

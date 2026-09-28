@@ -5,17 +5,20 @@ template: splash
 hero:
   title: Apply the NIST RMF to real systems
   tagline: A practitioner's guide to the Risk Management Framework and SP 800-53 controls. What each step asks for, how to do it well, and what assessors and authorizing officials look for.
+  # Hero links are not rebased onto the site base path, so they are written
+  # relative to the home page. Keep them without a leading slash.
   actions:
     - text: Start with the RMF
-      link: /rmf/
+      link: rmf/
       icon: right-arrow
     - text: Browse the controls
-      link: /controls/
+      link: controls/
       variant: minimal
 ---
 
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 import StepStrip from '../../components/StepStrip.astro';
+import { withBase } from '../../lib/url';
 
 <StepStrip />
 
@@ -25,22 +28,22 @@ import StepStrip from '../../components/StepStrip.astro';
 	<LinkCard
 		title="The Risk Management Framework"
 		description="All seven steps and 47 tasks from SP 800-37, with owners, outputs, checklists and common findings."
-		href="/rmf/"
+		href={withBase("/rmf/")}
 	/>
 	<LinkCard
 		title="SP 800-53 controls"
 		description="Every Rev. 5 control with its baselines, enhancements and assessment objectives, plus implementation guidance."
-		href="/controls/"
+		href={withBase("/controls/")}
 	/>
 	<LinkCard
 		title="Industry guides"
 		description="How the RMF and 800-53 map onto healthcare, finance, energy, defense and other regulated sectors."
-		href="/industries/"
+		href={withBase("/industries/")}
 	/>
 	<LinkCard
 		title="Technology playbooks"
 		description="Control implementation on specific platforms: cloud, identity, endpoints, containers and more."
-		href="/technology/"
+		href={withBase("/technology/")}
 	/>
 </CardGrid>
 

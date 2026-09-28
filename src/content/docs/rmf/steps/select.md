@@ -88,4 +88,4 @@ Overlays add or remove controls for a context. Common ones are CNSSI 1253 overla
 
 ## Key references
 
-[SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), [SP 800-53B](https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final), [SP 800-18 Rev. 1](https://csrc.nist.gov/pubs/sp/800/18/r1/final) (SSP guide), [SP 800-137A](https://csrc.nist.gov/pubs/sp/800/137/a/final), [CNSSI 1253](https://www.cnss.gov/CNSS/issuances/Instructions.cfm), [OSCAL](https://pages.nist.gov/OSCAL/), [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) section 3.3.
+[SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), [SP 800-53B](https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final), [SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (system plan guide), [SP 800-137A](https://csrc.nist.gov/pubs/sp/800/137/a/final), [CNSSI 1253](https://www.cnss.gov/CNSS/issuances/Instructions.cfm), [OSCAL](https://pages.nist.gov/OSCAL/), [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) section 3.3.

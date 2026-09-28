@@ -24,6 +24,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 - If a fact cannot be verified, write `<!-- TODO(verify): what and why -->` and add it to Open questions in `PROGRESS.md`. Do not guess.
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.
+- Templates are CC0 and written for any organization. Put federal-only requirements in `:::federal` blocks, written as carefully as the body and citing the federal source.
 
 ## When to stop and ask the owner
 

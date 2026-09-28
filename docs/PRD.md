@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 2 · Sep 27, 2026 · @Kris · [Revision history](#revision-history)
+Version 2.1 · Sep 27, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -220,11 +220,16 @@ Every template is produced in two editions and, where it applies, per baseline:
 
 - **Annotated:** includes `:::guidance` blocks explaining each section, why it exists and what assessors look for. This is the edition the site shows.
 - **Clean:** guidance stripped; ready to adopt.
+- **Federal sections:** requirements that apply only to federal systems (for example FIPS 199 categorization, agency ATO, FedRAMP, OMB and CISA directives) live in `:::federal` blocks. Both editions keep them, rendered under a clearly labelled "Federal systems" heading, so a federal reader has everything and a non-federal reader can delete the marked sections without reading around them.
 - **Baseline variants:** family and consolidated policies are assembled for Low, Moderate and High (plus the Privacy baseline for privacy clauses), including only clauses whose control is in that baseline. Baseline membership comes from the NIST OSCAL profiles, never hand-set.
 
 Formats: `.docx` (primary; what most organizations adopt) and `.md` for every template; `.csv` for registers and worksheets. Downloads are offered per template, per family pack (`.zip`) and as the full kit (`.zip`).
 
-Every generated document carries a header block: title, template version, NIST release basis (for example SP 800-53 release 5.2.0), a "tailor before adoption; not legal advice" notice, and the license line.
+Every generated document carries a header block: title, template version, NIST release basis (for example SP 800-53 release 5.2.0), a "tailor before adoption; not legal advice" notice, and a CC0 notice.
+
+### License and packaging
+
+Templates and the kit are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), so organizations can adopt them without attribution; the rest of the site stays CC BY 4.0 (see `LICENSE`). The kit is free, with no paid edition planned. A CC0 dedication cannot be withdrawn from versions already released; if a paid edition is ever offered, it would apply to new material, and the license terms for it would be decided then.
 
 ## Functional requirements
 
@@ -250,8 +255,8 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | TPL-01 | Template sources as a content collection with a validated schema | P1 | Build fails on a clause whose `control` is not in the catalog, a bad `type`, `status` or `stage`, or a duplicate clause for one control |
 | TPL-02 | Variable renderer for site, `.md` and `.docx` | P1 | All three syntaxes render as specified; an unknown variable or parameter fails the build; unit tests cover each |
 | TPL-03 | Family policy assembly | P1 | `_common.md` + family metadata + clauses in catalog order, per baseline; a control added to a baseline appears in that variant with no manual step |
-| TPL-04 | Annotated and clean editions | P1 | Clean edition contains no `:::guidance` content; annotated edition matches the site preview |
-| TPL-05 | Downloads per template, per family pack and full kit | P1 | `.docx` and `.md` for every template, `.zip` packs; `.docx` opens in Word and LibreOffice without repair prompts and uses `reference.docx` styles. Generator tool proposed: pandoc at a pinned version in CI (owner to approve) |
+| TPL-04 | Annotated and clean editions, with marked federal sections | P1 | Clean edition contains no `:::guidance` content; annotated edition matches the site preview; `:::federal` blocks render under a "Federal systems" heading in both editions and on the site |
+| TPL-05 | Downloads per template, per family pack and full kit | P1 | `.docx` and `.md` for every template, `.zip` packs; `.docx` opens in Word and LibreOffice without repair prompts and uses `reference.docx` styles. `.docx` is produced with pandoc (approved) at a pinned version, installed only in CI |
 | TPL-06 | Control page integration | P1 | Control pages show a "Policy statement" section from the clause and an "Artifacts" list of templates whose `controls` include it, with no edit to the control file |
 | TPL-07 | Template pages | P1 | One generated page per template: purpose, controls satisfied, decisions, annotated preview, downloads, version, NIST basis |
 | TPL-08 | Decision worksheet per family | P1 | Generated from the parameters of controls in the chosen baseline plus `_family.yml` questions; columns: decision, control, typical value, who decides, your value. `.csv` and page |
@@ -344,7 +349,7 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 - **Adoptable as written.** A reader who fills every field and deletes nothing should have a document an assessor would accept as a first draft.
 - **Policy clauses** use "shall", one requirement per sentence, name an accountable role (as a variable, never a person), and cite the control ID in a trailing reference, for example "(AC-2)".
 - **Every parameter is handled.** Each organization-defined parameter of a clause's control is either a `{{param:...}}` field or explicitly set with a note that it is a typical value.
-- **Neutral by default.** Write for any organization; put federal-only requirements (FIPS 199, agency ATO, FedRAMP) in guidance blocks or clearly marked optional sections.
+- **Any organization, federal-ready.** Write the body for any organization ("the organization", not "the agency"). Put federal-only requirements in `:::federal` blocks, and write them as carefully as the body: federal systems are the most common place these templates will be applied. Cite the federal source (OMB, CISA, FedRAMP, DoD) in each block.
 - **Guidance is separable.** All teaching text lives in `:::guidance` blocks so the clean edition is produced mechanically.
 - **Procedures** are numbered steps by role, with inputs, outputs and the record each step leaves behind (the evidence).
 - **Plans** follow the structure NIST or the owning program publishes (for example SP 800-34 for contingency plans, SP 800-61 for incident response) and cite it.
@@ -458,7 +463,7 @@ The site stays fully static and free to host; anything that needs a server, a da
 | Links | Root-relative links in Markdown are rebased automatically; links in components and MDX props use `withBase()` from `src/lib/url.ts` |
 | Limits | Published site under 1 GB (GitHub Pages limit), including downloads; current build is about 41 MB. Deploy job under 10 minutes |
 | Performance | Build under 3 minutes in CI; home and control pages score 90+ on Lighthouse performance and accessibility |
-| Dependencies | Prefer Starlight built-ins. Each new dependency needs a one-line reason in the pull request. No client-side frameworks for static content. Build-time tools (for example pandoc) are pinned and installed only in CI |
+| Dependencies | Prefer Starlight built-ins. Each new dependency needs a one-line reason in the pull request. No client-side frameworks for static content. Build-time tools (pandoc, approved for `.docx`) are pinned and installed only in CI; local kit builds need pandoc on the path |
 | External services | None required at build or run time except fetching NIST data (OSCAL, SSDF) in import scripts |
 | Data sources | NIST [oscal-content](https://github.com/usnistgov/oscal-content) SP 800-53 Rev. 5 catalog and baseline profiles, cached in `.cache/oscal`; SSDF from a NIST machine-readable source, cached in `.cache/ssdf` |
 | Generated files | Pages committed to git so edit links and diffs work; never hand-edited between `nist:start` and `nist:end`. Binary downloads built in CI, never committed |
@@ -524,19 +529,24 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 
 ## Open questions for the owner
 
-Phase 1 cannot finish until the first four are answered; Phase 2 needs the template questions.
+Phase 1 cannot finish until the first four are answered.
 
 - [ ] Name, short professional bio, headshot and LinkedIn URL for the About page
 - [ ] Custom domain now or later (site is at `kston83.github.io/nist-guide` today)
 - [ ] Site title: keep "RMF Field Guide" or choose another
 - [ ] Any employer policy on publishing, such as a required disclaimer or pre-publication review
-- [ ] **Template license.** Site content is CC BY 4.0, which requires attribution in anything derived from it, awkward inside an adopted policy. Proposed: templates under CC0 or a permissive license with no attribution requirement inside adopted documents
-- [ ] **Packaging.** Is the kit free, or is there a paid edition (for example editable branded packs or client tailoring) alongside the free one? This affects what the site shows and the license
-- [ ] **Voice.** Default templates to a neutral organization (proposed) or a federal agency?
-- [ ] **`.docx` tool.** Approve pandoc at a pinned version in CI, or name another
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
 - [ ] Privacy-friendly analytics: yes or no
+
+### Decided
+
+| Decision | Answer | Date |
+| --- | --- | --- |
+| Template license | CC0 1.0 for templates and the kit; site content stays CC BY 4.0 | Sep 27, 2026 |
+| Packaging | Free kit only; revisit if it ever becomes something to sell | Sep 27, 2026 |
+| Template voice | Any organization, with federal-only requirements in marked `:::federal` sections | Sep 27, 2026 |
+| `.docx` tool | pandoc, pinned, in CI | Sep 27, 2026 |
 
 ## Revision history
 
@@ -544,3 +554,4 @@ Phase 1 cannot finish until the first four are answered; Phase 2 needs the templ
 | --- | --- | --- |
 | 1 | Sep 27, 2026 | First version |
 | 2 | Sep 27, 2026 | Vision widened to learn, build and prove a program. Added Template system, artifact catalog, starter kit, Build your program (PROG), SSDF, template lint (QA-05) and `.docx` styling (PRES-06). FEAT-02 superseded by TPL. Phases reordered: templates before industries and technology; five phases. Current state updated for the subpath deploy and CI |
+| 2.1 | Sep 27, 2026 | Owner decisions recorded: CC0 templates, free kit, any-organization voice with `:::federal` sections, pandoc approved |

@@ -18,10 +18,10 @@ From the PRD, still open:
 - [x] GitHub username: `kston83`; site is at `https://kston83.github.io/nist-guide/`
 - [ ] Custom domain now or later
 - [ ] Site title: keep "RMF Field Guide" or choose another
-- [ ] Template license (proposed: CC0 or permissive, no attribution inside adopted documents)
-- [ ] Packaging: free kit only, or a paid edition alongside it
-- [ ] Template voice: neutral organization (proposed) or federal agency
-- [ ] `.docx` tool: approve pandoc at a pinned version in CI
+- [x] Template license: CC0 1.0 for templates and the kit (2026-09-27)
+- [x] Packaging: free kit only; revisit if it becomes something to sell (2026-09-27)
+- [x] Template voice: any organization, federal-only requirements in `:::federal` sections (2026-09-27)
+- [x] `.docx` tool: pandoc, pinned, in CI (2026-09-27)
 - [ ] Any employer policy on publishing, such as a required disclaimer or pre-publication review
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)

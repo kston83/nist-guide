@@ -32,6 +32,9 @@ export const policyFile = (family, baseline, edition) =>
 	`policies/${family}-policy-${baseline.toLowerCase()}${EDITION_SUFFIX[edition]}`;
 export const templateFile = (id, edition) => `${id}${EDITION_SUFFIX[edition]}`;
 export const worksheetFile = (family, baseline) => `worksheets/${family}-decisions-${baseline.toLowerCase()}`;
+// Zips, with extension.
+export const packFile = (family) => `packs/${family}-pack.zip`;
+export const KIT_FILE = 'rmf-field-guide-kit.zip';
 
 // Site preview: annotated edition, headings one level down under "## Preview",
 // without the document's own title.
@@ -68,11 +71,13 @@ function page({ title, description, label, order, controls, body }) {
 	].join('\n');
 }
 
+const formats = (file) => `[Word](/downloads/${file}.docx) · [Markdown](/downloads/${file}.md)`;
+
 function downloadRows(rows) {
 	return [
 		'| Variant | Ready to adopt | Annotated |',
 		'| --- | --- | --- |',
-		...rows.map(({ label, file }) => `| ${label} | [Markdown](/downloads/${file('clean')}.md) | [Markdown](/downloads/${file('annotated')}.md) |`),
+		...rows.map(({ label, file }) => `| ${label} | ${formats(file('clean'))} | ${formats(file('annotated'))} |`),
 	].join('\n');
 }
 
@@ -130,6 +135,7 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 		`Record your values in the [${family.title} decision worksheet](/templates/worksheets/${family.id}/), which lists every parameter with its typical value.`,
 		'## Downloads',
 		downloadRows(baselines.map((b) => ({ label: b, file: (e) => policyFile(family.id, b, e) }))),
+		`Everything for this family in one file: [${fam} pack (.zip)](/downloads/${packFile(family.id)}), with every variant and edition of the policy and the decision worksheets.`,
 		`## Preview (${shownBaseline} baseline, annotated)`,
 		preview(shown.source, { variables, params: catalog.params, typical: shown.typical, family }),
 	]
@@ -207,6 +213,8 @@ export function indexPage(summaries) {
 		GENERATED_NOTE,
 		'',
 		'Each template is written once and assembled for your baseline. Download the ready-to-adopt edition to fill in, or the annotated edition to learn why each section exists. Templates are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/): adopt and change them without attribution. They are not legal advice; tailor them before adoption.',
+		'',
+		`**Download the full kit:** [every template, in Word and Markdown, with the decision worksheets (.zip)](/downloads/${KIT_FILE}).`,
 		'',
 		...groups.flatMap((g) => [g, '']),
 	].join('\n');

@@ -10,6 +10,8 @@ sidebar:
 
 Each template is written once and assembled for your baseline. Download the ready-to-adopt edition to fill in, or the annotated edition to learn why each section exists. Templates are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/): adopt and change them without attribution. They are not legal advice; tailor them before adoption.
 
+**Download the full kit:** [every template, in Word and Markdown, with the decision worksheets (.zip)](/downloads/rmf-field-guide-kit.zip).
+
 ## Policies
 
 | Template | Program stage | Status |

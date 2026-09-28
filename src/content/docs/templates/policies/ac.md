@@ -43,9 +43,11 @@ Record your values in the [Access Control decision worksheet](/templates/workshe
 
 | Variant | Ready to adopt | Annotated |
 | --- | --- | --- |
-| Low | [Markdown](/downloads/policies/ac-policy-low.md) | [Markdown](/downloads/policies/ac-policy-low-annotated.md) |
-| Moderate | [Markdown](/downloads/policies/ac-policy-moderate.md) | [Markdown](/downloads/policies/ac-policy-moderate-annotated.md) |
-| High | [Markdown](/downloads/policies/ac-policy-high.md) | [Markdown](/downloads/policies/ac-policy-high-annotated.md) |
+| Low | [Word](/downloads/policies/ac-policy-low.docx) · [Markdown](/downloads/policies/ac-policy-low.md) | [Word](/downloads/policies/ac-policy-low-annotated.docx) · [Markdown](/downloads/policies/ac-policy-low-annotated.md) |
+| Moderate | [Word](/downloads/policies/ac-policy-moderate.docx) · [Markdown](/downloads/policies/ac-policy-moderate.md) | [Word](/downloads/policies/ac-policy-moderate-annotated.docx) · [Markdown](/downloads/policies/ac-policy-moderate-annotated.md) |
+| High | [Word](/downloads/policies/ac-policy-high.docx) · [Markdown](/downloads/policies/ac-policy-high.md) | [Word](/downloads/policies/ac-policy-high-annotated.docx) · [Markdown](/downloads/policies/ac-policy-high-annotated.md) |
+
+Everything for this family in one file: [AC pack (.zip)](/downloads/packs/ac-pack.zip), with every variant and edition of the policy and the decision worksheets.
 
 ## Preview (Moderate baseline, annotated)
 

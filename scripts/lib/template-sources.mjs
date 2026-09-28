@@ -67,5 +67,6 @@ export async function loadSources(root = 'templates') {
 
 	clauses.sort((a, b) => a.id.localeCompare(b.id));
 	templates.sort((a, b) => a.id.localeCompare(b.id));
-	return { variables, common, families, clauses, templates };
+	const starterKit = parseYaml(await fs.readFile(path.join(root, 'starter-kit.yml'), 'utf8')) ?? { items: [] };
+	return { variables, common, families, clauses, templates, starterKit };
 }

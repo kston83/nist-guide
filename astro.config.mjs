@@ -142,6 +142,7 @@ export default defineConfig({
 					label: 'Templates',
 					items: [
 						{ label: 'All templates', slug: 'templates' },
+						{ label: 'Starter kit', slug: 'templates/starter-kit' },
 						{ label: 'Policies', collapsed: true, items: [{ autogenerate: { directory: 'templates/policies' } }] },
 						{
 							label: 'Decision worksheets',

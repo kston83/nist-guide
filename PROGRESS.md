@@ -14,7 +14,7 @@ Phase 2 work is in stacked pull requests, each based on the one before it, start
 | --- | --- | --- |
 | CTRL-08, TPL-01 to TPL-08, QA-05 | Built | #11 to #20 |
 | PROG-01, PROG-05 | Built | #21 |
-| PROG-02 Starter kit | Waiting for the SSP, IR plan and POA&M templates | |
+| PROG-02 Starter kit | Built | #30 |
 | Family policies: AC, AU, CM | Draft | #22 to #24 |
 | Family policy: IA | Draft | #25 |
 | Family policy: IR | Draft | #26 |
@@ -37,6 +37,7 @@ Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_co
 
 | ID | Status | Date | Notes |
 | --- | --- | --- | --- |
+| PROG-02 | Done | 2026-09-28 | `templates/starter-kit.yml` names the PRD set; items are a template, `include: policies` or `worksheets`, or a planned artifact. `npm run kit` builds `starter-kit-<baseline>.zip` (Low, Moderate, High) (Moderate: SSP, IR plan, POA&M with CSV, five family policies and five worksheets, both editions, Word and Markdown). Generated page `/templates/starter-kit/` lists each item as included or coming (Information Security Program Plan, Risk Management Strategy, Rules of Behavior and system inventory are Phase 3 artifacts), links from the sidebar and program overview. 3 tests |
 | Content: POA&M | Draft | 2026-09-28 | `templates/forms/plan-of-action-and-milestones.md` (stage Operate): usage rules citing CA-5a and CA-5b, a field guide, and a register. The kit exports any form register (the table under `## Register`) as a CSV header row; form pages link it. Forms sidebar group |
 | Content: System Security Plan | Draft | 2026-09-28 | `templates/plans/system-security-plan.md` follows the System Security Plan Outline Example published with NIST SP 800-18 Rev. 2 (final, June 30, 2026; it replaced Rev. 1, withdrawn the same day; checked at csrc.nist.gov) and cites every PL-2a to PL-2e element; federal blocks for SP 800-60 and FIPS 199 categorization and the SP 800-63-4 Digital Identity Acceptance Statement. Library and Select step now cite SP 800-18 Rev. 2 |
 | Content: Incident Response Plan | Draft | 2026-09-28 | `templates/plans/incident-response-plan.md`: the ten IR-8a elements, handling organized by the CSF 2.0 Functions as NIST SP 800-61 Rev. 3 (final, April 2025; checked at csrc.nist.gov) does, CISA federal block, contact appendix. Template pages get a Pagefind-weighted lead so "incident response plan" finds the template first (NAV-01 carry-over done). Templates may now give `typical` values; downloads take their H1 from `title`. Plans sidebar group |

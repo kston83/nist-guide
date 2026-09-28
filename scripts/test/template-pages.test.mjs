@@ -36,7 +36,7 @@ test('policy pages list every control covered, in catalog order, in front matter
 });
 
 test('policy pages show facts, a baseline table and a count of non-aggregate parameters', () => {
-	assert.match(ac.text, /\| Policy \| Core \| Draft \| 1\.2\.3 \| SP 800-53 release 9\.9\.9 \|/);
+	assert.match(ac.text, /\| Policy \| \[Core\]\(\/program\/core\/\) \| Draft \| 1\.2\.3 \| SP 800-53 release 9\.9\.9 \|/);
 	assert.match(ac.text, /\| \[AC-2\(3\)\]\(\/controls\/ac\/ac-2\/#ac-2\.3\) \| Disable Accounts \|  \| Yes \| Yes \|  \|/);
 	assert.match(ac.text, /has 2 organization-defined parameters/);
 });
@@ -93,7 +93,7 @@ const plan = templatePage({
 
 test('other templates get a page at their source path with both editions', () => {
 	assert.equal(plan.file, 'plans/incident-response-plan.md');
-	assert.match(plan.text, /\| Plan \| Core \| Draft \|/);
+	assert.match(plan.text, /\| Plan \| \[Core\]\(\/program\/core\/\) \| Draft \|/);
 	assert.match(plan.text, /\*\*SSDF practices:\*\* RV\.1/);
 	assert.ok(plan.text.includes('(/downloads/plans/incident-response-plan-annotated.md)'));
 	assert.match(plan.text, /### Scope/);
@@ -104,6 +104,6 @@ test('other templates get a page at their source path with both editions', () =>
 test('the index groups pages by type', () => {
 	const index = indexPage([ac.summary, plan.summary]);
 	assert.match(index, /\n## Policies\n/);
-	assert.match(index, /\| \[Access Control Policy\]\(\/templates\/policies\/ac\/\) \| Core \| Draft \|/);
+	assert.match(index, /\| \[Access Control Policy\]\(\/templates\/policies\/ac\/\) \| \[Core\]\(\/program\/core\/\) \| Draft \|/);
 	assert.match(index, /## Plans\n\n\| Template/);
 });

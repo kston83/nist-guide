@@ -49,7 +49,7 @@ function facts({ type, stage, status, version, basis }) {
 	return [
 		'| Type | Program stage | Status | Template version | NIST basis |',
 		'| --- | --- | --- | --- | --- |',
-		`| ${TYPE_LABEL[type]} | ${cap(stage)} | ${cap(status)} | ${version} | ${basis} |`,
+		`| ${TYPE_LABEL[type]} | [${cap(stage)}](/program/${stage}/) | ${cap(status)} | ${version} | ${basis} |`,
 	].join('\n');
 }
 
@@ -197,7 +197,7 @@ export function indexPage(summaries) {
 			if (!list.length) return '';
 			return [
 				`## ${TYPE_GROUP[type]}`,
-				['| Template | Program stage | Status |', '| --- | --- | --- |', ...list.map((s) => `| [${s.title}](${s.href}) | ${cap(s.stage)} | ${cap(s.status)} |`)].join('\n'),
+				['| Template | Program stage | Status |', '| --- | --- | --- |', ...list.map((s) => `| [${s.title}](${s.href}) | [${cap(s.stage)}](/program/${s.stage}/) | ${cap(s.status)} |`)].join('\n'),
 			].join('\n\n');
 		})
 		.filter(Boolean);

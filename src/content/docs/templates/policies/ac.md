@@ -11,7 +11,7 @@ controls: [ac-1, ac-2]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | Core | Draft | 0.1.0 | SP 800-53 release 5.2.0 |
+| Policy | [Core](/program/core/) | Draft | 0.1.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

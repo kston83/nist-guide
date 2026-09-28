@@ -343,7 +343,7 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | PRES-03 | Accessibility at WCAG 2.2 AA | P1 | Automated axe check on home, a step page, a control page, a template page and an industry page shows no serious or critical issues |
 | PRES-04 | Author identity: About page with bio, photo, LinkedIn link; social links in header | P1 | Placeholders replaced with owner-provided content |
 | PRES-05 | Privacy-friendly analytics, if the owner chooses | P3 | No cookies; documented in About |
-| PRES-06 | Generated `.docx` files look professional | P2 | Styles from `reference.docx`: site fonts, heading hierarchy, table style, header with title and version, page numbers |
+| PRES-06 | Generated `.docx` files look professional | P2 | Styles from `reference.docx`: fonts close to the site's that Office installs (Calibri body, Georgia headings; owner decision, Sep 28, 2026, so every reader sees the same document), heading hierarchy, table style, header with title and version, page numbers. The site's teal accent on headings and table header rows; no guide name or logo |
 
 ### Quality and CI (QA)
 

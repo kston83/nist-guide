@@ -1,7 +1,7 @@
 // Downloadable kit helpers (PRD TPL-05): the header block every document
 // carries, .docx conversion with pandoc, and deterministic .zip packs.
 import { spawn } from 'node:child_process';
-import { zipSync } from 'fflate';
+import { strFromU8, strToU8, unzipSync, zipSync } from 'fflate';
 
 // Written into downloads/ when .docx files were skipped, so the link check
 // knows to expect missing .docx links in that build (never in CI).
@@ -57,7 +57,29 @@ export function zipDeterministic(files) {
 	return zipSync(entries, { level: 9 });
 }
 
-const EDITION_LABEL = { clean: 'Ready to adopt', annotated: 'Annotated (with guidance)' };
+const xmlText = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/**
+ * Fills the {{title}} and {{version}} placeholders that templates/reference.docx
+ * puts in every page header (PRD PRES-06). The title is the document's first
+ * level-1 heading. Returns the .docx unchanged when it has no placeholders.
+ */
+export function fillDocxHeader(docx, { markdown, version }) {
+	const title = (markdown.match(/^# (.+)$/m)?.[1] ?? '').replace(/[*_`]/g, '').trim();
+	const files = unzipSync(new Uint8Array(docx));
+	let changed = false;
+	for (const name of Object.keys(files).filter((n) => /^word\/(header|footer)\d*\.xml$/.test(n))) {
+		const xml = strFromU8(files[name]);
+		const next = xml.replaceAll('{{title}}', xmlText(title)).replaceAll('{{version}}', xmlText(version));
+		if (next !== xml) {
+			files[name] = strToU8(next);
+			changed = true;
+		}
+	}
+	return changed ? Buffer.from(zipDeterministic(files)) : docx;
+}
+
+const EDITION_LABEL ={ clean: 'Ready to adopt', annotated: 'Annotated (with guidance)' };
 
 /**
  * The header block after a document's title: version, baseline, edition, NIST
@@ -91,7 +113,7 @@ export function withHeader(text, header) {
 const PANDOC_FROM = 'markdown-tex_math_dollars-raw_tex-citations';
 
 /** Converts pandoc Markdown to .docx bytes using the reference document's styles. */
-export function toDocx(markdown, { pandoc, referenceDoc, sourceDateEpoch }) {
+export function toDocx(markdown, { pandoc, referenceDoc, sourceDateEpoch, version }) {
 	return new Promise((resolve, reject) => {
 		const child = spawn(pandoc, ['-f', PANDOC_FROM, '-t', 'docx', '--reference-doc', referenceDoc, '-o', '-'], {
 			env: { ...process.env, SOURCE_DATE_EPOCH: String(sourceDateEpoch) },
@@ -102,7 +124,7 @@ export function toDocx(markdown, { pandoc, referenceDoc, sourceDateEpoch }) {
 		child.stderr.on('data', (d) => err.push(d));
 		child.on('error', reject);
 		child.on('close', (code) =>
-			code === 0 ? resolve(Buffer.concat(out)) : reject(new Error(`pandoc exited ${code}: ${Buffer.concat(err).toString()}`)),
+			code === 0 ? resolve(fillDocxHeader(Buffer.concat(out), { markdown, version })) : reject(new Error(`pandoc exited ${code}: ${Buffer.concat(err).toString()}`)),
 		);
 		child.stdin.end(markdown);
 	});

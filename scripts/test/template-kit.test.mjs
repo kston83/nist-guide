@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { strFromU8, unzipSync } from 'fflate';
-import { documentHeader, findPandoc, kitReadme, registerCsv, toDocx, withHeader, zipDeterministic } from '../lib/template-kit.mjs';
+import { documentHeader, fillDocxHeader, findPandoc, kitReadme, registerCsv, toDocx, withHeader, zipDeterministic } from '../lib/template-kit.mjs';
 
 const header = documentHeader({
 	version: '1.0.0',
@@ -56,6 +56,7 @@ test('pandoc makes a .docx that uses the reference styles for fields and guidanc
 		pandoc,
 		referenceDoc: 'templates/reference.docx',
 		sourceDateEpoch: 1790000000,
+		version: '1.0.0',
 	});
 	const parts = unzipSync(new Uint8Array(docx));
 	const doc = strFromU8(parts['word/document.xml']);
@@ -65,4 +66,22 @@ test('pandoc makes a .docx that uses the reference styles for fields and guidanc
 	assert.match(doc, /\$5 @x/); // no math or citation parsing
 	assert.match(styles, /w:styleId="Fill-in"[\s\S]*?<w:highlight w:val="yellow"\s*\/>/);
 	assert.ok(fs.existsSync('templates/reference.docx'));
+	// PRES-06: header with title and version, "Page X of Y" footer, styled headings and tables.
+	assert.match(doc, /<w:headerReference[^>]*\/>/);
+	assert.match(strFromU8(parts['word/header1.xml']), />T<\/w:t>[\s\S]*>Version 1\.0\.0</);
+	assert.match(strFromU8(parts['word/footer1.xml']), /PAGE[\s\S]*NUMPAGES/);
+	assert.match(styles, /w:styleId="Heading1"[\s\S]*?w:ascii="Georgia"[\s\S]*?<w:color w:val="0F5C5A"\s*\/>/);
+	assert.match(styles, /w:styleId="Table"[\s\S]*?w:type="firstRow"[\s\S]*?w:fill="0F5C5A"/);
+});
+
+test('header placeholders take the first heading and the version, escaped', () => {
+	const docx = zipDeterministic({
+		'word/header1.xml': new TextEncoder().encode('<w:t>{{title}}</w:t><w:t>Version {{version}}</w:t>'),
+		'word/document.xml': new TextEncoder().encode('<w:t>{{title}}</w:t>'),
+	});
+	const out = unzipSync(new Uint8Array(fillDocxHeader(docx, { markdown: 'Intro\n\n# Risk & *Audit* Policy\n\n# Later', version: '1.2.3' })));
+	assert.equal(strFromU8(out['word/header1.xml']), '<w:t>Risk &amp; Audit Policy</w:t><w:t>Version 1.2.3</w:t>');
+	assert.equal(strFromU8(out['word/document.xml']), '<w:t>{{title}}</w:t>'); // body text is never touched
+	const plain = zipDeterministic({ 'word/document.xml': new Uint8Array([60]) });
+	assert.equal(fillDocxHeader(plain, { markdown: '# X', version: '1' }), plain);
 });

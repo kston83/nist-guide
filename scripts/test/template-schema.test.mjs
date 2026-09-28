@@ -67,10 +67,12 @@ test('family metadata needs a title and role key; questions name controls and wh
 	const good = {
 		title: 'Access Control',
 		role: 'ciso',
+		stage: 'core',
 		questions: [{ question: 'Which account types?', controls: ['ac-2'], decides: 'System owner' }],
 	};
 	assert.ok(family.safeParse(good).success);
-	assert.deepEqual(family.parse({ title: 'Access Control', role: 'ciso' }).questions, []);
+	assert.deepEqual(family.parse({ title: 'Access Control', role: 'ciso', stage: 'core' }).questions, []);
+	assert.equal(family.safeParse({ ...good, stage: undefined }).success, false);
 	assert.equal(family.safeParse({ ...good, role: 'Chief Officer' }).success, false);
 	assert.equal(family.safeParse({ ...good, questions: [{ question: 'Q', controls: ['zz-1'], decides: 'X' }] }).success, false);
 });

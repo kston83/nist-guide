@@ -77,6 +77,79 @@ export function baselineMembership(profiles) {
 	return inBaseline;
 }
 
+// "time period within which to notify ... is defined;" -> "time period within which to notify ..."
+const promptFrom = (guideline) =>
+	guideline
+		?.trim()
+		.replace(/\[([^\]]*)\]\(#[^)]*\)/g, '$1') // links to other parameters
+		.replace(/[\s;.]*(?:\(if selected\))?[\s;.]*$/i, '')
+		.replace(/\s+(?:is|are|is\/are|has been|have been)\s+(?:defined|selected)$/i, '')
+		.trim();
+
+/**
+ * Control and parameter data for the template system (PRD CTRL-08): every active
+ * control and enhancement in catalog order, with its baselines and parameters,
+ * and every parameter of those controls keyed by id.
+ *
+ * Parameter fields:
+ *   control    owning control or enhancement id ("ac-2")
+ *   odp        SP 800-53A label ("AC-02_ODP[06]"); absent on aggregating parameters
+ *   label      NIST label ("time period"); absent on selections
+ *   prompt     what the organization must decide, from the 800-53A guideline
+ *              ("time period within which to notify account managers when ...")
+ *   select     { howMany: "one" | "one-or-more", choices: [...] } with nested
+ *              parameters rendered in NIST's [Assignment: ...] style
+ *   aggregates ids of the parameters this one combines, for parameters the
+ *              control statement uses in place of several 800-53A ones
+ *   text       the placeholder as it appears on the control page
+ */
+export function buildControlData(catalog, profiles) {
+	const params = collectParams(catalog);
+	const { renderParam, insertParams } = createParamRenderer(params);
+	const inBaseline = baselineMembership(profiles);
+	const baselines = (id) => {
+		const b = inBaseline.get(id) ?? [];
+		return [...b.filter((x) => x !== 'Privacy'), ...(b.includes('Privacy') ? ['Privacy'] : [])];
+	};
+
+	const controls = [];
+	const paramData = {};
+	const add = (c, family) => {
+		controls.push({
+			id: c.id,
+			label: label(c),
+			title: c.title,
+			family,
+			baselines: baselines(c.id),
+			params: (c.params ?? []).map((p) => p.id),
+		});
+		for (const p of c.params ?? []) {
+			const entry = { control: c.id };
+			const odp = prop(p, 'label', 'sp800-53a');
+			if (odp) entry.odp = odp;
+			if (p.label) entry.label = p.label;
+			const prompt = promptFrom(p.guidelines?.[0]?.prose);
+			if (prompt) entry.prompt = prompt;
+			if (p.select)
+				entry.select = {
+					howMany: p.select['how-many'] ?? 'one',
+					choices: (p.select.choice ?? []).map((ch) => insertParams(ch)),
+				};
+			const aggregates = (p.props ?? []).filter((x) => x.name === 'aggregates').map((x) => x.value);
+			if (aggregates.length) entry.aggregates = aggregates;
+			entry.text = renderParam(p.id);
+			paramData[p.id] = entry;
+		}
+	};
+	for (const g of catalog.groups)
+		for (const c of g.controls) {
+			if (isWithdrawn(c)) continue;
+			add(c, g.id);
+			for (const e of c.controls ?? []) if (!isWithdrawn(e)) add(e, g.id);
+		}
+	return { version: catalog.metadata.version, controls, params: paramData };
+}
+
 /**
  * @param catalog  OSCAL catalog object (the value of the top-level "catalog" key)
  * @param profiles { Low, Moderate, High, Privacy } OSCAL profile objects

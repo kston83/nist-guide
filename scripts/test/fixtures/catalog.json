@@ -50,6 +50,28 @@
           {
             "id": "ac-2",
             "title": "Account Management",
+            "params": [
+              {
+                "id": "ac-2_prm_1",
+                "props": [
+                  { "name": "aggregates", "value": "ac-02_odp.01" },
+                  { "name": "aggregates", "value": "ac-02_odp.02" }
+                ],
+                "label": "organization-defined time period"
+              },
+              {
+                "id": "ac-02_odp.01",
+                "props": [{ "name": "label", "value": "AC-02_ODP[01]", "class": "sp800-53a" }],
+                "label": "time period",
+                "guidelines": [{ "prose": "time period within which to notify account managers is defined;" }]
+              },
+              {
+                "id": "ac-02_odp.02",
+                "props": [{ "name": "label", "value": "AC-02_ODP[02]", "class": "sp800-53a" }],
+                "label": "attributes",
+                "guidelines": [{ "prose": "attributes (as required) for [AC-02_ODP](#ac-02_odp.01) have been defined (if selected)." }]
+              }
+            ],
             "props": [{ "name": "label", "value": "AC-2" }],
             "parts": [{ "id": "ac-2_smt", "name": "statement", "prose": "Manage accounts." }],
             "controls": [

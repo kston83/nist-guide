@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { activeControlIds, buildPages, collectParams, createParamRenderer } from '../lib/oscal.mjs';
+import { activeControlIds, buildControlData, buildPages, collectParams, createParamRenderer } from '../lib/oscal.mjs';
 import { mergeGenerated, START, END, GUIDE, LINT_OFF, LINT_ON } from '../lib/generated.mjs';
 
 const { catalog } = JSON.parse(fs.readFileSync(new URL('./fixtures/catalog.json', import.meta.url), 'utf8'));
@@ -156,4 +156,64 @@ test('regenerating is idempotent, with and without hand-set keys and guidance', 
 
 test('building pages twice gives identical output', () => {
 	assert.deepEqual(buildPages(catalog, profiles), { version, pages });
+});
+
+// ---------- control and parameter data for templates (CTRL-08) ----------
+
+const data = buildControlData(catalog, profiles);
+
+test('control data lists active controls and enhancements in catalog order, with baselines', () => {
+	assert.equal(data.version, '9.9.9');
+	assert.deepEqual(
+		data.controls.map((c) => [c.id, c.label, c.baselines]),
+		[
+			['ac-1', 'AC-1', ['Low', 'Moderate', 'High', 'Privacy']],
+			['ac-2', 'AC-2', ['Low', 'Moderate', 'High']],
+			['ac-2.1', 'AC-2(1)', ['Moderate', 'High']],
+		],
+	);
+	assert.deepEqual(data.controls[1], {
+		id: 'ac-2',
+		label: 'AC-2',
+		title: 'Account Management',
+		family: 'ac',
+		baselines: ['Low', 'Moderate', 'High'],
+		params: ['ac-2_prm_1', 'ac-02_odp.01', 'ac-02_odp.02'],
+	});
+});
+
+test('parameters carry the 800-53A label, NIST label, prompt and page text', () => {
+	assert.deepEqual(data.params['ac-02_odp.01'], {
+		control: 'ac-2',
+		odp: 'AC-02_ODP[01]',
+		label: 'time period',
+		prompt: 'time period within which to notify account managers',
+		text: '[Assignment: organization-defined time period]',
+	});
+});
+
+test('prompts drop "defined", "(if selected)" and links to other parameters', () => {
+	assert.equal(data.params['ac-02_odp.02'].prompt, 'attributes (as required) for AC-02_ODP');
+	assert.equal(data.params['ac-01_odp.06'].prompt, 'events that trigger review');
+	assert.equal(data.params['ac-01_odp.01'].prompt, undefined);
+});
+
+test('selections list choices with nested parameters rendered', () => {
+	assert.deepEqual(data.params['ac-01_odp.03'].select, {
+		howMany: 'one-or-more',
+		choices: ['organization-level', 'system-level'],
+	});
+	assert.deepEqual(data.params['ac-01_odp.04'].select, {
+		howMany: 'one',
+		choices: ['[Assignment: organization-defined frequency]', 'never'],
+	});
+});
+
+test('aggregating parameters list the parameters they combine', () => {
+	assert.deepEqual(data.params['ac-2_prm_1'].aggregates, ['ac-02_odp.01', 'ac-02_odp.02']);
+	assert.equal(data.params['ac-2_prm_1'].odp, undefined);
+});
+
+test('parameters of withdrawn controls are left out', () => {
+	for (const p of Object.values(data.params)) assert.ok(['ac-1', 'ac-2', 'ac-2.1'].includes(p.control));
 });

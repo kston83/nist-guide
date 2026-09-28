@@ -8,6 +8,7 @@ control:
   id: AU-6
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -244,3 +245,35 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-6 turns logs into detection: someone, or something, must review them for signs of trouble and report what they find. At Moderate the review is integrated through automation (AU-6(1)) and correlated across repositories (AU-6(3)), which in practice means a central log platform with alerting.
+
+**Common implementations.** A security information and event management (SIEM) platform collects logs from every system, runs detection rules continuously and routes alerts to the security operations team. A documented manual review at a set interval covers what automation cannot. Findings go to the system owner and, when they are incidents, to the incident response team. The review level rises when threat intelligence indicates higher risk (AU-6c).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review frequency (a) | Continuously through automated alerting, with a documented manual review at least weekly |
+| Inappropriate or unusual activity (a) | The activity listed in the log review procedure, such as repeated failed logons, privilege escalation and access outside normal patterns |
+| Who receives findings (b) | The system owner and the incident response team |
+| Automated mechanisms (AU-6(1)) | A security information and event management (SIEM) platform |
+
+**Evidence assessors ask for.**
+
+- The log review procedure
+- Dated records of reviews, with what was found and who it was reported to
+- The list of detection rules or use cases in the SIEM
+- Examples of alerts that led to action
+
+**Inheritance.** The SIEM and the security operations team are usually common controls; each system owns sending its logs and responding to findings about it.
+
+**Common findings.**
+
+- Reviews performed but not recorded, so there is no evidence.
+- Systems not sending logs to the central platform.
+- Alerts closed without investigation notes.
+
+**Enhancements in the Moderate baseline.** [AU-6(1)](#au-6.1) automated process integration and [AU-6(3)](#au-6.3) correlating audit record repositories. High adds [AU-6(5)](#au-6.5) and [AU-6(6)](#au-6.6).

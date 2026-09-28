@@ -8,6 +8,7 @@ control:
   id: AC-2
   family: AC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -426,7 +427,7 @@ AC-2 asks you to run account management as a controlled life cycle: every accoun
 
 **Common implementations.** Accounts are provisioned from an identity provider (for example Microsoft Entra ID, Okta or Active Directory) through a ticketed request that records the approver. Group and role membership drives access rather than direct grants. HR termination and transfer events feed the identity system automatically, which covers items h and l. A periodic access review, run in the identity governance tool or by exporting account lists to managers, covers item j.
 
-**Organization-defined parameters.** Typical values, which your agency policy may set differently:
+**Organization-defined parameters.** Typical values, which your organization may set differently:
 
 | Parameter | Typical value |
 | --- | --- |

@@ -8,6 +8,7 @@ control:
   id: AT-2
   family: AT
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -213,3 +214,35 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AT-2 covers the security and privacy training every user receives, plus the ongoing awareness activities between courses. Assessors look for three things: every user trained on joining and at the set interval, content kept current, and lessons from real incidents fed back in.
+
+**Common implementations.** An annual online course assigned through the learning management system, required before first access and tracked to completion. Phishing simulations and short awareness messages through the year (AT-2b). Role-specific modules for insider threat recognition (AT-2(2)) and social engineering (AT-2(3)). Content reviewed each year and after significant incidents.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Refresher frequency (a.1) | Annually |
+| Events that trigger training (a.2) | A significant system change, or an incident caused by user error |
+| Awareness techniques (b) | Phishing simulations, short awareness messages and posters |
+| Content update frequency and triggers (c) | Annually, and after a significant incident or change in threats |
+
+**Evidence assessors ask for.**
+
+- The training content and its last review date
+- Completion records for a sample of users, including new hires, compared against their first access dates
+- Records of awareness activities, such as phishing simulation results
+- An example of content changed because of an incident
+
+**Inheritance.** Training is almost always an organization-wide common control; systems inherit it unless they need system-specific training.
+
+**Common findings.**
+
+- Users granted access before completing initial training.
+- Contractors and senior executives missing from completion records.
+- Content unchanged for several years.
+
+**Enhancements in the Moderate baseline.** [AT-2(2)](#at-2.2) insider threat (also Low) and [AT-2(3)](#at-2.3) social engineering and mining.

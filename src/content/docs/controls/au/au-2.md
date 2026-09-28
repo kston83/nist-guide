@@ -8,6 +8,7 @@ control:
   id: AU-2
   family: AU
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -67,3 +68,31 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-2 is about choosing what to log. First list every event type the system can log, then pick the subset you will log and write down why that subset is enough to investigate an incident. Most organizations do this once, in an audit logging standard, and every system starts from it.
+
+**Common implementations.** An audit logging standard listing the minimum event types: logons and logoffs, account and privilege changes, use of privileged functions, access to security-relevant files, configuration changes and security tool events. Each system's security plan records which events its components log and any additions. The standard is coordinated with the security operations, legal and privacy teams (AU-2b).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Event types the system can log (a) | Logons and logoffs, account and privilege changes, use of privileged functions, access to security-relevant files, configuration changes and security tool events |
+| Event types logged, with frequency (c) | The event types listed in the audit logging standard, each logged whenever it occurs |
+| Review of selected event types (e) | Annually and after a significant incident or system change |
+
+**Evidence assessors ask for.**
+
+- The audit logging standard or event list, with its rationale (AU-2d)
+- Configuration of logging on a sample of components
+- Records of the last review of the event list
+
+**Inheritance.** The event list is usually an organization-wide standard; each system owns applying it to its components.
+
+**Common findings.**
+
+- No written rationale for the events chosen.
+- Application events missing because only operating system logs were considered.
+- An event list that has not been reviewed since it was written.

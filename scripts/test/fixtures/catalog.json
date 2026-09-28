@@ -1,0 +1,84 @@
+{
+  "catalog": {
+    "metadata": { "title": "Fixture catalog", "version": "9.9.9" },
+    "groups": [
+      {
+        "id": "ac",
+        "title": "Access Control",
+        "controls": [
+          {
+            "id": "ac-1",
+            "title": "Policy and Procedures",
+            "params": [
+              { "id": "ac-01_odp.01", "label": "personnel or roles" },
+              { "id": "ac-01_odp.02", "label": "organization-defined official" },
+              {
+                "id": "ac-01_odp.03",
+                "select": { "how-many": "one-or-more", "choice": ["organization-level", "system-level"] }
+              },
+              {
+                "id": "ac-01_odp.04",
+                "select": { "choice": ["{{ insert: param, ac-01_odp.05 }}", "never"] }
+              },
+              { "id": "ac-01_odp.05", "label": "frequency" },
+              { "id": "ac-01_odp.06", "guidelines": [{ "prose": "events that trigger review" }] }
+            ],
+            "props": [
+              { "name": "label", "value": "AC-1" },
+              { "name": "implementation-level", "value": "organization" }
+            ],
+            "links": [
+              { "href": "#ac-2", "rel": "related" },
+              { "href": "#ac-3", "rel": "related" }
+            ],
+            "parts": [
+              {
+                "id": "ac-1_smt",
+                "name": "statement",
+                "parts": [
+                  {
+                    "id": "ac-1_smt.a",
+                    "name": "item",
+                    "props": [{ "name": "label", "value": "a." }],
+                    "prose": "Disseminate to {{ insert: param, ac-01_odp.01 }}; designate an {{ insert: param, ac-01_odp.02 }}; scope {{ insert: param, ac-01_odp.03 }}; review {{ insert: param, ac-01_odp.04 }} and after {{ insert: param, ac-01_odp.06 }}."
+                  }
+                ]
+              },
+              { "id": "ac-1_gdn", "name": "guidance", "prose": "Policy <discussion> for [AC-2](#ac-2) and [a reference](#ref-1)." }
+            ]
+          },
+          {
+            "id": "ac-2",
+            "title": "Account Management",
+            "props": [{ "name": "label", "value": "AC-2" }],
+            "parts": [{ "id": "ac-2_smt", "name": "statement", "prose": "Manage accounts." }],
+            "controls": [
+              {
+                "id": "ac-2.1",
+                "title": "Automated Account Management",
+                "props": [{ "name": "label", "value": "AC-2(1)" }],
+                "parts": [{ "id": "ac-2.1_smt", "name": "statement", "prose": "Automate it." }]
+              },
+              {
+                "id": "ac-2.2",
+                "title": "Withdrawn Enhancement",
+                "props": [
+                  { "name": "label", "value": "AC-2(2)" },
+                  { "name": "status", "value": "withdrawn" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ac-3",
+            "title": "Withdrawn Control",
+            "props": [
+              { "name": "label", "value": "AC-3" },
+              { "name": "status", "value": "withdrawn" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

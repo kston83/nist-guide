@@ -16,6 +16,10 @@ export const collections = {
 						baselines: z.array(z.string()).default([]),
 					})
 					.optional(),
+				// Hand-set on control pages; the generator keeps them (PRD CTRL-01).
+				// Only the owner sets "reviewed".
+				guidance: z.enum(['none', 'draft', 'reviewed']).optional(),
+				reviewed: z.coerce.date().optional(),
 				industries: z.array(z.string()).optional(),
 				technologies: z.array(z.string()).optional(),
 			}),

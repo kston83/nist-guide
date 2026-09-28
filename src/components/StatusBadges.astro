@@ -1,0 +1,29 @@
+---
+// "Guidance" and "Policy clause" status near the top of a control page (PRD CTRL-06).
+import { Badge } from '@astrojs/starlight/components';
+import type { Status } from '../lib/coverage';
+import { withBase } from '../lib/url';
+
+interface Props {
+	guidance: Status;
+	clause: Status;
+}
+const { guidance, clause } = Astro.props;
+const variant = { none: 'default', draft: 'caution', reviewed: 'success' } as const;
+---
+
+<p class="status-badges">
+	<Badge text={`Guidance: ${guidance}`} variant={variant[guidance]} />
+	<Badge text={`Policy clause: ${clause}`} variant={variant[clause]} />
+	<a href={withBase('/controls/coverage/')}>What these mean</a>
+</p>
+
+<style>
+	.status-badges {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: var(--sl-text-sm);
+	}
+</style>

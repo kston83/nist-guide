@@ -13,6 +13,7 @@
 		"http://localhost:4321/nist-guide/about/",
 		"http://localhost:4321/nist-guide/rmf/steps/prepare/",
 		"http://localhost:4321/nist-guide/controls/ac/ac-2/",
+		"http://localhost:4321/nist-guide/controls/coverage/",
 		"http://localhost:4321/nist-guide/templates/policies/ac/",
 		"http://localhost:4321/nist-guide/industries/"
 	]

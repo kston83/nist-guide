@@ -13,7 +13,8 @@
  *   2. Your guidance, below <!-- guidance: write below this line -->.
  *      The script never touches anything after <!-- nist:end -->.
  *
- * It also writes two data files, committed so the build needs no OSCAL cache:
+ * It also writes one page per baseline (baselines/<name>.md, fully generated;
+ * the run fails if a page's count differs from its NIST profile), and two data files, committed so the build needs no OSCAL cache:
  *   src/data/control-ids.json  active control and enhancement ids, which the
  *                              content schema checks `controls` front matter against
  *   src/data/catalog.json      controls, baselines and parameters, which the
@@ -62,6 +63,15 @@ for (const [name, file] of Object.entries(BASELINES))
 
 const { version, pages } = buildPages(catalog, profiles);
 
+// Baseline pages must list exactly what the NIST profile selects (PRD CTRL-04).
+for (const page of pages.filter((p) => p.baseline)) {
+	const selected = new Set(
+		profiles[page.baseline].imports.flatMap((imp) => (imp['include-controls'] ?? []).flatMap((inc) => inc['with-ids'] ?? [])),
+	);
+	if (page.count !== selected.size)
+		throw new Error(`${page.baseline} baseline page lists ${page.count} controls; the NIST profile selects ${selected.size}.`);
+}
+
 let changed = 0;
 for (const page of pages) {
 	const file = path.join(OUT, page.file);
@@ -103,7 +113,7 @@ await writeData(IDS, { source, ids: activeControlIds(catalog) });
 const { controls: controlData, params } = buildControlData(catalog, profiles);
 await writeData(DATA, { source, controls: controlData, params });
 
-const controls = pages.filter((p) => !p.file.endsWith('index.md')).length;
+const controls = pages.filter((p) => !p.file.endsWith('index.md') && !p.baseline).length;
 console.log(
 	`SP 800-53 release ${version}: ${controls} control pages in ${catalog.groups.length} families; ${changed} file(s) changed.`,
 );

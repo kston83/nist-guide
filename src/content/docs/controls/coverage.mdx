@@ -1,0 +1,16 @@
+---
+title: Guidance coverage
+description: Which SP 800-53 controls have implementation guidance and a policy clause in this guide, and whether each is a draft or reviewed, with totals by family and baseline.
+sidebar:
+  order: 2
+---
+
+import ControlCoverage from '../../../components/ControlCoverage.astro';
+
+This page shows how far the guide has got. It is built from the site's own content on every deploy, so it is always current. Each control page shows the same two statuses near its title.
+
+- **Guidance** is the "How to apply it" section below the NIST text on a control page, written in the [AC-2](/controls/ac/ac-2/) format.
+- **Policy clause** is the control's "shall" statement in its family policy template (see [Policies](/templates/)). A -1 control is met by the sections every family policy shares, so it takes that policy's status.
+- **Draft** means written and source-checked but not yet reviewed by the owner. **Reviewed** means the owner has reviewed it. **None** means not written yet.
+
+<ControlCoverage />

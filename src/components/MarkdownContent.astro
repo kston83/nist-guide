@@ -5,9 +5,13 @@
 //     generated NIST block. A -1 control points to the family policy instead.
 //   Artifacts (PRD TPL-06): template pages whose `controls` name the control.
 //   Referenced by (PRD LINK-01): every other page whose `controls` name it.
+//   Status badges (PRD CTRL-06): guidance and policy-clause status, at the top.
 import Default from '@astrojs/starlight/components/MarkdownContent.astro';
 import { getCollection, render } from 'astro:content';
 import catalog from '../data/catalog.json';
+import StatusBadges from './StatusBadges.astro';
+import { statusOf } from '../lib/coverage';
+import { coverageSources } from '../lib/coverage-data';
 import { referencesFor } from '../lib/references';
 import { withBase } from '../lib/url';
 
@@ -21,6 +25,7 @@ let statements: { label: string; title: string; enhancement: boolean; Content: a
 let policy: { title: string; href: string } | undefined;
 let draft = false;
 let isPolicyControl = false;
+const status = base ? statusOf(base, await coverageSources()) : undefined;
 
 if (base && family) {
 	const pages = (await getCollection('docs', (e) => !!e.data.controls?.length)).map((e) => ({
@@ -60,6 +65,7 @@ const showStatement = policy && (isPolicyControl || statements.length > 0);
 ---
 
 <Default>
+	{status && <StatusBadges {...status} />}
 	<Fragment set:html={before} />
 	{
 		showStatement && (

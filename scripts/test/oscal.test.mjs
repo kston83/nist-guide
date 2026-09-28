@@ -158,6 +158,26 @@ test('building pages twice gives identical output', () => {
 	assert.deepEqual(buildPages(catalog, profiles), { version, pages });
 });
 
+// ---------- baseline pages (CTRL-04) ----------
+
+test('each baseline page lists its controls and enhancements with links and counts', () => {
+	const moderate = page('baselines/moderate.md');
+	assert.equal(moderate.count, 3);
+	assert.equal(moderate.baseline, 'Moderate');
+	assert.match(moderate.frontmatter, /title: 'Moderate baseline'/);
+	assert.match(moderate.body, /has \*\*3\*\* controls and enhancements: 2 controls and 1 enhancement, in 1 family\./);
+	assert.match(moderate.body, /\| \[AC-2\(1\)\]\(\/controls\/ac\/ac-2\/#ac-2\.1\) \| /);
+	assert.equal(page('baselines/privacy.md').count, 1);
+	assert.doesNotMatch(page('baselines/privacy.md').body, /AC-2\]/);
+});
+
+test('baseline pages are fully generated, with no guidance marker', () => {
+	const p = page('baselines/low.md');
+	const text = mergeGenerated(null, p);
+	assert.ok(!text.includes(GUIDE));
+	assert.equal(mergeGenerated(text, p), text);
+});
+
 // ---------- control and parameter data for templates (CTRL-08) ----------
 
 const data = buildControlData(catalog, profiles);

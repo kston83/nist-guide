@@ -1,0 +1,69 @@
+---
+// Lists the artifacts a program stage produces (PRD PROG-01), generated from
+// template front matter: family policies and decision worksheets take the
+// stage in _family.yml; plans, standards, procedures and forms their own.
+import { getCollection } from 'astro:content';
+import catalog from '../data/catalog.json';
+import { withBase } from '../lib/url';
+
+interface Props {
+	stage: 'foundation' | 'core' | 'operate' | 'mature';
+}
+const { stage } = Astro.props;
+
+const TYPE = { policy: 'Policy', worksheet: 'Decision worksheet', plan: 'Plan', standard: 'Standard', procedure: 'Procedure', form: 'Form or register' };
+const labels = new Map(catalog.controls.map((c) => [c.id, c.label]));
+const familyOrder = [...new Set(catalog.controls.map((c) => c.family))];
+
+const families = (await getCollection('families', (f) => f.data.stage === stage)).sort(
+	(a, b) => familyOrder.indexOf(a.id) - familyOrder.indexOf(b.id),
+);
+const clauses = await getCollection('clauses');
+const statusOf = (family: string) =>
+	clauses.filter((c) => c.id.startsWith(`policy/${family}/`)).every((c) => c.data.status === 'reviewed') ? 'Reviewed' : 'Draft';
+
+const rows = [
+	...families.flatMap((f) => [
+		{ title: `${f.data.title} Policy`, href: `/templates/policies/${f.id}/`, type: 'policy', controls: [`${f.id}-1`], status: statusOf(f.id) },
+		{ title: `${f.data.title} Decision Worksheet`, href: `/templates/worksheets/${f.id}/`, type: 'worksheet', controls: [`${f.id}-1`], status: 'Draft' },
+	]),
+	...(await getCollection('templates', (t) => t.data.stage === stage))
+		.sort((a, b) => a.data.title.localeCompare(b.data.title))
+		.map((t) => ({
+			title: t.data.title,
+			href: `/templates/${t.id}/`,
+			type: t.data.type,
+			controls: t.data.controls,
+			status: t.data.status === 'reviewed' ? 'Reviewed' : 'Draft',
+		})),
+];
+---
+
+{
+	rows.length ? (
+		<table>
+			<thead>
+				<tr>
+					<th>Artifact</th>
+					<th>Type</th>
+					<th>Main controls</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				{rows.map((r) => (
+					<tr>
+						<td>
+							<a href={withBase(r.href)}>{r.title}</a>
+						</td>
+						<td>{TYPE[r.type as keyof typeof TYPE]}</td>
+						<td>{r.controls.map((id) => labels.get(id) ?? id.toUpperCase()).join(', ')}</td>
+						<td>{r.status}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	) : (
+		<p>No templates for this stage are published yet. The artifact list above says what to produce; templates arrive as the kit grows.</p>
+	)
+}

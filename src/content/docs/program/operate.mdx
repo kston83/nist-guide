@@ -1,0 +1,59 @@
+---
+title: 'Stage 3: Operate'
+description: Assess controls, track weaknesses in a POA&M and monitor continuously under the NIST RMF, with the artifacts that prove it.
+guidance: draft
+sidebar:
+  label: '3. Operate'
+  order: 3
+---
+
+import StageArtifacts from '../../../components/StageArtifacts.astro';
+
+## Outcome
+
+Controls are assessed on a schedule, every weakness found is tracked to closure, and monitoring tells the organization when risk changes between assessments.
+
+## Artifacts to produce
+
+| Family | Artifacts | Main controls |
+| --- | --- | --- |
+| Assessment, authorization and monitoring | Assessment plan and report; POA&M; Continuous Monitoring Strategy; information exchange agreement | CA-2, CA-5, CA-7, CA-3 |
+| System and information integrity | Patch and flaw remediation standard; system monitoring standard | SI-2, SI-4 |
+| System and services acquisition | Secure Software Development Policy and SDLC standard; acquisition security requirements; external service review | SA-3, SA-8, SA-15, SA-4, SA-9 |
+| Maintenance | Maintenance log | MA-2 |
+| Media protection | Media sanitization record | MP-6 |
+| Physical and environmental protection | Physical access list; visitor log | PE-2, PE-8 |
+
+### Templates available now
+
+<StageArtifacts stage="operate" />
+
+## Decisions to make
+
+- How often each control is assessed, and which are monitored continuously by automation.
+- Deadlines for fixing weaknesses by severity, and who may accept a risk instead.
+- Which external services need a security review before use, and how often after.
+
+## Roles
+
+| Role | Responsibility in this stage |
+| --- | --- |
+| Control assessor | Plans and runs assessments; writes the report |
+| System owner | Keeps the POA&M current and fixes weaknesses |
+| Authorizing official | Accepts residual risk and decides whether the system may operate |
+| Chief Information Security Officer | Owns the Continuous Monitoring Strategy and reports risk to leadership |
+
+## RMF Prepare tasks this stage carries out
+
+From [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final); see the [Prepare step page](/rmf/steps/prepare/#organization-level-tasks). The mapping is the author's judgment.
+
+| Task | How this stage meets it |
+| --- | --- |
+| P-7 Continuous monitoring strategy, organization | The Continuous Monitoring Strategy |
+
+## Done when
+
+- [ ] Each system has a current assessment report.
+- [ ] Every open weakness is in a POA&M with an owner and a date.
+- [ ] The Continuous Monitoring Strategy is approved and its reports reach the authorizing officials.
+- [ ] Patching and monitoring run to the standards, with records to show it.

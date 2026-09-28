@@ -1,0 +1,64 @@
+---
+title: 'Stage 1: Foundation'
+description: Set up accountability, risk tolerance and scope for a security program on the NIST RMF, and the artifacts that record them.
+guidance: draft
+sidebar:
+  label: '1. Foundation'
+  order: 1
+---
+
+import StageArtifacts from '../../../components/StageArtifacts.astro';
+
+## Outcome
+
+Someone senior is accountable for security risk, the organization has said how much risk it will accept, it knows which systems it runs and how important each is, and each system in scope has started a security plan.
+
+## Artifacts to produce
+
+| Artifact | Main controls | What it records |
+| --- | --- | --- |
+| Information Security Program Plan | PM-1 | The program's structure, roles and the common controls it provides |
+| Risk Management Strategy | PM-9 | Risk tolerance, assumptions, constraints and priorities |
+| System inventory | PM-5 | Every system, its owner and its security categorization |
+| Security categorization worksheet | RA-2 | Each system's impact level, from the information it handles |
+| System Security Plan | PL-2 | For each system: boundary, environment and how each control is met |
+| Rules of Behavior | PL-4 | What users agree to before they get access |
+| Risk assessment report | RA-3 | Threats, likelihood and impact for a system or the organization |
+
+### Templates available now
+
+<StageArtifacts stage="foundation" />
+
+## Decisions to make
+
+- Who is the senior official accountable for security risk, and who authorizes each system to operate.
+- How much risk the organization accepts, stated so a system owner can apply it.
+- Which systems are in scope, and the impact level of each.
+- Which control baseline each system starts from (Low, Moderate or High).
+
+## Roles
+
+| Role | Responsibility in this stage |
+| --- | --- |
+| Senior leader | Appoints the accountable officials and approves the risk management strategy |
+| Chief Information Security Officer | Writes the program plan and the strategy; maintains the inventory |
+| System owner | Categorizes the system and starts its security plan |
+| Authorizing official | Accepts the categorization and the baseline for each system |
+
+## RMF Prepare tasks this stage carries out
+
+From the organization-level tasks of [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), described on the [Prepare step page](/rmf/steps/prepare/#organization-level-tasks). The mapping is the author's judgment.
+
+| Task | How this stage meets it |
+| --- | --- |
+| P-1 Risk management roles | The program plan names the accountable officials and their delegations |
+| P-2 Risk management strategy | The Risk Management Strategy |
+| P-3 Risk assessment, organization | The organization-level risk assessment report |
+| P-6 Impact-level prioritization (optional) | The system inventory ranks systems within each impact level |
+
+## Done when
+
+- [ ] Accountable officials are appointed in writing.
+- [ ] The Risk Management Strategy is approved by the senior leader.
+- [ ] Every system in scope is in the inventory with an owner and an impact level.
+- [ ] Each system has a security plan started, with its boundary and baseline recorded.

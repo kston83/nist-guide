@@ -1,0 +1,67 @@
+---
+title: 'Stage 2: Core'
+description: Adopt the family policies, procedures and standards most systems need under the NIST RMF, and publish the controls systems can inherit.
+guidance: draft
+sidebar:
+  label: '2. Core'
+  order: 2
+---
+
+import StageArtifacts from '../../../components/StageArtifacts.astro';
+
+## Outcome
+
+The controls most systems depend on are required by approved policy, carried out by written procedures and measured by standards. Systems know which controls the organization provides for them to inherit.
+
+## Artifacts to produce
+
+| Family | Artifacts beyond the family policy | Main controls |
+| --- | --- | --- |
+| Access control | Account management procedure; access request form; access review record; remote access standard | AC-2, AC-17 |
+| Awareness and training | Training plan; training record log | AT-2, AT-3, AT-4 |
+| Audit and accountability | Audit logging standard (event list); log review procedure | AU-2, AU-6 |
+| Configuration management | Configuration Management Plan; baseline configuration standard; change request form; component inventory | CM-9, CM-2, CM-6, CM-3, CM-8 |
+| Contingency planning | Contingency Plan; business impact analysis; test plan and after-action report | CP-2, CP-4 |
+| Identification and authentication | Identification and authentication standard | IA-2, IA-5 |
+| Incident response | Incident Response Plan; incident handling playbook; incident report form; tabletop exercise kit | IR-8, IR-4, IR-6, IR-3 |
+| Personnel security | Access agreement; onboarding, transfer and termination checklist | PS-6, PS-4, PS-5 |
+| Risk assessment | Vulnerability management standard | RA-5 |
+| System and communications protection | Encryption and key management standard; boundary protection standard | SC-8, SC-12, SC-13, SC-28, SC-7 |
+| PII processing and transparency (if you handle PII) | Privacy notice; privacy impact assessment | PT-5, RA-8 |
+
+Each family also gets a decision worksheet listing the values its policy needs.
+
+### Templates available now
+
+<StageArtifacts stage="core" />
+
+## Decisions to make
+
+- The values each family policy leaves open: review frequencies, time limits, approvers. The decision worksheets list them with typical values.
+- Which controls the organization provides centrally (for example the identity provider, logging platform or training) and which each system provides itself.
+- Where the organization sets a stricter value than a baseline requires.
+
+## Roles
+
+| Role | Responsibility in this stage |
+| --- | --- |
+| Chief Information Security Officer | Owns the family policies and approves exceptions |
+| Policy owners named in each policy | Write and maintain procedures and standards |
+| Common control providers | Run the controls systems inherit and document them |
+| System owners | Adopt the policies and record inheritance in their security plans |
+
+## RMF Prepare tasks this stage carries out
+
+From [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final); see the [Prepare step page](/rmf/steps/prepare/#organization-level-tasks). The mapping is the author's judgment.
+
+| Task | How this stage meets it |
+| --- | --- |
+| P-4 Tailored baselines and CSF profiles (optional) | Family policies set organization-wide values for baseline parameters |
+| P-5 Common control identification | The list of centrally provided controls, recorded in the program plan and each security plan |
+
+## Done when
+
+- [ ] A policy is approved for each family in the baseline you chose.
+- [ ] Each family's decision worksheet is complete and its values are in the policy.
+- [ ] Procedures exist for account management, log review, change control and incident handling.
+- [ ] Common controls are listed with their provider, and systems record what they inherit.

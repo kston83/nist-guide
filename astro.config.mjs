@@ -117,6 +117,7 @@ export default defineConfig({
 						{ label: 'How to use it', slug: 'rmf' },
 					],
 				},
+				{ label: 'Build your program', items: [{ autogenerate: { directory: 'program' } }] },
 				{
 					label: 'Risk Management Framework',
 					items: [

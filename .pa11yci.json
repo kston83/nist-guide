@@ -9,6 +9,7 @@
 	},
 	"urls": [
 		"http://localhost:4321/nist-guide/",
+		"http://localhost:4321/nist-guide/program/core/",
 		"http://localhost:4321/nist-guide/about/",
 		"http://localhost:4321/nist-guide/rmf/steps/prepare/",
 		"http://localhost:4321/nist-guide/controls/ac/ac-2/",

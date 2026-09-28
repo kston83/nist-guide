@@ -1,0 +1,48 @@
+---
+// Adds "Referenced by" to the end of control pages (PRD LINK-01), listing pages
+// whose `controls` front matter names the control or its enhancements.
+// Control files are never edited; the list is built at build time.
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+import { getCollection } from 'astro:content';
+import { referencesFor } from '../lib/references';
+import { withBase } from '../lib/url';
+
+const controlId = Astro.locals.starlightRoute.entry.data.control?.id;
+let refs: ReturnType<typeof referencesFor> = [];
+if (controlId) {
+	const pages = (await getCollection('docs', (e) => !!e.data.controls?.length)).map((e) => ({
+		id: e.id,
+		title: e.data.title,
+		controls: e.data.controls ?? [],
+	}));
+	refs = referencesFor(controlId, pages);
+}
+---
+
+<Default>
+	<slot />
+	{
+		refs.length > 0 && (
+			<section class="referenced-by">
+				<h2 id="referenced-by">Referenced by</h2>
+				<ul>
+					{refs.map((r) => (
+						<li>
+							<a href={withBase(r.href)}>{r.title}</a>
+							{r.enhancements.length > 0 && ` (${r.enhancements.join(', ')})`}
+							{' '}
+							<span class="kind">· {r.kind}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+</Default>
+
+<style>
+	.kind {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+</style>

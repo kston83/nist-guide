@@ -4,11 +4,11 @@ Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task
 
 ## Current phase: 1 Launch foundation
 
-Done: CTRL-01, CTRL-02, CTRL-03, LINK-03, PRES-04. In progress: QA-01 (finishes when QA-02 lint is in CI).
+Done: CTRL-01, CTRL-02, CTRL-03, LINK-03, PRES-04, QA-04. In progress: QA-01 (finishes when QA-02 lint is in CI).
 
 Next up, in this order (one requirement per branch and PR):
 
-1. **QA-04** Front matter validation: build fails on unknown `controls` IDs or malformed `industries`/`technologies` slugs (`src/content.config.ts`; control IDs can come from the generated pages or the pinned OSCAL catalog)
+1. ~~**QA-04** Front matter validation~~ (done)
 2. **QA-02** `markdownlint-cli2` with a committed config suited to tables and long lines; add to `check.yml` (completes QA-01)
 3. **LINK-01** "Referenced by" section on control pages from other pages' `controls` front matter, with no edit to control files
 4. **NAV-01** Search for control IDs such as "AC-2(3)" returns that control first (Pagefind)
@@ -28,6 +28,7 @@ Then stop for the Phase 1 owner review (home and About), before Phase 2 (templat
 | QA-01 | In progress | 2026-09-28 | `check.yml` runs tests, generated-page check, build and link check on every PR; add lint (QA-02) when it exists |
 | — | Done | 2026-09-27 | Fixed home page links that 404'd under the `/nist-guide/` base path (hero, step strip, cards) |
 | — | Done | 2026-09-27 | Repo hardening: `main` ruleset (PR + required check), SHA-pinned actions, least-privilege workflow permissions, Dependabot |
+| QA-04 | Done | 2026-09-28 | Schema rejects unknown or withdrawn `controls` ids (checked against `src/data/control-ids.json`, 1,014 active ids written by `npm run controls` and covered by the CI diff check) and malformed `industries`/`technologies` slugs; rules documented on the Page templates page |
 | PRES-04 | Done | 2026-09-28 | Name, bio (AI security lead, CISSP) and LinkedIn on About and home; LinkedIn in header; "Your Name" replaced everywhere. Headshot optional; add if the owner provides one |
 | — | Done | 2026-09-27 | PRD version 2: template system, artifact catalog, program path, SSDF; phases reordered |
 

@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { buildPages, collectParams, createParamRenderer } from '../lib/oscal.mjs';
+import { activeControlIds, buildPages, collectParams, createParamRenderer } from '../lib/oscal.mjs';
 import { mergeGenerated, START, END, GUIDE } from '../lib/generated.mjs';
 
 const { catalog } = JSON.parse(fs.readFileSync(new URL('./fixtures/catalog.json', import.meta.url), 'utf8'));
@@ -68,6 +68,10 @@ test('withdrawn enhancements are listed, not rendered', () => {
 	assert.doesNotMatch(body, /### AC-2\(2\)/);
 	assert.match(body, /\*Withdrawn enhancements: AC-2\(2\)\.\*/);
 	assert.match(body, /\| 1 \(1 in a baseline\) \|/);
+});
+
+test('active control ids include enhancements and skip withdrawn ones (QA-04)', () => {
+	assert.deepEqual(activeControlIds(catalog), ['ac-1', 'ac-2', 'ac-2.1']);
 });
 
 test('related links to withdrawn controls are plain text', () => {

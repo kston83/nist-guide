@@ -38,12 +38,12 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Check generated control pages are up to date
-        # Regenerates from the pinned NIST catalog; any diff means a page was
-        # hand-edited inside the NIST markers or the generator changed without
-        # regenerating.
+        # Regenerates from the pinned NIST catalog; any diff means a page (or
+        # the control id list) was hand-edited inside the NIST markers or the
+        # generator changed without regenerating.
         run: |
           npm run controls
-          git diff --exit-code -- src/content/docs/controls
+          git diff --exit-code -- src/content/docs/controls src/data/control-ids.json
       - name: Build the site
         run: npm run build
       - name: Check internal links and anchors

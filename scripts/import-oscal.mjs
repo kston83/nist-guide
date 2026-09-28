@@ -13,11 +13,14 @@
  *   2. Your guidance, below <!-- guidance: write below this line -->.
  *      The script never touches anything after <!-- nist:end -->.
  *
+ * It also writes src/data/control-ids.json, the active control and enhancement
+ * ids the content schema checks `controls` front matter against.
+ *
  * The page-building logic lives in scripts/lib/ and is covered by npm test.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { buildPages } from './lib/oscal.mjs';
+import { activeControlIds, buildPages } from './lib/oscal.mjs';
 import { mergeGenerated } from './lib/generated.mjs';
 
 // NIST oscal-content is pinned to a commit so every machine and CI run
@@ -28,6 +31,7 @@ const SOURCE = `https://raw.githubusercontent.com/usnistgov/oscal-content/${OSCA
 const CATALOG = 'NIST_SP-800-53_rev5_catalog.json';
 const BASELINES = { Low: 'LOW', Moderate: 'MODERATE', High: 'HIGH', Privacy: 'PRIVACY' };
 const OUT = 'src/content/docs/controls';
+const IDS = 'src/data/control-ids.json';
 const CACHE = path.join('.cache/oscal', OSCAL_REF);
 const refresh = process.argv.includes('--refresh');
 
@@ -71,6 +75,19 @@ for (const page of pages) {
 		await fs.writeFile(file, next);
 		changed++;
 	}
+}
+
+// Active control ids, committed so the content schema can validate `controls`
+// front matter without the OSCAL cache (PRD QA-04).
+const ids = `${JSON.stringify({ source: `SP 800-53 release ${version}`, ids: activeControlIds(catalog) }, null, '\t')}\n`;
+let existingIds = null;
+try {
+	existingIds = (await fs.readFile(IDS, 'utf8')).replace(/\r\n/g, '\n');
+} catch {}
+if (ids !== existingIds) {
+	await fs.mkdir(path.dirname(IDS), { recursive: true });
+	await fs.writeFile(IDS, ids);
+	changed++;
 }
 
 const controls = pages.filter((p) => !p.file.endsWith('index.md')).length;

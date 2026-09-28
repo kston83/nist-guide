@@ -13,14 +13,17 @@
  *   2. Your guidance, below <!-- guidance: write below this line -->.
  *      The script never touches anything after <!-- nist:end -->.
  *
- * It also writes src/data/control-ids.json, the active control and enhancement
- * ids the content schema checks `controls` front matter against.
+ * It also writes two data files, committed so the build needs no OSCAL cache:
+ *   src/data/control-ids.json  active control and enhancement ids, which the
+ *                              content schema checks `controls` front matter against
+ *   src/data/catalog.json      controls, baselines and parameters, which the
+ *                              template system reads (PRD CTRL-08)
  *
  * The page-building logic lives in scripts/lib/ and is covered by npm test.
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { activeControlIds, buildPages } from './lib/oscal.mjs';
+import { activeControlIds, buildControlData, buildPages } from './lib/oscal.mjs';
 import { mergeGenerated } from './lib/generated.mjs';
 
 // NIST oscal-content is pinned to a commit so every machine and CI run
@@ -32,6 +35,7 @@ const CATALOG = 'NIST_SP-800-53_rev5_catalog.json';
 const BASELINES = { Low: 'LOW', Moderate: 'MODERATE', High: 'HIGH', Privacy: 'PRIVACY' };
 const OUT = 'src/content/docs/controls';
 const IDS = 'src/data/control-ids.json';
+const DATA = 'src/data/catalog.json';
 const CACHE = path.join('.cache/oscal', OSCAL_REF);
 const refresh = process.argv.includes('--refresh');
 
@@ -77,18 +81,27 @@ for (const page of pages) {
 	}
 }
 
-// Active control ids, committed so the content schema can validate `controls`
-// front matter without the OSCAL cache (PRD QA-04).
-const ids = `${JSON.stringify({ source: `SP 800-53 release ${version}`, ids: activeControlIds(catalog) }, null, '\t')}\n`;
-let existingIds = null;
-try {
-	existingIds = (await fs.readFile(IDS, 'utf8')).replace(/\r\n/g, '\n');
-} catch {}
-if (ids !== existingIds) {
-	await fs.mkdir(path.dirname(IDS), { recursive: true });
-	await fs.writeFile(IDS, ids);
+// Writes a data file only when its content changes.
+async function writeData(file, value) {
+	const text = `${JSON.stringify(value, null, '\t')}\n`;
+	let existing = null;
+	try {
+		existing = (await fs.readFile(file, 'utf8')).replace(/\r\n/g, '\n');
+	} catch {}
+	if (text === existing) return;
+	await fs.mkdir(path.dirname(file), { recursive: true });
+	await fs.writeFile(file, text);
 	changed++;
 }
+
+// Active control ids, so the content schema can validate `controls` front
+// matter without the OSCAL cache (PRD QA-04).
+const source = `SP 800-53 release ${version}`;
+await writeData(IDS, { source, ids: activeControlIds(catalog) });
+
+// Controls, baselines and parameters for the template system (PRD CTRL-08).
+const { controls: controlData, params } = buildControlData(catalog, profiles);
+await writeData(DATA, { source, controls: controlData, params });
 
 const controls = pages.filter((p) => !p.file.endsWith('index.md')).length;
 console.log(

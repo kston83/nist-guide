@@ -11,7 +11,7 @@ typical:
 # {{family:title}} Policy
 
 :::guidance
-PM-1 asks for an organization-wide information security program plan: a document that describes the program, its common controls and who is responsible for what, approved by a senior official. This policy commits the organization to that plan and sets the rules for keeping it. The plan itself is a separate document. Program management controls are carried out once for the whole organization; NIST SP 800-53B allocates none of them to a security baseline, so this policy has a single edition whatever the baselines of your systems. Each statement cites the PM-1 item it meets.
+PM-1 asks for an organization-wide information security program plan: a document that describes the program, its common controls and who is responsible for what, approved by a senior official. This policy commits the organization to that plan and sets the rules for keeping it. The plan itself is a separate document: start from the [Information Security Program Plan template](/templates/plans/information-security-program-plan/). Program management controls are carried out once for the whole organization; NIST SP 800-53B allocates none of them to a security baseline, so this policy has a single edition whatever the baselines of your systems. Each statement cites the PM-1 item it meets.
 :::
 
 ## Purpose

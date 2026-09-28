@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-The risk management strategy says how the organization frames, assesses, responds to and monitors risk, including its risk tolerance (PM-28). Every authorization decision should be traceable to it.
+The risk management strategy says how the organization frames, assesses, responds to and monitors risk, including its risk tolerance (PM-28). Every authorization decision should be traceable to it. Start from the [Risk Management Strategy template](/templates/plans/risk-management-strategy/).
 :::
 
 - The {{org:ciso}} shall develop an organization-wide risk management strategy for security risk to organizational operations and assets, individuals, other organizations and the Nation from the operation and use of organizational systems. (PM-9a.1)

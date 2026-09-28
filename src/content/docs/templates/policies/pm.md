@@ -88,7 +88,7 @@ Everything for this family in one file: [PM pack (.zip)](/downloads/packs/pm-pac
 ## Preview (annotated)
 
 :::note[Guidance]
-PM-1 asks for an organization-wide information security program plan: a document that describes the program, its common controls and who is responsible for what, approved by a senior official. This policy commits the organization to that plan and sets the rules for keeping it. The plan itself is a separate document. Program management controls are carried out once for the whole organization; NIST SP 800-53B allocates none of them to a security baseline, so this policy has a single edition whatever the baselines of your systems. Each statement cites the PM-1 item it meets.
+PM-1 asks for an organization-wide information security program plan: a document that describes the program, its common controls and who is responsible for what, approved by a senior official. This policy commits the organization to that plan and sets the rules for keeping it. The plan itself is a separate document: start from the [Information Security Program Plan template](/templates/plans/information-security-program-plan/). Program management controls are carried out once for the whole organization; NIST SP 800-53B allocates none of them to a security baseline, so this policy has a single edition whatever the baselines of your systems. Each statement cites the PM-1 item it meets.
 :::
 
 ### Purpose
@@ -236,7 +236,7 @@ PM-8 applies where the organization owns or operates critical infrastructure or 
 #### Risk management strategy (PM-9)
 
 :::note[Guidance]
-The risk management strategy says how the organization frames, assesses, responds to and monitors risk, including its risk tolerance (PM-28). Every authorization decision should be traceable to it.
+The risk management strategy says how the organization frames, assesses, responds to and monitors risk, including its risk tolerance (PM-28). Every authorization decision should be traceable to it. Start from the [Risk Management Strategy template](/templates/plans/risk-management-strategy/).
 :::
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall develop an organization-wide risk management strategy for security risk to organizational operations and assets, individuals, other organizations and the Nation from the operation and use of organizational systems. (PM-9a.1)

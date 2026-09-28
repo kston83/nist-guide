@@ -16,8 +16,8 @@ Download one file for your baseline and you have the documents a new program ado
 
 | Artifact | Main controls | In this version |
 | --- | --- | --- |
-| Information Security Program Plan | PM-1 | Coming in a later kit version |
-| Risk Management Strategy | PM-9 | Coming in a later kit version |
+| [Information Security Program Plan](/templates/plans/information-security-program-plan/) | PM-1, PM-2, PM-3, PM-6, PM-10, PM-29 | Included |
+| [Risk Management Strategy](/templates/plans/risk-management-strategy/) | PM-9, PM-28, PM-29, PM-31 | Included |
 | [Family policies (AC, AU, CM, IA, IR, PM)](/templates/#policies) | AC-1, AU-1, CM-1, IA-1, IR-1, PM-1 | Included |
 | [System Security Plan](/templates/plans/system-security-plan/) | PL-2, RA-2, CM-8, CA-3, CA-5 | Included |
 | Rules of Behavior | PL-4 | Coming in a later kit version |

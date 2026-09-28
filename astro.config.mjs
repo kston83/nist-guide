@@ -18,6 +18,7 @@ const REPO_NAME = 'nist-guide';
 const SITE_URL = `https://${GITHUB_USER}.github.io`;
 const BASE_PATH = `/${REPO_NAME}`;
 const REPO_URL = `https://github.com/${GITHUB_USER}/${REPO_NAME}`;
+const OG_IMAGE = `${SITE_URL}${BASE_PATH.replace(/\/$/, '')}/og-default.png`; // absolute, as link previews need
 
 // Content pages write internal links/images as root-relative paths (e.g.
 // "/rmf/roles/"), which Astro does not rebase automatically the way it does
@@ -80,6 +81,17 @@ export default defineConfig({
 			description:
 				'A practical guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems.',
 			favicon: '/favicon.svg',
+			// Social preview image for every page (PRD PRES-01). Starlight already sets
+			// og:title, og:description, og:site_name and twitter:card. Remake the image
+			// with `npm run og-image`.
+			head: [
+				['og:image', OG_IMAGE],
+				['og:image:width', '1200'],
+				['og:image:height', '630'],
+				['og:image:alt', 'RMF Field Guide: applying the NIST Risk Management Framework and SP 800-53 to real systems'],
+			]
+				.map(([property, content]) => ({ tag: 'meta', attrs: { property, content } }))
+				.concat({ tag: 'meta', attrs: { name: 'twitter:image', content: OG_IMAGE } }),
 			social: [
 				{ icon: 'linkedin', label: 'Kristopher Stone on LinkedIn', href: 'https://www.linkedin.com/in/kristopher-stone-cissp-655b4866' },
 				{ icon: 'github', label: 'Source on GitHub', href: REPO_URL },

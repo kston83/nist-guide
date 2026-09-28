@@ -13,6 +13,10 @@ questions:
     controls: [ac-2]
     typical: Individual, privileged, service and emergency accounts allowed with a named owner; shared and guest accounts prohibited unless the system owner approves an exception.
     decides: System owner
+  - question: Which remote access methods are allowed, and for whom?
+    controls: [ac-17, ac-17.3]
+    typical: An organization-managed VPN or zero trust access service with multifactor authentication for all remote users; no remote desktop exposed directly to the internet.
+    decides: Chief Information Security Officer
   - question: Which identity provider is the authoritative source for accounts?
     controls: [ac-2]
     typical: The organization's central directory or identity provider, fed by the human resources system.

@@ -149,7 +149,9 @@ if (pagesMode) {
 	const editions = async (source, ctx, file, { baseline, url }) => {
 		for (const edition of EDITIONS) {
 			const header = documentHeader({ version, baseline, edition, basis: catalog.source, url });
-			const render = (target) => withHeader(renderVariables(renderBlocks(source, edition, target), ctx, target), header);
+			// Root-relative site links ("/controls/ac/ac-8/") become absolute, so they work outside the site.
+			const render = (target) =>
+				withHeader(renderVariables(renderBlocks(source, edition, target), ctx, target), header).replace(/\]\(\//g, `](${homepage}`);
 			await write(`${file(edition)}.md`, render('md'));
 			if (pandoc) await write(`${file(edition)}.docx`, await toDocx(render('docx'), docxOptions));
 		}

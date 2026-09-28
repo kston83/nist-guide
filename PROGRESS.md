@@ -4,41 +4,44 @@ Tracks work against [`docs/PRD.md`](docs/PRD.md). Update at the end of each task
 
 ## Current phase: 2 Template system and first kit
 
-Phase 1 is complete: approved by the owner and merged (2026-09-28).
+Phase 1 is complete: approved by the owner and merged (2026-09-28). All Phase 2 work so far is merged to `main` (#11 to #33, one squash commit each) and deployed.
 
-Phase 2 work is in stacked pull requests, each based on the one before it, starting at #11. Merge them in order; after each merge, point the next one at `main`.
+### Phase 2 exit criteria
+
+- [ ] 31 controls at `guidance: draft` or better: **17 of 31** done (AC-2, AC-3, AC-6, AC-17, AT-2, AU-2, AU-6, AU-12, CA-2, CA-5, CA-7, CM-2, CM-6, CM-7, CM-8, CP-2, CP-9)
+- [x] 5 family policies downloadable per baseline: AC, AU, CM, IA, IR (draft), each Low, Moderate and High in Word and Markdown, clean and annotated
+- [ ] Kit v1.0.0 released (TPL-10)
 
 ### Phase 2 status
 
 | Item | Status | Pull request |
 | --- | --- | --- |
-| CTRL-08, TPL-01 to TPL-08, QA-05 | Built | #11 to #20 |
-| PROG-01, PROG-05 | Built | #21 |
-| PROG-02 Starter kit | Built | #30 |
-| Family policies: AC, AU, CM | Draft | #22 to #24 |
-| Family policy: IA | Draft | #25 |
-| Family policy: IR | Draft | #26 |
-| Guidance for the 30 priority controls | Batches 1 and 2 of 4 (16 controls + AC-2) | #31, #32 |
-| Incident Response Plan | Draft | #27 |
-| System Security Plan | Draft | #28 |
-| POA&M template | Draft | #29 |
-| P2: CTRL-04, CTRL-05, CTRL-06, QA-03, PRES-06, FEAT-04, TPL-10 | Not started; PRES-06 needs the owner's input on the Word look | |
+| CTRL-08, TPL-01 to TPL-08, QA-05 | Merged | #11 to #20 |
+| PROG-01, PROG-05 | Merged | #21 |
+| PROG-02 Starter kit | Merged | #30 |
+| Family policies: AC, AU, CM, IA, IR | Merged (draft) | #22 to #26 |
+| Incident Response Plan, System Security Plan, POA&M | Merged (draft) | #27 to #29 |
+| Guidance, batches 1 and 2 (16 controls, plus AC-2 marked draft) | Merged (draft) | #31, #32 |
+| Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9 | Not started | |
+| Guidance batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4 | Not started | |
+| CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges (P2) | Not started | |
+| QA-03 spell check with cspell (P2; the PRD names cspell) | Not started | |
+| PRES-06 professional Word styling (P2) | Not started; ask the owner about the look first | |
+| FEAT-04 changelog page (P2), TPL-10 kit v1.0.0 release | Not started | |
 
-Exit criteria: 31 controls at `guidance: draft` or better; 5 family policies downloadable per baseline; kit v1.0.0 released.
+### Notes for the next session
 
-### Next session (handoff, 2026-09-28)
-
-1. Merge the stack #11 to #33 in order; after each merge, retarget the next PR to `main`.
-2. Guidance batch 3: IA-2, IA-5, IR-4, IR-8, PL-2, RA-3, RA-5, SA-9. Batch 4: SC-7, SC-8, SC-13, SC-28, SI-2, SI-4. Scratch scripts are not in the repo; write guidance below each control's marker and add `guidance: draft`.
-3. Verified 2026-09-28 for RA-5 and SI-2 federal notes (cite with "as of September 2026"):
-   - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
-   - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.
-4. P2 items: CTRL-04 baseline pages, CTRL-05 coverage page, CTRL-06 status badges, QA-03 spell check (cspell), PRES-06 Word styling (ask the owner about the look first), FEAT-04 changelog, TPL-10 kit v1.0.0 release.
-5. Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it.
+- **Verified 2026-09-28**, for the RA-5 and SI-2 guidance (cite with "as of September 2026"):
+  - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
+  - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.
+- Several NIST publications changed in 2026 (SP 800-18 Rev. 2, SP 800-70 Rev. 5, SP 800-63-4, SP 800-61 Rev. 3). Check every citation against csrc.nist.gov before writing it; SC-13 will need the current FIPS 140 status.
+- Guidance follows the AC-2 format, with typical values matching the policy clauses. Set `guidance: draft` in the control's front matter; `npm run controls` keeps it.
+- Local `.docx` builds need pandoc: set `PANDOC` to a pandoc 3.11 binary (CI pins 3.11).
+- Dependabot: 2 high-severity alerts, both on `extract-zip`, a transitive dev dependency of pa11y-ci's Puppeteer (used only by the CI accessibility check). Review whether an update is available.
+- The repo is squash-merge only, with a strict required check. Prefer one PR at a time, merged before the next starts, over long stacks.
 
 ### Carried from Phase 1
 
-- ~~**NAV-01:** "incident response plan" returns the template first~~ (done, #27).
 - **PRES-03:** add an industry guide to `.pa11yci.json` in Phase 4.
 
 Decisions recorded in the PRD this phase: `yaml` and `fflate` dependencies, `_common.md` variables (2026-09-28).

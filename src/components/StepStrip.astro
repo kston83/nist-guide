@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/url';
+
 // The seven RMF steps as a linked sequence: the signature element of the home page.
 const steps = [
 	{ n: 0, name: 'Prepare', q: 'Context, roles and boundary', href: '/rmf/steps/prepare/' },
@@ -16,7 +18,7 @@ const steps = [
 		{
 			steps.map((s) => (
 				<li>
-					<a href={s.href}>
+					<a href={withBase(s.href)}>
 						<span class="num" aria-hidden="true">{s.n}</span>
 						<span class="name">{s.name}</span>
 						<span class="q">{s.q}</span>

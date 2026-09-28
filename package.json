@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "controls": "node scripts/import-oscal.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "astro": "astro"
   },
   "dependencies": {

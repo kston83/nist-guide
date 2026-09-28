@@ -28,6 +28,7 @@ Requires [Node.js](https://nodejs.org) 22 or later.
 npm install        # once
 npm run dev        # live preview at http://localhost:4321
 npm run build      # full production build into dist/
+npm run check:links  # after a build: fail on broken internal links or anchors
 ```
 
 ## Where things live
@@ -54,6 +55,8 @@ src/styles/theme.css   Colours and typefaces
 - **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
+  Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
+- **Contributing:** `main` is protected. Open a pull request; the **Check** workflow (build + link check) must pass before merge. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text
 

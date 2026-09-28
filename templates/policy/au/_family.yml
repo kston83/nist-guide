@@ -1,0 +1,18 @@
+# Audit and Accountability (AU) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Audit and Accountability
+role: ciso
+stage: core
+questions:
+  - question: Where are audit records collected, and who operates that platform?
+    controls: [au-6.1, au-9.2]
+    typical: A central log platform or SIEM run by the security operations team, separate from the systems it collects from.
+    decides: Chief Information Security Officer
+  - question: Which event types does every system log as a minimum?
+    controls: [au-2, au-12]
+    typical: The list in the audit logging standard, reviewed annually.
+    decides: Chief Information Security Officer

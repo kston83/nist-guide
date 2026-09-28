@@ -21,6 +21,9 @@ account-manager:
 supervisor:
   label: Supervisor
   description: Title of the person who manages a user's work and confirms their need for access, such as line manager or contract officer's representative.
+security-operations:
+  label: Security operations team
+  description: Name of the team that monitors, reviews and analyzes security events, such as a security operations center or a managed security service.
 hr-office:
   label: Human resources office
   description: Name of the function that records hires, transfers and departures.

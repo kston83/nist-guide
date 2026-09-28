@@ -17,9 +17,11 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
+| [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
 
 ## Decision worksheets
 
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Control Decision Worksheet](/templates/worksheets/ac/) | [Core](/program/core/) | Draft |
+| [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |

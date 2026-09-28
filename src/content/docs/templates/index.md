@@ -21,6 +21,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
 | [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
+| [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
 
 ## Decision worksheets
 
@@ -31,6 +32,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
+| [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
 
 ## Plans
 

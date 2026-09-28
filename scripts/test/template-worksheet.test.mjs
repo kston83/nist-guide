@@ -75,3 +75,10 @@ test('the worksheet page links each CSV and shows the Moderate rows', () => {
 	assert.match(page.text, /\| The frequency of account review \| AC-2 \| quarterly \| Chief Information Security Officer \|/);
 	assert.match(page.text, /5 decisions\./);
 });
+
+test('the Organization worksheet of an organization-wide family lists every family control', () => {
+	assert.deepEqual(worksheetBaselines('ac', controls, true), ['Organization']);
+	const org = rows('Organization').map((r) => r.controls[0]);
+	assert.ok(org.includes('AC-2(3)') && org.includes('AC-2(6)'));
+	assert.ok(!org.includes('AU-2'));
+});

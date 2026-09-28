@@ -15,11 +15,16 @@ async function load(): Promise<Sources> {
 	const clauses = new Map<string, Status>(
 		(await getCollection('clauses')).map((c) => [c.data.control, c.data.status as Status]),
 	);
-	// A -1 control is met by the shared sections in templates/policy/_common.md.
-	const { data } = splitFrontMatter(await fs.readFile('templates/policy/_common.md', 'utf8'));
-	const common = new Map<string, Status>(
-		(await getCollection('families')).map((f) => [f.id, (data.status ?? 'draft') as Status]),
-	);
+	// A -1 control is met by the shared sections in templates/policy/_common.md,
+	// or by the family's own policy/<family>/_common.md where it has one (PM).
+	const status = async (file: string) => {
+		const { data } = splitFrontMatter(await fs.readFile(file, 'utf8'));
+		return (data.status ?? 'draft') as Status;
+	};
+	const shared = await status('templates/policy/_common.md');
+	const common = new Map<string, Status>();
+	for (const f of await getCollection('families'))
+		common.set(f.id, await status(`templates/policy/${f.id}/_common.md`).catch(() => shared));
 	return { guidance, clauses, common };
 }
 

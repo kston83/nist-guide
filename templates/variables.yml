@@ -30,3 +30,6 @@ incident-response-team:
 hr-office:
   label: Human resources office
   description: Name of the function that records hires, transfers and departures.
+privacy-official:
+  label: Senior privacy official
+  description: Title of the official accountable for the privacy program, such as Chief Privacy Officer. In a federal agency, the Senior Agency Official for Privacy.

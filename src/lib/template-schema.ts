@@ -104,6 +104,9 @@ export function templateSchemas(catalog: CatalogData) {
 			role: key,
 			// When a new program should adopt the family policy (PRD artifact catalog).
 			stage: z.enum(STAGES),
+			// `none` for a family SP 800-53B allocates to no baseline (PM): one
+			// organization-wide policy variant instead of one per baseline.
+			baseline: z.literal('none').optional(),
 			questions: z
 				.array(
 					z

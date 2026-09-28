@@ -1,7 +1,7 @@
 // Builds the generated template pages under src/content/docs/templates/
 // (PRD TPL-07) and names the download files, so pages and kit agree.
 // No file access, so npm test can run it on fixtures.
-import { assemblePolicy, policyBaselines } from '../../src/lib/template-assemble.ts';
+import { assemblePolicy, ORGANIZATION, policyBaselines } from '../../src/lib/template-assemble.ts';
 import { renderBlocks } from '../../src/lib/template-editions.ts';
 import { renderVariables } from '../../src/lib/template-vars.ts';
 import { WORKSHEET_COLUMNS, worksheetRows } from '../../src/lib/template-worksheet.ts';
@@ -19,6 +19,12 @@ const TYPE_GROUP = {
 	standard: 'Standards',
 	form: 'Forms and registers',
 };
+
+// A family SP 800-53B allocates to no baseline (PM): one organization-wide variant.
+export const organizationWide = (family) => family.baseline === 'none';
+// The family's own common sections, or the ones every family policy shares.
+export const commonFor = (family, common) => family.common ?? common;
+const variantLabel = (b) => (b === ORGANIZATION ? 'Organization-wide' : b);
 
 const yaml = (s) => `'${String(s).replace(/'/g, "''")}'`;
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -93,12 +99,14 @@ function downloadRows(rows) {
  */
 export function policyPage({ family, clauses, common, catalog, variables, version, order }) {
 	const own = clauses.filter((c) => c.id.startsWith(`policy/${family.id}/`));
-	const baselines = policyBaselines(family.id, own, catalog.controls);
+	const orgWide = organizationWide(family);
+	const baselines = policyBaselines(family.id, own, catalog.controls, orgWide);
+	const familyCommon = commonFor(family, common);
 	const byId = new Map(catalog.controls.map((c) => [c.id, c]));
 	const policyControl = byId.get(`${family.id}-1`);
 	const fam = family.id.toUpperCase();
 	const variants = Object.fromEntries(
-		baselines.map((b) => [b, assemblePolicy({ common: common.body, family, clauses: own, controls: catalog.controls, baseline: b })]),
+		baselines.map((b) => [b, assemblePolicy({ common: familyCommon.body, family, clauses: own, controls: catalog.controls, baseline: b })]),
 	);
 	const shown = variants[PREVIEW_BASELINE] ?? Object.values(variants)[0];
 	const shownBaseline = variants[PREVIEW_BASELINE] ? PREVIEW_BASELINE : baselines[0];
@@ -108,13 +116,17 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 	const params = new Set(
 		covered.flatMap((id) => byId.get(id).params.filter((p) => !catalog.params[p].aggregates)),
 	);
-	const status = own.length && own.every((c) => c.status === 'reviewed') && common.data.status === 'reviewed' ? 'reviewed' : 'draft';
+	const status = own.length && own.every((c) => c.status === 'reviewed') && familyCommon.data.status === 'reviewed' ? 'reviewed' : 'draft';
 
 	const tick = (id, b) => (variants[b]?.controls.includes(id) ? 'Yes' : '');
 	const controlRows = covered.map((id) => {
 		const c = byId.get(id);
-		return `| [${c.label}](${controlUrl(id)}) | ${c.title} | ${['Low', 'Moderate', 'High', 'Privacy'].map((b) => tick(id, b)).join(' | ')} |`;
+		const cells = orgWide ? [c.baselines.includes('Privacy') ? 'Yes' : ''] : ['Low', 'Moderate', 'High', 'Privacy'].map((b) => tick(id, b));
+		return `| [${c.label}](${controlUrl(id)}) | ${c.title} | ${cells.join(' | ')} |`;
 	});
+	const controlTable = orgWide
+		? ['| Control | Title | In the Privacy baseline |', '| --- | --- | --- |', ...controlRows]
+		: ['| Control | Title | Low | Moderate | High | Privacy |', '| --- | --- | --- | --- | --- | --- |', ...controlRows];
 
 	const questions = family.questions?.length
 		? [
@@ -130,20 +142,24 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 	const body = [
 		facts({ type: 'policy', stage: family.stage, status, version, basis: catalog.source }),
 		'## What it is',
-		`The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. It meets [${policyControl.label}](${controlUrl(policyControl.id)}) through the sections every family policy shares, and adds one statement group per control. Each baseline variant includes only the controls in that baseline, taken from the NIST SP 800-53B profiles.`,
+		orgWide
+			? `The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. Its opening sections meet [${policyControl.label}](${controlUrl(policyControl.id)}), and it adds one statement group per control. NIST SP 800-53B allocates no ${fam} control to a security baseline: the organization carries them out once for all its systems, whatever their baselines. So this policy has one organization-wide edition, which every baseline's starter kit includes.`
+			: `The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. It meets [${policyControl.label}](${controlUrl(policyControl.id)}) through the sections every family policy shares, and adds one statement group per control. Each baseline variant includes only the controls in that baseline, taken from the NIST SP 800-53B profiles.`,
 		'Adopt the ready-to-adopt edition: fill every highlighted field, delete any "Federal systems" section that does not apply, and have the accountable official approve it. The annotated edition adds guidance on why each section exists and what assessors look for.',
 		'## Controls satisfied',
-		`"Yes" marks the baseline variants that include the control's statements. ${policyControl.label} is met by the common sections.`,
-		['| Control | Title | Low | Moderate | High | Privacy |', '| --- | --- | --- | --- | --- | --- |', ...controlRows].join('\n'),
+		orgWide
+			? `The one edition has statements for every control listed. ${policyControl.label} is met by the opening sections. "Yes" marks the controls NIST also places in the Privacy baseline.`
+			: `"Yes" marks the baseline variants that include the control's statements. ${policyControl.label} is met by the common sections.`,
+		controlTable.join('\n'),
 		'## Decisions to make first',
 		`The policy has ${params.size} organization-defined parameters across all variants; each appears as a highlighted field with its typical value where one is given. Settle these first:`,
 		questions || `No family-level decisions are recorded yet beyond the parameters.`,
 		`Record your values in the [${family.title} decision worksheet](/templates/worksheets/${family.id}/), which lists every parameter with its typical value.`,
 		'## Downloads',
-		downloadRows(baselines.map((b) => ({ label: b, file: (e) => policyFile(family.id, b, e) }))),
+		downloadRows(baselines.map((b) => ({ label: variantLabel(b), file: (e) => policyFile(family.id, b, e) }))),
 		`Everything for this family in one file: [${fam} pack (.zip)](/downloads/${packFile(family.id)}), with every variant and edition of the policy and the decision worksheets.`,
-		`## Preview (${shownBaseline} baseline, annotated)`,
-		preview(shown.source, { variables, params: catalog.params, typical: shown.typical, family }),
+		orgWide ? '## Preview (annotated)' : `## Preview (${shownBaseline} baseline, annotated)`,
+		preview(shown.source, { variables, params: catalog.params, typical: { ...familyCommon.data.typical, ...shown.typical }, family }),
 	]
 		.filter(Boolean)
 		.join('\n\n');
@@ -152,7 +168,7 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 		file: `policies/${family.id}.md`,
 		text: page({
 			title: `${family.title} Policy`,
-			description: `Ready-to-adopt ${family.title} policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (${baselines.join(', ')}).`,
+			description: `Ready-to-adopt ${family.title} policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and ${orgWide ? 'one organization-wide edition' : `a variant per baseline (${baselines.join(', ')})`}.`,
 			label: `${family.title} (${fam})`,
 			order,
 			controls: covered,
@@ -230,7 +246,9 @@ export function indexPage(summaries) {
 }
 
 // Worksheet baselines: the security baselines, plus Privacy when a family control is in it.
-export function worksheetBaselines(family, controls) {
+// An organization-wide family has one Organization worksheet.
+export function worksheetBaselines(family, controls, orgWide = false) {
+	if (orgWide) return [ORGANIZATION];
 	const privacy = controls.some((c) => c.family === family && c.baselines.includes('Privacy'));
 	return ['Low', 'Moderate', 'High', ...(privacy ? ['Privacy'] : [])];
 }
@@ -246,7 +264,8 @@ export function worksheetInput({ family, baseline, clauses, catalog, variables }
 		questions: family.questions ?? [],
 		controls: catalog.controls,
 		params: catalog.params,
-		typical: familyTypical(family.id, clauses),
+		// A family's own common sections (PM) can give typical values for its -1 parameters.
+		typical: { ...family.common?.data.typical, ...familyTypical(family.id, clauses) },
 		defaultDecider: variables[family.role]?.label ?? family.role,
 	};
 }
@@ -255,17 +274,18 @@ const cell = (s) => String(s).replace(/\|/g, '\|').replace(/\n/g, ' ');
 
 /** One decision worksheet page per family, showing the Moderate baseline. */
 export function worksheetPage({ family, clauses, catalog, variables, version, order }) {
-	const baselines = worksheetBaselines(family.id, catalog.controls);
-	const rows = worksheetRows(worksheetInput({ family, baseline: PREVIEW_BASELINE, clauses, catalog, variables }));
-	const controls = catalog.controls.filter((c) => c.family === family.id && c.baselines.length).map((c) => c.id);
+	const orgWide = organizationWide(family);
+	const baselines = worksheetBaselines(family.id, catalog.controls, orgWide);
+	const rows = worksheetRows(worksheetInput({ family, baseline: orgWide ? ORGANIZATION : PREVIEW_BASELINE, clauses, catalog, variables }));
+	const controls = catalog.controls.filter((c) => c.family === family.id && (orgWide || c.baselines.length)).map((c) => c.id);
 	const body = [
 		facts({ type: 'worksheet', stage: family.stage, status: 'draft', version, basis: catalog.source }),
 		'## What it is',
-		`Every decision the ${family.title} family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every ${family.id.toUpperCase()} control in the baseline, with a typical value where the [${family.title} Policy](/templates/policies/${family.id}/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.`,
+		`Every decision the ${family.title} family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every ${family.id.toUpperCase()} control${orgWide ? '' : ' in the baseline'}, with a typical value where the [${family.title} Policy](/templates/policies/${family.id}/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.`,
 		'Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.',
 		'## Downloads',
-		['| Variant | Spreadsheet |', '| --- | --- |', ...baselines.map((b) => `| ${b} | [CSV](/downloads/${worksheetFile(family.id, b)}.csv) |`)].join('\n'),
-		`## Decisions (${PREVIEW_BASELINE} baseline)`,
+		['| Variant | Spreadsheet |', '| --- | --- |', ...baselines.map((b) => `| ${variantLabel(b)} | [CSV](/downloads/${worksheetFile(family.id, b)}.csv) |`)].join('\n'),
+		orgWide ? '## Decisions' : `## Decisions (${PREVIEW_BASELINE} baseline)`,
 		`${rows.length} decisions.`,
 		[
 			`| ${WORKSHEET_COLUMNS.slice(0, 4).join(' | ')} |`,
@@ -277,7 +297,7 @@ export function worksheetPage({ family, clauses, catalog, variables, version, or
 		file: `worksheets/${family.id}.md`,
 		text: page({
 			title: `${family.title} Decision Worksheet`,
-			description: `Every decision the ${family.title} family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.`,
+			description: `Every decision the ${family.title} family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, ${orgWide ? 'for the whole organization' : 'per baseline'}, as a spreadsheet.`,
 			label: `${family.title} (${family.id.toUpperCase()})`,
 			order,
 			controls,

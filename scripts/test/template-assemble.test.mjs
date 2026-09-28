@@ -76,3 +76,11 @@ test('the Policy statements heading is required; statements can be the last sect
 	const last = assemblePolicy({ common: '# T\n\n## Policy statements\n', family, clauses, controls, baseline: 'Low' });
 	assert.ok(last.source.endsWith('### Access enforcement (AC-3)\n\n- Enforce. (AC-3)\n'));
 });
+
+test('an organization-wide family (PM) has one variant with every clause, whatever its baselines', () => {
+	assert.deepEqual(policyBaselines('ac', clauses, controls, true), ['Organization']);
+	const { source, controls: covered } = assemble('Organization');
+	assert.deepEqual(covered, ['ac-1', 'ac-2', 'ac-2.3', 'ac-2.6', 'ac-3']);
+	assert.match(source, /### Dynamic privilege management \(AC-2\(6\)\)/);
+	assert.match(assemble('Organization', []).source, /This policy has no statements beyond the sections above\.\n/);
+});

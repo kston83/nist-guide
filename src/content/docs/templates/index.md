@@ -75,6 +75,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
 | [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
+| [Privacy Notice](/templates/forms/privacy-notice/) | [Core](/program/core/) | Draft |
 | [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
 | [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
@@ -87,4 +88,5 @@ Each template is written once and assembled for your baseline. Download the read
 | --- | --- | --- |
 | [Business Impact Analysis](/templates/reports/business-impact-analysis/) | [Core](/program/core/) | Draft |
 | [Contingency Plan After-Action Report](/templates/reports/contingency-plan-after-action-report/) | [Operate](/program/operate/) | Draft |
+| [Privacy Impact Assessment](/templates/reports/privacy-impact-assessment/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Report](/templates/reports/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |

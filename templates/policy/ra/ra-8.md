@@ -6,7 +6,7 @@ stage: core
 ---
 
 :::guidance
-A privacy impact assessment looks at what personally identifiable information a system or activity collects, why, how it is used, shared and protected, and what risks that creates for individuals. Do it early, while the design can still change, and update it when the processing changes. RA-8 is in the Privacy baseline only.
+A privacy impact assessment looks at what personally identifiable information a system or activity collects, why, how it is used, shared and protected, and what risks that creates for individuals. Do it early, while the design can still change, and update it when the processing changes. The [privacy impact assessment template](/templates/reports/privacy-impact-assessment/) starts with a short screening and covers each question section 208(b) of the E-Government Act lists. RA-8 is in the Privacy baseline only.
 :::
 
 - The {{org:system-owner}} shall have a privacy impact assessment conducted before developing or procuring information technology that processes personally identifiable information. (RA-8a)

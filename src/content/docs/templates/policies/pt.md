@@ -170,7 +170,7 @@ Consent works when individuals can understand what they agree to and have a real
 #### Privacy notice (PT-5)
 
 :::note[Guidance]
-Most organizations publish one privacy notice on their privacy page (PM-20) and add short notices where information is collected, such as on a form or a sign-up screen, that link to it. Keep the notice consistent with the purposes and authorities in the privacy impact assessment (PT-2, PT-3). PT-5 is in the Privacy baseline only.
+Most organizations publish one privacy notice on their privacy page (PM-20) and add short notices where information is collected, such as on a form or a sign-up screen, that link to it. Keep the notice consistent with the purposes and authorities in the privacy impact assessment (PT-2, PT-3). The [privacy notice template](/templates/forms/privacy-notice/) has a full notice, a short notice for points of collection, and a register of where each is posted. PT-5 is in the Privacy baseline only.
 :::
 
 - The <span class="tpl-field tpl-org">Senior privacy official</span> shall ensure individuals are given notice about the processing of their personally identifiable information. (PT-5)
@@ -196,7 +196,7 @@ Most organizations publish one privacy notice on their privacy page (PM-20) and 
 #### Privacy Act statements (PT-5(2))
 
 :::note[Guidance]
-A Privacy Act statement is the notice the U.S. Privacy Act of 1974 requires on a form that collects information for a system of records. The Act applies to federal agencies, and to contractors that operate a system of records for an agency, whose contracts apply its requirements (5 U.S.C. § 552a(m)). An organization that maintains no Privacy Act system of records can record that this control does not apply. PT-5(2) is in the Privacy baseline only.
+A Privacy Act statement is the notice the U.S. Privacy Act of 1974 requires on a form that collects information for a system of records. The Act applies to federal agencies, and to contractors that operate a system of records for an agency, whose contracts apply its requirements (5 U.S.C. § 552a(m)). An organization that maintains no Privacy Act system of records can record that this control does not apply. Part 3 of the [privacy notice template](/templates/forms/privacy-notice/) is a Privacy Act statement. PT-5(2) is in the Privacy baseline only.
 :::
 
 - Where a form collects information that will be maintained in a Privacy Act system of records, the <span class="tpl-field tpl-org">System owner</span> shall include a Privacy Act statement on the form, or provide it on a separate form that the individual can keep. (PT-5(2))

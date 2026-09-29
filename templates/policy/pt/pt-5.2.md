@@ -6,7 +6,7 @@ stage: core
 ---
 
 :::guidance
-A Privacy Act statement is the notice the U.S. Privacy Act of 1974 requires on a form that collects information for a system of records. The Act applies to federal agencies, and to contractors that operate a system of records for an agency, whose contracts apply its requirements (5 U.S.C. § 552a(m)). An organization that maintains no Privacy Act system of records can record that this control does not apply. PT-5(2) is in the Privacy baseline only.
+A Privacy Act statement is the notice the U.S. Privacy Act of 1974 requires on a form that collects information for a system of records. The Act applies to federal agencies, and to contractors that operate a system of records for an agency, whose contracts apply its requirements (5 U.S.C. § 552a(m)). An organization that maintains no Privacy Act system of records can record that this control does not apply. Part 3 of the [privacy notice template](/templates/forms/privacy-notice/) is a Privacy Act statement. PT-5(2) is in the Privacy baseline only.
 :::
 
 - Where a form collects information that will be maintained in a Privacy Act system of records, the {{org:system-owner}} shall include a Privacy Act statement on the form, or provide it on a separate form that the individual can keep. (PT-5(2))

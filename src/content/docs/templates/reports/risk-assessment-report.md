@@ -3,7 +3,7 @@ title: 'Risk Assessment Report'
 description: 'The report of a system risk assessment, following the three-part outline in NIST SP 800-30 Rev. 1 Appendix K, with the documentation, review and distribution SP 800-53 RA-3 requires.'
 sidebar:
   label: 'Risk Assessment Report'
-  order: 18
+  order: 20
 controls: [ra-3, ra-3.1]
 ---
 

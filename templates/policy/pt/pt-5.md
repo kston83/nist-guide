@@ -9,7 +9,7 @@ typical:
 ---
 
 :::guidance
-Most organizations publish one privacy notice on their privacy page (PM-20) and add short notices where information is collected, such as on a form or a sign-up screen, that link to it. Keep the notice consistent with the purposes and authorities in the privacy impact assessment (PT-2, PT-3). PT-5 is in the Privacy baseline only.
+Most organizations publish one privacy notice on their privacy page (PM-20) and add short notices where information is collected, such as on a form or a sign-up screen, that link to it. Keep the notice consistent with the purposes and authorities in the privacy impact assessment (PT-2, PT-3). The [privacy notice template](/templates/forms/privacy-notice/) has a full notice, a short notice for points of collection, and a register of where each is posted. PT-5 is in the Privacy baseline only.
 :::
 
 - The {{org:privacy-official}} shall ensure individuals are given notice about the processing of their personally identifiable information. (PT-5)

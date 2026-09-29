@@ -68,6 +68,16 @@ test('the Privacy variant exists only when a clause of the family is in it', () 
 	assert.deepEqual(policyBaselines('ac', withPrivacy, controls), ['Low', 'Moderate', 'High', 'Privacy']);
 });
 
+test('a family in the Privacy baseline only (PT) has only the Privacy variant', () => {
+	const pt = [
+		{ id: 'pt-1', label: 'PT-1', family: 'pt', baselines: ['Privacy'] },
+		{ id: 'pt-2', label: 'PT-2', family: 'pt', baselines: ['Privacy'] },
+		{ id: 'pt-2.1', label: 'PT-2(1)', family: 'pt', baselines: [] },
+	];
+	assert.deepEqual(policyBaselines('pt', [{ control: 'pt-2', title: 'Authority', body: '- x' }], pt), ['Privacy']);
+	assert.deepEqual(policyBaselines('pt', [], pt), ['Privacy']);
+});
+
 test('the Policy statements heading is required; statements can be the last section', () => {
 	assert.throws(
 		() => assemblePolicy({ common: '# T\n\n## Purpose\n', family, clauses, controls, baseline: 'Low' }),

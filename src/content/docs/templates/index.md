@@ -26,6 +26,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
 | [Personnel Security Policy](/templates/policies/ps/) | [Core](/program/core/) | Draft |
+| [Personally Identifiable Information Processing and Transparency Policy](/templates/policies/pt/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Policy](/templates/policies/ra/) | [Foundation](/program/foundation/) | Draft |
 | [System and Communications Protection Policy](/templates/policies/sc/) | [Core](/program/core/) | Draft |
 
@@ -43,6 +44,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
 | [Personnel Security Decision Worksheet](/templates/worksheets/ps/) | [Core](/program/core/) | Draft |
+| [Personally Identifiable Information Processing and Transparency Decision Worksheet](/templates/worksheets/pt/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | [Foundation](/program/foundation/) | Draft |
 | [System and Communications Protection Decision Worksheet](/templates/worksheets/sc/) | [Core](/program/core/) | Draft |
 

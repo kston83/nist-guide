@@ -1,0 +1,33 @@
+# Personally Identifiable Information Processing and Transparency (PT) family
+# policy metadata. Every PT control is in the Privacy baseline only, so the
+# policy has one Privacy variant.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog:
+#   Core, if the organization processes personally identifiable information).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Personally Identifiable Information Processing and Transparency
+role: privacy-official
+stage: core
+questions:
+  - question: Where is the authority and purpose for each processing of personally identifiable information recorded, and who confirms it?
+    controls: [pt-2, pt-3]
+    typical: In each system's privacy impact assessment; the privacy office confirms the authority with legal counsel before new processing begins.
+    decides: Senior privacy official, with legal counsel
+  - question: When does the organization rely on consent, and how is consent recorded and withdrawn?
+    controls: [pt-4]
+    typical: Consent where law requires it or where the processing is not needed to deliver what the individual asked for; opt-in, recorded with the date and notice version, and withdrawn as easily as it was given.
+    decides: Senior privacy official
+  - question: Where are privacy notices published, and who approves them and their changes?
+    controls: [pt-5, pt-5.2]
+    typical: One privacy notice on the organization's privacy page, with short notices at each point of collection that link to it; the privacy office approves every notice and change.
+    decides: Senior privacy official
+  - question: Which categories of personally identifiable information need specific processing conditions?
+    controls: [pt-7, pt-7.1, pt-7.2]
+    typical: Social Security numbers, health, financial and biometric information, and information about children, plus a ban on records of how individuals exercise First Amendment rights.
+    decides: Senior privacy official
+  - question: Does the organization maintain Privacy Act systems of records or take part in matching programs?
+    controls: [pt-6, pt-8]
+    typical: Federal agencies, and contractors operating systems of records for them, yes, listed on the privacy page; other organizations record that PT-6, its enhancements, PT-5(2) and PT-8 do not apply.
+    decides: Senior privacy official

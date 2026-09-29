@@ -418,7 +418,7 @@ For records in a Privacy Act system of records, [5 U.S.C. § 552a(c)](https://us
 #### Data integrity board (PM-24)
 
 :::note[Guidance]
-A matching program is a computerized comparison of records about individuals, typically to establish or check eligibility for a benefit; the term comes from the U.S. Privacy Act. If the organization runs no matching programs, keep the heading and record that decision in the program plan.
+A matching program is a computerized comparison of records about individuals, typically to establish or check eligibility for a benefit; the term comes from the U.S. Privacy Act. The steps for each matching program are in PT-8, in the [PII Processing and Transparency Policy](/templates/policies/pt/). If the organization runs no matching programs, keep the heading and record that decision in the program plan.
 :::
 
 - Where <span class="tpl-field tpl-org">Organization name</span> conducts or takes part in a matching program, the <span class="tpl-field tpl-org">Senior leader</span> shall establish a data integrity board. (PM-24)

@@ -39,7 +39,13 @@ export const STATEMENTS_HEADING = '## Policy statements';
 
 const inFamily = (family: string, controls: CatalogControl[]) => controls.filter((c) => c.family === family);
 
-// Security baselines always; Privacy only when a clause of the family is in it.
+// Whether any control of the family is in a security baseline (Low, Moderate or
+// High). SP 800-53B places every PT control in the Privacy baseline only.
+export const inSecurityBaseline = (family: string, controls: CatalogControl[]) =>
+	inFamily(family, controls).some((c) => c.baselines.some((b) => b !== 'Privacy'));
+
+// Security baselines when the family has a control in one; Privacy when a clause
+// of the family is in it, or when the family is in no security baseline (PT).
 // An organization-wide family has the one Organization variant.
 export function policyBaselines(
 	family: string,
@@ -48,9 +54,10 @@ export function policyBaselines(
 	organizationWide = false,
 ): Baseline[] {
 	if (organizationWide) return [ORGANIZATION];
+	const security = inSecurityBaseline(family, controls);
 	const privacy = new Set(inFamily(family, controls).filter((c) => c.baselines.includes('Privacy')).map((c) => c.id));
 	const hasPrivacy = clauses.some((c) => privacy.has(c.control));
-	return BASELINES.filter((b) => b !== 'Privacy' || hasPrivacy);
+	return BASELINES.filter((b) => (b === 'Privacy' ? hasPrivacy || !security : security));
 }
 
 export interface AssembledPolicy {

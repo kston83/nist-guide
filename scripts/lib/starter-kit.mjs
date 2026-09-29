@@ -1,7 +1,7 @@
 // The starter kit (PRD PROG-02): resolves templates/starter-kit.yml against the
 // sources, lists the files it contains per baseline, and builds its page.
 // No file access, so npm test can run it.
-import { policyBaselines } from '../../src/lib/template-assemble.ts';
+import { inSecurityBaseline, policyBaselines } from '../../src/lib/template-assemble.ts';
 import { GENERATED_NOTE, organizationWide, policyFile, templateFile, worksheetBaselines, worksheetFile } from './template-pages.mjs';
 
 export const STARTER_BASELINES = ['Low', 'Moderate', 'High'];
@@ -13,7 +13,9 @@ export const starterKitFile = (baseline) => `starter-kit-${baseline.toLowerCase(
  */
 export function resolveStarterKit({ starterKit, families, clauses, templates, catalog }) {
 	const byId = new Map(templates.map((t) => [t.id, t]));
-	const familyList = [...families.values()];
+	// The starter kits are per security baseline, so a family in the Privacy
+	// baseline only (PT) is not in them.
+	const familyList = [...families.values()].filter((f) => organizationWide(f) || inSecurityBaseline(f.id, catalog.controls));
 	const editions = (file) => ['clean', 'annotated'].flatMap((e) => [`${file(e)}.md`, `${file(e)}.docx`]);
 	return (starterKit.items ?? []).map((item, i) => {
 		if (item.template) {

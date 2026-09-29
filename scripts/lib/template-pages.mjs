@@ -1,7 +1,7 @@
 // Builds the generated template pages under src/content/docs/templates/
 // (PRD TPL-07) and names the download files, so pages and kit agree.
 // No file access, so npm test can run it on fixtures.
-import { assemblePolicy, ORGANIZATION, policyBaselines } from '../../src/lib/template-assemble.ts';
+import { assemblePolicy, inSecurityBaseline, ORGANIZATION, policyBaselines } from '../../src/lib/template-assemble.ts';
 import { renderBlocks } from '../../src/lib/template-editions.ts';
 import { renderVariables } from '../../src/lib/template-vars.ts';
 import { WORKSHEET_COLUMNS, worksheetRows } from '../../src/lib/template-worksheet.ts';
@@ -145,7 +145,11 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 		'## What it is',
 		orgWide
 			? `The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. Its opening sections meet [${policyControl.label}](${controlUrl(policyControl.id)}), and it adds one statement group per control. NIST SP 800-53B allocates no ${fam} control to a security baseline: the organization carries them out once for all its systems, whatever their baselines. So this policy has one organization-wide edition, which every baseline's starter kit includes.`
-			: `The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. It meets [${policyControl.label}](${controlUrl(policyControl.id)}) through the sections every family policy shares, and adds one statement group per control. Each baseline variant includes only the controls in that baseline, taken from the NIST SP 800-53B profiles.`,
+			: `The ${family.title} policy states what the organization requires for ${family.title.toLowerCase()} and who is accountable for it. It meets [${policyControl.label}](${controlUrl(policyControl.id)}) through the sections every family policy shares, and adds one statement group per control. ${
+					baselines.length === 1 && baselines[0] === 'Privacy'
+						? `NIST SP 800-53B places every ${fam} control in the Privacy baseline and none in the Low, Moderate or High baselines, so this policy has one Privacy variant. Adopt it wherever systems process personally identifiable information, alongside the security baseline of each system.`
+						: 'Each baseline variant includes only the controls in that baseline, taken from the NIST SP 800-53B profiles.'
+				}`,
 		'Adopt the ready-to-adopt edition: fill every highlighted field, delete any "Federal systems" section that does not apply, and have the accountable official approve it. The annotated edition adds guidance on why each section exists and what assessors look for.',
 		'## Controls satisfied',
 		orgWide
@@ -246,12 +250,13 @@ export function indexPage(summaries) {
 	].join('\n');
 }
 
-// Worksheet baselines: the security baselines, plus Privacy when a family control is in it.
+// Worksheet baselines: the security baselines when a family control is in one
+// (PT has none), plus Privacy when a family control is in it.
 // An organization-wide family has one Organization worksheet.
 export function worksheetBaselines(family, controls, orgWide = false) {
 	if (orgWide) return [ORGANIZATION];
 	const privacy = controls.some((c) => c.family === family && c.baselines.includes('Privacy'));
-	return ['Low', 'Moderate', 'High', ...(privacy ? ['Privacy'] : [])];
+	return [...(inSecurityBaseline(family, controls) ? ['Low', 'Moderate', 'High'] : []), ...(privacy ? ['Privacy'] : [])];
 }
 
 // Typical values from every clause of the family.
@@ -273,11 +278,12 @@ export function worksheetInput({ family, baseline, clauses, catalog, variables }
 
 const cell = (s) => String(s).replace(/\|/g, '\|').replace(/\n/g, ' ');
 
-/** One decision worksheet page per family, showing the Moderate baseline. */
+/** One decision worksheet page per family, showing the Moderate baseline, or the only one (PT: Privacy). */
 export function worksheetPage({ family, clauses, catalog, variables, version, order }) {
 	const orgWide = organizationWide(family);
 	const baselines = worksheetBaselines(family.id, catalog.controls, orgWide);
-	const rows = worksheetRows(worksheetInput({ family, baseline: orgWide ? ORGANIZATION : PREVIEW_BASELINE, clauses, catalog, variables }));
+	const shown = orgWide ? ORGANIZATION : baselines.includes(PREVIEW_BASELINE) ? PREVIEW_BASELINE : baselines[0];
+	const rows = worksheetRows(worksheetInput({ family, baseline: shown, clauses, catalog, variables }));
 	const controls = catalog.controls.filter((c) => c.family === family.id && (orgWide || c.baselines.length)).map((c) => c.id);
 	const body = [
 		facts({ type: 'worksheet', stage: family.stage, status: 'draft', version, basis: catalog.source }),
@@ -286,7 +292,7 @@ export function worksheetPage({ family, clauses, catalog, variables, version, or
 		'Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.',
 		'## Downloads',
 		['| Variant | Spreadsheet |', '| --- | --- |', ...baselines.map((b) => `| ${variantLabel(b)} | [CSV](/downloads/${worksheetFile(family.id, b)}.csv) |`)].join('\n'),
-		orgWide ? '## Decisions' : `## Decisions (${PREVIEW_BASELINE} baseline)`,
+		orgWide ? '## Decisions' : `## Decisions (${shown} baseline)`,
 		`${rows.length} decisions.`,
 		[
 			`| ${WORKSHEET_COLUMNS.slice(0, 4).join(' | ')} |`,

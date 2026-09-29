@@ -57,10 +57,12 @@ pandoc
 PPTP
 preapproved
 reapproves
+redisclosure
 reimaging
 remediations
 rescreening
 rlogin
+rulemaking
 SAISO
 SAOP
 SDLC

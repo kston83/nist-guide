@@ -58,6 +58,8 @@ test('the CSV has a BOM, a header, quoted cells where needed, an empty value col
 test('worksheet baselines add Privacy only when a family control is in it', () => {
 	assert.deepEqual(worksheetBaselines('ac', controls), ['Low', 'Moderate', 'High']);
 	assert.deepEqual(worksheetBaselines('au', controls), ['Low', 'Moderate', 'High', 'Privacy']);
+	const pt = [{ id: 'pt-2', label: 'PT-2', title: 'Authority', family: 'pt', baselines: ['Privacy'], params: [] }];
+	assert.deepEqual(worksheetBaselines('pt', pt), ['Privacy']);
 });
 
 test('the worksheet page links each CSV and shows the Moderate rows', () => {

@@ -4,6 +4,20 @@ A practitioner's guide to applying the NIST Risk Management Framework and SP 800
 
 Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); progress is in [`PROGRESS.md`](PROGRESS.md).
 
+## Roadmap
+
+The guide helps an organization **learn, build and prove** a security program: it explains every RMF step and SP 800-53 control, and ships the policies, plans, standards and forms to act on them as a versioned, CC0 template kit. The public [Roadmap](https://kston83.github.io/nist-guide/reference/roadmap/) page shows where the work stands; update it at the end of each phase.
+
+| Phase | Scope | Kit | Status |
+| --- | --- | --- | --- |
+| 1 Launch foundation | Public site, generated control pages, CI checks | | Done |
+| 2 Template system and first kit | Template pipeline, 31 priority controls, five family policies, SSP, IR plan, POA&M | v1.0.0 | Done |
+| 3 Full program kit | All 20 family policies, the consolidated policy, every catalog artifact, the program path | v2.0.0 | In progress |
+| 4 Methods and the SSDF | NIST implementation guidance on control pages, starting with the SSDF | v2.1.0 | Planned |
+| 5 AI security guide | A separate AI section built on NIST and OWASP guidance | v2.2.0 | Planned |
+| 6 Industries and technology | Three industry guides, four technology playbooks, articles | | Planned |
+| 7 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | | Planned |
+
 ## How it's published
 
 `main` is protected. Changes land through a pull request, and the **Check** workflow (build and link check) must pass before merge. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.

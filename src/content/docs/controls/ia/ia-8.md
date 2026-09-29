@@ -8,6 +8,7 @@ control:
   id: IA-8
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -180,3 +181,36 @@ Determine if non-organizational users or processes acting on behalf of non-organ
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-8 is the counterpart of [IA-2](/controls/ia/ia-2/) for people outside the organization: customers, members of the public, partners and staff of other organizations. Each is identified and authenticated as one person, and so is any process acting for them. The only exceptions are the actions [AC-14](/controls/ac/ac-14/) lists as allowed without identification.
+
+**Common implementations.** A customer identity platform or an identity service for the public, kept separate from the workforce directory. Federation with partners' identity providers over SAML 2.0 or OpenID Connect, following the profiles the organization publishes (IA-8(4)). A maintained list of the external identity providers and authenticators the system accepts (IA-8(2)). Each group of external users gets an assurance level chosen through the digital identity risk management process in [NIST SP 800-63-4](https://csrc.nist.gov/pubs/sp/800/63/4/final) (July 2025, Section 3). The [Identification and Authentication policy](/templates/policies/ia/) states each requirement.
+
+**Organization-defined parameters.** The base control has none. The one baseline parameter is in IA-8(4). Typical value, taken from the IA policy, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Identity management profiles (IA-8(4)) | The federation profiles the organization publishes for its identity provider, such as SAML 2.0 or OpenID Connect |
+
+**Evidence assessors ask for.**
+
+- The list of non-organizational user groups, with the authentication method and assurance level of each
+- The list of accepted external authenticators and identity providers, for IA-8(2)
+- Federation configuration or metadata for each trusted identity provider
+- The AC-14 list of actions permitted without identification
+- A demonstration that the system accepts and electronically verifies PIV credentials, where IA-8(1) applies
+
+**Inheritance.** A shared customer identity platform or federation service is usually a common control. The system owns the choice of which external users it serves, the assurance level each needs, and any accounts it creates for them itself.
+
+**Common findings.**
+
+- Shared accounts issued to a partner organization rather than to each person.
+- Public-facing services protected by a password alone where the risk assessment calls for more.
+- No list of accepted identity providers, or trust kept with a partner after the agreement ended.
+- Assurance levels never chosen or documented for each group of external users.
+
+**Enhancements in the Moderate baseline.** [IA-8(1)](#ia-8.1) acceptance of PIV credentials from other agencies, [IA-8(2)](#ia-8.2) acceptance of external authenticators and [IA-8(4)](#ia-8.4) use of defined profiles, all also in Low. IA-8(1) applies only where federal users from other agencies use the system; otherwise record it as not applicable, with that reason, in the security plan. High adds none.
+
+**Federal systems** (as of September 2026). OMB [M-26-18](https://www.whitehouse.gov/wp-content/uploads/2026/08/M-26-18-Scaling-Use-of-Login.gov-to-Deliver-a-Universal-Sign-on-for-Public-Services.pdf) (August 31, 2026) requires agencies to offer Login.gov as a sign-on option on public-facing websites where individuals sign in for services. Agencies must also use Login.gov's identity verification where verification is needed, unless it does not meet the service's requirements. Its appendix sets the deadlines: a digital identity risk management process for these services within 240 days, and Login.gov on all in-scope websites, or a notice to OMB, within two years. The Department of War, national security systems and the intelligence community are excepted. For IA-8(1), OMB [M-19-17](https://www.whitehouse.gov/wp-content/uploads/2019/05/M-19-17.pdf) (May 21, 2019, Section III, item 3) requires processes for electronically verifying PIV identity assertions from other agencies. It also requires agencies to accept partners' assertions based on NIST assurance levels (Section IV, Architecture, item 5).

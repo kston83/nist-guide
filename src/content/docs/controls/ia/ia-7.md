@@ -8,6 +8,7 @@ control:
   id: IA-7
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -49,3 +50,31 @@ Determine if mechanisms for authentication to a cryptographic module are impleme
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-7 covers how people and processes authenticate to a cryptographic module, such as a hardware security module, a cloud key management service, a smart card or a trusted platform module. In practice, meeting the applicable standards means using a module validated under [FIPS 140-3](https://csrc.nist.gov/pubs/fips/140-3/final) in its approved mode. Operators then take on its roles and authenticate the way its security policy describes. The [Identification and Authentication policy](/templates/policies/ia/) states the requirement; [SC-13](/controls/sc/sc-13/) sets which cryptography is approved.
+
+**Common implementations.** Hardware security module administration split across roles, with the crypto officer role needing a quorum of smart cards. Cloud key management where only named key administrators, signed in with multi-factor authentication, hold key management permissions. PIV cards and other smart cards that lock after repeated wrong PINs. Each module, its validation certificate number and its mode recorded in the system security plan, as section 8 of the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) requires.
+
+**Organization-defined parameters.** IA-7 has none.
+
+**Evidence assessors ask for.**
+
+- The cryptographic inventory, listing each module with its validation certificate number
+- The module's security policy, published with its validation certificate, showing its roles and how operators authenticate
+- The list of people and services holding each role on the module
+- Configuration showing the module runs in its approved mode
+
+**Inheritance.** Cloud providers and platform teams often provide the validated modules, so validation is inherited. The system owns who may administer its keys and modules, and how they sign in.
+
+**Common findings.**
+
+- Hardware security modules still using default or shared crypto officer credentials.
+- Modules run outside their approved mode, so the validation does not cover the cryptography in use.
+- Broad cloud permissions that let any administrator manage or use keys.
+- New systems choosing modules that are no longer on the validation program's active list.
+
+**Enhancements in the Moderate baseline.** IA-7 has no enhancements.
+
+**Federal systems** (as of September 2026). FIPS 140-3 (March 22, 2019) "is applicable to all Federal agencies that use cryptography-based security systems to protect sensitive information", and modules validated under NIST's Cryptographic Module Validation Program are considered to conform to it. The program's [FIPS 140-3 transition schedule](https://csrc.nist.gov/projects/fips-140-3-transition-effort) moves all FIPS 140-2 certificates to the Historical List on September 22, 2026. Existing systems may keep using those modules; new systems should use FIPS 140-3 validated modules.

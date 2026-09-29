@@ -8,6 +8,7 @@ control:
   id: IA-3
   family: IA
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -128,3 +129,37 @@ Determine if [Assignment: organization-defined devices and/or types of devices] 
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-3 asks the system to know which device is connecting, and to prove it, before the connection is allowed. An IP or MAC address identifies a device but does not authenticate it, since both are easy to spoof. The [Identification and Authentication policy](/templates/policies/ia/) applies IA-3 to every organization-managed endpoint, server and network device.
+
+**Common implementations.** Network access control with IEEE 802.1X and EAP-TLS, where each managed device holds a certificate from the organization's public key infrastructure. Remote access (VPN or zero trust access) that requires a device certificate and a healthy compliance state from device management, not just the user's sign-in. Mutual TLS between servers and services. Devices that cannot hold a certificate, such as printers and building systems, sit on their own network segment with MAC-based identification and a documented exception. Certificates follow section 7 of the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/).
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Devices and types of devices to identify and authenticate | All organization-managed endpoints, servers and network devices |
+| Connection types (local, remote, network) | Remote and network |
+
+**Evidence assessors ask for.**
+
+- The list of device types in scope, with the authentication method for each and any exceptions
+- Network access control and 802.1X configuration, including the MAC authentication bypass list
+- Remote access settings showing device certificates or device compliance are required
+- Certificate templates and issuance records for device certificates
+- A test, often run by the assessor, showing an unmanaged device is refused or sent to a restricted network
+
+**Inheritance.** The network access control service, the public key infrastructure and device management are usually common controls. The system owns authentication between its own servers and services, and the exceptions for its own devices.
+
+**Common findings.**
+
+- MAC authentication bypass lists that grow without review and let any device with a copied address on to the network.
+- Remote access that authenticates the user but accepts any device.
+- Device certificates left valid after the device is retired or lost.
+- Server-to-server connections inside the boundary with no authentication at all.
+
+**Enhancements in the Moderate baseline.** None. IA-3 has no enhancements in the Low, Moderate or High baselines.
+
+**Federal systems** (as of September 2026). OMB [M-19-17](https://www.whitehouse.gov/wp-content/uploads/2019/05/M-19-17.pdf) (May 21, 2019) requires agencies to manage the digital identity life cycle of devices, non-person entities and automated technologies. That includes mechanisms "to bind, update, revoke, and destroy credentials for the device" (Section IV, Architecture, item 3). OMB M-26-18 (August 31, 2026) lists M-19-17 as existing OMB policy.

@@ -28,6 +28,7 @@ FISMA
 GLBA
 headshot
 HITRUST
+hotwash
 HSPD
 IATT
 Intune

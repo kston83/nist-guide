@@ -14,7 +14,7 @@ typical:
 ---
 
 :::guidance
-The contingency plan says how a system is kept going, or brought back, after a disruption, compromise or failure. Base it on a business impact analysis, which sets the recovery objectives. NIST SP 800-34 Rev. 1 describes the planning process and a plan outline.
+The contingency plan says how a system is kept going, or brought back, after a disruption, compromise or failure. Base it on a [business impact analysis](/templates/reports/business-impact-analysis/), which sets the recovery objectives. The [Information System Contingency Plan template](/templates/plans/contingency-plan/) follows NIST SP 800-34 Rev. 1 and covers each element of CP-2a.
 :::
 
 - Each {{org:system-owner}} shall develop a contingency plan for the system that identifies essential mission and business functions and the contingency requirements that go with them. (CP-2a.1)

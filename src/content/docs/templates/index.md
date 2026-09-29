@@ -46,6 +46,8 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Information System Contingency Plan](/templates/plans/contingency-plan/) | [Core](/program/core/) | Draft |
+| [Contingency Plan Test Plan](/templates/plans/contingency-plan-test-plan/) | [Operate](/program/operate/) | Draft |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
@@ -73,4 +75,6 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Business Impact Analysis](/templates/reports/business-impact-analysis/) | [Core](/program/core/) | Draft |
+| [Contingency Plan After-Action Report](/templates/reports/contingency-plan-after-action-report/) | [Operate](/program/operate/) | Draft |
 | [Risk Assessment Report](/templates/reports/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |

@@ -10,7 +10,7 @@ typical:
 ---
 
 :::guidance
-A tabletop exercise checks that people know the plan; a functional test checks that recovery actually works. Record each test in a test plan and an after-action report, and track corrective actions to closure.
+A tabletop exercise checks that people know the plan; a functional test checks that recovery actually works. NIST SP 800-84 describes both. Plan each test with the [test plan template](/templates/plans/contingency-plan-test-plan/), record the results in an [after-action report](/templates/reports/contingency-plan-after-action-report/), and track corrective actions to closure.
 :::
 
 - The {{org:system-owner}} shall test the contingency plan {{param:cp-04_odp.01}}, using {{param:cp-04_odp.02}} to determine the plan's effectiveness and {{param:cp-04_odp.03}} to determine readiness to execute it. (CP-4a)

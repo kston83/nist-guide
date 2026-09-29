@@ -140,7 +140,7 @@ Each statement below comes from the clause for one control or enhancement in the
 #### Contingency plan (CP-2)
 
 :::note[Guidance]
-The contingency plan says how a system is kept going, or brought back, after a disruption, compromise or failure. Base it on a business impact analysis, which sets the recovery objectives. NIST SP 800-34 Rev. 1 describes the planning process and a plan outline.
+The contingency plan says how a system is kept going, or brought back, after a disruption, compromise or failure. Base it on a [business impact analysis](/templates/reports/business-impact-analysis/), which sets the recovery objectives. The [Information System Contingency Plan template](/templates/plans/contingency-plan/) follows NIST SP 800-34 Rev. 1 and covers each element of CP-2a.
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall develop a contingency plan for the system that identifies essential mission and business functions and the contingency requirements that go with them. (CP-2a.1)
@@ -192,7 +192,7 @@ Contingency training teaches people with a role in the plan what they do and how
 #### Contingency plan testing (CP-4)
 
 :::note[Guidance]
-A tabletop exercise checks that people know the plan; a functional test checks that recovery actually works. Record each test in a test plan and an after-action report, and track corrective actions to closure.
+A tabletop exercise checks that people know the plan; a functional test checks that recovery actually works. NIST SP 800-84 describes both. Plan each test with the [test plan template](/templates/plans/contingency-plan-test-plan/), record the results in an [after-action report](/templates/reports/contingency-plan-after-action-report/), and track corrective actions to closure.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall test the contingency plan <span class="tpl-field tpl-param">Fill in: frequency of testing the contingency plan for the system <span class="tpl-typical">Typical: annually</span></span>, using <span class="tpl-field tpl-param">Fill in: tests for determining the effectiveness of the contingency plan <span class="tpl-typical">Typical: a functional test that restores the system, or a representative part of it, from backup</span></span> to determine the plan's effectiveness and <span class="tpl-field tpl-param">Fill in: tests for determining readiness to execute the contingency plan <span class="tpl-typical">Typical: a tabletop exercise that walks the contingency team through the plan</span></span> to determine readiness to execute it. (CP-4a)

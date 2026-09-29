@@ -23,6 +23,7 @@ CSIRT
 CSRMC
 Diffie
 DISA
+DMARC
 DNSSEC
 ECDH
 exfiltration

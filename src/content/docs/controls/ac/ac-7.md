@@ -8,6 +8,7 @@ control:
   id: AC-7
   family: AC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -130,3 +131,37 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AC-7 limits how many times someone can guess at a logon before the system acts. You set a number of consecutive failed attempts, a window of time they are counted in, and what happens when the limit is passed: a temporary lock, a lock until an administrator releases it, a growing delay, an alert, or a mix. It applies to every logon interface, local or over the network, at the operating system and in applications.
+
+**Common implementations.** Lockout settings in the identity provider, which cover every application that signs in through it. On Windows domains, the account lockout policy: the lockout threshold, the time after which the failed-attempt counter resets, and the lockout duration, which map to the three parameters. Local lockout or delay settings on network devices, Linux servers and applications with their own logon. Alerts to the security operations team when privileged accounts lock or when many accounts lock at once, which suggests password spraying.
+
+NIST's discussion notes the tension in this control: automatic lockouts invite denial of service, so they are usually temporary, yet it also says automatic unlocking is generally not permitted without an operational need. The typical values below take the common middle path: a timed lock for ordinary users, and release by an administrator for privileged accounts. For comparison, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025, final as of September 2026), Sec. 3.2.2, sets 100 consecutive failed attempts on one authenticator as an upper bound, allows lower limits, and lists growing delays and bot challenges as ways to keep attackers from locking out legitimate users. A threshold of 3 is well inside that bound; the risk to weigh is lockouts of real users, not guessing.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Consecutive invalid logon attempts allowed (a) | 3 |
+| Time period in which attempts are counted (a) | 15 minutes |
+| Action when the limit is exceeded (b) | Lock the account or node for 30 minutes, or until released by an administrator for privileged accounts |
+
+**Evidence assessors ask for.**
+
+- The lockout settings in the identity provider and the directory, exported or shown on screen
+- Lockout or delay settings on components with their own logon: network devices, servers, databases and applications outside single sign-on
+- A test: the assessor or an administrator enters wrong passwords and shows the account locks as configured
+- Log entries or alerts for recent lockouts, and the procedure for releasing a locked privileged account
+
+**Inheritance.** Lockout in the identity provider or directory is usually a common control that every application using it inherits. The system owns lockout on its own local accounts, network device logons and any application with its own sign-in, so AC-7 is often a hybrid control.
+
+**Common findings.**
+
+- Applications, appliances or database consoles with their own logon and no lockout at all.
+- Settings in the directory that differ from the values in the policy or security plan.
+- Local administrator and emergency accounts exempt from lockout with no compensating monitoring.
+- Lockouts that are never logged or reviewed, so password spraying across many accounts goes unnoticed.
+
+**Enhancements in the Moderate baseline.** None. AC-7's enhancements, [AC-7(2)](#ac-7.2) to [AC-7(4)](#ac-7.4), are in no baseline.

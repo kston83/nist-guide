@@ -8,6 +8,7 @@ control:
   id: AC-4
   family: AC
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -799,3 +800,38 @@ Determine if approved authorizations are enforced for controlling the flow of in
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AC-4 controls where information may go, not who may see it. You write down the rules for which flows are allowed within the system and to and from connected systems, and the system enforces them. AC-3 decides whether a user may open a record; AC-4 decides whether that record may leave the network segment, the cloud account or the organization.
+
+**Common implementations.** Firewalls, cloud security groups and network policies that deny by default and allow only approved flows. Web and outbound proxies that restrict which destinations systems and users can reach. Data loss prevention on email, web and cloud storage that blocks or flags sensitive content leaving the organization. Rules in a service mesh or API gateway for flows between application components. For systems that exchange information across security domains, NIST's discussion points to cross-domain solutions, which AC-4(3) to AC-4(32) describe. The [boundary protection standard](/templates/standards/boundary-protection-standard/) holds the traffic rules, and interconnection agreements under [CA-3](/controls/ca/ca-3/) approve flows to other systems. The [Access Control policy](/templates/policies/ac/) names both as the information flow control policies.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Information flow control policies | The boundary protection standard and the approved interconnection agreements |
+
+**Evidence assessors ask for.**
+
+- The boundary and data flow diagrams in the [system security plan](/templates/plans/system-security-plan/), showing every external connection and managed interface
+- The traffic flow policy for each managed interface: each rule with its source, destination, service, business reason and owner
+- Firewall, security group or proxy configuration exported from the devices, which the assessor compares with the documented rules
+- Interconnection agreements for connected systems, matched against the rules that allow those flows
+- Data loss prevention rules and a sample of recent alerts, where the system uses them
+- A test, often a scan or connection attempt from outside the allowed sources, showing a flow that is not allowed is blocked
+
+**Inheritance.** The enterprise perimeter, the outbound proxy and the cloud landing zone's network controls are usually common controls. The system still owns the flows inside its own boundary, the rules for its own components, and the list of connected systems, so AC-4 is usually a hybrid control.
+
+**Common findings.**
+
+- Rules that allow any source, any destination or any service, added during a deployment and never removed.
+- Rules with no documented reason or owner, so no one can say whether they are still needed.
+- Flat internal networks where every server can reach every other server.
+- Cloud storage or databases reachable from the internet outside any managed interface.
+- Diagrams that no longer match the configuration.
+
+**Enhancements in the Moderate baseline.** None. High adds [AC-4(4)](#ac-4.4), flow control of encrypted information: the Access Control policy's typical values are the boundary firewalls and data loss prevention service as the flow control mechanisms, and decrypting the information at the boundary for inspection as the method. Decrypting traffic exposes its content to the inspection devices, so record which traffic is exempt, such as health or banking sites, and who approved the exemptions.
+
+**Federal systems** (as of September 2026). Federal civilian agencies secure their external network connections under CISA's [Trusted Internet Connections (TIC) 3.0](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic) program, which CISA developed under OMB M-19-26, Update to the TIC Initiative. The boundary protection standard's federal section asks each system to show which TIC 3.0 security capabilities its managed interfaces provide and which it inherits.

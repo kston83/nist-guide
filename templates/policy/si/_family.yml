@@ -1,0 +1,30 @@
+# System and Information Integrity (SI) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: System and Information Integrity
+role: ciso
+stage: operate
+questions:
+  - question: Who installs updates for each kind of component, and how are urgent updates approved?
+    controls: [si-2, si-2.2]
+    typical: The IT operations team patches operating systems and common software monthly as standard changes; application teams update their own code and libraries; updates for known exploited vulnerabilities go through the emergency change process.
+    decides: Chief Information Security Officer, with the change control board
+  - question: Where do monitoring data and alerts go, and who triages them, at what hours?
+    controls: [si-4, si-4.2, si-4.5]
+    typical: A central security information and event management (SIEM) platform, triaged around the clock by the security operations team or a managed security service.
+    decides: Chief Information Security Officer
+  - question: Which malicious code, spam and monitoring protections are common controls, and which does each system own?
+    controls: [si-3, si-4, si-8]
+    typical: Endpoint detection and response, the email gateway and the SIEM platform are common controls; each system owner makes sure every component runs the agent and sends its logs, and owns application-specific detections.
+    decides: Chief Information Security Officer
+  - question: Is encrypted traffic decrypted for inspection, and which categories are exempt?
+    controls: [si-4.10]
+    typical: Decrypted at the internet boundary proxy, with health, financial and similar personal categories exempt, as approved by legal counsel and the senior privacy official.
+    decides: Chief Information Security Officer, with legal counsel and the senior privacy official
+  - question: Where are retention periods set for each type of information, and who confirms information is disposed of at the end?
+    controls: [si-12, si-12.3]
+    typical: In the organization's records retention schedule, owned by records management; each system security plan and privacy impact assessment names the periods that apply, and the system owner confirms disposal each year.
+    decides: System owner, with records management

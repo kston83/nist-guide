@@ -200,6 +200,16 @@ Most findings under AU-6 are about evidence, not effort: the review happened but
 
 - The <span class="tpl-field tpl-org">System owner</span> shall retain audit records for <span class="tpl-field tpl-param">Fill in: a time period to retain audit records that is consistent with the records retention policy <span class="tpl-typical">Typical: at least one year, or longer where the records retention schedule or a law requires it</span></span> to support after-the-fact investigation of incidents and to meet regulatory and organizational retention requirements. (AU-11)
 
+<div class="tpl-federal">
+
+##### Federal systems
+
+[OMB M-26-14](https://www.whitehouse.gov/wp-content/uploads/2026/05/M-26-14-Ensuring-Effective-and-Efficient-Agency-Logging-and-Network-Visibility-to-Defend-Against-Evolving-Cyber-Threats.pdf), Ensuring Effective and Efficient Agency Logging and Network Visibility to Defend Against Evolving Cyber Threats (May 22, 2026), rescinded OMB M-21-31. Its Appendix B requires retained logs to be actively searchable for at least 6 months after creation and retrievable for a year after creation, and notes that meeting these minimums does not relieve agencies of other requirements, such as those set by agency-specific or government-wide records schedules. It does not apply to national security systems. As of September 2026.
+
+- The <span class="tpl-field tpl-org">System owner</span> shall keep audit records actively searchable for at least 6 months after creation, and retrievable for at least one year after creation, as OMB M-26-14 requires. (AU-11)
+
+</div>
+
 #### Audit record generation (AU-12)
 
 - The <span class="tpl-field tpl-org">System owner</span> shall ensure <span class="tpl-field tpl-param">Fill in: system components that provide an audit record generation capability for the events types (defined in AU-02_ODP[02]) <span class="tpl-typical">Typical: all servers, network devices, security tools, databases and applications in the system boundary</span></span> provide an audit record generation capability for the event types identified under AU-2a. (AU-12a)

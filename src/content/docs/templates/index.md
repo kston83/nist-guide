@@ -29,6 +29,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Personally Identifiable Information Processing and Transparency Policy](/templates/policies/pt/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Policy](/templates/policies/ra/) | [Foundation](/program/foundation/) | Draft |
 | [System and Communications Protection Policy](/templates/policies/sc/) | [Core](/program/core/) | Draft |
+| [System and Information Integrity Policy](/templates/policies/si/) | [Operate](/program/operate/) | Draft |
 
 ## Decision worksheets
 
@@ -47,6 +48,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Personally Identifiable Information Processing and Transparency Decision Worksheet](/templates/worksheets/pt/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | [Foundation](/program/foundation/) | Draft |
 | [System and Communications Protection Decision Worksheet](/templates/worksheets/sc/) | [Core](/program/core/) | Draft |
+| [System and Information Integrity Decision Worksheet](/templates/worksheets/si/) | [Operate](/program/operate/) | Draft |
 
 ## Plans
 

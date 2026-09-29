@@ -157,7 +157,7 @@ Determine if:
 
 CA-2 is the formal control assessment: an assessor, independent at Moderate (CA-2(1)), tests whether each control is implemented correctly, operating as intended and producing the desired outcome. The assessment plan is approved before testing starts, and the report goes to the people who decide on the system's authorization.
 
-**Common implementations.** An assessment before initial authorization, then an annual assessment of a subset of controls under the continuous monitoring strategy (CA-7), so every control is assessed over the authorization period. Assessments follow the objectives and methods in SP 800-53A, shown on each control page. Independence comes from a separate internal team or a third-party assessor.
+**Common implementations.** An assessment before initial authorization, then an annual assessment of a subset of controls under the continuous monitoring strategy (CA-7), so every control is assessed over the authorization period. Assessments follow the objectives and methods in SP 800-53A, shown on each control page. Independence comes from a separate internal team or a third-party assessor. The [Security and Privacy Assessment Plan](/templates/plans/security-and-privacy-assessment-plan/) and [Security and Privacy Assessment Report](/templates/reports/security-and-privacy-assessment-report/) templates follow SP 800-53A.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 
@@ -166,7 +166,7 @@ CA-2 is the formal control assessment: an assessor, independent at Moderate (CA-
 | Assessment frequency (d) | Annually for a subset of controls, set by the continuous monitoring strategy, so all controls are assessed within the authorization period |
 | Who receives results (f) | The authorizing official, the system owner and the Chief Information Security Officer |
 
-**Evidence assessors ask for.** Assessors produce CA-2 evidence rather than request it: the approved assessment plan, the assessment report, and proof the report reached the named recipients.
+**Evidence assessors ask for.** Assessors produce CA-2 evidence rather than request it: the approved [assessment plan](/templates/plans/security-and-privacy-assessment-plan/), the [assessment report](/templates/reports/security-and-privacy-assessment-report/), and proof the report reached the named recipients.
 
 **Inheritance.** The assessment of common controls is done once by their provider and reused; the system assessment covers system-specific and hybrid controls.
 

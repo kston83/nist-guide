@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-Authorization is a senior official's decision to accept the risk of operating a system, based on the authorization package: the system security plan, the assessment report and the plan of action and milestones. The authorizing official should have budget or mission responsibility for the system, so the person who accepts the risk also owns its consequences. Ongoing authorization replaces the fixed termination date with decisions made from continuous monitoring results; it needs an initial authorization and a working continuous monitoring program (CA-7) first.
+Authorization is a senior official's decision to accept the risk of operating a system, based on the authorization package: the system security plan, the [assessment report](/templates/reports/security-and-privacy-assessment-report/) and the plan of action and milestones. The authorizing official should have budget or mission responsibility for the system, so the person who accepts the risk also owns its consequences. Ongoing authorization replaces the fixed termination date with decisions made from continuous monitoring results; it needs an initial authorization and a working continuous monitoring program (CA-7) first.
 :::
 
 - The {{org:senior-leader}} shall assign a senior official, with budget or mission responsibility for the system, as the authorizing official for the system. (CA-6a)

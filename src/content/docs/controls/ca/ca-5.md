@@ -84,7 +84,7 @@ Determine if:
 
 The plan of action and milestones (POA&M) records every known weakness until it is fixed or formally accepted. It is the connection between assessments and remediation, and assessors read it closely because it shows whether the organization acts on what it finds.
 
-**Common implementations.** One POA&M per system, kept in a spreadsheet or GRC tool, fed by assessment reports, vulnerability scans, audits and continuous monitoring. Each item has an owner, milestones and a scheduled completion date; changes to dates are explained. The [POA&M template](/templates/forms/plan-of-action-and-milestones/) lists the fields.
+**Common implementations.** One POA&M per system, kept in a spreadsheet or GRC tool, fed by [assessment reports](/templates/reports/security-and-privacy-assessment-report/), vulnerability scans, audits and continuous monitoring. Each item has an owner, milestones and a scheduled completion date; changes to dates are explained. The [POA&M template](/templates/forms/plan-of-action-and-milestones/) lists the fields.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

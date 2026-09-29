@@ -495,7 +495,7 @@ The supply chain risk management strategy is organization-wide; the supply chain
 #### Continuous monitoring strategy (PM-31)
 
 :::note[Guidance]
-The organization-wide strategy sets the metrics and frequencies each system's continuous monitoring (CA-7) follows. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes how to build it.
+The organization-wide strategy sets the metrics and frequencies each system's continuous monitoring (CA-7) follows. The [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) template holds both levels. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes how to build it.
 :::
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall develop an organization-wide continuous monitoring strategy and implement continuous monitoring programs that follow it. (PM-31)

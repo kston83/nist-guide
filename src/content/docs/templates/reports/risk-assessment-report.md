@@ -3,7 +3,7 @@ title: 'Risk Assessment Report'
 description: 'The report of a system risk assessment, following the three-part outline in NIST SP 800-30 Rev. 1 Appendix K, with the documentation, review and distribution SP 800-53 RA-3 requires.'
 sidebar:
   label: 'Risk Assessment Report'
-  order: 8
+  order: 10
 controls: [ra-3, ra-3.1]
 ---
 
@@ -13,7 +13,7 @@ controls: [ra-3, ra-3.1]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Plan | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Report | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -30,7 +30,7 @@ The report of a system risk assessment, following the three-part outline in NIST
 
 | Variant | Ready to adopt | Annotated |
 | --- | --- | --- |
-| All baselines | [Word](/downloads/plans/risk-assessment-report.docx) · [Markdown](/downloads/plans/risk-assessment-report.md) | [Word](/downloads/plans/risk-assessment-report-annotated.docx) · [Markdown](/downloads/plans/risk-assessment-report-annotated.md) |
+| All baselines | [Word](/downloads/reports/risk-assessment-report.docx) · [Markdown](/downloads/reports/risk-assessment-report.md) | [Word](/downloads/reports/risk-assessment-report-annotated.docx) · [Markdown](/downloads/reports/risk-assessment-report-annotated.md) |
 
 ## Preview (annotated)
 

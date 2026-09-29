@@ -5,7 +5,7 @@ import { z } from 'astro/zod';
 
 export const STATUS = ['none', 'draft', 'reviewed'] as const;
 export const STAGES = ['foundation', 'core', 'operate', 'mature'] as const;
-export const TYPES = ['plan', 'standard', 'procedure', 'form'] as const;
+export const TYPES = ['plan', 'standard', 'procedure', 'form', 'report'] as const;
 
 // Folder under templates/ for each non-policy type.
 export const TYPE_FOLDERS: Record<(typeof TYPES)[number], string> = {
@@ -13,6 +13,7 @@ export const TYPE_FOLDERS: Record<(typeof TYPES)[number], string> = {
 	standard: 'standards',
 	procedure: 'procedures',
 	form: 'forms',
+	report: 'reports',
 };
 
 export interface CatalogData {

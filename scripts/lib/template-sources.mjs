@@ -57,7 +57,7 @@ export async function loadSources(root = 'templates') {
 	}
 
 	const templates = [];
-	for (const type of ['plans', 'standards', 'procedures', 'forms']) {
+	for (const type of ['plans', 'standards', 'procedures', 'forms', 'reports']) {
 		const walk = async (dir) => {
 			for (const f of await list(dir)) {
 				const p = path.join(dir, f.name);

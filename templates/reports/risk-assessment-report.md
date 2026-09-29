@@ -1,6 +1,6 @@
 ---
 title: Risk Assessment Report
-type: plan
+type: report
 description: The report of a system risk assessment, following the three-part outline in NIST SP 800-30 Rev. 1 Appendix K, with the documentation, review and distribution SP 800-53 RA-3 requires.
 controls: [ra-3, ra-3.1]
 status: draft

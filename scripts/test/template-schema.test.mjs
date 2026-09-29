@@ -106,6 +106,7 @@ test('a clause must live at policy/<family>/<control>, once per control', () => 
 
 test('a template’s folder must match its type', () => {
 	assert.deepEqual(templateProblems([{ id: 'plans/incident-response-plan', data: { type: 'plan' } }]), []);
+	assert.deepEqual(templateProblems([{ id: 'reports/risk-assessment-report', data: { type: 'report' } }]), []);
 	assert.deepEqual(templateProblems([{ id: 'plans/x', data: { type: 'form' } }]), [
 		'templates/plans/x.md: type "form" templates belong under templates/forms/.',
 	]);

@@ -11,7 +11,7 @@ interface Props {
 }
 const { stage } = Astro.props;
 
-const TYPE = { policy: 'Policy', worksheet: 'Decision worksheet', plan: 'Plan', standard: 'Standard', procedure: 'Procedure', form: 'Form or register' };
+const TYPE = { policy: 'Policy', worksheet: 'Decision worksheet', plan: 'Plan', standard: 'Standard', procedure: 'Procedure', form: 'Form or register', report: 'Report' };
 const labels = new Map(catalog.controls.map((c) => [c.id, c.label]));
 const familyOrder = [...new Set(catalog.controls.map((c) => c.family))];
 

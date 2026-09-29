@@ -134,7 +134,7 @@ export const collections = {
 	// Plans, standards, procedures and forms: templates/<type folder>/**/*.md.
 	templates: defineCollection({
 		loader: checked(
-			glob({ base: './templates', pattern: '{plans,standards,procedures,forms}/**/*.md', generateId: pathId }),
+			glob({ base: './templates', pattern: '{plans,standards,procedures,forms,reports}/**/*.md', generateId: pathId }),
 			both(templateProblems, variableProblems),
 		),
 		schema: templates.template,

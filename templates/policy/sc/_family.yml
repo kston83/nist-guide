@@ -1,0 +1,26 @@
+# System and Communications Protection (SC) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: System and Communications Protection
+role: ciso
+stage: core
+questions:
+  - question: Which algorithms, key lengths and cryptographic modules are approved for each use, and where is the list kept?
+    controls: [sc-8, sc-12, sc-13, sc-28]
+    typical: An encryption and key management standard listing each use with its approved algorithms and validated modules, owned by the security team and reviewed each year.
+    decides: Chief Information Security Officer
+  - question: Which managed interfaces protect each system, and which are shared across the organization?
+    controls: [sc-7]
+    typical: The enterprise perimeter, the internet connection and the cloud landing zone are common controls; each system owns its security groups, application firewall rules and internal segmentation.
+    decides: Chief Information Security Officer
+  - question: Who issues certificates, and which certificate authorities do systems trust?
+    controls: [sc-17]
+    typical: Public certificate authorities for internet-facing services; an internal certificate authority under the organization's certificate policy for internal services; trust stores limited to an approved list.
+    decides: Chief Information Security Officer
+  - question: Which protections does each system inherit from its cloud or hosting provider?
+    controls: [sc-4, sc-5, sc-39]
+    typical: Recorded in the inheritance table of the system security plan, from the provider's customer responsibility matrix.
+    decides: System owner

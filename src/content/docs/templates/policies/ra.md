@@ -140,7 +140,7 @@ Federal systems categorize information and systems under [FIPS 199](https://csrc
 #### Risk assessment (RA-3)
 
 :::note[Guidance]
-A system risk assessment identifies threats and vulnerabilities, then estimates the likelihood and impact of harm, to the organization and, where the system processes personally identifiable information, to individuals. Use the method and scales the risk management strategy sets (PM-9, PM-28), so results from different systems can be compared. NIST SP 800-30 Rev. 1 is the usual reference for the method. Start from the [Risk Assessment Report template](/templates/plans/risk-assessment-report/) and record each risk in the [risk register](/templates/forms/risk-register/). Risks found here feed the plan of action and milestones (CA-5) and the risk response (RA-7).
+A system risk assessment identifies threats and vulnerabilities, then estimates the likelihood and impact of harm, to the organization and, where the system processes personally identifiable information, to individuals. Use the method and scales the risk management strategy sets (PM-9, PM-28), so results from different systems can be compared. NIST SP 800-30 Rev. 1 is the usual reference for the method. Start from the [Risk Assessment Report template](/templates/reports/risk-assessment-report/) and record each risk in the [risk register](/templates/forms/risk-register/). Risks found here feed the plan of action and milestones (CA-5) and the risk response (RA-7).
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall conduct a risk assessment of the system that identifies threats to and vulnerabilities in the system. (RA-3a.1)

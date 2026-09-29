@@ -61,6 +61,10 @@ const families = [
 export default defineConfig({
 	site: SITE_URL,
 	base: BASE_PATH,
+	// Moved when the report template type was added (TPL-01, PRD 3.3); #50 published the old URL.
+	redirects: {
+		'/templates/plans/risk-assessment-report/': `${BASE_PATH === '/' ? '' : BASE_PATH}/templates/reports/risk-assessment-report/`,
+	},
 	markdown: {
 		rehypePlugins: [rehypeRebaseLinks, rehypeEnhancementTokens, rehypeTaskListLabels],
 	},
@@ -158,6 +162,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [{ autogenerate: { directory: 'templates/forms' } }],
 						},
+						{ label: 'Reports', collapsed: true, items: [{ autogenerate: { directory: 'templates/reports' } }] },
 					],
 				},
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },

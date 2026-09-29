@@ -1,6 +1,6 @@
 ---
 title: 'Templates'
-description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, procedures, standards and forms. CC0.'
+description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, procedures, standards, forms and reports. CC0.'
 sidebar:
   label: 'All templates'
   order: 0
@@ -44,7 +44,6 @@ Each template is written once and assembled for your baseline. Download the read
 | --- | --- | --- |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
-| [Risk Assessment Report](/templates/plans/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
 
@@ -63,3 +62,9 @@ Each template is written once and assembled for your baseline. Download the read
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
 | [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
 | [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |
+
+## Reports
+
+| Template | Program stage | Status |
+| --- | --- | --- |
+| [Risk Assessment Report](/templates/reports/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |

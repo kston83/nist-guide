@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.1 · Sep 28, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.3 · Sep 28, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -111,7 +111,7 @@ src/content/docs/
     coverage.md             NEW: guidance and policy-clause progress by control
     crosswalks/             NEW: NIST-published mappings (CSF 2.0, 800-171, SSDF)
   templates/                Layer 3 (NEW, generated): one page per template, with preview and downloads
-    policies/  plans/  procedures/  standards/  forms/  worksheets/
+    policies/  plans/  procedures/  standards/  forms/  reports/  worksheets/
   methods/                  NEW (Phase 4): NIST implementation guidance, by family
     index.md                What a method is; each family's NIST methods, with versions
     ssdf/                   SSDF overview and one page per practice (the first method)
@@ -188,6 +188,7 @@ Templates are the core addition in this version. They must be written once, reus
 | Procedure | Step-by-step how, by role | Account provisioning and review procedure | One file per procedure |
 | Plan | A required plan document | System Security Plan, Incident Response Plan | One file per plan, with sections |
 | Form or register | A record the program keeps | POA&M, access review record, visitor log | `.csv` or `.md` table |
+| Report | The written result of an assessment, analysis or exercise | Risk assessment report, security assessment report, after-action report | One file per report, with sections |
 | Decision worksheet | Every choice a family forces, with typical values | Access Control decisions | Generated from parameters plus family questions |
 
 Policy says what and who, standards say how much, procedures say how. NIST's own discussion of the -1 controls warns that "simply restating controls does not constitute an organizational policy or procedure" (SP 800-53 Rev. 5, AC-1 discussion), so clauses must commit to something specific.
@@ -209,6 +210,7 @@ templates/
   procedures/<family>/<slug>.md
   plans/<slug>.md
   forms/<slug>.csv | .md
+  reports/<slug>.md
   reference.docx                   Word styles for generated .docx files
 ```
 
@@ -231,7 +233,7 @@ set:                           # optional: parameters the clause fixes in its te
 
 # templates/plans/incident-response-plan.md (and other non-policy templates)
 title: Incident Response Plan
-type: plan | standard | procedure | form      # folder must match: plans/, standards/, procedures/, forms/
+type: plan | standard | procedure | form | report   # folder must match: plans/, standards/, procedures/, forms/, reports/
 description: One sentence on what the artifact is for
 controls: [ir-8, ir-4, ir-6]   # controls this artifact satisfies or supports
 ssdf: [RV.1]                   # SSDF practices it supports, if any
@@ -690,6 +692,7 @@ None of these block Phase 1.
 | Articles (FEAT-01) | Deferred to Phase 6, with the first article; `starlight-blog` is compatible with Starlight 0.42 and remains the first choice | Sep 28, 2026 |
 | PM policy | One organization-wide edition (`baseline: none` in `_family.yml`), included in every baseline's kit, with PM-1's own shared sections in `policy/pm/_common.md` | Sep 28, 2026 |
 | Privacy-baseline clauses | Written in Phase 3 with each family (the PT policy and the privacy-only controls of other families), so each Privacy variant is complete | Sep 28, 2026 |
+| Report template type | A fifth non-policy type, `report` (`templates/reports/`), for the written results of assessments, analyses and exercises: the risk assessment report first, then the CA assessment report and the CP after-action report | Sep 28, 2026 |
 
 ## Revision history
 
@@ -701,3 +704,4 @@ None of these block Phase 1.
 | 3 | Sep 28, 2026 | Phase 2 marked done. Methods added: NIST implementation guidance as a sixth question on each control and a Methods section on control pages (METH-01 to METH-03); the SSDF becomes the first method, under `methods/ssdf/`. AI security guide added as a separate section built on NIST guidance (AI-01 to AI-09), with a checked status table of NIST AI publications; no author-made AI control overlays. New persona, page types and `implements` and `airmf` front matter. Phases now six: 3 full program kit and methods, 4 AI security guide, 5 industries and technology, 6 depth (order set in 3.1). OWASP added as the AI guide's second source (AI-10 to AI-12): the Top 10 for LLM and for Agentic Applications (CC BY-SA 4.0: own words and links only) and the AI Exchange (CC0), with a checked status and license table |
 | 3.1 | Sep 28, 2026 | Phase order (owner decision): finish what the guide already covers first. Seven phases: 3 full program kit (kit v2.0.0), 4 methods and the SSDF (kit v2.1.0), 5 AI security guide (kit v2.2.0), 6 industries and technology, 7 depth. "RMF complete" means the full program kit; Moderate guidance and High clauses stay in Depth |
 | 3.2 | Sep 28, 2026 | Owner decisions at the start of Phase 3: FEAT-01 moves to Phase 6; one organization-wide PM policy (`baseline: none`, `policy/pm/_common.md`); privacy-baseline clauses written with each family |
+| 3.3 | Sep 28, 2026 | Owner decisions in Phase 3: a `report` template type (Artifact types, Sources and layout, front matter, Decided); the artifact catalog's AC, IA, CM, AU and IR artifacts get Phase 3 plan rows after SR (PROGRESS.md) |

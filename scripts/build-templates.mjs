@@ -11,7 +11,7 @@
  * Family policies: policy/_common.md (or the family's own) plus each family's clauses, in catalog
  * order, one file per baseline (TPL-03), in a clean and an annotated edition
  * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. Plans,
- * standards, procedures and forms: one file per edition. Decision worksheets
+ * standards, procedures, forms and reports: one file per edition. Decision worksheets
  * (TPL-08): worksheets/<family>-decisions-<baseline>.csv. Every document also
  * as .docx, styled by templates/reference.docx, and every family as a .zip
  * pack, plus the full kit (TPL-05).

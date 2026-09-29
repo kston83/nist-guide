@@ -8,6 +8,7 @@ control:
   id: IA-6
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -49,3 +50,29 @@ Determine if the feedback of authentication information is obscured during the a
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-6 asks that what users type to authenticate, and what the system says back, gives nothing away to someone watching or probing. Check every place the system accepts credentials: web sign-in pages, command lines, device consoles and APIs. The [Identification and Authentication policy](/templates/policies/ia/) makes the system owner responsible.
+
+**Common implementations.** Password and PIN fields masked by default. [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025, Sec. 3.1.1.2) says verifiers should offer an option to display the password while it is typed. A "show password" toggle the user chooses fits IA-6, since masking stays the default. Mobile devices may show each character briefly before hiding it, as NIST's discussion of IA-6 notes. Failed sign-ins return one generic message that does not say whether the username or the password was wrong. Command-line tools do not echo passwords, and credentials never appear in logs or URLs.
+
+**Organization-defined parameters.** IA-6 has none.
+
+**Evidence assessors ask for.**
+
+- Screenshots or a live demonstration of each sign-in page, console and command-line tool
+- The error messages shown for a wrong username and for a wrong password
+- The account recovery and password reset pages, and what they reveal
+- Logging settings, or a sample of authentication logs, showing no passwords or one-time codes recorded
+
+**Inheritance.** When users sign in through the enterprise identity provider, its sign-in page is inherited. The system owns its own sign-in forms, command-line tools, device and appliance consoles, and API error responses.
+
+**Common findings.**
+
+- Network devices or legacy applications that echo passwords in clear text.
+- Error messages or reset pages that confirm whether an account exists, which lets an attacker list valid usernames.
+- Passwords written to application or debug logs after failed sign-ins.
+- Credentials passed in URL query strings, where browsers and proxies record them.
+
+**Enhancements in the Moderate baseline.** IA-6 has no enhancements.

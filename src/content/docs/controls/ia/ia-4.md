@@ -8,6 +8,7 @@ control:
   id: IA-4
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -201,3 +202,35 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-4 covers the names the system knows its users, groups, roles, services and devices by. Each identifier is issued with authorization, names one subject, goes to the right one, and is never handed to someone else within the reuse period. [AC-2](/controls/ac/ac-2/) manages the accounts; IA-4 manages the identifiers those accounts use.
+
+**Common implementations.** The identity provider builds usernames from the HR record and a unique employee or contractor number, so two people never share one. Accounts are created only from an approved access request, as step 6 of the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) records. When someone leaves, the account is disabled, and the identifier stays reserved rather than being deleted and reissued. Service accounts use a naming convention and record an owner. Device identifiers come from the component inventory. A directory attribute or display name marks each person's status for IA-4(4).
+
+**Organization-defined parameters.** Typical values, taken from the [Identification and Authentication policy](/templates/policies/ia/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who authorizes an identifier (a) | The system owner, through the approved access request |
+| Period during which identifiers are not reused (d) | At least two years |
+| Characteristics that identify user status (IA-4(4)) | Employee, contractor, or foreign national |
+
+**Evidence assessors ask for.**
+
+- The identifier naming procedure, covering people, service accounts and devices
+- A sample of identifiers traced back to their approved access requests
+- The list of identifiers of people who left, compared with current accounts to show none were reissued
+- Directory attributes or display names showing each user's status, for IA-4(4)
+
+**Inheritance.** The enterprise identity provider usually supplies the identifiers of people as a common control. The system owns identifiers it creates itself: local and application accounts, service accounts and its devices.
+
+**Common findings.**
+
+- A former employee's username or email address reissued to a new hire with the same name.
+- Generic identifiers such as `admin` or `test` that name no person or service.
+- Contractors who cannot be told apart from employees in the directory.
+- Service accounts created by administrators with no request and no owner.
+
+**Enhancements in the Moderate baseline.** [IA-4(4)](#ia-4.4) identify user status. High adds none.

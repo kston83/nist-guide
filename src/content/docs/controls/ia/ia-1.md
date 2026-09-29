@@ -8,6 +8,7 @@ control:
   id: IA-1
   family: IA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,55 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IA-1 asks for a written identification and authentication policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Identification and Authentication policy template](/templates/policies/ia/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the IA-1 item it meets:
+
+| IA-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written as runbooks for the work IA-2 to IA-12 describe: issuing identifiers and accounts, identity proofing at enrollment, issuing and resetting authenticators, enrolling device certificates, and onboarding external identity providers. Procedures can sit in the [system security plan](/templates/plans/system-security-plan/) or in separate documents.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out: account managers, the help desk, system administrators and system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer, or the identity and access management lead they delegate to |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | A change in applicable laws or standards (such as a new revision of NIST SP 800-63), a major incident, or an assessment or audit finding |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events, plus a change of identity provider, authenticator type or proofing service |
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, such as the policy library page or acknowledgment records
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** IA-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its security plan. It adds its own procedures only where it handles identification or authentication differently, for example with local accounts.
+
+**Common findings.**
+
+- A policy that restates the IA controls but has no procedures behind it. NIST's discussion of IA-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period, or not updated after an incident or finding.
+- Procedures that contradict the policy, such as help desk scripts that still require periodic password changes.
+- No evidence that the procedures reached the people who follow them.
+
+**Enhancements in the Moderate baseline.** IA-1 has no enhancements.
+
+**Federal systems** (as of September 2026). OMB [M-19-17](https://www.whitehouse.gov/wp-content/uploads/2019/05/M-19-17.pdf) (May 21, 2019), Enabling Mission Delivery through Improved Identity, Credential, and Access Management, requires each agency to "define and maintain a single comprehensive ICAM policy, process, and technology solution roadmap" (Section IV, Governance, item 2). Write a system's IA policy and procedures to fit within that agency-wide policy. OMB [M-26-18](https://www.whitehouse.gov/wp-content/uploads/2026/08/M-26-18-Scaling-Use-of-Login.gov-to-Deliver-a-Universal-Sign-on-for-Public-Services.pdf) (August 31, 2026) lists M-19-17 as existing OMB policy and supersedes only its Section V.5.

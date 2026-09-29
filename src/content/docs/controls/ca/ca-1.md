@@ -8,6 +8,7 @@ control:
   id: CA-1
   family: CA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,55 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CA-1 asks for a written assessment, authorization and monitoring policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Assessment, Authorization, and Monitoring policy template](/templates/policies/ca/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the CA-1 item it meets:
+
+| CA-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written for the work CA-2 to CA-9 describe: planning and running control assessments, recording weaknesses in the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/), assembling the authorization package and recording the authorizing official's decision, running continuous monitoring, and approving information exchanges and internal connections. Most organizations write these as one assessment and authorization procedure with a section per step, or place the system-specific parts in the [system security plan](/templates/plans/system-security-plan/). The policy's authorization statements should follow the risk tolerance in the [risk management strategy](/templates/plans/risk-management-strategy/).
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out: assessors, system owners, system security officers and authorizing officials |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer, or the assessment and authorization lead they delegate to |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | A change in applicable laws or standards (such as a new revision of NIST SP 800-37 or SP 800-53A), a major incident, or an assessment or audit finding |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events, plus a change of assessment tools, of the governance, risk and compliance tool, or of who serves as authorizing official |
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, such as the policy library page or acknowledgment records
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** CA-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its security plan. It adds its own procedures only where its assessment or monitoring differs, for example when an external party assesses it under a contract.
+
+**Common findings.**
+
+- A policy that restates the CA controls but has no procedures behind it. NIST's discussion of CA-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period, or not updated after an incident or finding.
+- Procedures that do not match practice, such as a stated annual assessment cycle that the continuous monitoring strategy does not follow.
+- No evidence that the procedures reached the assessors and system owners who follow them.
+
+**Enhancements in the Moderate baseline.** CA-1 has no enhancements.
+
+**Federal systems** (as of September 2026). FISMA requires each agency's security program to include periodic testing and evaluation of security controls "with a frequency depending on risk, but no less than annually", covering every system in the agency's inventory ([44 U.S.C. § 3554(b)(5)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title44-section3554&num=0&edition=prelim)), and a process for planning and carrying out remedial action (§ 3554(b)(6)). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.d, requires agencies to designate senior Federal officials to authorize systems and common controls, and to develop information security and privacy continuous monitoring strategies (footnote 85 lets an agency combine the two). A federal CA policy and its procedures should carry out both.

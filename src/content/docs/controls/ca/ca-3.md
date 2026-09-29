@@ -8,6 +8,7 @@ control:
   id: CA-3
   family: CA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -115,3 +116,37 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CA-3 covers every exchange of information between the system and a system outside its authorization boundary: a dedicated line or virtual private network, an application programming interface, a shared database, a file transfer or a cloud service. The authorizing official approves each exchange, and a written agreement records what is exchanged, how it is protected and who is responsible on each side. NIST SP 800-47 Rev. 1, Managing the Security of Information Exchanges ([July 2021](https://csrc.nist.gov/pubs/sp/800/47/r1/final), current as of September 2026), describes how to plan, establish, maintain and end an exchange and its agreement.
+
+**Common implementations.** An interconnection security agreement for a system-to-system connection, or an information exchange security agreement for other exchanges, often paired with a memorandum of understanding that sets the business terms. For an external service, the same content in the contract or service level agreement instead of a separate agreement. Each exchange listed in the interconnections table of the [system security plan](/templates/plans/system-security-plan/) and in the interconnections field of the [system inventory](/templates/forms/system-inventory/), with the agreement reference. Where both systems have the same authorizing official, NIST's discussion allows the security and privacy plans to describe the interface instead of an agreement. The [Assessment, Authorization, and Monitoring policy](/templates/policies/ca/) sets the rules; an information exchange agreement template is planned.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Types of agreement (a) | Interconnection security agreements or information exchange security agreements, and service level agreements or contract terms with the same content for external services |
+| Agreement review frequency (c) | At least annually, and when either system makes a significant change that affects the exchange |
+
+**Evidence assessors ask for.**
+
+- The list of exchanges with systems outside the boundary, from the system security plan
+- A signed agreement for each exchange, with the interface characteristics, security and privacy requirements, controls, responsibilities and impact level of the information (CA-3b)
+- The authorizing official's approval of each exchange
+- Records of the last review of each agreement, with the changes made
+- Network diagrams and configuration that match the listed exchanges, so the assessor can find any connection with no agreement
+
+**Inheritance.** CA-3 is usually system-specific: each system owner manages the exchanges that cross their boundary. An enterprise network or cloud platform may provide shared connections, such as a managed gateway to a partner, and their agreements, which the systems behind them inherit and reference in their security plans.
+
+**Common findings.**
+
+- Connections found in firewall rules or flow logs with no agreement or approval, often to software-as-a-service tools added outside the authorization process.
+- Agreements past their review date, or still in force after the connection ended.
+- Agreements that name the systems but omit the impact level of the information or the security responsibilities of each side.
+- An interconnections table in the security plan out of step with the system inventory.
+
+**Enhancements in the Moderate baseline.** None. High adds [CA-3(6)](#ca-3.6) transfer authorizations: the system verifies that whoever sends data has permission to write it before accepting it.
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.c(16), requires the authorizing official's approval for connections from a system, as defined by its authorization boundary, to other systems, based on the risk to agency operations and assets, individuals, other organizations and the Nation. Section 4.j(2)(f) requires agreements, such as memoranda of understanding, interconnection security agreements or contracts, for interfaces between agency systems and systems that contractors or other entities use or operate on the Government's behalf.

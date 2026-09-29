@@ -8,6 +8,7 @@ control:
   id: CA-6
   family: CA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -119,3 +120,40 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+Authorization is a senior official's decision to accept the risk of operating a system. The authorizing official decides from the authorization package: the security and privacy plans, the assessment report and the plan of action and milestones. The same decision is made for common controls, by an authorizing official for those controls, so that systems can inherit them. The authorizing official should have budget or mission responsibility for the system, so the person who accepts the risk also owns its consequences. NIST SP 800-37 Rev. 2 ([December 2018](https://csrc.nist.gov/pubs/sp/800/37/r2/final), current as of September 2026) describes the authorization tasks in its Authorize step.
+
+**Common implementations.** A written designation of the authorizing official for each system and for the common controls. A signed authorization decision document that states the decision, any terms and conditions, and either a termination date or that the system is under ongoing authorization. The package assembled from the [system security plan](/templates/plans/system-security-plan/), the assessment report and the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/), and judged against the risk tolerance in the [risk management strategy](/templates/plans/risk-management-strategy/). Once continuous monitoring (CA-7) works, many organizations move systems to ongoing authorization, where the authorizing official reviews monitoring results on a set schedule instead of reauthorizing from scratch. The [Assessment, Authorization, and Monitoring policy](/templates/policies/ca/) sets the rules.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Authorization update frequency (e) | At least every three years and after a significant change, or ongoing authorization once the authorizing official approves it, on the time- or event-driven basis the Continuous Monitoring Strategy sets |
+
+The three-year cycle is a common practice, not a federal rule. OMB Circular A-130 calls for reauthorization on a time- or event-driven basis, in line with agency risk tolerance, and sets no fixed period (see Federal systems below).
+
+**Evidence assessors ask for.**
+
+- The designation of the authorizing official for the system and for the common controls
+- The signed authorization decision, with its date, terms and conditions, and termination date or ongoing authorization status
+- The authorization package the decision was based on
+- The authorizing official's acceptance of the common controls the system inherits (CA-6c.1)
+- For ongoing authorization, the authorizing official's formal approval of the transition and the monitoring reports reviewed since
+- Records of reauthorization after significant changes
+
+**Inheritance.** The authorization of each system is system-specific and cannot be inherited. The authorization of common controls (CA-6b and d) is done once, by the authorizing official for those controls, and each inheriting system's authorizing official accepts it (CA-6c.1).
+
+**Common findings.**
+
+- Systems operating past their authorization termination date, or before an authorization was signed.
+- An authorizing official with no budget or mission responsibility for the system, or who is also the system owner.
+- Decisions that do not record which common controls the system inherits, or that accept them without seeing the provider's assessment.
+- Ongoing authorization claimed without a formal transition, or without monitoring reports reaching the authorizing official.
+- No reauthorization after a significant change, such as a move to a new hosting environment.
+
+**Enhancements in the Moderate baseline.** None. CA-6 has two enhancements, [CA-6(1)](#ca-6.1) joint authorization within the organization and [CA-6(2)](#ca-6.2) joint authorization across organizations; neither is in a baseline.
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.d, requires agencies to designate senior Federal officials to authorize systems and common controls; to complete an initial authorization to operate before operation, based on an explicit acceptance of risk; to move systems and common controls to ongoing authorization when eligible, with the authorizing official's formal approval; and to reauthorize as needed, on a time- or event-driven basis, in line with agency risk tolerance. Section 5.f states that only Federal Government personnel may serve as authorizing officials, as NIST's CA-6 discussion also says, and that the Senior Agency Official for Privacy's input is considered in the decision. Section 5.h sets two conditions for ongoing authorization: an initial authorization to operate, and continuous monitoring programs that monitor all implemented security and privacy controls at the frequencies the strategies set. Until the authorizing official approves the transition, the system keeps a specific termination date.

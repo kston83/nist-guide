@@ -13,7 +13,7 @@ typical:
 ---
 
 :::guidance
-System monitoring takes in the audit records reviewed under AU-6 and adds endpoint, network and cloud detection. The system monitoring standard sets the log sources, detection coverage, alert handling and reporting. Legal review of monitoring (SI-4f) is usually done once for the organization's monitoring program and repeated when monitoring changes, with a system use notification under AC-8.
+System monitoring takes in the audit records reviewed under AU-6 and adds endpoint, network and cloud detection. The [System Monitoring Standard](/templates/standards/system-monitoring-standard/) sets the log sources, detection coverage, alert handling and reporting. Legal review of monitoring (SI-4f) is usually done once for the organization's monitoring program and repeated when monitoring changes, with a system use notification under AC-8.
 :::
 
 - The {{org:security-operations}} shall monitor the system to detect attacks and indicators of potential attacks in accordance with the following monitoring objectives: {{param:si-04_odp.01}}. (SI-4a.1)

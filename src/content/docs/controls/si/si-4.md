@@ -682,7 +682,7 @@ SI-4 asks you to watch the system for attacks, unauthorized connections and misu
 
 **Evidence assessors ask for.**
 
-- The monitoring strategy or architecture: what is monitored, where and by which tool
+- The monitoring strategy or architecture: what is monitored, where and by which tool (the [System Monitoring Standard](/templates/standards/system-monitoring-standard/) is a starting point)
 - The list of log sources in the SIEM, compared with the component inventory
 - A sample of alerts and how each was triaged
 - Records of legal review of monitoring (f)

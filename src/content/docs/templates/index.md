@@ -68,6 +68,8 @@ Each template is written once and assembled for your baseline. Download the read
 | --- | --- | --- |
 | [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
 | [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
+| [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) | [Operate](/program/operate/) | Draft |
+| [System Monitoring Standard](/templates/standards/system-monitoring-standard/) | [Operate](/program/operate/) | Draft |
 | [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers

@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.5 · Sep 29, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.6 · Sep 29, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -43,7 +43,7 @@ Families roll the per-control pieces up into artifacts an organization actually 
 
 | Measure | Target |
 | --- | --- |
-| Controls with written guidance | 30 highest-value controls in Phase 2; all Moderate-baseline controls in Phase 3, each family's written with or right after its policy |
+| Controls with written guidance | 30 highest-value controls in Phase 2; in Phase 3, all Moderate-baseline controls (each family's written with or right after its policy), every PM control, and every privacy-only control and enhancement |
 | Controls with a policy clause | Controls in 5 families in Phase 2; every Low and Moderate control and enhancement in Phase 3; High in Phase 7 |
 | Family policy templates | 5 in Phase 2; all 20 plus a consolidated policy in Phase 3 |
 | Plans, procedures and forms | Every artifact in the [artifact catalog](#artifact-catalog) by end of Phase 3 (the SSDF-based SA artifacts in Phase 4) |
@@ -600,7 +600,7 @@ Work in seven phases; each ends with an owner review before the next starts. Pha
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate control, the program path | TPL-09, TPL-11, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
+| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
 | 4 Methods and the SSDF | Each family's NIST methods, the SSDF section, and the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01 to METH-03, SSDF-01 to SSDF-05 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; SSDF templates at `draft` in the kit; kit v2.1.0 |
 | 5 AI RMF and AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v2.2.0 |
 | 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02, FEAT-01 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
@@ -686,7 +686,7 @@ None of these block Phase 1.
 | Word styling | Calibri body, Georgia headings, teal accent, title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026 |
 | Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
 | AI security guide | A separate section (a guide within the guide), kept separate from the SSDF and methods work. Phase 5, after the RMF program kit and methods | Sep 28, 2026 |
-| Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026 |
+| Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate, PM and privacy-only control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026; PM and privacy guidance added Sep 29, 2026 |
 | AI control guidance | Wait for NIST's COSAIS overlays; no AI-specific control selections, tailoring or mappings of the author's own until they are final | Sep 28, 2026 |
 | AI guide sources | NIST and OWASP only (plus OMB and CISA for federal notes): the OWASP Top 10 for LLM and for Agentic Applications, and the OWASP AI Exchange | Sep 28, 2026 |
 | Articles (FEAT-01) | Deferred to Phase 6, with the first article; `starlight-blog` is compatible with Starlight 0.42 and remains the first choice | Sep 28, 2026 |
@@ -694,6 +694,7 @@ None of these block Phase 1.
 | Privacy-baseline clauses | Written in Phase 3 with each family (the PT policy and the privacy-only controls of other families), so each Privacy variant is complete | Sep 28, 2026 |
 | Two frameworks | The site is a guidebook to two NIST frameworks: the RMF with SP 800-53 first, then the AI RMF, whose guide covers applying the AI RMF and adopting and securing AI for any organization, with systems governed by NIST frameworks in mind. The public Roadmap page (`reference/roadmap.md`) summarizes the vision and phases | Sep 28, 2026 |
 | Moderate guidance | Written in Phase 3, not Depth: each remaining family's guidance in the pull request after its policy, and the families already written backfilled in batches between template rows. A policy clause says what the organization commits to; guidance says how to do it and what the assessor asks for, which is the guide's first goal | Sep 29, 2026 |
+| PM and privacy guidance | Also written in Phase 3, after the Moderate guidance: every PM control (no baseline, but the program-level controls a new program builds first) and every privacy-only control (PT, PL-9, RA-8, SI-18, SI-19). A privacy-only enhancement is covered on its base control's page, like any enhancement | Sep 29, 2026 |
 | Report template type | A fifth non-policy type, `report` (`templates/reports/`), for the written results of assessments, analyses and exercises: the risk assessment report first, then the CA assessment report and the CP after-action report | Sep 28, 2026 |
 
 ## Revision history
@@ -709,3 +710,4 @@ None of these block Phase 1.
 | 3.3 | Sep 28, 2026 | Owner decisions in Phase 3: a `report` template type (Artifact types, Sources and layout, front matter, Decided); the artifact catalog's AC, IA, CM, AU and IR artifacts get Phase 3 plan rows after SR (PROGRESS.md) |
 | 3.4 | Sep 28, 2026 | Owner direction: the site is a guidebook to two NIST frameworks, the RMF with SP 800-53 and the AI RMF. Summary, AI guide description and Phase 5 name updated; public Roadmap page added |
 | 3.5 | Sep 29, 2026 | Owner decision: guidance for every Moderate control moves from Phase 7 (Depth) into Phase 3, written with each family and backfilled for the families already done. Success measures, Phase 3 and 7 rows and Decided updated; Depth keeps High guidance and High clauses |
+| 3.6 | Sep 29, 2026 | Owner decision: Phase 3 guidance also covers every PM control and every privacy-only control and enhancement, which no phase had scheduled. Success measures, Phase 3 row and Decided updated |

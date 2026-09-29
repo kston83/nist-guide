@@ -31,7 +31,7 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 | 8 | Content: AT policy, training plan and training record log | Merged (#52) |
 | 9, 10 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | Merged (#53, #54) |
 | 11 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | Merged (#55) |
-| 12, 13 | Content: SC policy (row 12: PR open); SC standards (row 13: encryption and key management, boundary protection) | |
+| 12, 13 | Content: SC policy (row 12: PR open, #56); SC standards (row 13: encryption and key management, boundary protection) | |
 | 14, 15 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | |
 | 16, 17 | Content: SI policy; SI standards (patch and flaw remediation, system monitoring) | |
 | 18, 19 | Content: CA policy; CA artifacts (assessment plan and report, Continuous Monitoring Strategy, information exchange agreement) | |
@@ -77,7 +77,7 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 
 ### Notes for the next session
 
-- **Phase 3 in progress** (handoff 2026-09-28, third session): plan rows 1 to 11 merged, row 12 (SC policy) open. When it is merged, mark row 12 merged and start row 13: SC standards (encryption and key management, boundary protection); link them from the SC-7, SC-12 and SC-13 clause guidance and AC-4, which already name them. Then rows 14 to 38 in order. Counts: 196 of 287 Moderate controls with clauses, privacy-only 4 of 29, artifacts 18 of 50. Work one PR at a time; the owner merges each before the next starts.
+- **Phase 3 in progress** (handoff 2026-09-28, third session): plan rows 1 to 11 merged, row 12 (SC policy, #56) open. When it is merged, mark row 12 merged and start row 13: SC standards (encryption and key management, boundary protection); link them from the SC-7, SC-12 and SC-13 clause guidance and AC-4, which already name them. Then rows 14 to 38 in order. Counts: 196 of 287 Moderate controls with clauses, privacy-only 4 of 29, artifacts 18 of 50. Work one PR at a time; the owner merges each before the next starts.
 - **Writing a family quickly:** read each control's statement and parameters from the generated control page (`## Control statement`, and `### XX-n(m)` for enhancements) and `src/data/catalog.json` (`controls[].params`, `params[id].prompt` or `.select`). Include the family's Privacy-only controls (owner decision). Check typical values against any existing guidance on the control page and related templates, so they agree.
 - **Organization-wide families:** `baseline: none` in `_family.yml` gives one `Organization` variant (PM only). A family's own `policy/<family>/_common.md` replaces the shared one and may set `typical` for its -1 parameters.
 - **Source sweeps:** subagents overflow on whole NIST PDFs. Ask for narrow checks (landing page for status, one quote per item), five to seven items per agent, and reply under 350 words. An agent reporting only "no rescission found" is not verification: use TODO(verify).

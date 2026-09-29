@@ -60,3 +60,25 @@ export function mergeGenerated(existing, { frontmatter, body, tail = `\n${GUIDE}
 	const head = frontmatter ? `${mergeFrontmatter(frontmatter, splitFrontmatter(text).yaml)}\n\n` : before;
 	return `${head}${block}${after}`;
 }
+
+// A problem with the hand-written part of a file (after the end marker), or
+// null. An HTML comment left open there (for example a guidance marker cut to
+// "<!-- guidance: write bel") hides everything below it on the site, and the
+// generator would otherwise keep it as is.
+export function tailProblem(text) {
+	const t = normalize(text);
+	const at = t.indexOf(END);
+	if (at === -1) return null;
+	const tail = t.slice(at + END.length);
+	for (let i = tail.indexOf('<!--'); i !== -1; i = tail.indexOf('<!--', i)) {
+		const close = tail.indexOf('-->', i + 4);
+		if (close === -1) {
+			const line = tail.slice(i).split('\n')[0];
+			return `unclosed HTML comment after ${END} ("${line}"); it hides the text below it`;
+		}
+		i = close + 3;
+	}
+	const marker = tail.split('\n').find((l) => l.startsWith('<!-- guidance') && l.trim() !== GUIDE);
+	if (marker) return `guidance marker altered ("${marker}"); it must read ${GUIDE}`;
+	return null;
+}

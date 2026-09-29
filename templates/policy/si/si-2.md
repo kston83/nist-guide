@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-SI-2 is the fixing half of vulnerability management: RA-5 finds the flaws, and SI-2 installs the updates that correct them. The installation times here count from the release of the update, while the RA-5 remediation times count from when a finding is reported, so keep the two sets of values consistent. The patch and flaw remediation standard sets the test groups, deployment rings and schedules. NIST SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning (April 2022, current as of September 2026), describes how to plan patching as routine preventive maintenance.
+SI-2 is the fixing half of vulnerability management: RA-5 finds the flaws, and SI-2 installs the updates that correct them. The installation times here count from the release of the update, while the RA-5 remediation times count from when a finding is reported, so keep the two sets of values consistent. The [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) sets the test groups, deployment rings and schedules. NIST SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning (April 2022, current as of September 2026), describes how to plan patching as routine preventive maintenance.
 :::
 
 - The {{org:system-owner}} shall identify system flaws from vulnerability scanning and monitoring, vendor security advisories, assessments and incident analysis. (SI-2a)

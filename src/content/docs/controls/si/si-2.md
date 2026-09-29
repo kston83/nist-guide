@@ -242,7 +242,7 @@ SI-2 asks you to find, report and fix flaws, test fixes before installing them, 
 
 **Evidence assessors ask for.**
 
-- The flaw remediation or patch management procedure, with installation times
+- The flaw remediation or patch management procedure, with installation times (the [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) is a starting point)
 - Patch compliance reports by component
 - Test records for a sample of updates
 - Change records for recent patching

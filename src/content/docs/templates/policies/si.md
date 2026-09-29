@@ -141,7 +141,7 @@ Each statement below comes from the clause for one control or enhancement in the
 #### Flaw remediation (SI-2)
 
 :::note[Guidance]
-SI-2 is the fixing half of vulnerability management: RA-5 finds the flaws, and SI-2 installs the updates that correct them. The installation times here count from the release of the update, while the RA-5 remediation times count from when a finding is reported, so keep the two sets of values consistent. The patch and flaw remediation standard sets the test groups, deployment rings and schedules. NIST SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning (April 2022, current as of September 2026), describes how to plan patching as routine preventive maintenance.
+SI-2 is the fixing half of vulnerability management: RA-5 finds the flaws, and SI-2 installs the updates that correct them. The installation times here count from the release of the update, while the RA-5 remediation times count from when a finding is reported, so keep the two sets of values consistent. The [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) sets the test groups, deployment rings and schedules. NIST SP 800-40 Rev. 4, Guide to Enterprise Patch Management Planning (April 2022, current as of September 2026), describes how to plan patching as routine preventive maintenance.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall identify system flaws from vulnerability scanning and monitoring, vendor security advisories, assessments and incident analysis. (SI-2a)
@@ -200,7 +200,7 @@ Endpoint detection and response on servers and workstations, together with malwa
 #### System monitoring (SI-4)
 
 :::note[Guidance]
-System monitoring takes in the audit records reviewed under AU-6 and adds endpoint, network and cloud detection. The system monitoring standard sets the log sources, detection coverage, alert handling and reporting. Legal review of monitoring (SI-4f) is usually done once for the organization's monitoring program and repeated when monitoring changes, with a system use notification under AC-8.
+System monitoring takes in the audit records reviewed under AU-6 and adds endpoint, network and cloud detection. The [System Monitoring Standard](/templates/standards/system-monitoring-standard/) sets the log sources, detection coverage, alert handling and reporting. Legal review of monitoring (SI-4f) is usually done once for the organization's monitoring program and repeated when monitoring changes, with a system use notification under AC-8.
 :::
 
 - The <span class="tpl-field tpl-org">Security operations team</span> shall monitor the system to detect attacks and indicators of potential attacks in accordance with the following monitoring objectives: <span class="tpl-field tpl-param">Fill in: monitoring objectives to detect attacks and indicators of potential attacks on the system <span class="tpl-typical">Typical: detecting attacks, malware, unauthorized access, privilege misuse and data exfiltration</span></span>. (SI-4a.1)

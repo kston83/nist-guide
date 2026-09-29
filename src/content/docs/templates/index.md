@@ -19,6 +19,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
 | [Awareness and Training Policy](/templates/policies/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
+| [Assessment, Authorization, and Monitoring Policy](/templates/policies/ca/) | [Operate](/program/operate/) | Draft |
 | [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
 | [Contingency Planning Policy](/templates/policies/cp/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
@@ -38,6 +39,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Access Control Decision Worksheet](/templates/worksheets/ac/) | [Core](/program/core/) | Draft |
 | [Awareness and Training Decision Worksheet](/templates/worksheets/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |
+| [Assessment, Authorization, and Monitoring Decision Worksheet](/templates/worksheets/ca/) | [Operate](/program/operate/) | Draft |
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
 | [Contingency Planning Decision Worksheet](/templates/worksheets/cp/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |

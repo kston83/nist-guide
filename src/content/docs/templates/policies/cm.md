@@ -3,7 +3,7 @@ title: 'Configuration Management Policy'
 description: 'Ready-to-adopt Configuration Management policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'Configuration Management (CM)'
-  order: 4
+  order: 5
 controls: [cm-1, cm-2, cm-2.2, cm-2.3, cm-2.7, cm-3, cm-3.1, cm-3.2, cm-3.4, cm-3.6, cm-4, cm-4.1, cm-4.2, cm-5, cm-5.1, cm-6, cm-6.1, cm-6.2, cm-7, cm-7.1, cm-7.2, cm-7.5, cm-8, cm-8.1, cm-8.2, cm-8.3, cm-8.4, cm-9, cm-10, cm-11, cm-12, cm-12.1]
 ---
 

@@ -3,7 +3,7 @@ title: 'Contingency Planning Policy'
 description: 'Ready-to-adopt Contingency Planning policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High).'
 sidebar:
   label: 'Contingency Planning (CP)'
-  order: 5
+  order: 6
 controls: [cp-1, cp-2, cp-2.1, cp-2.2, cp-2.3, cp-2.5, cp-2.8, cp-3, cp-3.1, cp-4, cp-4.1, cp-4.2, cp-6, cp-6.1, cp-6.2, cp-6.3, cp-7, cp-7.1, cp-7.2, cp-7.3, cp-7.4, cp-8, cp-8.1, cp-8.2, cp-8.3, cp-8.4, cp-9, cp-9.1, cp-9.2, cp-9.3, cp-9.5, cp-9.8, cp-10, cp-10.2, cp-10.4]
 ---
 

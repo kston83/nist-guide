@@ -3,7 +3,7 @@ title: 'Identification and Authentication Policy'
 description: 'Ready-to-adopt Identification and Authentication policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High).'
 sidebar:
   label: 'Identification and Authentication (IA)'
-  order: 6
+  order: 7
 controls: [ia-1, ia-2, ia-2.1, ia-2.2, ia-2.5, ia-2.8, ia-2.12, ia-3, ia-4, ia-4.4, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ia-12.2, ia-12.3, ia-12.4, ia-12.5]
 ---
 

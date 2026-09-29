@@ -1,0 +1,30 @@
+# Assessment, Authorization, and Monitoring (CA) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Assessment, Authorization, and Monitoring
+role: ciso
+stage: operate
+questions:
+  - question: Who assesses each system's controls, and how is the assessor kept independent of the system?
+    controls: [ca-2, ca-2.1, ca-7.1]
+    typical: An internal assessment team that sits outside the system's development, operation and management chain, or a third-party assessor that the system owner does not contract or direct; the authorizing official confirms the level of independence is enough before the assessment plan is approved.
+    decides: Authorizing official, with the Chief Information Security Officer
+  - question: Who is the authorizing official for each system and for the common controls, and when does each authorization end?
+    controls: [ca-6]
+    typical: A senior executive with budget or mission responsibility for the system; the Chief Information Security Officer or Chief Information Officer for common controls. Each authorization has a termination date, usually three years, until the authorizing official moves the system to ongoing authorization.
+    decides: Senior leader
+  - question: Where are plans of action and milestones kept, and who reviews items that are past due?
+    controls: [ca-5]
+    typical: One plan of action and milestones per system, in the governance, risk and compliance tool or the POA&M template; the system owner updates it and the Chief Information Security Officer reviews past-due items each month.
+    decides: Chief Information Security Officer
+  - question: Which information exchanges need a written agreement, and which kind?
+    controls: [ca-3, ca-9]
+    typical: Every exchange with a system outside the authorization boundary has an interconnection security agreement or information exchange security agreement, or contract terms with the same content for an external service; internal connections are authorized by class of component and recorded in the system security plan.
+    decides: Authorizing official, with the system owner
+  - question: Which systems and components get penetration testing, and who does it?
+    controls: [ca-8, ca-8.1, ca-2.2]
+    typical: Every High system and every internet-facing component, at least annually and after a significant change, by an independent team under rules of engagement the authorizing official approves.
+    decides: Chief Information Security Officer

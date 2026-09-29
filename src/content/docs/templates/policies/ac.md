@@ -210,6 +210,10 @@ AC-3 is enforced by the system, not by people: the statement makes the system ow
 
 #### Information flow enforcement (AC-4)
 
+:::note[Guidance]
+Information flow enforcement decides where information may go, not who may see it: firewall and proxy rules, cross-domain and data loss prevention filters, and cloud network policies. The [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) holds the rules; interconnection agreements (CA-3) approve flows to other systems.
+:::
+
 - The <span class="tpl-field tpl-org">System owner</span> shall ensure the system enforces approved authorizations for controlling the flow of information within the system and between connected systems based on <span class="tpl-field tpl-param">Fill in: information flow control policies within the system and between connected systems <span class="tpl-typical">Typical: the boundary protection standard and the approved interconnection agreements</span></span>. (AC-4)
 
 #### Separation of duties (AC-5)

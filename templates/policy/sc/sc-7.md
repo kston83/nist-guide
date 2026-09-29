@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-Every external connection goes through a managed interface, such as a firewall, cloud security group, gateway or proxy, and public-facing components sit in their own subnetwork. The boundary diagram in the system security plan is where assessors start. Put the rule sets, allowed flows and review cycle in the boundary protection standard.
+Every external connection goes through a managed interface, such as a firewall, cloud security group, gateway or proxy, and public-facing components sit in their own subnetwork. The boundary diagram in the system security plan is where assessors start. The [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) sets the managed interfaces, rule sets, allowed flows and review cycle.
 :::
 
 - The {{org:system-owner}} shall monitor and control communications at the external managed interfaces to the system and at key internal managed interfaces within the system. (SC-7a)

@@ -3,7 +3,7 @@ title: 'Rules of Behavior'
 description: 'The rules every person with system access reads and signs before access is granted, including social media and external site restrictions, with a register of acknowledgments, as SP 800-53 PL-4 requires.'
 sidebar:
   label: 'Rules of Behavior'
-  order: 2
+  order: 3
 controls: [pl-4, pl-4.1]
 ---
 

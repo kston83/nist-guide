@@ -6,7 +6,7 @@ stage: foundation
 ---
 
 :::guidance
-Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and who may accept each level of risk (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5).
+Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and who may accept each level of risk (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5); every response, including acceptance, goes in the [risk register](/templates/forms/risk-register/).
 :::
 
 - Each {{org:system-owner}} shall respond to findings from security and privacy assessments, monitoring and audits in accordance with the organizational risk tolerance set in the risk management strategy. (RA-7)

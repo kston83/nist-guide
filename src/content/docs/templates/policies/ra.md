@@ -118,7 +118,7 @@ Each statement below comes from the clause for one control or enhancement in the
 #### Security categorization (RA-2)
 
 :::note[Guidance]
-Categorization rates how badly a loss of confidentiality, integrity or availability of the system and its information would hurt the organization, and it drives the choice of baseline (PL-10). Record it in the categorization section of the [System Security Plan template](/templates/plans/system-security-plan/).
+Categorization rates how badly a loss of confidentiality, integrity or availability of the system and its information would hurt the organization, and it drives the choice of baseline (PL-10). Work it out with the [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) and record the result in the categorization section of the [System Security Plan template](/templates/plans/system-security-plan/).
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall categorize the system and the information it processes, stores and transmits. (RA-2a)
@@ -140,7 +140,7 @@ Federal systems categorize information and systems under [FIPS 199](https://csrc
 #### Risk assessment (RA-3)
 
 :::note[Guidance]
-A system risk assessment identifies threats and vulnerabilities, then estimates the likelihood and impact of harm, to the organization and, where the system processes personally identifiable information, to individuals. Use the method and scales the risk management strategy sets (PM-9, PM-28), so results from different systems can be compared. NIST SP 800-30 Rev. 1 is the usual reference for the method. Risks found here feed the plan of action and milestones (CA-5) and the risk response (RA-7).
+A system risk assessment identifies threats and vulnerabilities, then estimates the likelihood and impact of harm, to the organization and, where the system processes personally identifiable information, to individuals. Use the method and scales the risk management strategy sets (PM-9, PM-28), so results from different systems can be compared. NIST SP 800-30 Rev. 1 is the usual reference for the method. Start from the [Risk Assessment Report template](/templates/plans/risk-assessment-report/) and record each risk in the [risk register](/templates/forms/risk-register/). Risks found here feed the plan of action and milestones (CA-5) and the risk response (RA-7).
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall conduct a risk assessment of the system that identifies threats to and vulnerabilities in the system. (RA-3a.1)
@@ -164,7 +164,7 @@ The supply chain risk assessment looks at the suppliers, products and services a
 #### Vulnerability monitoring and scanning (RA-5)
 
 :::note[Guidance]
-Monitoring means watching for newly announced vulnerabilities that affect the system's components; scanning means testing the components themselves. Set remediation times by risk, and move known exploited vulnerabilities to the front. A vulnerability not fixed in time becomes a plan of action and milestones item (CA-5) or an approved risk acceptance (RA-7). Standards for naming and scoring vulnerabilities include CVE, CPE and CVSS.
+Monitoring means watching for newly announced vulnerabilities that affect the system's components; scanning means testing the components themselves. Set remediation times by risk, and move known exploited vulnerabilities to the front. A vulnerability not fixed in time becomes a plan of action and milestones item (CA-5) or an approved risk acceptance (RA-7). Standards for naming and scoring vulnerabilities include CVE, CPE and CVSS. The [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) sets the coverage, frequencies and remediation times in detail.
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall ensure the system and its hosted applications are monitored for vulnerabilities <span class="tpl-field tpl-param">Fill in: frequency for monitoring systems and hosted applications for vulnerabilities <span class="tpl-typical">Typical: continuously, through vendor advisories, vulnerability feeds and the CISA Known Exploited Vulnerabilities Catalog</span></span>. (RA-5a)
@@ -221,7 +221,7 @@ A public reporting channel lets researchers and others tell the organization abo
 #### Risk response (RA-7)
 
 :::note[Guidance]
-Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and who may accept each level of risk (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5).
+Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and who may accept each level of risk (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5); every response, including acceptance, goes in the [risk register](/templates/forms/risk-register/).
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall respond to findings from security and privacy assessments, monitoring and audits in accordance with the organizational risk tolerance set in the risk management strategy. (RA-7)

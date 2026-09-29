@@ -44,13 +44,22 @@ Each template is written once and assembled for your baseline. Download the read
 | --- | --- | --- |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
+| [Risk Assessment Report](/templates/plans/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
+
+## Standards
+
+| Template | Program stage | Status |
+| --- | --- | --- |
+| [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers
 
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
+| [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
+| [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
 | [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |

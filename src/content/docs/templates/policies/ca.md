@@ -121,7 +121,7 @@ Each statement below comes from the clause for one control or enhancement in the
 #### Control assessments (CA-2)
 
 :::note[Guidance]
-CA-2 is the formal control assessment: an assessor tests whether each control is implemented correctly, operating as intended and producing the desired outcome. The assessment plan is approved before testing starts, and the assessment report goes to the people who decide on the system's authorization (CA-6). The assessment procedures are usually the objectives and methods (examine, interview, test) in NIST SP 800-53A Rev. 5 ([January 2022](https://csrc.nist.gov/pubs/sp/800/53/a/r5/final), updated by release 5.2.0 in August 2025; current as of September 2026), shown on each control page. After the first authorization, the yearly assessment can reuse results from continuous monitoring (CA-7) that are still current and were obtained with enough independence.
+CA-2 is the formal control assessment: an assessor tests whether each control is implemented correctly, operating as intended and producing the desired outcome. The [assessment plan](/templates/plans/security-and-privacy-assessment-plan/) is approved before testing starts, and the [assessment report](/templates/reports/security-and-privacy-assessment-report/) goes to the people who decide on the system's authorization (CA-6). The assessment procedures are usually the objectives and methods (examine, interview, test) in NIST SP 800-53A Rev. 5 ([January 2022](https://csrc.nist.gov/pubs/sp/800/53/a/r5/final), updated by release 5.2.0 in August 2025; current as of September 2026), shown on each control page. After the first authorization, the yearly assessment can reuse results from continuous monitoring (CA-7) that are still current and were obtained with enough independence.
 :::
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall select, for each assessment, an assessor or assessment team with the skills and technical knowledge the type of assessment and the system's technologies call for. (CA-2a)
@@ -162,7 +162,7 @@ An independent assessor has no actual or perceived conflict of interest with the
 #### Information exchange (CA-3)
 
 :::note[Guidance]
-CA-3 covers every exchange of information with a system outside the authorization boundary, whether over a dedicated connection, an application programming interface or a file transfer. The information exchange agreement records what is exchanged, how it is protected and who is responsible on each side. NIST SP 800-47 Rev. 1, Managing the Security of Information Exchanges ([July 2021](https://csrc.nist.gov/pubs/sp/800/47/r1/final), current as of September 2026), describes how to plan, establish, maintain and end exchanges and their agreements. NIST's CA-3 discussion notes that when both systems have the same authorizing official, no separate agreement is needed: the security and privacy plans describe the interface instead.
+CA-3 covers every exchange of information with a system outside the authorization boundary, whether over a dedicated connection, an application programming interface or a file transfer. The [information exchange agreement](/templates/forms/information-exchange-agreement/) records what is exchanged, how it is protected and who is responsible on each side. NIST SP 800-47 Rev. 1, Managing the Security of Information Exchanges ([July 2021](https://csrc.nist.gov/pubs/sp/800/47/r1/final), current as of September 2026), describes how to plan, establish, maintain and end exchanges and their agreements. NIST's CA-3 discussion notes that when both systems have the same authorizing official, no separate agreement is needed: the security and privacy plans describe the interface instead.
 :::
 
 - The authorizing official shall approve each exchange of information between the system and another system before the exchange begins. (CA-3a)
@@ -213,7 +213,7 @@ The Federal Information Security Modernization Act requires each agency's inform
 #### Authorization (CA-6)
 
 :::note[Guidance]
-Authorization is a senior official's decision to accept the risk of operating a system, based on the authorization package: the system security plan, the assessment report and the plan of action and milestones. The authorizing official should have budget or mission responsibility for the system, so the person who accepts the risk also owns its consequences. Ongoing authorization replaces the fixed termination date with decisions made from continuous monitoring results; it needs an initial authorization and a working continuous monitoring program (CA-7) first.
+Authorization is a senior official's decision to accept the risk of operating a system, based on the authorization package: the system security plan, the [assessment report](/templates/reports/security-and-privacy-assessment-report/) and the plan of action and milestones. The authorizing official should have budget or mission responsibility for the system, so the person who accepts the risk also owns its consequences. Ongoing authorization replaces the fixed termination date with decisions made from continuous monitoring results; it needs an initial authorization and a working continuous monitoring program (CA-7) first.
 :::
 
 - The <span class="tpl-field tpl-org">Senior leader</span> shall assign a senior official, with budget or mission responsibility for the system, as the authorizing official for the system. (CA-6a)
@@ -240,7 +240,7 @@ Authorization is a senior official's decision to accept the risk of operating a 
 #### Continuous monitoring (CA-7)
 
 :::note[Guidance]
-Continuous monitoring keeps the authorization current between full assessments. The system's Continuous Monitoring Strategy follows the organization-wide strategy (PM-31) and sets what is measured, how often each control is monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. A common approach assigns each control a frequency by how often it changes: vulnerability management monthly, physical security annually. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes information security continuous monitoring.
+Continuous monitoring keeps the authorization current between full assessments. The system's [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) follows the organization-wide strategy (PM-31) and sets what is measured, how often each control is monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. A common approach assigns each control a frequency by how often it changes: vulnerability management monthly, physical security annually. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes information security continuous monitoring.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall develop a system-level continuous monitoring strategy that follows the organization-wide continuous monitoring strategy, and implement continuous monitoring in accordance with it. (CA-7)

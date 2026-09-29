@@ -9,7 +9,7 @@ typical:
 ---
 
 :::guidance
-CA-3 covers every exchange of information with a system outside the authorization boundary, whether over a dedicated connection, an application programming interface or a file transfer. The information exchange agreement records what is exchanged, how it is protected and who is responsible on each side. NIST SP 800-47 Rev. 1, Managing the Security of Information Exchanges ([July 2021](https://csrc.nist.gov/pubs/sp/800/47/r1/final), current as of September 2026), describes how to plan, establish, maintain and end exchanges and their agreements. NIST's CA-3 discussion notes that when both systems have the same authorizing official, no separate agreement is needed: the security and privacy plans describe the interface instead.
+CA-3 covers every exchange of information with a system outside the authorization boundary, whether over a dedicated connection, an application programming interface or a file transfer. The [information exchange agreement](/templates/forms/information-exchange-agreement/) records what is exchanged, how it is protected and who is responsible on each side. NIST SP 800-47 Rev. 1, Managing the Security of Information Exchanges ([July 2021](https://csrc.nist.gov/pubs/sp/800/47/r1/final), current as of September 2026), describes how to plan, establish, maintain and end exchanges and their agreements. NIST's CA-3 discussion notes that when both systems have the same authorizing official, no separate agreement is needed: the security and privacy plans describe the interface instead.
 :::
 
 - The authorizing official shall approve each exchange of information between the system and another system before the exchange begins. (CA-3a)

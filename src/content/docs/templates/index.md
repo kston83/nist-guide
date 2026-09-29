@@ -58,9 +58,11 @@ Each template is written once and assembled for your baseline. Download the read
 | --- | --- | --- |
 | [Information System Contingency Plan](/templates/plans/contingency-plan/) | [Core](/program/core/) | Draft |
 | [Contingency Plan Test Plan](/templates/plans/contingency-plan-test-plan/) | [Operate](/program/operate/) | Draft |
+| [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) | [Operate](/program/operate/) | Draft |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
+| [Security and Privacy Assessment Plan](/templates/plans/security-and-privacy-assessment-plan/) | [Operate](/program/operate/) | Draft |
 | [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | [Core](/program/core/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
 
@@ -79,6 +81,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
+| [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | [Operate](/program/operate/) | Draft |
 | [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
 | [Privacy Notice](/templates/forms/privacy-notice/) | [Core](/program/core/) | Draft |
@@ -96,3 +99,4 @@ Each template is written once and assembled for your baseline. Download the read
 | [Contingency Plan After-Action Report](/templates/reports/contingency-plan-after-action-report/) | [Operate](/program/operate/) | Draft |
 | [Privacy Impact Assessment](/templates/reports/privacy-impact-assessment/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Report](/templates/reports/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |
+| [Security and Privacy Assessment Report](/templates/reports/security-and-privacy-assessment-report/) | [Operate](/program/operate/) | Draft |

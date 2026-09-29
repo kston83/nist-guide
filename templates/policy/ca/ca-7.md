@@ -14,7 +14,7 @@ typical:
 ---
 
 :::guidance
-Continuous monitoring keeps the authorization current between full assessments. The system's Continuous Monitoring Strategy follows the organization-wide strategy (PM-31) and sets what is measured, how often each control is monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. A common approach assigns each control a frequency by how often it changes: vulnerability management monthly, physical security annually. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes information security continuous monitoring.
+Continuous monitoring keeps the authorization current between full assessments. The system's [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) follows the organization-wide strategy (PM-31) and sets what is measured, how often each control is monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. A common approach assigns each control a frequency by how often it changes: vulnerability management monthly, physical security annually. NIST SP 800-137 ([September 2011](https://csrc.nist.gov/pubs/sp/800/137/final), current as of September 2026) describes information security continuous monitoring.
 :::
 
 - The {{org:system-owner}} shall develop a system-level continuous monitoring strategy that follows the organization-wide continuous monitoring strategy, and implement continuous monitoring in accordance with it. (CA-7)

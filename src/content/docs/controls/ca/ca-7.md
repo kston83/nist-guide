@@ -209,7 +209,7 @@ Determine if:
 
 ## How to apply it
 
-Continuous monitoring keeps the authorization current between full assessments. The system-level strategy sets what is measured, how often controls are monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. It follows the organization-level strategy set in the Prepare step (P-7).
+Continuous monitoring keeps the authorization current between full assessments. The system-level strategy ([Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) template, Part B) sets what is measured, how often controls are monitored and assessed, how results are analyzed and acted on, and how often the system's status is reported. It follows the organization-level strategy set in the Prepare step (P-7).
 
 **Common implementations.** A continuous monitoring strategy that assigns each control an assessment frequency, often by volatility: frequently changing controls such as vulnerability management monthly, stable ones such as physical security annually. Automated feeds from vulnerability scanning, configuration compliance and inventory tools. A monthly status report to the system owner and a periodic report to the authorizing official. Independent assessors for the ongoing assessments (CA-7(1)).
 
@@ -223,7 +223,7 @@ Continuous monitoring keeps the authorization current between full assessments. 
 
 **Evidence assessors ask for.**
 
-- The system-level continuous monitoring strategy
+- The system-level [continuous monitoring strategy](/templates/plans/continuous-monitoring-strategy/)
 - Recent status reports and the metrics behind them
 - Examples of response actions taken from monitoring results (CA-7f)
 

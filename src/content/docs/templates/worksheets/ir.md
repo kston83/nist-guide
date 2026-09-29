@@ -3,7 +3,7 @@ title: 'Incident Response Decision Worksheet'
 description: 'Every decision the Incident Response family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Incident Response (IR)'
-  order: 5
+  order: 6
 controls: [ir-1, ir-2, ir-2.1, ir-2.2, ir-2.3, ir-3, ir-3.2, ir-4, ir-4.1, ir-4.4, ir-4.11, ir-5, ir-5.1, ir-6, ir-6.1, ir-6.3, ir-7, ir-7.1, ir-8, ir-8.1]
 ---
 

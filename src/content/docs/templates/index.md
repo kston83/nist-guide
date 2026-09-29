@@ -17,6 +17,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
+| [Awareness and Training Policy](/templates/policies/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
@@ -30,6 +31,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Control Decision Worksheet](/templates/worksheets/ac/) | [Core](/program/core/) | Draft |
+| [Awareness and Training Decision Worksheet](/templates/worksheets/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |
@@ -45,6 +47,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
+| [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | [Core](/program/core/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
 
 ## Standards
@@ -62,6 +65,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
 | [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
 | [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |
+| [Training Record Log](/templates/forms/training-record-log/) | [Core](/program/core/) | Draft |
 
 ## Reports
 

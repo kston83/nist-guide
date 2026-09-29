@@ -29,7 +29,7 @@ Requires [Node.js](https://nodejs.org) 22 or later.
 ```sh
 npm install        # once
 npm run dev        # live preview at http://localhost:4321
-npm run build      # full production build into dist/
+npm run build      # full production build into dist/ (fails if a control page with guidance: set hides it)
 npm run check:links  # after a build: fail on broken internal links or anchors
 npm run check:search # after a build: control and enhancement ids find their page first
 npm run check:a11y   # after a build: axe finds no serious or critical issues (.pa11yci.json lists the pages)

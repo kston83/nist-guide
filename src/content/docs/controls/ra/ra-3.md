@@ -172,7 +172,7 @@ Determine if:
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 
-<!-- guidance: write bel
+<!-- guidance: write below this line -->
 
 ## How to apply it
 

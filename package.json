@@ -5,11 +5,12 @@
   "private": true,
   "scripts": {
     "dev": "npm run changelog && astro dev",
-    "build": "npm run changelog && astro build && npm run kit",
+    "build": "npm run changelog && astro build && npm run check:guidance && npm run kit",
     "preview": "astro preview",
     "controls": "node scripts/import-oscal.mjs",
     "og-image": "node scripts/make-og-image.mjs",
     "check:links": "node scripts/check-links.mjs",
+    "check:guidance": "node scripts/check-guidance.mjs",
     "check:search": "node scripts/check-search.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "lint": "markdownlint-cli2 && npm run lint:templates && npm run spell",

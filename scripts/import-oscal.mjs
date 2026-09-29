@@ -11,7 +11,8 @@
  *      description, sidebar, control), are rewritten every time the script runs.
  *      Other front matter keys, such as guidance and reviewed, are kept.
  *   2. Your guidance, below <!-- guidance: write below this line -->.
- *      The script never touches anything after <!-- nist:end -->.
+ *      The script never changes anything after <!-- nist:end -->, but it fails
+ *      if an HTML comment there is left open or the marker line is altered.
  *
  * It also writes one page per baseline (baselines/<name>.md, fully generated;
  * the run fails if a page's count differs from its NIST profile), and two data files, committed so the build needs no OSCAL cache:
@@ -25,7 +26,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { activeControlIds, buildControlData, buildPages } from './lib/oscal.mjs';
-import { mergeGenerated } from './lib/generated.mjs';
+import { mergeGenerated, tailProblem } from './lib/generated.mjs';
 
 // NIST oscal-content is pinned to a commit so every machine and CI run
 // generates the same pages. To take a new NIST release, update OSCAL_REF
@@ -73,6 +74,7 @@ for (const page of pages.filter((p) => p.baseline)) {
 }
 
 let changed = 0;
+const problems = [];
 for (const page of pages) {
 	const file = path.join(OUT, page.file);
 	let existing = null;
@@ -84,11 +86,19 @@ for (const page of pages) {
 		console.warn(`Skipped ${file}: no generated markers found.`);
 		continue;
 	}
+	const problem = tailProblem(next);
+	if (problem) problems.push(`${file}: ${problem}`);
 	if (next !== existing?.replace(/\r\n/g, '\n')) {
 		await fs.mkdir(path.dirname(file), { recursive: true });
 		await fs.writeFile(file, next);
 		changed++;
 	}
+}
+
+// Hand-written content the generator keeps as is, but that would break the page.
+if (problems.length) {
+	for (const p of problems) console.error(p);
+	throw new Error(`${problems.length} control page(s) need fixing below the nist:end marker.`);
 }
 
 // Writes a data file only when its content changes.

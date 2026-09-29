@@ -3,7 +3,7 @@ title: 'Planning Policy'
 description: 'Ready-to-adopt Planning policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'Planning (PL)'
-  order: 7
+  order: 8
 controls: [pl-1, pl-2, pl-4, pl-4.1, pl-8, pl-9, pl-10, pl-11]
 ---
 

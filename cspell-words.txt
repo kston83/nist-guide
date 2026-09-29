@@ -21,6 +21,7 @@ CSIRT
 CSRMC
 DISA
 exfiltration
+FEMA
 FFIEC
 FIPS
 FISMA

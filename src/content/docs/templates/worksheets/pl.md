@@ -3,7 +3,7 @@ title: 'Planning Decision Worksheet'
 description: 'Every decision the Planning family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Planning (PL)'
-  order: 7
+  order: 8
 controls: [pl-1, pl-2, pl-4, pl-4.1, pl-8, pl-9, pl-10, pl-11]
 ---
 

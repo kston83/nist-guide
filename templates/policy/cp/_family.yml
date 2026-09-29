@@ -1,0 +1,26 @@
+# Contingency Planning (CP) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Contingency Planning
+role: ciso
+stage: core
+questions:
+  - question: Who sets each system's recovery time and recovery point objectives, and from what?
+    controls: [cp-2, cp-10]
+    typical: The system owner, from a business impact analysis agreed with the business owner; the authorizing official approves them with the contingency plan.
+    decides: System owner
+  - question: Where are the alternate storage and processing sites for each system?
+    controls: [cp-6, cp-7]
+    typical: A second region or availability zone of the same cloud provider for cloud systems; a second data center or a recovery service for on-premises systems.
+    decides: Chief Information Security Officer
+  - question: How are backups protected against ransomware and deliberate deletion?
+    controls: [cp-9]
+    typical: At least one immutable or offline copy, separate backup credentials, and encryption.
+    decides: Chief Information Security Officer
+  - question: What kind of contingency plan test does each baseline need?
+    controls: [cp-4]
+    typical: A tabletop exercise each year for Low systems; a functional recovery test each year for Moderate and High systems, at the alternate site for High.
+    decides: Chief Information Security Officer

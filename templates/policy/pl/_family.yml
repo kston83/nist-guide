@@ -1,0 +1,22 @@
+# Planning (PL) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Planning
+role: ciso
+stage: foundation
+questions:
+  - question: Is each system's privacy plan part of its security plan, or a separate document?
+    controls: [pl-2]
+    typical: One combined plan for most systems; a separate privacy plan where the privacy office maintains it.
+    decides: Chief Information Security Officer
+  - question: Where are security plans kept, and in what format?
+    controls: [pl-2]
+    typical: The System Security Plan template as a document, with control details in a GRC tool, access limited to named roles.
+    decides: Chief Information Security Officer
+  - question: Which overlays, if any, apply on top of the baselines?
+    controls: [pl-10, pl-11]
+    typical: None by default; an overlay where a sector, regulator or customer requires one.
+    decides: Authorizing official

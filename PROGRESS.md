@@ -71,6 +71,13 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 
 ### Notes for the next session
 
+- **Phase 3 in progress** (handoff 2026-09-28): plan rows 1 to 3 merged, row 4 (PL policy, #48) open. Next: row 5, RA policy. Work one PR at a time; the owner merges each before the next starts.
+- **Writing a family quickly:** read each control's statement and parameters from the generated control page (`## Control statement`, and `### XX-n(m)` for enhancements) and `src/data/catalog.json` (`controls[].params`, `params[id].prompt` or `.select`). Include the family's Privacy-only controls (owner decision). Check typical values against any existing guidance on the control page and related templates, so they agree.
+- **Organization-wide families:** `baseline: none` in `_family.yml` gives one `Organization` variant (PM only). A family's own `policy/<family>/_common.md` replaces the shared one and may set `typical` for its -1 parameters.
+- **Source sweeps:** subagents overflow on whole NIST PDFs. Ask for narrow checks (landing page for status, one quote per item), five to seven items per agent, and reply under 350 words. An agent reporting only "no rescission found" is not verification: use TODO(verify).
+- **Shell:** on this Windows machine, heredocs containing apostrophes break inside `node -e '...'`; use the Edit tool, or write a script file first. There is no Python.
+- **Worth checking in the SC and SI PRs:** the FIPS 140-2 Historical List move (below).
+
 - **Verified 2026-09-28**, for the RA-5 and SI-2 guidance (cite with "as of September 2026"):
   - CISA **BOD 22-01 was revoked on June 10, 2026**, superseded by **BOD 26-04**, Prioritizing Security Updates Based on Risk (June 10, 2026). Its Table 1 sets remediation deadlines by exposure, KEV status, automatability and technical impact: from 3 days (public, KEV, automatable, total impact) to "fix on system upgrade" (not public, not KEV). <https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk>
   - CISA **BOD 23-01** remains in effect: automated asset discovery every 7 days, and vulnerability enumeration every 14 days.

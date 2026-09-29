@@ -89,6 +89,10 @@ Diagrams: {{fill:references to the current system, network architecture and data
 
 ## 8. Information exchanges
 
+:::guidance
+Record the terms of each exchange in an [information exchange agreement](/templates/forms/information-exchange-agreement/); its register gives the agreement type, dates and last review for this table.
+:::
+
 For each exchange with another system (CA-3):
 
 | Other system and owner | Agreement type and dates | Categorization of the other system and of the data | Purpose and data exchanged | Method | Security considerations |
@@ -138,6 +142,10 @@ Security- and privacy-related activities affecting the system are planned and co
 
 ## 14. Referenced artifacts
 
+:::guidance
+Templates for several of these artifacts: the [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/), the [security and privacy assessment plan](/templates/plans/security-and-privacy-assessment-plan/) and [assessment report](/templates/reports/security-and-privacy-assessment-report/), and the [information exchange agreement](/templates/forms/information-exchange-agreement/).
+:::
+
 | Artifact | Location |
 | --- | --- |
 | Authorization decision | {{fill:location}} |
@@ -145,7 +153,7 @@ Security- and privacy-related activities affecting the system are planned and co
 | Configuration management plan and change records | {{fill:location}} |
 | Incident response plan, with test and training records | {{fill:location}} |
 | Information exchange agreements | {{fill:location}} |
-| Continuous monitoring plan and results | {{fill:location}} |
+| Continuous Monitoring Strategy and monitoring results | {{fill:location}} |
 | Plan of action and milestones | {{fill:location}} |
 | Risk assessment reports | {{fill:location}} |
 

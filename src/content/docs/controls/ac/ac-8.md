@@ -8,6 +8,7 @@ control:
   id: AC-8
   family: AC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -69,3 +70,36 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AC-8 asks every system with a human logon to show a notice before granting access, and to keep it on screen until the user acknowledges it. The notice tells users their use may be monitored and recorded, that unauthorized use is prohibited, and that using the system means consent to monitoring. It is how users learn of the monitoring the organization does under [SI-4](/controls/si/si-4/). NIST's discussion says to have the privacy office review the privacy messaging and legal counsel approve the banner text.
+
+**Common implementations.** One banner text approved by legal counsel and reused on every system. On Windows, the interactive logon message title and text set by group policy or device management. On Linux servers and network devices, a banner shown before the logon prompt. For web applications and single sign-on, a click-through page at the identity provider before the sign-in form, which covers every application behind it. For public websites (item c), a terms of use or privacy page linked from the landing page, with no monitoring warning that conflicts with the site's [privacy notice](/templates/forms/privacy-notice/). The [Rules of Behavior](/templates/forms/rules-of-behavior/) and the [access agreement](/templates/forms/access-agreement/) repeat the monitoring notice, so users acknowledge it in writing as well as on screen.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| System use notification (a) | The organization's approved logon banner |
+| Conditions for displaying use information on public systems (c.1) | On the landing page, before users submit any information |
+
+**Evidence assessors ask for.**
+
+- The approved banner text, with the record of legal and privacy review
+- Screenshots or a demonstration of the banner on each logon interface: workstation, server, network device, identity provider and remote access
+- The group policy, device management profile or configuration file that sets the banner
+- For public systems, the landing page and the terms of use or privacy page it links to
+
+**Inheritance.** The banner text and the settings pushed to workstations and the identity provider are usually common controls. The system owns the banner on its own logon interfaces, such as network devices, servers and applications outside single sign-on, and the use information on its public pages.
+
+**Common findings.**
+
+- Network devices, out-of-band management interfaces or console logons with no banner, or the vendor's default text.
+- A banner that shows but does not require acknowledgment (item b).
+- Banner text that differs between systems, or that was never reviewed by counsel.
+- On federal systems, a banner that leaves out the government-system or penalties statements.
+
+**Enhancements in the Moderate baseline.** AC-8 has no enhancements.
+
+**Federal systems** (as of September 2026). The control text itself sets the content for federal systems: AC-8a requires the notice to state that users are accessing a U.S. Government system (a.1) and that unauthorized use is subject to criminal and civil penalties (a.3), besides the monitoring, prohibition and consent statements every organization includes. The [Access Control policy](/templates/policies/ac/) keeps those two statements in its federal section.

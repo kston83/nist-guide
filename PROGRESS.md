@@ -30,7 +30,7 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 | 7 | TPL-01: `report` template type (`templates/reports/`, schema, sidebar, PRD); the risk assessment report moves to it | Merged (#51) |
 | 8 | Content: AT policy, training plan and training record log | Merged (#52) |
 | 9, 10 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | Merged (#53, #54) |
-| 11 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | PR open |
+| 11 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | PR open (#55) |
 | 12, 13 | Content: SC policy; SC standards (encryption and key management, boundary protection) | |
 | 14, 15 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | |
 | 16, 17 | Content: SI policy; SI standards (patch and flaw remediation, system monitoring) | |
@@ -77,7 +77,7 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 
 ### Notes for the next session
 
-- **Phase 3 in progress** (handoff 2026-09-28, third session): plan rows 1 to 10 merged, row 11 (PS policy and artifacts) open. When it is merged, mark row 11 merged and start row 12: SC policy. Then rows 13 to 38 in order. Counts: 171 of 287 Moderate controls with clauses, privacy-only 3 of 29, artifacts 18 of 50. Work one PR at a time; the owner merges each before the next starts.
+- **Phase 3 in progress** (handoff 2026-09-28, third session): plan rows 1 to 10 merged, row 11 (PS policy and artifacts, #55) open. When it is merged, mark row 11 merged and start row 12: SC policy. Then rows 13 to 38 in order. Counts: 171 of 287 Moderate controls with clauses, privacy-only 3 of 29, artifacts 18 of 50. Work one PR at a time; the owner merges each before the next starts.
 - **Privacy-only clauses in families finished before the owner's decision:** AC-3(14), AU-3(3), IR-2(3) and IR-8(1) have no clause, and no plan row names them. Proposed: write each with its family's artifact row (27 for AC, 30 for AU, 31 for IR), so the Privacy variants of those policies are complete by the end of Phase 3.
 - **Writing a family quickly:** read each control's statement and parameters from the generated control page (`## Control statement`, and `### XX-n(m)` for enhancements) and `src/data/catalog.json` (`controls[].params`, `params[id].prompt` or `.select`). Include the family's Privacy-only controls (owner decision). Check typical values against any existing guidance on the control page and related templates, so they agree.
 - **Organization-wide families:** `baseline: none` in `_family.yml` gives one `Organization` variant (PM only). A family's own `policy/<family>/_common.md` replaces the shared one and may set `typical` for its -1 parameters.

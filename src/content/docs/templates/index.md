@@ -23,6 +23,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
 | [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
+| [Risk Assessment Policy](/templates/policies/ra/) | [Foundation](/program/foundation/) | Draft |
 
 ## Decision worksheets
 
@@ -35,6 +36,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
 | [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
+| [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | [Foundation](/program/foundation/) | Draft |
 
 ## Plans
 

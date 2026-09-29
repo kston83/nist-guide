@@ -1,0 +1,26 @@
+# Risk Assessment (RA) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Risk Assessment
+role: ciso
+stage: foundation
+questions:
+  - question: Which risk assessment method and scale do systems use?
+    controls: [ra-3]
+    typical: NIST SP 800-30 Rev. 1, with the likelihood, impact and risk scales set in the risk management strategy.
+    decides: Chief Information Security Officer
+  - question: Who runs vulnerability scanning, and who fixes what it finds?
+    controls: [ra-5]
+    typical: A central vulnerability management team runs the scanning tools and tracks findings; each system owner fixes findings on their system.
+    decides: Chief Information Security Officer
+  - question: Where is the public vulnerability disclosure policy published, and who handles the reports?
+    controls: [ra-5.11]
+    typical: A page on the organization's public website, with reports going to the security operations team.
+    decides: Chief Information Security Officer
+  - question: How does a system or project find out whether it needs a privacy impact assessment, and who approves the assessment?
+    controls: [ra-8]
+    typical: A short privacy screening questionnaire for every new system, project or collection; the senior privacy official approves each assessment.
+    decides: Senior privacy official

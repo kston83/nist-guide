@@ -75,7 +75,96 @@ h1#_top,
 	padding-inline-start: 1rem;
 }
 
-/* Control ID badges in family index tables */
-.sl-markdown-content td:first-child {
-	white-space: nowrap;
+/*
+ * Tables (issue #66). Starlight shows tables as scrolling blocks at the text
+ * column's width, with no striping. Here:
+ * - On wide screens the content column grows so wide tables have room, while
+ *   running text keeps Starlight's 45rem measure.
+ * - Cells have a minimum width, so text columns wrap to readable lines and a
+ *   table too wide for the column scrolls sideways inside itself, never the page.
+ * - Shadows at the left and right edges show there is more to scroll to
+ *   (a scroll-driven animation, no script).
+ * - Striped rows and a firmer header rule make rows easier to follow.
+ */
+:root {
+	--rfg-prose-width: 45rem;
+	/* See-through, so the scroll shadows show on striped rows too. */
+	--rfg-table-stripe: color-mix(in srgb, var(--sl-color-gray-5) 30%, transparent);
+	/* On the dark theme a soft light edge reads better than a shadow. */
+	--rfg-table-shadow: color-mix(in srgb, var(--sl-color-gray-3) 40%, transparent);
+}
+
+:root[data-theme='light'] {
+	--rfg-table-stripe: color-mix(in srgb, var(--sl-color-gray-5) 22%, transparent);
+	--rfg-table-shadow: rgb(0 0 0 / 0.2);
+}
+
+@media (min-width: 90rem) {
+	:root {
+		--sl-content-width: 52rem;
+	}
+}
+
+@media (min-width: 110rem) {
+	:root {
+		--sl-content-width: 64rem;
+	}
+}
+
+.sl-markdown-content > :is(p, ul, ol, dl, blockquote) {
+	max-width: var(--rfg-prose-width);
+}
+
+.sl-markdown-content table:not(:where(.not-content *)) {
+	max-width: 100%;
+}
+
+/*
+ * Edge shadows follow the scroll position: a right shadow while there is more to
+ * the right, a left one once scrolled. A box-shadow rather than a background
+ * image, so the accessibility check can still read the cell colors. Browsers
+ * without scroll-driven animations show no shadow; the table still scrolls.
+ */
+@supports (animation-timeline: scroll()) {
+	.sl-markdown-content table:not(:where(.not-content *)) {
+		/* Longhands: the build's CSS minifier would fold a shorthand and the
+		   timeline into one `animation`, which browsers reject. */
+		animation-name: rfg-table-edges;
+		animation-timing-function: linear;
+		animation-fill-mode: both;
+		animation-timeline: scroll(self inline);
+	}
+}
+
+@keyframes rfg-table-edges {
+	from {
+		box-shadow:
+			inset 1rem 0 1rem -1rem transparent,
+			inset -1rem 0 1rem -1rem var(--rfg-table-shadow);
+	}
+	5%,
+	95% {
+		box-shadow:
+			inset 1rem 0 1rem -1rem var(--rfg-table-shadow),
+			inset -1rem 0 1rem -1rem var(--rfg-table-shadow);
+	}
+	to {
+		box-shadow:
+			inset 1rem 0 1rem -1rem var(--rfg-table-shadow),
+			inset -1rem 0 1rem -1rem transparent;
+	}
+}
+
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+	min-width: min(9rem, 40vw);
+	padding: 0.5rem 0.75rem;
+}
+
+.sl-markdown-content thead th:not(:where(.not-content *)) {
+	border-bottom: 2px solid var(--sl-color-gray-4);
+	vertical-align: bottom;
+}
+
+.sl-markdown-content tbody tr:nth-child(even):not(:where(.not-content *)) {
+	background: var(--rfg-table-stripe);
 }

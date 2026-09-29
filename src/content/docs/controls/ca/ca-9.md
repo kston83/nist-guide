@@ -8,6 +8,7 @@ control:
   id: CA-9
   family: CA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -89,3 +90,36 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+Internal connections are connections between the system and its own separate components, such as printers, scanners, sensors, mobile devices, or the servers and workstations used to develop it. Exchanges with other systems fall under CA-3 instead. NIST's CA-9 discussion lets the organization authorize a whole class of components with a common configuration, rather than each device, which is how most organizations meet it.
+
+**Common implementations.** A table in the [system security plan](/templates/plans/system-security-plan/) of the authorized classes of internal connection, each with its interface, security requirements and the information it carries. Class membership enforced by network access control or device management, so only components with the approved configuration connect. Components tracked in the [system inventory](/templates/forms/system-inventory/), so a retired or reassigned device is disconnected. The [Assessment, Authorization, and Monitoring policy](/templates/policies/ca/) sets the rules.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Components authorized for internal connection (a) | Classes of components that connect to the system from inside its boundary, such as printers, scanners, copiers, sensors, and mobile devices with the approved baseline configuration |
+| Conditions for terminating a connection (c) | The component is retired or reassigned, fails a compliance check, is involved in an incident, or no longer needs the connection |
+| Review of continued need (d) | At least annually |
+
+**Evidence assessors ask for.**
+
+- The list of authorized components or classes of components, and who authorized them
+- The documented interface characteristics, security and privacy requirements, and nature of the information for each class
+- Configuration of the network access control or device management that enforces the classes
+- Records of connections terminated under the stated conditions
+- The last review of continued need, with the connections removed
+
+**Inheritance.** CA-9 is mostly system-specific. Network access control, device management and a shared print or mobile device service may be common controls the system inherits; the system still authorizes which classes connect to it.
+
+**Common findings.**
+
+- Printers, multifunction devices or sensors connected with default settings and no authorization.
+- Classes described too broadly, such as "all network devices", to support a security requirement.
+- No review of continued need, so connections for retired projects or test devices stay open.
+- Devices that failed compliance checks still connected.
+
+**Enhancements in the Moderate baseline.** None. CA-9 has one enhancement, [CA-9(1)](#ca-9.1) compliance checks, which is not in a baseline.

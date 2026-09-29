@@ -170,7 +170,7 @@ AC-2 makes account management a controlled life cycle: every account has a known
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall ensure account management processes are aligned with personnel termination and transfer processes. (AC-2l)
 
 :::note[Guidance]
-Where the organization does not use shared or group accounts, keep the AC-2k statement and note in the system security plan that none are deployed; the assessor will still ask. Evidence for AC-2l is usually an automated feed from the human resources system to the identity provider, or a documented handoff in the termination checklist (PS-4).
+Where the organization does not use shared or group accounts, keep the AC-2k statement and note in the system security plan that none are deployed; the assessor will still ask. Evidence for AC-2l is usually an automated feed from the human resources system to the identity provider, or a documented handoff in the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) (PS-4).
 :::
 
 #### Automated system account management (AC-2(1))

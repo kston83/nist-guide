@@ -25,6 +25,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
 | [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
+| [Personnel Security Policy](/templates/policies/ps/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Policy](/templates/policies/ra/) | [Foundation](/program/foundation/) | Draft |
 
 ## Decision worksheets
@@ -40,6 +41,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
 | [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
+| [Personnel Security Decision Worksheet](/templates/worksheets/ps/) | [Core](/program/core/) | Draft |
 | [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | [Foundation](/program/foundation/) | Draft |
 
 ## Plans
@@ -64,6 +66,8 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
+| [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
 | [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |

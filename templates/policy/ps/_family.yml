@@ -1,0 +1,26 @@
+# Personnel Security (PS) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Personnel Security
+role: ciso
+stage: core
+questions:
+  - question: Who designates position risk, and what screening does each risk level require?
+    controls: [ps-2, ps-3]
+    typical: The human resources office designates positions with the security team; a table sets the screening for each level, from identity and employment checks for low risk to criminal history checks for high risk, where the law allows them.
+    decides: Human resources office, with the Chief Information Security Officer
+  - question: How do account managers learn of departures and transfers?
+    controls: [ps-4, ps-5]
+    typical: An automated feed from the human resources system to the identity provider, plus a same-day call or ticket for an involuntary termination.
+    decides: Chief Information Security Officer
+  - question: Which access agreements does each person sign?
+    controls: [ps-6]
+    typical: Everyone signs the access agreement and the rules of behavior; administrators also sign a privileged user agreement; conflict-of-interest agreements where the role calls for one.
+    decides: Chief Information Security Officer
+  - question: How do external providers report changes to their staff, and how is that checked?
+    controls: [ps-7]
+    typical: A contract clause requiring notice within 24 hours, and a monthly comparison of the provider's staff roster with the accounts and badges issued to its people.
+    decides: Chief Information Security Officer

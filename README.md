@@ -6,7 +6,7 @@ Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); progress is i
 
 ## Roadmap
 
-The guide helps an organization **learn, build and prove** a security program: it explains every RMF step and SP 800-53 control, and ships the policies, plans, standards and forms to act on them as a versioned, CC0 template kit. The public [Roadmap](https://kston83.github.io/nist-guide/reference/roadmap/) page shows where the work stands; update it at the end of each phase.
+The guide is a practical guidebook to two NIST frameworks: the Risk Management Framework (RMF) with SP 800-53, and the AI Risk Management Framework (AI RMF). For each, it helps an organization **learn, build and prove** its program: it explains what the framework asks, and ships the policies, plans, standards and forms to act on it as a versioned, CC0 template kit. It is written for any organization, with federal requirements marked. The public [Roadmap](https://kston83.github.io/nist-guide/reference/roadmap/) page shows where the work stands; update it at the end of each phase.
 
 | Phase | Scope | Kit | Status |
 | --- | --- | --- | --- |
@@ -14,7 +14,7 @@ The guide helps an organization **learn, build and prove** a security program: i
 | 2 Template system and first kit | Template pipeline, 31 priority controls, five family policies, SSP, IR plan, POA&M | v1.0.0 | Done |
 | 3 Full program kit | All 20 family policies, the consolidated policy, every catalog artifact, the program path | v2.0.0 | In progress |
 | 4 Methods and the SSDF | NIST implementation guidance on control pages, starting with the SSDF | v2.1.0 | Planned |
-| 5 AI security guide | A separate AI section built on NIST and OWASP guidance | v2.2.0 | Planned |
+| 5 AI RMF and AI security | The second guidebook: applying the AI RMF, securing AI systems through the RMF, NIST and OWASP AI security guidance, AI templates | v2.2.0 | Planned |
 | 6 Industries and technology | Three industry guides, four technology playbooks, articles | | Planned |
 | 7 Depth | Guidance for every Moderate control, High clauses, crosswalks, automation | | Planned |
 

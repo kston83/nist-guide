@@ -15,10 +15,10 @@ The guide has five layers, from general to specific:
 4. **Industries (planned).** How the framework and controls apply under sector rules such as HIPAA, NERC CIP, PCI DSS and CMMC.
 5. **Technologies (planned).** How specific controls are implemented and evidenced on specific platforms.
 
-Two further strands build on the controls:
+Two further parts build on this:
 
 - **Methods (planned).** Where NIST publishes how to meet a control, the control page will name it. The Secure Software Development Framework ([SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)) comes first.
-- **AI security guide (planned).** A separate section for adopting and securing AI, built on NIST and OWASP guidance.
+- **The AI RMF and AI security (planned).** A second guidebook, for the NIST AI Risk Management Framework: how to apply it, and how to adopt and secure AI, in any organization and in systems authorized under the RMF. It is built on NIST and OWASP guidance.
 
 The [roadmap](/reference/roadmap/) shows what is available now and what comes next.
 

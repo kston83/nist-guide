@@ -11,7 +11,7 @@ typical:
 ---
 
 :::guidance
-Monitoring means watching for newly announced vulnerabilities that affect the system's components; scanning means testing the components themselves. Set remediation times by risk, and move known exploited vulnerabilities to the front. A vulnerability not fixed in time becomes a plan of action and milestones item (CA-5) or an approved risk acceptance (RA-7). Standards for naming and scoring vulnerabilities include CVE, CPE and CVSS.
+Monitoring means watching for newly announced vulnerabilities that affect the system's components; scanning means testing the components themselves. Set remediation times by risk, and move known exploited vulnerabilities to the front. A vulnerability not fixed in time becomes a plan of action and milestones item (CA-5) or an approved risk acceptance (RA-7). Standards for naming and scoring vulnerabilities include CVE, CPE and CVSS. The [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) sets the coverage, frequencies and remediation times in detail.
 :::
 
 - Each {{org:system-owner}} shall ensure the system and its hosted applications are monitored for vulnerabilities {{param:ra-05_odp.01}}. (RA-5a)

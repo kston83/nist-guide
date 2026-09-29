@@ -6,7 +6,7 @@ stage: foundation
 ---
 
 :::guidance
-Categorization rates how badly a loss of confidentiality, integrity or availability of the system and its information would hurt the organization, and it drives the choice of baseline (PL-10). Record it in the categorization section of the [System Security Plan template](/templates/plans/system-security-plan/).
+Categorization rates how badly a loss of confidentiality, integrity or availability of the system and its information would hurt the organization, and it drives the choice of baseline (PL-10). Work it out with the [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) and record the result in the categorization section of the [System Security Plan template](/templates/plans/system-security-plan/).
 :::
 
 - Each {{org:system-owner}} shall categorize the system and the information it processes, stores and transmits. (RA-2a)

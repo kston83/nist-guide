@@ -75,7 +75,7 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 - **Writing a family quickly:** read each control's statement and parameters from the generated control page (`## Control statement`, and `### XX-n(m)` for enhancements) and `src/data/catalog.json` (`controls[].params`, `params[id].prompt` or `.select`). Include the family's Privacy-only controls (owner decision). Check typical values against any existing guidance on the control page and related templates, so they agree.
 - **Organization-wide families:** `baseline: none` in `_family.yml` gives one `Organization` variant (PM only). A family's own `policy/<family>/_common.md` replaces the shared one and may set `typical` for its -1 parameters.
 - **Source sweeps:** subagents overflow on whole NIST PDFs. Ask for narrow checks (landing page for status, one quote per item), five to seven items per agent, and reply under 350 words. An agent reporting only "no rescission found" is not verification: use TODO(verify).
-- **Shell:** on this Windows machine, heredocs containing apostrophes break inside `node -e '...'`; use the Edit tool, or write a script file first. There is no Python.
+- **Shell:** on this Windows machine, here-documents containing apostrophes break inside `node -e '...'`; use the Edit tool, or write a script file first. There is no Python.
 - **Worth checking in the SC and SI PRs:** the FIPS 140-2 Historical List move (below).
 
 - **Verified 2026-09-28**, for the RA-5 and SI-2 guidance (cite with "as of September 2026"):

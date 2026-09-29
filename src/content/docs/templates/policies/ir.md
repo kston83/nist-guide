@@ -3,7 +3,7 @@ title: 'Incident Response Policy'
 description: 'Ready-to-adopt Incident Response policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'Incident Response (IR)'
-  order: 5
+  order: 6
 controls: [ir-1, ir-2, ir-2.1, ir-2.2, ir-3, ir-3.2, ir-4, ir-4.1, ir-4.4, ir-4.11, ir-5, ir-5.1, ir-6, ir-6.1, ir-6.3, ir-7, ir-7.1, ir-8]
 ---
 

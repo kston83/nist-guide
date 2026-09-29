@@ -1,0 +1,22 @@
+# Awareness and Training (AT) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Awareness and Training
+role: ciso
+stage: core
+questions:
+  - question: Who builds and runs security and privacy training, and where are completions tracked?
+    controls: [at-2, at-3, at-4]
+    typical: The security team owns security content and the privacy office owns privacy content; courses are assigned and tracked in the learning management system.
+    decides: Chief Information Security Officer
+  - question: What happens when someone does not complete required training on time?
+    controls: [at-2, at-3]
+    typical: Reminders to the person and their supervisor, then suspension of system access until the training is complete.
+    decides: Chief Information Security Officer
+  - question: Which roles need role-based training, and what does each role's training cover?
+    controls: [at-3]
+    typical: A table in the training plan listing each role with significant security or privacy duties and its courses.
+    decides: Chief Information Security Officer

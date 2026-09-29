@@ -1,9 +1,23 @@
 ---
 title: About this guide
-description: Who this guide is for, how it is organized, and how it is maintained.
+description: Who this guide is for, how it is made, how it is organized, and how it is maintained. The guide is a research project, and most of its content is written by Claude Opus 5.5.
 ---
 
 The RMF Field Guide explains how to apply the NIST Risk Management Framework (RMF) and the SP 800-53 control catalog to real systems, from the first boundary diagram to ongoing authorization. It is written for system owners, information system security officers (ISSOs), assessors, authorizing officials and the consultants who support them.
+
+## How this guide is made
+
+This guide is a research project. It began as a test of what Claude Opus 5.5, Anthropic's model, can do on a real, demanding body of work: a practitioner-grade RMF guide and program kit.
+
+Most, if not all, of the content is written by Claude Opus 5.5 working in Claude Code. That includes the guidance, the templates and the site's code. The owner directs the work: he sets the scope and priorities, makes the decisions, and reviews and merges every change. The history on GitHub shows this: each [pull request](https://github.com/kston83/nist-guide/pulls?q=is%3Apr) notes that it was generated with Claude Code, and its commits carry a co-author line for the model. The merged changes are in the [commit history](https://github.com/kston83/nist-guide/commits/main).
+
+What this means for you:
+
+- **Check the status.** Control pages and templates show a status. **Draft** means written and source-checked but not yet reviewed by the owner. **Reviewed** means the owner has reviewed it. The [guidance coverage](/controls/coverage/) page shows the status of every control.
+- **Sources are cited.** Factual claims about rules, versions and dates are checked against primary sources and cited on the page. Anything that cannot be verified is flagged, not guessed.
+- **Confirm before you rely on it.** Check requirements with your agency or program office before you act on them.
+
+This is an ongoing effort. The aim is for the guide to grow into a complete, dependable resource over time, and the [roadmap](/reference/roadmap/) shows the plan. For now, treat it as a work in progress.
 
 ## How it is organized
 
@@ -24,15 +38,17 @@ The [roadmap](/reference/roadmap/) shows what is available now and what comes ne
 
 ## About the author
 
+The owner directs this project and reviews its work, drawing on his federal RMF practice.
+
 **Kristopher Stone, CISSP** is a father and an AI security lead who works on federal systems, where the RMF and SP 800-53 are part of everyday work. Kristopher holds the CISSP along with CompTIA and ITIL certifications, and studied at Western Governors University.
 
-This guide collects the practical side of that work: what each step and control actually asks for, what assessors look for, and the documents that make a security program real.
+The guide aims to collect the practical side of that work: what each step and control actually asks for, what assessors look for, and the documents that make a security program real.
 
 Connect with Kristopher on [LinkedIn](https://www.linkedin.com/in/kristopher-stone-cissp-655b4866).
 
 ## Sources and accuracy
 
-Control statements, discussion and assessment objectives are reproduced from NIST SP 800-53 Rev. 5 and SP 800-53A Rev. 5 (release 5.2.0), which are U.S. government works in the public domain. Everything else is original guidance. Program rules change often, especially for FedRAMP and DoD, so each page shows when it was last updated. Always confirm requirements with your agency or program office.
+Control statements, discussion and assessment objectives are reproduced from NIST SP 800-53 Rev. 5 and SP 800-53A Rev. 5 (release 5.2.0), which are U.S. government works in the public domain. Everything else is original, not copied from other sources, and is written by Claude Opus 5.5 under the owner's direction (see [How this guide is made](#how-this-guide-is-made)). Program rules change often, especially for FedRAMP and DoD, so each page shows when it was last updated. Always confirm requirements with your agency or program office.
 
 This guide is independent and is not endorsed by NIST, any agency or any employer.
 

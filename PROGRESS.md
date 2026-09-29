@@ -15,7 +15,7 @@ Phases 1 and 2 are complete and approved by the owner (Phase 2 approved by mergi
 
 Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI guide is Phase 5.
 
-**Owner decisions, 2026-09-28** (recorded in PRD 3.2): FEAT-01 deferred to Phase 6, with the first article. One organization-wide PM policy (`baseline: none`), in every baseline's kit. Privacy-baseline clauses (PT, and privacy-only controls in other families) written with each family. PR plan: "split big, combine small", below. One PR at a time; the owner merges each before the next starts.
+**Owner decisions, 2026-09-28** (recorded in PRD 3.2): FEAT-01 deferred to Phase 6, with the first article. One organization-wide PM policy (`baseline: none`), in every baseline's kit. Privacy-baseline clauses (PT, and privacy-only controls in other families) written with each family. PR plan: "split big, combine small", below. Added 2026-09-28 (owner): rows 27 to 31 for the AC, IA, CM, AU and IR artifacts, after SR; and a `report` template type (row 7). One PR at a time; the owner merges each before the next starts.
 
 ### Phase 3 plan
 
@@ -27,21 +27,27 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 | 4 | Content: PL policy | Merged (#48) |
 | 5 | Content: RA policy | Merged (#49) |
 | 6 | Content: RA artifacts (categorization worksheet, risk assessment report, risk register, vulnerability management standard) | PR open |
-| 7 | Content: AT policy, training plan and training record log | |
-| 8, 9 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | |
-| 10 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | |
-| 11, 12 | Content: SC policy; SC standards (encryption and key management, boundary protection) | |
-| 13, 14 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | |
-| 15, 16 | Content: SI policy; SI standards (patch and flaw remediation, system monitoring) | |
-| 17, 18 | Content: CA policy; CA artifacts (assessment plan and report, Continuous Monitoring Strategy, information exchange agreement) | |
-| 19, 20 | Content: SA policy; SA artifacts (acquisition security requirements, external service review; the SSDF-based ones are Phase 4) | |
-| 21 | Content: MA policy and maintenance log | |
-| 22 | Content: MP policy and media sanitization record | |
-| 23 | Content: PE policy, physical access list and visitor log | |
-| 24, 25 | Content: SR policy; SR artifacts (Supply Chain Risk Management Plan, supplier assessment questionnaire) | |
-| 26 | TPL-09 consolidated policy, and the starter kit uses it | |
-| 27 to 31 | PROG-03, PROG-04, TPL-11, NAV-02, PRES-02 | |
-| 32 | TPL-10 kit v2.0.0 version bump; tag only with the owner's go-ahead | |
+| 7 | TPL-01: `report` template type (`templates/reports/`, schema, sidebar, PRD); the risk assessment report moves to it | |
+| 8 | Content: AT policy, training plan and training record log | |
+| 9, 10 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | |
+| 11 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | |
+| 12, 13 | Content: SC policy; SC standards (encryption and key management, boundary protection) | |
+| 14, 15 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | |
+| 16, 17 | Content: SI policy; SI standards (patch and flaw remediation, system monitoring) | |
+| 18, 19 | Content: CA policy; CA artifacts (assessment plan and report, Continuous Monitoring Strategy, information exchange agreement) | |
+| 20, 21 | Content: SA policy; SA artifacts (acquisition security requirements, external service review; the SSDF-based ones are Phase 4) | |
+| 22 | Content: MA policy and maintenance log | |
+| 23 | Content: MP policy and media sanitization record | |
+| 24 | Content: PE policy, physical access list and visitor log | |
+| 25, 26 | Content: SR policy; SR artifacts (Supply Chain Risk Management Plan, supplier assessment questionnaire) | |
+| 27 | Content: AC artifacts (account management procedure, access request form, access review record, remote access standard) | |
+| 28 | Content: IA artifact (identification and authentication standard) | |
+| 29 | Content: CM artifacts (Configuration Management Plan, baseline configuration standard, change request form, component inventory) | |
+| 30 | Content: AU artifacts (audit logging standard, log review procedure) | |
+| 31 | Content: IR artifacts (incident handling playbook, incident report form, tabletop exercise kit) | |
+| 32 | TPL-09 consolidated policy, and the starter kit uses it | |
+| 33 to 37 | PROG-03, PROG-04, TPL-11, NAV-02, PRES-02 | |
+| 38 | TPL-10 kit v2.0.0 version bump; tag only with the owner's go-ahead | |
 
 ## Phase 2: Template system and first kit (approved)
 
@@ -71,13 +77,12 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 
 ### Notes for the next session
 
-- **Phase 3 in progress** (handoff 2026-09-28): plan rows 1 to 5 merged, row 6 (RA artifacts) open. Next: row 7, AT policy, training plan and training record log. Work one PR at a time; the owner merges each before the next starts.
+- **Phase 3 in progress** (handoff 2026-09-28): plan rows 1 to 5 merged, row 6 (RA artifacts, #50) open. Next: row 7, the `report` template type, then row 8, AT. Work one PR at a time; the owner merges each before the next starts.
 - **Writing a family quickly:** read each control's statement and parameters from the generated control page (`## Control statement`, and `### XX-n(m)` for enhancements) and `src/data/catalog.json` (`controls[].params`, `params[id].prompt` or `.select`). Include the family's Privacy-only controls (owner decision). Check typical values against any existing guidance on the control page and related templates, so they agree.
 - **Organization-wide families:** `baseline: none` in `_family.yml` gives one `Organization` variant (PM only). A family's own `policy/<family>/_common.md` replaces the shared one and may set `typical` for its -1 parameters.
 - **Source sweeps:** subagents overflow on whole NIST PDFs. Ask for narrow checks (landing page for status, one quote per item), five to seven items per agent, and reply under 350 words. An agent reporting only "no rescission found" is not verification: use TODO(verify).
 - **Shell:** on this Windows machine, here-documents containing apostrophes break inside `node -e '...'`; use the Edit tool, or write a script file first. There is no Python.
-- **Gap in the plan table, raised with the owner 2026-09-28:** the artifact catalog's AC, IA, CM, AU and IR artifacts (15 of the 50: account management procedure, access request form, access review record, remote access standard; identification and authentication standard; Configuration Management Plan, baseline configuration standard, change request form, component inventory; audit logging standard, log review procedure; incident handling playbook, incident report form, tabletop exercise kit) have no row, so the plan as written does not meet the artifact exit criterion. Awaiting the owner's decision on where they go.
-- **Template types:** there are four types (plan, standard, procedure, form). The risk assessment report uses `plan`; the CA assessment report may want a `report` type. Changing the source format needs the owner's approval.
+- **`report` type (row 7, owner decision 2026-09-28):** add `report` to `TYPES` and `TYPE_FOLDERS` (`templates/reports/`) in `src/lib/template-schema.ts`, `template-pages.mjs` labels, `template-sources.mjs`, a "Reports" sidebar group, and the PRD (type list, folder layout, Decided table; the source format change is owner-approved). Move `plans/risk-assessment-report.md` to `reports/` and update links to it (RA-3 clause guidance). Later reports (CA assessment report, CP after-action report) use it.
 - **Counting the exit criteria:** count Moderate-baseline controls in `catalog.json` that have a clause file, plus the family's -1 when it has any clauses (PM excluded). Per family, not by adding to the last total.
 - **For the PT PIA template (row 14):** RA-8's federal block cites E-Government Act § 208(b) (checked, with the CIO review and "if practicable" publication) and A-130 Appendix II. OMB M-03-22 is cited by later OMB memos but was not confirmed as in effect; confirm before citing it.
 - **Worth checking in the SC and SI PRs:** the FIPS 140-2 Historical List move (below).

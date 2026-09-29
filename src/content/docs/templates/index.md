@@ -20,6 +20,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Awareness and Training Policy](/templates/policies/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
+| [Contingency Planning Policy](/templates/policies/cp/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
 | [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
 | [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
@@ -34,6 +35,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Awareness and Training Decision Worksheet](/templates/worksheets/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |
 | [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
+| [Contingency Planning Decision Worksheet](/templates/worksheets/cp/) | [Core](/program/core/) | Draft |
 | [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
 | [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |

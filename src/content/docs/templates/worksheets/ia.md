@@ -3,7 +3,7 @@ title: 'Identification and Authentication Decision Worksheet'
 description: 'Every decision the Identification and Authentication family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Identification and Authentication (IA)'
-  order: 5
+  order: 6
 controls: [ia-1, ia-2, ia-2.1, ia-2.2, ia-2.5, ia-2.8, ia-2.12, ia-3, ia-4, ia-4.4, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ia-12.2, ia-12.3, ia-12.4, ia-12.5]
 ---
 

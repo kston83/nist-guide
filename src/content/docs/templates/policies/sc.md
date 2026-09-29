@@ -162,7 +162,7 @@ Most organizations meet this through their internet or cloud provider's denial-o
 #### Boundary protection (SC-7)
 
 :::note[Guidance]
-Every external connection goes through a managed interface, such as a firewall, cloud security group, gateway or proxy, and public-facing components sit in their own subnetwork. The boundary diagram in the system security plan is where assessors start. Put the rule sets, allowed flows and review cycle in the boundary protection standard.
+Every external connection goes through a managed interface, such as a firewall, cloud security group, gateway or proxy, and public-facing components sit in their own subnetwork. The boundary diagram in the system security plan is where assessors start. The [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) sets the managed interfaces, rule sets, allowed flows and review cycle.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall monitor and control communications at the external managed interfaces to the system and at key internal managed interfaces within the system. (SC-7a)
@@ -253,7 +253,7 @@ SC-10 ends the network connection; AC-12 ends the user's session. Keep the two t
 #### Cryptographic key establishment and management (SC-12)
 
 :::note[Guidance]
-Key management is where encryption usually fails: keys stored with the data, or usable by every administrator. NIST SP 800-57 Part 1 is the usual reference for key management requirements. Cloud key management services and hardware security modules handle most of it; the system owner decides who can use and administer each key.
+Key management is where encryption usually fails: keys stored with the data, or usable by every administrator. NIST SP 800-57 Part 1 is the usual reference for key management requirements. Cloud key management services and hardware security modules handle most of it; the system owner decides who can use and administer each key. The [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) sets the key generation, storage, access, replacement and destruction requirements this clause refers to.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall establish and manage cryptographic keys, wherever the system employs cryptography, in accordance with <span class="tpl-field tpl-param">Fill in: requirements for key generation, distribution, storage, access, and destruction <span class="tpl-typical">Typical: the requirements for key generation, distribution, storage, access and destruction in the encryption and key management standard</span></span>. (SC-12)
@@ -261,7 +261,7 @@ Key management is where encryption usually fails: keys stored with the data, or 
 #### Cryptographic protection (SC-13)
 
 :::note[Guidance]
-SC-13 does not require cryptography by itself; SC-8, SC-28, IA-5 and AC-17 do. It sets the standard that cryptography must meet wherever those controls call for it. The cryptographic uses match those under configuration management in CM-3(6).
+SC-13 does not require cryptography by itself; SC-8, SC-28, IA-5 and AC-17 do. It sets the standard that cryptography must meet wherever those controls call for it. The cryptographic uses match those under configuration management in CM-3(6). The [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) lists the approved algorithms, protocols and modules for each use.
 :::
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall determine the cryptographic uses for the organization's systems, which include <span class="tpl-field tpl-param">Fill in: cryptographic uses <span class="tpl-typical">Typical: encryption in transit and at rest, digital signatures and authentication</span></span>. (SC-13a)

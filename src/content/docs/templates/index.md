@@ -62,6 +62,8 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
+| [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
 | [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers

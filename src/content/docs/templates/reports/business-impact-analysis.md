@@ -3,7 +3,7 @@ title: 'Business Impact Analysis'
 description: 'The analysis of what a system''s disruption would do to the mission and business processes it supports, setting the recovery objectives and priorities the contingency plan uses, following the NIST SP 800-34 Rev. 1 BIA template.'
 sidebar:
   label: 'Business Impact Analysis'
-  order: 16
+  order: 17
 controls: [cp-2, cp-2.3, cp-2.8]
 ---
 

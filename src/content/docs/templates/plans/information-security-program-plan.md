@@ -3,7 +3,7 @@ title: 'Information Security Program Plan'
 description: 'The organization-wide plan for the information security program, covering every element SP 800-53 PM-1 requires, with the program management and common controls the organization provides.'
 sidebar:
   label: 'Information Security Program Plan'
-  order: 16
+  order: 17
 controls: [pm-1, pm-2, pm-3, pm-6, pm-10, pm-29]
 ---
 

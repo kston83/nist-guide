@@ -3,7 +3,7 @@ title: 'Security Categorization Worksheet'
 description: 'A worksheet for categorizing a system and its information by the impact of a loss of confidentiality, integrity or availability, with the rationale and approval SP 800-53 RA-2 requires.'
 sidebar:
   label: 'Security Categorization Worksheet'
-  order: 9
+  order: 10
 controls: [ra-2]
 ---
 

@@ -1,0 +1,30 @@
+# Maintenance (MA) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Maintenance
+role: ciso
+stage: operate
+questions:
+  - question: Who approves maintenance on each system, and where are the maintenance records kept?
+    controls: [ma-2, ma-2.2]
+    typical: The system owner approves scheduled maintenance through the change control process and each unscheduled repair before it starts; every activity is recorded in the maintenance log or the IT service management system, and the system owner reviews the records each quarter.
+    decides: System owner
+  - question: Who may perform nonlocal maintenance, and how do they connect?
+    controls: [ma-4, ma-4.3, ma-5]
+    typical: Only personnel and maintenance organizations on the authorized list, through the organization's managed remote access service with multi-factor authentication, using a maintenance account that is enabled for each approved session and disabled when it ends; no always-on remote access tools installed by a vendor.
+    decides: Chief Information Security Officer
+  - question: How are maintenance personnel who lack the required access authorizations handled?
+    controls: [ma-5, ma-5.1]
+    typical: They work only while escorted and supervised by a technically competent employee who has the required access authorizations, with temporary credentials for that visit or session that are disabled when it ends.
+    decides: System owner
+  - question: What may leave the facility for repair or replacement, and what must stay?
+    controls: [ma-2, ma-3.3]
+    typical: Storage media stay; a failed drive is kept and sanitized or destroyed by the organization, under a media retention option in the maintenance contract where available. Other components leave only after sanitization and the system owner's approval.
+    decides: System owner
+  - question: Which components need contracted maintenance support or spare parts, and how quickly must they be restored?
+    controls: [ma-6]
+    typical: The components that support essential mission and business functions, and the security components that protect them, with support contracts or spares on hand that restore them within the recovery time objective in the contingency plan.
+    decides: System owner

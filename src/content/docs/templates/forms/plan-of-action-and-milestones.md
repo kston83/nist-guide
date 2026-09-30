@@ -3,7 +3,7 @@ title: 'Plan of Action and Milestones (POA&M)'
 description: 'The register of a system''s known weaknesses and the planned actions, milestones and dates to fix them, as SP 800-53 CA-5 requires.'
 sidebar:
   label: 'Plan of Action and Milestones (POA&M)'
-  order: 5
+  order: 6
 controls: [ca-5, ca-7, pm-4]
 ---
 

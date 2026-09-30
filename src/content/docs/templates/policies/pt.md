@@ -3,7 +3,7 @@ title: 'Personally Identifiable Information Processing and Transparency Policy'
 description: 'Ready-to-adopt Personally Identifiable Information Processing and Transparency policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Privacy).'
 sidebar:
   label: 'Personally Identifiable Information Processing and Transparency (PT)'
-  order: 12
+  order: 13
 controls: [pt-1, pt-2, pt-3, pt-4, pt-5, pt-5.2, pt-6, pt-6.1, pt-6.2, pt-7, pt-7.1, pt-7.2, pt-8]
 ---
 

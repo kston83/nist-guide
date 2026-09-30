@@ -8,6 +8,7 @@ control:
   id: AU-5
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -169,3 +170,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-5 asks the system to alert named people when audit logging fails, within a set time, and to take the actions you define. NIST's AU-5 discussion counts software and hardware errors, failures of the capture mechanism, and full audit log storage as failures. The actions it names include overwriting the oldest records, shutting the system down and stopping record generation; you may also decide on no action beyond the alert.
+
+**Common implementations.** Components set to act on logging failures: on Linux, the auditd settings `space_left_action`, `admin_space_left_action`, `disk_full_action` and `disk_error_action`; on Windows, the audit failure policies and security log size settings. The central log platform raises an alert when a source stops sending for longer than its normal interval, and when forwarding or ingestion fails. Alerts open a ticket for the system administrators and the security operations team. The gap in the audit trail is recorded, so a later investigation knows which period has no logs.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who is alerted to a logging failure (a) | The system administrators and the security operations team |
+| Time period for the alert (a) | 1 hour |
+| Additional actions (b) | Restore logging and record the gap in the audit trail; for high-impact systems, stop processing that cannot be logged |
+| Who is warned about storage capacity (AU-5(1), High) | The system administrators and the security operations team |
+| Time period for the warning (AU-5(1), High) | 1 hour |
+| Storage level that triggers the warning (AU-5(1), High) | 75 percent |
+| Real-time period for alerts (AU-5(2), High) | 15 minutes |
+| Who receives real-time alerts (AU-5(2), High) | The security operations team |
+| Failure events that need real-time alerts (AU-5(2), High) | Loss of log forwarding from any component, and failure of the central log repository |
+
+NIST's AU-5(2) discussion describes real-time alerts as taking seconds or less from detection to alert. The typical 15 minutes allows for noticing that a source has gone silent, which takes as long as its normal sending interval; send the alert itself as soon as the failure is detected. In the [Audit and Accountability policy](/templates/policies/au/), the system owner ensures the alerts are sent and the actions taken.
+
+**Evidence assessors ask for.**
+
+- Logging failure settings on a sample of components
+- The log platform's rule for silent sources and failed forwarding, with its threshold
+- An example alert and the ticket it opened, showing the time from failure to alert
+- The record of a past logging gap and how it was closed
+- For High, the storage warning setting (AU-5(1)) and the real-time alert rules (AU-5(2))
+
+**Inheritance.** Silent-source detection on a central log platform is usually a common control. The system owns the failure settings on its components and acting on the alerts, so AU-5 is usually a hybrid control.
+
+**Common findings.**
+
+- A component that stopped sending logs weeks before anyone noticed.
+- Alerts sent to a shared mailbox that nobody watches.
+- Local logs overwritten when the disk filled, with no alert.
+- Logging gaps restored but never recorded, so investigators assume the logs are complete.
+
+**Enhancements in the Moderate baseline.** None. High adds [AU-5(1)](#au-5.1) storage capacity warning and [AU-5(2)](#au-5.2) real-time alerts. [AU-5(3)](#au-5.3), [AU-5(4)](#au-5.4) and [AU-5(5)](#au-5.5) are in no baseline.

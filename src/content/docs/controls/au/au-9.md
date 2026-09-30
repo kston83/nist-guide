@@ -8,6 +8,7 @@ control:
   id: AU-9
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -216,3 +217,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-9 asks you to protect audit information and logging tools from unauthorized access, change and deletion, and to alert named people when that is detected. NIST's AU-9 discussion counts audit records, log settings, audit reports and any personal data in them as audit information. An attacker who gains administrator rights will try to clear the logs first, so assessors look hard at who can change or delete them.
+
+**Common implementations.** Logs forwarded as they are written to a central platform in a separate account or tenant, where administrators of the audited systems have no rights to change or delete them. Archives kept on immutable storage, such as object storage with a retention lock. Alert rules for log clearing (for example Windows Security event 1102, "the audit log was cleared"), stopped logging agents, and changes to retention or logging settings. Logging tools and agents protected by file permissions and change control. Media holding audit information is protected under the MP and PE controls, as NIST's discussion notes.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who is alerted to unauthorized access, change or deletion (b) | The security operations team and the system owner |
+| Who may manage audit logging functionality (AU-9(4)) | The security operations administrators, who do not administer the systems being audited |
+| How often records are stored on a separate system (AU-9(2), High) | In near real time |
+
+AU-9(3) has no parameter. In the [Audit and Accountability policy](/templates/policies/au/), the system owner protects the audit information and ensures the alerts are sent.
+
+**Evidence assessors ask for.**
+
+- The list of people and roles with access to the log platform, and what each can do
+- Evidence that administrators of the audited systems cannot delete or change stored records (AU-9(4))
+- The alert rules for log clearing, agent stops and setting changes, and a sample alert with its follow-up
+- Retention locks or other immutability settings on log archives
+- For High, the forwarding settings (AU-9(2)) and the cryptographic integrity mechanism (AU-9(3))
+
+**Inheritance.** The central log platform, its access roles and its immutable storage are usually common controls. The system owns protecting local logs and agents on its components and restricting who can change its logging, so AU-9 is usually a hybrid control.
+
+**Common findings.**
+
+- Domain or cloud administrators who are also administrators of the log platform.
+- Local logs that an administrator can clear with no alert and no copy elsewhere.
+- A shared service account for the log platform used by several teams.
+- Analysts with delete rights they do not need.
+
+**Enhancements in the Moderate baseline.** [AU-9(4)](#au-9.4) access by subset of privileged users, which is also in High. NIST's AU-9(4) discussion explains why: a privileged user who is also audited by the system can hinder logging or change records. High adds [AU-9(2)](#au-9.2) store on separate physical systems or components and [AU-9(3)](#au-9.3) cryptographic protection. [AU-9(1)](#au-9.1), [AU-9(5)](#au-9.5), [AU-9(6)](#au-9.6) and [AU-9(7)](#au-9.7) are in no baseline.
+
+- **AU-9(2)** keeps records safe if the audited system is compromised. NIST's discussion applies it to initial records and to backups and long-term storage alike.
+- **AU-9(3)** protects integrity with cryptography, such as the signed hash functions NIST's discussion names. Use modules that meet [SC-13](/controls/sc/sc-13/) and the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/).

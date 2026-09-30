@@ -8,6 +8,7 @@ control:
   id: AU-7
   family: AU
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -89,3 +90,35 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-7 asks for tools that summarize, search and report on audit records, for routine review and for investigating incidents. The same tools must never change the original records or their time order. NIST's AU-7 discussion describes record reduction as organizing collected logs into a summary that analysts can use, and notes that time ordering suffers when time stamps are too coarse.
+
+**Common implementations.** The search, dashboards and scheduled reports of the central log platform or SIEM, which [AU-6](/controls/au/au-6/) review uses. The platform keeps each raw event as received and adds parsed fields alongside it, so summaries and reports run on the parsed fields while the original stays intact. Analysts work on search results or exports, never on the stored records. Each record keeps its own event time as well as the time the platform received it.
+
+**Organization-defined parameters.** AU-7 has none. Typical value for its Moderate enhancement, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Fields that can be processed, sorted and searched (AU-7(1)) | Event type, time, source and destination, user identity, outcome and system component |
+
+These fields match the content [AU-3](/controls/au/au-3/) requires, so records that meet AU-3 and parse cleanly can be searched on them. In the [Audit and Accountability policy](/templates/policies/au/), the system owner provides the capability, often by inheriting the organization's log platform.
+
+**Evidence assessors ask for.**
+
+- A demonstration: search the system's records by each AU-7(1) field, sort the results and produce a report
+- Sample scheduled reports and the review records that used them
+- Platform settings that show raw events are kept unchanged, and who can edit or delete stored records
+- Records showing both event time and received time
+
+**Inheritance.** The reduction and reporting capability is usually a common control, provided by the central log platform. The system owns sending records that parse into the platform's fields, so AU-7 is often mostly inherited.
+
+**Common findings.**
+
+- Records stored as unparsed text, so they cannot be searched by user or outcome.
+- Reports built by exporting logs to spreadsheets and editing them, with no link back to the original records.
+- A platform that replaces the event time with the time it received the record, which breaks time order when forwarding is delayed.
+- Analysts with rights to edit or delete stored records ([AU-9](/controls/au/au-9/)).
+
+**Enhancements in the Moderate baseline.** [AU-7(1)](#au-7.1) automatic processing, which is also in High. NIST's AU-7(1) discussion lists the content events of interest can be found by: resources involved, information objects accessed, identities, event types, locations, dates and times, IP addresses, and success or failure.

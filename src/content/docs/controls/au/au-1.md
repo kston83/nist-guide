@@ -8,6 +8,7 @@ control:
   id: AU-1
   family: AU
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,68 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-1 asks for a written audit and accountability policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Audit and Accountability policy template](/templates/policies/au/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the AU-1 item it meets:
+
+| AU-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written for the work AU-2 to AU-12 describe:
+
+- Choosing the event types each system logs, and the content of each record
+- Sending logs to the central log platform, and sizing its storage
+- Responding when logging fails or a log source goes silent
+- Reviewing and analyzing logs, and reporting what the review finds
+- Limiting who can manage logging, and protecting the logs themselves
+- Keeping audit records for the retention period, and disposing of them after it
+
+Templates for an audit logging standard and a log review procedure are planned for this family. Until they are published, the [system monitoring standard](/templates/standards/system-monitoring-standard/) covers log sources, review and retention for the monitoring platform. System-specific settings go in the [system security plan](/templates/plans/system-security-plan/).
+
+NIST's log management guide, SP 800-92, Guide to Computer Security Log Management ([September 2006](https://csrc.nist.gov/pubs/sp/800/92/final), final), helps with planning the procedures. Its revision, SP 800-92 Rev. 1, Cybersecurity Log Management Planning Guide, is an [initial public draft](https://csrc.nist.gov/pubs/sp/800/92/r1/ipd) from October 11, 2023, with no later version as of September 2026.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's AU-1 discussion. For AU, the people who carry out the procedures are, for example, system administrators, application developers, the security operations team and the team that runs the central log platform. The Chief Information Security Officer often delegates the day-to-day management to the security operations manager. A new log platform, a new kind of log source such as a cloud service, or a change in retention requirements is a typical procedure trigger.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the administrators and developers who configure logging
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** AU-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its security plan. It adds its own procedures only where it logs differently, for example an application that keeps its own audit trail outside the central platform.
+
+**Common findings.**
+
+- A policy that restates the AU controls but has no procedures behind it. NIST's discussion of AU-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period, or not updated after an incident exposed a logging gap.
+- Procedures that do not match the platform in use, such as a stated retention period the log platform is not set to keep.
+- No evidence that the procedures reached the administrators and developers who configure logging.
+
+**Enhancements in the Moderate baseline.** AU-1 has no enhancements.
+
+**Federal systems** (as of September 2026). OMB [M-26-14](https://www.whitehouse.gov/wp-content/uploads/2026/05/M-26-14-Ensuring-Effective-and-Efficient-Agency-Logging-and-Network-Visibility-to-Defend-Against-Evolving-Cyber-Threats.pdf), Ensuring Effective and Efficient Agency Logging and Network Visibility to Defend Against Evolving Cyber Threats (May 22, 2026), rescinds M-21-31. Each agency submits an Agency Logging Plan to OMB and CISA within 90 days of the publication of CISA's [Logging Reference Architecture](https://www.cisa.gov/resources-tools/resources/logging-reference-architecture), which CISA published on August 20, 2026. Write the AU policy and procedures to agree with the agency's logging plan and the memo's Appendix B minimums. M-26-14 does not apply to national security systems.

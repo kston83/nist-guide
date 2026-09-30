@@ -8,6 +8,7 @@ control:
   id: AU-4
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -74,3 +75,35 @@ Determine if audit log storage capacity is allocated to accommodate [Assignment:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-4 asks you to allocate enough storage to keep audit logs for as long as your retention requirements say. NIST's AU-4 discussion notes that enough capacity reduces the chance of running out and losing logging. Size the storage from the log volume you actually collect and the retention period set under [AU-11](/controls/au/au-11/).
+
+**Common implementations.** A central log platform sized from measured daily ingest multiplied by the retention period, plus growth. Storage split into tiers: recent logs in a searchable tier and older logs in cheaper archive storage, such as cloud object storage. Local buffers on each component big enough to hold logs through a forwarding outage, so nothing is overwritten before it reaches the platform. Capacity reviewed when a system adds components or log sources.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Audit log retention requirements (AU-4) | The retention period set under AU-11, with room for a year of growth |
+
+In the [Audit and Accountability policy](/templates/policies/au/), the system owner allocates the capacity. Where the system's logs go to a central platform, that means agreeing the capacity with the platform's owner and reporting each new log source.
+
+**Evidence assessors ask for.**
+
+- The capacity calculation or plan: daily ingest, retention period and growth allowance
+- Current storage use against capacity on the log platform
+- Retention settings on the platform, and local log size and rotation settings on a sample of components
+- Records of the last capacity review
+
+**Inheritance.** A central log platform's capacity is usually a common control. The system owns local log storage on its components and telling the platform's owner about new sources, so AU-4 is often a hybrid control.
+
+**Common findings.**
+
+- Small local log files that rotate and overwrite events before they are forwarded.
+- A retention period set shorter than AU-11 requires because the platform ran out of space.
+- A licensed ingest limit that drops events once exceeded, with no alert.
+- No capacity review after a large new log source, such as a cloud service, was added.
+
+**Enhancements in the Moderate baseline.** None. [AU-4(1)](#au-4.1) transfer to alternate storage is in no baseline. In High, [AU-5(1)](/controls/au/au-5/) adds a warning before storage runs out.

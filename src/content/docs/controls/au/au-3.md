@@ -8,6 +8,7 @@ control:
   id: AU-3
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -113,3 +114,39 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-3 sets the minimum content of every audit record: what happened, when, where, from what source, with what outcome, and who or what was involved. NIST's AU-3 discussion gives examples for each item: event descriptions, time stamps, source and destination addresses, user or process identifiers, success or failure indications, and file names. Assessors test it by pulling records from a sample of components and checking each item is there.
+
+**Common implementations.** Operating systems, databases and network devices record most of these items once logging is turned on. Applications are where the gaps are, so an application logging standard sets structured records (for example JSON) with named fields for the event type, a UTC time stamp, the host, the source address, the user or service identity and the outcome. The central log platform parses each source into the same field names, which is what makes searching by field under [AU-7(1)](/controls/au/au-7/) work. The event types themselves are chosen under [AU-2](/controls/au/au-2/), and [AU-12](/controls/au/au-12/) makes each component generate them.
+
+**Organization-defined parameters.** AU-3 has none. Typical value for its Moderate enhancement, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Additional information in audit records (AU-3(1)) | Session and request identifiers, source and destination addresses, and the full command line for privileged commands |
+
+In the [Audit and Accountability policy](/templates/policies/au/), the system owner ensures the system's audit records contain the AU-3 items and the AU-3(1) information.
+
+**Evidence assessors ask for.**
+
+- The logging configuration or application logging standard that sets record content
+- Sample records from each type of component, showing all six AU-3 items
+- Sample records showing the AU-3(1) information, such as session identifiers and the command line of a privileged command
+- The field mapping the log platform uses to parse each source
+
+**Inheritance.** Record content for a cloud provider's control plane or a managed platform is inherited from the provider, as far as its logs go. Content for operating systems and network devices often comes from common configuration baselines. The system owns the content of its own application records, so AU-3 is usually a hybrid control.
+
+**Common findings.**
+
+- Application records that show a shared service account instead of the person who acted, or leave out the outcome.
+- Time stamps with no time zone or offset, so records from different components cannot be put in order ([AU-8](/controls/au/au-8/)).
+- Passwords, session tokens or personal data written into records, often through full command lines or request bodies. Mask them before the record is stored.
+- Records that the log platform stores as unparsed text, so the items are present but cannot be searched.
+
+**Enhancements in the Moderate baseline.** [AU-3(1)](#au-3.1) additional audit information, which is also in High. NIST's AU-3(1) discussion suggests access control or flow control rules invoked and the individual identities of group account users. It also suggests limiting the additional information to what audit needs, since extra content can mislead, hide what matters and add privacy risk.
+
+**Enhancements in the Privacy baseline.** [AU-3(3)](#au-3.3) limit personally identifiable information elements. Its policy clause and guidance come with this family's audit logging artifacts.
+
+**Federal systems** (as of September 2026). OMB [M-26-14](https://www.whitehouse.gov/wp-content/uploads/2026/05/M-26-14-Ensuring-Effective-and-Efficient-Agency-Logging-and-Network-Visibility-to-Defend-Against-Evolving-Cyber-Threats.pdf) (May 22, 2026), Appendix B item 5, requires agencies to collect logs that support, among other activities, determining the identity used for operations, and source and destination network addresses with protocols, ports and session attributes. Check that the AU-3 content and the AU-3(1) value cover them; protocols and ports usually come from network device and flow logs. The [system monitoring standard](/templates/standards/system-monitoring-standard/) carries the full list in its federal block. M-26-14 does not apply to national security systems.

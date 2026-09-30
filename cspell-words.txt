@@ -2,6 +2,7 @@
 # program terms, plus project words. One per line, lines starting # ignored.
 airmf
 AODR
+auditd
 automatability
 automatable
 bypassable
@@ -32,7 +33,9 @@ FEMA
 FFIEC
 FIPS
 FISMA
+FOIA
 GLBA
+granularities
 headshot
 HITRUST
 HMAC

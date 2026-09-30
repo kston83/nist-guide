@@ -8,6 +8,7 @@ control:
   id: AU-8
   family: AU
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -55,3 +56,36 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+AU-8 asks each system to time stamp audit records from its internal clocks, to a set granularity, in Coordinated Universal Time (UTC) or with a stated offset from it. Accurate, comparable time stamps are what let an investigator put events from different components in order. NIST's AU-8 discussion defines granularity as the degree of synchronization between system clocks and reference clocks, and allows different granularities for different components.
+
+**Common implementations.** Every component synchronizes its clock with the Network Time Protocol (NTP) or an equivalent, using the organization's internal time servers or the cloud provider's time service, which in turn follow an authoritative source. Records use UTC, or an ISO 8601 time stamp that includes the offset. The log platform flags components whose clocks drift or that are not synchronized. Clock synchronization itself is [SC-45](/controls/sc/sc-45/), which is in no baseline.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Granularity of time measurement (b) | One second or finer |
+
+In the [Audit and Accountability policy](/templates/policies/au/), the system owner ensures time stamps use internal clocks, meet this granularity and use UTC or a stated offset. The [system monitoring standard](/templates/standards/system-monitoring-standard/) requires every log source to use a common time source.
+
+**Evidence assessors ask for.**
+
+- Time synchronization settings on a sample of components, and the time sources they use
+- Sample records from each type of component, showing the time stamp format and offset
+- Drift or synchronization monitoring, with any recent exceptions
+
+**Inheritance.** Time servers and cloud time services are usually common controls. The system owns configuring its components to use them and its applications' time stamp format, so AU-8 is usually a hybrid control.
+
+**Common findings.**
+
+- Components logging local time with no offset, so events jump an hour at daylight saving changes.
+- Network appliances or hypervisors never pointed at the time servers, drifting by minutes.
+- Application records that use a time stamp format the log platform misreads.
+- Records whose time comes from the log platform's receipt instead of the component's clock.
+
+**Enhancements in the Moderate baseline.** AU-8 has no enhancements in effect; AU-8(1) and AU-8(2) were withdrawn and moved to SC-45(1) and SC-45(2).
+
+**Federal systems** (as of September 2026). OMB [M-26-14](https://www.whitehouse.gov/wp-content/uploads/2026/05/M-26-14-Ensuring-Effective-and-Efficient-Agency-Logging-and-Network-Visibility-to-Defend-Against-Evolving-Cyber-Threats.pdf) (May 22, 2026), Appendix B item 3, requires logs to include a consistently accurate time stamp. Network time must be synchronized with NTP or an equivalent to a traceable time source the agency designates, and agencies are encouraged to use sources traceable to the U.S. Naval Observatory or NIST where feasible. The system monitoring standard's federal block carries this requirement. M-26-14 does not apply to national security systems.

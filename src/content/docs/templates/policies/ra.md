@@ -147,7 +147,7 @@ A system risk assessment identifies threats and vulnerabilities, then estimates 
 - The risk assessment shall determine the likelihood and magnitude of harm from unauthorized access, use, disclosure, disruption, modification or destruction of the system, the information it processes, stores or transmits, and any related information. (RA-3a.2)
 - For a system that processes personally identifiable information, the risk assessment shall determine the likelihood and impact of adverse effects on individuals arising from that processing. (RA-3a.3)
 - The <span class="tpl-field tpl-org">System owner</span> shall integrate the organization's risk management strategy, risk framing and mission or business process risk decisions into the system risk assessment. (RA-3b)
-- The <span class="tpl-field tpl-org">System owner</span> shall document the risk assessment results in the <span class="tpl-field tpl-param">Select one: security and privacy plans; risk assessment report; [Assignment: organization-defined document]  <span class="tpl-typical">Typical: risk assessment report</span></span>. (RA-3c)
+- The <span class="tpl-field tpl-org">System owner</span> shall document the risk assessment results in the <span class="tpl-field tpl-param">Select one: security and privacy plans; risk assessment report; [Assignment: organization-defined document] <span class="tpl-typical">Typical: risk assessment report</span></span>. (RA-3c)
 - The <span class="tpl-field tpl-org">System owner</span> shall review the risk assessment results <span class="tpl-field tpl-param">Fill in: the frequency to review risk assessment results <span class="tpl-typical">Typical: annually</span></span>. (RA-3d)
 - The <span class="tpl-field tpl-org">System owner</span> shall share the risk assessment results with <span class="tpl-field tpl-param">Fill in: personnel or roles to whom risk assessment results are to be disseminated <span class="tpl-typical">Typical: the authorizing official, the system owner and the Chief Information Security Officer</span></span>. (RA-3e)
 - The <span class="tpl-field tpl-org">System owner</span> shall update the risk assessment <span class="tpl-field tpl-param">Fill in: the frequency to update the risk assessment <span class="tpl-typical">Typical: at least every three years</span></span>, and whenever there are significant changes to the system, its environment of operation, or other conditions that may affect its security or privacy state. (RA-3f)
@@ -188,7 +188,7 @@ CISA binding operational directives set minimums for federal civilian agencies (
 
 #### Update vulnerabilities to be scanned (RA-5(2))
 
-- The <span class="tpl-field tpl-org">System owner</span> shall ensure the vulnerabilities the scanning tools check for are updated <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency] ; prior to a new scan; when new vulnerabilities are identified and reported <span class="tpl-typical">Typical: prior to a new scan</span></span>. (RA-5(2))
+- The <span class="tpl-field tpl-org">System owner</span> shall ensure the vulnerabilities the scanning tools check for are updated <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency]; prior to a new scan; when new vulnerabilities are identified and reported <span class="tpl-typical">Typical: prior to a new scan</span></span>. (RA-5(2))
 
 #### Privileged access (RA-5(5))
 

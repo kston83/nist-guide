@@ -91,7 +91,7 @@ This standard sets the minimum requirements for protecting the boundaries of the
 
 ### 5. Traffic rules
 
-- Network communications traffic shall be denied by default and allowed by exception <span class="tpl-field tpl-param">Select one or more: at managed interfaces; for [Assignment: organization-defined systems]  <span class="tpl-typical">Typical: at managed interfaces</span></span>. (SC-7(5))
+- Network communications traffic shall be denied by default and allowed by exception <span class="tpl-field tpl-param">Select one or more: at managed interfaces; for [Assignment: organization-defined systems] <span class="tpl-typical">Typical: at managed interfaces</span></span>. (SC-7(5))
 - Each system shall enforce approved authorizations for controlling the flow of information within the system and between connected systems, based on the rules in this standard and the approved interconnection agreements. (AC-4)
 - Each managed interface shall have a traffic flow policy: the rules it enforces, each with its source, destination, service, business reason, owner and review date. (SC-7(4)(b))
 - Rules that allow any source, any destination or any service shall not be used, except as an exception under section 11. (SC-7(5))

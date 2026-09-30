@@ -47,33 +47,33 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current contingency planning policy to be reviewed and updated | CP-1 |  | Chief Information Security Officer |
 | The frequency at which the current contingency planning procedures are reviewed and updated | CP-1 |  | Chief Information Security Officer |
 | Events that would require procedures to be reviewed and updated | CP-1 |  | Chief Information Security Officer |
-| Personnel or roles to review a contingency plan | CP-2 | the system owner and the system security officer | Chief Information Security Officer |
-| Personnel or roles to approve a contingency plan | CP-2 | the authorizing official, or the business owner the authorizing official names | Chief Information Security Officer |
-| Key contingency personnel (identified by name and/or by role) to whom copies of the contingency plan are distributed | CP-2 | the contingency team members, by role | Chief Information Security Officer |
-| Key contingency organizational elements to which copies of the contingency plan are distributed | CP-2 | the operations, facilities and communications functions | Chief Information Security Officer |
-| Frequency of contingency plan review | CP-2 | annually | Chief Information Security Officer |
-| Key contingency personnel (identified by name and/or by role) to communicate changes to | CP-2 | the contingency team members, by role | Chief Information Security Officer |
-| Key contingency organizational elements to communicate changes to | CP-2 | the operations, facilities and communications functions | Chief Information Security Officer |
-| Select one: all; essential | CP-2(3) | essential | Chief Information Security Officer |
-| The contingency plan activation time period within which to resume mission and business functions | CP-2(3) | the recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
-| Select one: all; essential | CP-2(8) | essential | Chief Information Security Officer |
+| Personnel or roles to review a contingency plan | CP-2 | The system owner and the system security officer | Chief Information Security Officer |
+| Personnel or roles to approve a contingency plan | CP-2 | The authorizing official, or the business owner the authorizing official names | Chief Information Security Officer |
+| Key contingency personnel (identified by name and/or by role) to whom copies of the contingency plan are distributed | CP-2 | The contingency team members, by role | Chief Information Security Officer |
+| Key contingency organizational elements to which copies of the contingency plan are distributed | CP-2 | The operations, facilities and communications functions | Chief Information Security Officer |
+| Frequency of contingency plan review | CP-2 | Annually | Chief Information Security Officer |
+| Key contingency personnel (identified by name and/or by role) to communicate changes to | CP-2 | The contingency team members, by role | Chief Information Security Officer |
+| Key contingency organizational elements to communicate changes to | CP-2 | The operations, facilities and communications functions | Chief Information Security Officer |
+| Select one: all; essential | CP-2(3) | Essential | Chief Information Security Officer |
+| The contingency plan activation time period within which to resume mission and business functions | CP-2(3) | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
+| Select one: all; essential | CP-2(8) | Essential | Chief Information Security Officer |
 | The time period within which to provide contingency training after assuming a contingency role or responsibility | CP-3 | 30 days | Chief Information Security Officer |
-| Frequency at which to provide training to system users with a contingency role or responsibility | CP-3 | annually | Chief Information Security Officer |
-| Frequency at which to review and update contingency training content | CP-3 | annually | Chief Information Security Officer |
-| Events necessitating review and update of contingency training | CP-3 | a change to the contingency plan, and lessons learned from a test or an actual contingency event | Chief Information Security Officer |
-| Frequency of testing the contingency plan for the system | CP-4 | annually | Chief Information Security Officer |
-| Tests for determining the effectiveness of the contingency plan | CP-4 | a functional test that restores the system, or a representative part of it, from backup | Chief Information Security Officer |
-| Tests for determining readiness to execute the contingency plan | CP-4 | a tabletop exercise that walks the contingency team through the plan | Chief Information Security Officer |
-| System operations for essential mission and business functions | CP-7 | the system operations that support essential mission and business functions | Chief Information Security Officer |
-| Time period consistent with recovery time and recovery point objectives | CP-7 | the recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
-| System operations to be resumed for essential mission and business functions | CP-8 | the system operations that support essential mission and business functions | Chief Information Security Officer |
-| Time period within which to resume essential mission and business functions when the primary telecommunications capabilities are unavailable | CP-8 | the recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
-| System components for which to conduct backups of user-level information | CP-9 | all servers and cloud storage that hold user data | Chief Information Security Officer |
-| Frequency at which to conduct backups of user-level information consistent with recovery time and recovery point objectives | CP-9 | daily incremental and weekly full, or more often where the recovery point objective requires it | Chief Information Security Officer |
-| Frequency at which to conduct backups of system-level information consistent with recovery time and recovery point objectives | CP-9 | daily incremental and weekly full, or more often where the recovery point objective requires it | Chief Information Security Officer |
-| Frequency at which to conduct backups of system documentation consistent with recovery time and recovery point objectives | CP-9 | on each change | Chief Information Security Officer |
-| Frequency at which to test backup information for media reliability | CP-9(1) | quarterly | Chief Information Security Officer |
-| Frequency at which to test backup information for information integrity | CP-9(1) | quarterly | Chief Information Security Officer |
-| Backup information to protect against unauthorized disclosure and modification | CP-9(8) | all backup information | Chief Information Security Officer |
-| Time period consistent with recovery time and recovery point objectives for the recovery of the system | CP-10 | the recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
-| Time period consistent with recovery time and recovery point objectives for the reconstitution of the system | CP-10 | the reconstitution time set in the contingency plan | Chief Information Security Officer |
+| Frequency at which to provide training to system users with a contingency role or responsibility | CP-3 | Annually | Chief Information Security Officer |
+| Frequency at which to review and update contingency training content | CP-3 | Annually | Chief Information Security Officer |
+| Events necessitating review and update of contingency training | CP-3 | A change to the contingency plan, and lessons learned from a test or an actual contingency event | Chief Information Security Officer |
+| Frequency of testing the contingency plan for the system | CP-4 | Annually | Chief Information Security Officer |
+| Tests for determining the effectiveness of the contingency plan | CP-4 | A functional test that restores the system, or a representative part of it, from backup | Chief Information Security Officer |
+| Tests for determining readiness to execute the contingency plan | CP-4 | A tabletop exercise that walks the contingency team through the plan | Chief Information Security Officer |
+| System operations for essential mission and business functions | CP-7 | The system operations that support essential mission and business functions | Chief Information Security Officer |
+| Time period consistent with recovery time and recovery point objectives | CP-7 | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
+| System operations to be resumed for essential mission and business functions | CP-8 | The system operations that support essential mission and business functions | Chief Information Security Officer |
+| Time period within which to resume essential mission and business functions when the primary telecommunications capabilities are unavailable | CP-8 | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
+| System components for which to conduct backups of user-level information | CP-9 | All servers and cloud storage that hold user data | Chief Information Security Officer |
+| Frequency at which to conduct backups of user-level information consistent with recovery time and recovery point objectives | CP-9 | Daily incremental and weekly full, or more often where the recovery point objective requires it | Chief Information Security Officer |
+| Frequency at which to conduct backups of system-level information consistent with recovery time and recovery point objectives | CP-9 | Daily incremental and weekly full, or more often where the recovery point objective requires it | Chief Information Security Officer |
+| Frequency at which to conduct backups of system documentation consistent with recovery time and recovery point objectives | CP-9 | On each change | Chief Information Security Officer |
+| Frequency at which to test backup information for media reliability | CP-9(1) | Quarterly | Chief Information Security Officer |
+| Frequency at which to test backup information for information integrity | CP-9(1) | Quarterly | Chief Information Security Officer |
+| Backup information to protect against unauthorized disclosure and modification | CP-9(8) | All backup information | Chief Information Security Officer |
+| Time period consistent with recovery time and recovery point objectives for the recovery of the system | CP-10 | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
+| Time period consistent with recovery time and recovery point objectives for the reconstitution of the system | CP-10 | The reconstitution time set in the contingency plan | Chief Information Security Officer |

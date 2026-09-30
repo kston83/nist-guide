@@ -47,6 +47,49 @@ test('selection parameters list their choices', () => {
 		'[Select one or more: organization-level; system-level]',
 	);
 	assert.equal(paramPrompt({ select: { howMany: 'one', choices: ['a', 'b'] } }), 'Select one: a; b');
+	// OSCAL leaves a space after an embedded assignment.
+	assert.equal(
+		paramPrompt({ select: { howMany: 'one-or-more', choices: ['standard', '[Assignment: organization-defined other] '] } }),
+		'Select one or more: standard; [Assignment: organization-defined other]',
+	);
+});
+
+test('references to 800-53A parameter labels are dropped from descriptions and labels', () => {
+	assert.equal(
+		paramPrompt({ prompt: 'the event types (subset of AU-02_ODP[01]) for logging within the system' }),
+		'Fill in: the event types for logging within the system',
+	);
+	assert.equal(
+		paramPrompt({ prompt: 'alerts when audit failure events (defined in AU-05(02)_ODP[03]) occur' }),
+		'Fill in: alerts when audit failure events occur',
+	);
+	assert.equal(paramPrompt({ label: 'organization-defined event types (subset of AU-02_ODP[01])' }), 'Fill in: event types');
+	// Other parentheticals stay.
+	assert.equal(paramPrompt({ prompt: 'attributes (as required)' }), 'Fill in: attributes (as required)');
+});
+
+test('parameters inserted in a description read as text, not OSCAL', () => {
+	const params = {
+		'sa-11_odp.01': { select: { howMany: 'one-or-more', choices: ['unit', 'integration', 'system', 'regression'] } },
+		'sa-11_odp.02': { prompt: 'frequency at which to conduct {{ insert: param, sa-11_odp.01 }} testing/evaluation' },
+		'sa-09.05_odp.01': { select: { howMany: 'one-or-more', choices: ['information processing', 'information or data', 'system services'] } },
+		'sa-09.05_odp.03': { prompt: 'requirements for restricting the location of {{ insert: param, sa-09.05_odp.01 }}' },
+		'ps-03.04_odp.01': { prompt: 'information types that require individuals to meet {{ insert: param, ps-03.04_odp.02 }}' },
+		'ps-03.04_odp.02': { label: 'citizenship requirements' },
+	};
+	assert.equal(
+		paramPrompt(params['sa-11_odp.02'], params),
+		'Fill in: frequency at which to conduct the selected unit, integration, system or regression testing/evaluation',
+	);
+	assert.equal(
+		paramPrompt(params['sa-09.05_odp.03'], params),
+		'Fill in: requirements for restricting the location of the selected information processing; information or data; or system services',
+	);
+	assert.equal(paramPrompt(params['ps-03.04_odp.01'], params), 'Fill in: information types that require individuals to meet the citizenship requirements');
+	assert.equal(
+		renderVariables('{{param:sa-11_odp.02}}', { ...ctx, params }, 'md'),
+		'[Fill in: frequency at which to conduct the selected unit, integration, system or regression testing/evaluation]',
+	);
 });
 
 test('one-off fill-ins show their prompt; site text is HTML-escaped', () => {

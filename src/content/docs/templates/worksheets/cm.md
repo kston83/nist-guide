@@ -47,52 +47,52 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current configuration management policy to be reviewed and updated | CM-1 |  | Chief Information Security Officer |
 | The frequency at which the current configuration management procedures are reviewed and updated | CM-1 |  | Chief Information Security Officer |
 | Events that would require configuration management procedures to be reviewed and updated | CM-1 |  | Chief Information Security Officer |
-| The frequency of baseline configuration review and update | CM-2 | at least annually | Chief Information Security Officer |
-| The circumstances requiring baseline configuration review and update | CM-2 | a significant change to the system, a new version of the secure configuration it is based on, or a security incident | Chief Information Security Officer |
-| Automated mechanisms for maintaining baseline configuration of the system | CM-2(2) | configuration management and infrastructure-as-code tools that record the approved baseline | Chief Information Security Officer |
-| The number of previous baseline configuration versions to be retained | CM-2(3) | at least the two most recent | Chief Information Security Officer |
-| The systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | loaner laptops and mobile devices | Chief Information Security Officer |
-| Configurations for systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | a minimal configuration with full-disk encryption, no stored organizational data and access only through the organization's VPN | Chief Information Security Officer |
-| The controls to be applied when the individuals return from travel | CM-2(7) | inspecting the device, wiping and reimaging it before reuse, and resetting the user's credentials | Chief Information Security Officer |
-| The time period to retain records of configuration-controlled changes | CM-3 | at least one year, or the life of the system if longer | Chief Information Security Officer |
-| The configuration change control element responsible for coordinating and overseeing change control activities | CM-3 | a change control board with the system owner, technical leads and a security representative | Chief Information Security Officer |
-| Select one or more: [Assignment: organization-defined frequency] ; when [Assignment: organization-defined configuration change conditions]  | CM-3 | weekly, and when an emergency change is requested | Chief Information Security Officer |
-| The frequency at which the configuration control element convenes | CM-3 |  | Chief Information Security Officer |
-| Configuration change conditions that prompt the configuration control element to convene | CM-3 |  | Chief Information Security Officer |
-| Security representatives required to be members of the change control element | CM-3(4) |  | Chief Information Security Officer |
-| Privacy representatives required to be members of the change control element | CM-3(4) |  | Chief Information Security Officer |
-| The configuration change control element of which the security and privacy representatives are to be members | CM-3(4) | the change control board | Chief Information Security Officer |
-| Common secure configurations to establish and document configuration settings for components employed within the system | CM-6 | the secure configuration baselines named in the baseline configuration standard | Chief Information Security Officer |
-| System components for which approval of deviations is needed | CM-6 | all system components | Chief Information Security Officer |
-| Operational requirements necessitating approval of deviations | CM-6 | documented operational needs that the system owner approves and the security team reviews | Chief Information Security Officer |
-| Mission-essential capabilities for the system | CM-7 | the capabilities documented in the system security plan | Chief Information Security Officer |
-| Functions to be prohibited or restricted | CM-7 |  | Chief Information Security Officer |
-| Ports to be prohibited or restricted | CM-7 |  | Chief Information Security Officer |
-| Protocols to be prohibited or restricted | CM-7 |  | Chief Information Security Officer |
-| Software to be prohibited or restricted | CM-7 |  | Chief Information Security Officer |
-| Services to be prohibited or restricted | CM-7 |  | Chief Information Security Officer |
-| The frequency at which to review the system to identify unnecessary and/or non-secure functions, ports, protocols, software, and/or services | CM-7(1) | at least quarterly | Chief Information Security Officer |
-| Functions to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) |  | Chief Information Security Officer |
-| Ports to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) |  | Chief Information Security Officer |
-| Protocols to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) |  | Chief Information Security Officer |
-| Software to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) |  | Chief Information Security Officer |
-| Services to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) |  | Chief Information Security Officer |
-| Select one or more: [Assignment: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions] ; rules authorizing the terms and conditions of software program usage | CM-7(2) | the software rules in this policy, the rules of behavior and the access agreements | Chief Information Security Officer |
-| Policies, rules of behavior, and/or access agreements regarding software program usage and restrictions | CM-7(2) |  | Chief Information Security Officer |
-| Software programs authorized to execute on the system | CM-7(5) | the software on the approved software list for the system | Chief Information Security Officer |
-| Frequency at which to review and update the list of authorized software programs | CM-7(5) | at least quarterly | Chief Information Security Officer |
-| Information deemed necessary to achieve effective system component accountability | CM-8 | name, type, manufacturer and model, serial number or asset tag, software version, location, network address, owner and administrator | Chief Information Security Officer |
-| Frequency at which to review and update the system component inventory | CM-8 | at least quarterly | Chief Information Security Officer |
-| Automated mechanisms used to detect the presence of unauthorized hardware within the system | CM-8(3) |  | Chief Information Security Officer |
-| Automated mechanisms used to detect the presence of unauthorized software within the system | CM-8(3) |  | Chief Information Security Officer |
-| Automated mechanisms used to detect the presence of unauthorized firmware within the system | CM-8(3) |  | Chief Information Security Officer |
-| Frequency at which automated mechanisms are used to detect the presence of unauthorized system components within the system | CM-8(3) | continuously, and at least weekly by scan | Chief Information Security Officer |
-| Select one or more: disable network access by unauthorized components; isolate unauthorized components; notify [Assignment: organization-defined personnel or roles]  | CM-8(3) | disable network access by unauthorized components, and notify the security operations team | Chief Information Security Officer |
-| Personnel or roles to be notified when unauthorized components are detected | CM-8(3) |  | Chief Information Security Officer |
-| Personnel or roles to review and approve the configuration management plan | CM-9 | the system owner and the Chief Information Security Officer | Chief Information Security Officer |
-| Policies governing the installation of software by users | CM-11 | users may install only software from the organization's approved software catalog; all other installation requires approval by the system owner | Chief Information Security Officer |
-| Methods used to enforce software installation policies | CM-11 | removing local administrator rights and using an application allow list | Chief Information Security Officer |
-| Frequency with which to monitor compliance | CM-11 | at least monthly | Chief Information Security Officer |
-| Information for which the location is to be identified and documented | CM-12 | the information types listed in the system security plan | Chief Information Security Officer |
-| Information to be protected is defined by information type | CM-12(1) | personal information and other sensitive information types listed in the system security plan | Chief Information Security Officer |
-| System components where the information is located | CM-12(1) | file shares, databases, cloud storage and endpoints | Chief Information Security Officer |
+| The frequency of baseline configuration review and update | CM-2 | At least annually | Chief Information Security Officer |
+| The circumstances requiring baseline configuration review and update | CM-2 | A significant change to the system, a new version of the secure configuration it is based on, or a security incident | Chief Information Security Officer |
+| Automated mechanisms for maintaining baseline configuration of the system | CM-2(2) | Configuration management and infrastructure-as-code tools that record the approved baseline | Chief Information Security Officer |
+| The number of previous baseline configuration versions to be retained | CM-2(3) | At least the two most recent | Chief Information Security Officer |
+| The systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | Loaner laptops and mobile devices | Chief Information Security Officer |
+| Configurations for systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | A minimal configuration with full-disk encryption, no stored organizational data and access only through the organization's VPN | Chief Information Security Officer |
+| The controls to be applied when the individuals return from travel | CM-2(7) | Inspecting the device, wiping and reimaging it before reuse, and resetting the user's credentials | Chief Information Security Officer |
+| The time period to retain records of configuration-controlled changes | CM-3 | At least one year, or the life of the system if longer | Chief Information Security Officer |
+| The configuration change control element responsible for coordinating and overseeing change control activities | CM-3 | A change control board with the system owner, technical leads and a security representative | Chief Information Security Officer |
+| Select one or more: organization-defined frequency (see its row below); when organization-defined configuration change conditions (see its row below) | CM-3 | Weekly, and when an emergency change is requested | Chief Information Security Officer |
+| The frequency at which the configuration control element convenes | CM-3 | See the selection above | Chief Information Security Officer |
+| Configuration change conditions that prompt the configuration control element to convene | CM-3 | See the selection above | Chief Information Security Officer |
+| Security representatives required to be members of the change control element | CM-3(4) | A representative of the security team and, where the system processes personal information, of the privacy office | Chief Information Security Officer |
+| Privacy representatives required to be members of the change control element | CM-3(4) | See the row above | Chief Information Security Officer |
+| The configuration change control element of which the security and privacy representatives are to be members | CM-3(4) | The change control board | Chief Information Security Officer |
+| Common secure configurations to establish and document configuration settings for components employed within the system | CM-6 | The secure configuration baselines named in the baseline configuration standard | Chief Information Security Officer |
+| System components for which approval of deviations is needed | CM-6 | All system components | Chief Information Security Officer |
+| Operational requirements necessitating approval of deviations | CM-6 | Documented operational needs that the system owner approves and the security team reviews | Chief Information Security Officer |
+| Mission-essential capabilities for the system | CM-7 | The capabilities documented in the system security plan | Chief Information Security Officer |
+| Functions to be prohibited or restricted | CM-7 | The functions, ports, protocols, software and services listed as prohibited or restricted in the baseline configuration standard | Chief Information Security Officer |
+| Ports to be prohibited or restricted | CM-7 | See the row above | Chief Information Security Officer |
+| Protocols to be prohibited or restricted | CM-7 | See the row above | Chief Information Security Officer |
+| Software to be prohibited or restricted | CM-7 | See the row above | Chief Information Security Officer |
+| Services to be prohibited or restricted | CM-7 | See the row above | Chief Information Security Officer |
+| The frequency at which to review the system to identify unnecessary and/or non-secure functions, ports, protocols, software, and/or services | CM-7(1) | At least quarterly | Chief Information Security Officer |
+| Functions to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) | Any function, port, protocol, software or service the review finds unnecessary or nonsecure | Chief Information Security Officer |
+| Ports to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) | See the row above | Chief Information Security Officer |
+| Protocols to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) | See the row above | Chief Information Security Officer |
+| Software to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) | See the row above | Chief Information Security Officer |
+| Services to be disabled or removed when deemed unnecessary or non-secure | CM-7(1) | See the row above | Chief Information Security Officer |
+| Select one or more: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions (see its row below); rules authorizing the terms and conditions of software program usage | CM-7(2) | The software rules in this policy, the rules of behavior and the access agreements | Chief Information Security Officer |
+| Policies, rules of behavior, and/or access agreements regarding software program usage and restrictions | CM-7(2) | See the selection above | Chief Information Security Officer |
+| Software programs authorized to execute on the system | CM-7(5) | The software on the approved software list for the system | Chief Information Security Officer |
+| Frequency at which to review and update the list of authorized software programs | CM-7(5) | At least quarterly | Chief Information Security Officer |
+| Information deemed necessary to achieve effective system component accountability | CM-8 | Name, type, manufacturer and model, serial number or asset tag, software version, location, network address, owner and administrator | Chief Information Security Officer |
+| Frequency at which to review and update the system component inventory | CM-8 | At least quarterly | Chief Information Security Officer |
+| Automated mechanisms used to detect the presence of unauthorized hardware within the system | CM-8(3) | Network access control, asset discovery scans and endpoint management tools | Chief Information Security Officer |
+| Automated mechanisms used to detect the presence of unauthorized software within the system | CM-8(3) | See the row above | Chief Information Security Officer |
+| Automated mechanisms used to detect the presence of unauthorized firmware within the system | CM-8(3) | See the row above | Chief Information Security Officer |
+| Frequency at which automated mechanisms are used to detect the presence of unauthorized system components within the system | CM-8(3) | Continuously, and at least weekly by scan | Chief Information Security Officer |
+| Select one or more: disable network access by unauthorized components; isolate unauthorized components; notify organization-defined personnel or roles (see its row below) | CM-8(3) | Disable network access by unauthorized components, and notify the security operations team | Chief Information Security Officer |
+| Personnel or roles to be notified when unauthorized components are detected | CM-8(3) | See the selection above | Chief Information Security Officer |
+| Personnel or roles to review and approve the configuration management plan | CM-9 | The system owner and the Chief Information Security Officer | Chief Information Security Officer |
+| Policies governing the installation of software by users | CM-11 | Users may install only software from the organization's approved software catalog; all other installation requires approval by the system owner | Chief Information Security Officer |
+| Methods used to enforce software installation policies | CM-11 | Removing local administrator rights and using an application allow list | Chief Information Security Officer |
+| Frequency with which to monitor compliance | CM-11 | At least monthly | Chief Information Security Officer |
+| Information for which the location is to be identified and documented | CM-12 | The information types listed in the system security plan | Chief Information Security Officer |
+| Information to be protected is defined by information type | CM-12(1) | Personal information and other sensitive information types listed in the system security plan | Chief Information Security Officer |
+| System components where the information is located | CM-12(1) | File shares, databases, cloud storage and endpoints | Chief Information Security Officer |

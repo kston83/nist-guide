@@ -212,7 +212,7 @@ Most findings under AU-6 are about evidence, not effort: the review happened but
 
 #### Audit record generation (AU-12)
 
-- The <span class="tpl-field tpl-org">System owner</span> shall ensure <span class="tpl-field tpl-param">Fill in: system components that provide an audit record generation capability for the events types (defined in AU-02_ODP[02]) <span class="tpl-typical">Typical: all servers, network devices, security tools, databases and applications in the system boundary</span></span> provide an audit record generation capability for the event types identified under AU-2a. (AU-12a)
+- The <span class="tpl-field tpl-org">System owner</span> shall ensure <span class="tpl-field tpl-param">Fill in: system components that provide an audit record generation capability for the events types <span class="tpl-typical">Typical: all servers, network devices, security tools, databases and applications in the system boundary</span></span> provide an audit record generation capability for the event types identified under AU-2a. (AU-12a)
 - The <span class="tpl-field tpl-org">System owner</span> shall allow only <span class="tpl-field tpl-param">Fill in: personnel or roles allowed to select the event types that are to be logged by specific components of the system <span class="tpl-typical">Typical: the system administrators, with the security operations team approving changes</span></span> to select the event types logged by specific components of the system. (AU-12b)
 - The <span class="tpl-field tpl-org">System owner</span> shall ensure the system generates audit records for the event types specified under AU-2c, with the content required by AU-3. (AU-12c)
 

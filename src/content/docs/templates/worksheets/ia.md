@@ -45,17 +45,17 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current identification and authentication policy to be reviewed and updated | IA-1 |  | Chief Information Security Officer |
 | The frequency at which the current identification and authentication procedures are reviewed and updated | IA-1 |  | Chief Information Security Officer |
 | Events that would require identification and authentication procedures to be reviewed and updated | IA-1 |  | Chief Information Security Officer |
-| Select one or more: privileged accounts; non-privileged accounts | IA-2(8) | privileged accounts and non-privileged accounts | Chief Information Security Officer |
-| Devices and/or types of devices to be uniquely identified and authenticated before establishing a connection | IA-3 | all organization-managed endpoints, servers and network devices | Chief Information Security Officer |
-| Select one or more: local; remote; network | IA-3 | remote and network | Chief Information Security Officer |
-| Personnel or roles from whom authorization must be received to assign an identifier | IA-4 | the system owner, through the approved access request | Chief Information Security Officer |
-| A time period for preventing reuse of identifiers | IA-4 | at least two years | Chief Information Security Officer |
-| Characteristics used to identify individual status | IA-4(4) | employee, contractor, or foreign national | Chief Information Security Officer |
-| A time period for changing or refreshing authenticators by authenticator type | IA-5 | no scheduled change for user passwords; certificates at expiry; shared and service account secrets at least annually | Chief Information Security Officer |
-| Events that trigger the change or refreshment of authenticators | IA-5 | evidence or suspicion of compromise, and departure of a person who knew a shared authenticator | Chief Information Security Officer |
-| The frequency at which to update the list of commonly used, expected, or compromised passwords | IA-5(1) | at least monthly, and whenever a relevant breach corpus is published | Chief Information Security Officer |
-| Authenticator composition and complexity rules | IA-5(1) | a minimum length of 15 characters for passwords used as the only factor and 8 for passwords used with another factor, and no other composition rules | Chief Information Security Officer |
-| Identity management profiles | IA-8(4) | the federation profiles the organization publishes for its identity provider, such as SAML 2.0 or OpenID Connect | Chief Information Security Officer |
-| Circumstances or situations requiring re-authentication | IA-11 | a session timeout, a change of role or privilege, a privileged action, or a change of authenticators | Chief Information Security Officer |
-| Methods of validation and verification of identity evidence | IA-12(3) | checking the evidence against its issuing or an authoritative source, and confirming the applicant is the person it describes | Chief Information Security Officer |
-| Select one: registration code; notice of proofing | IA-12(5) | registration code | Chief Information Security Officer |
+| Select one or more: privileged accounts; non-privileged accounts | IA-2(8) | Privileged accounts and non-privileged accounts | Chief Information Security Officer |
+| Devices and/or types of devices to be uniquely identified and authenticated before establishing a connection | IA-3 | All organization-managed endpoints, servers and network devices | Chief Information Security Officer |
+| Select one or more: local; remote; network | IA-3 | Remote and network | Chief Information Security Officer |
+| Personnel or roles from whom authorization must be received to assign an identifier | IA-4 | The system owner, through the approved access request | Chief Information Security Officer |
+| A time period for preventing reuse of identifiers | IA-4 | At least two years | Chief Information Security Officer |
+| Characteristics used to identify individual status | IA-4(4) | Employee, contractor, or foreign national | Chief Information Security Officer |
+| A time period for changing or refreshing authenticators by authenticator type | IA-5 | No scheduled change for user passwords; certificates at expiry; shared and service account secrets at least annually | Chief Information Security Officer |
+| Events that trigger the change or refreshment of authenticators | IA-5 | Evidence or suspicion of compromise, and departure of a person who knew a shared authenticator | Chief Information Security Officer |
+| The frequency at which to update the list of commonly used, expected, or compromised passwords | IA-5(1) | At least monthly, and whenever a relevant breach corpus is published | Chief Information Security Officer |
+| Authenticator composition and complexity rules | IA-5(1) | A minimum length of 15 characters for passwords used as the only factor and 8 for passwords used with another factor, and no other composition rules | Chief Information Security Officer |
+| Identity management profiles | IA-8(4) | The federation profiles the organization publishes for its identity provider, such as SAML 2.0 or OpenID Connect | Chief Information Security Officer |
+| Circumstances or situations requiring re-authentication | IA-11 | A session timeout, a change of role or privilege, a privileged action, or a change of authenticators | Chief Information Security Officer |
+| Methods of validation and verification of identity evidence | IA-12(3) | Checking the evidence against its issuing or an authoritative source, and confirming the applicant is the person it describes | Chief Information Security Officer |
+| Select one: registration code; notice of proofing | IA-12(5) | Registration code | Chief Information Security Officer |

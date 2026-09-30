@@ -47,20 +47,20 @@ Typical values are starting points, not recommendations for every system. "Who d
 | The frequency at which the current incident response procedures are reviewed and updated | IR-1 |  | Chief Information Security Officer |
 | Events that would require the incident response procedures to be reviewed and updated | IR-1 |  | Chief Information Security Officer |
 | A time period within which incident response training is to be provided to system users assuming an incident response role or responsibility | IR-2 | 30 days | Chief Information Security Officer |
-| Frequency at which to provide incident response training to users | IR-2 | annually | Chief Information Security Officer |
-| Frequency at which to review and update incident response training content | IR-2 | annually | Chief Information Security Officer |
-| Events that initiate a review of the incident response training content | IR-2 | a change to the incident response plan, and lessons learned from an incident or exercise | Chief Information Security Officer |
-| Frequency at which to test the effectiveness of the incident response capability for the system | IR-3 | annually | Chief Information Security Officer |
-| Tests used to test the effectiveness of the incident response capability for the system | IR-3 | a tabletop exercise based on a realistic scenario, and a functional test of notification and escalation | Chief Information Security Officer |
-| Automated mechanisms used to support the incident handling process | IR-4(1) | the case management system and automated playbooks in the security operations platform | Chief Information Security Officer |
+| Frequency at which to provide incident response training to users | IR-2 | Annually | Chief Information Security Officer |
+| Frequency at which to review and update incident response training content | IR-2 | Annually | Chief Information Security Officer |
+| Events that initiate a review of the incident response training content | IR-2 | A change to the incident response plan, and lessons learned from an incident or exercise | Chief Information Security Officer |
+| Frequency at which to test the effectiveness of the incident response capability for the system | IR-3 | Annually | Chief Information Security Officer |
+| Tests used to test the effectiveness of the incident response capability for the system | IR-3 | A tabletop exercise based on a realistic scenario, and a functional test of notification and escalation | Chief Information Security Officer |
+| Automated mechanisms used to support the incident handling process | IR-4(1) | The case management system and automated playbooks in the security operations platform | Chief Information Security Officer |
 | Time period for personnel to report suspected incidents to the organizational incident response capability | IR-6 | 1 hour of discovery | Chief Information Security Officer |
-| Authorities to whom incident information is to be reported | IR-6 | senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified | Chief Information Security Officer |
-| Automated mechanisms used for reporting incidents | IR-6(1) | the incident reporting form and case management system, which notify the incident response team automatically | Chief Information Security Officer |
-| Automated mechanisms used to increase the availability of incident response information and support | IR-7(1) | a self-service reporting portal and an incident response page on the intranet | Chief Information Security Officer |
-| Personnel or roles that review and approve the incident response plan | IR-8 | the Chief Information Security Officer | Chief Information Security Officer |
-| The frequency at which to review and approve the incident response plan | IR-8 | annually | Chief Information Security Officer |
-| Entities, personnel, or roles with designated responsibility for incident response | IR-8 | the incident response team, led by its designated lead | Chief Information Security Officer |
-| Incident response personnel (identified by name and/or by role) to whom copies of the incident response plan are to be distributed | IR-8 | the incident response team members, by role | Chief Information Security Officer |
-| Organizational elements to which copies of the incident response plan are to be distributed | IR-8 | the security operations, legal, communications and human resources functions | Chief Information Security Officer |
-| Incident response personnel (identified by name and/or by role) to whom changes to the incident response plan is/are communicated | IR-8 |  | Chief Information Security Officer |
-| Organizational elements to which changes to the incident response plan are communicated | IR-8 |  | Chief Information Security Officer |
+| Authorities to whom incident information is to be reported | IR-6 | Senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified | Chief Information Security Officer |
+| Automated mechanisms used for reporting incidents | IR-6(1) | The incident reporting form and case management system, which notify the incident response team automatically | Chief Information Security Officer |
+| Automated mechanisms used to increase the availability of incident response information and support | IR-7(1) | A self-service reporting portal and an incident response page on the intranet | Chief Information Security Officer |
+| Personnel or roles that review and approve the incident response plan | IR-8 | The Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which to review and approve the incident response plan | IR-8 | Annually | Chief Information Security Officer |
+| Entities, personnel, or roles with designated responsibility for incident response | IR-8 | The incident response team, led by its designated lead | Chief Information Security Officer |
+| Incident response personnel (identified by name and/or by role) to whom copies of the incident response plan are to be distributed | IR-8 | The incident response team members, by role | Chief Information Security Officer |
+| Organizational elements to which copies of the incident response plan are to be distributed | IR-8 | The security operations, legal, communications and human resources functions | Chief Information Security Officer |
+| Incident response personnel (identified by name and/or by role) to whom changes to the incident response plan is/are communicated | IR-8 | Everyone who received the plan | Chief Information Security Officer |
+| Organizational elements to which changes to the incident response plan are communicated | IR-8 | See the row above | Chief Information Security Officer |

@@ -48,25 +48,25 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current system and communications protection policy to be reviewed and updated | SC-1 |  | Chief Information Security Officer |
 | The frequency at which the current system and communications protection procedures are reviewed and updated | SC-1 |  | Chief Information Security Officer |
 | Events that would require the system and communications protection procedures to be reviewed and updated | SC-1 |  | Chief Information Security Officer |
-| Types of denial-of-service events to be protected against or limited | SC-5 | network floods, protocol attacks and application-layer floods against internet-facing services | Chief Information Security Officer |
-| Select one: protect against; limit | SC-5 | protect against | Chief Information Security Officer |
-| Controls to achieve the denial-of-service objective by type of denial-of-service event | SC-5 | an upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically | Chief Information Security Officer |
-| Select one: physically; logically | SC-7 | logically | Chief Information Security Officer |
-| The frequency at which to review exceptions to traffic flow policy | SC-7(4) | at least annually, and when the system changes | Chief Information Security Officer |
-| Select one or more: at managed interfaces; for [Assignment: organization-defined systems]  | SC-7(5) | at managed interfaces | Chief Information Security Officer |
-| Systems for which network communications traffic is denied by default and network communications traffic is allowed by exception | SC-7(5) |  | Chief Information Security Officer |
-| Safeguards to securely provision split tunneling | SC-7(7) | none; split tunneling is disabled for organization-managed remote devices | Chief Information Security Officer |
-| Internal communications traffic to be routed to external networks | SC-7(8) | outbound web traffic from internal users | Chief Information Security Officer |
-| External networks to which internal communications traffic is to be routed | SC-7(8) | the internet | Chief Information Security Officer |
-| Select one or more: confidentiality; integrity | SC-8 | confidentiality and integrity | Chief Information Security Officer |
-| Select one or more: prevent unauthorized disclosure of information; detect changes to information | SC-8(1) | prevent unauthorized disclosure of information and detect changes to information | Chief Information Security Officer |
+| Types of denial-of-service events to be protected against or limited | SC-5 | Network floods, protocol attacks and application-layer floods against internet-facing services | Chief Information Security Officer |
+| Select one: protect against; limit | SC-5 | Protect against | Chief Information Security Officer |
+| Controls to achieve the denial-of-service objective by type of denial-of-service event | SC-5 | An upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically | Chief Information Security Officer |
+| Select one: physically; logically | SC-7 | Logically | Chief Information Security Officer |
+| The frequency at which to review exceptions to traffic flow policy | SC-7(4) | At least annually, and when the system changes | Chief Information Security Officer |
+| Select one or more: at managed interfaces; for organization-defined systems (see its row below) | SC-7(5) | At managed interfaces | Chief Information Security Officer |
+| Systems for which network communications traffic is denied by default and network communications traffic is allowed by exception | SC-7(5) | See the selection above | Chief Information Security Officer |
+| Safeguards to securely provision split tunneling | SC-7(7) | None; split tunneling is disabled for organization-managed remote devices | Chief Information Security Officer |
+| Internal communications traffic to be routed to external networks | SC-7(8) | Outbound web traffic from internal users | Chief Information Security Officer |
+| External networks to which internal communications traffic is to be routed | SC-7(8) | The internet | Chief Information Security Officer |
+| Select one or more: confidentiality; integrity | SC-8 | Confidentiality and integrity | Chief Information Security Officer |
+| Select one or more: prevent unauthorized disclosure of information; detect changes to information | SC-8(1) | Prevent unauthorized disclosure of information and detect changes to information | Chief Information Security Officer |
 | A time period of inactivity after which the system terminates a network connection associated with a communication session | SC-10 | 30 minutes | Chief Information Security Officer |
-| Requirements for key generation, distribution, storage, access, and destruction | SC-12 | the requirements for key generation, distribution, storage, access and destruction in the encryption and key management standard | Chief Information Security Officer |
-| Cryptographic uses | SC-13 | encryption in transit and at rest, digital signatures and authentication | Chief Information Security Officer |
+| Requirements for key generation, distribution, storage, access, and destruction | SC-12 | The requirements for key generation, distribution, storage, access and destruction in the encryption and key management standard | Chief Information Security Officer |
+| Cryptographic uses | SC-13 | Encryption in transit and at rest, digital signatures and authentication | Chief Information Security Officer |
 | Types of cryptography for each specified cryptographic use | SC-13 | NIST-approved algorithms in cryptographic modules validated under FIPS 140-3 (or FIPS 140-2 for existing systems) | Chief Information Security Officer |
-| Exceptions where remote activation is to be allowed | SC-15 | none, except conference room equipment that support staff activate for maintenance with the room owner's approval | Chief Information Security Officer |
-| A certificate policy for issuing public key certificates | SC-17 | the organization's certificate policy | Chief Information Security Officer |
-| Select one or more: confidentiality; integrity | SC-28 | confidentiality and integrity | Chief Information Security Officer |
-| Information at rest requiring protection | SC-28 | all information stored by the system, including backups | Chief Information Security Officer |
-| Information requiring cryptographic protection | SC-28(1) | all organizational information | Chief Information Security Officer |
-| System components or media requiring cryptographic protection | SC-28(1) | servers, databases, storage services, backups, end-user devices and removable media | Chief Information Security Officer |
+| Exceptions where remote activation is to be allowed | SC-15 | None, except conference room equipment that support staff activate for maintenance with the room owner's approval | Chief Information Security Officer |
+| A certificate policy for issuing public key certificates | SC-17 | The organization's certificate policy | Chief Information Security Officer |
+| Select one or more: confidentiality; integrity | SC-28 | Confidentiality and integrity | Chief Information Security Officer |
+| Information at rest requiring protection | SC-28 | All information stored by the system, including backups | Chief Information Security Officer |
+| Information requiring cryptographic protection | SC-28(1) | All organizational information | Chief Information Security Officer |
+| System components or media requiring cryptographic protection | SC-28(1) | Servers, databases, storage services, backups, end-user devices and removable media | Chief Information Security Officer |

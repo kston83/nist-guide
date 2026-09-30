@@ -272,6 +272,8 @@ export function worksheetInput({ family, baseline, clauses, catalog, variables }
 		params: catalog.params,
 		// A family's own common sections (PM) can give typical values for its -1 parameters.
 		typical: { ...family.common?.data.typical, ...familyTypical(family.id, clauses) },
+		// Parameters a clause fixes in its text instead of a field (AC-2's account procedure).
+		set: Object.assign({}, ...clauses.filter((c) => c.id.startsWith(`policy/${family.id}/`)).map((c) => c.set ?? {})),
 		defaultDecider: variables[family.role]?.label ?? family.role,
 	};
 }

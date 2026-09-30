@@ -8,6 +8,7 @@ control:
   id: CM-5
   family: CM
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -167,3 +168,45 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CM-5 asks you to decide who may make changes to the system, write that down, approve it and enforce it, both logically and physically. NIST's CM-5 discussion says only qualified and authorized people should be able to start changes, and lists the ways to restrict them: physical and logical access controls ([AC-3](/controls/ac/ac-3/), [PE-3](/controls/pe/pe-3/)), software libraries, workflow automation, media libraries, abstract layers (changes made through external interfaces rather than directly on the system) and change windows. Change control ([CM-3](/controls/cm/cm-3/)) decides which changes may happen; CM-5 makes sure nobody can go around it.
+
+**Common implementations.**
+
+- Changes to production made through a deployment pipeline or configuration management tool, whose service accounts hold the change rights, rather than by people logging in to make them by hand
+- Protected branches in version control that require an approved review before code or infrastructure definitions merge
+- A small, named group of administrators with direct change rights for break-glass use, with each use logged and reviewed
+- Developers with no standing write access to production, which also supports separation of duties ([AC-5](/controls/ac/ac-5/)) and least privilege ([AC-6](/controls/ac/ac-6/))
+- Change windows for changes that affect availability
+- Physical access limits on data center and network rooms for hardware changes
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Automated mechanisms that enforce access restrictions (CM-5(1), High) | Role-based permissions in the deployment pipeline and the configuration management tools |
+
+The base control has no parameter. In the [Configuration Management policy](/templates/policies/cm/), the system owner defines, documents, approves and enforces the restrictions.
+
+**Evidence assessors ask for.**
+
+- The documented access restrictions for change, and their approval
+- The list of people and service accounts that can change production, and what each can change
+- Pipeline and version control settings that require approval before deployment
+- Records of break-glass use and its review
+- Physical access lists for the rooms that hold the system's hardware
+- For High, the role-based permissions and the audit records of their enforcement (CM-5(1))
+
+**Inheritance.** Physical access restrictions for a data center or cloud provider are inherited. The deployment pipeline and version control platform may be common. The system owns who can change its components, so CM-5 is usually a hybrid control.
+
+**Common findings.**
+
+- Developers or contractors with standing administrator rights in production.
+- Administrators who can bypass pipeline approvals, with no alert or review when they do.
+- Shared administrator accounts, so changes cannot be tied to a person.
+- Restrictions written down but not configured, such as branch protection turned off.
+- Cloud console access broader than the documented change roles.
+
+**Enhancements in the Moderate baseline.** None. High adds [CM-5(1)](#cm-5.1) automated access enforcement and audit records: the restrictions are enforced by automated mechanisms, and each enforcement action generates an audit record. NIST's discussion explains why: the logs show change control is followed and support follow-up if unauthorized changes are found. [CM-5(4)](#cm-5.4), [CM-5(5)](#cm-5.5) and [CM-5(6)](#cm-5.6) are in no baseline.

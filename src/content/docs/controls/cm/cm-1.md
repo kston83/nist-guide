@@ -8,6 +8,7 @@ control:
   id: CM-1
   family: CM
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,68 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CM-1 asks for a written configuration management policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Configuration Management policy template](/templates/policies/cm/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the CM-1 item it meets:
+
+| CM-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written for the work CM-2 to CM-12 describe:
+
+- Setting, reviewing and keeping baseline configurations, and the secure configuration each component type starts from (CM-2, CM-6)
+- Requesting, analyzing, approving, testing and recording changes, including preapproved standard changes and emergency changes (CM-3, CM-4)
+- Limiting who can make changes, and how (CM-5)
+- Removing functions, ports, protocols, services and software the system does not need (CM-7)
+- Keeping the component inventory accurate (CM-8)
+- Writing and maintaining each system's configuration management plan (CM-9)
+- Tracking software licenses, and controlling the software users install (CM-10, CM-11)
+- Recording where sensitive information is processed and stored (CM-12)
+
+Templates for a Configuration Management Plan, a baseline configuration standard, a change request form and a component inventory are planned for this family. Until they are published, the [system security plan](/templates/plans/system-security-plan/) records where the component inventory, the configuration management plan and the change records are kept.
+
+NIST's configuration management guide, SP 800-128, Guide for Security-Focused Configuration Management of Information Systems ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final), final, no newer revision or draft as of September 2026), helps with writing the procedures. It organizes the work in four phases: planning; identifying and implementing configurations; controlling configuration changes; and monitoring. Writing the policy and procedures is part of planning. Its appendices include a sample outline for a configuration management plan, a sample change request, a sample change control board charter and a security impact analysis template.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's CM-1 discussion. For CM, the people who carry out the procedures are, for example, system administrators, developers and release engineers, the members of each change control board, and the security team. The Chief Information Security Officer often delegates the day-to-day management to the head of IT operations. A new configuration management or deployment tool, a move to infrastructure as code or a cloud platform, or a new version of a secure configuration the organization uses is a typical procedure trigger.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the administrators and developers who make changes
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** CM-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its security plan. It adds its own procedures only where it works differently, for example a system whose changes go through its own deployment pipeline and board.
+
+**Common findings.**
+
+- A policy that restates the CM controls but has no procedures behind it. NIST's discussion of CM-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period, or not updated after an unauthorized change caused an incident.
+- Procedures written for a manual change process that no longer matches the deployment pipeline in use.
+- No evidence that the procedures reached the administrators and developers who make changes.
+
+**Enhancements in the Moderate baseline.** CM-1 has no enhancements.

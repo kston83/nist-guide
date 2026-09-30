@@ -40,14 +40,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Which managed interfaces protect each system, and which are shared across the organization? | SC-7 | The enterprise perimeter, the internet connection and the cloud landing zone are common controls; each system owns its security groups, application firewall rules and internal segmentation. | Chief Information Security Officer |
 | Who issues certificates, and which certificate authorities do systems trust? | SC-17 | Public certificate authorities for internet-facing services; an internal certificate authority under the organization's certificate policy for internal services; trust stores limited to an approved list. | Chief Information Security Officer |
 | Which protections does each system inherit from its cloud or hosting provider? | SC-4, SC-5, SC-39 | Recorded in the inheritance table of the system security plan, from the provider's customer responsibility matrix. | System owner |
-| Personnel or roles to whom the system and communications protection policy is to be disseminated | SC-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the system and communications protection procedures are to be disseminated | SC-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business-process-level; system-level | SC-1 |  | Chief Information Security Officer |
-| An official to manage the system and communications protection policy and procedures | SC-1 |  | Chief Information Security Officer |
-| The frequency at which the current system and communications protection policy is reviewed and updated | SC-1 |  | Chief Information Security Officer |
-| Events that would require the current system and communications protection policy to be reviewed and updated | SC-1 |  | Chief Information Security Officer |
-| The frequency at which the current system and communications protection procedures are reviewed and updated | SC-1 |  | Chief Information Security Officer |
-| Events that would require the system and communications protection procedures to be reviewed and updated | SC-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the system and communications protection policy is to be disseminated | SC-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the system and communications protection procedures are to be disseminated | SC-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business-process-level; system-level | SC-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the system and communications protection policy and procedures | SC-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current system and communications protection policy is reviewed and updated | SC-1 | Annually | Chief Information Security Officer |
+| Events that would require the current system and communications protection policy to be reviewed and updated | SC-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current system and communications protection procedures are reviewed and updated | SC-1 | Annually | Chief Information Security Officer |
+| Events that would require the system and communications protection procedures to be reviewed and updated | SC-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | Types of denial-of-service events to be protected against or limited | SC-5 | Network floods, protocol attacks and application-layer floods against internet-facing services | Chief Information Security Officer |
 | Select one: protect against; limit | SC-5 | Protect against | Chief Information Security Officer |
 | Controls to achieve the denial-of-service objective by type of denial-of-service event | SC-5 | An upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically | Chief Information Security Officer |

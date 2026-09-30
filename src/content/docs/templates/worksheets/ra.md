@@ -40,14 +40,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Who runs vulnerability scanning, and who fixes what it finds? | RA-5 | A central vulnerability management team runs the scanning tools and tracks findings; each system owner fixes findings on their system. | Chief Information Security Officer |
 | Where is the public vulnerability disclosure policy published, and who handles the reports? | RA-5(11) | A page on the organization's public website, with reports going to the security operations team. | Chief Information Security Officer |
 | How does a system or project find out whether it needs a privacy impact assessment, and who approves the assessment? | RA-8 | A short privacy screening questionnaire for every new system, project or collection; the senior privacy official approves each assessment. | Senior privacy official |
-| Personnel or roles to whom the risk assessment policy is to be disseminated | RA-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the risk assessment procedures are to be disseminated | RA-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | RA-1 |  | Chief Information Security Officer |
-| An official to manage the risk assessment policy and procedures | RA-1 |  | Chief Information Security Officer |
-| The frequency at which the current risk assessment policy is reviewed and updated | RA-1 |  | Chief Information Security Officer |
-| Events that would require the current risk assessment policy to be reviewed and updated | RA-1 |  | Chief Information Security Officer |
-| The frequency at which the current risk assessment procedures are reviewed and updated | RA-1 |  | Chief Information Security Officer |
-| Events that would require risk assessment procedures to be reviewed and updated | RA-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the risk assessment policy is to be disseminated | RA-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the risk assessment procedures are to be disseminated | RA-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | RA-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the risk assessment policy and procedures | RA-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current risk assessment policy is reviewed and updated | RA-1 | Annually | Chief Information Security Officer |
+| Events that would require the current risk assessment policy to be reviewed and updated | RA-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current risk assessment procedures are reviewed and updated | RA-1 | Annually | Chief Information Security Officer |
+| Events that would require risk assessment procedures to be reviewed and updated | RA-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | Select one: security and privacy plans; risk assessment report; organization-defined document (see its row below) | RA-3 | Risk assessment report | Chief Information Security Officer |
 | A document in which risk assessment results are to be documented (if not documented in the security and privacy plans or risk assessment report) | RA-3 | See the selection above | Chief Information Security Officer |
 | The frequency to review risk assessment results | RA-3 | Annually | Chief Information Security Officer |

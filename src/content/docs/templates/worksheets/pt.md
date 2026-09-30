@@ -38,14 +38,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Where are privacy notices published, and who approves them and their changes? | PT-5, PT-5(2) | One privacy notice on the organization's privacy page, with short notices at each point of collection that link to it; the privacy office approves every notice and change. | Senior privacy official |
 | Which categories of personally identifiable information need specific processing conditions? | PT-7, PT-7(1), PT-7(2) | Social Security numbers, health, financial and biometric information, and information about children, plus a ban on records of how individuals exercise First Amendment rights. | Senior privacy official |
 | Does the organization maintain Privacy Act systems of records or take part in matching programs? | PT-6, PT-8 | Federal agencies, and contractors operating systems of records for them, yes, listed on the privacy page; other organizations record that PT-6, its enhancements, PT-5(2) and PT-8 do not apply. | Senior privacy official |
-| Personnel or roles to whom the personally identifiable information processing and transparency policy is to be disseminated | PT-1 |  | Senior privacy official |
-| Personnel or roles to whom the personally identifiable information processing and transparency procedures are to be disseminated | PT-1 |  | Senior privacy official |
-| Select one or more: organization-level; mission/business process-level; system-level | PT-1 |  | Senior privacy official |
-| An official to manage the personally identifiable information processing and transparency policy and procedures | PT-1 |  | Senior privacy official |
-| The frequency at which the current personally identifiable information processing and transparency policy is reviewed and updated | PT-1 |  | Senior privacy official |
-| Events that would require the current personally identifiable information processing and transparency policy to be reviewed and updated | PT-1 |  | Senior privacy official |
-| The frequency at which the current personally identifiable information processing and transparency procedures are reviewed and updated | PT-1 |  | Senior privacy official |
-| Events that would require the personally identifiable information processing and transparency procedures to be reviewed and updated | PT-1 |  | Senior privacy official |
+| Personnel or roles to whom the personally identifiable information processing and transparency policy is to be disseminated | PT-1 | Everyone within its scope, through the policy library | Senior privacy official |
+| Personnel or roles to whom the personally identifiable information processing and transparency procedures are to be disseminated | PT-1 | The people who carry them out, and the system owners | Senior privacy official |
+| Select one or more: organization-level; mission/business process-level; system-level | PT-1 | Organization-level | Senior privacy official |
+| An official to manage the personally identifiable information processing and transparency policy and procedures | PT-1 | Senior privacy official | Senior privacy official |
+| The frequency at which the current personally identifiable information processing and transparency policy is reviewed and updated | PT-1 | Annually | Senior privacy official |
+| Events that would require the current personally identifiable information processing and transparency policy to be reviewed and updated | PT-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Senior privacy official |
+| The frequency at which the current personally identifiable information processing and transparency procedures are reviewed and updated | PT-1 | Annually | Senior privacy official |
+| Events that would require the personally identifiable information processing and transparency procedures to be reviewed and updated | PT-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Senior privacy official |
 | The authority to permit the processing of personally identifiable information | PT-2 | The law, regulation, contract or consent | Senior privacy official |
 | The type of processing of personally identifiable information | PT-2 | Each collection, use, sharing, retention and disposal | Senior privacy official |
 | The type of processing of personally identifiable information to be restricted | PT-2 | All processing | Senior privacy official |

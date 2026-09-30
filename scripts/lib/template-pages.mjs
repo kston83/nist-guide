@@ -25,6 +25,29 @@ const TYPE_GROUP = {
 export const organizationWide = (family) => family.baseline === 'none';
 // The family's own common sections, or the ones every family policy shares.
 export const commonFor = (family, common) => family.common ?? common;
+
+// A role label as it reads inside a sentence, where _common.md puts "The"
+// before the field: a title-case title ("Chief Information Security Officer")
+// keeps its capitals; a sentence-case label ("Senior privacy official") starts
+// lowercase.
+export const roleInSentence = (label) =>
+	/^[A-Z][a-z]*(?: [A-Z][a-z]*)+$/.test(label) ? label : label.charAt(0).toLowerCase() + label.slice(1);
+
+// Typical values from the family's common sections, keyed by the family's own
+// parameter ids. The shared policy/_common.md keys them "xx-01_odp.01", as its
+// {{param:xx-...}} fields; xx becomes the family id. The shared sections leave
+// the -1 managing official (xx-01_odp.04) without a value: it defaults to the
+// role accountable for the family policy (_family.yml `role`), the same role
+// the decision worksheet names under "Who decides".
+export function commonTypical(family, common, variables = {}) {
+	const source = commonFor(family, common);
+	const typical = Object.fromEntries(
+		Object.entries(source?.data?.typical ?? {}).map(([id, v]) => [id.startsWith('xx-') ? family.id + id.slice(2) : id, v]),
+	);
+	const official = `${family.id}-01_odp.04`;
+	if (!family.common && source && !typical[official]) typical[official] = roleInSentence(variables[family.role]?.label ?? family.role);
+	return typical;
+}
 const variantLabel = (b) => (b === ORGANIZATION ? 'Organization-wide' : b);
 
 const yaml = (s) => `'${String(s).replace(/'/g, "''")}'`;
@@ -164,7 +187,7 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 		downloadRows(baselines.map((b) => ({ label: variantLabel(b), file: (e) => policyFile(family.id, b, e) }))),
 		`Everything for this family in one file: [${fam} pack (.zip)](/downloads/${packFile(family.id)}), with every variant and edition of the policy and the decision worksheets.`,
 		orgWide ? '## Preview (annotated)' : `## Preview (${shownBaseline} baseline, annotated)`,
-		preview(shown.source, { variables, params: catalog.params, typical: { ...familyCommon.data.typical, ...shown.typical }, family }),
+		preview(shown.source, { variables, params: catalog.params, typical: { ...commonTypical(family, common, variables), ...shown.typical }, family }),
 	]
 		.filter(Boolean)
 		.join('\n\n');
@@ -263,15 +286,15 @@ export function worksheetBaselines(family, controls, orgWide = false) {
 export const familyTypical = (family, clauses) =>
 	Object.assign({}, ...clauses.filter((c) => c.id.startsWith(`policy/${family}/`)).map((c) => c.typical ?? {}));
 
-export function worksheetInput({ family, baseline, clauses, catalog, variables }) {
+export function worksheetInput({ family, baseline, clauses, common, catalog, variables }) {
 	return {
 		family: family.id,
 		baseline,
 		questions: family.questions ?? [],
 		controls: catalog.controls,
 		params: catalog.params,
-		// A family's own common sections (PM) can give typical values for its -1 parameters.
-		typical: { ...family.common?.data.typical, ...familyTypical(family.id, clauses) },
+		// The family's common sections give the typical values for its -1 parameters.
+		typical: { ...commonTypical(family, common, variables), ...familyTypical(family.id, clauses) },
 		// Parameters a clause fixes in its text instead of a field (AC-2's account procedure).
 		set: Object.assign({}, ...clauses.filter((c) => c.id.startsWith(`policy/${family.id}/`)).map((c) => c.set ?? {})),
 		defaultDecider: variables[family.role]?.label ?? family.role,
@@ -281,11 +304,11 @@ export function worksheetInput({ family, baseline, clauses, catalog, variables }
 const cell = (s) => String(s).replace(/\|/g, '\|').replace(/\n/g, ' ');
 
 /** One decision worksheet page per family, showing the Moderate baseline, or the only one (PT: Privacy). */
-export function worksheetPage({ family, clauses, catalog, variables, version, order }) {
+export function worksheetPage({ family, clauses, common, catalog, variables, version, order }) {
 	const orgWide = organizationWide(family);
 	const baselines = worksheetBaselines(family.id, catalog.controls, orgWide);
 	const shown = orgWide ? ORGANIZATION : baselines.includes(PREVIEW_BASELINE) ? PREVIEW_BASELINE : baselines[0];
-	const rows = worksheetRows(worksheetInput({ family, baseline: shown, clauses, catalog, variables }));
+	const rows = worksheetRows(worksheetInput({ family, baseline: shown, clauses, common, catalog, variables }));
 	const controls = catalog.controls.filter((c) => c.family === family.id && (orgWide || c.baselines.length)).map((c) => c.id);
 	const body = [
 		facts({ type: 'worksheet', stage: family.stage, status: 'draft', version, basis: catalog.source }),

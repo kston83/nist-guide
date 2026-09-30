@@ -38,14 +38,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | --- | --- | --- | --- |
 | Who runs incident response, and who is on call outside business hours? | IR-4, IR-7 | An internal incident response team with a named lead and an on-call rotation, backed by a retained incident response provider for major incidents. | Chief Information Security Officer |
 | Which outside parties must be notified of an incident, and who decides to notify them? | IR-6 | Regulators, customers and partners named in laws and contracts; legal counsel decides, with the Chief Information Security Officer. | Chief Information Security Officer |
-| Personnel or roles to whom the incident response policy is to be disseminated | IR-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the incident response procedures are to be disseminated | IR-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | IR-1 |  | Chief Information Security Officer |
-| An official to manage the incident response policy and procedures | IR-1 |  | Chief Information Security Officer |
-| The frequency at which the current incident response policy is reviewed and updated | IR-1 |  | Chief Information Security Officer |
-| Events that would require the current incident response policy to be reviewed and updated | IR-1 |  | Chief Information Security Officer |
-| The frequency at which the current incident response procedures are reviewed and updated | IR-1 |  | Chief Information Security Officer |
-| Events that would require the incident response procedures to be reviewed and updated | IR-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the incident response policy is to be disseminated | IR-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the incident response procedures are to be disseminated | IR-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | IR-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the incident response policy and procedures | IR-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current incident response policy is reviewed and updated | IR-1 | Annually | Chief Information Security Officer |
+| Events that would require the current incident response policy to be reviewed and updated | IR-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current incident response procedures are reviewed and updated | IR-1 | Annually | Chief Information Security Officer |
+| Events that would require the incident response procedures to be reviewed and updated | IR-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | A time period within which incident response training is to be provided to system users assuming an incident response role or responsibility | IR-2 | 30 days | Chief Information Security Officer |
 | Frequency at which to provide incident response training to users | IR-2 | Annually | Chief Information Security Officer |
 | Frequency at which to review and update incident response training content | IR-2 | Annually | Chief Information Security Officer |

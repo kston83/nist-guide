@@ -40,14 +40,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | How do account managers learn of departures and transfers? | PS-4, PS-5 | An automated feed from the human resources system to the identity provider, plus a same-day call or ticket for an involuntary termination. | Chief Information Security Officer |
 | Which access agreements does each person sign? | PS-6 | Everyone signs the access agreement and the rules of behavior; administrators also sign a privileged user agreement; conflict-of-interest agreements where the role calls for one. | Chief Information Security Officer |
 | How do external providers report changes to their staff, and how is that checked? | PS-7 | A contract clause requiring notice within 24 hours, and a monthly comparison of the provider's staff roster with the accounts and badges issued to its people. | Chief Information Security Officer |
-| Personnel or roles to whom the personnel security policy is to be disseminated | PS-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the personnel security procedures are to be disseminated | PS-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | PS-1 |  | Chief Information Security Officer |
-| An official to manage the personnel security policy and procedures | PS-1 |  | Chief Information Security Officer |
-| The frequency at which the current personnel security policy is reviewed and updated | PS-1 |  | Chief Information Security Officer |
-| Events that would require the current personnel security policy to be reviewed and updated | PS-1 |  | Chief Information Security Officer |
-| The frequency at which the current personnel security procedures are reviewed and updated | PS-1 |  | Chief Information Security Officer |
-| Events that would require the personnel security procedures to be reviewed and updated | PS-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the personnel security policy is to be disseminated | PS-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the personnel security procedures are to be disseminated | PS-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | PS-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the personnel security policy and procedures | PS-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current personnel security policy is reviewed and updated | PS-1 | Annually | Chief Information Security Officer |
+| Events that would require the current personnel security policy to be reviewed and updated | PS-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current personnel security procedures are reviewed and updated | PS-1 | Annually | Chief Information Security Officer |
+| Events that would require the personnel security procedures to be reviewed and updated | PS-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | The frequency at which to review and update position risk designations | PS-2 | At least every 3 years, and whenever a position's duties change | Chief Information Security Officer |
 | Conditions requiring rescreening of individuals | PS-3 | The individual moves to a position with a higher risk designation, or information comes to light that raises a concern about their suitability | Chief Information Security Officer |
 | The frequency of rescreening individuals where it is so indicated | PS-3 | Every 5 years for positions designated high risk | Chief Information Security Officer |

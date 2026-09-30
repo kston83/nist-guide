@@ -25,6 +25,7 @@ import { loadSources } from './lib/template-sources.mjs';
 import {
 	GENERATED_NOTE,
 	commonFor,
+	commonTypical,
 	indexPage,
 	KIT_FILE,
 	organizationWide,
@@ -107,7 +108,7 @@ if (pagesMode) {
 		);
 	for (const [i, family] of orderedFamilies.entries())
 		await attempt(`${family.id.toUpperCase()} worksheet page`, () =>
-			pages.push(worksheetPage({ family, clauses, catalog, variables, version, order: i + 1 })),
+			pages.push(worksheetPage({ family, clauses, common, catalog, variables, version, order: i + 1 })),
 		);
 	for (const [i, template] of templates.entries())
 		await attempt(`templates/${template.id}.md page`, () =>
@@ -172,14 +173,14 @@ if (pagesMode) {
 		for (const baseline of policyBaselines(family.id, own, catalog.controls, organizationWide(family)))
 			await attempt(`${family.id.toUpperCase()} policy (${baseline})`, () => {
 				const policy = assemblePolicy({ common: commonFor(family, common).body, family, clauses: own, controls: catalog.controls, baseline });
-				const ctx = { variables, params: catalog.params, typical: { ...commonFor(family, common).data.typical, ...policy.typical }, family };
+				const ctx = { variables, params: catalog.params, typical: { ...commonTypical(family, common, variables), ...policy.typical }, family };
 				return editions(policy.source, ctx, (e) => policyFile(family.id, baseline, e), { baseline, url });
 			});
 		for (const baseline of worksheetBaselines(family.id, catalog.controls, organizationWide(family)))
 			await attempt(`${family.id.toUpperCase()} worksheet (${baseline})`, () =>
 				write(
 					`${worksheetFile(family.id, baseline)}.csv`,
-					worksheetCsv(worksheetRows(worksheetInput({ family, baseline, clauses, catalog, variables }))),
+					worksheetCsv(worksheetRows(worksheetInput({ family, baseline, clauses, common, catalog, variables }))),
 				),
 			);
 	}

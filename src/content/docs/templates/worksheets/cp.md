@@ -39,14 +39,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Where are the alternate storage and processing sites for each system? | CP-6, CP-7 | A second region or availability zone of the same cloud provider for cloud systems; a second data center or a recovery service for on-premises systems. | Chief Information Security Officer |
 | How are backups protected against ransomware and deliberate deletion? | CP-9 | At least one immutable or offline copy, separate backup credentials, and encryption. | Chief Information Security Officer |
 | What kind of contingency plan test does each baseline need? | CP-4 | A tabletop exercise each year for Low systems; a functional recovery test each year for Moderate and High systems, at the alternate site for High. | Chief Information Security Officer |
-| Personnel or roles to whom the contingency planning policy is to be disseminated | CP-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the contingency planning procedures are to be disseminated | CP-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | CP-1 |  | Chief Information Security Officer |
-| An official to manage the contingency planning policy and procedures | CP-1 |  | Chief Information Security Officer |
-| The frequency at which the current contingency planning policy is reviewed and updated | CP-1 |  | Chief Information Security Officer |
-| Events that would require the current contingency planning policy to be reviewed and updated | CP-1 |  | Chief Information Security Officer |
-| The frequency at which the current contingency planning procedures are reviewed and updated | CP-1 |  | Chief Information Security Officer |
-| Events that would require procedures to be reviewed and updated | CP-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the contingency planning policy is to be disseminated | CP-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the contingency planning procedures are to be disseminated | CP-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | CP-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the contingency planning policy and procedures | CP-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current contingency planning policy is reviewed and updated | CP-1 | Annually | Chief Information Security Officer |
+| Events that would require the current contingency planning policy to be reviewed and updated | CP-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current contingency planning procedures are reviewed and updated | CP-1 | Annually | Chief Information Security Officer |
+| Events that would require procedures to be reviewed and updated | CP-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | Personnel or roles to review a contingency plan | CP-2 | The system owner and the system security officer | Chief Information Security Officer |
 | Personnel or roles to approve a contingency plan | CP-2 | The authorizing official, or the business owner the authorizing official names | Chief Information Security Officer |
 | Key contingency personnel (identified by name and/or by role) to whom copies of the contingency plan are distributed | CP-2 | The contingency team members, by role | Chief Information Security Officer |

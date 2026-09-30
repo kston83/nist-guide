@@ -87,12 +87,12 @@ This policy states what <span class="tpl-field tpl-org">Organization name</span>
 
 ### Scope
 
-This policy applies at the <span class="tpl-field tpl-param">Select one or more: organization-level; mission/business process-level; system-level</span> to every system that <span class="tpl-field tpl-org">Organization name</span> owns or operates, or that is operated on its behalf, and to every person with access to those systems, including employees, contractors and partners. (AU-1a.1(a))
+This policy applies at the <span class="tpl-field tpl-param">Select one or more: organization-level; mission/business process-level; system-level <span class="tpl-typical">Typical: organization-level</span></span> to every system that <span class="tpl-field tpl-org">Organization name</span> owns or operates, or that is operated on its behalf, and to every person with access to those systems, including employees, contractors and partners. (AU-1a.1(a))
 
 ### Roles and responsibilities
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> is accountable for this policy and shall approve exceptions to it. (AU-1a.1(a))
-- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall manage the development, documentation and dissemination of this policy and its procedures. (AU-1b)
+- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall manage the development, documentation and dissemination of this policy and its procedures. (AU-1b)
 - Each <span class="tpl-field tpl-org">System owner</span> shall implement this policy for their system and document how in the system security plan. (AU-1a.1(a))
 - Each person within scope shall follow this policy and report suspected violations to the <span class="tpl-field tpl-org">Chief Information Security Officer</span>. (AU-1a.1(a))
 
@@ -113,12 +113,12 @@ The <span class="tpl-field tpl-org">Chief Information Security Officer</span> sh
 
 ### Procedures
 
-The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall ensure that documented procedures exist to implement this policy and its associated controls. (AU-1a.2)
+The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall ensure that documented procedures exist to implement this policy and its associated controls. (AU-1a.2)
 
 ### Dissemination
 
-- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall disseminate this policy to <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the audit and accountability policy is to be disseminated</span>. (AU-1a)
-- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall disseminate the procedures that implement this policy to <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the audit and accountability procedures are to be disseminated</span>. (AU-1a)
+- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall disseminate this policy to <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the audit and accountability policy is to be disseminated <span class="tpl-typical">Typical: everyone within its scope, through the policy library</span></span>. (AU-1a)
+- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall disseminate the procedures that implement this policy to <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the audit and accountability procedures are to be disseminated <span class="tpl-typical">Typical: the people who carry them out, and the system owners</span></span>. (AU-1a)
 
 ### Policy statements
 
@@ -218,8 +218,8 @@ Most findings under AU-6 are about evidence, not effort: the review happened but
 
 ### Review and update
 
-- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall review and update this policy <span class="tpl-field tpl-param">Fill in: the frequency at which the current audit and accountability policy is reviewed and updated</span> and following <span class="tpl-field tpl-param">Fill in: events that would require the current audit and accountability policy to be reviewed and updated</span>. (AU-1c.1)
-- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures</span> shall review and update the procedures that implement this policy <span class="tpl-field tpl-param">Fill in: the frequency at which the current audit and accountability procedures are reviewed and updated</span> and following <span class="tpl-field tpl-param">Fill in: events that would require audit and accountability procedures to be reviewed and updated</span>. (AU-1c.2)
+- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall review and update this policy <span class="tpl-field tpl-param">Fill in: the frequency at which the current audit and accountability policy is reviewed and updated <span class="tpl-typical">Typical: annually</span></span> and following <span class="tpl-field tpl-param">Fill in: events that would require the current audit and accountability policy to be reviewed and updated <span class="tpl-typical">Typical: assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines</span></span>. (AU-1c.1)
+- The <span class="tpl-field tpl-param">Fill in: an official to manage the audit and accountability policy and procedures <span class="tpl-typical">Typical: Chief Information Security Officer</span></span> shall review and update the procedures that implement this policy <span class="tpl-field tpl-param">Fill in: the frequency at which the current audit and accountability procedures are reviewed and updated <span class="tpl-typical">Typical: annually</span></span> and following <span class="tpl-field tpl-param">Fill in: events that would require audit and accountability procedures to be reviewed and updated <span class="tpl-typical">Typical: the same events as the policy, and changes to the systems, tools or services the procedures describe</span></span>. (AU-1c.2)
 
 <div class="tpl-federal">
 

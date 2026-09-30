@@ -104,13 +104,15 @@ IA-1 asks for a written identification and authentication policy, procedures tha
 | Parameter | Typical value |
 | --- | --- |
 | Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
-| Who receives the procedures (a) | The people who carry them out: account managers, the help desk, system administrators and system owners |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
 | Policy level (a.1) | Organization-level |
-| Official who manages the policy and procedures (b) | The Chief Information Security Officer, or the identity and access management lead they delegate to |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
 | Policy review frequency (c.1) | Annually |
-| Events that trigger a policy review (c.1) | A change in applicable laws or standards (such as a new revision of NIST SP 800-63), a major incident, or an assessment or audit finding |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
 | Procedure review frequency (c.2) | Annually |
-| Events that trigger a procedure review (c.2) | The same events, plus a change of identity provider, authenticator type or proofing service |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's IA-1 discussion. For IA, the people who carry out the procedures are, for example, account managers, the help desk and system administrators. The Chief Information Security Officer often delegates the day-to-day management to an identity and access management lead. A new revision of NIST SP 800-63 is a typical change in standards, and a change of identity provider, authenticator type or proofing service a typical procedure trigger.
 
 **Evidence assessors ask for.**
 

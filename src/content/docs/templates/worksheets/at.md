@@ -39,14 +39,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Who builds and runs security and privacy training, and where are completions tracked? | AT-2, AT-3, AT-4 | The security team owns security content and the privacy office owns privacy content; courses are assigned and tracked in the learning management system. | Chief Information Security Officer |
 | What happens when someone does not complete required training on time? | AT-2, AT-3 | Reminders to the person and their supervisor, then suspension of system access until the training is complete. | Chief Information Security Officer |
 | Which roles need role-based training, and what does each role's training cover? | AT-3 | A table in the training plan listing each role with significant security or privacy duties and its courses. | Chief Information Security Officer |
-| Personnel or roles to whom the awareness and training policy is to be disseminated | AT-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the awareness and training procedures are to be disseminated | AT-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | AT-1 |  | Chief Information Security Officer |
-| An official to manage the awareness and training policy and procedures | AT-1 |  | Chief Information Security Officer |
-| The frequency at which the current awareness and training policy is reviewed and updated | AT-1 |  | Chief Information Security Officer |
-| Events that would require the current awareness and training policy to be reviewed and updated | AT-1 |  | Chief Information Security Officer |
-| The frequency at which the current awareness and training procedures are reviewed and updated | AT-1 |  | Chief Information Security Officer |
-| Events that would require procedures to be reviewed and updated | AT-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the awareness and training policy is to be disseminated | AT-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the awareness and training procedures are to be disseminated | AT-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | AT-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the awareness and training policy and procedures | AT-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current awareness and training policy is reviewed and updated | AT-1 | Annually | Chief Information Security Officer |
+| Events that would require the current awareness and training policy to be reviewed and updated | AT-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current awareness and training procedures are reviewed and updated | AT-1 | Annually | Chief Information Security Officer |
+| Events that would require procedures to be reviewed and updated | AT-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | The frequency at which to provide security literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | Annually | Chief Information Security Officer |
 | The frequency at which to provide privacy literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | Annually | Chief Information Security Officer |
 | Events that require security literacy training for system users | AT-2 | A significant system change, or an incident caused by user error | Chief Information Security Officer |

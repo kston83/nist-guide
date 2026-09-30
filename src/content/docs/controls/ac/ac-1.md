@@ -104,13 +104,15 @@ AC-1 asks for a written access control policy, procedures that carry it out, an 
 | Parameter | Typical value |
 | --- | --- |
 | Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
-| Who receives the procedures (a) | The people who carry them out: account managers, system administrators, the help desk and system owners |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
 | Policy level (a.1) | Organization-level |
-| Official who manages the policy and procedures (b) | The Chief Information Security Officer, or the identity and access management lead they delegate to |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
 | Policy review frequency (c.1) | Annually |
-| Events that trigger a policy review (c.1) | A change in applicable laws or standards, a major incident, or an assessment or audit finding |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
 | Procedure review frequency (c.2) | Annually |
-| Events that trigger a procedure review (c.2) | The same events, plus a change of identity provider, access governance tool or remote access service |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's AC-1 discussion. For AC, the people who carry out the procedures are, for example, account managers, system administrators and the help desk. The Chief Information Security Officer often delegates the day-to-day management to an identity and access management lead. A change of identity provider, access governance tool or remote access service is a typical procedure trigger.
 
 **Evidence assessors ask for.**
 

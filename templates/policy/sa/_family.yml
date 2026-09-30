@@ -1,0 +1,30 @@
+# System and Services Acquisition (SA) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: System and Services Acquisition
+role: ciso
+stage: operate
+questions:
+  - question: Which system development life cycle do systems follow, and where in it are the security and privacy activities and approvals?
+    controls: [sa-3, sa-8, sa-15]
+    typical: One organization-wide life cycle with five phases (initiation, development or acquisition, implementation and assessment, operations and maintenance, and disposal), each with named security and privacy activities and a gate the system owner cannot pass without the security and privacy reviews.
+    decides: Chief Information Officer, with the Chief Information Security Officer and the senior privacy official
+  - question: Who maintains the standard security and privacy contract language, and who checks that each acquisition uses it?
+    controls: [sa-4, sa-4.1, sa-4.2, sa-4.9, sa-4.10]
+    typical: The procurement office keeps standard clauses that the Chief Information Security Officer and the senior privacy official approve; the system owner adds system-specific requirements, and the security team reviews each solicitation for a system, component or service before it is issued.
+    decides: Chief Information Security Officer, with the procurement office
+  - question: Who reviews an external service before the organization uses it, and how is the provider's compliance checked afterwards?
+    controls: [sa-9, sa-9.2]
+    typical: The security team reviews each new external service and its shared responsibility matrix before contract award; the system owner reviews the provider's independent attestation reports each year and the provider's status reports as they arrive.
+    decides: Chief Information Security Officer
+  - question: What must developers of custom systems and components deliver as evidence, and who reviews it?
+    controls: [sa-10, sa-11, sa-15, sa-15.3]
+    typical: Configuration management records, the developer's test plan and results (including static analysis, component analysis and dynamic testing), the flaw tracking record and the development tool list, reviewed by the system owner and the security team before each release is accepted.
+    decides: System owner, with the Chief Information Security Officer
+  - question: What happens to a component when its vendor stops supporting it, and who can approve keeping it?
+    controls: [sa-22]
+    typical: The component is replaced before its end-of-support date; where that is not possible, the authorizing official may approve continued use for a set period, with extended support from an external provider, isolation and extra monitoring, recorded in the plan of action and milestones.
+    decides: Authorizing official

@@ -23,6 +23,7 @@ CSIRT
 CSRMC
 Diffie
 DISA
+disassociability
 DMARC
 DNSSEC
 ECDH
@@ -78,5 +79,6 @@ TDEA
 telework
 unremediated
 unvalidated
+USGCB
 WCAG
 Xacta

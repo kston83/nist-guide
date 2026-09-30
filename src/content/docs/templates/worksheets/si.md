@@ -3,7 +3,7 @@ title: 'System and Information Integrity Decision Worksheet'
 description: 'Every decision the System and Information Integrity family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'System and Information Integrity (SI)'
-  order: 15
+  order: 16
 controls: [si-1, si-2, si-2.2, si-3, si-4, si-4.2, si-4.4, si-4.5, si-4.10, si-4.12, si-4.14, si-4.20, si-4.22, si-5, si-5.1, si-6, si-7, si-7.1, si-7.2, si-7.5, si-7.7, si-7.15, si-8, si-8.2, si-10, si-11, si-12, si-12.1, si-12.2, si-12.3, si-16, si-18, si-18.4, si-19]
 ---
 

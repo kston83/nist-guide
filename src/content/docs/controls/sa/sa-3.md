@@ -8,6 +8,7 @@ control:
   id: SA-3
   family: SA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -148,3 +149,51 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-3 asks you to run each system through a documented system development life cycle (SDLC) with security and privacy built into it. Define who holds security and privacy roles in each phase, name those people for each system, and fit the Risk Management Framework's tasks into the phases. NIST SP 800-37 Rev. 2 ([December 2018](https://csrc.nist.gov/pubs/sp/800/37/r2/final), current as of September 2026) ties each RMF task to an SDLC phase, so the RMF is the usual way to meet item d.
+
+The life cycle model is yours to choose, sequential or iterative. NIST's SA-3 discussion calls for qualified people in the process, such as security and privacy architects and engineers, and role-based training for them ([AT-3](/controls/at/at-3/)). It also notes that external suppliers, developers and integrators take part, which brings in acquisition and supply chain controls.
+
+**Common implementations.** A written SDLC with five phases and a gate at the end of each, where the system owner cannot proceed without security and privacy sign-off:
+
+| Phase | Typical security and privacy activities |
+| --- | --- |
+| Initiation | Security categorization, privacy threshold analysis, high-level requirements and costs (SA-2) |
+| Development or acquisition | Control selection, security and privacy requirements in the contract (SA-4), design review against the engineering principles (SA-8), developer testing (SA-11) |
+| Implementation and assessment | Secure configuration, control assessment, authorization |
+| Operations and maintenance | Change control, continuous monitoring, reauthorization |
+| Disposal | Media sanitization, records disposition, removal from inventories and agreements |
+
+Teams that release often put the recurring activities into each release instead: threat review of new features, security tests in the pipeline and a security impact analysis for each change. A roles table names the CISO, the senior privacy official, the system owner, the system security officer, the security architect and the developers against each phase. The [system security plan](/templates/plans/system-security-plan/), section 5, names the individuals for the system.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| System development life cycle (a) | The organization's documented system development life cycle, with security and privacy activities and a review gate in each phase: initiation, development or acquisition, implementation and assessment, operations and maintenance, and disposal |
+
+The phase names are those SP 800-37 Rev. 2 uses. In the [System and Services Acquisition policy](/templates/policies/sa/), the CISO and the senior privacy official define the roles for each phase, and the system owner names the people in the security plan.
+
+**Evidence assessors ask for.**
+
+- The documented SDLC, with the security and privacy activities and gates in each phase
+- The roles and responsibilities for each phase
+- The security plan's list of people who hold security and privacy roles for the system
+- Gate records for the system, or for a sample of projects, showing the security and privacy reviews took place
+- Training records for the people in security and privacy roles (AT-3)
+
+**Inheritance.** The SDLC itself is usually an organization-level common control. The system owns naming its people and showing that its own project followed the gates, so SA-3 is often a hybrid control.
+
+**Common findings.**
+
+- An SDLC document that no project follows, or that mentions security only at the end, before go-live.
+- Gates passed with no record of who reviewed what.
+- No disposal phase activities, so retired systems keep accounts, data and connections.
+- The security plan names roles but not the individuals who hold them (item c).
+- Agile teams working outside the documented life cycle, with no equivalent security activities per release.
+
+**Enhancements in the Moderate baseline.** SA-3 has none in any baseline. [SA-3(1)](#sa-3.1) managing the preproduction environment, [SA-3(2)](#sa-3.2) use of live or operational data and [SA-3(3)](#sa-3.3) technology refresh are in no baseline. The SA policy still limits live personally identifiable information in developer testing, under SA-11 and [SI-12(2)](/controls/si/si-12/#si-12.2).
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.b(2), requires agencies to ensure that information security and privacy are addressed throughout the life cycle of each agency information system.

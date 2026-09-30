@@ -8,6 +8,7 @@ control:
   id: SA-5
   family: SA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -90,3 +91,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-5 asks you to obtain or write administrator and user documentation for each system, component and service. Record what you did when documentation could not be found, and get it to the people who need it. Administrator documentation covers secure configuration, installation and operation, the use and maintenance of security and privacy functions, and known vulnerabilities in privileged functions. User documentation covers the security and privacy functions users can reach, how to use the system more securely, and users' own responsibilities.
+
+NIST's SA-5 discussion names system owners, system security officers and system administrators as the people who need it. Where documentation cannot be obtained and is essential to running the controls, the discussion says the organization may need to recreate it. Protect documentation according to the system's security category, and more strictly where it describes vulnerabilities.
+
+**Common implementations.** Vendor administrator guides, hardening guides and release notes, saved for the versions actually deployed, in a document repository with access limited to the system team. In-house runbooks for custom components and for configuration choices the vendor documents poorly. User guidance in the [Rules of Behavior](/templates/forms/rules-of-behavior/), onboarding material and a help desk knowledge base: how to use multifactor authentication, report a suspected phishing message, and handle personally identifiable information. Contracts require the supplier to deliver documentation (SA-4e). For older components, a short record of the vendor contacts and searches made, and of what was written in-house instead.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Actions when documentation is unavailable (c) | Ask the manufacturer or supplier again and search its published material; where the documentation is essential to operating a control, write it in-house; and record any remaining gap as a risk in the risk register |
+| Who receives the documentation (d) | The system owner, the system security officer and the system administrators |
+
+The actions end in the [risk register](/templates/forms/risk-register/). In the [System and Services Acquisition policy](/templates/policies/sa/), the system owner obtains, distributes and protects the documentation.
+
+**Evidence assessors ask for.**
+
+- Administrator documentation for a sample of components, matching the versions in use
+- User documentation that describes the security and privacy functions and users' responsibilities
+- For missing documentation, the record of attempts to obtain it and the action taken
+- The distribution list or repository permissions showing who can reach it
+- How documentation that describes vulnerabilities is protected
+
+**Inheritance.** Documentation for a service the system inherits, such as a cloud platform, comes from the provider and is usually inherited with that service. User documentation shared across systems, such as the Rules of Behavior, may be a common control. Documentation for the system's own components is system-owned, so SA-5 is often a hybrid control.
+
+**Common findings.**
+
+- Documentation for an older version than the one deployed.
+- No record of attempts to find documentation for a legacy component.
+- Vulnerability details or privileged procedures on a wiki open to the whole organization.
+- User documentation that explains features but not users' security and privacy responsibilities (b.3).
+
+**Enhancements in the Moderate baseline.** SA-5 has no enhancements.
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.i(6), requires agencies to protect administrator, user and system documentation related to the design, development, testing, operation, maintenance and security of the hardware, firmware and software components of their information systems.

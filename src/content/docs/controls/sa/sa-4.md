@@ -8,6 +8,7 @@ control:
   id: SA-4
   family: SA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -374,3 +375,50 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-4 puts security and privacy requirements into the contract for every system, component or service you acquire, where the supplier is bound by them. Items a to i list what the contract must state, explicitly or by reference: functional requirements, strength of mechanism, assurance requirements, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria. NIST's SA-4 discussion derives the functional requirements from the high-level ones set under [SA-2](/controls/sa/sa-2/). It points to NIST SP 800-160 Vol. 1 Rev. 1, Engineering Trustworthy Secure Systems ([November 2022](https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final), current as of September 2026), for requirements engineering.
+
+**Common implementations.** A library of standard security and privacy clauses that the procurement office maintains and the CISO and senior privacy official approve. Each solicitation adds system-specific requirements: the controls from the system's baseline that the supplier will implement, with parameter values, and the tests the organization will run before acceptance. The security team reviews each solicitation before it is issued; the privacy office reviews those for systems that process personally identifiable information. NIST's discussion also suggests requirements for support, maintenance and update notices. Most contracts add how quickly the supplier reports incidents and vulnerabilities in its product, and how long it will supply security updates, which feed [IR-6](/controls/ir/ir-6/) and [SA-22](/controls/sa/sa-22/). A template for acquisition security requirements is planned for this family.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Contract language used (a to i) | Standardized contract language that the procurement office maintains and the Chief Information Security Officer and senior privacy official approve, with system-specific requirements added for each acquisition |
+| Design and implementation information (SA-4(2)) | Security-relevant external system interfaces and high-level design, and for High systems also low-level design |
+| Level of detail (SA-4(2)) | Enough detail to show, for each subsystem and interface, which controls it implements and how |
+| Security configurations delivered (SA-4(5), High) | The secure configuration baselines named in the baseline configuration standard for that type of component, with default passwords changed and the functions, ports, protocols and services not needed disabled |
+
+The first typical value selects both options of the SA-4 parameter: standardized language, plus organization-defined language for each acquisition. The SA-4(2) value selects the first two options of its parameter and leaves the organization-defined option unused. SA-4(1), SA-4(9) and SA-4(10) have no parameters. In the [System and Services Acquisition policy](/templates/policies/sa/), the system owner puts the requirements in each contract and the CISO reviews each solicitation.
+
+**Evidence assessors ask for.**
+
+- The standard contract language, with its approval
+- A sample of recent contracts for the system, checked for items a to i in the text or by reference
+- Records of the security and privacy review of each solicitation
+- The developer's description of the functional properties of the controls (SA-4(1)) and the design and implementation information (SA-4(2))
+- The developer's list of functions, ports, protocols and services, reviewed and recorded in the [system security plan](/templates/plans/system-security-plan/) (SA-4(9))
+- For each PIV product, its FIPS 201 Approved Products List entry in the component inventory (SA-4(10))
+
+**Inheritance.** The standard contract language and the solicitation review are usually organization-level common controls. The system owns its own requirements, controls and acceptance criteria, so SA-4 is a hybrid control. For an external service, the contract terms also serve [SA-9](/controls/sa/sa-9/).
+
+**Common findings.**
+
+- A contract that says only "comply with all applicable security policies", with no specific requirements, controls or acceptance criteria.
+- Software bought on a purchase card or through a click-through license, outside the review.
+- No privacy requirements in a contract for a system that processes personally identifiable information.
+- No terms for vulnerability notice or for how long security updates will be supplied.
+- Design information or port lists required by the contract but never delivered, or delivered and never reviewed.
+
+**Enhancements in the Moderate baseline.** [SA-4(1)](#sa-4.1) functional properties of controls, [SA-4(2)](#sa-4.2) design and implementation information for controls, [SA-4(9)](#sa-4.9) functions, ports, protocols and services in use, and [SA-4(10)](#sa-4.10) use of approved PIV products, which is also in Low. High adds [SA-4(5)](#sa-4.5) system, component and service configurations. [SA-4(3)](#sa-4.3), [SA-4(6)](#sa-4.6), [SA-4(7)](#sa-4.7), [SA-4(8)](#sa-4.8), [SA-4(11)](#sa-4.11) and [SA-4(12)](#sa-4.12) are in no baseline.
+
+- **SA-4(1)** asks the developer to describe what each control does at its interfaces. Accept the description only when it covers every control the contract allocates to the developer.
+- **SA-4(2)** asks for design information. Most commercial products supply interfaces and high-level design only, so ask for more where the risk warrants it, and say so in the solicitation.
+- **SA-4(9)** asks the developer to list the functions, ports, protocols and services early. Review the list against the prohibited and restricted ones under [CM-7](/controls/cm/cm-7/) before accepting the design.
+- **SA-4(10)** applies where the system implements Personal Identity Verification (PIV), the federal smart card credential. A system with no PIV capability records it as not applicable in the security plan, with that reason.
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.j(1), requires contracts and other agreements involving federal information to include security and privacy requirements sufficient to protect it. Section 4.j(5) requires provisions for federal notification and access, and cooperation with agency staff and Inspectors General. OMB [M-26-05](https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf) (January 23, 2026) rescinds M-22-18 and M-23-16, so the Secure Software Development Attestation Form is no longer required. Agencies may still use it, and may require a current software bill of materials on request, where their own risk-based assurance policy calls for it. For SA-4(10), [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022) provides PIV conformance through GSA's [FIPS 201 Approved Products List](https://www.idmanagement.gov/fips201/) (preamble item 7, Appendix A.5).
+
+<!-- TODO(verify): FAR contract requirements for IT security (FAR 39.101(c), clause 52.239-1) and PIV products (FAR 4.1302(a)). The codified FAR and the Revolutionary FAR Overhaul class deviations for Parts 4 and 39 may differ; cite the FAR here once it is clear which text governs. Same open question as the SA-4 and SA-4(10) clauses. -->

@@ -8,6 +8,7 @@ control:
   id: SA-2
   family: SA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -61,3 +62,31 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-2 makes security and privacy part of a system's business case, set before money is committed. Determine the high-level security and privacy requirements while planning the mission or business process. Cost the resources to meet them through capital planning, and show security and privacy as their own lines in the budget. NIST's SA-2 discussion includes acquisition, sustainment and supply chain risk across the whole life cycle, so the estimate covers the years of operation, not only the build.
+
+**Common implementations.** A business case or project charter template with a security and privacy requirements section, completed with the security team and the privacy office before approval. The requirements come from a first look at the system's likely security category and the personally identifiable information it will handle; they are refined later under SA-4. A cost model that covers licenses and tools, staff time, assessments, continuous monitoring, reauthorization and supply chain reviews for each year of the system's life. Budget documents with one line for information security and another for privacy, as SA-2c and its two assessment objectives require. The organization-wide side of this is [PM-3](/controls/pm/pm-3/), information security and privacy resources.
+
+**Organization-defined parameters.** SA-2 has none. The [System and Services Acquisition policy](/templates/policies/sa/) assigns the system owner to set the requirements and document the resources, the senior leader to allocate them and record any shortfall, and the CISO and the senior privacy official to ensure the two budget lines exist.
+
+**Evidence assessors ask for.**
+
+- The planning documents for the system, showing high-level security requirements and, separately, privacy requirements
+- The capital planning or investment record, showing the resources determined, documented and allocated for protecting the system
+- Programming and budgeting documents with a discrete line item for information security and another for privacy
+- Records of any shortfall between the resources requested and those allocated, and the decision taken
+
+**Inheritance.** The capital planning process and the budget structure are organization-level and often provided as common controls, with PM-3. The system owns its own requirements and its own cost estimate, so SA-2 is usually a hybrid control.
+
+**Common findings.**
+
+- Security folded into a general IT operations line, with no discrete line item to point to.
+- A security line but no privacy line, for a system that processes personally identifiable information.
+- Build costs budgeted, but not the recurring costs of assessments, continuous monitoring and reauthorization.
+- Security requirements first written after the contract is awarded, so the costs they bring were never planned.
+
+**Enhancements in the Moderate baseline.** SA-2 has no enhancements.
+
+**Federal systems** (as of September 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.b(1) to (3), requires agencies to plan for the resources their security and privacy programs need. Security and privacy activities and costs must be identified and included in IT investment capital plans and budget requests. Agencies must also plan and budget to upgrade, replace or retire any system that cannot be protected commensurate with risk. Section 4.e(6) has the Senior Agency Official for Privacy review IT capital investment plans and budget requests so that privacy requirements and their costs are explicitly included.

@@ -8,6 +8,7 @@ control:
   id: SA-1
   family: SA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,68 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-1 asks for a written system and services acquisition policy, procedures that carry it out, an official who manages both, and a set review cycle. The [System and Services Acquisition policy template](/templates/policies/sa/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the SA-1 item it meets:
+
+| SA-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+Coordination matters more for SA than for most families. The policy binds the procurement office, developers and project managers as well as the security team. NIST's SA-1 discussion asks security and privacy programs to collaborate on it, so the Coordination section's review by the procurement, legal and privacy functions is part of meeting the control.
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written for the work SA-2 to SA-22 describe:
+
+- Adding security and privacy costs to each system's budget request
+- The security and privacy gates in the system development life cycle
+- Reviewing each solicitation against standard contract language
+- Reviewing an external service before use, then each year
+- Reviewing developer deliverables before a release is accepted
+- Tracking components to their end-of-support dates
+
+Templates for acquisition security requirements and for an external service review are planned for this family; until they are published, write those two procedures from the SA-4 and SA-9 clauses. System-specific decisions go in the [system security plan](/templates/plans/system-security-plan/).
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out: the procurement office, system owners, project managers, developers, and the security and privacy teams |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer, working with the head of the procurement office |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | A change in applicable laws, regulations or acquisition rules, a major incident or supply chain compromise, or an assessment or audit finding |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events, plus a change to the system development life cycle, the standard contract language or the development toolchain |
+
+The trigger events follow NIST's SA-1 discussion, which lists assessment or audit findings, security incidents or breaches, and changes in laws, executive orders, directives, regulations, policies, standards and guidelines.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the procurement office and to development teams
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** SA-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its security plan. It adds its own procedures only where it acquires or develops differently, for example a program with its own development contractor and life cycle.
+
+**Common findings.**
+
+- A policy that restates the SA controls but has no procedures behind it. NIST's discussion of SA-1 says restating controls is not a policy or procedure.
+- Procedures that the procurement office has never seen, so contracts are awarded without the security review.
+- The policy or procedures not reviewed within the stated period, or not updated after a supply chain incident or a change in acquisition rules.
+- Procedures written for waterfall projects that no team follows, because development runs in short iterative releases.
+
+**Enhancements in the Moderate baseline.** SA-1 has no enhancements.
+
+**Federal systems** (as of September 2026). OMB [M-26-05](https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf), Adopting a Risk-based Approach to Software and Hardware Security (January 23, 2026), rescinds M-22-18 and M-23-16. It states that agencies "shall continue to maintain a complete inventory of software and hardware and develop software and hardware assurance policies and processes that match their risk determinations and mission needs." The SA policy and its procedures are a natural home for those assurance policies and processes. Write them to fit the agency's own assurance policy where one exists.

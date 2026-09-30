@@ -8,6 +8,7 @@ control:
   id: SA-8
   family: SA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -858,3 +859,43 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SA-8 asks you to choose security and privacy engineering principles and apply them when you specify, design, develop, implement and modify the system. NIST's SA-8 discussion gives examples: layered protections, requirements built into the life cycle, clear physical and logical boundaries, developers trained to build secure software, and threat modeling. For an existing system, apply the principles to upgrades and modifications as far as its current hardware, software and firmware allow.
+
+NIST SP 800-160 Vol. 1 Rev. 1, Engineering Trustworthy Secure Systems ([November 2022](https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final), current as of September 2026), describes 30 principles for trustworthy secure design in Appendix E. It treats them as a basis for reasoning about a design, not a checklist to comply with. SA-8(1) to SA-8(32) name security principles one by one. For privacy, NIST IR 8062 ([January 2017](https://csrc.nist.gov/pubs/ir/8062/final), current as of September 2026) sets out three privacy engineering objectives: predictability, manageability and disassociability.
+
+**Common implementations.** A design review at the development or acquisition gate of the life cycle ([SA-3](/controls/sa/sa-3/)), using a short list of the principles the organization's security architecture selects. A threat model for each new system and each significant change, kept with the design. The principles applied, and the reason any selected principle was not, recorded in the security and privacy architecture ([PL-8](/controls/pl/pl-8/)). Common choices include least privilege, least functionality, defense in depth, protective defaults and protective failure. For privacy, the design review asks whether the system's processing will be predictable to individuals, manageable, and disassociated from individuals where the purpose allows.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Security engineering principles | The principles for trustworthy secure design in NIST SP 800-160 Vol. 1 Rev. 1, Appendix E, as the system's security architecture selects them, including least privilege, least functionality, defense in depth, protective defaults and protective failure |
+| Privacy engineering principles | The privacy engineering objectives of predictability, manageability and disassociability from NIST IR 8062, and minimization (SA-8(33)) |
+| Minimization process (SA-8(33), Privacy baseline) | The minimization review in the system's privacy impact assessment, which lists the data elements needed for each stated purpose and those left out, and the retention periods and disposal steps set under SI-12 |
+
+In the [System and Services Acquisition policy](/templates/policies/sa/), the system owner applies the principles and records them, and the reason for any not applied, in the architecture.
+
+**Evidence assessors ask for.**
+
+- The list of principles the organization or the system has selected
+- The security and privacy architecture, showing how the principles were applied and why any were not
+- Threat models and design review records for the system and for recent significant changes
+- For an existing system, change records showing the principles considered in upgrades and modifications
+
+**Inheritance.** An organization-wide list of principles and the enterprise architecture ([PM-7](/controls/pm/pm-7/)) are often common controls. Applying them to the system's own design is system-owned, so SA-8 is usually a hybrid control. A commercial product brings its own design; ask for evidence of it under SA-4(2) and SA-17.
+
+**Common findings.**
+
+- Principles listed in a policy but no trace of them in the design documents.
+- No threat model, or one written once and never updated after major changes.
+- A legacy system where "not feasible" is claimed for every principle, with no reasons recorded.
+- Privacy principles never considered for a system that processes personally identifiable information.
+
+**Enhancements in the Moderate baseline.** None. [SA-8(1)](#sa-8.1) to [SA-8(32)](#sa-8.32), one security design principle each, are in no security baseline.
+
+**Enhancements in the Privacy baseline.** [SA-8(33)](#sa-8.33) minimization: process only the personally identifiable information that is directly relevant and necessary to an authorized purpose, and keep it only as long as that purpose needs. SA-8(33) builds minimization into the design; [SI-12(1)](/controls/si/si-12/#si-12.1) limits the elements a running system processes, and SI-12(2) limits them in testing, training and research. The minimization section of the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) is the usual record, and the senior privacy official reviews the minimization decisions for each new system and each change that adds personally identifiable information or a new purpose.
+
+**Federal systems** (as of September 2026). For SA-8(33), the Privacy Act requires each agency that maintains a system of records to "maintain in its records only such information about an individual as is relevant and necessary to accomplish a purpose of the agency required to be accomplished by statute or by executive order of the President" ([5 U.S.C. § 552a(e)(1)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section552a&num=0&edition=prelim)). Design a system that holds a system of records to meet it.

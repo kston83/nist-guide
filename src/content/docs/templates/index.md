@@ -72,6 +72,7 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Acquisition Security Requirements](/templates/standards/acquisition-security-requirements/) | [Operate](/program/operate/) | Draft |
 | [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
 | [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
 | [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) | [Operate](/program/operate/) | Draft |
@@ -83,6 +84,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
+| [External Service Review](/templates/forms/external-service-review/) | [Operate](/program/operate/) | Draft |
 | [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | [Operate](/program/operate/) | Draft |
 | [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |

@@ -9,7 +9,7 @@ typical:
 ---
 
 :::guidance
-External system services are cloud platforms, software as a service, hosting, managed security and other services the system relies on but does not run. NIST's SA-9 discussion keeps the responsibility for their risk with the authorizing official, and has the organization document the basis of its trust in each provider so the relationship can be monitored. A shared responsibility matrix for each service, recorded in the system security plan as inherited, shared or system-owned controls, shows who does what. The [information exchange agreement](/templates/forms/information-exchange-agreement/) (CA-3) covers the connection; this clause covers the provider.
+External system services are cloud platforms, software as a service, hosting, managed security and other services the system relies on but does not run. NIST's SA-9 discussion keeps the responsibility for their risk with the authorizing official, and has the organization document the basis of its trust in each provider so the relationship can be monitored. A shared responsibility matrix for each service, recorded in the system security plan as inherited, shared or system-owned controls, shows who does what. The [information exchange agreement](/templates/forms/information-exchange-agreement/) (CA-3) covers the connection; this clause covers the provider. The [external service review](/templates/forms/external-service-review/) records the review of each service before use and at each annual review, with a register of every external service.
 :::
 
 - The {{org:system-owner}} shall require that providers of external system services comply with the organization's security and privacy requirements and employ {{param:sa-09_odp.01}}. (SA-9a)

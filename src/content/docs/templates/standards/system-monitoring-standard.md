@@ -3,7 +3,7 @@ title: 'System Monitoring Standard'
 description: 'The monitoring objectives, log sources, detections, alert handling, retention and reporting that make the system and information integrity policy''s monitoring requirements (SP 800-53 SI-4) measurable, with audit record review (AU-6) and retention (AU-11).'
 sidebar:
   label: 'System Monitoring Standard'
-  order: 28
+  order: 30
 controls: [si-4, si-4.2, si-4.4, si-4.5, si-4.10, si-4.12, si-4.14, si-4.20, si-4.22, au-6, au-11]
 ---
 

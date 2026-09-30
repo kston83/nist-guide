@@ -8,6 +8,7 @@ control:
   id: MA-1
   family: MA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,64 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MA-1 asks for a written maintenance policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Maintenance policy template](/templates/policies/ma/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the MA-1 item it meets:
+
+| MA-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written for the work MA-2 to MA-6 describe:
+
+- Scheduling, approving, monitoring and recording maintenance, and checking the controls afterward (MA-2)
+- Approving a component's removal for off-site repair, and sanitizing its media first (MA-2)
+- Approving, inspecting and reviewing maintenance tools, and handling a vendor's equipment when it leaves (MA-3)
+- Approving, connecting, authenticating, monitoring and ending nonlocal maintenance sessions (MA-4)
+- Authorizing maintenance organizations and personnel, and escorting those without the required access (MA-5)
+- Keeping maintenance contracts and spare parts that meet the recovery time objective (MA-6)
+
+The [maintenance log](/templates/forms/maintenance-log/) is the record most of these procedures leave behind: the register of activities, the authorized personnel list and the approved tools list.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's MA-1 discussion. For MA, the people who carry out the procedures are, for example, system administrators and IT operations staff, the staff who escort or supervise maintenance personnel, the account managers who enable maintenance accounts, and the procurement staff who write maintenance contracts. The Chief Information Security Officer often delegates the day-to-day management to the head of IT operations. A new maintenance provider or contract, a new remote support tool, or moving components to a cloud service, where the provider does the maintenance, is a typical procedure trigger.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the staff who escort maintenance personnel and approve sessions
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** MA-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its [system security plan](/templates/plans/system-security-plan/). It adds its own procedures only where its maintenance works differently, for example specialized equipment serviced under its own vendor contract.
+
+**Common findings.**
+
+- A policy that restates the MA controls but has no procedures behind it. NIST's discussion of MA-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period.
+- Procedures that cover on-site hardware repair but not remote vendor support, which is where most maintenance now happens.
+- No evidence that the procedures reached the people who escort maintenance personnel or approve remote sessions.
+
+**Enhancements in the Moderate baseline.** MA-1 has no enhancements.

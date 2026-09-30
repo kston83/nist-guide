@@ -8,6 +8,7 @@ control:
   id: MA-5
   family: MA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -190,3 +191,45 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MA-5 asks you to authorize maintenance personnel and keep a list of them, to verify that anyone doing maintenance unescorted has the required access authorizations, and to have qualified, authorized staff supervise those who do not. It covers the people who maintain the system's hardware and software. Their physical access to the facility is [PE-2](/controls/pe/pe-2/), as NIST's MA-5 discussion notes.
+
+**Common implementations.** The system owner approves each maintenance organization and each person before they work on the system, and keeps the authorized list in the [maintenance log](/templates/forms/maintenance-log/). Unescorted maintenance personnel need the same access authorizations as anyone with that access: screening ([PS-3](/controls/ps/ps-3/)) and a signed [access agreement](/templates/forms/access-agreement/) ([PS-6](/controls/ps/ps-6/)). Those with system accounts also sign the [Rules of Behavior](/templates/forms/rules-of-behavior/) ([PL-4](/controls/pl/pl-4/)). For a vendor, the external personnel requirements of the [Personnel Security Policy](/templates/policies/ps/) apply ([PS-7](/controls/ps/ps-7/)), including notice when someone leaves.
+
+Anyone not on the list, or without the required authorizations, works only under a designated supervisor. The supervisor has the required access authorizations and is technically competent in the maintenance being done, which NIST's discussion distinguishes: competence relates to the maintenance, and authorizations to working on and near the system. The supervisor stays for the whole activity, or supervises the remote session, and is recorded as the escort.
+
+NIST's discussion recognizes that manufacturers, vendors, integrators and consultants may need privileged access with little or no notice, and lets organizations issue temporary credentials, based on their risk assessment, for one use or a very limited time. The policy has the account manager issue them for the approved maintenance period only and disable them when it ends.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Alternate controls when a component cannot be sanitized, removed or disconnected (MA-5(1)(b), High) | Continuous supervision by an escort who has the required access authorizations, is technically qualified and can end the activity at any time; screens, ports and data on the component kept out of the maintenance person's view and reach; and review of the audit records of the activity afterward |
+
+MA-5 itself has no parameters. In the [Maintenance policy](/templates/policies/ma/), the system owner reviews the authorized list at least quarterly, and maintenance contracts require the provider to report within 24 hours when a person on the list leaves or no longer supports the organization, the same notice time as for other external personnel (PS-7).
+
+**Evidence assessors ask for.**
+
+- The documented process for authorizing maintenance personnel
+- The current authorized list, with approvals and the last quarterly review
+- For a sample of people on the list, their screening and signed access agreement
+- For a sample of maintenance records, the performer checked against the list, and the escort named where the performer was not authorized
+- The designation of supervisors for unauthorized maintenance personnel
+- Temporary credentials issued for maintenance, with their validity and when they were disabled
+- Maintenance contract terms requiring notice of departures
+
+**Inheritance.** The personnel screening and access agreement processes are usually common controls, and a facilities or IT operations group may keep an authorized list for shared equipment. The system owns authorizing the people who maintain its components and supervising those without the required access, so MA-5 is usually a hybrid control. For a cloud service, the provider's personnel controls are covered by its authorization or attestation.
+
+**Common findings.**
+
+- No authorized list, or one that names a vendor company but not the individual technicians.
+- Vendor technicians working unescorted with no record that anyone checked their authorizations.
+- An escort who is not technically able to tell what the technician is doing.
+- People who left the vendor still on the list, and still holding accounts.
+- Temporary maintenance credentials that were never disabled.
+
+**Enhancements in the Moderate baseline.** MA-5 has no enhancements in the Moderate baseline. High adds [MA-5(1)](#ma-5.1) individuals without appropriate access. [MA-5(2)](#ma-5.2) to [MA-5(5)](#ma-5.5) are in no baseline; MA-5(2) to MA-5(4) are for systems that process classified information.
+
+- **MA-5(1)** sets procedures for maintenance personnel who lack the security clearances, citizenship or formal access approvals the system's information requires. They work escorted and supervised by fully cleared, technically qualified staff; volatile storage is sanitized and nonvolatile media are removed or disconnected and secured beforehand; and alternate controls apply where a component cannot be sanitized, removed or disconnected. NIST's discussion says the aim is to deny visual and electronic access to classified or controlled unclassified information, and that the procedures can be documented in the security plan. Outside government, the MA-5(1) clause applies them to personnel who lack the approvals the system's information requires, such as for export-controlled information.

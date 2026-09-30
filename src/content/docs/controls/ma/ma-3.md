@@ -8,6 +8,7 @@ control:
   id: MA-3
   family: MA
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -206,3 +207,43 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MA-3 asks you to approve, control and monitor the tools used to maintain the system, and to review the approved tools on a set schedule. Maintenance tools are the diagnostic and repair tools that are not part of the system: hardware and software diagnostic test equipment, packet sniffers, and vendor utilities that are pre-installed, brought in on media, cloud-based or downloaded. NIST's MA-3 discussion warns that they can carry malicious code into a facility and then into the system. It excludes utilities that are part of the system, such as `ping`, `ls` or `ipconfig`, or a switch's monitoring port.
+
+**Common implementations.** The system owner keeps an approved maintenance tools list, in the [maintenance log](/templates/forms/maintenance-log/) or the configuration management database, naming each tool, its version and who owns it. Only approved tools are used, only by authorized maintenance personnel ([MA-5](/controls/ma/ma-5/)). Use is monitored by escorting or supervising the person and through the audit records of privileged tool use ([AU-2](/controls/au/au-2/)). A vendor's software tool is checked against the vendor's published hash or signature before each use, and diagnostic media are scanned on a workstation that is not connected to the system. The periodic review withdraws approval for tools that are outdated, unsupported, no longer needed or no longer used, which is the purpose NIST's discussion gives it.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review frequency for approved maintenance tools (b) | At least annually |
+| Who can exempt maintenance equipment from the removal restrictions (MA-3(3)(d)) | The Chief Information Security Officer |
+
+MA-3(1) and MA-3(2) have no parameters. In the [Maintenance policy](/templates/policies/ma/), the system owner approves each tool before it is used and records it on the approved list.
+
+**Evidence assessors ask for.**
+
+- The approved maintenance tools list, with approvals and the date of the last review
+- Records showing tools were inspected before use, and media scanned (MA-3(1), MA-3(2))
+- For a sample of maintenance records, the tools used, checked against the approved list
+- Records of maintenance equipment that left the facility, showing which of the four MA-3(3) measures was used, and any written exemptions
+- Maintenance contract terms that let the organization keep, sanitize or destroy equipment or media holding its information
+
+**Inheritance.** A central IT operations group may keep one approved tools list for common equipment, such as network diagnostic tools, and offer it as a common control. The system owns approving tools specific to its components and the vendor tools used on them, so MA-3 is usually a hybrid control. For a cloud service, the provider's own maintenance tools are covered by its authorization or attestation.
+
+**Common findings.**
+
+- No approved tools list, or one that does not include the vendor's remote support utility.
+- Tools downloaded from the internet at the time of the repair, with no check of their integrity.
+- A vendor's diagnostic laptop, which has held system data, leaving the building with no record of how it was handled.
+- An approved list never reviewed, still naming tools that are years out of support.
+
+**Enhancements in the Moderate baseline.** [MA-3(1)](#ma-3.1) inspect tools, [MA-3(2)](#ma-3.2) inspect media and [MA-3(3)](#ma-3.3) prevent unauthorized removal, all also in High. [MA-3(4)](#ma-3.4), [MA-3(5)](#ma-3.5) and [MA-3(6)](#ma-3.6) are in no baseline.
+
+- **MA-3(1)** inspects the tools maintenance personnel bring in or download for improper or unauthorized modifications. For hardware, check its seals, serial number and condition; for software, check a hash or signature against the vendor's published value. NIST's discussion has a tool found modified, or containing malicious code, handled as an incident; the policy has it reported under the [incident response plan](/templates/plans/incident-response-plan/) ([IR-6](/controls/ir/ir-6/)).
+- **MA-3(2)** checks media holding diagnostic and test programs for malicious code before they are used in the system, with the organization's malicious code protection ([SI-3](/controls/si/si-3/)). Infected media are reported as an incident and not used.
+- **MA-3(3)** keeps maintenance equipment that holds organizational information from leaving without one of four measures: verify it holds none, sanitize or destroy it, keep it in the facility, or get a written exemption from the Chief Information Security Officer. NIST's discussion counts information the organization holds as a steward for others as organizational information. Sanitize as the media sanitization procedure sets out (MP-6), and put terms in the maintenance contract that let you keep, sanitize or destroy the equipment or its media.
+
+**Federal systems** (as of September 2026). Under [32 CFR 2002.14(f)(2)](https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002/subpart-A/section-2002.14), agencies that destroy controlled unclassified information (CUI), including in electronic form, must make it unreadable, indecipherable and irrecoverable. They must use any destruction method specifically required by law, regulation or Government-wide policy for that CUI; otherwise, the destruction guidance in NIST SP 800-53 and SP 800-88, or a method approved for classified national security information under 32 CFR 2001.47. The MA-3(3) clause's federal block requires that method when maintenance equipment holding CUI is destroyed to keep it from leaving.

@@ -47,57 +47,57 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current access control policy to be reviewed and updated | AC-1 |  | Chief Information Security Officer |
 | The frequency at which the current access control procedures are reviewed and updated | AC-1 |  | Chief Information Security Officer |
 | Events that would require procedures to be reviewed and updated | AC-1 |  | Chief Information Security Officer |
-| Prerequisites and criteria for group and role membership | AC-2 | a completed access request, a signed access agreement and completed security awareness training | Chief Information Security Officer |
-| Attributes (as required) for each account | AC-2 | an expiration date for temporary accounts, and time-of-day or location restrictions where the system supports them | Chief Information Security Officer |
-| Personnel or roles required to approve requests to create accounts | AC-2 | the user's supervisor, plus the system owner or data owner for privileged roles | Chief Information Security Officer |
-| Policy, procedures, prerequisites, and criteria for account creation, enabling, modification, disabling, and removal | AC-2 |  | Chief Information Security Officer |
-| Personnel or roles to be notified | AC-2 | the system owner and the system security officer | Chief Information Security Officer |
+| Prerequisites and criteria for group and role membership | AC-2 | A completed access request, a signed access agreement and completed security awareness training | Chief Information Security Officer |
+| Attributes (as required) for each account | AC-2 | An expiration date for temporary accounts, and time-of-day or location restrictions where the system supports them | Chief Information Security Officer |
+| Personnel or roles required to approve requests to create accounts | AC-2 | The user's supervisor, plus the system owner or data owner for privileged roles | Chief Information Security Officer |
+| Policy, procedures, prerequisites, and criteria for account creation, enabling, modification, disabling, and removal | AC-2 | Set to this policy and the account management procedure, which holds the prerequisites and criteria for each account action. | Chief Information Security Officer |
+| Personnel or roles to be notified | AC-2 | The system owner and the system security officer | Chief Information Security Officer |
 | Time period within which to notify account managers when accounts are no longer required | AC-2 | 5 business days | Chief Information Security Officer |
 | Time period within which to notify account managers when users are terminated or transferred | AC-2 | 24 hours, or the same day for privileged users | Chief Information Security Officer |
 | Time period within which to notify account managers when system usage or the need to know changes for an individual | AC-2 | 5 business days | Chief Information Security Officer |
-| Attributes needed to authorize system access (as required) | AC-2 | time-of-day, day-of-week or network location restrictions, where needed | Chief Information Security Officer |
-| The frequency of account review | AC-2 | quarterly for privileged accounts and at least annually for all other accounts | Chief Information Security Officer |
-| Automated mechanisms used to support the management of system accounts | AC-2(1) | the organization's identity provider and its provisioning workflows | Chief Information Security Officer |
-| Select one: remove; disable | AC-2(2) | disable | Chief Information Security Officer |
+| Attributes needed to authorize system access (as required) | AC-2 | Time-of-day, day-of-week or network location restrictions, where needed | Chief Information Security Officer |
+| The frequency of account review | AC-2 | Quarterly for privileged accounts and at least annually for all other accounts | Chief Information Security Officer |
+| Automated mechanisms used to support the management of system accounts | AC-2(1) | The organization's identity provider and its provisioning workflows | Chief Information Security Officer |
+| Select one: remove; disable | AC-2(2) | Disable | Chief Information Security Officer |
 | The time period after which to automatically remove or disable temporary or emergency accounts | AC-2(2) | 72 hours for emergency accounts, and the end date approved at creation for temporary accounts | Chief Information Security Officer |
 | Time period within which to disable accounts | AC-2(3) | 1 business day | Chief Information Security Officer |
 | Time period for account inactivity before disabling | AC-2(3) | 90 days | Chief Information Security Officer |
-| The time period of expected inactivity or description of when to log out | AC-2(5) | at the end of each work session, and when leaving the device unattended for longer than the device lock period | Chief Information Security Officer |
+| The time period of expected inactivity or description of when to log out | AC-2(5) | At the end of each work session, and when leaving the device unattended for longer than the device lock period | Chief Information Security Officer |
 | Time period within which to disable accounts of individuals who are discovered to pose significant risk | AC-2(13) | 1 hour | Chief Information Security Officer |
-| Significant risks leading to disabling accounts | AC-2(13) | credible indicators of insider threat, or notice of an adverse personnel action | Chief Information Security Officer |
-| Information flow control policies within the system and between connected systems | AC-4 | the boundary protection standard and the approved interconnection agreements | Chief Information Security Officer |
-| Duties of individuals requiring separation | AC-5 | requesting and approving access; developing and deploying code to production; administering a system and reviewing its audit logs | Chief Information Security Officer |
-| Individuals and roles with authorized access to security functions and security-relevant information | AC-6(1) | the system administrators and security personnel named in the system security plan | Chief Information Security Officer |
-| Security functions (deployed in hardware) for authorized access | AC-6(1) |  | Chief Information Security Officer |
-| Security functions (deployed in software) for authorized access | AC-6(1) |  | Chief Information Security Officer |
-| Security functions (deployed in firmware) for authorized access | AC-6(1) |  | Chief Information Security Officer |
-| Security-relevant information for authorized access | AC-6(1) | audit logs, security configuration settings and access control lists | Chief Information Security Officer |
-| Security functions or security-relevant information, the access to which requires users to use non-privileged accounts to access non-security functions, | AC-6(2) | the security functions and security-relevant information authorized under AC-6(1) | Chief Information Security Officer |
-| Personnel or roles to which privileged accounts on the system are to be restricted | AC-6(5) | the system administrators named in the system security plan | Chief Information Security Officer |
-| The frequency at which to review the privileges assigned to roles or classes of users | AC-6(7) | quarterly for privileged roles and at least annually for all other roles | Chief Information Security Officer |
-| Roles or classes of users to which privileges are assigned | AC-6(7) | all roles and classes of users on the system | Chief Information Security Officer |
+| Significant risks leading to disabling accounts | AC-2(13) | Credible indicators of insider threat, or notice of an adverse personnel action | Chief Information Security Officer |
+| Information flow control policies within the system and between connected systems | AC-4 | The boundary protection standard and the approved interconnection agreements | Chief Information Security Officer |
+| Duties of individuals requiring separation | AC-5 | Requesting and approving access; developing and deploying code to production; administering a system and reviewing its audit logs | Chief Information Security Officer |
+| Individuals and roles with authorized access to security functions and security-relevant information | AC-6(1) | The system administrators and security personnel named in the system security plan | Chief Information Security Officer |
+| Security functions (deployed in hardware) for authorized access | AC-6(1) | Account management, audit configuration, security settings and cryptographic key management | Chief Information Security Officer |
+| Security functions (deployed in software) for authorized access | AC-6(1) | See the row above | Chief Information Security Officer |
+| Security functions (deployed in firmware) for authorized access | AC-6(1) | See the row above | Chief Information Security Officer |
+| Security-relevant information for authorized access | AC-6(1) | Audit logs, security configuration settings and access control lists | Chief Information Security Officer |
+| Security functions or security-relevant information, the access to which requires users to use non-privileged accounts to access non-security functions, | AC-6(2) | The security functions and security-relevant information authorized under AC-6(1) | Chief Information Security Officer |
+| Personnel or roles to which privileged accounts on the system are to be restricted | AC-6(5) | The system administrators named in the system security plan | Chief Information Security Officer |
+| The frequency at which to review the privileges assigned to roles or classes of users | AC-6(7) | Quarterly for privileged roles and at least annually for all other roles | Chief Information Security Officer |
+| Roles or classes of users to which privileges are assigned | AC-6(7) | All roles and classes of users on the system | Chief Information Security Officer |
 | The number of consecutive invalid logon attempts by a user allowed during a time period | AC-7 | 3 | Chief Information Security Officer |
 | The time period to which the number of consecutive invalid logon attempts by a user is limited | AC-7 | 15 minutes | Chief Information Security Officer |
-| Select one or more: lock the account or node for [Assignment: organization-defined time period] ; lock the account or node until released by an administrator; delay next logon prompt per [Assignment: organization-defined delay algorithm] ; notify system administrator; take other [Assignment: organization-defined action]  | AC-7 | lock the account or node for 30 minutes, or until released by an administrator for privileged accounts | Chief Information Security Officer |
-| Time period for an account or node to be locked | AC-7 |  | Chief Information Security Officer |
-| Delay algorithm for the next logon prompt | AC-7 |  | Chief Information Security Officer |
-| Other action to be taken when the maximum number of unsuccessful attempts is exceeded | AC-7 |  | Chief Information Security Officer |
-| System use notification message or banner to be displayed by the system to users before granting access to the system | AC-8 | the organization's approved logon banner | Chief Information Security Officer |
-| Conditions for system use to be displayed by the system before granting further access | AC-8 | on the landing page, before users submit any information | Chief Information Security Officer |
-| Select one or more: initiating a device lock after [Assignment: organization-defined time period] of inactivity; requiring the user to initiate a device lock before leaving the system unattended | AC-11 | initiating a device lock after 15 minutes of inactivity, and requiring the user to initiate a device lock before leaving the system unattended | Chief Information Security Officer |
-| Time period of inactivity after which a device lock is initiated | AC-11 |  | Chief Information Security Officer |
+| Select one or more: lock the account or node for organization-defined time period (see its row below); lock the account or node until released by an administrator; delay next logon prompt per organization-defined delay algorithm (see its row below); notify system administrator; take other organization-defined action (see its row below) | AC-7 | Lock the account or node for 30 minutes, or until released by an administrator for privileged accounts | Chief Information Security Officer |
+| Time period for an account or node to be locked | AC-7 | See the selection above | Chief Information Security Officer |
+| Delay algorithm for the next logon prompt | AC-7 | See the selection above | Chief Information Security Officer |
+| Other action to be taken when the maximum number of unsuccessful attempts is exceeded | AC-7 | See the selection above | Chief Information Security Officer |
+| System use notification message or banner to be displayed by the system to users before granting access to the system | AC-8 | The organization's approved logon banner | Chief Information Security Officer |
+| Conditions for system use to be displayed by the system before granting further access | AC-8 | On the landing page, before users submit any information | Chief Information Security Officer |
+| Select one or more: initiating a device lock after organization-defined time period (see its row below) of inactivity; requiring the user to initiate a device lock before leaving the system unattended | AC-11 | Initiating a device lock after 15 minutes of inactivity, and requiring the user to initiate a device lock before leaving the system unattended | Chief Information Security Officer |
+| Time period of inactivity after which a device lock is initiated | AC-11 | See the selection above | Chief Information Security Officer |
 | Conditions or trigger events requiring session disconnect | AC-12 | 30 minutes of inactivity for remote and web sessions, or at the end of the maximum session lifetime | Chief Information Security Officer |
-| User actions that can be performed on the system without identification or authentication | AC-14 | viewing public web pages and the logon page | Chief Information Security Officer |
-| Needs requiring execution of privileged commands via remote access | AC-17(4) | emergency administration outside business hours and administration of cloud-hosted components | Chief Information Security Officer |
-| Needs requiring access to security-relevant information via remote access | AC-17(4) | investigation of security incidents | Chief Information Security Officer |
-| Select one or more: users; devices | AC-18(1) | users and devices | Chief Information Security Officer |
-| Select one: full-device encryption; container-based encryption | AC-19(5) | full-device encryption | Chief Information Security Officer |
-| Mobile devices on which to employ encryption | AC-19(5) | all organization-controlled mobile devices | Chief Information Security Officer |
-| Select one or more: establish [Assignment: organization-defined terms and conditions] ; identify [Assignment: organization-defined controls asserted]  | AC-20 | establish terms and conditions in a signed agreement with the organization that owns the external system | Chief Information Security Officer |
-| Terms and conditions consistent with the trust relationships established with other organizations owning, operating, and/or maintaining external systems | AC-20 |  | Chief Information Security Officer |
-| Controls asserted to be implemented on external systems consistent with the trust relationships established with other organizations owning, operating, and/or maintaining external systems | AC-20 |  | Chief Information Security Officer |
-| Types of external systems prohibited from use | AC-20 | personally owned devices that the organization does not manage, and public or shared computers | Chief Information Security Officer |
-| Restrictions on the use of organization-controlled portable storage devices by authorized individuals on external systems | AC-20(2) | use only of encrypted, organization-issued devices, and only for approved business purposes | Chief Information Security Officer |
-| Information-sharing circumstances where user discretion is required to determine whether access authorizations assigned to a sharing partner match the information’s access and use restrictions | AC-21 | sharing sensitive or contract-restricted information with partners outside the organization | Chief Information Security Officer |
-| Automated mechanisms or manual processes that assist users in making information-sharing and collaboration decisions | AC-21 | information labels and a data-sharing checklist | Chief Information Security Officer |
-| The frequency at which to review the content on the publicly accessible system for non-public information | AC-22 | quarterly | Chief Information Security Officer |
+| User actions that can be performed on the system without identification or authentication | AC-14 | Viewing public web pages and the logon page | Chief Information Security Officer |
+| Needs requiring execution of privileged commands via remote access | AC-17(4) | Emergency administration outside business hours and administration of cloud-hosted components | Chief Information Security Officer |
+| Needs requiring access to security-relevant information via remote access | AC-17(4) | Investigation of security incidents | Chief Information Security Officer |
+| Select one or more: users; devices | AC-18(1) | Users and devices | Chief Information Security Officer |
+| Select one: full-device encryption; container-based encryption | AC-19(5) | Full-device encryption | Chief Information Security Officer |
+| Mobile devices on which to employ encryption | AC-19(5) | All organization-controlled mobile devices | Chief Information Security Officer |
+| Select one or more: establish organization-defined terms and conditions (see its row below); identify organization-defined controls asserted (see its row below) | AC-20 | Establish terms and conditions in a signed agreement with the organization that owns the external system | Chief Information Security Officer |
+| Terms and conditions consistent with the trust relationships established with other organizations owning, operating, and/or maintaining external systems | AC-20 | See the selection above | Chief Information Security Officer |
+| Controls asserted to be implemented on external systems consistent with the trust relationships established with other organizations owning, operating, and/or maintaining external systems | AC-20 | See the selection above | Chief Information Security Officer |
+| Types of external systems prohibited from use | AC-20 | Personally owned devices that the organization does not manage, and public or shared computers | Chief Information Security Officer |
+| Restrictions on the use of organization-controlled portable storage devices by authorized individuals on external systems | AC-20(2) | Use only of encrypted, organization-issued devices, and only for approved business purposes | Chief Information Security Officer |
+| Information-sharing circumstances where user discretion is required to determine whether access authorizations assigned to a sharing partner match the information’s access and use restrictions | AC-21 | Sharing sensitive or contract-restricted information with partners outside the organization | Chief Information Security Officer |
+| Automated mechanisms or manual processes that assist users in making information-sharing and collaboration decisions | AC-21 | Information labels and a data-sharing checklist | Chief Information Security Officer |
+| The frequency at which to review the content on the publicly accessible system for non-public information | AC-22 | Quarterly | Chief Information Security Officer |

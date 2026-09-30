@@ -47,16 +47,16 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current awareness and training policy to be reviewed and updated | AT-1 |  | Chief Information Security Officer |
 | The frequency at which the current awareness and training procedures are reviewed and updated | AT-1 |  | Chief Information Security Officer |
 | Events that would require procedures to be reviewed and updated | AT-1 |  | Chief Information Security Officer |
-| The frequency at which to provide security literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | annually | Chief Information Security Officer |
-| The frequency at which to provide privacy literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | annually | Chief Information Security Officer |
-| Events that require security literacy training for system users | AT-2 | a significant system change, or an incident caused by user error | Chief Information Security Officer |
-| Events that require privacy literacy training for system users | AT-2 | a significant change in how the organization processes personally identifiable information, or a privacy breach | Chief Information Security Officer |
-| Techniques to be employed to increase the security and privacy awareness of system users | AT-2 | phishing simulations, short awareness messages and posters | Chief Information Security Officer |
-| The frequency at which to update literacy training and awareness content | AT-2 | annually | Chief Information Security Officer |
-| Events that would require literacy training and awareness content to be updated | AT-2 | a significant incident, or a significant change in threats | Chief Information Security Officer |
-| Roles and responsibilities for role-based security training | AT-3 | system administrators, developers, security staff, incident responders, system owners and authorizing officials | Chief Information Security Officer |
-| Roles and responsibilities for role-based privacy training | AT-3 | staff who handle personally identifiable information as part of their duties, the privacy office, and owners of systems that process it | Chief Information Security Officer |
-| The frequency at which to provide role-based security and privacy training to assigned personnel after initial training | AT-3 | annually | Chief Information Security Officer |
-| The frequency at which to update role-based training content | AT-3 | annually | Chief Information Security Officer |
-| Events that require role-based training content to be updated | AT-3 | a significant incident, a change in a role's tools or duties, or a new legal or policy requirement | Chief Information Security Officer |
+| The frequency at which to provide security literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | Annually | Chief Information Security Officer |
+| The frequency at which to provide privacy literacy training to system users (including managers, senior executives, and contractors) after initial training | AT-2 | Annually | Chief Information Security Officer |
+| Events that require security literacy training for system users | AT-2 | A significant system change, or an incident caused by user error | Chief Information Security Officer |
+| Events that require privacy literacy training for system users | AT-2 | A significant change in how the organization processes personally identifiable information, or a privacy breach | Chief Information Security Officer |
+| Techniques to be employed to increase the security and privacy awareness of system users | AT-2 | Phishing simulations, short awareness messages and posters | Chief Information Security Officer |
+| The frequency at which to update literacy training and awareness content | AT-2 | Annually | Chief Information Security Officer |
+| Events that would require literacy training and awareness content to be updated | AT-2 | A significant incident, or a significant change in threats | Chief Information Security Officer |
+| Roles and responsibilities for role-based security training | AT-3 | System administrators, developers, security staff, incident responders, system owners and authorizing officials | Chief Information Security Officer |
+| Roles and responsibilities for role-based privacy training | AT-3 | Staff who handle personally identifiable information as part of their duties, the privacy office, and owners of systems that process it | Chief Information Security Officer |
+| The frequency at which to provide role-based security and privacy training to assigned personnel after initial training | AT-3 | Annually | Chief Information Security Officer |
+| The frequency at which to update role-based training content | AT-3 | Annually | Chief Information Security Officer |
+| Events that require role-based training content to be updated | AT-3 | A significant incident, a change in a role's tools or duties, or a new legal or policy requirement | Chief Information Security Officer |
 | Time period for retaining individual training records | AT-4 | 3 years after completion, or longer where a law, the records retention schedule or a business need requires it | Chief Information Security Officer |

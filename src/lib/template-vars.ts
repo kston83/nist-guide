@@ -17,7 +17,7 @@ export type Target = 'site' | 'md' | 'docx';
 export interface Param {
 	label?: string;
 	prompt?: string;
-	select?: { howMany: string; choices: string[] };
+	select?: { howMany: string; choices: string[]; nested?: string[] };
 }
 
 export interface VariableContext {
@@ -38,14 +38,41 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 // Pandoc Markdown treats these as syntax inside a span.
 const escapePandoc = (s: string) => s.replace(/([\\[\]*_`<>{}#$^~|])/g, '\\$1');
 
+const INSERT = /\{\{\s*insert:\s*param,\s*([\w.-]+)\s*\}\}/g;
+// 800-53A descriptions cite other parameters by their assessment label:
+// "the event types (subset of AU-02_ODP[01]) for logging". The sentence reads
+// the same without the parenthetical, and the label means nothing in a policy.
+const ODP_REFERENCE = /\s*\([^()]*?[A-Z]{2}-\d{2}(?:\(\d{2}\))?_ODP\[\d{2}\]\)/g;
+const withoutOdpReferences = (s: string) => s.replace(ODP_REFERENCE, '');
+const unprefixed = (label?: string) => label && withoutOdpReferences(label.replace(/^organization-defined\s+/i, ''));
+
+// "a", "a or b", "a, b or c"; semicolons when a choice has its own "or" or comma.
+function orList(items: string[]): string {
+	if (items.length < 2) return items.join('');
+	const sep = items.some((x) => /,| or /.test(x)) ? '; ' : ', ';
+	return `${items.slice(0, -1).join(sep)}${sep === '; ' ? '; or ' : ' or '}${items.at(-1)}`;
+}
+
+// Readable text for a parameter that another parameter's 800-53A description
+// inserts ("frequency at which to conduct {{ insert: param, sa-11_odp.01 }}
+// testing/evaluation"): "the selected unit, integration, system or regression"
+// for a selection, else "the" and its label.
+function insertedText(p?: Param): string {
+	if (p?.select) return `the selected ${orList(p.select.choices.map((c) => c.trim()))}`;
+	const label = unprefixed(p?.label);
+	return label ? `the ${label}` : 'the value';
+}
+
 // The text a reader sees for a parameter: its 800-53A description, else its
-// NIST label without the "organization-defined" prefix.
-export function paramPrompt(p: Param): string {
+// NIST label without the "organization-defined" prefix. `params` resolves the
+// parameters a description inserts; references to 800-53A labels are dropped.
+// Choices lose the trailing space OSCAL leaves after an embedded assignment.
+export function paramPrompt(p: Param, params: Record<string, Param> = {}): string {
 	if (p.select) {
 		const how = p.select.howMany === 'one-or-more' ? 'Select one or more' : 'Select one';
-		return `${how}: ${p.select.choices.join('; ')}`;
+		return `${how}: ${p.select.choices.map((c) => c.trim()).join('; ')}`;
 	}
-	const text = p.prompt ?? p.label?.replace(/^organization-defined\s+/i, '') ?? 'value';
+	const text = withoutOdpReferences(p.prompt ?? unprefixed(p.label) ?? 'value').replace(INSERT, (_, id: string) => insertedText(params[id]));
 	return `Fill in: ${text}`;
 }
 
@@ -100,7 +127,7 @@ export function renderVariables(text: string, ctx: VariableContext, target: Targ
 					problems.push(`unknown parameter "${id}"`);
 					return '';
 				}
-				return field('param', paramPrompt(p), ctx.typical?.[id]);
+				return field('param', paramPrompt(p, ctx.params), ctx.typical?.[id]);
 			}
 			case 'family':
 				if (!ctx.family) {

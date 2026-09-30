@@ -85,7 +85,7 @@ List every data element of personally identifiable information, including inform
 
 ### 4. Authority and purposes
 
-- **Authority:** <span class="tpl-field tpl-fill">Fill in: the specific authority</span>, which is <span class="tpl-field tpl-param">Fill in: the authority to permit the processing (defined in PT-02_ODP[02]) of personally identifiable information <span class="tpl-typical">Typical: the law, regulation, contract or consent</span></span> that permits the processing (PT-2a).
+- **Authority:** <span class="tpl-field tpl-fill">Fill in: the specific authority</span>, which is <span class="tpl-field tpl-param">Fill in: the authority to permit the processing of personally identifiable information <span class="tpl-typical">Typical: the law, regulation, contract or consent</span></span> that permits the processing (PT-2a).
 - **Purposes:** <span class="tpl-field tpl-param">Fill in: the purpose(s) for processing personally identifiable information <span class="tpl-typical">Typical: the specific, explicit purposes of the system or program</span></span>, listed below (PT-3a).
 
 | Purpose | Data elements used | Compatible with the purpose of collection? |

@@ -47,10 +47,10 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current planning policy to be reviewed and updated | PL-1 |  | Chief Information Security Officer |
 | The frequency with which the current planning procedures are reviewed and updated | PL-1 |  | Chief Information Security Officer |
 | Events that would require procedures to be reviewed and updated | PL-1 |  | Chief Information Security Officer |
-| Individuals or groups with whom security and privacy-related activities affecting the system that require planning and coordination | PL-2 | the system's stakeholders, the common control providers, and the security and privacy teams | Chief Information Security Officer |
-| Personnel or roles to receive distributed copies of the system security and privacy plans | PL-2 | the authorizing official, the system owner, the system security officer and the assessor | Chief Information Security Officer |
-| Frequency to review system security and privacy plans | PL-2 | annually | Chief Information Security Officer |
-| Frequency for reviewing and updating the rules of behavior | PL-4 | annually | Chief Information Security Officer |
-| Select one or more: [Assignment: organization-defined frequency] ; when the rules are revised or updated | PL-4 | annually, and when the rules are revised or updated | Chief Information Security Officer |
-| Frequency for individuals to read and re-acknowledge the rules of behavior | PL-4 | annually | Chief Information Security Officer |
-| Frequency for review and update to reflect changes in the enterprise architecture | PL-8 | annually, and whenever the enterprise architecture changes | Chief Information Security Officer |
+| Individuals or groups with whom security and privacy-related activities affecting the system that require planning and coordination | PL-2 | The system's stakeholders, the common control providers, and the security and privacy teams | Chief Information Security Officer |
+| Personnel or roles to receive distributed copies of the system security and privacy plans | PL-2 | The authorizing official, the system owner, the system security officer and the assessor | Chief Information Security Officer |
+| Frequency to review system security and privacy plans | PL-2 | Annually | Chief Information Security Officer |
+| Frequency for reviewing and updating the rules of behavior | PL-4 | Annually | Chief Information Security Officer |
+| Select one or more: organization-defined frequency (see its row below); when the rules are revised or updated | PL-4 | Annually, and when the rules are revised or updated | Chief Information Security Officer |
+| Frequency for individuals to read and re-acknowledge the rules of behavior | PL-4 | Annually | Chief Information Security Officer |
+| Frequency for review and update to reflect changes in the enterprise architecture | PL-8 | Annually, and whenever the enterprise architecture changes | Chief Information Security Officer |

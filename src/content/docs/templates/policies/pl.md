@@ -134,7 +134,7 @@ The [Rules of Behavior template](/templates/forms/rules-of-behavior/) gives the 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall provide the rules to each individual who requires access to the system. (PL-4a)
 - The <span class="tpl-field tpl-org">Account manager</span> shall receive a documented acknowledgment from each individual, stating that they have read, understand and agree to abide by the rules, before authorizing access to information and the system. (PL-4b)
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall review and update the rules of behavior <span class="tpl-field tpl-param">Fill in: frequency for reviewing and updating the rules of behavior <span class="tpl-typical">Typical: annually</span></span>. (PL-4c)
-- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall require individuals who acknowledged a previous version of the rules to read and re-acknowledge them <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency] ; when the rules are revised or updated <span class="tpl-typical">Typical: annually, and when the rules are revised or updated</span></span>. (PL-4d)
+- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall require individuals who acknowledged a previous version of the rules to read and re-acknowledge them <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency]; when the rules are revised or updated <span class="tpl-typical">Typical: annually, and when the rules are revised or updated</span></span>. (PL-4d)
 
 #### Social media and external site and application usage restrictions (PL-4(1))
 

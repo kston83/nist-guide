@@ -36,38 +36,38 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Who leads the security program, and who approves the program plan and sets the organization's risk tolerance? | PM-1, PM-2, PM-28 | The Chief Information Security Officer leads the program; the senior leader approves the plan and sets risk tolerance. | Senior leader |
 | Who leads the privacy program, and is it combined with another role? | PM-18, PM-19 | A senior privacy official who reports to the senior leader. A small organization may give the role to its general counsel or compliance lead. | Senior leader |
 | Which PM controls do not apply, and why? | PM-8, PM-17, PM-24 | PM-8 applies only to owners or operators of critical infrastructure, PM-17 only where the organization holds controlled unclassified information, and PM-24 only to organizations that run matching programs. Record each decision in the program plan. | Chief Information Security Officer |
-| The frequency at which to review and update the organization-wide information security program plan | PM-1 | annually | Chief Information Security Officer |
-| Events that trigger the review and update of the organization-wide information security program plan | PM-1 | a significant change to the organization's mission, structure, risk tolerance or systems, a major incident, or a finding from an assessment or audit of the program | Chief Information Security Officer |
-| The frequency at which to update the inventory of organizational systems | PM-5 | quarterly, and whenever a system is authorized, significantly changed or retired | Chief Information Security Officer |
-| The frequency at which to update the inventory of systems, applications, and projects that process personally identifiable information | PM-5(1) | at least annually, and whenever a privacy impact assessment is completed or updated | Chief Information Security Officer |
-| Non-essential functions or services to be offloaded | PM-7(1) | non-essential services, such as email, file sharing and public web hosting, on systems that support mission-essential functions | Chief Information Security Officer |
-| The frequency at which to review and update the risk management strategy | PM-9 | annually | Chief Information Security Officer |
-| The frequency at which to review and revise the mission and business processes | PM-11 | annually, and whenever the organization changes its mission, structure or major services | Chief Information Security Officer |
-| The frequency at which to review and update the policy | PM-17 | annually | Chief Information Security Officer |
-| The frequency at which to review and update the procedures | PM-17 | annually | Chief Information Security Officer |
-| The frequency of updates to the privacy program plan | PM-18 | annually | Chief Information Security Officer |
-| The roles of a Data Governance Body | PM-23 | the chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
-| The responsibilities of a Data Governance Body | PM-23 | setting data governance policy, approving data sharing agreements, and resolving data quality and access issues | Chief Information Security Officer |
-| The frequency for reviewing policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | annually | Chief Information Security Officer |
-| The frequency for updating policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | annually, and whenever the review finds a change is needed | Chief Information Security Officer |
-| The frequency for reviewing procedures that address the use of personally identifiable information for internal testing, training, and research | PM-25 | annually | Chief Information Security Officer |
-| The frequency for updating procedures that address the use of personally identifiable information for internal testing, training, and research | PM-25 | annually, and whenever the review finds a change is needed | Chief Information Security Officer |
+| The frequency at which to review and update the organization-wide information security program plan | PM-1 | Annually | Chief Information Security Officer |
+| Events that trigger the review and update of the organization-wide information security program plan | PM-1 | A significant change to the organization's mission, structure, risk tolerance or systems, a major incident, or a finding from an assessment or audit of the program | Chief Information Security Officer |
+| The frequency at which to update the inventory of organizational systems | PM-5 | Quarterly, and whenever a system is authorized, significantly changed or retired | Chief Information Security Officer |
+| The frequency at which to update the inventory of systems, applications, and projects that process personally identifiable information | PM-5(1) | At least annually, and whenever a privacy impact assessment is completed or updated | Chief Information Security Officer |
+| Non-essential functions or services to be offloaded | PM-7(1) | Non-essential services, such as email, file sharing and public web hosting, on systems that support mission-essential functions | Chief Information Security Officer |
+| The frequency at which to review and update the risk management strategy | PM-9 | Annually | Chief Information Security Officer |
+| The frequency at which to review and revise the mission and business processes | PM-11 | Annually, and whenever the organization changes its mission, structure or major services | Chief Information Security Officer |
+| The frequency at which to review and update the policy | PM-17 | Annually | Chief Information Security Officer |
+| The frequency at which to review and update the procedures | PM-17 | Annually | Chief Information Security Officer |
+| The frequency of updates to the privacy program plan | PM-18 | Annually | Chief Information Security Officer |
+| The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
+| The responsibilities of a Data Governance Body | PM-23 | Setting data governance policy, approving data sharing agreements, and resolving data quality and access issues | Chief Information Security Officer |
+| The frequency for reviewing policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually | Chief Information Security Officer |
+| The frequency for updating policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually, and whenever the review finds a change is needed | Chief Information Security Officer |
+| The frequency for reviewing procedures that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually | Chief Information Security Officer |
+| The frequency for updating procedures that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually, and whenever the review finds a change is needed | Chief Information Security Officer |
 | The time period in which complaints (including concerns or questions) from individuals are to be reviewed | PM-26 | 5 business days | Chief Information Security Officer |
 | The time period in which complaints (including concerns or questions) from individuals are to be addressed | PM-26 | 30 days | Chief Information Security Officer |
 | The time period for acknowledging the receipt of complaints | PM-26 | 3 business days | Chief Information Security Officer |
 | The time period for responding to complaints | PM-26 | 30 days | Chief Information Security Officer |
-| Privacy reports | PM-27 | an annual privacy program report, summaries of privacy impact assessments, and breach reports | Chief Information Security Officer |
-| Privacy oversight bodies | PM-27 | the board of directors or its audit committee, and regulators where law requires | Chief Information Security Officer |
-| Officials responsible for monitoring privacy program compliance | PM-27 | the senior leader, the chief information security officer and general counsel | Chief Information Security Officer |
-| The frequency for reviewing and updating privacy reports | PM-27 | annually | Chief Information Security Officer |
-| The personnel to receive the results of risk framing activities | PM-28 | authorizing officials, system owners, and the leaders of mission and business functions | Chief Information Security Officer |
-| The frequency for reviewing and updating risk framing considerations | PM-28 | annually, with the risk management strategy | Chief Information Security Officer |
-| The frequency for reviewing and updating the supply chain risk management strategy | PM-30 | annually | Chief Information Security Officer |
-| The metrics for organization-wide continuous monitoring | PM-31 | systems with a current authorization, plan of action items past due, vulnerabilities remediated within the required times, and staff with current security awareness training | Chief Information Security Officer |
-| The frequencies for monitoring | PM-31 | continuously for automated controls, and at least monthly for vulnerability, configuration and account data | Chief Information Security Officer |
-| The frequencies for assessing control effectiveness | PM-31 | a third of each system's controls each year, so every control is assessed at least every three years | Chief Information Security Officer |
-| The personnel or roles for reporting the security status of organizational systems to | PM-31 | the senior leader and the authorizing officials | Chief Information Security Officer |
-| The personnel or roles for reporting the privacy status of organizational systems to | PM-31 | the senior leader and the authorizing officials | Chief Information Security Officer |
-| The frequency at which to report the security status of organizational systems | PM-31 | monthly | Chief Information Security Officer |
-| The frequency at which to report the privacy status of organizational systems | PM-31 | quarterly | Chief Information Security Officer |
-| The systems or system components supporting mission-essential services or functions | PM-32 | the systems and components that support mission-essential functions, as the business impact analysis identifies them | Chief Information Security Officer |
+| Privacy reports | PM-27 | An annual privacy program report, summaries of privacy impact assessments, and breach reports | Chief Information Security Officer |
+| Privacy oversight bodies | PM-27 | The board of directors or its audit committee, and regulators where law requires | Chief Information Security Officer |
+| Officials responsible for monitoring privacy program compliance | PM-27 | The senior leader, the chief information security officer and general counsel | Chief Information Security Officer |
+| The frequency for reviewing and updating privacy reports | PM-27 | Annually | Chief Information Security Officer |
+| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, and the leaders of mission and business functions | Chief Information Security Officer |
+| The frequency for reviewing and updating risk framing considerations | PM-28 | Annually, with the risk management strategy | Chief Information Security Officer |
+| The frequency for reviewing and updating the supply chain risk management strategy | PM-30 | Annually | Chief Information Security Officer |
+| The metrics for organization-wide continuous monitoring | PM-31 | Systems with a current authorization, plan of action items past due, vulnerabilities remediated within the required times, and staff with current security awareness training | Chief Information Security Officer |
+| The frequencies for monitoring | PM-31 | Continuously for automated controls, and at least monthly for vulnerability, configuration and account data | Chief Information Security Officer |
+| The frequencies for assessing control effectiveness | PM-31 | A third of each system's controls each year, so every control is assessed at least every three years | Chief Information Security Officer |
+| The personnel or roles for reporting the security status of organizational systems to | PM-31 | The senior leader and the authorizing officials | Chief Information Security Officer |
+| The personnel or roles for reporting the privacy status of organizational systems to | PM-31 | The senior leader and the authorizing officials | Chief Information Security Officer |
+| The frequency at which to report the security status of organizational systems | PM-31 | Monthly | Chief Information Security Officer |
+| The frequency at which to report the privacy status of organizational systems | PM-31 | Quarterly | Chief Information Security Officer |
+| The systems or system components supporting mission-essential services or functions | PM-32 | The systems and components that support mission-essential functions, as the business impact analysis identifies them | Chief Information Security Officer |

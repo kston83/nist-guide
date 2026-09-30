@@ -166,7 +166,7 @@ CM-3 is where most programs either show discipline or show a gap. Keep one chang
 - The <span class="tpl-field tpl-org">System owner</span> shall implement only approved configuration-controlled changes. (CM-3d)
 - The <span class="tpl-field tpl-org">System owner</span> shall retain records of configuration-controlled changes for <span class="tpl-field tpl-param">Fill in: the time period to retain records of configuration-controlled changes <span class="tpl-typical">Typical: at least one year, or the life of the system if longer</span></span>. (CM-3e)
 - The <span class="tpl-field tpl-org">System owner</span> shall monitor and review activities associated with configuration-controlled changes. (CM-3f)
-- Configuration change control activities shall be coordinated and overseen by <span class="tpl-field tpl-param">Fill in: the configuration change control element responsible for coordinating and overseeing change control activities <span class="tpl-typical">Typical: a change control board with the system owner, technical leads and a security representative</span></span>, which convenes <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency] ; when [Assignment: organization-defined configuration change conditions]  <span class="tpl-typical">Typical: weekly, and when an emergency change is requested</span></span>. (CM-3g)
+- Configuration change control activities shall be coordinated and overseen by <span class="tpl-field tpl-param">Fill in: the configuration change control element responsible for coordinating and overseeing change control activities <span class="tpl-typical">Typical: a change control board with the system owner, technical leads and a security representative</span></span>, which convenes <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency]; when [Assignment: organization-defined configuration change conditions] <span class="tpl-typical">Typical: weekly, and when an emergency change is requested</span></span>. (CM-3g)
 
 #### Testing, validation and documentation of changes (CM-3(2))
 
@@ -211,7 +211,7 @@ Pick a published secure configuration for each component type rather than writin
 
 #### Prevent program execution (CM-7(2))
 
-- The <span class="tpl-field tpl-org">System owner</span> shall ensure the system prevents program execution in accordance with <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions] ; rules authorizing the terms and conditions of software program usage <span class="tpl-typical">Typical: the software rules in this policy, the rules of behavior and the access agreements</span></span>. (CM-7(2))
+- The <span class="tpl-field tpl-org">System owner</span> shall ensure the system prevents program execution in accordance with <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined policies, rules of behavior, and/or access agreements regarding software program usage and restrictions]; rules authorizing the terms and conditions of software program usage <span class="tpl-typical">Typical: the software rules in this policy, the rules of behavior and the access agreements</span></span>. (CM-7(2))
 
 #### Authorized software: allow by exception (CM-7(5))
 
@@ -234,7 +234,7 @@ Pick a published secure configuration for each component type rather than writin
 #### Automated unauthorized component detection (CM-8(3))
 
 - The <span class="tpl-field tpl-org">System owner</span> shall detect the presence of unauthorized hardware, software and firmware components using <span class="tpl-field tpl-param">Fill in: automated mechanisms <span class="tpl-typical">Typical: network access control, asset discovery scans and endpoint management tools</span></span> <span class="tpl-field tpl-param">Fill in: frequency at which automated mechanisms are used to detect the presence of unauthorized system components within the system <span class="tpl-typical">Typical: continuously, and at least weekly by scan</span></span>. (CM-8(3)(a))
-- When unauthorized components are detected, the <span class="tpl-field tpl-org">System owner</span> shall <span class="tpl-field tpl-param">Select one or more: disable network access by unauthorized components; isolate unauthorized components; notify [Assignment: organization-defined personnel or roles]  <span class="tpl-typical">Typical: disable network access by unauthorized components, and notify the security operations team</span></span>. (CM-8(3)(b))
+- When unauthorized components are detected, the <span class="tpl-field tpl-org">System owner</span> shall <span class="tpl-field tpl-param">Select one or more: disable network access by unauthorized components; isolate unauthorized components; notify [Assignment: organization-defined personnel or roles] <span class="tpl-typical">Typical: disable network access by unauthorized components, and notify the security operations team</span></span>. (CM-8(3)(b))
 
 #### Configuration management plan (CM-9)
 

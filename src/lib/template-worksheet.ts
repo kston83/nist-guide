@@ -23,11 +23,26 @@ export interface Question {
 
 export const WORKSHEET_COLUMNS = ['Decision', 'Control', 'Typical value', 'Who decides', 'Your value'];
 
-// "Fill in: the frequency of account review" -> "The frequency of account review"
-const decisionText = (p: Param) => {
-	const text = paramPrompt(p).replace(/^Fill in: /, '');
-	return text.charAt(0).toUpperCase() + text.slice(1);
-};
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// A follow-on parameter nested in a selection has its own row below the
+// selection's, so the choice points there instead of repeating NIST's brackets.
+export const NESTED_NOTE = 'see its row below';
+// Typical value of a follow-on row whose selection's typical value answers it.
+export const COVERED = 'See the selection above';
+// Typical value of a part of an aggregated parameter right below another part
+// that shows the aggregate's typical value.
+export const SEE_ABOVE = 'See the row above';
+
+// "Fill in: the frequency of account review" -> "The frequency of account review";
+// "[Assignment: organization-defined contract language]" in a choice ->
+// "organization-defined contract language (see its row below)".
+const decisionText = (p: Param, params: Record<string, Param>) =>
+	capitalize(
+		paramPrompt(p, params)
+			.replace(/^Fill in: /, '')
+			.replace(/\[Assignment: ([^\]]+)\]/g, `$1 (${NESTED_NOTE})`),
+	);
 
 export function worksheetRows({
 	family,
@@ -36,6 +51,7 @@ export function worksheetRows({
 	controls,
 	params,
 	typical,
+	set = {},
 	defaultDecider,
 }: {
 	family: string;
@@ -44,9 +60,39 @@ export function worksheetRows({
 	controls: (CatalogControl & { params: string[] })[];
 	params: Record<string, Param & { aggregates?: string[] }>;
 	typical: Record<string, string>; // parameter id -> typical value, from the clauses
+	set?: Record<string, string>; // parameter id -> the text a clause fixes it to ("Set to ...")
 	defaultDecider: string; // label of the family's accountable role
 }): WorksheetRow[] {
 	const labels = new Map(controls.map((c) => [c.id, c.label]));
+	// Follow-on parameter id -> the selection whose choices embed it (OSCAL nests it there).
+	const selectionOf = new Map<string, string>();
+	for (const [id, p] of Object.entries(params))
+		if (!p.aggregates) for (const inner of p.select?.nested ?? []) selectionOf.set(inner, id);
+	// Part -> the aggregating parameters that combine it. Clauses often give the
+	// typical value on the aggregate, which has no row of its own.
+	const aggregatesOf = new Map<string, string[]>();
+	for (const [id, p] of Object.entries(params))
+		for (const part of p.aggregates ?? []) aggregatesOf.set(part, [...(aggregatesOf.get(part) ?? []), id]);
+	// The aggregate whose value the previous row showed.
+	let shownAggregate: string | undefined;
+	// Clause typical values are lowercase to slot into policy sentences; a worksheet
+	// cell starts with a capital. A parameter's own typical (or set) value comes
+	// first. A part of an aggregate with none shows the aggregate's value, or
+	// "See the row above" right below a part that shows it. A follow-on nested in
+	// a selection points to the selection, when that has a typical value.
+	const typicalFor = (id: string) => {
+		const prev = shownAggregate;
+		shownAggregate = undefined;
+		const own = typical[id] ?? set[id];
+		if (own) return capitalize(own);
+		const agg = aggregatesOf.get(id)?.find((a) => typical[a]);
+		if (agg) {
+			shownAggregate = agg;
+			return agg === prev ? SEE_ABOVE : capitalize(typical[agg]);
+		}
+		const sel = selectionOf.get(id);
+		return sel && typical[sel] ? COVERED : '';
+	};
 	const rows: WorksheetRow[] = questions.map((q) => ({
 		decision: q.question,
 		controls: q.controls.map((id) => labels.get(id) ?? id),
@@ -59,7 +105,7 @@ export function worksheetRows({
 			const p = params[id];
 			// Aggregating parameters repeat the ones they combine.
 			if (!p || p.aggregates) continue;
-			rows.push({ decision: decisionText(p), controls: [c.label], typical: typical[id] ?? '', decides: defaultDecider });
+			rows.push({ decision: decisionText(p, params), controls: [c.label], typical: typicalFor(id), decides: defaultDecider });
 		}
 	}
 	return rows;

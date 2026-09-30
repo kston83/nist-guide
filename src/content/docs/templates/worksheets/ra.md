@@ -48,20 +48,20 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current risk assessment policy to be reviewed and updated | RA-1 |  | Chief Information Security Officer |
 | The frequency at which the current risk assessment procedures are reviewed and updated | RA-1 |  | Chief Information Security Officer |
 | Events that would require risk assessment procedures to be reviewed and updated | RA-1 |  | Chief Information Security Officer |
-| Select one: security and privacy plans; risk assessment report; [Assignment: organization-defined document]  | RA-3 | risk assessment report | Chief Information Security Officer |
-| A document in which risk assessment results are to be documented (if not documented in the security and privacy plans or risk assessment report) | RA-3 |  | Chief Information Security Officer |
-| The frequency to review risk assessment results | RA-3 | annually | Chief Information Security Officer |
-| Personnel or roles to whom risk assessment results are to be disseminated | RA-3 | the authorizing official, the system owner and the Chief Information Security Officer | Chief Information Security Officer |
-| The frequency to update the risk assessment | RA-3 | at least every three years | Chief Information Security Officer |
-| Systems, system components, and system services to assess supply chain risks | RA-3(1) | each system, the components and services the criticality analysis (RA-9) identifies as critical, and the external services the system depends on | Chief Information Security Officer |
-| The frequency at which to update the supply chain risk assessment | RA-3(1) | annually | Chief Information Security Officer |
-| Frequency for monitoring systems and hosted applications for vulnerabilities | RA-5 | continuously, through vendor advisories, vulnerability feeds and the CISA Known Exploited Vulnerabilities Catalog | Chief Information Security Officer |
-| Frequency for scanning systems and hosted applications for vulnerabilities | RA-5 | at least monthly for infrastructure, and before each major release for applications | Chief Information Security Officer |
-| Response times to remediate legitimate vulnerabilities in accordance with an organizational assessment of risk | RA-5 | known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days | Chief Information Security Officer |
-| Personnel or roles with whom information obtained from the vulnerability scanning process and control assessments is to be shared | RA-5 | the owners of similar systems and the security operations team | Chief Information Security Officer |
-| Select one or more: [Assignment: organization-defined frequency] ; prior to a new scan; when new vulnerabilities are identified and reported | RA-5(2) | prior to a new scan | Chief Information Security Officer |
-| The frequency for updating the system vulnerabilities to be scanned | RA-5(2) |  | Chief Information Security Officer |
-| System components to which privileged access is authorized for selected vulnerability scanning activities | RA-5(5) | operating systems, databases and web applications | Chief Information Security Officer |
-| Vulnerability scanning activities selected for privileged access authorization to system components | RA-5(5) | credentialed (authenticated) vulnerability scans | Chief Information Security Officer |
-| Systems, system components, or system services to be analyzed for criticality | RA-9 | each Moderate and High system, and the components and services that support its critical functions | Chief Information Security Officer |
-| Decision points in the system development life cycle when a criticality analysis is to be performed | RA-9 | during design, before acquiring major components or services, and when the architecture changes significantly | Chief Information Security Officer |
+| Select one: security and privacy plans; risk assessment report; organization-defined document (see its row below) | RA-3 | Risk assessment report | Chief Information Security Officer |
+| A document in which risk assessment results are to be documented (if not documented in the security and privacy plans or risk assessment report) | RA-3 | See the selection above | Chief Information Security Officer |
+| The frequency to review risk assessment results | RA-3 | Annually | Chief Information Security Officer |
+| Personnel or roles to whom risk assessment results are to be disseminated | RA-3 | The authorizing official, the system owner and the Chief Information Security Officer | Chief Information Security Officer |
+| The frequency to update the risk assessment | RA-3 | At least every three years | Chief Information Security Officer |
+| Systems, system components, and system services to assess supply chain risks | RA-3(1) | Each system, the components and services the criticality analysis (RA-9) identifies as critical, and the external services the system depends on | Chief Information Security Officer |
+| The frequency at which to update the supply chain risk assessment | RA-3(1) | Annually | Chief Information Security Officer |
+| Frequency for monitoring systems and hosted applications for vulnerabilities | RA-5 | Continuously, through vendor advisories, vulnerability feeds and the CISA Known Exploited Vulnerabilities Catalog | Chief Information Security Officer |
+| Frequency for scanning systems and hosted applications for vulnerabilities | RA-5 | At least monthly for infrastructure, and before each major release for applications | Chief Information Security Officer |
+| Response times to remediate legitimate vulnerabilities in accordance with an organizational assessment of risk | RA-5 | Known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days | Chief Information Security Officer |
+| Personnel or roles with whom information obtained from the vulnerability scanning process and control assessments is to be shared | RA-5 | The owners of similar systems and the security operations team | Chief Information Security Officer |
+| Select one or more: organization-defined frequency (see its row below); prior to a new scan; when new vulnerabilities are identified and reported | RA-5(2) | Prior to a new scan | Chief Information Security Officer |
+| The frequency for updating the system vulnerabilities to be scanned | RA-5(2) | See the selection above | Chief Information Security Officer |
+| System components to which privileged access is authorized for selected vulnerability scanning activities | RA-5(5) | Operating systems, databases and web applications | Chief Information Security Officer |
+| Vulnerability scanning activities selected for privileged access authorization to system components | RA-5(5) | Credentialed (authenticated) vulnerability scans | Chief Information Security Officer |
+| Systems, system components, or system services to be analyzed for criticality | RA-9 | Each Moderate and High system, and the components and services that support its critical functions | Chief Information Security Officer |
+| Decision points in the system development life cycle when a criticality analysis is to be performed | RA-9 | During design, before acquiring major components or services, and when the architecture changes significantly | Chief Information Security Officer |

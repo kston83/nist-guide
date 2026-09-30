@@ -46,7 +46,7 @@ PL-4 asks for rules that tell each person what they are responsible for and how 
 
 ### Who these rules apply to
 
-These rules apply to everyone who needs access to <span class="tpl-field tpl-org">Organization name</span>'s information or systems, including employees, contractors and partners. You must read and sign them before you are given access, and again <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency] ; when the rules are revised or updated <span class="tpl-typical">Typical: annually, and when the rules are revised or updated</span></span> (PL-4b, PL-4d). Where re-acknowledgment is periodic, it is due <span class="tpl-field tpl-param">Fill in: frequency for individuals to read and re-acknowledge the rules of behavior <span class="tpl-typical">Typical: annually</span></span>.
+These rules apply to everyone who needs access to <span class="tpl-field tpl-org">Organization name</span>'s information or systems, including employees, contractors and partners. You must read and sign them before you are given access, and again <span class="tpl-field tpl-param">Select one or more: [Assignment: organization-defined frequency]; when the rules are revised or updated <span class="tpl-typical">Typical: annually, and when the rules are revised or updated</span></span> (PL-4b, PL-4d). Where re-acknowledgment is periodic, it is due <span class="tpl-field tpl-param">Fill in: frequency for individuals to read and re-acknowledge the rules of behavior <span class="tpl-typical">Typical: annually</span></span>.
 
 ### Your responsibilities
 

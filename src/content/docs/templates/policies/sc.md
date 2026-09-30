@@ -200,7 +200,7 @@ Control plane traffic is the routing and signaling traffic between networks, suc
 
 #### Deny by default, allow by exception (SC-7(5))
 
-- The <span class="tpl-field tpl-org">System owner</span> shall ensure network communications traffic is denied by default and allowed by exception <span class="tpl-field tpl-param">Select one or more: at managed interfaces; for [Assignment: organization-defined systems]  <span class="tpl-typical">Typical: at managed interfaces</span></span>. (SC-7(5))
+- The <span class="tpl-field tpl-org">System owner</span> shall ensure network communications traffic is denied by default and allowed by exception <span class="tpl-field tpl-param">Select one or more: at managed interfaces; for [Assignment: organization-defined systems] <span class="tpl-typical">Typical: at managed interfaces</span></span>. (SC-7(5))
 
 #### Split tunneling for remote devices (SC-7(7))
 

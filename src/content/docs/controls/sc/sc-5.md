@@ -8,6 +8,7 @@ control:
   id: SC-5
   family: SC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -128,3 +129,39 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SC-5 asks you to name the kinds of denial-of-service events the system must withstand, choose whether to protect against their effects or only limit them, and name the controls that do it. NIST's discussion notes that denial of service has internal as well as external causes: an adversary's attack, or simply not planning enough capacity and bandwidth. It names two broad remedies, boundary devices that filter attack traffic, and more capacity and bandwidth combined with service redundancy.
+
+**Common implementations.** Internet-facing services sit behind an upstream or cloud denial-of-service protection service, often combined with a content delivery network or web application firewall that absorbs network and protocol floods before they reach the organization. Load balancers and application gateways rate limit requests per client and drop malformed ones, which is where most application-layer floods are stopped. Services scale automatically within set limits, and run in more than one zone or region where the business impact analysis calls for it. The [boundary protection standard](/templates/standards/boundary-protection-standard/) lists distributed denial-of-service protection among the devices at the internet connection. For organizations that route their own address space, [NIST SP 800-189](https://csrc.nist.gov/pubs/sp/800/189/final), Resilient Interdomain Traffic Exchange: BGP Security and DDoS Mitigation (December 2019, final and current as of September 2026), recommends preventing IP address spoofing with source address validation, which also keeps the organization's networks from being used in reflection attacks on others.
+
+**Organization-defined parameters.** Typical values, from the [System and Communications Protection policy](/templates/policies/sc/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Types of denial-of-service events (a) | Network floods, protocol attacks and application-layer floods against internet-facing services |
+| Protect against or limit their effects (a) | Protect against |
+| Controls by type of event (b) | An upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically |
+
+"Protect against" is the stronger choice: the service keeps working through the event. "Limit" accepts some degradation, and suits internal systems that attackers cannot reach from the internet; if you choose it for any system, say so in its security plan.
+
+**Evidence assessors ask for.**
+
+- The list of internet-facing endpoints, and for each one the denial-of-service protection in front of it
+- The protection service's configuration or subscription, and the provider's documentation of what it covers
+- Rate limiting and autoscaling settings on load balancers, gateways and services
+- Firewall or security group rules showing that origin servers accept traffic only from the protection service
+- The incident response procedure for a denial-of-service attack, and records of any past event and how it was handled
+
+**Inheritance.** Protection at the network edge is usually inherited from the internet or cloud provider, or provided once by the organization as a common control. Record which protections are inherited and which the system provides in the inheritance table of the [system security plan](/templates/plans/system-security-plan/), from the provider's customer responsibility matrix. The system owns its own rate limits, scaling and redundancy, so SC-5 is usually a hybrid control. NIST lists [CP-2](/controls/cp/cp-2/) and [IR-4](/controls/ir/ir-4/) as related controls: a denial-of-service attack is an incident, handled under the [incident response plan](/templates/plans/incident-response-plan/), and an outage it causes may call on the [contingency plan](/templates/plans/contingency-plan/).
+
+**Common findings.**
+
+- Some internet-facing endpoints, such as an older site, an API or a VPN gateway, not behind the protection service.
+- Origin servers still reachable directly by their IP address, so an attacker can go around the protection service.
+- No rate limiting on login, search or other expensive requests.
+- Protection assumed to come from the cloud provider without checking which tier or service is subscribed and what it covers.
+- No procedure for engaging the provider during an attack.
+
+**Enhancements in the Moderate baseline.** SC-5 has no enhancements in any baseline. [SC-5(1)](#sc-5.1) restricting the ability to attack other systems, [SC-5(2)](#sc-5.2) capacity, bandwidth and redundancy, and [SC-5(3)](#sc-5.3) detection and monitoring are in no baseline. Autoscaling and monitoring of resource use, common parts of meeting SC-5, go a long way toward SC-5(2) and SC-5(3).

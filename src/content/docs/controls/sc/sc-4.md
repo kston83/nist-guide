@@ -8,6 +8,7 @@ control:
   id: SC-4
   family: SC
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,35 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SC-4 asks you to make sure that when a shared resource, such as memory, storage, a cache or a temporary file, is released and handed to another user, role or process, nothing the previous one left behind is available to the next. NIST's discussion calls this object reuse and residual information protection, and says it applies to encrypted representations of information too. It also sets limits on what SC-4 covers: not information remanence (data that has been nominally deleted, which media sanitization under [MP-6](/controls/mp/mp-6/) addresses), not covert storage or timing channels, and not components that have only one user or role. SC-4 is in the Moderate and High baselines, not Low.
+
+**Common implementations.** Most of SC-4 comes from the platform. Operating systems and hypervisors clear memory pages before giving them to another process or virtual machine, and cloud providers clear storage before reallocating it to another customer. The system owner confirms this from the provider's documentation and covers the shared resources the application manages itself:
+
+- Caches keyed by user or session, so that a page, response or object built for one user is never served to another, and authenticated responses marked not to be stored by shared caches
+- Temporary files and directories created per user or per job, with permissions that other users cannot read, and removed when the job ends
+- Pooled database connections and worker processes reset between uses, so session variables, temporary tables or security context from one request do not carry into the next
+- In applications that serve several customers or organizations, data, caches and queues separated by tenant
+
+**Organization-defined parameters.** SC-4 has no parameters. In the [System and Communications Protection policy](/templates/policies/sc/), the system owner ensures the system prevents unauthorized and unintended information transfer through shared system resources.
+
+**Evidence assessors ask for.**
+
+- The system security plan's description of which shared resources exist and how each is protected, including what is inherited from the operating system, hypervisor or cloud provider
+- The provider's documentation or customer responsibility matrix for residual information protection
+- Cache configuration, showing cache keys include the user or session and authenticated responses are not stored by shared caches
+- Permissions on shared temporary directories
+- Penetration test or code review results covering cache and session isolation
+
+**Inheritance.** Protection in the hypervisor, the operating system and the provider's storage is inherited; record it in the inheritance table of the [system security plan](/templates/plans/system-security-plan/), from the provider's customer responsibility matrix, which is the typical answer to the SC decision worksheet's question on inherited protections. The application's own caches, temporary files and pools belong to the system, so SC-4 is usually a hybrid control.
+
+**Common findings.**
+
+- A content delivery network or reverse proxy caching authenticated pages and serving them to other users.
+- Shared temporary directories where files one user's job creates can be read by another user.
+- Pooled connections or worker processes that keep one request's user context for the next.
+- SC-4 marked fully inherited with no look at the shared resources the application itself manages.
+
+**Enhancements in the Moderate baseline.** SC-4 has no enhancements in any baseline. [SC-4(2)](#sc-4.2) multilevel or periods processing is in no baseline; it applies when processing switches between classification levels or security categories. SC-4(1) is withdrawn.

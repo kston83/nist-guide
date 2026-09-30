@@ -8,6 +8,7 @@ control:
   id: SC-1
   family: SC
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,65 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SC-1 asks for a written system and communications protection policy, procedures that carry it out, an official who manages both, and a set review cycle. The [System and Communications Protection policy template](/templates/policies/sc/) meets the policy half through the sections every family policy shares. The procedures are yours to write.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the SC-1 item it meets:
+
+| SC-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library, with two standards that make its technical statements measurable: the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) (SC-8, SC-12, SC-13, SC-17, SC-28) and the [boundary protection standard](/templates/standards/boundary-protection-standard/) (SC-7). Procedures written for the work the SC controls describe:
+
+- Requesting, approving, implementing and reviewing firewall, security group and proxy rules, and adding or removing an external connection (SC-7)
+- Keeping management interfaces apart from user interfaces, and reachable only from the management network (SC-2)
+- Configuring and testing TLS and other protocols for information in transit (SC-8)
+- Generating, distributing, storing, rotating, recovering and destroying keys, and responding to a key compromise (SC-12)
+- Requesting, issuing, renewing and revoking certificates, and managing trust stores (SC-17)
+- Choosing approved cryptography and recording validated modules in the cryptographic inventory (SC-13)
+- Enforcing encryption at rest for new stores, devices and backups (SC-28)
+- Engaging the denial-of-service protection service and responding to an attack (SC-5)
+- Configuring conferencing rooms and devices, and approving remote activation exceptions (SC-15)
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's SC-1 discussion. For SC, the people who carry out the procedures are, for example, network and cloud engineers, system administrators, the key custodians and the team that runs the key management service and certificate authority, developers who build cryptography or session handling into applications, and the staff who set up conferencing rooms. The Chief Information Security Officer often delegates the day-to-day management to the head of security engineering or network security. Typical procedure triggers for SC are a new cloud or hosting provider, a new managed interface or remote access service, NIST deprecating an algorithm or key length the organization uses, and a cryptographic module losing its validation; the encryption and key management standard lists the last two as triggers for its own review.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures and standards, and who owns each one
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the engineers who change boundary rules and the custodians who administer keys
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** SC-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its [system security plan](/templates/plans/system-security-plan/). It adds its own procedures only where its protections work differently, for example a system that runs its own key management or a boundary its provider operates.
+
+**Common findings.**
+
+- A policy that restates the SC controls but has no procedures or standards behind it. NIST's discussion of SC-1 says restating controls is not a policy or procedure.
+- The policy or procedures not reviewed within the stated period.
+- A policy that says information must be encrypted but no standard that says with what, so each system chooses its own algorithms and key handling.
+- Procedures written for the data center that do not cover the cloud environments where most systems now run.
+
+**Enhancements in the Moderate baseline.** SC-1 has no enhancements.

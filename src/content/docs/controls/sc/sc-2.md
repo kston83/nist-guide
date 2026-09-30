@@ -8,6 +8,7 @@ control:
   id: SC-2
   family: SC
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -97,3 +98,32 @@ Determine if user functionality, including user interface services, is separated
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SC-2 asks you to keep the functions that administer a system apart from the functions its users use. System management covers what is needed to administer databases, network components, workstations and servers, which usually takes privileged access. NIST's discussion allows the separation to be physical or logical: different computers, operating system instances, processors or network addresses, virtualization, or a mix. It includes web administrative interfaces that use separate authentication, and administrative interfaces isolated on different domains with added access controls. SC-2 is in the Moderate and High baselines, not Low.
+
+**Common implementations.** Administrative consoles and APIs on their own host names, ports or network segments, reachable only from the management network or through the organization's privileged access service. The [boundary protection standard](/templates/standards/boundary-protection-standard/) requires that for the management interfaces of network devices, servers and cloud consoles, and never directly from the internet. Applications serve their administrative functions from a separate application or path that the user-facing load balancer does not route, with separate authentication for administrators. Administrators use separate privileged accounts, often from privileged access workstations, rather than their everyday accounts (AC-6(2), non-privileged access for nonsecurity functions, is in the Moderate baseline). In the cloud, the provider's management console and APIs are the management plane: access to them is limited to administrators, with multi-factor authentication and conditions such as a managed device or a known network.
+
+NIST's discussion points to the design principles of [SA-8](/controls/sa/sa-8/), including modularity and layering (SA-8(3)), hierarchical protection (SA-8(12)), least privilege (SA-8(14)) and trusted communications channels (SA-8(18)), as a way to achieve the separation. Build it in at design time: separating an administrative page from a user application after it ships usually means rework.
+
+**Organization-defined parameters.** SC-2 has no parameters. In the [System and Communications Protection policy](/templates/policies/sc/), the system owner ensures the system separates user functionality, including user interface services, from system management functionality.
+
+**Evidence assessors ask for.**
+
+- The architecture and data flow diagrams in the [system security plan](/templates/plans/system-security-plan/), showing where management interfaces sit and how administrators reach them
+- The firewall, security group or access policy rules that limit management interfaces to the management network or privileged access service
+- A demonstration that the administrative interface cannot be reached, or does not appear, from a user network or the internet
+- The list of administrator accounts, showing they are separate from the same people's everyday accounts
+- The cloud access policies for the management console and APIs
+
+**Inheritance.** For infrastructure the provider runs, the provider separates its own management plane; record that in the system security plan's inheritance table. The privileged access service and management network are often common controls. The system owns the separation inside its own application and the rules for its own components, so SC-2 is usually a hybrid control.
+
+**Common findings.**
+
+- An administrative page at a path such as `/admin` on the public site, protected only by a role check in the application.
+- Management interfaces of network devices, hypervisors or databases reachable from the user network.
+- Administrators doing administrative work from their everyday accounts on their everyday devices.
+- A cloud management console open to any network, with administrative roles granted to accounts that do not need them.
+
+**Enhancements in the Moderate baseline.** SC-2 has no enhancements in any baseline. [SC-2(1)](#sc-2.1) interfaces for non-privileged users and [SC-2(2)](#sc-2.2) disassociability are in no baseline. SC-2(1), hiding administrative options from non-privileged users rather than greying them out, is a common design choice that supports SC-2.

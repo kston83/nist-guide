@@ -23,6 +23,8 @@ Also in scope: TPL-11, PRES-02, NAV-02. Methods and the SSDF are Phase 4; the AI
 
 **Owner decision, 2026-09-29** (PRD 3.6): Phase 3 guidance also covers every PM control and every privacy-only control and enhancement, which no phase had scheduled (PM has no baseline, and the privacy-only controls are outside the Moderate count). Rows G20 to G25, after the Moderate guidance rows and before the consolidated policy (row 32).
 
+**Owner decision, 2026-09-30** (G7 review): CM is a common assessment failure area, so row 29's artifacts must cover these points (order unchanged). (1) Configuration Management Plan: built on NIST SP 800-128 Appendix D (sample CM plan outline), with a change control board charter based on Appendix H and a configuration item list the system fills in (CM-9). (2) Change request form: carries the security impact analysis (SP 800-128 Appendices E and I), recording who analyzed the change and when, dated before approval (CM-3, CM-4), and a significant-change decision tied to the Continuous Monitoring Strategy's criteria so the authorizing official is told; the impact analysis lives in this form, not a separate template. (3) Baseline configuration standard: the benchmark each component type follows (for example DISA STIGs or CIS Benchmarks, through the SP 800-70 National Checklist Program), a deviation register with the approval and reason for each deviation (CM-6c), and the scan evidence that shows compliance (CM-2, CM-6). (4) Component inventory: reconciled against the system inventory and against scan results so unauthorized components are found (CM-8, CM-8(3)). Verify each SP 800-128 appendix reference against the publication when writing the row.
+
 ### Phase 3 plan
 
 Rows run in table order. Numbered rows are the original template plan; G rows are guidance.
@@ -75,7 +77,7 @@ Rows run in table order. Numbered rows are the original template plan; G rows ar
 | G18 | Guidance: RA-1, RA-2, RA-7, RA-9, PL-1, PL-4, PL-8, PL-10, PL-11 | |
 | 28 | Content: IA artifact (identification and authentication standard) | |
 | G19 | Guidance: AT-1, AT-3, AT-4, PS-1, PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8, PS-9 (split in two if it runs long) | |
-| 29 | Content: CM artifacts (Configuration Management Plan, baseline configuration standard, change request form, component inventory) | |
+| 29 | Content: CM artifacts (Configuration Management Plan, baseline configuration standard, change request form, component inventory; required content in the owner decision of 2026-09-30 above) | |
 | G20 | Guidance: PM-1, PM-2, PM-3, PM-4, PM-5 (with PM-5(1)), PM-6, PM-7, PM-8 | |
 | 30 | Content: AU artifacts (audit logging standard, log review procedure), and the AU-3(3) clause, with an AU-3(3) paragraph in the AU-3 guidance | |
 | G21 | Guidance: PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16 | |

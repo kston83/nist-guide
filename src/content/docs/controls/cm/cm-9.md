@@ -8,6 +8,7 @@ control:
   id: CM-9
   family: CM
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -99,3 +100,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CM-9 asks for a configuration management plan for each system: who does what, how configuration items are identified and managed through the life cycle, which items are under configuration management, who approves the plan, and how the plan itself is protected. NIST's CM-9 discussion says the plan meets the policy's requirements tailored to the system, is written during development and acquisition, and describes how changes move through change management, how settings and baselines are updated, how inventories are kept, how development, test and operational environments are controlled, and how key documents are released and updated. Configuration items are the hardware, software, firmware and documentation to be configuration-managed.
+
+**Common implementations.** An organization-wide plan template with a system-specific part, which NIST's discussion suggests: the organization's plan sets the common process, and each system's part names its configuration items, tools, environments and people. The plan usually covers:
+
+- Roles: the system owner, the change control board ([CM-3](/controls/cm/cm-3/)), the people who perform impact analyses ([CM-4](/controls/cm/cm-4/)) and the administrators who make changes
+- The configuration items, for example operating system images, application code and its dependencies, infrastructure-as-code definitions, network device configurations, cloud service settings and key documents such as the security plan
+- Where each item's approved version lives, usually version control, and how baselines are recorded ([CM-2](/controls/cm/cm-2/))
+- How new items are identified as the system changes, and how items leave configuration management when retired
+- The development, test and operational environments, and how changes move between them
+
+SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) gives a sample outline for the plan in Appendix D. A Configuration Management Plan template is planned for this family. The [system security plan](/templates/plans/system-security-plan/) records where the plan and the change records are kept.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who reviews and approves the plan (d) | The system owner and the Chief Information Security Officer |
+
+In the [Configuration Management policy](/templates/policies/cm/), the system owner develops, documents and implements the plan and protects it from unauthorized disclosure and modification.
+
+**Evidence assessors ask for.**
+
+- The approved plan, with the approvers, the approval date and the version history
+- The list of configuration items, and evidence that a sample of them are under configuration management, such as their history in version control
+- Evidence that the plan's processes are followed, drawn from the change records
+- The access controls on the plan and its repository
+
+**Inheritance.** The organization's plan template and shared tooling are common. Each system owns its plan and its configuration items, so CM-9 is usually a hybrid control.
+
+**Common findings.**
+
+- A generic plan that names no configuration items for the system.
+- Configuration items missing from the list, most often infrastructure-as-code, cloud settings and documentation.
+- A plan that describes tools or environments the system no longer uses.
+- No record of approval, or approval by someone other than the roles the policy names.
+- The plan stored where anyone in the organization can edit it.
+
+**Enhancements in the Moderate baseline.** None. [CM-9(1)](#cm-9.1) assignment of responsibility, which gives the job of developing the configuration management process to people not directly involved in system development, is in no baseline.

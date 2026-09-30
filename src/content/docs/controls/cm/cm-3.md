@@ -8,6 +8,7 @@ control:
   id: CM-3
   family: CM
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -275,3 +276,62 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CM-3 asks you to decide which changes are controlled, to review and approve each one with its security and privacy impact analysis in hand, to make only approved changes, to keep the records, and to run the process through a body that meets on a set schedule. NIST's CM-3 discussion counts changes to baseline configurations, configuration items, operational procedures and configuration settings, changes that remediate vulnerabilities, and unscheduled or unauthorized changes. Assessors take a sample of changes from the system itself, such as deployment history, and trace each one back to an approved record.
+
+**Common implementations.** A change management system that holds one record per change: the request, the impact analysis ([CM-4](/controls/cm/cm-4/)), the test result, the decision and the implementation date. Changes fall into three types, set out in the procedures:
+
+- **Standard changes:** low-risk, repeatable changes that the board approves once as a class, such as routine patches. The [patch and flaw remediation standard](/templates/standards/patch-and-flaw-remediation-standard/) records routine updates this way.
+- **Normal changes:** reviewed and approved by the change control board before implementation.
+- **Emergency changes:** approved by a named person so work can start, then reviewed by the board after the fact. The patch and flaw remediation standard uses this route for known exploited vulnerabilities that cannot wait.
+
+Firewall and other boundary rule changes name the approved request they implement, as the [boundary protection standard](/templates/standards/boundary-protection-standard/) requires. Developer changes to an operational system go through the same change control, as the SA-10 clause of the [System and Services Acquisition policy](/templates/policies/sa/) says. NIST's discussion also asks that, for changes that affect privacy risk, the senior agency official for privacy update privacy impact assessments and system of records notices; the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) is updated through change control for that reason.
+
+SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) includes a sample change request (Appendix E) and a sample change control board charter (Appendix H). A change request form is planned for this family's templates.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| How long change records are kept (e) | At least one year, or the life of the system if longer |
+| Body that coordinates and oversees change control (g) | A change control board with the system owner, technical leads and a security representative |
+| When it convenes (g) | Weekly, and when an emergency change is requested |
+| Security and privacy representatives (CM-3(4)) | A representative of the security team and, where the system processes personal information, of the privacy office |
+| Body they are members of (CM-3(4)) | The change control board |
+| Automated mechanisms (CM-3(1), High) | The change management system integrated with the deployment pipeline |
+| Approval authorities notified of proposed changes (CM-3(1), High) | The change control board members |
+| Time before a change with no decision is highlighted (CM-3(1), High) | 5 business days |
+| Who is notified when approved changes are completed (CM-3(1), High) | The requester, the system owner and the security operations team |
+| Controls whose cryptographic mechanisms are under configuration management (CM-3(6), High) | Encryption in transit and at rest, digital signatures and authentication (SC-8, SC-13, SC-28, IA-5) |
+
+CM-3(2) has no parameter. In the [Configuration Management policy](/templates/policies/cm/), the system owner runs change control for the system.
+
+**Evidence assessors ask for.**
+
+- The documented types of configuration-controlled changes, including the list of preapproved standard changes
+- The change control board charter, membership and meeting records, showing the security representative (CM-3(4))
+- A sample of changes from deployment history or configuration logs, each traced to an approved record with its impact analysis
+- Test and validation results for the sampled changes (CM-3(2))
+- Emergency change records and their after-the-fact review
+- Change records going back through the retention period
+- For High, the change management system's approval gates and notifications (CM-3(1)) and the certificate and key changes managed under change control (CM-3(6))
+
+**Inheritance.** An organization-wide change management system and an enterprise change advisory board are often common. The system owns its change records, its own board or its seat on the enterprise board, and implementing only approved changes, so CM-3 is usually a hybrid control.
+
+**Common findings.**
+
+- Changes in deployment logs or configuration history with no change record.
+- Emergency changes that were never reviewed after the fact.
+- A standard change catalog so broad that most changes skip review.
+- Approval recorded with no impact analysis or test result attached.
+- A board with no security representative, or one who rarely attends.
+- Change records deleted before the retention period ends, often when a ticketing tool was replaced.
+
+**Enhancements in the Moderate baseline.** [CM-3(2)](#cm-3.2) testing, validation and documentation of changes and [CM-3(4)](#cm-3.4) security and privacy representatives, both also in High. High adds [CM-3(1)](#cm-3.1) automated documentation, notification and prohibition of changes and [CM-3(6)](#cm-3.6) cryptography management. [CM-3(3)](#cm-3.3), [CM-3(5)](#cm-3.5), [CM-3(7)](#cm-3.7) and [CM-3(8)](#cm-3.8) are in no baseline.
+
+- **CM-3(2)** tests changes before they are final. NIST's discussion asks that testing not interfere with operations, that tests on operational systems be scheduled for planned outages where possible, and that compensating controls be used where a change cannot be tested on the operational system.
+- **CM-3(4)** puts security and privacy expertise on the board. NIST's discussion names system security officers, senior agency information security officers, senior agency officials for privacy and system privacy officers, because changes can have security or privacy side effects that are cheaper to catch early.
+- **CM-3(1)** has the change management system document changes, request approvals, flag stalled requests and block deployment until approval is recorded.
+- **CM-3(6)** keeps cryptographic mechanisms under configuration management. NIST's discussion gives certificate expiration as an example of what the process must handle. The [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) keeps the cryptographic inventory and the certificate rules; see also [SC-13](/controls/sc/sc-13/).

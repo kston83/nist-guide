@@ -8,6 +8,7 @@ control:
   id: MA-2
   family: MA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -103,3 +104,49 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MA-2 asks you to run maintenance as a controlled process: scheduled, approved, monitored and recorded, with a check afterward that the controls still work. It covers every kind of maintenance, repair and replacement, on site or remote, by your staff or a vendor. NIST's MA-2 discussion includes peripherals such as scanners, copiers and printers, which are easy to leave out.
+
+**Common implementations.** Scheduled maintenance follows the manufacturer's or vendor's specifications and is booked in an IT service management system or a maintenance calendar. Each activity gets a record in the [maintenance log](/templates/forms/maintenance-log/), or in the service management system with the same fields. The system owner approves each activity before it starts. Maintenance that changes the configuration also goes through change control ([CM-3](/controls/cm/cm-3/)), and its security impact analysis ([CM-4](/controls/cm/cm-4/)) tells you which controls to check afterward. A person monitors each activity, by escorting on-site work or by supervising a remote session.
+
+Before a component leaves the facility for repair, the system owner approves its removal and its media are sanitized. Follow the media sanitization procedure (MP-6) and NIST SP 800-88 Rev. 2, [Guidelines for Media Sanitization](https://csrc.nist.gov/pubs/sp/800/88/r2/final) (September 2025, final; as of September 2026). A failed drive that cannot be sanitized stays with the organization and is sanitized or destroyed there, as the [Maintenance policy](/templates/policies/ma/) requires. Where the vendor offers a media retention option, put it in the maintenance contract, so a warranty replacement does not require returning the failed drive. A media sanitization record is planned with the Media Protection policy; until then, record the sanitization in the maintenance log's "Removed or replaced" field.
+
+NIST's discussion also asks you to consider supply chain risk in replacement components. The MA-2 clause's guidance suggests buying them from the original manufacturer or its authorized channel, or from a source the supply chain risk management plan allows.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who approves removal for off-site maintenance, repair or replacement (c) | The system owner |
+| Information removed from media before off-site maintenance (d) | All organizational information, including personally identifiable information, credentials and cryptographic keys |
+| Information included in maintenance records (f) | The date and time, the system and component, a description of the maintenance performed, the names and organization of the individuals performing it, the escort's name, the components or equipment removed or replaced, the approval, and the result of the post-maintenance control check |
+| Automated mechanisms to schedule maintenance (MA-2(2), High) | The organization's IT service management system |
+| Automated mechanisms to conduct maintenance (MA-2(2), High) | The endpoint and configuration management tools that deploy updates, firmware and configuration changes |
+| Automated mechanisms to document maintenance (MA-2(2), High) | The organization's IT service management system, fed by the endpoint and configuration management tools |
+
+The record contents are the list in NIST's MA-2 discussion, plus the approval (MA-2b) and the control check (MA-2e). In the Maintenance policy, the system owner also reviews the maintenance records at least quarterly against the maintenance schedule and the system's change records.
+
+**Evidence assessors ask for.**
+
+- The maintenance schedule, and the manufacturer or vendor specifications it follows
+- The maintenance records for a period, with a sample traced to their approvals and to the change records
+- Removal approvals and sanitization records for components sent off site
+- The post-maintenance control checks for the sampled activities
+- Records of the quarterly review of the maintenance records
+- Maintenance records for printers, copiers and other peripherals, not only servers
+
+**Inheritance.** For cloud services, the provider maintains its own infrastructure, and its authorization package or attestation covers MA-2 for those components. On premises, a central IT operations group or facilities team often runs maintenance as a common control. The system still owns approving and recording maintenance on its components and checking its controls afterward, so MA-2 is usually a hybrid control.
+
+**Common findings.**
+
+- Maintenance done with no record, often discovered through firmware versions or replaced parts that the log does not show.
+- Records that miss the escort, the approval or the post-maintenance check.
+- A failed drive sent back to the vendor under warranty without sanitization.
+- Printers and multifunction devices with internal storage serviced or returned at lease end without their storage being sanitized.
+- Maintenance that changed the configuration but never went through change control.
+
+**Enhancements in the Moderate baseline.** MA-2 has no enhancements in the Moderate baseline. High adds [MA-2(2)](#ma-2.2) automated maintenance activities. MA-2(1) is withdrawn.
+
+- **MA-2(2)** uses automated mechanisms to schedule, conduct and document maintenance, so the records are timely, accurate, complete and consistent, as NIST's discussion puts it. The records cover work requested, scheduled and in process, not only completed work. The maintenance log notes that a service management system holding the log's fields is how MA-2(2) is usually met.

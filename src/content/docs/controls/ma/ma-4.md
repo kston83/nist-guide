@@ -8,6 +8,7 @@ control:
   id: MA-4
   family: MA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -244,3 +245,40 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MA-4 asks you to approve and monitor nonlocal maintenance, allow nonlocal tools only as policy permits and the security plan documents, use strong authentication, keep records, and end the session and connections when the work is done. Nonlocal maintenance is maintenance or diagnosis by someone who connects over a network, internal or external, rather than being physically present, as NIST's MA-4 discussion defines it. It is remote access, so [AC-17](/controls/ac/ac-17/) applies too, and NIST's discussion notes that other controls carry part of MA-4.
+
+**Common implementations.** Vendors and staff connect through the organization's managed remote access service, such as a VPN, a zero trust access service or a privileged access gateway, never through a support tool or connection that the vendor controls on its own. The [boundary protection standard](/templates/standards/boundary-protection-standard/) makes that service a managed interface and keeps management interfaces off the internet. Sessions are encrypted and enter through managed access control points (AC-17(2), AC-17(3)), and remote privileged commands are limited as AC-17(4) allows.
+
+Each session is approved beforehand, usually through a ticket in the service management system. The account an external provider uses stays disabled until the approved session and is disabled again when it ends; the [Maintenance policy](/templates/policies/ma/) assigns that to the account manager. A staff member watches the session live, or the privileged access gateway records it and its audit records are reviewed as it runs. The [system security plan](/templates/plans/system-security-plan/) names each nonlocal tool and the connection it uses, and the [maintenance log](/templates/forms/maintenance-log/) records each session: who, when it started and ended, what was done and who approved it.
+
+**Strong authentication.** NIST's discussion ties MA-4 authentication to the network access requirements of [IA-2](/controls/ia/ia-2/): multi-factor and resistant to replay, such as a PKI certificate on a token protected by a PIN, password or biometric. The policy cites IA-2(1), IA-2(2) and IA-2(8). NIST's discussion points to SP 800-63B for more on authenticators; the current version is [SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025, final as of September 2026).
+
+**Organization-defined parameters.** MA-4 and MA-4(3) have no parameters. In the Maintenance policy, the system owner approves each session, and the session and network connections end when the maintenance is completed, both by the person doing it and by the system when the approved session ends.
+
+**Evidence assessors ask for.**
+
+- The system security plan section naming each nonlocal maintenance tool and connection
+- The configuration of the remote access path used for maintenance, and its multi-factor authentication settings
+- For a sample of sessions from the remote access or gateway logs, the approval, the monitoring and the maintenance record
+- The status of external maintenance accounts over time, showing they are enabled only for approved sessions
+- Session recordings or audit records for sampled sessions, with their start and end times
+- For High, the basis recorded for each provider's comparable security, or the records of components removed and sanitized instead (MA-4(3))
+
+**Inheritance.** The remote access service, the privileged access gateway and the identity provider are usually common controls. The system owns approving and recording its own maintenance sessions, keeping its provider accounts disabled between sessions, and documenting its tools in its plan, so MA-4 is usually a hybrid control.
+
+**Common findings.**
+
+- A vendor's always-on remote support agent installed on servers, outside the managed remote access path, that nobody approved.
+- Vendor accounts that stay enabled all year, often with a shared password and no multi-factor authentication.
+- Sessions with no approval or record, found only in the firewall or VPN logs.
+- Nonlocal tools in use that the security plan does not name.
+- Sessions or tunnels left open after the work ended.
+
+**Enhancements in the Moderate baseline.** MA-4 has no enhancements in the Moderate baseline. High adds [MA-4(3)](#ma-4.3) comparable security and sanitization. [MA-4(1)](#ma-4.1), [MA-4(4)](#ma-4.4), [MA-4(5)](#ma-4.5), [MA-4(6)](#ma-4.6) and [MA-4(7)](#ma-4.7) are in no baseline. MA-4(2) is withdrawn.
+
+- **MA-4(3)** requires that nonlocal maintenance come from a system with security comparable to the one being serviced, meaning controls at least as comprehensive, as NIST's discussion puts it. Otherwise, the component is removed and sanitized before the service, and inspected and sanitized again before it is reconnected. The policy has the system owner record the basis for each provider, such as its authorization or an independent attestation; the [external service review](/templates/forms/external-service-review/) is a place to check it.
+
+**Federal systems** (as of September 2026). [OMB M-22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) (January 26, 2022), Section III.A, requires phishing-resistant multi-factor authentication for agency staff, contractors and partners, enforced at the application layer. [OMB M-19-17](https://www.whitehouse.gov/wp-content/uploads/2019/05/M-19-17.pdf) (May 21, 2019), Section III, item 2, requires PIV credentials, where applicable in accordance with OPM requirements, as the primary means of identification and authentication to Federal information systems by Federal employees and contractors. [OMB M-26-18](https://www.whitehouse.gov/wp-content/uploads/2026/08/M-26-18-Scaling-Use-of-Login.gov-to-Deliver-a-Universal-Sign-on-for-Public-Services.pdf) (August 31, 2026), footnote 5, lists both as existing OMB policy. CISA [Binding Operational Directive 23-02](https://www.cisa.gov/news-events/directives/binding-operational-directive-23-02) (June 13, 2023) covers internet-exposed management interfaces of routers, switches, firewalls, VPN concentrators, proxies, load balancers and out-of-band server management interfaces, but not the management portals and APIs of cloud service offerings. Within 14 days of discovery or of notice from CISA, agencies must make such an interface reachable only from an internal enterprise network, or put it behind a zero trust policy enforcement point separate from the interface. The MA-4 clause's federal block and the maintenance log's nonlocal maintenance section carry these requirements.

@@ -1,6 +1,21 @@
 ---
 # Sections shared by every family policy; see the guidance block below.
 status: draft
+# Typical values for the -1 parameters, keyed as the {{param:xx-...}} fields
+# below (xx becomes the family id). Lowercase: each slots into its sentence.
+# xx-01_odp.04, the official who manages the policy, has no value here on
+# purpose: the build fills it with the role accountable for the family policy
+# (_family.yml `role`, as its label in variables.yml, without an article since
+# the sentences say "The ..."), the role the decision worksheet names under
+# "Who decides" (scripts/lib/template-pages.mjs, commonTypical).
+typical:
+  xx-01_odp.01: everyone within its scope, through the policy library
+  xx-01_odp.02: the people who carry them out, and the system owners
+  xx-01_odp.03: organization-level
+  xx-01_odp.05: annually
+  xx-01_odp.06: assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines
+  xx-01_odp.07: annually
+  xx-01_odp.08: the same events as the policy, and changes to the systems, tools or services the procedures describe
 ---
 
 # {{family:title}} Policy

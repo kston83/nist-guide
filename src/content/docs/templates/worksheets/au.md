@@ -38,14 +38,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | --- | --- | --- | --- |
 | Where are audit records collected, and who operates that platform? | AU-6(1), AU-9(2) | A central log platform or SIEM run by the security operations team, separate from the systems it collects from. | Chief Information Security Officer |
 | Which event types does every system log as a minimum? | AU-2, AU-12 | The list in the audit logging standard, reviewed annually. | Chief Information Security Officer |
-| Personnel or roles to whom the audit and accountability policy is to be disseminated | AU-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the audit and accountability procedures are to be disseminated | AU-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | AU-1 |  | Chief Information Security Officer |
-| An official to manage the audit and accountability policy and procedures | AU-1 |  | Chief Information Security Officer |
-| The frequency at which the current audit and accountability policy is reviewed and updated | AU-1 |  | Chief Information Security Officer |
-| Events that would require the current audit and accountability policy to be reviewed and updated | AU-1 |  | Chief Information Security Officer |
-| The frequency at which the current audit and accountability procedures are reviewed and updated | AU-1 |  | Chief Information Security Officer |
-| Events that would require audit and accountability procedures to be reviewed and updated | AU-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the audit and accountability policy is to be disseminated | AU-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the audit and accountability procedures are to be disseminated | AU-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | AU-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the audit and accountability policy and procedures | AU-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current audit and accountability policy is reviewed and updated | AU-1 | Annually | Chief Information Security Officer |
+| Events that would require the current audit and accountability policy to be reviewed and updated | AU-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current audit and accountability procedures are reviewed and updated | AU-1 | Annually | Chief Information Security Officer |
+| Events that would require audit and accountability procedures to be reviewed and updated | AU-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | The event types that the system is capable of logging in support of the audit function | AU-2 | Logons and logoffs, account and privilege changes, use of privileged functions, access to security-relevant files, configuration changes, and security tool events | Chief Information Security Officer |
 | The event types for logging within the system | AU-2 | The event types listed in the audit logging standard, each logged whenever it occurs | Chief Information Security Officer |
 | The frequency or situation requiring logging for each specified event type | AU-2 | See the row above | Chief Information Security Officer |

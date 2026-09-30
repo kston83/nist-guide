@@ -115,15 +115,15 @@ Templates for acquisition security requirements and for an external service revi
 | Parameter | Typical value |
 | --- | --- |
 | Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
-| Who receives the procedures (a) | The people who carry them out: the procurement office, system owners, project managers, developers, and the security and privacy teams |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
 | Policy level (a.1) | Organization-level |
-| Official who manages the policy and procedures (b) | The Chief Information Security Officer, working with the head of the procurement office |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
 | Policy review frequency (c.1) | Annually |
-| Events that trigger a policy review (c.1) | A change in applicable laws, regulations or acquisition rules, a major incident or supply chain compromise, or an assessment or audit finding |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
 | Procedure review frequency (c.2) | Annually |
-| Events that trigger a procedure review (c.2) | The same events, plus a change to the system development life cycle, the standard contract language or the development toolchain |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
 
-The trigger events follow NIST's SA-1 discussion, which lists assessment or audit findings, security incidents or breaches, and changes in laws, executive orders, directives, regulations, policies, standards and guidelines.
+The trigger events follow NIST's SA-1 discussion, which lists assessment or audit findings, security incidents or breaches, and changes in laws, executive orders, directives, regulations, policies, standards and guidelines. For SA, the people who carry out the procedures are, for example, the procurement office, project managers, developers, and the security and privacy teams. The Chief Information Security Officer typically manages the policy working with the head of the procurement office. A change in acquisition rules or a supply chain compromise is a typical policy trigger, and a change to the system development life cycle, the standard contract language or the development toolchain a typical procedure trigger.
 
 **Evidence assessors ask for.**
 

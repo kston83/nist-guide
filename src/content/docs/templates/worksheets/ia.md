@@ -37,14 +37,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | --- | --- | --- | --- |
 | Which multi-factor methods are accepted, and which are phishing-resistant enough for privileged access? | IA-2(1), IA-2(2), IA-2(8) | FIDO2 security keys, platform authenticators or PKI smart cards for privileged users; authenticator apps with number matching as a minimum for everyone else. | Chief Information Security Officer |
 | Which identity provider authenticates users, and which systems may keep local accounts? | IA-2, IA-8 | One organization identity provider for all users; local accounts only for break-glass and service use, recorded in the security plan. | Chief Information Security Officer |
-| Personnel or roles to whom the identification and authentication policy is to be disseminated | IA-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the identification and authentication procedures are to be disseminated | IA-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | IA-1 |  | Chief Information Security Officer |
-| An official to manage the identification and authentication policy and procedures | IA-1 |  | Chief Information Security Officer |
-| The frequency at which the current identification and authentication policy is reviewed and updated | IA-1 |  | Chief Information Security Officer |
-| Events that would require the current identification and authentication policy to be reviewed and updated | IA-1 |  | Chief Information Security Officer |
-| The frequency at which the current identification and authentication procedures are reviewed and updated | IA-1 |  | Chief Information Security Officer |
-| Events that would require identification and authentication procedures to be reviewed and updated | IA-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the identification and authentication policy is to be disseminated | IA-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the identification and authentication procedures are to be disseminated | IA-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | IA-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the identification and authentication policy and procedures | IA-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current identification and authentication policy is reviewed and updated | IA-1 | Annually | Chief Information Security Officer |
+| Events that would require the current identification and authentication policy to be reviewed and updated | IA-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current identification and authentication procedures are reviewed and updated | IA-1 | Annually | Chief Information Security Officer |
+| Events that would require identification and authentication procedures to be reviewed and updated | IA-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | Select one or more: privileged accounts; non-privileged accounts | IA-2(8) | Privileged accounts and non-privileged accounts | Chief Information Security Officer |
 | Devices and/or types of devices to be uniquely identified and authenticated before establishing a connection | IA-3 | All organization-managed endpoints, servers and network devices | Chief Information Security Officer |
 | Select one or more: local; remote; network | IA-3 | Remote and network | Chief Information Security Officer |

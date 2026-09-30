@@ -39,14 +39,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Which published secure configurations does each component type start from? | CM-6 | Vendor security baselines or checklists from the NIST National Checklist Program, tailored in the baseline configuration standard. | Chief Information Security Officer |
 | Who sits on the change control board, and which changes may skip it? | CM-3, CM-3(4) | The system owner, technical leads and a security representative; preapproved standard changes and emergency changes reviewed after the fact. | System owner |
 | Which tool is the authoritative component inventory? | CM-8, CM-8(2) | The asset discovery or endpoint management tool, reconciled with the system inventory. | Chief Information Security Officer |
-| Personnel or roles to whom the configuration management policy is to be disseminated | CM-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the configuration management procedures are to be disseminated | CM-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | CM-1 |  | Chief Information Security Officer |
-| An official to manage the configuration management policy and procedures | CM-1 |  | Chief Information Security Officer |
-| The frequency at which the current configuration management policy is reviewed and updated | CM-1 |  | Chief Information Security Officer |
-| Events that would require the current configuration management policy to be reviewed and updated | CM-1 |  | Chief Information Security Officer |
-| The frequency at which the current configuration management procedures are reviewed and updated | CM-1 |  | Chief Information Security Officer |
-| Events that would require configuration management procedures to be reviewed and updated | CM-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the configuration management policy is to be disseminated | CM-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the configuration management procedures are to be disseminated | CM-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | CM-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the configuration management policy and procedures | CM-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current configuration management policy is reviewed and updated | CM-1 | Annually | Chief Information Security Officer |
+| Events that would require the current configuration management policy to be reviewed and updated | CM-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current configuration management procedures are reviewed and updated | CM-1 | Annually | Chief Information Security Officer |
+| Events that would require configuration management procedures to be reviewed and updated | CM-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | The frequency of baseline configuration review and update | CM-2 | At least annually | Chief Information Security Officer |
 | The circumstances requiring baseline configuration review and update | CM-2 | A significant change to the system, a new version of the secure configuration it is based on, or a security incident | Chief Information Security Officer |
 | Automated mechanisms for maintaining baseline configuration of the system | CM-2(2) | Configuration management and infrastructure-as-code tools that record the approved baseline | Chief Information Security Officer |

@@ -39,14 +39,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Which account types are allowed on each system, and which are prohibited? | AC-2 | Individual, privileged, service and emergency accounts allowed with a named owner; shared and guest accounts prohibited unless the system owner approves an exception. | System owner |
 | Which remote access methods are allowed, and for whom? | AC-17, AC-17(3) | An organization-managed VPN or zero trust access service with multifactor authentication for all remote users; no remote desktop exposed directly to the internet. | Chief Information Security Officer |
 | Which identity provider is the authoritative source for accounts? | AC-2 | The organization's central directory or identity provider, fed by the human resources system. | Chief Information Security Officer |
-| Personnel or roles to whom the access control policy is to be disseminated | AC-1 |  | Chief Information Security Officer |
-| Personnel or roles to whom the access control procedures are to be disseminated | AC-1 |  | Chief Information Security Officer |
-| Select one or more: organization-level; mission/business process-level; system-level | AC-1 |  | Chief Information Security Officer |
-| An official to manage the access control policy and procedures | AC-1 |  | Chief Information Security Officer |
-| The frequency at which the current access control policy is reviewed and updated | AC-1 |  | Chief Information Security Officer |
-| Events that would require the current access control policy to be reviewed and updated | AC-1 |  | Chief Information Security Officer |
-| The frequency at which the current access control procedures are reviewed and updated | AC-1 |  | Chief Information Security Officer |
-| Events that would require procedures to be reviewed and updated | AC-1 |  | Chief Information Security Officer |
+| Personnel or roles to whom the access control policy is to be disseminated | AC-1 | Everyone within its scope, through the policy library | Chief Information Security Officer |
+| Personnel or roles to whom the access control procedures are to be disseminated | AC-1 | The people who carry them out, and the system owners | Chief Information Security Officer |
+| Select one or more: organization-level; mission/business process-level; system-level | AC-1 | Organization-level | Chief Information Security Officer |
+| An official to manage the access control policy and procedures | AC-1 | Chief Information Security Officer | Chief Information Security Officer |
+| The frequency at which the current access control policy is reviewed and updated | AC-1 | Annually | Chief Information Security Officer |
+| Events that would require the current access control policy to be reviewed and updated | AC-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
+| The frequency at which the current access control procedures are reviewed and updated | AC-1 | Annually | Chief Information Security Officer |
+| Events that would require procedures to be reviewed and updated | AC-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
 | Prerequisites and criteria for group and role membership | AC-2 | A completed access request, a signed access agreement and completed security awareness training | Chief Information Security Officer |
 | Attributes (as required) for each account | AC-2 | An expiration date for temporary accounts, and time-of-day or location restrictions where the system supports them | Chief Information Security Officer |
 | Personnel or roles required to approve requests to create accounts | AC-2 | The user's supervisor, plus the system owner or data owner for privileged roles | Chief Information Security Officer |

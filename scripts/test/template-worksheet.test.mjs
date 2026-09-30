@@ -2,7 +2,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { COVERED, SEE_ABOVE, worksheetCsv, worksheetRows } from '../../src/lib/template-worksheet.ts';
-import { worksheetBaselines, worksheetPage } from '../lib/template-pages.mjs';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { renderVariables } from '../../src/lib/template-vars.ts';
+import { commonTypical, worksheetBaselines, worksheetPage } from '../lib/template-pages.mjs';
 
 const controls = [
 	{ id: 'ac-1', label: 'AC-1', title: 'Policy and Procedures', family: 'ac', baselines: ['Low', 'Moderate'], params: ['ac-01_odp.01', 'ac-01_odp.02'] },
@@ -146,6 +149,76 @@ test('the worksheet page links each CSV and shows the Moderate rows', () => {
 	assert.ok(page.text.includes('[CSV](/downloads/worksheets/ac-decisions-high.csv)'));
 	assert.match(page.text, /\| The frequency of account review \| AC-2 \| Quarterly \| Chief Information Security Officer \|/);
 	assert.match(page.text, /5 decisions\./);
+});
+
+// The shared -1 sections: xx- keys become the family's ids, and the managing
+// official defaults to the family's accountable role.
+const sharedCommon = {
+	body: '- The {{param:xx-01_odp.04}} shall disseminate this policy to {{param:xx-01_odp.01}}. (XX-1a)\n',
+	data: { typical: { 'xx-01_odp.01': 'everyone within its scope, through the policy library' } },
+};
+const roles = { ciso: { label: 'Chief Information Security Officer' }, 'privacy-official': { label: 'Senior privacy official' } };
+
+test('shared common typical values take the family id, and the managing official is the family role', () => {
+	assert.deepEqual(commonTypical({ id: 'ac', role: 'ciso' }, sharedCommon, roles), {
+		'ac-01_odp.01': 'everyone within its scope, through the policy library',
+		'ac-01_odp.04': 'Chief Information Security Officer',
+	});
+	assert.equal(commonTypical({ id: 'pt', role: 'privacy-official' }, sharedCommon, roles)['pt-01_odp.04'], 'senior privacy official');
+	// A value the common sections give wins over the role default.
+	const own = { ...sharedCommon, data: { typical: { 'xx-01_odp.04': 'head of security' } } };
+	assert.equal(commonTypical({ id: 'ac', role: 'ciso' }, own, roles)['ac-01_odp.04'], 'head of security');
+	// A family with its own common sections (PM) keeps exactly its own values.
+	const pm = { id: 'pm', role: 'ciso', common: { body: '', data: { typical: { 'pm-01_odp.01': 'annually' } } } };
+	assert.deepEqual(commonTypical(pm, sharedCommon, roles), { 'pm-01_odp.01': 'annually' });
+});
+
+test('the shared typical values and the role-filled official render in a policy sentence', () => {
+	const p = {
+		'ac-01_odp.01': { prompt: 'personnel to receive the access control policy' },
+		'ac-01_odp.04': { prompt: 'an official to manage the access control policy' },
+		'pt-01_odp.01': { prompt: 'personnel to receive the PT policy' },
+		'pt-01_odp.04': { prompt: 'an official to manage the PT policy' },
+	};
+	const render = (family) =>
+		renderVariables(sharedCommon.body, { variables: roles, params: p, typical: commonTypical(family, sharedCommon, roles), family }, 'md');
+	assert.equal(
+		render({ id: 'ac', title: 'Access Control', role: 'ciso' }),
+		'- The [Fill in: an official to manage the access control policy. Typical: Chief Information Security Officer] shall disseminate this policy to [Fill in: personnel to receive the access control policy. Typical: everyone within its scope, through the policy library]. (XX-1a)\n',
+	);
+	assert.match(render({ id: 'pt', title: 'PT', role: 'privacy-official' }), /^- The \[Fill in: an official to manage the PT policy\. Typical: senior privacy official\] shall/);
+});
+
+test('the worksheet page shows the shared -1 values, and the -1 official as the family role', () => {
+	const page = worksheetPage({
+		family: { id: 'ac', title: 'Access Control', role: 'ciso', stage: 'core', questions },
+		clauses: [],
+		common: { body: '', data: { typical: { 'xx-01_odp.01': 'everyone within its scope', 'xx-01_odp.02': 'organization-level' } } },
+		catalog: { source: 'SP 800-53 release 9.9.9', controls, params },
+		variables: roles,
+		version: '1.0.0',
+		order: 1,
+	});
+	assert.match(page.text, /\| Personnel to receive the policy \| AC-1 \| Everyone within its scope \| Chief Information Security Officer \|/);
+	assert.match(page.text, /\| Select one or more: organization-level; system-level \| AC-1 \| Organization-level \|/);
+});
+
+test('no generated worksheet page has a blank typical value', async () => {
+	const dir = 'src/content/docs/templates/worksheets';
+	const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.md') && f !== 'index.md');
+	assert.ok(files.length >= 16, `expected at least 16 worksheet pages, found ${files.length}`);
+	for (const f of files) {
+		const text = await fs.readFile(path.join(dir, f), 'utf8');
+		const decisions = text.slice(text.indexOf('## Decisions'));
+		const rows = decisions.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('| Decision |') && !l.startsWith('| ---'));
+		assert.ok(rows.length, `${f}: no decision rows`);
+		for (const row of rows) {
+			const typical = row.split(/(?<!\\)\|/)[3].trim();
+			assert.ok(typical, `${f}: blank typical value in ${row}`);
+			assert.ok(!/^[a-z]/.test(typical), `${f}: typical value starts lowercase in ${row}`);
+			assert.ok(!/\{\{ ?insert|\[Assignment|_ODP\[/.test(row), `${f}: raw OSCAL text in ${row}`);
+		}
+	}
 });
 
 test('the Organization worksheet of an organization-wide family lists every family control', () => {

@@ -13,9 +13,9 @@ Assess tells the AO whether the controls are implemented correctly, operating as
 | Task | What it means in practice | Primary role | Output |
 | --- | --- | --- | --- |
 | A-1 Assessor selection | Pick an assessor or team with the right skills and independence | AO or AODR | Named assessor |
-| A-2 Assessment plan | Scope, objectives, methods, schedule, sampling, rules of engagement | Control assessor; AO approves | Security and privacy assessment plan (SAP) |
+| A-2 Assessment plan | Scope, objectives, methods, schedule, sampling, rules of engagement | Control assessor; AO approves | [Security and privacy assessment plan (SAP)](/templates/plans/security-and-privacy-assessment-plan/) |
 | A-3 Control assessments | Run the SAP and record a finding for each assessment objective | Control assessor | Findings |
-| A-4 Assessment reports | Write up results, weaknesses and recommendations | Control assessor | Security and privacy assessment reports (SAR) |
+| A-4 Assessment reports | Write up results, weaknesses and recommendations | Control assessor | [Security and privacy assessment reports (SAR)](/templates/reports/security-and-privacy-assessment-report/) |
 | A-5 Remediation actions | Fix what you can; the assessor reassesses fixed items | System owner, CCP | Reassessed controls, updated SAR |
 | A-6 Plan of action and milestones | Track every remaining weakness to closure | System owner, CCP | POA&M |
 

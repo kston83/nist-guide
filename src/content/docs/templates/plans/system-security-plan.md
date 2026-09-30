@@ -119,6 +119,10 @@ Diagrams: <span class="tpl-field tpl-fill">Fill in: references to the current sy
 
 ### 8. Information exchanges
 
+:::note[Guidance]
+Record the terms of each exchange in an [information exchange agreement](/templates/forms/information-exchange-agreement/); its register gives the agreement type, dates and last review for this table.
+:::
+
 For each exchange with another system (CA-3):
 
 | Other system and owner | Agreement type and dates | Categorization of the other system and of the data | Purpose and data exchanged | Method | Security considerations |
@@ -172,6 +176,10 @@ Security- and privacy-related activities affecting the system are planned and co
 
 ### 14. Referenced artifacts
 
+:::note[Guidance]
+Templates for several of these artifacts: the [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/), the [security and privacy assessment plan](/templates/plans/security-and-privacy-assessment-plan/) and [assessment report](/templates/reports/security-and-privacy-assessment-report/), and the [information exchange agreement](/templates/forms/information-exchange-agreement/).
+:::
+
 | Artifact | Location |
 | --- | --- |
 | Authorization decision | <span class="tpl-field tpl-fill">Fill in: location</span> |
@@ -179,7 +187,7 @@ Security- and privacy-related activities affecting the system are planned and co
 | Configuration management plan and change records | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Incident response plan, with test and training records | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Information exchange agreements | <span class="tpl-field tpl-fill">Fill in: location</span> |
-| Continuous monitoring plan and results | <span class="tpl-field tpl-fill">Fill in: location</span> |
+| Continuous Monitoring Strategy and monitoring results | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Plan of action and milestones | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Risk assessment reports | <span class="tpl-field tpl-fill">Fill in: location</span> |
 

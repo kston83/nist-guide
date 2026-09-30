@@ -3,7 +3,7 @@ title: 'System and Services Acquisition Policy'
 description: 'Ready-to-adopt System and Services Acquisition policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'System and Services Acquisition (SA)'
-  order: 14
+  order: 15
 controls: [sa-1, sa-2, sa-3, sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-4.10, sa-5, sa-8, sa-8.33, sa-9, sa-9.2, sa-10, sa-11, sa-15, sa-15.3, sa-16, sa-17, sa-21, sa-22]
 ---
 

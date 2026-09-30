@@ -3,7 +3,7 @@ title: 'Risk Assessment Decision Worksheet'
 description: 'Every decision the Risk Assessment family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Risk Assessment (RA)'
-  order: 13
+  order: 14
 controls: [ra-1, ra-2, ra-3, ra-3.1, ra-5, ra-5.2, ra-5.4, ra-5.5, ra-5.11, ra-7, ra-8, ra-9]
 ---
 

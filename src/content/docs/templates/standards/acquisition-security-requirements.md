@@ -3,7 +3,7 @@ title: 'Acquisition Security Requirements'
 description: 'The standard security and privacy requirements that go into every contract for a system, system component or system service, and the review each solicitation gets before it is issued, as SP 800-53 SA-4 and its enhancements require.'
 sidebar:
   label: 'Acquisition Security Requirements'
-  order: 26
+  order: 27
 controls: [sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-4.10, sa-5, sa-10, sa-11, sa-15, sa-15.3, sa-22, sr-5]
 ---
 

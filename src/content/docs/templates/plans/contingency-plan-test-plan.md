@@ -3,7 +3,7 @@ title: 'Contingency Plan Test Plan'
 description: 'The plan for one contingency plan test or exercise, tabletop or functional, with objectives, scenario, participants and evaluation, based on the sample exercise documentation in NIST SP 800-84.'
 sidebar:
   label: 'Contingency Plan Test Plan'
-  order: 13
+  order: 14
 controls: [cp-4, cp-4.1, cp-4.2, cp-3.1, cp-9.2]
 ---
 

@@ -108,7 +108,7 @@ Coordination matters more for SA than for most families. The policy binds the pr
 - Reviewing developer deliverables before a release is accepted
 - Tracking components to their end-of-support dates
 
-Templates for acquisition security requirements and for an external service review are planned for this family; until they are published, write those two procedures from the SA-4 and SA-9 clauses. System-specific decisions go in the [system security plan](/templates/plans/system-security-plan/).
+The [acquisition security requirements](/templates/standards/acquisition-security-requirements/) standard gives the standard contract language and the solicitation review checklist, and the [external service review](/templates/forms/external-service-review/) form records the review of each external service before use and each year. System-specific decisions go in the [system security plan](/templates/plans/system-security-plan/).
 
 **Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
 

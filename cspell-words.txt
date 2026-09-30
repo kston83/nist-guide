@@ -75,6 +75,7 @@ STIG
 STIGs
 subnetworks
 TDEA
+telework
 unremediated
 unvalidated
 WCAG

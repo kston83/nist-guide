@@ -92,7 +92,7 @@ As of Oct 1, 2026, in Phase 3. The repo builds about 420 pages with zero broken 
 | Templates | Template system complete (TPL-01 to TPL-08, TPL-10). Policies for 17 of 20 families (MP, PE and SR to come), 32 plans, standards, forms and reports, decision worksheets and a starter kit | `templates/`, `src/content/docs/templates/` |
 | Industries, technology | Overview pages with planned topics only | `industries/`, `technology/` |
 | Reference | Library, glossary, page templates, roadmap, changelog (generated from git history) | `reference/` |
-| Footer | Disclaimer and CC BY 4.0 notice | `src/components/Footer.astro` |
+| Footer | Disclaimer, CC BY 4.0 notice for content and CC0 notice for templates | `src/components/Footer.astro` |
 | Author identity | Name, bio and LinkedIn in place; LinkedIn in the header. Headshot still to come | `about.md`, `index.mdx`, `LICENSE`, `astro.config.mjs` |
 
 ## Information architecture
@@ -715,4 +715,4 @@ None of these block Phase 1.
 | 3.4 | Sep 28, 2026 | Owner direction: the site is a guidebook to two NIST frameworks, the RMF with SP 800-53 and the AI RMF. Summary, AI guide description and Phase 5 name updated; public Roadmap page added |
 | 3.5 | Sep 29, 2026 | Owner decision: guidance for every Moderate control moves from Phase 7 (Depth) into Phase 3, written with each family and backfilled for the families already done. Success measures, Phase 3 and 7 rows and Decided updated; Depth keeps High guidance and High clauses |
 | 3.6 | Sep 29, 2026 | Owner decision: Phase 3 guidance also covers every PM control and every privacy-only control and enhancement, which no phase had scheduled. Success measures, Phase 3 row and Decided updated |
-| 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md` |
+| 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md`. Owner request in the same PR: the site footer names the templates' CC0 dedication, and the public Roadmap page counts are brought up to date |

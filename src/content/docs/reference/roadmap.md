@@ -22,7 +22,7 @@ The first guidebook covers the RMF from start to finish: the seven steps, every 
 | **Method:** what is the established way to do it? | The NIST publication that shows how, such as the Secure Software Development Framework (SSDF) | Planned (Phase 4) |
 | **Procedure:** how do we do it here? | Standards, procedures and plans to adopt | In progress (Phase 3) |
 | **Implementation:** where is it configured? | Technology playbooks for specific platforms | Planned (Phase 6) |
-| **Evidence:** how do we prove it? | What assessors ask for, and the forms and registers that record it | Available for the priority controls; growing with each family |
+| **Evidence:** how do we prove it? | What assessors ask for, and the forms and registers that record it | Available for every control with guidance; growing with each family |
 
 Families roll these pieces up into the documents an organization actually adopts: a policy per family (or one consolidated policy), the plans the controls require, and a decision worksheet listing every choice the family forces.
 
@@ -32,13 +32,13 @@ The second guidebook does the same for AI: how to apply the AI RMF, and how to a
 
 ## Where it stands
 
-As of September 2026:
+As of October 2026:
 
 - **The framework.** All seven RMF steps, roles, the ATO package checklist and program variants.
-- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for the 31 [priority controls](/controls/coverage/).
+- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for 95 of the 177 Moderate-baseline controls. See [guidance coverage](/controls/coverage/) for each control.
 - **The template kit.** [Version 1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) is released: every template in Word and Markdown, per baseline, with a [starter kit](/templates/starter-kit/) for a new program.
-- **Policies.** Family policies for 11 of 20 families: AC, AT, AU, CM, CP, IA, IR, PL, PM, PS and RA. 171 of the 287 Moderate-baseline controls have a policy clause.
-- **Plans, standards, forms and reports.** 18 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan and POA&M. See [all templates](/templates/).
+- **Policies.** Family policies for 17 of 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, PL, PM, PS, PT, RA, SA, SC and SI. 250 of the 287 Moderate-baseline controls have a policy clause.
+- **Plans, standards, forms and reports.** 30 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment and the encryption, boundary protection and patching standards. See [all templates](/templates/).
 - **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage.
 - **The AI RMF guidebook.** Not started; it follows the program kit and the methods.
 
@@ -62,10 +62,10 @@ The work runs in phases. Each phase ends with a review before the next starts, a
 
 What remains:
 
-- **Family policies** for CA, MA, MP, PE, PT, SA, SC, SI and SR, including the Privacy-baseline clauses of each family.
-- **Artifacts** for those families: encryption, boundary protection, patching and monitoring standards; a privacy notice and privacy impact assessment; assessment plan and report, Continuous Monitoring Strategy and information exchange agreement; acquisition and external service documents; maintenance, media sanitization, physical access and visitor records; and a Supply Chain Risk Management Plan with a supplier questionnaire.
+- **Family policies** for MP, PE and SR, including the Privacy-baseline clauses of each family, and the few Privacy-baseline clauses still to add to the AC, AU and IR policies.
+- **Artifacts** for those families: a media sanitization record, a physical access list and visitor log, and a Supply Chain Risk Management Plan with a supplier questionnaire.
 - **Artifacts for families already covered:** an account management procedure, access request and access review forms and a remote access standard; an identification and authentication standard; a Configuration Management Plan, baseline configuration standard, change request form and component inventory; an audit logging standard and log review procedure; and an incident handling playbook, incident report form and tabletop exercise kit.
-- **Guidance for every Moderate control, and for the program management and privacy controls:** how to apply it, the typical values, the evidence assessors ask for, what is usually inherited and the common findings, family by family, alongside the policies.
+- **Guidance for the remaining 82 Moderate controls, and for the program management and privacy controls:** how to apply each control, the typical values, the evidence assessors ask for, what is usually inherited and the common findings, family by family, alongside the policies.
 - **A consolidated policy:** one Information Security and Privacy Policy per baseline, as an alternative to 20 family policies. The starter kit will use it.
 - **The program path:** an artifact checklist, and guidance on scaling the program to the organization's size.
 - **A template changelog** on each template page, then kit v2.0.0.

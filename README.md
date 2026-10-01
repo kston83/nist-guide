@@ -2,7 +2,7 @@
 
 A practitioner's guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems, by Kristopher Stone. It is a research project: most, if not all, of its content is written by Claude Opus 5.5 working in Claude Code, directed and reviewed by the owner (see the [About](https://kston83.github.io/nist-guide/about/) page). Built with [Astro Starlight](https://starlight.astro.build) and published on GitHub Pages at <https://kston83.github.io/nist-guide/>.
 
-Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); progress is in [`PROGRESS.md`](PROGRESS.md).
+Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); how the site and the template kit are built is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); progress is in [`PROGRESS.md`](PROGRESS.md). [`CLAUDE.md`](CLAUDE.md) holds the working rules for Claude Code sessions.
 
 ## Roadmap
 
@@ -20,23 +20,27 @@ The guide is a practical guidebook to two NIST frameworks: the Risk Management F
 
 ## How it's published
 
-`main` is protected. Changes land through a pull request, and the **Check** workflow (build and link check) must pass before merge. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.
+`main` is protected and squash-merge only. Changes land through a pull request, and the **Check** workflow must pass before merge: tests, lint and spelling, a check that generated pages are current, the build with the template kit, and the link, search and accessibility checks. The owner merges pull requests. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.
 
 ## Work on it locally
 
-Requires [Node.js](https://nodejs.org) 22 or later.
+Requires [Node.js](https://nodejs.org) 22.12 or later (Astro's minimum; CI uses Node 24). Word (`.docx`) downloads also need [pandoc](https://pandoc.org) 3.11, the version CI pins: put it on your `PATH` or set `PANDOC` to its path. Without it the build still passes but skips the `.docx` files.
 
 ```sh
-npm install        # once
-npm run dev        # live preview at http://localhost:4321
-npm run build      # full production build into dist/ (fails if a control page with guidance: set hides it)
+npm install          # once
+npm run dev          # live preview at http://localhost:4321
+npm run build        # site and template kit into dist/ (fails if a control page with guidance: set hides it)
+npm run preview      # serve the built dist/ locally
 npm run check:links  # after a build: fail on broken internal links or anchors
 npm run check:search # after a build: control and enhancement ids find their page first
 npm run check:a11y   # after a build: axe finds no serious or critical issues (.pa11yci.json lists the pages)
-npm test           # generator tests (fixture catalog, no network)
-npm run lint       # markdown lint (.markdownlint-cli2.jsonc)
-npm run controls   # regenerate control pages; should produce no git diff
-npm run og-image   # remake the social preview image, public/og-default.png
+npm test             # unit tests for the generators and template system (fixtures, no network)
+npm run lint         # markdown lint, template lint and spell check (cspell-words.txt is the dictionary)
+npm run controls     # regenerate control pages from the pinned NIST catalog; should produce no git diff
+npm run templates    # regenerate template pages from templates/; run after changing a source, and commit the result
+npm run kit          # build only the downloadable kit into dist/downloads
+npm run og-image     # remake the social preview image, public/og-default.png
+npm run reference-docx # remake templates/reference.docx, the Word styles for the kit
 ```
 
 ## Where things live
@@ -45,19 +49,32 @@ npm run og-image   # remake the social preview image, public/og-default.png
 src/content/docs/
   index.mdx            Home page
   about.md             About the guide and author
+  program/             Build your program: the four stages (Foundation to Mature)
   rmf/                 The framework: overview, roles, ATO package, program variants
     steps/             One page per RMF step (0 Prepare to 6 Monitor)
   controls/            SP 800-53 control pages, generated (see below)
+    ac/index.md        Family hub, generated
     ac/ac-2.md         One file per control, grouped by family
-  industries/          Industry guides
-  technology/          Technology playbooks
-  reference/           Library, glossary, page templates
+    baselines/         Low, Moderate, High and Privacy lists, generated
+    coverage.mdx       Guidance and policy-clause status, built at build time
+  templates/           Template pages, generated from templates/ (never edit by hand)
+  industries/          Industry guides (planned)
+  technology/          Technology playbooks (planned)
+  reference/           Library, glossary, page templates, roadmap, changelog (generated, not committed)
+templates/             Template sources: policy clauses, plans, standards, forms, reports (CC0)
+src/data/              catalog.json and control-ids.json, generated from NIST's catalog
+src/components/        Astro components that add sections to control and program pages
+src/lib/               Template system (schema, assembly, editions, variables, worksheets) and site helpers
+src/content.config.ts  Content collections and front matter validation
+scripts/               Generators (import-oscal, build-templates, build-changelog) and checks (check-*)
+scripts/lib/           Logic for the scripts, tested in scripts/test/
 public/diagrams/       SVG diagrams used in pages
-scripts/import-oscal.mjs   Generates the control pages from NIST's OSCAL catalog
-scripts/lib/           Page-building logic for the generator (tested in scripts/test/)
-astro.config.mjs       Site settings and sidebar
+.github/workflows/     Check, Deploy to GitHub Pages, Release kit
+astro.config.mjs       Site settings, base path and sidebar
 src/styles/theme.css   Colors and typefaces
 ```
+
+[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains how these fit together.
 
 ## Writing guidance
 
@@ -65,15 +82,17 @@ src/styles/theme.css   Colors and typefaces
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
-- **Contributing:** `main` is protected. Open a pull request; the **Check** workflow (tests, generated-page check, build and link check) must pass before merge. See `CLAUDE.md` and `docs/PRD.md`.
+- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. Plans, standards, forms and reports go in their type's folder. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
+- **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text
 
 The generator reads NIST's [oscal-content](https://github.com/usnistgov/oscal-content) repository at a pinned commit (`OSCAL_REF` in `scripts/import-oscal.mjs`), so every machine and CI run produces the same pages. When NIST publishes a new SP 800-53 release:
 
 1. Set `OSCAL_REF` to the commit of the new oscal-content release tag.
-2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page and the list of valid control ids (`src/data/control-ids.json`). Guidance sections and hand-set front matter are kept.
-3. Review the changes with `git diff` and open a pull request.
+2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page, the family hubs and baseline pages, and the data files (`src/data/catalog.json` and `src/data/control-ids.json`). Guidance sections and hand-set front matter are kept.
+3. Run `npm run templates`: parameter labels and baseline membership in the template pages come from `catalog.json`. Then run the full build, which fails on any clause whose control or parameter no longer exists.
+4. Review the changes with `git diff` and open a pull request.
 
 ## Releasing the template kit
 
@@ -93,4 +112,4 @@ Kit versions follow `version` in `package.json`, which every document prints.
 
 ## License
 
-Original content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code: MIT. NIST control text is a U.S. government work in the public domain. See `LICENSE`.
+Original content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Program templates (`templates/`, the template pages built from them and the downloadable kit): [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), so organizations can adopt them without attribution. Code: MIT. NIST control text is a U.S. government work in the public domain. See `LICENSE`.

@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.6 · Sep 29, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.7 · Oct 1, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -75,22 +75,24 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 
 ## Current state
 
-The repo builds 340 pages with zero broken internal links; `npm run check:links` enforces that in CI. Build on it; do not restructure it without a stated reason.
+As of Oct 1, 2026, in Phase 3. The repo builds about 420 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
 
 | Area | Status | Location |
 | --- | --- | --- |
-| Stack | Astro 7.3 with Starlight 0.42, Node 22+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
+| Stack | Astro 7.3 with Starlight 0.42, Node 22.12+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
 | Deploy | GitHub Actions to GitHub Pages at `https://kston83.github.io/nist-guide/` (subpath; see `BASE_PATH`) | `.github/workflows/deploy.yml` |
-| Checks | Build and link check on every PR, required on `main`; actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/check-links.mjs` |
+| Checks | On every PR, required on `main`: tests, Markdown and template lint, spell check, generated pages current, build with the kit, links, search and accessibility. Actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/` |
+| Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026 | `.github/workflows/release.yml` |
 | Theme | Public Sans body, Source Serif 4 headings, teal accent, light and dark | `src/styles/theme.css` |
 | Home page | Hero, clickable seven-step strip, section cards, about blurb | `src/content/docs/index.mdx`, `src/components/StepStrip.astro` |
 | RMF section | Overview, roles, 7 step pages, ATO checklist, program variants, 2 SVG diagrams | `src/content/docs/rmf/`, `public/diagrams/` |
-| Control pages | 300 active controls in 20 families from NIST OSCAL release 5.2.0; baselines, enhancements, 800-53A objectives, parameters | `src/content/docs/controls/`, `scripts/import-oscal.mjs` |
-| Control guidance | One worked example (AC-2) below the guidance marker | `controls/ac/ac-2.md` |
-| Templates | None yet. Reference has page templates for authors only | `reference/page-templates.md` |
+| Build your program | Four stage pages listing their artifacts from template front matter | `src/content/docs/program/` |
+| Control pages | 300 active controls in 20 families from NIST OSCAL release 5.2.0; baselines, enhancements, 800-53A objectives, parameters; family hubs, baseline lists, coverage page and status badges | `src/content/docs/controls/`, `scripts/import-oscal.mjs` |
+| Control guidance | 95 controls at `draft`, in the AC-2 format | `controls/<family>/<id>.md` |
+| Templates | Template system complete (TPL-01 to TPL-08, TPL-10). Policies for 17 of 20 families (MP, PE and SR to come), 32 plans, standards, forms and reports, decision worksheets and a starter kit | `templates/`, `src/content/docs/templates/` |
 | Industries, technology | Overview pages with planned topics only | `industries/`, `technology/` |
-| Reference | Library, glossary, page templates | `reference/` |
-| Footer | Disclaimer and CC BY 4.0 notice | `src/components/Footer.astro` |
+| Reference | Library, glossary, page templates, roadmap, changelog (generated from git history) | `reference/` |
+| Footer | Disclaimer, CC BY 4.0 notice for content and CC0 notice for templates | `src/components/Footer.astro` |
 | Author identity | Name, bio and LinkedIn in place; LinkedIn in the header. Headshot still to come | `about.md`, `index.mdx`, `LICENSE`, `astro.config.mjs` |
 
 ## Information architecture
@@ -414,7 +416,7 @@ A guide within the guide: how an organization adopts and secures AI, and how an 
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| QA-01 | Pull request workflow builds the site and runs checks without deploying | P1 | `check.yml` runs build, link check, lint, tests and kit build on every PR. Build and link check exist |
+| QA-01 | Pull request workflow builds the site and runs checks without deploying | P1 | Done: `check.yml` runs build, link check, lint, tests and kit build on every PR, plus the generated-page, search and accessibility checks |
 | QA-02 | Markdown lint with a committed config | P1 | `markdownlint-cli2` passes on content and template sources; rules suited to tables and long lines |
 | QA-03 | Spell check with a domain dictionary | P2 | `cspell` passes; dictionary includes RMF, 800-53 and SSDF terms |
 | QA-04 | Front matter validation | P1 | Build fails on unknown `controls` IDs or malformed `industries`/`technologies` slugs |
@@ -578,10 +580,10 @@ The site stays fully static and free to host; anything that needs a server, a da
 | Area | Requirement |
 | --- | --- |
 | Framework | Astro Starlight as installed (Astro 7.3, Starlight 0.42). Upgrade only in a dedicated pull request with a clean build |
-| Runtime | Node 22 or later locally; CI pins Node in `check.yml` and uses the `withastro/action` default for deploy |
+| Runtime | Node 22.12 or later locally (Astro 7's minimum); CI pins Node 24 in `check.yml` and `release.yml` and uses the `withastro/action` default for deploy |
 | Hosting | GitHub Pages via `deploy.yml` at `https://kston83.github.io/nist-guide/`; custom domain later via `public/CNAME`, `SITE_URL` and `BASE_PATH = '/'` |
 | Links | Root-relative links in Markdown are rebased automatically; links in components and MDX props use `withBase()` from `src/lib/url.ts` |
-| Limits | Published site under 1 GB (GitHub Pages limit), including downloads; current build is about 41 MB. Deploy job under 10 minutes |
+| Limits | Published site under 1 GB (GitHub Pages limit), including downloads; a local build without `.docx` files was about 68 MB on Oct 1, 2026. Deploy job under 10 minutes |
 | Performance | Build under 3 minutes in CI; home and control pages score 90+ on Lighthouse performance and accessibility |
 | Dependencies | Prefer Starlight built-ins. Each new dependency needs a one-line reason in the pull request. No client-side frameworks for static content. Build-time tools (pandoc, approved for `.docx`) are pinned and installed only in CI; local kit builds need pandoc on the path |
 | External services | None required at build or run time except fetching NIST data (OSCAL, SSDF, AI RMF) in import scripts |
@@ -624,17 +626,17 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 
 ### Getting oriented
 
-1. Read `README.md`, this PRD and `controls/ac/ac-2.md` (the guidance example) before changing anything. Once they exist, also read `templates/policy/_common.md` and `templates/policy/ac/ac-2.md` (the clause example).
+1. Read `README.md`, this PRD, `docs/ARCHITECTURE.md` and `controls/ac/ac-2.md` (the guidance example) before changing anything. Once they exist, also read `templates/policy/_common.md` and `templates/policy/ac/ac-2.md` (the clause example).
 2. Run `npm install`, `npm run controls` and `npm run build`. Confirm the build and `npm run check:links` are clean before starting work.
 3. Work in phase order. Within a phase, do P1 requirements first.
 
 ### How to work
 
 - One requirement or one content item per branch and commit, with the ID in the message, for example `CTRL-01: preserve hand-set front matter` or `TPL-03: assemble family policies`.
-- `main` is protected: open a pull request; the Check workflow must pass before merge.
-- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes, and `npm run controls` produces no diff.
+- `main` is protected: open a pull request; the Check workflow must pass before merge. The owner merges PRs; don't merge them yourself.
+- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls` and `npm run templates` produce no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
-- Keep a `PROGRESS.md` at the repo root: requirement ID, status, date, notes. Update it at the end of each task.
+- Keep `PROGRESS.md` at the repo root: requirement ID, status, date, notes. Update it at the end of each task.
 - Prefer small, reviewable changes over large rewrites. Do not rename folders or slugs; existing links depend on them.
 
 ### Writing content and templates
@@ -644,6 +646,8 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 - If a fact cannot be verified, write `<!-- TODO(verify): what and why -->` and add it to Open questions in `PROGRESS.md`. Do not guess.
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.
+- Templates are CC0 and written for any organization. Put federal-only requirements in `:::federal` blocks, written as carefully as the body and citing the federal source.
+- When a change alters how the site or kit is built, update `docs/ARCHITECTURE.md` and the README in the same PR.
 - Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST or OWASP publishes (or OMB and CISA, for federal notes), with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final. OWASP GenAI Security Project text is CC BY-SA 4.0: cite IDs and titles and write in your own words, never copy; the OWASP AI Exchange is CC0 and may be adapted.
 
 ### When to stop and ask the owner
@@ -711,3 +715,4 @@ None of these block Phase 1.
 | 3.4 | Sep 28, 2026 | Owner direction: the site is a guidebook to two NIST frameworks, the RMF with SP 800-53 and the AI RMF. Summary, AI guide description and Phase 5 name updated; public Roadmap page added |
 | 3.5 | Sep 29, 2026 | Owner decision: guidance for every Moderate control moves from Phase 7 (Depth) into Phase 3, written with each family and backfilled for the families already done. Success measures, Phase 3 and 7 rows and Decided updated; Depth keeps High guidance and High clauses |
 | 3.6 | Sep 29, 2026 | Owner decision: Phase 3 guidance also covers every PM control and every privacy-only control and enhancement, which no phase had scheduled. Success measures, Phase 3 row and Decided updated |
+| 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md`. Owner request in the same PR: the site footer names the templates' CC0 dedication, and the public Roadmap page counts are brought up to date |

@@ -3,7 +3,7 @@ title: 'Personnel Security Policy'
 description: 'Ready-to-adopt Personnel Security policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'Personnel Security (PS)'
-  order: 12
+  order: 13
 controls: [ps-1, ps-2, ps-3, ps-4, ps-4.2, ps-5, ps-6, ps-7, ps-8, ps-9]
 ---
 

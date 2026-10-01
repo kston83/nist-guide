@@ -8,7 +8,7 @@ typical:
 ---
 
 :::guidance
-MA-3(3) covers maintenance equipment, such as a vendor's diagnostic laptop or analyzer, that may have picked up organizational information during the work. Organizational information includes information the organization holds as a steward for others, as NIST's discussion of this enhancement says. The four measures are alternatives; the maintenance log records which one was used. Sanitize as the media sanitization procedure sets out (MP-6).
+MA-3(3) covers maintenance equipment, such as a vendor's diagnostic laptop or analyzer, that may have picked up organizational information during the work. Organizational information includes information the organization holds as a steward for others, as NIST's discussion of this enhancement says. The four measures are alternatives; the maintenance log records which one was used. Sanitize as the media sanitization procedure sets out (MP-6), and record it in the [media sanitization record](/templates/forms/media-sanitization-record/).
 :::
 
 - The {{org:system-owner}} shall prevent the removal of maintenance equipment containing organizational information from the facility by verifying that there is no organizational information on the equipment, sanitizing or destroying the equipment, retaining the equipment within the facility, or obtaining a written exemption from {{param:ma-03.03_odp}} explicitly authorizing its removal. (MA-3(3))

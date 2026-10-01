@@ -3,7 +3,7 @@ title: 'Personnel Security Decision Worksheet'
 description: 'Every decision the Personnel Security family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Personnel Security (PS)'
-  order: 12
+  order: 13
 controls: [ps-1, ps-2, ps-3, ps-4, ps-4.2, ps-5, ps-6, ps-7, ps-8, ps-9]
 ---
 

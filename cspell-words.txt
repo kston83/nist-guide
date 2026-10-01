@@ -16,6 +16,7 @@ CMMC
 CMVP
 CNSS
 CNSSI
+coercivity
 COSAIS
 Crowell
 cryptoperiods

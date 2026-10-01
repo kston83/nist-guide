@@ -8,6 +8,7 @@ control:
   id: MP-4
   family: MP
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -88,3 +89,47 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MP-4 asks you to keep media under physical control and in secure storage, and to keep protecting them until they are sanitized or destroyed. NIST's MP-4 discussion describes physical control as conducting inventories, having procedures to check media out of and back into the library, and keeping accountability for stored media. It describes secure storage as a locked drawer, desk or cabinet, or a controlled media library, matched to the security category of the information. MP-4 is in the Moderate and High baselines, not Low.
+
+MP-4b is the part most often missed. Failed drives, retired laptops and printers waiting for sanitization are still media under MP-4, so they stay in a controlled area and on the inventory until their sanitization is recorded in the [media sanitization record](/templates/forms/media-sanitization-record/) ([MP-6](/controls/mp/mp-6/)).
+
+**Common implementations.** A media library or locked cage in the data center, with access through the facility's badge system. Each tape and removable drive carries a bar code, and the backup system or an asset tool holds the inventory and the check-out and return records. Someone reconciles the inventory against the shelves each quarter and resolves any difference. A locked container holds drives removed from service; its contents are rows open in the media sanitization record. Paper is kept in locked cabinets or rooms. Backup media at the alternate storage site ([CP-6](/controls/cp/cp-6/)) are stored media too, so the agreement with that site covers how they are stored and who can reach them.
+
+**Organization-defined parameters.** Typical values, from the [Media Protection policy](/templates/policies/mp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Digital media to physically control (a) | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization |
+| Non-digital media to physically control (a) | Paper and microfilm containing information not approved for public release |
+| Digital media to store securely (a) | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization |
+| Non-digital media to store securely (a) | Paper and microfilm containing information not approved for public release |
+| Controlled areas for digital media (a) | The data center, the media library, or a locked container in an area with physical access control, with access limited to authorized personnel |
+| Controlled areas for non-digital media (a) | Locked cabinets, drawers or rooms with access limited to authorized personnel |
+
+The policy adds an inventory of the digital media in each library or store, reconciled at least quarterly, and encryption of digital media stored outside the data center, as the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) requires for removable media ([SC-28(1)](/controls/sc/sc-28/)).
+
+**Evidence assessors ask for.**
+
+- The media storage areas, and the access list for each
+- The media inventory, with check-out and return records
+- The last few quarterly reconciliations, with any discrepancies and how they were resolved
+- Where drives and equipment awaiting sanitization are kept, and their open rows in the media sanitization record
+- The alternate storage site agreement, and its terms for storing media
+- Observation of the media library and cabinets, and a sample of inventory entries traced to the shelf and back
+
+**Inheritance.** The cloud provider stores and controls the physical media in its data centers, covered by its authorization or attestation. The facility's physical access controls ([PE-3](/controls/pe/pe-3/)) are often a common control. The system owns the inventory and storage of its own media, such as backup tapes and removable drives, so MP-4 is usually a hybrid control.
+
+**Common findings.**
+
+- An inventory that does not match the shelves, or was never reconciled.
+- Failed drives and retired laptops kept for months in an unlocked room or a desk drawer, and missing from the inventory.
+- Backup media at the alternate storage site missing from the inventory, or stored under an agreement that says nothing about access.
+- No check-out records, so nobody can say who has a missing tape.
+- Paper with sensitive information in unlocked cabinets in an open office.
+
+**Enhancements in the Moderate baseline.** None. [MP-4(2)](#mp-4.2) automated restricted access is in no baseline; card readers that log entry to media storage areas, often already installed for [PE-3](/controls/pe/pe-3/), provide most of it. MP-4(1) is withdrawn.
+
+**Federal systems** (as of October 2026). Under [32 CFR 2002.14(c)](https://www.ecfr.gov/current/title-32/section-2002.14), authorized holders of controlled unclassified information (CUI) must take reasonable precautions against its unauthorized disclosure. These include establishing controlled environments in which to protect CUI and using them, and, outside a controlled environment, keeping CUI under the authorized holder's direct control or protecting it with at least one physical barrier. The MP-4 clause's federal block requires media containing CUI to be stored in such controlled environments, and kept under direct control or behind at least one physical barrier, such as a locked container, whenever they are outside one.

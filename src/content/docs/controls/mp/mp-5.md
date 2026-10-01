@@ -8,6 +8,7 @@ control:
   id: MP-5
   family: MP
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -91,3 +92,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MP-5 covers media while they travel outside controlled areas: protect and control them, keep accountability for them, document the transport, and let only authorized personnel do it. NIST's MP-5 discussion names cryptography and locked containers as the protections, and describes accountability as restricting transport to authorized personnel and tracking or obtaining records of the media as they move, to prevent and detect loss, destruction or tampering. Transport includes releasing the media, getting them into the right transport process, and the trip itself. Couriers may be external to the organization. MP-5 is in the Moderate and High baselines, not Low.
+
+The common cases are backup media going to the alternate storage site ([CP-6](/controls/cp/cp-6/), [CP-9](/controls/cp/cp-9/)), drives going to a destruction provider, equipment going for off-site repair ([MA-2](/controls/ma/ma-2/)), and media sent to another organization under an [information exchange agreement](/templates/forms/information-exchange-agreement/). Replicating backups over the network to the alternate site removes the physical transport; protection in transit is then [SC-8](/controls/sc/sc-8/)'s concern.
+
+**Common implementations.** Digital media are encrypted before they leave, as the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) requires for removable media, and the key or password travels separately or not at all. Media travel in locked cases or sealed, tamper-evident packaging. A backup media vendor scans each case's bar code at pickup and delivery and provides the chain-of-custody record. Drives for destruction go in a locked container with a list of serial numbers, so that the provider's certificate can be matched to the list. Each transport is logged with its release and receipt, and the sender confirms receipt.
+
+**Organization-defined parameters.** Typical values, from the [Media Protection policy](/templates/policies/mp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Types of system media protected and controlled during transport (a) | All digital and non-digital media containing information not approved for public release |
+| Controls to protect the media (a) | Encryption of digital media under the encryption and key management standard, and sealed, tamper-evident packaging or locked containers |
+| Controls to control the media (a) | Transport only by authorized personnel or by a courier service with tracking and a signature on delivery, and a chain-of-custody record from release to receipt |
+
+NIST's discussion leaves the documentation to the organization's assessment of risk. The policy sets what each transport record holds: the media and their identifiers, who released them, the carrier, the recipient, the tracking number where there is one, and the dates of release and receipt. It also has a shipment that does not arrive, or arrives opened or damaged, reported as a security incident under the [incident response plan](/templates/plans/incident-response-plan/) ([IR-6](/controls/ir/ir-6/)). For drives sent for destruction, record the transport in the custody field of the [media sanitization record](/templates/forms/media-sanitization-record/).
+
+**Evidence assessors ask for.**
+
+- The list of personnel authorized to release, carry and receive media
+- Transport records for a period, with a sample traced from release to confirmed receipt
+- Courier and backup media vendor contracts, showing tracking and a signature on delivery
+- Evidence that media shipped were encrypted, and how keys were handled
+- Pickup and delivery manifests from the backup media vendor, reconciled with the media inventory ([MP-4](/controls/mp/mp-4/))
+- Incident records for any shipment lost or received damaged
+
+**Inheritance.** A courier or backup media vendor does the carrying, but the organization keeps accountability: it decides who releases media, what protection they travel with, and checks the records. Media moving within a cloud provider's facilities are the provider's concern. MP-5 is usually implemented by the system, with the vendor contracts sometimes held centrally.
+
+**Common findings.**
+
+- Backup tapes handed to the courier with no manifest or receipt, so a missing tape goes unnoticed.
+- Unencrypted media shipped, or encrypted media shipped with the password in the box.
+- No list of who may release media, so anyone in IT hands drives to a vendor.
+- Drives sent for destruction with no serial number list, so the certificate cannot be matched to what was sent.
+- A lost shipment never reported as an incident.
+
+**Enhancements in the Moderate baseline.** None. [MP-5(3)](#mp-5.3) custodians is in no baseline; the chain-of-custody record the policy requires names who holds the media at each step, which covers much of it. MP-5(1), MP-5(2) and MP-5(4) are withdrawn.
+
+**Federal systems** (as of October 2026). Under [32 CFR 2002.14(d)](https://www.ecfr.gov/current/title-32/section-2002.14), authorized holders sending controlled unclassified information (CUI) may use the United States Postal Service, any commercial delivery service, or interoffice or interagency mail; should use in-transit automated tracking and accountability tools; and must mark packages that contain CUI as 32 CFR Part 2002 and the CUI Executive Agent's guidance require (see 32 CFR 2002.20 and [MP-3](/controls/mp/mp-3/)). The MP-5 clause's federal block requires one of those services, with in-transit automated tracking, and marked packages, when shipping media containing CUI.

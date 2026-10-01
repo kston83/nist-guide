@@ -8,6 +8,7 @@ control:
   id: MP-2
   family: MP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -54,3 +55,42 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MP-2 asks you to restrict access to media, digital and non-digital, to the people authorized for the information on them. NIST's MP-2 discussion counts flash drives, tapes, external drives and optical discs as digital media, and paper and microfilm as non-digital media. MP-2 is about who can get at the media; [MP-7](/controls/mp/mp-7/) is about which media can be used on systems, a distinction NIST's MP-7 discussion draws.
+
+There are two ways to restrict access, and most systems need both. Physical: keep media in places only authorized people can enter ([MP-4](/controls/mp/mp-4/), [PE-3](/controls/pe/pe-3/)). Cryptographic: encrypt digital media so that only holders of the key can read them, as the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/) requires for removable media ([SC-28(1)](/controls/sc/sc-28/)). Encryption is what protects media once they leave the controlled area, which is why the [Media Protection policy](/templates/policies/mp/) requires it for digital media.
+
+**Common implementations.** A media library or locked cabinets in the data center, with badge access granted only to the operators who handle backup media. Backup software that encrypts backup media, with its keys in the key management service and usable only by the backup administrators. Removable media that are hardware-encrypted, or encrypted by the endpoint management service. For printed output, secure print release, so that a printout is produced only when its owner is at the printer, and locked cabinets for paper that holds information not approved for public release. Drives removed from service go into a locked container until they are sanitized, not onto a desk.
+
+**Organization-defined parameters.** Typical values, from the Media Protection policy, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Types of digital media | Removable and portable storage media (flash drives, external drives, memory cards and optical discs), backup media, and storage removed from service |
+| Who may access the digital media | Personnel whose access authorizations for the system permit access to the information on the media |
+| Types of non-digital media | Paper and microfilm containing information not approved for public release, including printed system output |
+| Who may access the non-digital media | Personnel whose access authorizations permit access to the information on the media |
+
+Tying media access to the system's access authorizations keeps MP-2 in step with [AC-2](/controls/ac/ac-2/) and [AC-3](/controls/ac/ac-3/): a person not authorized to read the information in the system should not be able to read it on a backup tape or a printout. The policy adds a review, at least annually, of the people who can enter each media library or storage area.
+
+**Evidence assessors ask for.**
+
+- The list of media storage areas, and the access list for each from the physical access control system
+- The comparison of those access lists with the people authorized for the information, and the annual review records
+- Configuration showing removable media and backup media are encrypted, and who can use the backup encryption keys
+- Where printed output is handled, the print release configuration or the cabinets used
+- Observation of where failed and retired drives are kept
+
+**Inheritance.** For cloud services, the provider controls access to the physical media in its data centers, and its authorization package or attestation covers MP-2 for them. The system still owns access to the media it creates: exported backups, removable media and printouts. On premises, the facility's physical access control is often a common control ([PE-3](/controls/pe/pe-3/)), while the system decides who is on the access list for its media. MP-2 is usually a hybrid control.
+
+**Common findings.**
+
+- Backup media or exported backups that anyone with access to the backup storage can read, because they are not encrypted.
+- Media library access lists that still include people who left or changed roles, because the review was never done.
+- Printouts with sensitive information left on shared printers.
+- Failed drives waiting for return or destruction, kept in an unlocked room.
+- Removable media holding sensitive information without encryption.
+
+**Enhancements in the Moderate baseline.** MP-2 has no enhancements. MP-2(1) and MP-2(2) are withdrawn.

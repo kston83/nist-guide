@@ -8,6 +8,7 @@ control:
   id: MP-7
   family: MP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -83,3 +84,42 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+MP-7 asks you to restrict or prohibit the use of chosen types of media on your systems, and to prohibit portable storage devices that have no identifiable owner. NIST's MP-7 discussion contrasts it with [MP-2](/controls/mp/mp-2/): MP-2 restricts who may access media, while MP-7 restricts which media may be used on systems. It lists the usual controls: physical cages over ports, disabling or removing the ability to insert, read or write to devices, limiting use to approved devices, such as those the organization provides and not personally owned ones, and blocking writes to portable devices. It also applies media use protections to mobile devices that can store information. Requiring an identifiable owner, MP-7b, lets the organization assign responsibility for a device's known vulnerabilities.
+
+**Common implementations.** Endpoint device control, part of the endpoint management or endpoint protection service, blocks USB mass storage, memory cards and optical writers on every workstation, laptop and server, except devices on an allow list. The allow list names organization-issued, hardware-encrypted devices by their serial numbers, not just by vendor or model, so a personal device of the same model is still blocked. The service desk issues each device to a named person and records it in the component inventory ([CM-8](/controls/cm/cm-8/)), and recovers it when the person leaves ([PS-4](/controls/ps/ps-4/)). Servers have USB storage disabled in their baseline configuration ([CM-6](/controls/cm/cm-6/)). Exceptions are approved by the system owner, recorded with an end date, and reviewed. A managed file transfer service or approved cloud storage gives people a way to move files without portable media, which keeps the exceptions few. The [Rules of Behavior](/templates/forms/rules-of-behavior/) are the place to tell users the rules: only issued devices, never personal ones, and found devices handed in without being connected ([PL-4](/controls/pl/pl-4/) is one of NIST's related controls).
+
+**Organization-defined parameters.** Typical values, from the [Media Protection policy](/templates/policies/mp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Restrict or prohibit (a) | Restrict |
+| Types of system media (a) | Writable portable storage devices, such as USB flash drives, external hard drives and memory cards, and writable optical media |
+| Systems or system components (a) | All organizational workstations, laptops and servers |
+| Controls (a) | Endpoint device control that blocks portable storage devices other than encrypted, organization-issued devices assigned to a named owner, with exceptions approved by the system owner and recorded |
+
+Choose "prohibit" for systems whose risk does not justify any portable storage. The values match the [Access Control Policy](/templates/policies/ac/), which allows only encrypted, organization-issued devices on external systems ([AC-20(2)](/controls/ac/ac-20/)), and the [encryption and key management standard](/templates/standards/encryption-and-key-management-standard/), which requires encryption of removable media ([SC-28(1)](/controls/sc/sc-28/)). For MP-7b, the policy bars personally owned devices and has anyone who finds a device with no known owner turn it in, without connecting it, to the security operations team.
+
+**Evidence assessors ask for.**
+
+- The device control policy and its configuration, showing it is enforcing and not only auditing
+- Device control reports of blocked connection attempts, and how they are followed up
+- The list of issued portable storage devices with their owners, from the component inventory
+- The approved exceptions, with approvals and end dates
+- A test: connecting an unapproved device to a sample of workstations and servers
+- The Rules of Behavior or other user guidance on portable storage
+
+**Inheritance.** Endpoint device control is usually run by a central endpoint team and offered as a common control, which the system inherits for standard workstations and laptops. Cloud virtual servers expose no physical ports to the customer, so the provider's physical controls cover that path; record it in the [system security plan](/templates/plans/system-security-plan/). The system owns its exceptions and any components outside the central service, so MP-7 is usually a hybrid control.
+
+**Common findings.**
+
+- Device control left in audit mode, logging connections but blocking none.
+- Servers, administrator workstations or a group of executives excluded from the policy.
+- An allow list by vendor or model, so personal devices of the same model are accepted.
+- Exceptions granted broadly and never expired.
+- No record of who holds each issued device, so MP-7b cannot be shown.
+- Mobile phones connected by USB used as storage, outside the policy.
+
+**Enhancements in the Moderate baseline.** None. [MP-7(2)](#mp-7.2) prohibit use of sanitization-resistant media is in no baseline. Its discussion names solid state drives and USB removable media among sanitization-resistant media, one more reason to issue encrypted devices: cryptographic erase, where its conditions are met, can purge them when they are retired ([MP-6](/controls/mp/mp-6/)). MP-7(1) is withdrawn.

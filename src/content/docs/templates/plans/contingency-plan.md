@@ -3,7 +3,7 @@ title: 'Information System Contingency Plan'
 description: 'The plan for recovering one system after a disruption, compromise or failure, following the NIST SP 800-34 Rev. 1 template and covering every element SP 800-53 CP-2 requires.'
 sidebar:
   label: 'Information System Contingency Plan'
-  order: 13
+  order: 14
 controls: [cp-2, cp-2.1, cp-2.3, cp-2.8, cp-6, cp-7, cp-8, cp-9, cp-10]
 ---
 

@@ -3,7 +3,7 @@ title: 'System and Communications Protection Decision Worksheet'
 description: 'Every decision the System and Communications Protection family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'System and Communications Protection (SC)'
-  order: 16
+  order: 17
 controls: [sc-1, sc-2, sc-3, sc-4, sc-5, sc-7, sc-7.3, sc-7.4, sc-7.5, sc-7.7, sc-7.8, sc-7.18, sc-7.21, sc-7.24, sc-8, sc-8.1, sc-10, sc-12, sc-12.1, sc-13, sc-15, sc-17, sc-18, sc-20, sc-21, sc-22, sc-23, sc-24, sc-28, sc-28.1, sc-39]
 ---
 

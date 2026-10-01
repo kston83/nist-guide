@@ -1,0 +1,30 @@
+# Media Protection (MP) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Media Protection
+role: ciso
+stage: operate
+questions:
+  - question: Which kinds of portable storage may be used on the organization's systems, and how is that enforced?
+    controls: [mp-2, mp-7]
+    typical: Only encrypted, organization-issued devices, each assigned to a named owner, enforced by endpoint device control; personally owned and unidentified devices blocked; exceptions approved by the system owner and recorded.
+    decides: Chief Information Security Officer
+  - question: Which marking scheme labels media, and who sets it?
+    controls: [mp-3]
+    typical: The organization's information handling labels (for example Public, Internal and Confidential), defined in an information classification or handling standard that the Chief Information Security Officer owns, with legally required markings added where they apply.
+    decides: Chief Information Security Officer
+  - question: Where are media stored, and how do they travel between sites?
+    controls: [mp-4, mp-5]
+    typical: A media library or locked cabinets in the data center, with an inventory reconciled each quarter; media leaving a controlled area are encrypted, packed in sealed, tamper-evident containers and carried by authorized staff or a tracked courier, with a chain-of-custody record.
+    decides: System owner
+  - question: Who sanitizes media, and is an outside sanitization or destruction provider used?
+    controls: [mp-6, mp-6.1, mp-6.2]
+    typical: The IT operations team clears or purges media to be reused and keeps failed and retired media in a locked container; a contracted destruction provider destroys the rest and issues a certificate listing each device's serial number; every action is recorded in the media sanitization record.
+    decides: Chief Information Security Officer
+  - question: How is information in cloud and other virtual storage sanitized when it is no longer needed?
+    controls: [mp-6]
+    typical: Cryptographic erase, by destroying the customer-managed keys under the encryption and key management standard, with the provider's authorization or attestation covering sanitization of its physical media; recorded in the external service review.
+    decides: System owner

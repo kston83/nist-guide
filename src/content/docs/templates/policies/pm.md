@@ -3,7 +3,7 @@ title: 'Program Management Policy'
 description: 'Ready-to-adopt Program Management policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and one organization-wide edition.'
 sidebar:
   label: 'Program Management (PM)'
-  order: 11
+  order: 12
 controls: [pm-1, pm-2, pm-3, pm-4, pm-5, pm-5.1, pm-6, pm-7, pm-7.1, pm-8, pm-9, pm-10, pm-11, pm-12, pm-13, pm-14, pm-15, pm-16, pm-16.1, pm-17, pm-18, pm-19, pm-20, pm-20.1, pm-21, pm-22, pm-23, pm-24, pm-25, pm-26, pm-27, pm-28, pm-29, pm-30, pm-30.1, pm-31, pm-32]
 ---
 

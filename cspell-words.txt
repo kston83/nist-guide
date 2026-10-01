@@ -27,6 +27,7 @@ Diffie
 DISA
 disassociability
 DMARC
+DNSKEY
 DNSSEC
 ECDH
 exfiltration
@@ -58,12 +59,14 @@ NERC
 nonlocal
 nonsecure
 nonsecurity
+NSEC
 OLIR
 OSCAL
 pandoc
 PPTP
 preapproved
 preproduction
+QUIC
 reapproves
 redisclosure
 reimaging
@@ -72,6 +75,7 @@ rescreening
 rlogin
 rulemaking
 SAISO
+sandboxing
 SAOP
 SDLC
 SIEM
@@ -82,6 +86,7 @@ STIGs
 subnetworks
 TDEA
 telework
+TSIG
 unremediated
 unvalidated
 USGCB

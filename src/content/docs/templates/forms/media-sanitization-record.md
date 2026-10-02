@@ -3,7 +3,7 @@ title: 'Media Sanitization Record'
 description: 'The record of each item of system media sanitized or destroyed before disposal, release out of organizational control or reuse, with its approval, custody, method, verification and final disposition, plus the sanitization methods by media type, the equipment tests and the outside providers, as SP 800-53 MP-6 requires.'
 sidebar:
   label: 'Media Sanitization Record'
-  order: 5
+  order: 7
 controls: [mp-6, mp-6.1, mp-6.2, mp-6.3, mp-4, mp-5, ma-2, ma-3.3]
 ---
 

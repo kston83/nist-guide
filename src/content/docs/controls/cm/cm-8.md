@@ -285,7 +285,7 @@ Determine if:
 
 You cannot protect what you have not counted. CM-8 requires an inventory of every component in the system boundary, accurate, without duplicates, and detailed enough to track ownership, versions and location. Nearly every other control depends on it.
 
-**Common implementations.** Automated discovery through endpoint management, cloud asset inventory and network scans, reconciled into one authoritative inventory. Inventory updated as part of installations and removals (CM-8(1)). Network access control or scans that detect unauthorized devices and software (CM-8(3)).
+**Common implementations.** Automated discovery through endpoint management, cloud asset inventory and network scans, reconciled into one authoritative inventory. Inventory updated as part of installations and removals (CM-8(1)). Network access control or scans that detect unauthorized devices and software (CM-8(3)). The [component inventory](/templates/forms/component-inventory/) template holds the fields, the reconciliations against the [system inventory](/templates/forms/system-inventory/) and against scan results, and the issued devices other families record there.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

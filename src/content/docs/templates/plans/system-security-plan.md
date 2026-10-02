@@ -3,7 +3,7 @@ title: 'System Security Plan'
 description: 'The security plan for one system, following the NIST SP 800-18 Rev. 2 outline and covering every element SP 800-53 PL-2 requires.'
 sidebar:
   label: 'System Security Plan'
-  order: 24
+  order: 27
 controls: [pl-2, ra-2, cm-8, ca-3, ca-5]
 ---
 

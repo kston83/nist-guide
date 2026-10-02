@@ -175,7 +175,7 @@ Determine if:
 
 A baseline configuration is the approved, documented state of the system: its components, their versions and their settings. Every later configuration control, from change control (CM-3) to settings (CM-6), measures against it.
 
-**Common implementations.** Infrastructure as code or configuration management tooling that records the approved state (CM-2(2)), images or templates for each component type, and version control that keeps previous baselines for rollback (CM-2(3)). The baseline is updated through change control, not by hand. Loaner devices for high-risk travel get a minimal configuration (CM-2(7)).
+**Common implementations.** Infrastructure as code or configuration management tooling that records the approved state (CM-2(2)), images or templates for each component type, and version control that keeps previous baselines for rollback (CM-2(3)). The baseline is updated through change control, not by hand. Loaner devices for high-risk travel get a minimal configuration (CM-2(7)). The [baseline configuration standard](/templates/standards/baseline-configuration-standard/) records each configuration item's secure configuration and version, and the [component inventory](/templates/forms/component-inventory/) the components it covers.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

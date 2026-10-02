@@ -3,7 +3,7 @@ title: 'Incident Response Plan'
 description: 'The organization''s plan for detecting, handling, reporting and recovering from cybersecurity incidents, with the ten elements NIST SP 800-53 IR-8 requires.'
 sidebar:
   label: 'Incident Response Plan'
-  order: 19
+  order: 22
 controls: [ir-8, ir-4, ir-5, ir-6, ir-7, ir-2, ir-3]
 ---
 

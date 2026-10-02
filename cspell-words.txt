@@ -5,6 +5,8 @@ AODR
 auditd
 automatability
 automatable
+baselined
+baselining
 bypassable
 Calibri
 CISA

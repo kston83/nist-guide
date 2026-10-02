@@ -289,7 +289,7 @@ CM-3 asks you to decide which changes are controlled, to review and approve each
 
 Firewall and other boundary rule changes name the approved request they implement, as the [boundary protection standard](/templates/standards/boundary-protection-standard/) requires. Developer changes to an operational system go through the same change control, as the SA-10 clause of the [System and Services Acquisition policy](/templates/policies/sa/) says. NIST's discussion also asks that, for changes that affect privacy risk, the senior agency official for privacy update privacy impact assessments and system of records notices; the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) is updated through change control for that reason.
 
-SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) includes a sample change request (Appendix E) and a sample change control board charter (Appendix H). A change request form is planned for this family's templates.
+SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) includes a sample change request (Appendix E) and a sample change control board charter (Appendix H). The [change request form](/templates/forms/change-request-form/) adapts the first, with the impact analysis and the significant-change decision on the same form, and the [Configuration Management Plan](/templates/plans/configuration-management-plan/) carries a board charter built on the second.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

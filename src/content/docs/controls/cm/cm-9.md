@@ -113,7 +113,7 @@ CM-9 asks for a configuration management plan for each system: who does what, ho
 - How new items are identified as the system changes, and how items leave configuration management when retired
 - The development, test and operational environments, and how changes move between them
 
-SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) gives a sample outline for the plan in Appendix D. A Configuration Management Plan template is planned for this family. The [system security plan](/templates/plans/system-security-plan/) records where the plan and the change records are kept.
+SP 800-128 ([August 2011, with updates as of October 10, 2019](https://csrc.nist.gov/pubs/sp/800/128/upd1/final)) gives a sample outline for the plan in Appendix D. The [Configuration Management Plan](/templates/plans/configuration-management-plan/) template follows it, with a configuration item list for the system to fill in and a change control board charter. The [system security plan](/templates/plans/system-security-plan/) records where the plan and the change records are kept.
 
 **Organization-defined parameters.** Typical value, which your organization may set differently:
 

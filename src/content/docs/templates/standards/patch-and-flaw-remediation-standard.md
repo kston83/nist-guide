@@ -3,7 +3,7 @@ title: 'Patch and Flaw Remediation Standard'
 description: 'The sources of flaws, installation times, testing, deployment, verification and exception rules that make the system and information integrity policy''s flaw remediation requirements (SP 800-53 SI-2 and SI-2(2)) measurable.'
 sidebar:
   label: 'Patch and Flaw Remediation Standard'
-  order: 33
+  order: 37
 controls: [si-2, si-2.2, si-3, si-5, si-7.15]
 ---
 

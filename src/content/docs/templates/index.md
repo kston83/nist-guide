@@ -64,6 +64,7 @@ Each template is written once and assembled for your baseline. Download the read
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Configuration Management Plan](/templates/plans/configuration-management-plan/) | [Core](/program/core/) | Draft |
 | [Information System Contingency Plan](/templates/plans/contingency-plan/) | [Core](/program/core/) | Draft |
 | [Contingency Plan Test Plan](/templates/plans/contingency-plan-test-plan/) | [Operate](/program/operate/) | Draft |
 | [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) | [Operate](/program/operate/) | Draft |
@@ -79,6 +80,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Acquisition Security Requirements](/templates/standards/acquisition-security-requirements/) | [Operate](/program/operate/) | Draft |
+| [Baseline Configuration Standard](/templates/standards/baseline-configuration-standard/) | [Core](/program/core/) | Draft |
 | [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
 | [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
 | [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) | [Operate](/program/operate/) | Draft |
@@ -90,6 +92,8 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
+| [Change Request Form](/templates/forms/change-request-form/) | [Core](/program/core/) | Draft |
+| [Component Inventory](/templates/forms/component-inventory/) | [Core](/program/core/) | Draft |
 | [External Service Review](/templates/forms/external-service-review/) | [Operate](/program/operate/) | Draft |
 | [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | [Operate](/program/operate/) | Draft |
 | [Maintenance Log](/templates/forms/maintenance-log/) | [Operate](/program/operate/) | Draft |

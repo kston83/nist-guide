@@ -8,6 +8,7 @@ control:
   id: SR-2
   family: SR
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -91,3 +92,46 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SR-2 asks for a plan that manages supply chain risk for the systems, components or services you name, across the whole life cycle from research and development to disposal (a), reviewed and updated on a set cycle and when threats or the organization change (b), and protected from unauthorized disclosure and modification (c). NIST's SR-2 discussion says the plan, at the system level, is implementation specific. It includes the organization's supply chain risk tolerance, acceptable mitigation strategies or controls, a process for consistently evaluating and monitoring supply chain risk, approaches for implementing and communicating the plan, a description of and justification for the mitigation measures taken, and the roles and responsibilities. Plans are tailored to the program and its operating context, which focuses resources on the most critical mission and business functions, and a plan can stand alone or be part of the security and privacy plans. SR-2 is in the Low, Moderate and High baselines.
+
+[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024; current as of October 2026), settles the format question: its Appendix A guidance for SR-2 says plans should be stand-alone documents, integrated into the system security plan only if the organization's constraints require it, and its Appendix D.3 says a plan included in the security and privacy plan must keep its supply chain parts clearly discernible. Appendix D.3.1 is a sample plan outline, from the system description and its components and life cycle activities to the controls, roles, contingencies, revision table and approval. Appendix D.3 says its plan applies to moderate- and high-impact systems; SP 800-53 puts SR-2 in the Low baseline as well, so a low-impact system still needs a plan, usually a short one.
+
+A plan is only as good as its inputs. It applies the organization's supply chain risk management strategy ([PM-30](/controls/pm/pm-30/)) to one system, and it draws on the criticality analysis ([RA-9](/controls/ra/ra-9/)) for the critical components and services, the supply chain risk assessment ([RA-3(1)](/controls/ra/ra-3/#ra-3.1)) for the risks, and the [component inventory](/templates/forms/component-inventory/) ([CM-8](/controls/cm/cm-8/)) for what is actually installed.
+
+**Common implementations.** A stand-alone plan for each system, built on the SP 800-161 Rev. 1 Appendix D.3.1 outline, approved by the authorizing official and kept with the authorization package. The plan lists the system's critical components and services, their suppliers, the supply chain controls selected (SR-3) and the risks accepted, and refers to the organization's standard contract terms rather than repeating them. Organizations with many systems often write the controls they provide for everyone (the team, the contract clauses, supplier assessments) once, as common controls, so each system's plan covers only what is specific to it. A Supply Chain Risk Management Plan template is planned for this kit.
+
+**Organization-defined parameters.** Typical values, from the [Supply Chain Risk Management policy](/templates/policies/sr/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Systems, components or services the plan covers (a) | Each system, including the components and services the criticality analysis (RA-9) identifies as critical and the external services the system depends on |
+| Review and update frequency (b) | Annually, and at each life cycle milestone or gate review and each significant contracting action, such as a new contract, a renewal or a change of supplier for a critical component or service |
+| Team members, roles and responsibilities (SR-2(1)) | A lead the Chief Information Security Officer designates, and representatives of information security, privacy, acquisition and contracting, legal counsel, information technology, the mission or business owners, and business continuity, each with the responsibilities the team charter assigns |
+| Activities the team leads and supports (SR-2(1)) | Maintaining the supply chain risk management strategy and plans, setting the criteria for supplier assessments and reviewing their results (SR-6), reviewing acquisitions of critical components and services before award, coordinating the response to supply chain compromise notifications (SR-8), and tracking supply chain risks until they are resolved |
+
+The review events follow SP 800-161 Rev. 1, section D.3.1.11, which has the plan reviewed at least at life cycle milestones, gate reviews and significant contracting activities. The policy also has the plan be a stand-alone document or a clearly identifiable section of the system security plan, list the critical components and services and their suppliers, and be approved by the authorizing official, with each significant change; the sample plan in SP 800-161 Rev. 1 (section D.3.1.12) carries the authorizing official's signature. For SR-2c, the policy protects the plan by marking it, limiting access and controlling changes.
+
+**Evidence assessors ask for.**
+
+- The plan, with the authorizing official's approval and date, and its revision table
+- The plan's list of critical components and services and their suppliers, compared with the criticality analysis and the component inventory
+- Records of the last review, and of an update after a recent contract award, renewal or change of supplier
+- Who can read and change the plan: the repository permissions, the marking and the change history (SR-2c)
+- For SR-2(1), the team charter, the membership list and the record of recent meetings and decisions
+
+**Inheritance.** The plan itself is system-specific: each system has its own, or its own clearly identifiable section. The parts behind it are usually common controls: the strategy (PM-30), the team (SR-2(1)), the standard contract terms and the supplier assessment process. Record what the system inherits in its [system security plan](/templates/plans/system-security-plan/). For a system built on an external service, the plan names the provider as a supplier and relies on the [external service review](/templates/forms/external-service-review/) (SA-9) for the evidence about the provider's own controls.
+
+**Common findings.**
+
+- No plan, or a template copied without the system's components, suppliers or risks filled in.
+- A plan whose critical components do not match the criticality analysis or the component inventory.
+- A plan not updated after a new contract or a change of supplier for a critical component.
+- A plan in an open file share that anyone can edit (SR-2c).
+- A team that exists only on paper: no charter, no meeting records, or no one from acquisition or legal.
+
+**Enhancements in the Moderate baseline.** [SR-2(1)](#sr-2.1) establish a supply chain risk management team, also in Low and High, with values in the table above. NIST's SR-2(1) discussion describes a team-based approach drawing on the risk executive, information technology, contracting, information security, privacy, mission or business, legal, supply chain and logistics, acquisition, business continuity and other functions; it can be an extension of existing security and privacy risk management processes or part of an organizational risk management team. SP 800-161 Rev. 1 calls the central body a C-SCRM program management office. The policy has the Chief Information Security Officer document the team's membership, roles, responsibilities and decision authority in a charter, and the team meet at least quarterly and whenever an acquisition or a supplier notification needs its review. In a small organization the team may be a few people who meet as needed; what matters is that acquisition, security and legal decide together.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.c(4), requires agencies to develop supply chain risk management plans as described in NIST SP 800-161 to ensure the integrity, security, resilience and quality of information systems. Under the Federal Acquisition Supply Chain Security Act of 2018, the head of each executive agency is responsible for assessing the supply chain risk posed by the acquisition and use of covered articles, including developing an overall supply chain risk management strategy and implementation plan and integrating supply chain risk management practices throughout the life cycle of the system, component, service or asset ([41 U.S.C. § 1326](https://www.govinfo.gov/link/uscode/41/1326?link-type=html)(a) and (b), United States Code, 2024 edition); the subchapter terminates on December 31, 2033 ([41 U.S.C. § 1328](https://www.govinfo.gov/link/uscode/41/1328?link-type=html)). The SR-2 clause's federal block has each system's plan developed as SP 800-161 Rev. 1 describes.

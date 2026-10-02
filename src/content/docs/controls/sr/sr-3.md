@@ -8,6 +8,7 @@ control:
   id: SR-3
   family: SR
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -131,3 +132,43 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SR-3 asks for three things: a process to find and address weaknesses or deficiencies in the supply chain elements and processes of the systems or components you name, run with the supply chain personnel you name (a); the controls you use to protect against supply chain risks and limit the harm of a supply chain event (b); and a record of the processes and controls you selected and implemented (c). NIST's SR-3 discussion defines supply chain elements as the organizations, entities or tools involved in the research and development, design, manufacturing, acquisition, delivery, integration, operations and maintenance, and disposal of systems and components. Supply chain processes include hardware, software and firmware development, shipping and handling, personnel and physical security programs, and the configuration management tools and measures that maintain provenance. They may be provided by the organization, system integrators or external providers, and a weakness in any of them is a potential vulnerability an adversary can exploit. SR-3 is in the Low, Moderate and High baselines.
+
+[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024; current as of October 2026), points to its Section 2 and Appendix C for implementing SR-3. NIST's Secure Software Development Framework, SP 800-218 ([February 2022](https://csrc.nist.gov/pubs/sp/800/218/final), version 1.1; an initial public draft of Rev. 1, version 1.2, was published December 17, 2025; as of October 2026), cites SR-3 for several practices that apply to software you acquire, including PO.1.3, communicating security requirements to the third parties that supply commercial software components; PW.4.1, acquiring well-secured components and obtaining provenance information, such as a software bill of materials, to assess their risk; and PW.4.4, verifying that acquired components keep meeting the requirements through their life cycles.
+
+**Common implementations.** The supply chain risk management team keeps the list of critical components and services and their suppliers, drawn from the criticality analysis ([RA-9](/controls/ra/ra-9/)). Weaknesses come in from several directions: supplier assessments (SR-6), supplier notifications (SR-8), inspection results (SR-10), suspected counterfeits (SR-11), security advisories ([SI-5](/controls/si/si-5/)), incidents, and changes in a supplier's ownership, location or sources. Each one is recorded in the [risk register](/templates/forms/risk-register/) or the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/) with an owner, a response and a due date. The controls the system uses are selected in its supply chain risk management plan (SR-2), carried into contracts through the [acquisition security requirements](/templates/standards/acquisition-security-requirements/) standard, and summarized in the [system security plan](/templates/plans/system-security-plan/).
+
+**Organization-defined parameters.** Typical values, from the [Supply Chain Risk Management policy](/templates/policies/sr/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Systems or components whose supply chain is covered (a) | Each system and the components and services the criticality analysis (RA-9) identifies as critical |
+| Supply chain personnel the process is coordinated with (a) | The supply chain risk management team (SR-2(1)), the procurement office, and the designated supply chain contacts of the suppliers and contractors involved |
+| Supply chain controls employed (b) | The controls the supply chain risk management plan selects, including at least the supply chain terms of the acquisition security requirements standard (SA-4, SR-5), supplier assessments (SR-6), notification agreements (SR-8), inspection of components on receipt and after repair (SR-10), anti-counterfeit measures (SR-11) and controlled disposal (SR-12) |
+| Where the processes and controls are documented (c) | The supply chain risk management plan, summarized and referenced in the security and privacy plans |
+
+Item c is a selection; the policy selects both the supply chain risk management plan and the security and privacy plans, so the selection's own organization-defined document is left unselected. The policy also has the process draw on supplier assessments, notifications, inspection results, advisories, incidents and changes in a supplier's ownership, location or sources, and has each weakness recorded in the risk register or the plan of action and milestones.
+
+**Evidence assessors ask for.**
+
+- The documented process for identifying and addressing supply chain weaknesses, and who runs it
+- A sample of weaknesses found in the last year, each followed to its risk register or plan of action and milestones entry and its resolution
+- Records of coordination with procurement and with suppliers' contacts, such as meeting notes or tickets
+- The supply chain controls section of the supply chain risk management plan, and the reference to it in the system security plan
+- Contracts for critical components or services that contain the controls the plan selects
+
+**Inheritance.** The process and most of the controls are usually common: the supply chain risk management team runs the process for every system, and the procurement office applies the standard contract terms. The system owner identifies the system's critical components and suppliers, makes sure the plan's controls apply to them, and acts on the weaknesses that affect the system. Record the split in the system security plan.
+
+**Common findings.**
+
+- Supplier problems handled by email as they come up, with no record of the weakness or of what was done.
+- Controls listed in the plan that the actual contracts do not contain.
+- Selected supply chain controls not documented anywhere (c), or documented in a plan that names no components.
+- Weaknesses found in a supplier assessment but never entered in the risk register or the plan of action and milestones.
+
+**Enhancements in the Moderate baseline.** None. SR-3(1) diverse supply base, SR-3(2) limitation of harm and SR-3(3) sub-tier flow down are in no baseline. NIST's SR-3(3) discussion asks that supply chain controls reach every tier, with prime contractors flowing them down to subcontractors; the acquisition security requirements standard (section 4.5) already requires suppliers to flow the security and privacy requirements down to their subcontractors. SP 800-161 Rev. 1 adds, for SR-3(3), that the cybersecurity risks of a supplier, product or service should be evaluated before the contract award decision, which the policy's SR-6 statements require for critical components and services.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 3.b(8), requires agencies' information security and privacy programs to implement supply chain risk management principles to protect against the insertion of counterfeits, unauthorized production, tampering, theft, insertion of malicious software, and poor manufacturing and development practices throughout the system development life cycle. [41 U.S.C. § 1326](https://www.govinfo.gov/link/uscode/41/1326?link-type=html)(b)(2) includes integrating supply chain risk management practices throughout the life cycle of the system, component, service or asset in each agency head's responsibilities (United States Code, 2024 edition). The SR-3 clause's federal block has the controls selected under SR-3b cover each of the threats A-130 names.

@@ -1,0 +1,34 @@
+# Supply Chain Risk Management (SR) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Supply Chain Risk Management
+role: ciso
+stage: mature
+questions:
+  - question: Who leads supply chain risk management, and who sits on the team?
+    controls: [sr-2.1, sr-3]
+    typical: A lead the Chief Information Security Officer designates chairs a standing team with members from information security, privacy, acquisition and contracting, legal counsel, information technology, the mission or business owners and business continuity, under a written charter; the team meets each quarter and whenever an acquisition or supplier notification needs its review.
+    decides: Chief Information Security Officer
+  - question: Which systems, components and services get the most supply chain scrutiny?
+    controls: [sr-2, sr-3, sr-6, sr-9, sr-10]
+    typical: Every system has a supply chain risk management plan; the components and services the criticality analysis (RA-9) identifies as critical, and their suppliers, get the supplier assessments, notification terms, inspections and (for High systems) tamper protection the plan selects.
+    decides: System owner, with the supply chain risk management team
+  - question: Where may the organization buy system components, and how are suppliers vetted?
+    controls: [sr-5, sr-6, sr-11]
+    typical: Hardware and software come only from original manufacturers, their authorized distributors or resellers, or suppliers the supply chain risk management team has assessed; each supplier of a critical component or service is assessed before award or renewal and each year, with the same core risk factors applied to every supplier.
+    decides: Chief Information Security Officer, with the procurement office
+  - question: What must suppliers tell the organization, and how quickly?
+    controls: [sr-8]
+    typical: Contracts for critical components and services require notice of a supply chain compromise within the incident notice time of the acquisition security requirements standard, sharing of the results of independent assessments or audits, and the same notification terms in the supplier's agreements with its own suppliers.
+    decides: Chief Information Security Officer, with the procurement office
+  - question: How are counterfeit or tampered components found and handled?
+    controls: [sr-10, sr-11, sr-11.1, sr-11.2]
+    typical: Components are checked on receipt and before first use, critical components are inspected each year and after repair or travel, software is verified by signature or published hash, and a suspect component is quarantined, handled as an incident and reported to its source, its original manufacturer and CISA; staff who handle or buy hardware are trained to spot counterfeits.
+    decides: Chief Information Security Officer
+  - question: How are components, documentation and tools disposed of so they cannot re-enter the supply chain?
+    controls: [sr-12]
+    typical: Storage is sanitized under the media sanitization procedure, keys, credentials and licenses are removed, paper is shredded, and hardware goes only to a contracted disposal or recycling provider that certifies destruction or recycling by serial number, with each disposal recorded.
+    decides: System owner

@@ -35,6 +35,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [System and Services Acquisition Policy](/templates/policies/sa/) | [Operate](/program/operate/) | Draft |
 | [System and Communications Protection Policy](/templates/policies/sc/) | [Core](/program/core/) | Draft |
 | [System and Information Integrity Policy](/templates/policies/si/) | [Operate](/program/operate/) | Draft |
+| [Supply Chain Risk Management Policy](/templates/policies/sr/) | [Mature](/program/mature/) | Draft |
 
 ## Decision worksheets
 
@@ -59,6 +60,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [System and Services Acquisition Decision Worksheet](/templates/worksheets/sa/) | [Operate](/program/operate/) | Draft |
 | [System and Communications Protection Decision Worksheet](/templates/worksheets/sc/) | [Core](/program/core/) | Draft |
 | [System and Information Integrity Decision Worksheet](/templates/worksheets/si/) | [Operate](/program/operate/) | Draft |
+| [Supply Chain Risk Management Decision Worksheet](/templates/worksheets/sr/) | [Mature](/program/mature/) | Draft |
 
 ## Plans
 

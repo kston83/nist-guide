@@ -70,7 +70,7 @@ This checklist ties the personnel controls to account management (AC-2l asks for
 | 4 | Complete security and privacy literacy training | <span class="tpl-field tpl-org">Supervisor</span> | Before access | AT-2a.1 | |
 | 5 | Submit and approve the access request for each system | <span class="tpl-field tpl-org">Supervisor</span> | Before access | AC-2e | |
 | 6 | Create accounts and issue authenticators | <span class="tpl-field tpl-org">Account manager</span> | After steps 2 to 5 | AC-2, IA-5 | |
-| 7 | Issue a building pass and devices, and record them | <span class="tpl-field tpl-fill">Fill in: facilities or IT asset owner</span> | First day | PE-2, CM-8 | |
+| 7 | Issue a building pass and devices, and record them (the pass in the [physical access list](/templates/forms/physical-access-list/)) | <span class="tpl-field tpl-fill">Fill in: facilities or IT asset owner</span> | First day | PE-2, CM-8 | |
 | 8 | Assign role-based training, if the role needs it | <span class="tpl-field tpl-org">Supervisor</span> | Before duties begin | AT-3 | |
 
 ### Transfer

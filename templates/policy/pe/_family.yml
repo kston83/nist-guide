@@ -1,0 +1,30 @@
+# Physical and Environmental Protection (PE) family policy metadata.
+# role: key in templates/variables.yml for the role accountable for this policy.
+# stage: when a new program should adopt the policy (PRD artifact catalog).
+# questions: decisions the family forces beyond its parameters, for the
+#   decision worksheet. Typical values are marked as typical.
+
+title: Physical and Environmental Protection
+role: facilities-manager
+stage: operate
+questions:
+  - question: Which facilities house each system's components, and does the organization or a provider run them?
+    controls: [pe-2, pe-3, pe-6, pe-14]
+    typical: Each system security plan lists the facilities that hold its components. For components in a cloud service or a colocation data center, the provider's facility controls are inherited and recorded as such in the plan's control implementation, backed by the provider's authorization or audit report; the organization's own offices, wiring closets and any server rooms stay in scope.
+    decides: System owner
+  - question: Who authorizes physical access, and how is the access list reviewed?
+    controls: [pe-2, pe-3, pe-3.1]
+    typical: The supervisor requests access and the facilities manager approves it, with the system owner also approving access to areas that contain system components; the facilities manager keeps the physical access list, reviews it each quarter for those areas and each year for the rest of the facility, and removes access within the termination and transfer times of the Personnel Security Policy.
+    decides: Facilities manager
+  - question: How are visitors recorded and escorted?
+    controls: [pe-3, pe-8, pe-8.1, pe-8.3]
+    typical: Every visitor to a non-public area signs in at reception, shows identification and receives a visitor badge that looks different from employee badges; an employee with access to the area escorts them at all times; the visitor log records only the elements the privacy risk assessment allows and is reviewed each month.
+    decides: Facilities manager
+  - question: Which environmental protections does the facility or the provider supply?
+    controls: [pe-9, pe-10, pe-11, pe-12, pe-13, pe-14, pe-15]
+    typical: For an organization's own server room or data center, an uninterruptible power supply sized for an orderly shutdown (and a generator where the contingency plan's recovery time objective requires it), emergency lighting, fire detection and suppression monitored by an alarm service, temperature and humidity monitoring with alerts, and known, labeled water shutoff valves; for a provider's facility, the provider's attested controls, inherited.
+    decides: Facilities manager
+  - question: Which alternate work sites are allowed, and what controls apply there?
+    controls: [pe-17]
+    typical: Employees' homes, under an approved telework agreement, and other organization facilities; work only on organization-issued devices connected through the approved remote access methods, in a workspace where screens and conversations are not overseen or overheard, with the Rules of Behavior covering the rest.
+    decides: Chief Information Security Officer

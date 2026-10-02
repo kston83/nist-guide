@@ -6,7 +6,7 @@ stage: operate
 ---
 
 :::guidance
-MA-5 covers the people who maintain the system's hardware and software; physical access to the facility for them is PE-2. Unescorted maintenance personnel need the same access authorizations as anyone with that access: screening (PS-3), a signed access agreement (PS-6) and, for a contractor, the external personnel requirements of the [Personnel Security Policy](/templates/policies/ps/) (PS-7). NIST's MA-5 discussion allows temporary credentials, for one use or a very limited time, for vendors who must work with little notice. The [maintenance log](/templates/forms/maintenance-log/) holds the authorized list and records each escort.
+MA-5 covers the people who maintain the system's hardware and software; physical access to the facility for them is PE-2, recorded in the [physical access list](/templates/forms/physical-access-list/) or, for visitors, the [visitor log](/templates/forms/visitor-log/). Unescorted maintenance personnel need the same access authorizations as anyone with that access: screening (PS-3), a signed access agreement (PS-6) and, for a contractor, the external personnel requirements of the [Personnel Security Policy](/templates/policies/ps/) (PS-7). NIST's MA-5 discussion allows temporary credentials, for one use or a very limited time, for vendors who must work with little notice. The [maintenance log](/templates/forms/maintenance-log/) holds the authorized list and records each escort.
 :::
 
 - The {{org:system-owner}} shall establish a process for authorizing maintenance personnel, in which the system owner approves each maintenance organization and each individual before they perform maintenance. (MA-5a)

@@ -3,7 +3,7 @@ title: 'Personally Identifiable Information Processing and Transparency Decision
 description: 'Every decision the Personally Identifiable Information Processing and Transparency family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet.'
 sidebar:
   label: 'Personally Identifiable Information Processing and Transparency (PT)'
-  order: 14
+  order: 15
 controls: [pt-1, pt-2, pt-3, pt-4, pt-5, pt-5.2, pt-6, pt-6.1, pt-6.2, pt-7, pt-7.1, pt-7.2, pt-8]
 ---
 

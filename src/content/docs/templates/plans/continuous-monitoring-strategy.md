@@ -3,7 +3,7 @@ title: 'Continuous Monitoring Strategy'
 description: 'The organization-wide continuous monitoring strategy (PM-31) and each system''s strategy under it (CA-7), with metrics, monitoring and assessment frequencies, reporting, response, and the triggers for ongoing authorization and reauthorization, following the NIST SP 800-137 process.'
 sidebar:
   label: 'Continuous Monitoring Strategy'
-  order: 16
+  order: 18
 controls: [ca-7, ca-7.1, ca-7.4, pm-31, ca-2, ca-5, ca-6]
 ---
 

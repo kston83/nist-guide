@@ -8,6 +8,7 @@ control:
   id: IR-5
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -81,3 +82,42 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IR-5 asks you to track and document every incident. NIST's IR-5 discussion says that means keeping records about each incident, its status, and the other information needed for forensics and for evaluating incident details, trends and handling. Incidents come from many sources: network monitoring, incident reports, user complaints, supply chain partners, audit and physical access monitoring, and user and administrator reports. IR-5 is in the Low, Moderate, High and Privacy baselines.
+
+[NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026) recommends, in its Incident Management (RS.MA) rows, tracking each incident's status with an incident summary, the indicators of compromise, the status and expected time frame of each assigned action, and next steps. Its Incident Analysis (RS.AN) rows add that actions taken during an investigation are recorded, and that incident records are protected so only authorized personnel can see them, since they hold data on exploited weaknesses and on people.
+
+**Common implementations.** One incident record per incident, opened when the incident response team declares it, as section 6 of the [Incident Response Plan](/templates/plans/incident-response-plan/) describes. The record lives in a case management system or ticketing queue that only the team and named staff can read, separate from the general service desk queue. Typical fields:
+
+- Identifier, title, type and severity, and the systems and data affected
+- How it was reported or detected, by whom, and when it was discovered, reported and declared
+- A time-stamped log of actions, decisions and who made them
+- Evidence collected and where it is kept
+- Notifications made under IR-6, to whom and when
+- Root cause, closure date and lessons-learned actions (IR-4c)
+
+An incident report form is planned for this kit, for the first report that opens a record. Trend reports from the records (incidents by type, severity and time to contain) feed the plan's metrics (IR-8a.6) and the risk assessment.
+
+**Organization-defined parameters.** IR-5 has none. In the policy, the incident response team tracks and documents incidents. The High enhancement IR-5(1) adds a parameter for its automated mechanisms.
+
+**Evidence assessors ask for.**
+
+- The incident tracking system or log, and a list of incidents for the assessment period
+- A sample of incident records, drawn by the assessor, showing status, actions, notifications and closure
+- The access list for the tracking system
+- A trend report or metrics produced from the records
+
+**Inheritance.** Incident tracking is usually a common control, provided by the incident response team or security operations center for every system. The system owner makes sure incidents found by the system's own staff or tools reach the team and are recorded, not handled informally. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Incidents handled through email threads or chat, with no record to show the assessor.
+- Records with no time stamps, so nobody can tell whether reporting deadlines were met.
+- Records closed with no root cause or lessons learned.
+- Incident records in the general service desk queue, readable by everyone who works it.
+
+**Enhancements in the Moderate baseline.** None. High adds [IR-5(1)](#ir-5.1) automated tracking, data collection and analysis.
+
+**Federal systems** (as of October 2026). The [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) list the information agencies must give CISA: functional impact, information impact, recoverability, when the activity was first detected, the number of systems, records and users affected, the network location, and a point of contact. Build those fields into the incident record so the one-hour report on the [IR-6](/controls/ir/ir-6/) page can be filed from it.

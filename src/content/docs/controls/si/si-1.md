@@ -114,7 +114,7 @@ System-specific settings go in the [system security plan](/templates/plans/syste
 
 | Parameter | Typical value |
 | --- | --- |
-| Who receives the policy (a) | Everyone within the policy's scope, through the policy library |
+| Who receives the policy (a) | Everyone within its scope, through the policy library |
 | Who receives the procedures (a) | The people who carry them out, and the system owners |
 | Policy level (a.1) | Organization-level |
 | Official who manages the policy and procedures (b) | The Chief Information Security Officer |

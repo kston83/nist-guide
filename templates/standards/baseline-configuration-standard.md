@@ -72,7 +72,7 @@ SP 800-128 section 3.2.2 suggests where to start when not everything can be done
 Whatever its source, each baseline shall include these settings where the component supports them. (CM-6a)
 
 - disable portable storage devices on servers, and on other components allow only the organization-issued devices the Media Protection Policy permits (MP-7);
-- keep the platform's memory protections on, such as address space layout randomization and data execution prevention (SC-39);
+- keep the platform's memory protections on, such as address space layout randomization and data execution prevention (SI-16);
 - restrict mobile code and active content, such as office document macros, scripts and browser extensions, to what the organization allows (SC-18);
 - change or disable default accounts and passwords, and remove sample content and unused default services (CM-6, IA-5);
 - enable the audit events the Audit and Accountability Policy requires (AU-2, AU-12);

@@ -32,7 +32,7 @@ npm run dev          # live preview at http://localhost:4321
 npm run build        # site and template kit into dist/ (fails if a control page with guidance: set hides it)
 npm run preview      # serve the built dist/ locally
 npm run check:links  # after a build: fail on broken internal links or anchors
-npm run check:search # after a build: control and enhancement ids find their page first
+npm run check:search # after a build: every control id, and sample enhancement ids, find their page first
 npm run check:a11y   # after a build: axe finds no serious or critical issues (.pa11yci.json lists the pages)
 npm test             # unit tests for the generators and template system (fixtures, no network)
 npm run lint         # markdown lint, template lint and spell check (cspell-words.txt is the dictionary)

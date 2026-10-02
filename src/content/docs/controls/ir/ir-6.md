@@ -8,6 +8,7 @@ control:
   id: IR-6
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -124,3 +125,52 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IR-6 has two parts: everyone reports suspected incidents to the incident response capability within a set time (a), and the organization reports incident information to the authorities you name (b). NIST's IR-6 discussion says the types of incidents reported, the content and timing of reports, and the reporting authorities follow the laws, directives, regulations, policies and standards that apply. IR-6 is in the Low, Moderate, High and Privacy baselines.
+
+[NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026) covers both parts. Its Incident Management (RS.MA) rows recommend mechanisms for third parties to report possible incidents involving the organization. Its Incident Response Reporting and Communication (RS.CO) rows recommend set procedures for what is reported to whom and when, notifications that comply with the laws and regulations for the organization's sectors and locations, and contact with law enforcement and regulators based on criteria in the incident response plan and management approval.
+
+**Common implementations.** A single, well-known way to report: a service desk phone number, a shared mailbox and a reporting form, published on the intranet and in the awareness course. The rule for staff is "when in doubt, report it", which the [Incident Response Plan](/templates/plans/incident-response-plan/) states in section 4; nobody waits to confirm an incident before reporting. For part b, the plan's section 5 names the parties, the Chief Information Security Officer decides on outside notification with legal counsel (section 3), and a contact list holds each regulator, customer and partner the organization must notify, with the time each requires.
+
+**Organization-defined parameters.** Typical values, from the [Incident Response policy](/templates/policies/ir/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Time to report a suspected incident (a) | 1 hour of discovery |
+| Authorities that receive incident information (b) | Senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified |
+| Automated reporting mechanisms (IR-6(1)) | The incident reporting form and case management system, which notify the incident response team automatically |
+
+The Incident Response Plan uses the same two IR-6 values. IR-6(3) has no parameters. Contract notice times run the other way: the [acquisition security requirements](/templates/standards/acquisition-security-requirements/) standard (section 4.6) has suppliers notify the organization of incidents affecting its information or products, which then enter this reporting process.
+
+**Evidence assessors ask for.**
+
+- The reporting procedure and the channels published to staff
+- A sample of incident records showing when each incident was discovered, reported and declared, compared against the reporting time
+- The list of outside parties to notify, with the law or contract behind each and the time it allows
+- Records of notifications made to outside parties, and for federal systems the reports to CISA with their tracking numbers
+- Interviews with a few users who can say how and when they would report a suspected incident
+- For IR-6(1), the reporting form and the configuration that alerts the team when a report arrives
+
+**Inheritance.** Reporting is usually a common control: the reporting channels, the case management system and the outside notifications belong to the incident response team and legal counsel. The system owner makes sure the system's users and administrators know the channels, and that any notification duties specific to the system, such as those in a customer contract, are on the team's list. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Users who do not know how to report, or who report to their manager and stop there.
+- No record of when an incident was discovered, so the reporting time cannot be checked.
+- Notification duties in laws and contracts that nobody has listed, found only during a real incident.
+- Federal reports to CISA timed from the end of the investigation instead of from identification.
+
+**Enhancements in the Moderate baseline.**
+
+- [IR-6(1)](#ir-6.1) automated reporting: report incidents through automated mechanisms. NIST's discussion names email, website postings with automatic updates, and automated incident response tools. In the typical value, the reporting form feeds the case management system, which alerts the team. The form is planned for this kit as the incident report form; until then, a service desk or case management intake form works.
+- [IR-6(3)](#ir-6.3) supply chain coordination: give incident information to the provider of the product or service, and to other organizations in the supply chain or supply chain governance, for components related to an incident. This is the other direction from [SR-8](/controls/sr/sr-8/), which covers the notices suppliers send to the organization. NIST's discussion leaves the choice of what to share to the organization, weighing the value of telling others, such as finding the root cause. SP 800-61 Rev. 3 (RS.CO rows) recommends sharing information securely, consistent with the response plans and information sharing agreements, including contracts with suppliers. The plan's section 7 covers this; the supply chain risk management team can identify the affected components and their suppliers from the [component inventory](/templates/forms/component-inventory/).
+
+[IR-6(2)](#ir-6.2) vulnerabilities related to incidents is in no baseline. High adds nothing beyond the Moderate enhancements.
+
+**Federal systems** (as of October 2026). FISMA requires each agency's incident procedures to include notifying and consulting with the Federal information security incident center, and, as appropriate, law enforcement agencies, Offices of Inspector General and Offices of General Counsel ([44 U.S.C. § 3554](https://www.govinfo.gov/link/uscode/44/3554?link-type=html)(b)(7)(C), United States Code, 2024 edition). For a major incident, the agency notifies the committees of Congress named in the statute within 7 days of having a reasonable basis to conclude it occurred. The [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) say FISMA requires executive branch civilian agencies to notify and consult with CISA. Agencies report incidents to CISA within one hour of identification by the agency's top-level incident response team, security operations center or IT department, as the policy's federal block requires.
+
+The one-hour clock to CISA starts at identification by that top-level team, so the 1-hour internal reporting time and the CISA report are separate deadlines that can run one after the other. CISA's guidelines also tell agencies to use OMB's most recent guidance to decide whether an incident is major. <!-- TODO(verify): which OMB memorandum currently defines a major incident and sets agency reporting under FISMA; the OMB memoranda page lists only 2025 and 2026 memoranda and none on this topic, so no memo is named here. -->
+
+For [IR-6(3)](#ir-6.3), the Federal Acquisition Security Council (FASC) is the supply chain governance body NIST's discussion names. Executive agencies must expeditiously submit supply chain risk information to the FASC's information sharing agency when the FASC asks, or when the agency concludes there is a reasonable basis to find a substantial supply chain risk ([41 CFR 201-1.201](https://www.ecfr.gov/current/title-41/section-201-1.201)(b)).

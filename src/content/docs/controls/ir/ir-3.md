@@ -8,6 +8,7 @@ control:
   id: IR-3
   family: IR
   baselines: [Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -132,3 +133,43 @@ Determine if the effectiveness of the incident response capability for the syste
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IR-3 asks you to test how well the incident response capability works, at a set frequency and with tests you name. NIST's IR-3 discussion lists checklists, walk-through or tabletop exercises, and simulations, and says qualitative and quantitative data help show whether the processes work. IR-3 is in the Moderate, High and Privacy baselines, not in Low.
+
+[NIST SP 800-84](https://csrc.nist.gov/pubs/sp/800/84/final), Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (September 2006; current as of October 2026), describes the two kinds of exercise most programs use. A tabletop exercise is discussion-based: a facilitator presents a scenario and asks questions about roles, coordination and decisions. A functional exercise has personnel perform their duties in a simulated environment, for example communications or emergency notifications. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026) treats exercises as a source of improvements (CSF subcategory ID.IM-02, including exercises done with suppliers and other third parties) and points to SP 800-84 for how to run them.
+
+**Common implementations.** Each year, a tabletop exercise built on a scenario the organization is likely to face, such as ransomware, a compromised administrator account or a cloud service outage caused by an attack. A functional test of notification and escalation checks the path from report to declaration: a test report goes in through the normal channel, and the team times each call, page and message against the plan. Results are written up in an after-action report, and each action goes to an owner with a due date.
+
+SP 800-84 (section 4.2.2) has senior-level and operational teams exercise separately at first, then together to check coordination between them. Section 4.5 puts the debrief comments and lessons learned in an after-action report, with recommendations for updating the plan. A tabletop exercise kit is planned for this kit; until it is published, the [contingency plan test plan](/templates/plans/contingency-plan-test-plan/) and [after-action report](/templates/reports/contingency-plan-after-action-report/) follow the same SP 800-84 structure and work for an incident scenario.
+
+**Organization-defined parameters.** Typical values, from the [Incident Response policy](/templates/policies/ir/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Test frequency | Annually |
+| Tests used | A tabletop exercise based on a realistic scenario, and a functional test of notification and escalation |
+
+IR-3(2) has no parameters. In the policy, the incident response team runs the tests. The annual frequency matches the contingency plan test in the Contingency Planning policy (CP-4), which makes a joint exercise easy to schedule.
+
+**Evidence assessors ask for.**
+
+- The test plan or exercise materials for the last test: scenario, objectives, participants and injects
+- The after-action report, with what worked, what did not, and the recommended changes
+- The action items from the report, tracked to closure, and the plan, playbook or training changes they produced
+- Records showing the test met the stated frequency
+- For IR-3(2), evidence that the owners of related plans took part or reviewed the scenario, such as attendance lists or a joint after-action report
+
+**Inheritance.** Testing is usually a common control, run by the incident response team for the organization's capability as a whole. The system owner makes sure the system's own playbook steps and contacts are exercised from time to time, for example by choosing the system for a scenario. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- A tabletop exercise held, but no after-action report or no action taken on its findings.
+- The same scenario every year, or one that never reaches a decision about notifying outside parties.
+- Contact lists and escalation paths never tested, so the first real incident finds wrong phone numbers.
+- Incident response tests and contingency plan tests run by different teams that never involve each other.
+
+**Enhancements in the Moderate baseline.** [IR-3(2)](#ir-3.2) coordination with related plans: coordinate incident response testing with the people responsible for related plans. NIST's discussion lists business continuity, disaster recovery, continuity of operations, contingency, crisis communications, critical infrastructure and occupant emergency plans. The policy names contingency, continuity and crisis communications plans as examples. SP 800-61 Rev. 3 recommends synchronizing business continuity plans with incident response plans (ID.IM-04). A practical way to meet IR-3(2) is to run the incident response tabletop and the contingency plan test ([CP-4](/controls/cp/cp-4/)) as one exercise, with a scenario that moves from containment into recovery under the [contingency plan](/templates/plans/contingency-plan/).
+
+High adds nothing beyond IR-3(2). [IR-3(1)](#ir-3.1) automated testing and [IR-3(3)](#ir-3.3) continuous improvement are in no baseline.

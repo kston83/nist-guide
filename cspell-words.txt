@@ -33,6 +33,7 @@ DNSKEY
 DNSSEC
 ECDH
 exfiltration
+FASC
 FEMA
 FFIEC
 FIPS

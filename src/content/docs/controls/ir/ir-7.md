@@ -8,6 +8,7 @@ control:
   id: IR-7
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -102,3 +103,40 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IR-7 asks for a support resource, part of the incident response capability, that gives the system's users advice and help with handling and reporting incidents. NIST's IR-7 discussion names help desks, assistance groups, automated ticketing systems that open and track incident tickets, and access to forensics services or consumer redress services when needed. IR-7 is in the Low, Moderate, High and Privacy baselines.
+
+[NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026), section 2.2, notes that incident handlers may be on staff, on contract (such as a managed security services provider), or available when needed from a parent organization, a services provider, a business partner or law enforcement. Its Incident Management (RS.MA) rows recommend contacting the organization's incident response service provider for assistance when appropriate.
+
+**Common implementations.** The service desk is the front door: staff take the call or ticket, ask a short set of questions, give the user first steps (for example, disconnect from the network but leave the device on), and hand the report to the incident response team. The team's on-call rotation backs the desk outside business hours. A retained incident response provider backs the team for major incidents, as the typical answer in the [IR decision worksheet](/templates/worksheets/ir/) has it, and supplies forensics the team cannot do itself. The [Incident Response Plan](/templates/plans/incident-response-plan/) lists the provider in its contacts appendix.
+
+**Organization-defined parameters.** IR-7 has none. The Moderate baseline adds one in IR-7(1). Typical value, from the [Incident Response policy](/templates/policies/ir/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Automated mechanisms that make incident response information and support available (IR-7(1)) | A self-service reporting portal and an incident response page on the intranet |
+
+In the policy, the incident response team provides the support resource.
+
+**Evidence assessors ask for.**
+
+- The procedure or script the service desk follows for incident calls, and its escalation path to the incident response team
+- The on-call schedule for the incident response team
+- The contract or retainer with any outside incident response provider, with how to invoke it
+- A few incident tickets showing the advice users were given and the hand-off to the team
+- For IR-7(1), the reporting portal and the intranet page, with the date the page was last updated
+
+**Inheritance.** The service desk, the on-call rotation and any retained provider are usually common controls. The system owner makes sure the system's users know where to get help, and that the desk can reach the system's administrators. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Service desk staff who treat incident calls as routine tickets, with no escalation.
+- No coverage outside business hours, or an on-call number that goes to voicemail.
+- A retained provider whose contract nobody can find, or whose activation steps were never tested.
+- An intranet page with outdated contacts or a broken reporting link.
+
+**Enhancements in the Moderate baseline.** [IR-7(1)](#ir-7.1) automation support for availability of information and support. NIST's discussion describes a push or pull capability: a website where users can ask for help, or messages the capability sends to users. In the typical value, the portal is the pull side and the intranet page holds the reporting channels and first steps; alerts sent to users during a major incident are the push side. Training (IR-2) should point users to both.
+
+High adds nothing beyond IR-7(1). [IR-7(2)](#ir-7.2) coordination with external providers is in no baseline.

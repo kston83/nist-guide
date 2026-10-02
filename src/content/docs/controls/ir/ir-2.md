@@ -8,6 +8,7 @@ control:
   id: IR-2
   family: IR
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -131,3 +132,49 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+IR-2 asks you to train system users for the part they play in incident response: when they take on an incident response role or get system access, when system changes require it, and at a set interval after that. You also review and update the training content on a schedule and after set events. NIST's IR-2 discussion scales the content to the role: users may only need to know how to recognize an incident and whom to call, administrators need more on handling incidents, and incident responders get specific training on forensics, data collection, reporting and recovery. IR-2 is in the Low, Moderate, High and Privacy baselines.
+
+The user part can be delivered through security literacy training ([AT-2](/controls/at/at-2/)) and the role parts through role-based training ([AT-3](/controls/at/at-3/)), as NIST's discussion allows. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026) recommends in its Awareness and Training (PR.AT) rows that role-based training include incident-related responsibilities.
+
+**Common implementations.** The awareness course every user takes before access covers recognizing and reporting incidents, with the reporting channels and time from the Incident Response Plan; the [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) lists it in section 3. Role-based courses, listed in the plan's section 5, cover the rest:
+
+- Service desk staff: taking an incident report, the questions to ask, and when to escalate (IR-7)
+- System and network administrators: preserving evidence, isolating a host, and their steps in the playbooks
+- Incident response team members: the plan, the playbooks, the case management system, forensics and evidence handling, and reporting duties
+- Leaders, legal counsel and communications staff: declaring major incidents, notification decisions and public statements
+
+Completions are recorded in the learning management system or the [training record log](/templates/forms/training-record-log/), so the 30-day clock can be checked for each person.
+
+**Organization-defined parameters.** Typical values, from the [Incident Response policy](/templates/policies/ir/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Time to train after assuming a role or acquiring access (a.1) | 30 days |
+| Refresher frequency (a.3) | Annually |
+| Content review frequency (b) | Annually |
+| Events that trigger a content review (b) | A change to the incident response plan, and lessons learned from an incident or exercise |
+
+The trigger events follow NIST's discussion, which names incident response plan testing and actual incidents. In the policy, the incident response team provides the training and keeps the content current. The Awareness and Training policy already names incident responders among the roles that get role-based training each year (AT-3), so one annual cycle can cover both controls.
+
+**Evidence assessors ask for.**
+
+- The training materials for each audience, with the date each was last reviewed and what changed
+- Training records for a sample of users and incident response staff, compared against their access or role start dates and the 30-day period
+- Records of training given after a system change, such as a new case management or monitoring tool
+- Evidence that a plan change or a lesson learned reached the content, for example a lessons-learned action closed by a course update
+
+**Inheritance.** Incident response training is usually a common control, delivered by the incident response team through the organization's training program. The system owner makes sure people with system-specific incident duties, such as the system's administrators, are trained on the system's own playbook steps and contacts. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Everyone gets the same awareness module, with nothing for administrators or responders.
+- No records for incident response team members, or records only for the annual refresher, not for initial training within the period.
+- Content never updated after a plan change or a major incident.
+- Service desk staff who take incident calls but were never trained to recognize one.
+
+**Enhancements in the Moderate baseline.** None. High adds [IR-2(1)](#ir-2.1) simulated events and [IR-2(2)](#ir-2.2) automated training environments.
+
+**Enhancements in the Privacy baseline.** [IR-2(3)](#ir-2.3) breach. Its policy clause and guidance come with this family's incident response artifacts.

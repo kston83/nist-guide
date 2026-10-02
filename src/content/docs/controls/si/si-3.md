@@ -8,6 +8,7 @@ control:
   id: SI-3
   family: SI
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -183,3 +184,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SI-3 asks you to run malicious code protection at system entry and exit points (a), keep it updated automatically under configuration management (b), scan periodically and in real time, then block, quarantine or act and alert when it finds something (c), and deal with false positives and their effect on availability (d). NIST's SI-3 discussion lists entry and exit points: firewalls, remote access servers, workstations, email servers, web servers, proxy servers, notebook computers and mobile devices. It says protection includes both signature-based and non-signature-based technologies, such as heuristics and reputation, for code that has no signature yet. SI-3 is in the Low, Moderate and High baselines.
+
+NIST's discussion also says that where malicious code cannot be detected, organizations rely on other controls: secure coding, configuration management, trusted procurement and monitoring. Application allow listing ([CM-7](/controls/cm/cm-7/)), integrity verification ([SI-7](/controls/si/si-7/)) and timely patching ([SI-2](/controls/si/si-2/)) do much of that work. For a full treatment of preventing and handling malware incidents on endpoints, NIST SP 800-83 Rev. 1, [Guide to Malware Incident Prevention and Handling for Desktops and Laptops](https://csrc.nist.gov/pubs/sp/800/83/r1/final) (July 2013), is the final version as of October 2026, with no newer revision or draft listed.
+
+**Common implementations.** Endpoint detection and response (EDR) on every server and workstation, combining signatures with behavior analysis, managed from one console that pushes updates automatically. Malware scanning in the email gateway and the web proxy or secure web gateway, so files are checked as they enter. Scanning of file uploads in the system's own applications and storage, where users can submit files. Detections that block or quarantine automatically and raise an alert in the security operations team's queue, where they are triaged with the other monitoring alerts ([SI-4](/controls/si/si-4/)). Cloud workloads and containers covered by the provider's or a third party's workload protection where a traditional agent cannot run.
+
+**Organization-defined parameters.** Typical values, from the [System and Information Integrity policy](/templates/policies/si/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Type of malicious code protection (a) | Signature-based and non-signature-based |
+| Frequency of periodic scans (c.1) | At least weekly |
+| Where real-time scans run (c.1) | Endpoint and network entry and exit points |
+| Action on detection (c.2) | Block and quarantine malicious code |
+| Who is alerted (c.2) | The security operations team |
+
+The policy leaves the third choice of the c.2 selection, an organization-defined action, unselected; add one if you want another response, such as isolating the host from the network. For SI-3d it has the security operations team review reported false positives, approve each scan exclusion with a documented reason and an expiry date, and record the effect of false positives on the system's availability. Under the [patch and flaw remediation standard](/templates/standards/patch-and-flaw-remediation-standard/), protection updates install automatically as they are released (SI-3b). Other policies use SI-3 too: diagnostic media are scanned before use under [MA-3(2)](/controls/ma/ma-3/), and portable storage devices before they are connected under [MP-6(3)](/controls/mp/mp-6/).
+
+**Evidence assessors ask for.**
+
+- The EDR and gateway configuration: detection types enabled, scan schedule, real-time scanning, and the action on detection
+- The EDR console's list of protected hosts, compared with the [component inventory](/templates/forms/component-inventory/), with the components that cannot run an agent and how they are covered
+- Signature and engine versions across hosts, showing updates arrive automatically
+- A sample of recent detections, with the alert and how the security operations team handled it
+- The list of scan exclusions, each with its reason, approver and expiry date
+- The baseline configuration that keeps the agent installed and running ([CM-6](/controls/cm/cm-6/)), as the [baseline configuration standard](/templates/standards/baseline-configuration-standard/) records it
+
+**Inheritance.** EDR, the email gateway and the web proxy are usually common controls, run by the security and IT operations teams for every system. The system owner makes sure every component that can run the agent has it, and covers what the enterprise tools do not, such as file uploads to the system's own applications. For a cloud service, the provider covers its own infrastructure; record in the [system security plan](/templates/plans/system-security-plan/) which parts are inherited, which are the organization's and which are the system's.
+
+**Common findings.**
+
+- Servers, especially Linux servers and appliances, with no agent, and no compensating protection recorded.
+- Broad scan exclusions, such as whole drives or application folders, added to fix a performance problem and never reviewed.
+- Agents installed but out of date, disabled by administrators, or reporting to a console no one watches.
+- Detections that quarantine files with no alert to anyone, so an intrusion is never investigated.
+- File upload features in applications that accept files with no scanning.
+
+**Enhancements in the Moderate baseline.** None. SI-3 has no enhancements in any baseline. SI-3(1), SI-3(2), SI-3(3), SI-3(5), SI-3(7) and SI-3(9) are withdrawn. Four are in no baseline: [SI-3(4)](#si-3.4) updates only when a privileged user directs them, [SI-3(6)](#si-3.6) testing protection by introducing known benign code and checking that detection and incident reporting occur, [SI-3(8)](#si-3.8) detecting unauthorized operating system commands through the kernel interface, and [SI-3(10)](#si-3.10) malicious code analysis, whose results feed incident response and flaw remediation. A periodic test with a harmless test file is a cheap way to show the whole chain works, even where SI-3(6) is not selected.

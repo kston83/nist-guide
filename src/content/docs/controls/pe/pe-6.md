@@ -8,6 +8,7 @@ control:
   id: PE-6
   family: PE
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -165,3 +166,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PE-6 asks you to watch physical access, not just control it: monitor the facility to detect and respond to physical security incidents (a), review the physical access logs on a schedule and when something happens (b), and coordinate the results with the incident response capability (c). NIST's PE-6 discussion says monitoring includes publicly accessible areas, and gives guards, video surveillance and sensors as examples. It lists suspicious physical access activity: accesses outside normal work hours, repeated accesses to areas not normally accessed, accesses for unusual lengths of time, and out-of-sequence accesses. Where the access logs are part of an automated system, audit logging controls such as [AU-2](/controls/au/au-2/) support the reviews.
+
+**Common implementations.** Guards or reception staff watch the entrances and camera feeds during business hours, and an alarm monitoring service covers the rest. The physical access control system's reports flag after-hours entries, denied attempts, doors forced or held open, and badges used at doors their holders rarely use; the facilities manager reviews them each month and records the review. Many organizations also send the access control system's events to the security operations team's log platform, where they can be correlated with logons and VPN sessions ([AU-6](/controls/au/au-6/)). A suspected physical security incident, such as a forced door, a stolen laptop or an unknown person in a server room, is reported and handled under the [incident response plan](/templates/plans/incident-response-plan/) ([IR-6](/controls/ir/ir-6/)).
+
+**Organization-defined parameters.** Typical values, from the [Physical and Environmental Protection policy](/templates/policies/pe/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Log review frequency (b) | At least monthly |
+| Events that trigger a log review (b) | A physical security incident or alarm, a lost or stolen badge or key, reported tailgating, access attempts outside normal working hours, and a request from the incident response team |
+
+The policy has each review look for the four kinds of suspicious activity in NIST's discussion and be recorded with its date, the reviewer, the period covered and the anomalies found, and has the facilities manager coordinate results with the incident response team.
+
+**Evidence assessors ask for.**
+
+- How the facility is monitored: guard posts and hours, cameras, alarms and who receives them
+- The records of the last few log reviews, with the anomalies found and what was done
+- A sample of event-driven reviews, such as the review after a lost badge was reported
+- Incident reports for physical security events, and how they reached the incident response team
+- For PE-6(1), the alarm and camera coverage, the monitoring arrangement and the last test
+
+**Inheritance.** For a system hosted in a cloud service or colocation data center, the provider monitors its facility, and the [system security plan](/templates/plans/system-security-plan/) records PE-6 and PE-6(1) as inherited for it. The organization still monitors its own offices and equipment rooms, usually as a common control run by the facilities manager, and the coordination with incident response (c) often stays with the organization even where the provider monitors.
+
+**Common findings.**
+
+- Access logs collected but never reviewed, or reviews with no record.
+- Reviews that look only at denied attempts and miss after-hours entries by authorized badges.
+- Physical security incidents handled by facilities or building management and never reported to the incident response team.
+- Cameras that do not record, point at the wrong door, or overwrite their footage before anyone could review it.
+- Alarms that go to a mailbox or panel no one watches after hours.
+
+**Enhancements in the Moderate baseline.** [PE-6(1)](#pe-6.1) intrusion alarms and surveillance equipment. High adds [PE-6(4)](#pe-6.4) monitoring physical access to systems. [PE-6(2)](#pe-6.2) automated intrusion recognition and responses and [PE-6(3)](#pe-6.3) video surveillance are in no baseline.
+
+- **PE-6(1)** monitors physical access using intrusion alarms and surveillance equipment. It has no parameters. NIST's discussion says intrusion alarms alert security personnel when unauthorized access is attempted, working with barriers, access control systems and guards by triggering a response when they are breached; sensors include motion, contact and glass-break sensors, and surveillance equipment includes cameras at strategic locations. The policy has alarms cover the facility's entry points and each area that contains system components when it is unoccupied, alerting guards, a monitoring service or designated staff who respond; cameras cover the entry points to the facility and to those areas, with recordings kept for the period the records schedule sets and access limited to authorized staff; and the alarms and cameras tested at least annually. Recordings show identifiable people, so treat them as personally identifiable information.
+- **PE-6(4)** (High) adds monitoring of physical access to the system itself, in addition to the facility, at the spaces you name. NIST's discussion says it adds monitoring where system components are concentrated, such as server rooms, media storage areas and communications centers, and that it can be coordinated with intrusion detection and system monitoring. Typical value: data centers, server rooms, wiring closets and media storage areas that contain components of the system, the same spaces as [PE-3(1)](/controls/pe/pe-3/#pe-3.1). The policy sends physical access events for those spaces to the security operations team for correlation with system monitoring.

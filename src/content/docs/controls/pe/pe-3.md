@@ -8,6 +8,7 @@ control:
   id: PE-3
   family: PE
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -240,3 +241,51 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PE-3 enforces the authorizations [PE-2](/controls/pe/pe-2/) grants. It covers verifying each person's authorization at the entry and exit points and controlling ingress and egress (a), access logs (b), the boundary between public and non-public areas (c), visitor escorts (d), and the keys, combinations and badges themselves: securing them (e), inventorying them (f) and changing them (g). NIST's PE-3 discussion says physical access devices include keys, locks, combinations, biometric readers and card readers; that controls for publicly accessible areas may include logs, guards, or devices and barriers that stop movement from public to non-public areas; and that audit logs can be procedural, automated or both. Access points can be the facility's doors, interior doors to areas that need extra control, or both.
+
+**Common implementations.** An electronic physical access control system with a badge reader at each controlled door logs every entry, and a staffed reception desk or guard post at the main entrance checks people in during business hours. Interior doors to server rooms, wiring closets and media storage areas have their own readers and access levels. Visitors receive a day badge that looks different from permanent badges and are escorted in non-public areas; the [visitor log](/templates/forms/visitor-log/) records the escort. Keys and combinations are few, held by named people and recorded with the badge stock in the device inventory of the [physical access list](/templates/forms/physical-access-list/), which is counted each year. A lost badge is disabled the same day it is reported.
+
+**Organization-defined parameters.** Typical values, from the [Physical and Environmental Protection policy](/templates/policies/pe/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Entry and exit points where authorizations are enforced (a) | Every entry and exit point of the facility, and of each area within it that contains system components |
+| Systems or devices, guards, or both, controlling ingress and egress (a.2) | An electronic physical access control system with badge readers at each controlled entry point, and guards or staffed reception at the main entrance during business hours |
+| Entry or exit points with physical access audit logs (b) | Every controlled entry point to the facility and to each area that contains system components |
+| Controls for publicly accessible areas (c) | A staffed reception or guard post, locked or badge-controlled doors between public and non-public areas, and no unattended system components or live network jacks in public areas |
+| Circumstances requiring visitor escorts (d) | At all times in non-public areas, for every visitor and for anyone without a physical access authorization for the area, including maintenance personnel who are not on the authorized maintenance list |
+| Physical access devices to inventory (f) | Keys, lock combinations, and badges and access cards, including unissued, temporary and visitor badges |
+| Inventory frequency (f) | At least annually |
+| Combination change frequency (g) | At least annually |
+| Key change frequency (g) | At least every five years, and sooner when an inventory cannot account for an issued key |
+
+The a.2 selection takes both options: the access control system is the "systems or devices" the selection asks you to name, and guards or staffed reception cover the main entrance. The escort circumstances match the maintenance escorts in [MA-5](/controls/ma/ma-5/), and the policy adds that each person badges in individually, that tailgating is reported, that visitor and temporary badges look different and are returned on departure, and that a lost or stolen badge is disabled the same day. Changing keys and combinations when people who hold them leave or transfer (g) is required by the control itself, whatever frequency you set.
+
+**Evidence assessors ask for.**
+
+- The list of controlled entry points and areas, with the control at each (section 2 of the physical access list)
+- Physical access control system logs for a sample of doors and dates, and how the logs are protected ([AU-9](/controls/au/au-9/))
+- Observation of the entrances: whether reception checks people, whether doors are propped open, and whether a visitor can walk in unescorted
+- Visitor log entries showing the escort for a sample of visits
+- The key, combination and badge inventory, the last annual count, and the records of the last combination and key changes
+- Records showing that badges of departed staff and lost badges were disabled, and that combinations were changed when holders left
+
+**Inheritance.** For a system hosted in a cloud service or colocation data center, the provider controls access to its facility, and the [system security plan](/templates/plans/system-security-plan/) records PE-3 as inherited for it, backed by the provider's authorization or audit report. The organization still meets PE-3 for its own offices and equipment rooms, usually as a common control run by the facilities manager for every system in the building. A colocation cage with the organization's own lock or badge reader inside the provider's facility makes PE-3 a hybrid control.
+
+**Common findings.**
+
+- Server room or wiring closet doors propped open, or opened by the building badge every employee holds.
+- Tailgating through badge-controlled doors, with no one challenging it.
+- Visitors left alone in non-public areas, or visitor badges not collected at departure.
+- No inventory of keys and combinations, or locks never rekeyed after keys went missing.
+- Combinations unchanged for years, and known to people who have since left.
+- Access control system logs kept only on a local controller, overwritten within days, so no one can answer who entered on a given date.
+
+**Enhancements in the Moderate baseline.** None. High adds [PE-3(1)](#pe-3.1) system access. [PE-3(2)](#pe-3.2) facility and systems, [PE-3(3)](#pe-3.3) continuous guards, [PE-3(4)](#pe-3.4) lockable casings, [PE-3(5)](#pe-3.5) tamper protection, [PE-3(7)](#pe-3.7) physical barriers and [PE-3(8)](#pe-3.8) access control vestibules are in no baseline. PE-3(6) is withdrawn.
+
+- **PE-3(1)** enforces physical access authorizations to the system in addition to the facility's controls, at the spaces you name. NIST's discussion says it adds protection where system components are concentrated. Typical value: data centers, server rooms, wiring closets and media storage areas that contain components of the system. In practice it is a second, separately authorized door: the building badge does not open the server room, and access to those spaces is approved by the system owner and limited to people whose duties require it. Section 2 of the physical access list records each such area and its entry control.
+
+**Federal systems** (as of October 2026). [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022, the current revision), section 6.3.1, lists the PIV authentication mechanisms for physical access and the assurance each provides, marks visual inspection (VIS) and SYM-CAK as deprecated, and states that "The selection of authentication assurance levels SHALL be made in accordance with the applicable policies for a facility's security level". [NIST SP 800-116 Rev. 1](https://csrc.nist.gov/pubs/sp/800/116/r1/final) (June 2018, final, with no newer revision or draft) recommends a risk-based selection organized by Controlled, Limited and Exclusion areas, with at least one, two and three authentication factors respectively (section 4.3, Table 4-3). The Interagency Security Committee's [The Risk Management Process: An Interagency Security Committee Standard](https://www.cisa.gov/publication/risk-management-process), 2024 Edition, the current edition on CISA's publication page, applies to federally owned or leased facilities regularly occupied by executive branch employees or contract workers for nonmilitary activities (section 3.0), and has the tenant make the final Facility Security Level (FSL) determination, from Level I to Level V (section 8.1.1). The PE-3 clause's federal block designates each area of a federally controlled facility as Controlled, Limited or Exclusion consistent with its FSL, records the designation in the physical access list, and has the access control system authenticate PIV Cards electronically with the number of factors Table 4-3 recommends, never by visual inspection of the card alone.

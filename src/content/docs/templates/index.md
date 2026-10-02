@@ -75,6 +75,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
 | [Security and Privacy Assessment Plan](/templates/plans/security-and-privacy-assessment-plan/) | [Operate](/program/operate/) | Draft |
 | [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | [Core](/program/core/) | Draft |
+| [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) | [Mature](/program/mature/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
 
 ## Standards
@@ -107,6 +108,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
 | [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
+| [Supplier Assessment Questionnaire](/templates/forms/supplier-assessment-questionnaire/) | [Mature](/program/mature/) | Draft |
 | [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |
 | [Training Record Log](/templates/forms/training-record-log/) | [Core](/program/core/) | Draft |
 | [Visitor Log](/templates/forms/visitor-log/) | [Operate](/program/operate/) | Draft |

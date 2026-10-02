@@ -3,7 +3,7 @@ title: 'System Security Plan'
 description: 'The security plan for one system, following the NIST SP 800-18 Rev. 2 outline and covering every element SP 800-53 PL-2 requires.'
 sidebar:
   label: 'System Security Plan'
-  order: 27
+  order: 29
 controls: [pl-2, ra-2, cm-8, ca-3, ca-5]
 ---
 
@@ -177,7 +177,7 @@ Security- and privacy-related activities affecting the system are planned and co
 ### 14. Referenced artifacts
 
 :::note[Guidance]
-Templates for several of these artifacts: the [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/), the [security and privacy assessment plan](/templates/plans/security-and-privacy-assessment-plan/) and [assessment report](/templates/reports/security-and-privacy-assessment-report/), and the [information exchange agreement](/templates/forms/information-exchange-agreement/).
+Templates for several of these artifacts: the [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/), the [security and privacy assessment plan](/templates/plans/security-and-privacy-assessment-plan/) and [assessment report](/templates/reports/security-and-privacy-assessment-report/), and the [information exchange agreement](/templates/forms/information-exchange-agreement/). The [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) can be a separate document or a clearly identifiable section of this plan (SR-2).
 :::
 
 | Artifact | Location |
@@ -190,6 +190,7 @@ Templates for several of these artifacts: the [Continuous Monitoring Strategy](/
 | Continuous Monitoring Strategy and monitoring results | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Plan of action and milestones | <span class="tpl-field tpl-fill">Fill in: location</span> |
 | Risk assessment reports | <span class="tpl-field tpl-fill">Fill in: location</span> |
+| Supply chain risk management plan, with supplier assessments | <span class="tpl-field tpl-fill">Fill in: location, or the section of this plan that serves as it</span> |
 
 ### 15. Plan distribution, review and change records
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Checks site search after a build (PRD NAV-01): searching a control or
- * enhancement id returns that control's page first.
+ * enhancement id returns that control's page first. Besides the cases below,
+ * every base control id in the catalog is searched as "AC-2", "ac-2" and "AC2".
  *
  *   npm run build && npm run check:search
  *
@@ -50,16 +51,24 @@ const pagefind = await import(new URL('pagefind.js', bundle).href);
 await pagefind.options({ basePath: bundle.href, baseUrl: `${BASE}/` });
 await pagefind.init();
 
+// Every base control id, in three common forms; only failures are printed for these.
+const named = CASES.length;
+const catalog = JSON.parse(await fs.readFile(new URL('../src/data/catalog.json', import.meta.url), 'utf8'));
+for (const { id, label, family } of catalog.controls.filter((c) => !c.id.includes('.'))) {
+	const page = `/controls/${family}/${id}/`;
+	CASES.push([label, page], [label.toLowerCase(), page], [label.replace('-', ''), page]);
+}
+
 const path = (url) => url.slice(url.indexOf(BASE) + BASE.length);
 let failed = 0;
-for (const [query, page, anchor] of CASES) {
+for (const [i, [query, page, anchor]] of CASES.entries()) {
 	const { results } = await pagefind.search(processTerm(query));
 	const first = results[0] && (await results[0].data());
 	const got = first ? path(first.url) : '(no results)';
 	const sub = anchor && first?.sub_results.map((s) => path(s.url)).find((u) => u.includes('#'));
 	const ok = got === page && (!anchor || sub?.startsWith(page + anchor));
 	if (!ok) failed++;
-	console.log(`${ok ? 'ok  ' : 'FAIL'} "${query}" -> ${got}${anchor ? ` (${sub ?? 'no section'})` : ''}${ok ? '' : `, expected ${page}${anchor ?? ''}`}`);
+	if (!ok || i < named) console.log(`${ok ? 'ok  ' : 'FAIL'} "${query}" -> ${got}${anchor ? ` (${sub ?? 'no section'})` : ''}${ok ? '' : `, expected ${page}${anchor ?? ''}`}`);
 }
 if (failed) {
 	console.error(`\n${failed} search check(s) failed.`);

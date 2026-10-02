@@ -1,7 +1,7 @@
 // Starlight's search box builds the Pagefind UI with only serializable options,
 // so astro.config.mjs aliases "@pagefind/default-ui" to this file, which adds
-// enhancement id handling (PRD NAV-01): processTerm rewrites "AC-2(3)" to its
-// search token, and processResult removes tokens from excerpts. Starlight's own
+// control and enhancement id handling (PRD NAV-01): processTerm rewrites "AC-2"
+// and "AC-2(3)" to their search tokens, and processResult removes tokens from excerpts. Starlight's own
 // options, including its processResult, still apply.
 import { PagefindUI as Base } from '@pagefind/default-ui/npm_dist/mjs/ui-core.mjs';
 import { cleanExcerpt, processTerm } from './search-tokens.mjs';

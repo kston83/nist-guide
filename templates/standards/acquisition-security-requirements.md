@@ -106,7 +106,7 @@ This paragraph applies to High systems.
 - Each contract shall require the supplier to identify the origin of critical components and to tell the organization of changes in the suppliers of those components. {{fill:further supply chain terms from the supply chain risk management plan, or "none"}} (SR-5)
 
 :::guidance
-[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024, current as of September 2026), covers supply chain requirements in acquisitions in more depth. Align the supply chain terms here with the organization's supply chain risk management plan (SR-2) once it exists.
+[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024, current as of September 2026), covers supply chain requirements in acquisitions in more depth. Align the supply chain terms here with the SR-5 and SR-8 statements of the [Supply Chain Risk Management Policy](/templates/policies/sr/), which rely on them, and with each system's supply chain risk management plan (SR-2).
 :::
 
 ### 4.6 Support, notification and updates

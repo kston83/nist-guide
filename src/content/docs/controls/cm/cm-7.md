@@ -312,7 +312,7 @@ Determine if:
 
 Least functionality removes what the system does not need: unused services, open ports, protocols and software. Every function left running is attack surface, so CM-7 pairs a defined set of essential capabilities with periodic reviews and, at Moderate, execution control.
 
-**Common implementations.** Hardened images with unneeded services disabled. Host and network firewalls that allow only documented ports and protocols. Periodic port and service scans compared against the approved list (CM-7(1)). Application allow listing on servers and, increasingly, workstations (CM-7(2), CM-7(5)).
+**Common implementations.** Hardened images with unneeded services disabled. Host and network firewalls that allow only documented ports and protocols. Periodic port and service scans compared against the approved list (CM-7(1)). Application allow listing on servers and, increasingly, workstations (CM-7(2), CM-7(5)). The [baseline configuration standard](/templates/standards/baseline-configuration-standard/) lists the prohibited and restricted items, each system's approved ports, protocols and services, and the record of each periodic review.
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

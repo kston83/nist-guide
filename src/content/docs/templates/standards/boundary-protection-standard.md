@@ -3,7 +3,7 @@ title: 'Boundary Protection Standard'
 description: 'The managed interfaces, traffic rules, segmentation, remote access and monitoring requirements that make the system and communications protection policy''s boundary requirements (SP 800-53 SC-7) and information flow enforcement (AC-4) measurable.'
 sidebar:
   label: 'Boundary Protection Standard'
-  order: 31
+  order: 35
 controls: [sc-7, sc-7.3, sc-7.4, sc-7.5, sc-7.7, sc-7.8, sc-7.18, sc-7.21, ac-4]
 ---
 

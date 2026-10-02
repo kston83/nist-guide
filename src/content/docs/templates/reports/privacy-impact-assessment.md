@@ -3,7 +3,7 @@ title: 'Privacy Impact Assessment'
 description: 'The analysis and record of how a system, program or activity handles personally identifiable information, the privacy risks that creates for individuals and how they are reduced, done before development, procurement or a new collection and kept up to date as the processing changes, as SP 800-53 RA-8 requires.'
 sidebar:
   label: 'Privacy Impact Assessment'
-  order: 27
+  order: 30
 controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, sc-7.24, ra-3]
 ---
 

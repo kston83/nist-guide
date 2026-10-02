@@ -3,7 +3,7 @@ title: 'Privacy Notice'
 description: 'The privacy notice an organization publishes on its privacy page and links from every point where it collects personally identifiable information, with a short notice for forms and screens, a Privacy Act statement for federal collections, and a register of where each notice is posted, as SP 800-53 PT-5 and PM-20(1) require.'
 sidebar:
   label: 'Privacy Notice'
-  order: 9
+  order: 11
 controls: [pt-5, pt-5.2, pm-20, pm-20.1, pt-2, pt-3, pt-4, pt-7]
 ---
 

@@ -3,7 +3,7 @@ title: 'Security and Privacy Assessment Report'
 description: 'The results of one control assessment, with a finding of satisfied or other than satisfied for each control and the evidence behind it, following the key elements in SP 800-53A Rev. 5 Appendix E; its findings feed the POA&M (CA-5) and the authorization package (CA-6).'
 sidebar:
   label: 'Security and Privacy Assessment Report'
-  order: 29
+  order: 32
 controls: [ca-2, ca-2.1, ca-5, ca-6, ca-7]
 ---
 

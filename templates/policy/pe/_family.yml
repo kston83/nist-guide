@@ -26,5 +26,5 @@ questions:
     decides: Facilities manager
   - question: Which alternate work sites are allowed, and what controls apply there?
     controls: [pe-17]
-    typical: Employees' homes, under an approved telework agreement, and other organization facilities; work only on organization-issued devices connected through the approved remote access methods, in a workspace where screens and conversations are not overseen or overheard, with the Rules of Behavior covering the rest.
+    typical: Employees' homes, under an approved telework agreement, and other organization facilities; work only on organization-issued devices, or personally owned devices the organization approves and manages, connected through the approved remote access methods, in a workspace where screens and conversations are not overseen or overheard, with the Rules of Behavior covering the rest.
     decides: Chief Information Security Officer

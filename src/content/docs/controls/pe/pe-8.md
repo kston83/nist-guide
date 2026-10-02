@@ -8,6 +8,7 @@ control:
   id: PE-8
   family: PE
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -108,3 +109,46 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PE-8 asks you to keep records of visitors to the facility where the system resides for a set period (a), review them on a schedule (b), and report anomalies (c). NIST's PE-8 discussion lists what the records include: names and organizations of visitors, visitor signatures, forms of identification, dates of access, entry and departure times, purpose of visits, and names and organizations of the individuals visited. It says reviews determine whether access authorizations are current and still required, and that records are not required for publicly accessible areas. People with permanent credentials are not visitors; they are on the [physical access list](/templates/forms/physical-access-list/) ([PE-2](/controls/pe/pe-2/)).
+
+The [visitor log](/templates/forms/visitor-log/) holds the record fields, the retention period, the monthly reviews and the anomalies reported. It also records each visitor's escort and badge, the evidence for the escort requirement in [PE-3](/controls/pe/pe-3/) (PE-3d).
+
+**Common implementations.** Reception signs in every visitor to a non-public area, checks identification, issues a day badge and records the escort, in a paper log or an electronic visitor management system that prints the badge. Departure times and returned badges are recorded at sign-out. Each month the facilities manager reviews the records for visitors with no departure time, badges not returned, visits outside normal hours, visits with no escort, and repeat visitors who should have a PE-2 authorization instead, and reports anomalies to the security operations team. Maintenance personnel who work on the system also appear in the [maintenance log](/templates/forms/maintenance-log/) ([MA-5](/controls/ma/ma-5/)).
+
+**Organization-defined parameters.** Typical values, from the [Physical and Environmental Protection policy](/templates/policies/pe/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Retention period for visitor access records (a) | 2 years, or longer where the organization's records retention schedule requires |
+| Review frequency (b) | At least monthly |
+| Who receives reports of anomalies (c) | The facilities manager and the security operations team |
+
+The policy lists the fields each record holds and the checks each review makes, and has the security operations team handle any anomaly that suggests an incident under the [incident response plan](/templates/plans/incident-response-plan/) ([IR-6](/controls/ir/ir-6/)).
+
+**Evidence assessors ask for.**
+
+- The visitor log or visitor management system for each entrance where visitors are received
+- The records for a few dates the assessor picks, checked for escorts, badges and departure times
+- The retention setting or records schedule, and the oldest records still held
+- The last few monthly reviews, with the anomalies found and to whom they were reported
+- For PE-8(1), the visitor management system and its review reports
+
+**Inheritance.** For a system hosted in a cloud service or colocation data center, the provider keeps visitor records for its facility, and the [system security plan](/templates/plans/system-security-plan/) records PE-8 as inherited for it. The organization keeps its own records for its offices and equipment rooms, usually as a common control run by the facilities manager for every system in the building. In a shared building, a landlord's lobby sign-in does not record escorts or the person visited; keep the organization's own log at its own reception.
+
+**Common findings.**
+
+- Visitor logs with missing departure times, unreadable names, or no escort recorded.
+- Records discarded after a few months, or kept in a binder no one reviews.
+- Contractors who come every day signing in as visitors for months instead of being authorized under PE-2.
+- Paper sign-in sheets that show every earlier visitor's name and details to the next one.
+
+**Enhancements in the Moderate baseline.** None. High adds [PE-8(1)](#pe-8.1) automated records maintenance and review. PE-8(2) is withdrawn.
+
+- **PE-8(1)** (High) maintains and reviews visitor access records with automated mechanisms. NIST's discussion says the records may be kept in a database accessible to organizational personnel, and that automated access makes regular reviews easier. Typical values: maintain them using an electronic visitor management system, and review them using the visitor management system's reports, compared with the physical access control system's logs. The system meets the maintenance half by printing the badge and recording the escort; the review half needs reports, such as open visits and badges not returned, that someone reads on the PE-8 schedule.
+
+**Enhancements in the Privacy baseline.** [PE-8(3)](#pe-8.3) limits the personally identifiable information in visitor access records to the elements the privacy risk assessment identifies. NIST's discussion says organizations may have requirements that specify the contents of visitor records, and that limiting personally identifiable information not needed for operational purposes reduces privacy risk. Typical value: the visitor's name and organization, the person visited, the purpose of the visit, the date and times of entry and departure, the badge issued and the escort; the type of identification checked, but not its number or a copy of it unless a law or regulation requires one. Decide the elements in the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) and record them in its minimization entry; the senior privacy official reviews them before a visitor log, form or visitor management system is introduced or changed, and any field that collects other elements is removed. Section 2 of the visitor log carries the limits, and a paper log uses one sheet per visitor, or a cover, so that visitors cannot read earlier entries. Common excess elements are identification numbers, photocopies or scans of identification, home addresses, dates of birth, and vehicle details where no parking control needs them.
+
+**Federal systems** (as of October 2026). The National Archives and Records Administration's [General Records Schedule 5.6](https://www.archives.gov/files/records-mgmt/grs/grs05-6.pdf), Security Management Records (GRS Transmittal 35, May 2024, still the current version on NARA's GRS page), covers visitor processing records, such as registers or logs of visitors, contractors and service personnel. Item 110, for areas requiring the highest level of security awareness, including areas the Interagency Security Committee designates as Facility Security Level V, says destroy when 5 years old; item 111, for all other facility security areas, including Facility Security Levels I to IV, says destroy when 2 years old; both allow longer retention if required for business use. The PE-8 clause's federal block keeps visitor records at least that long unless the agency's own approved records schedule sets a different period. For PE-8(3), under the Privacy Act a system of records is a group of records under an agency's control from which information is retrieved by the name of the individual or by an identifying number, symbol or other identifying particular ([5 U.S.C. § 552a(a)(5)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section552a&num=0&edition=prelim)), and an agency must tell each individual it asks to supply information for one the authority for asking and whether disclosure is mandatory or voluntary, the principal purposes, the routine uses, and the effects of not providing it ([§ 552a(e)(3)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section552a&num=0&edition=prelim)). The PE-8(3) clause's federal block has the senior privacy official confirm that visitor records retrieved by name or other identifier are covered by a published system of records notice, and has the log or visitor management system present the Privacy Act statement.

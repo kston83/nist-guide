@@ -8,6 +8,7 @@ control:
   id: PE-2
   family: PE
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -131,3 +132,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PE-2 decides who may enter the facility where the system resides; [PE-3](/controls/pe/pe-3/) enforces that decision at the doors. It asks for four things: an approved, maintained list of the people authorized to enter (a), a credential issued to each of them (b), a periodic review of the list (c), and removal of people who no longer need access (d). NIST's PE-2 discussion says the authorizations apply to employees and visitors, but that people with permanent credentials are not visitors; credentials include ID badges, identification cards and smart cards, with their strength set by the laws, policies and standards that apply. Areas designated as publicly accessible may not need an authorization.
+
+The [physical access list](/templates/forms/physical-access-list/) holds the list: each person, the areas they may enter, the credential issued, who requested and approved it, each review and each removal. Visitors go in the [visitor log](/templates/forms/visitor-log/) instead ([PE-8](/controls/pe/pe-8/)).
+
+**Common implementations.** An electronic physical access control system holds the authorizations as badge access levels, one per area, and the list is a report from it. The supervisor requests access through a ticket or form; the facilities manager approves it, and the system owner also approves access to areas that contain system components, such as server rooms and wiring closets. Badges are issued at enrollment, after the personnel screening in [PS-3](/controls/ps/ps-3/). Departures and transfers reach the badge office through the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) or an HR feed, so access is removed within the time the Personnel Security Policy sets for disabling system access ([PS-4](/controls/ps/ps-4/), [PS-5](/controls/ps/ps-5/)). Each quarter, area owners confirm the people with access to their equipment rooms.
+
+**Organization-defined parameters.** Typical values, from the [Physical and Environmental Protection policy](/templates/policies/pe/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Access list review frequency (c) | At least quarterly for areas that contain system components, such as data centers, server rooms, wiring closets and media storage areas, and at least annually for the rest of the facility |
+
+The quarterly review of equipment areas matches the review cadence of the maintenance personnel list ([MA-5](/controls/ma/ma-5/)) and media storage access ([MP-4](/controls/mp/mp-4/)). In each review, the supervisors or area owners confirm that each person still needs the access, and the review is recorded with the entries removed or changed.
+
+**Evidence assessors ask for.**
+
+- The physical access list for each facility, with the areas each person may enter
+- A sample of access requests showing the supervisor's request and the approvals, including the system owner's for equipment areas
+- The credential issued to each person, matched to the physical access control system's records
+- Records of the last few reviews, with the entries removed
+- A list of recent departures and transfers, compared with the date each person's badge was disabled or their areas changed
+
+**Inheritance.** For a system hosted in a cloud service or colocation data center, the provider authorizes access to its facility, and the [system security plan](/templates/plans/system-security-plan/) records PE-2 as inherited for that facility, backed by the provider's authorization or audit report. The organization still meets PE-2 for its own offices, wiring closets and any rooms that hold its equipment, often as a common control run by the facilities manager for every system in the building. For a colocation cage, the organization usually names the people the provider may admit, so PE-2 is a hybrid control there.
+
+**Common findings.**
+
+- Departed employees and contractors still on the list, or their badges still active, weeks after they left.
+- No review of the list, or a review with no record of who confirmed what.
+- Everyone with a building badge able to open the server room or wiring closets.
+- Generic or shared badges, such as "contractor 1" or a spare kept at reception, with no named holder.
+- Access granted by building management or a landlord, outside the organization's list and review.
+
+**Enhancements in the Moderate baseline.** None. [PE-2(1)](#pe-2.1) access by position or role, [PE-2(2)](#pe-2.2) two forms of identification and [PE-2(3)](#pe-2.3) restrict unescorted access are in no baseline. Badge access levels assigned by role meet most of PE-2(1).
+
+**Federal systems** (as of October 2026). [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022, the current revision) defines the Personal Identity Verification (PIV) Card as the common identity credential for federal employees and contractors for access to federally controlled facilities and information systems (section 1.2), and leaves the decision to authorize a cardholder's access out of its scope, so the PE-2 list and approvals are still needed. Section 2.9.4 requires a PIV Card to be terminated when, among other circumstances, a federal employee separates from federal service or a contractor no longer needs access to federal buildings or systems. The PE-2 clause's federal block makes the PIV Card, registered in the physical access control system, the authorization credential for people who hold one, gives everyone else a temporary or visitor credential that cannot be mistaken for a PIV Card, and removes the card's registration when it is terminated. The physical access list's "Credential" and "Removed" fields record both.

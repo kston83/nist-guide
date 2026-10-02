@@ -8,6 +8,7 @@ control:
   id: SI-8
   family: SI
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -107,3 +108,38 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SI-8 asks you to run spam protection at system entry and exit points to detect and act on unsolicited messages (a), and to update it as new releases come out, under configuration management (b). NIST's SI-8 discussion says entry and exit points include firewalls, remote access servers, email servers, web servers, proxy servers, workstations, notebook computers and mobile devices, that spam travels by email, email attachments and web access, and that spam protection mechanisms include signature definitions. SI-8 is in the Moderate and High baselines, not Low.
+
+Spam protection today is mostly the email service's job, and it overlaps with phishing defense and malicious code protection ([SI-3](/controls/si/si-3/)) in the same gateway. Publishing SPF, DKIM and DMARC records for the organization's own domains is the other half: it lets other organizations reject mail that pretends to come from yours.
+
+**Common implementations.** The cloud email service's built-in filtering, or a secure email gateway in front of it, with reputation, content and signature filtering, and spam and phishing sent to quarantine or the junk folder. Inbound authentication checks that act on failed SPF, DKIM and DMARC results. A button that lets users report spam and phishing, feeding the security operations team and the filter. Outbound filtering, so a compromised account cannot send spam from the organization's domains. Filter definitions that the vendor updates continuously, without anyone installing them.
+
+**Organization-defined parameters.** SI-8 itself has no parameters. The policy has the system owner employ spam protection at entry and exit points to detect and act on unsolicited messages (SI-8a), and update it when new releases are available, under the configuration management policy and procedures (SI-8b). Typical value for the Moderate enhancement, from the [System and Information Integrity policy](/templates/policies/si/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| How often spam protection updates automatically (SI-8(2)) | As the vendor releases updates, and at least daily |
+
+**Evidence assessors ask for.**
+
+- The email filtering configuration: spam, phishing and authentication policies, and what happens to a flagged message
+- Evidence that filter definitions update automatically, such as the service's update settings or the gateway's update log
+- The organization's SPF, DKIM and DMARC records for each domain that sends mail
+- Filtering reports showing volumes blocked and quarantined
+- How users report spam and phishing, and what the security operations team does with the reports
+
+**Inheritance.** Spam protection is usually a common control, provided by the email service and its gateway for every system. A cloud email provider operates the filtering engine and its updates; the organization owns the policy settings and its domains' records. A system that sends or receives mail on its own, such as an application that accepts messages from the public, records in its [system security plan](/templates/plans/system-security-plan/) how its own mail is filtered.
+
+**Common findings.**
+
+- DMARC published with a policy of "none" and never moved to enforcement, or no DMARC record at all.
+- Domains that send no mail left without records saying so, so they can be spoofed.
+- Applications or devices that send mail directly, bypassing the gateway and its outbound filtering.
+- Allow lists of senders or domains so broad that they let phishing through.
+
+**Enhancements in the Moderate baseline.** [SI-8(2)](#si-8.2) automatic updates, also in High. NIST's discussion says automated updates help ensure updates occur regularly and provide the latest content and protection. With a cloud email service, the evidence is the vendor's statement or setting that definitions update continuously. SI-8(1) is withdrawn, and [SI-8(3)](#si-8.3), a learning capability such as Bayesian filters that adjust to users marking messages as spam or legitimate, is in no baseline.
+
+**Federal systems** (as of October 2026). CISA [BOD 18-01](https://www.cisa.gov/news-events/directives/bod-18-01-enhance-email-and-web-security), Enhance Email and Web Security (October 16, 2017), still in effect with no revocation mark on its page, requires valid SPF and DMARC records for all second-level agency domains, a DMARC policy of "reject" for all second-level domains and mail-sending hosts, and the address `reports@dmarc.cyber.dhs.gov` as a recipient of DMARC aggregate reports. It also requires internet-facing mail servers to offer STARTTLS and to disable the 3DES and RC4 ciphers on mail servers; the page notes a temporary policy exception for 3DES in mail environments, issued September 20, 2018. The SI-8 clause's federal block carries the SPF, DMARC and reporting requirements; the STARTTLS and cipher requirements belong to transmission protection ([SC-8](/controls/sc/sc-8/)).

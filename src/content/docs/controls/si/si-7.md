@@ -8,6 +8,7 @@ control:
   id: SI-7
   family: SI
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -373,3 +374,55 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+SI-7 asks you to use integrity verification tools to detect unauthorized changes to the software, firmware and information you name (a), and to take set actions when they find one (b). NIST's SI-7 discussion says unauthorized changes can come from errors or malicious activity. It says software includes operating systems, with key internal components such as kernels and drivers, middleware and applications; firmware interfaces include the Unified Extensible Firmware Interface and BIOS; and information includes personally identifiable information and metadata carrying security and privacy attributes. Its examples of integrity-checking mechanisms are parity checks, cyclical redundancy checks and cryptographic hashes. SI-7 is in the Moderate and High baselines, not Low.
+
+SI-7 complements configuration management. Changes approved through the change request process ([CM-3](/controls/cm/cm-3/)) are expected; integrity verification finds the ones that were not approved, and the approved baseline ([CM-2](/controls/cm/cm-2/)) is what a changed file or setting is compared against. For firmware, NIST SP 800-193, [Platform Firmware Resiliency Guidelines](https://csrc.nist.gov/pubs/sp/800/193/final) (May 2018), the final version as of October 2026, describes protecting platform firmware from unauthorized change, detecting changes that happen, and recovering to a known good state.
+
+**Common implementations.** File integrity monitoring, often a feature of the EDR agent or the configuration compliance tool, watching operating system files, application binaries and security configuration files and reporting changes to the SIEM. Package managers that verify signatures and hashes on install and can report modified files. Container images signed in the build pipeline and verified by the registry or the cluster's admission controller, with running containers treated as immutable. Secure boot and measured boot on servers and endpoints, with firmware versions checked by the endpoint or hardware management tools. Database and log integrity through checksums, write-once storage or hash chains. Every unexpected change matched against the change records, and anything unmatched handled as a suspected incident.
+
+**Organization-defined parameters.** Typical values, from the [System and Information Integrity policy](/templates/policies/si/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Software covered by integrity verification (a) | Operating system files, installed applications, container images and security tool binaries |
+| Firmware covered (a) | Server, network device and endpoint firmware and boot components, where the platform supports verification |
+| Information covered (a) | Security configuration files, audit logs, and the critical data stores named in the system security plan |
+| Action on an unauthorized change to software (b) | Alert the security operations team, restore the approved version, and handle an unauthorized change as a suspected incident |
+| Action on an unauthorized change to firmware (b) | Alert the security operations team, restore the approved firmware, and handle an unauthorized change as a suspected incident |
+| Action on an unauthorized change to information (b) | Alert the security operations team and the information owner, restore the information from a trusted source or backup, and handle an unauthorized change as a suspected incident |
+| When software is checked (SI-7(1)) | At startup, after each update or change to the software, and at least weekly |
+| When firmware is checked (SI-7(1)) | At startup, after each firmware update, and at least monthly |
+| When information is checked (SI-7(1)) | After each authorized change to the information, and at least daily |
+| Unauthorized changes fed into incident response (SI-7(7)) | Unauthorized changes to operating system and application files, security configuration settings, firmware and audit logging settings |
+
+For SI-7(1), the policy checks the same software, firmware and information it names for SI-7; the events within each "when" value are the transitional states and security-relevant events NIST's selection asks for. Record the files, images, firmware and data stores covered for each component type in the [baseline configuration standard](/templates/standards/baseline-configuration-standard/) or the system security plan, so that coverage can be checked against the [component inventory](/templates/forms/component-inventory/).
+
+**Evidence assessors ask for.**
+
+- The integrity monitoring tool's configuration: the paths, images, firmware and data stores it watches on each component type
+- A list of the components covered, compared with the component inventory
+- Secure boot and firmware verification settings, from the endpoint or hardware management console
+- A recent integrity alert followed to its change record, or to the incident it opened
+- The schedule and results of the periodic checks for SI-7(1)
+- The incident response plan's handling of unauthorized changes, for SI-7(7)
+
+**Inheritance.** Enterprise file integrity monitoring and endpoint management are often common controls. The system owns deciding which of its files and data matter, adding them to the monitoring, and responding to its alerts. For a cloud service, the provider verifies its own infrastructure and firmware; the system still verifies the images, code and configuration it deploys. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- File integrity monitoring left at vendor defaults, producing so many alerts from routine updates that no one reads them.
+- Alerts not reconciled with change records, so an unauthorized change looks the same as a patch.
+- Container images pulled from public registries with no signature or digest check.
+- Firmware never checked, or secure boot turned off to get a driver working.
+- Integrity alerts that go to an operations queue but never reach incident response.
+
+**Enhancements in the Moderate baseline.** [SI-7(1)](#si-7.1) integrity checks and [SI-7(7)](#si-7.7) integration of detection and response, both with values in the table above. NIST's SI-7(1) discussion says security-relevant events include the identification of new threats and the installation of new hardware, software or firmware, and transitional states include startup, restart, shutdown and abort. Its SI-7(7) discussion says integrating detection and response helps ensure detected events are tracked, monitored, corrected and kept for historical purposes, including possible legal action. High adds three:
+
+- **SI-7(2)** (High) has automated tools notify named people when integrity verification finds a discrepancy. Typical value: the security operations team and the system owner.
+- **SI-7(5)** (High) responds automatically to integrity violations. Typical value: implement controls: block the changed component from running, isolate the affected host, and restore the approved version. NIST's discussion says responses can differ by type of information and can include reversing the changes, halting the system or triggering audit alerts.
+- **SI-7(15)** (High) authenticates software and firmware with cryptographic mechanisms before installation. Typical value: operating system and application updates, firmware updates, drivers and container images. NIST's discussion says this includes verifying that components are signed with certificates the organization recognizes and approves. The [patch and flaw remediation standard](/templates/standards/patch-and-flaw-remediation-standard/) treats an unsigned or wrongly signed component as a failed installation.
+
+SI-7(4), SI-7(11), SI-7(13) and SI-7(14) are withdrawn; SI-7(3), SI-7(6), SI-7(8), SI-7(9), SI-7(10), SI-7(12), SI-7(16) and SI-7(17) are in no baseline. Verifying the boot process, as secure boot does, is SI-7(9), and detecting changes with cryptographic mechanisms such as signed hashes is SI-7(6), so many Moderate systems already do more than the baseline asks.

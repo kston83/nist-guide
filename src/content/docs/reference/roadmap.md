@@ -35,10 +35,10 @@ The second guidebook does the same for AI: how to apply the AI RMF, and how to a
 As of October 2026:
 
 - **The framework.** All seven RMF steps, roles, the ATO package checklist and program variants.
-- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for 95 of the 177 Moderate-baseline controls. See [guidance coverage](/controls/coverage/) for each control.
+- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for 109 of the 177 Moderate-baseline controls. See [guidance coverage](/controls/coverage/) for each control.
 - **The template kit.** [Version 1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) is released: every template in Word and Markdown, per baseline, with a [starter kit](/templates/starter-kit/) for a new program.
-- **Policies.** Family policies for 17 of 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, PL, PM, PS, PT, RA, SA, SC and SI. 250 of the 287 Moderate-baseline controls have a policy clause.
-- **Plans, standards, forms and reports.** 30 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment and the encryption, boundary protection and patching standards. See [all templates](/templates/).
+- **Policies.** Family policies for 18 of 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PL, PM, PS, PT, RA, SA, SC and SI. 257 of the 287 Moderate-baseline controls have a policy clause.
+- **Plans, standards, forms and reports.** 31 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, media sanitization record and the encryption, boundary protection and patching standards. See [all templates](/templates/).
 - **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage.
 - **The AI RMF guidebook.** Not started; it follows the program kit and the methods.
 
@@ -62,10 +62,10 @@ The work runs in phases. Each phase ends with a review before the next starts, a
 
 What remains:
 
-- **Family policies** for MP, PE and SR, including the Privacy-baseline clauses of each family, and the few Privacy-baseline clauses still to add to the AC, AU and IR policies.
-- **Artifacts** for those families: a media sanitization record, a physical access list and visitor log, and a Supply Chain Risk Management Plan with a supplier questionnaire.
+- **Family policies** for PE and SR, including the Privacy-baseline clauses of each family, and the few Privacy-baseline clauses still to add to the AC, AU and IR policies.
+- **Artifacts** for those families: a physical access list and visitor log, and a Supply Chain Risk Management Plan with a supplier questionnaire.
 - **Artifacts for families already covered:** an account management procedure, access request and access review forms and a remote access standard; an identification and authentication standard; a Configuration Management Plan, baseline configuration standard, change request form and component inventory; an audit logging standard and log review procedure; and an incident handling playbook, incident report form and tabletop exercise kit.
-- **Guidance for the remaining 82 Moderate controls, and for the program management and privacy controls:** how to apply each control, the typical values, the evidence assessors ask for, what is usually inherited and the common findings, family by family, alongside the policies.
+- **Guidance for the remaining 68 Moderate controls, and for the program management and privacy controls:** how to apply each control, the typical values, the evidence assessors ask for, what is usually inherited and the common findings, family by family, alongside the policies.
 - **A consolidated policy:** one Information Security and Privacy Policy per baseline, as an alternative to 20 family policies. The starter kit will use it.
 - **The program path:** an artifact checklist, and guidance on scaling the program to the organization's size.
 - **A template changelog** on each template page, then kit v2.0.0.
@@ -95,7 +95,13 @@ The guide will not invent AI-specific control selections or mappings. NIST is de
 
 ### Industries and technology (Phase 6)
 
-How the controls apply under sector rules, and how they are configured and evidenced on specific platforms.
+How the controls apply under sector rules, and how they are configured and evidenced on specific platforms. The topics below are proposed and may change before the phase starts.
+
+- **Industry guides:** how the RMF and SP 800-53 apply alongside each sector's own rules, which controls carry extra weight, and the common findings. Proposed: defense and the defense industrial base (DoD's RMF instruction, CNSSI 1253, CMMC and SP 800-171), healthcare (the HIPAA Security Rule and HHS 405(d) practices) and financial services (the GLBA Safeguards Rule, FFIEC guidance and PCI DSS).
+- **Technology playbooks:** how specific controls are configured and evidenced on a platform, starting with the controls assessors look at most. Proposed: AWS, Microsoft Azure, Microsoft 365 and Entra ID, and Kubernetes.
+- **Articles:** occasional longer pieces on RMF practice.
+
+Each industry guide and playbook lists the controls it covers, and those control pages link back to it.
 
 ## What the guide will not do
 

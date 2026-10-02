@@ -54,6 +54,7 @@ ISSO
 ITIL
 KMAC
 LDAPS
+microgrid
 multifactor
 NERC
 nonlocal
@@ -84,6 +85,7 @@ STARTTLS
 STIG
 STIGs
 subnetworks
+supercapacitors
 TDEA
 telework
 TSIG

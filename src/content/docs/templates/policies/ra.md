@@ -3,7 +3,7 @@ title: 'Risk Assessment Policy'
 description: 'Ready-to-adopt Risk Assessment policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy).'
 sidebar:
   label: 'Risk Assessment (RA)'
-  order: 15
+  order: 16
 controls: [ra-1, ra-2, ra-3, ra-3.1, ra-5, ra-5.2, ra-5.4, ra-5.5, ra-5.11, ra-7, ra-8, ra-9]
 ---
 

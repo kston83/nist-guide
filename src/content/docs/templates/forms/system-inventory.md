@@ -3,7 +3,7 @@ title: 'System Inventory'
 description: 'The organization-wide register of its systems, each with an owner, categorization, authorization status and boundary, and whether it processes personally identifiable information, as SP 800-53 PM-5 and PM-5(1) require.'
 sidebar:
   label: 'System Inventory'
-  order: 12
+  order: 13
 controls: [pm-5, pm-5.1]
 ---
 

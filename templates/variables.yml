@@ -27,6 +27,9 @@ security-operations:
 incident-response-team:
   label: Incident response team
   description: Name of the team that handles incidents, such as a computer security incident response team (CSIRT), with its lead named in the incident response plan.
+facilities-manager:
+  label: Facilities manager
+  description: Title of the person responsible for physical security of the organization's facilities, such as a facilities manager or facility security officer (FSO).
 hr-office:
   label: Human resources office
   description: Name of the function that records hires, transfers and departures.

@@ -196,7 +196,7 @@ The base control has no parameter. In the [Configuration Management policy](/tem
 - The list of people and service accounts that can change production, and what each can change
 - Pipeline and version control settings that require approval before deployment
 - Records of break-glass use and its review
-- Physical access lists for the rooms that hold the system's hardware
+- [Physical access lists](/templates/forms/physical-access-list/) for the rooms that hold the system's hardware
 - For High, the role-based permissions and the audit records of their enforcement (CM-5(1))
 
 **Inheritance.** Physical access restrictions for a data center or cloud provider are inherited. The deployment pipeline and version control platform may be common. The system owns who can change its components, so CM-5 is usually a hybrid control.

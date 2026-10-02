@@ -18,7 +18,7 @@ Download one file for your baseline and you have the documents a new program ado
 | --- | --- | --- |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | PM-1, PM-2, PM-3, PM-6, PM-10, PM-29 | Included |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | PM-9, PM-28, PM-29, PM-31 | Included |
-| [Family policies (AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PL, PM, PS, RA, SA, SC, SI)](/templates/#policies) | AC-1, AT-1, AU-1, CA-1, CM-1, CP-1, IA-1, IR-1, MA-1, MP-1, PL-1, PM-1, PS-1, RA-1, SA-1, SC-1, SI-1 | Included |
+| [Family policies (AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, RA, SA, SC, SI)](/templates/#policies) | AC-1, AT-1, AU-1, CA-1, CM-1, CP-1, IA-1, IR-1, MA-1, MP-1, PE-1, PL-1, PM-1, PS-1, RA-1, SA-1, SC-1, SI-1 | Included |
 | [System Security Plan](/templates/plans/system-security-plan/) | PL-2, RA-2, CM-8, CA-3, CA-5 | Included |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | PL-4, PL-4(1) | Included |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | IR-8, IR-4, IR-5, IR-6, IR-7, IR-2, IR-3 | Included |

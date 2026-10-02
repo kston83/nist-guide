@@ -26,6 +26,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
 | [Maintenance Policy](/templates/policies/ma/) | [Operate](/program/operate/) | Draft |
 | [Media Protection Policy](/templates/policies/mp/) | [Operate](/program/operate/) | Draft |
+| [Physical and Environmental Protection Policy](/templates/policies/pe/) | [Operate](/program/operate/) | Draft |
 | [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
 | [Personnel Security Policy](/templates/policies/ps/) | [Core](/program/core/) | Draft |
@@ -49,6 +50,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
 | [Maintenance Decision Worksheet](/templates/worksheets/ma/) | [Operate](/program/operate/) | Draft |
 | [Media Protection Decision Worksheet](/templates/worksheets/mp/) | [Operate](/program/operate/) | Draft |
+| [Physical and Environmental Protection Decision Worksheet](/templates/worksheets/pe/) | [Operate](/program/operate/) | Draft |
 | [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |
 | [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
 | [Personnel Security Decision Worksheet](/templates/worksheets/ps/) | [Core](/program/core/) | Draft |
@@ -93,6 +95,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Maintenance Log](/templates/forms/maintenance-log/) | [Operate](/program/operate/) | Draft |
 | [Media Sanitization Record](/templates/forms/media-sanitization-record/) | [Operate](/program/operate/) | Draft |
 | [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
+| [Physical Access List](/templates/forms/physical-access-list/) | [Operate](/program/operate/) | Draft |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
 | [Privacy Notice](/templates/forms/privacy-notice/) | [Core](/program/core/) | Draft |
 | [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
@@ -100,6 +103,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
 | [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |
 | [Training Record Log](/templates/forms/training-record-log/) | [Core](/program/core/) | Draft |
+| [Visitor Log](/templates/forms/visitor-log/) | [Operate](/program/operate/) | Draft |
 
 ## Reports
 

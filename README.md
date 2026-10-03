@@ -2,7 +2,7 @@
 
 A practitioner's guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems, by Kristopher Stone. It is a research project: most, if not all, of its content is written by Claude Opus 5.5 working in Claude Code, directed and reviewed by the owner (see the [About](https://kston83.github.io/nist-guide/about/) page). Built with [Astro Starlight](https://starlight.astro.build) and published on GitHub Pages at <https://kston83.github.io/nist-guide/>.
 
-Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); how the site and the template kit are built is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); progress is in [`PROGRESS.md`](PROGRESS.md). [`CLAUDE.md`](CLAUDE.md) holds the working rules for Claude Code sessions.
+Scope, priorities and roadmap are in [`docs/PRD.md`](docs/PRD.md); how the site and the template kit are built is in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); progress is in [`PROGRESS.md`](PROGRESS.md), with the log in [`docs/progress-log.md`](docs/progress-log.md) and the sources checked in [`docs/sources.md`](docs/sources.md). [`CLAUDE.md`](CLAUDE.md) holds the working rules for Claude Code sessions.
 
 ## Roadmap
 

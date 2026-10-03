@@ -4,7 +4,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 
 ## Getting oriented
 
-1. Read `README.md`, `docs/PRD.md`, `docs/ARCHITECTURE.md` and `src/content/docs/controls/ac/ac-2.md` (the guidance example) before changing anything. Once they exist, also read `templates/policy/_common.md` and `templates/policy/ac/ac-2.md` (the clause example).
+1. Read `README.md`, `PROGRESS.md`, `docs/ARCHITECTURE.md` and `src/content/docs/controls/ac/ac-2.md` (the guidance example) before changing anything. Read `docs/PRD.md` in full at the start of a phase or before any change to scope; otherwise read its Instructions for Claude Code and the sections your task needs (for content, Content requirements and Writing templates). Once they exist, also read `templates/policy/_common.md` and `templates/policy/ac/ac-2.md` (the clause example).
 2. Run `npm install`, `npm run controls` and `npm run build`. Confirm the build and `npm run check:links` are clean before starting work.
 3. Work in phase order. Within a phase, do P1 requirements first.
 
@@ -14,13 +14,13 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 - `main` is protected: open a pull request; the Check workflow must pass before merge. The owner merges PRs; don't merge them yourself.
 - Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls` and `npm run templates` produce no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
-- Keep `PROGRESS.md` at the repo root: requirement ID, status, date, notes. Update it at the end of each task.
+- Keep progress in three files and update them at the end of each task. `PROGRESS.md` at the repo root is the working state: the current phase, its plan table, notes for the next session and open questions. Keep it under 40 KB (a test checks), and move history out of it. `docs/progress-log.md` is the log: one row per pull request, newest first (requirement ID, status, date, notes). `docs/sources.md` is the source registry and its verification notes. When a pull request merges, mark it merged in the plan table and the log.
 - Prefer small, reviewable changes over large rewrites. Do not rename folders or slugs; existing links depend on them.
 
 ## Writing content and templates
 
 - Follow the PRD's Content requirements exactly, including Writing templates. Use AC-2 as the model for control guidance.
-- Verify every factual claim about rules, versions, dates and program status against a primary source before writing it, and cite it on the page. Use web search when available.
+- Verify every factual claim about rules, versions, dates and program status against a primary source before writing it, and cite it on the page. Use web search when available. Start from the registry in `docs/sources.md`; after checking a source, update its row and add a verification note.
 - If a fact cannot be verified, write `<!-- TODO(verify): what and why -->` and add it to Open questions in `PROGRESS.md`. Do not guess.
 - Set `guidance: draft` or `status: draft` on anything you write. Only the owner sets `reviewed`.
 - Never base a template on a commercial template library or on any real organization's documents.

@@ -105,7 +105,7 @@ The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-
 
 | Check | Command | Fails when |
 | --- | --- | --- |
-| Unit tests | `npm test` | Any test in `scripts/test/` fails (generator, template system, coverage, references, search tokens, changelog) |
+| Unit tests | `npm test` | Any test in `scripts/test/` fails (generator, template system, coverage, references, search tokens, changelog), or `PROGRESS.md` grows past 40 KB or the source registry has a row without a date |
 | Markdown lint | `npm run lint` (markdownlint-cli2) | A rule in `.markdownlint-cli2.jsonc` is broken |
 | Template lint | `npm run lint:templates` (in `lint`) | A template writing rule is broken (QA-05) |
 | Spelling | `npm run spell` (in `lint`) | cspell finds a word not in `cspell-words.txt`; NIST text, variables and code are skipped |

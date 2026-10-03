@@ -29,9 +29,15 @@ const CASES = [
 	['IA-2(1)', '/controls/ia/ia-2/', '#ia-21-'],
 	['SC-7(21)', '/controls/sc/sc-7/', '#sc-721-'],
 	['SI-4(5)', '/controls/si/si-4/', '#si-45-'],
-	['account management', '/controls/ac/ac-2/'],
+	// A control title no template shares. "account management" was the case until
+	// row 27: a template whose title contains a control's title ranks above the
+	// control, by design (its lead paragraph carries data-pagefind-weight="10"),
+	// so it now finds the Account Management Procedure first, as "incident response
+	// plan" finds the plan before IR-8.
+	['access enforcement', '/controls/ac/ac-3/'],
 	// Template titles: the PRD's "incident response plan" case.
 	['incident response plan', '/templates/plans/incident-response-plan/'],
+	['account management procedure', '/templates/procedures/account-management-procedure/'],
 ];
 
 // The search box must use the wrapped Pagefind UI (Vite alias in astro.config.mjs).

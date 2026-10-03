@@ -3,7 +3,7 @@ title: 'Physical Access List'
 description: 'The list of individuals authorized to enter a facility and each controlled area within it, with the credential issued, the approval, each review and each removal, plus the facility''s areas and its inventory of keys, combinations and badges, as SP 800-53 PE-2 and PE-3 require.'
 sidebar:
   label: 'Physical Access List'
-  order: 9
+  order: 11
 controls: [pe-2, pe-3, pe-3.1, ps-4, ps-5]
 ---
 

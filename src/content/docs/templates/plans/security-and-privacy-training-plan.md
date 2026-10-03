@@ -3,7 +3,7 @@ title: 'Security and Privacy Training Plan'
 description: 'The organization''s plan for security and privacy literacy training, awareness activities and role-based training, with audiences, courses, schedule and tracking, as SP 800-53 AT-2, AT-3 and AT-4 require.'
 sidebar:
   label: 'Security and Privacy Training Plan'
-  order: 27
+  order: 29
 controls: [at-2, at-2.2, at-2.3, at-3, at-3.5, at-4, pm-13, pm-14]
 ---
 

@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.8 · Oct 3, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.9 · Oct 3, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -209,7 +209,7 @@ templates/
                                    differs from the rest (PM-1)
     <family>/<control>.md          Clause for one control or enhancement, e.g. ac/ac-2.md, ac/ac-2.3.md
   standards/<slug>.md
-  procedures/<family>/<slug>.md
+  procedures/<slug>.md
   plans/<slug>.md
   forms/<slug>.csv | .md
   reports/<slug>.md
@@ -717,3 +717,4 @@ None of these block Phase 1.
 | 3.6 | Sep 29, 2026 | Owner decision: Phase 3 guidance also covers every PM control and every privacy-only control and enhancement, which no phase had scheduled. Success measures, Phase 3 row and Decided updated |
 | 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md`. Owner request in the same PR: the site footer names the templates' CC0 dedication, and the public Roadmap page counts are brought up to date |
 | 3.8 | Oct 3, 2026 | Working records, no change in scope (owner request, to cut the context each task reads): Instructions for Claude Code split progress into `PROGRESS.md` (working state, under 40 KB), `docs/progress-log.md` (the log) and `docs/sources.md` (source registry and verification notes), and the PRD is read in full only at a phase start or a scope change |
+| 3.9 | Oct 3, 2026 | Owner decision (row 27 review): procedures sit flat in `templates/procedures/<slug>.md`, like every other type folder, not in a folder per family (Sources and layout) |

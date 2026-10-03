@@ -3,7 +3,7 @@ title: 'Component Inventory'
 description: 'The register of every hardware, software, firmware, virtual and cloud component inside one system''s boundary, with its owner, administrator and assigned user, reconciled against the system inventory and against discovery and vulnerability scans so that unauthorized components are found, as SP 800-53 CM-8 and CM-8(3) require.'
 sidebar:
   label: 'Component Inventory'
-  order: 3
+  order: 5
 controls: [cm-8, cm-8.1, cm-8.2, cm-8.3, cm-8.4, pe-16, mp-7]
 ---
 

@@ -3,7 +3,7 @@ title: 'Contingency Plan After-Action Report'
 description: 'The report of a contingency plan test, exercise or real activation, with findings, evaluation against objectives and corrective actions, based on the sample after-action reports in NIST SP 800-84.'
 sidebar:
   label: 'Contingency Plan After-Action Report'
-  order: 31
+  order: 34
 controls: [cp-4, cp-2]
 ---
 

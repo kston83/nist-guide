@@ -157,6 +157,7 @@ export default defineConfig({
 						},
 						{ label: 'Plans', collapsed: true, items: [{ autogenerate: { directory: 'templates/plans' } }] },
 						{ label: 'Standards', collapsed: true, items: [{ autogenerate: { directory: 'templates/standards' } }] },
+						{ label: 'Procedures', collapsed: true, items: [{ autogenerate: { directory: 'templates/procedures' } }] },
 						{
 							label: 'Forms and registers',
 							collapsed: true,

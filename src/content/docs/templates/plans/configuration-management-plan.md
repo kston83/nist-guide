@@ -3,7 +3,7 @@ title: 'Configuration Management Plan'
 description: 'A system''s security configuration management plan, following the sample outline in NIST SP 800-128 Appendix D, with its configuration item list, the change control board charter (Appendix H), and how baselines, changes, monitoring and records are handled, as SP 800-53 CM-9 requires.'
 sidebar:
   label: 'Configuration Management Plan'
-  order: 19
+  order: 21
 controls: [cm-9, cm-1, cm-2, cm-2.3, cm-3, cm-3.1, cm-3.4, cm-5]
 ---
 

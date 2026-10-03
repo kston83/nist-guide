@@ -3,7 +3,7 @@ title: 'Risk Register'
 description: 'The register of a system''s or an organization''s identified risks, their assessed level, the response decided and who owns it, based on the cybersecurity risk register in NIST IR 8286 Rev. 1.'
 sidebar:
   label: 'Risk Register'
-  order: 12
+  order: 14
 controls: [ra-3, ra-7]
 ---
 

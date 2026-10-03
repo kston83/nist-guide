@@ -3,7 +3,7 @@ title: 'Change Request Form'
 description: 'The record of one configuration-controlled change, from request through security and privacy impact analysis, significant-change decision, testing, approval, implementation and verification, adapted from the sample change request and security impact analysis template in NIST SP 800-128, with a register of every change, as SP 800-53 CM-3 and CM-4 require.'
 sidebar:
   label: 'Change Request Form'
-  order: 2
+  order: 4
 controls: [cm-3, cm-3.2, cm-4, cm-4.1, cm-4.2]
 ---
 

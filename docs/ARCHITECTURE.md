@@ -30,7 +30,7 @@ flowchart LR
 | Control guidance | The control page, below `<!-- guidance: write below this line -->` | Hand | Yes |
 | Family hubs (`controls/<family>/index.md`) and baseline lists (`controls/baselines/`) | OSCAL | `scripts/import-oscal.mjs` | Yes |
 | `src/data/catalog.json`, `src/data/control-ids.json` | OSCAL | `scripts/import-oscal.mjs` | Yes, so the build needs no network or OSCAL cache |
-| Policy clauses, plans, standards, forms, reports, variables | `templates/` | Hand | Yes |
+| Policy clauses, plans, standards, procedures, forms, reports, variables | `templates/` | Hand | Yes |
 | Template pages (`src/content/docs/templates/`) | `templates/` | `npm run templates` | Yes, so diffs and edit links work |
 | Downloadable kit (`.docx`, `.md`, `.csv`, `.zip`) | `templates/` | `npm run kit` (part of `npm run build`) | No: build output in `dist/downloads/` |
 | Changelog page (`reference/changelog.md`) | First-parent git history of `main` | `scripts/build-changelog.mjs` (runs before `dev` and `build`) | No: in `.gitignore` |
@@ -61,8 +61,10 @@ templates/
   policy/<family>/_family.yml family title, role, stage, worksheet questions
   policy/<family>/_common.md  optional family override (PM)
   policy/<family>/<id>.md     one clause per control or enhancement
-  plans/ standards/ forms/ reports/   one file per artifact
+  plans/ standards/ procedures/ forms/ reports/   one file per artifact
 ```
+
+Every type folder is flat, procedures included (`templates/procedures/account-management-procedure.md`), so each template page sits one level under its type in the sidebar and the URL. The owner chose this layout in the row 27 review (PRD 3.9); a family subfolder would add a sidebar group named by its folder (`ac`).
 
 1. **Validation.** `src/content.config.ts` loads the sources as Astro content collections (`clauses`, `templates`, `families`, `variables`) and checks them with the schemas in `src/lib/template-schema.ts` against `src/data/catalog.json`. A bad control ID, type, status, stage or variable fails the build (TPL-01).
 2. **Assembly.** `src/lib/template-assemble.ts` builds each family policy from `_common.md` plus the family's clauses in catalog order, once per baseline. Baseline membership comes from the catalog, never from the sources (TPL-03). A family with `baseline: none` (PM) gets one organization-wide edition; a privacy-only family (PT) gets only a Privacy edition.

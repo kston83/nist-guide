@@ -438,10 +438,10 @@ AC-2 asks you to run account management as a controlled life cycle: every accoun
 
 **Evidence assessors ask for.**
 
-- Account management procedure naming account types, including which types are prohibited
+- The [account management procedure](/templates/procedures/account-management-procedure/) naming account types, including which types are prohibited
 - A current list of all accounts with type, role and owner, including service and emergency accounts
-- A sample of account requests showing approvals, drawn by the assessor
-- Records of the last access review, with actions taken on accounts flagged for removal
+- A sample of account requests showing approvals, drawn by the assessor (the [access request form](/templates/forms/access-request-form/) records each one)
+- Records of the last access review, with actions taken on accounts flagged for removal (the [access review record](/templates/forms/access-review-record/))
 - A sample of recent terminations compared against the date each account was disabled
 - The configuration of automated disabling for inactive accounts, if AC-2(3) applies
 

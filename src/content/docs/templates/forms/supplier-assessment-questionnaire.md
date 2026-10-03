@@ -3,7 +3,7 @@ title: 'Supplier Assessment Questionnaire'
 description: 'The assessment of one supplier and the products or services it provides, before award or renewal and at each review after that, with the organization''s scoping and criticality answers, the supplier''s questionnaire, the organization''s own research with its sources, a rating against the same core risk factors for every supplier, and the decision, with a register of every supplier assessment, as SP 800-53 SR-6 requires.'
 sidebar:
   label: 'Supplier Assessment Questionnaire'
-  order: 15
+  order: 17
 controls: [sr-6, sr-5, ra-3.1]
 ---
 

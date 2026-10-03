@@ -3,7 +3,7 @@ title: 'Onboarding, Transfer and Termination Checklist'
 description: 'The steps, owners and time limits for granting, changing and removing a person''s access when they join, move or leave, with a register of each personnel action, as SP 800-53 PS-3, PS-4, PS-5 and AC-2 require.'
 sidebar:
   label: 'Onboarding, Transfer and Termination Checklist'
-  order: 8
+  order: 10
 controls: [ps-4, ps-5, ps-3, ps-6, ps-7, ac-2, at-2]
 ---
 
@@ -68,7 +68,7 @@ This checklist ties the personnel controls to account management (AC-2l asks for
 | 2 | Complete screening for the position | <span class="tpl-field tpl-org">Human resources office</span> | Before access | PS-3a | |
 | 3 | Get the signed access agreement and Rules of Behavior | <span class="tpl-field tpl-org">Human resources office</span> | Before access | PS-6c.1, PL-4 | |
 | 4 | Complete security and privacy literacy training | <span class="tpl-field tpl-org">Supervisor</span> | Before access | AT-2a.1 | |
-| 5 | Submit and approve the access request for each system | <span class="tpl-field tpl-org">Supervisor</span> | Before access | AC-2e | |
+| 5 | Submit and approve the [access request](/templates/forms/access-request-form/) for each system | <span class="tpl-field tpl-org">Supervisor</span> | Before access | AC-2e | |
 | 6 | Create accounts and issue authenticators | <span class="tpl-field tpl-org">Account manager</span> | After steps 2 to 5 | AC-2, IA-5 | |
 | 7 | Issue a building pass and devices, and record them (the pass in the [physical access list](/templates/forms/physical-access-list/)) | <span class="tpl-field tpl-fill">Fill in: facilities or IT asset owner</span> | First day | PE-2, CM-8 | |
 | 8 | Assign role-based training, if the role needs it | <span class="tpl-field tpl-org">Supervisor</span> | Before duties begin | AT-3 | |
@@ -98,7 +98,7 @@ For an involuntary termination, or one for cause, do steps 1 and 2 no later than
 | 5 | Conduct the exit interview, covering <span class="tpl-field tpl-param">Fill in: information security topics to be discussed when conducting exit interviews <span class="tpl-typical">Typical: the individual's continuing duty not to disclose organizational information, the return of all organizational property and information, and that former credentials must not be used</span></span> | <span class="tpl-field tpl-org">Human resources office</span> | By the last day, where possible | PS-4c | |
 | 6 | Retrieve devices, tokens, keys, identification cards, building passes and information | <span class="tpl-field tpl-org">Supervisor</span> | By the last day | PS-4d | |
 | 7 | Transfer ownership of the person's files, mailboxes and systems | <span class="tpl-field tpl-org">Supervisor</span> | Before accounts are removed | PS-4e | |
-| 8 | Remove accounts, or keep them disabled, as the account management procedure says | <span class="tpl-field tpl-org">Account manager</span> | <span class="tpl-field tpl-fill">Fill in: when, for example after 30 days</span> | AC-2f | |
+| 8 | Remove accounts, or keep them disabled, as the [account management procedure](/templates/procedures/account-management-procedure/) says | <span class="tpl-field tpl-org">Account manager</span> | <span class="tpl-field tpl-fill">Fill in: when, for example after 30 days</span> | AC-2f | |
 
 ### External personnel
 

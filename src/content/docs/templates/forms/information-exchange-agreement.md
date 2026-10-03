@@ -3,7 +3,7 @@ title: 'Information Exchange Agreement'
 description: 'The agreement that approves and governs one exchange of information with a system outside the authorization boundary, usable as an interconnection security agreement or an information exchange security agreement, with a register of every exchange and its review date, as SP 800-53 CA-3 requires.'
 sidebar:
   label: 'Information Exchange Agreement'
-  order: 5
+  order: 7
 controls: [ca-3, ca-3.6, sa-9]
 ---
 

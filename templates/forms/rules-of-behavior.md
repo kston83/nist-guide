@@ -51,7 +51,7 @@ These rules apply to everyone who needs access to {{org:name}}'s information or 
 
 ### Remote work
 
-- Connect remotely only through the organization's approved remote access methods (AC-17).
+- Connect remotely only through the organization's approved remote access methods, listed in its [remote access standard](/templates/standards/remote-access-standard/) (AC-17).
 - Do not let others use your device while you are connected to organizational systems.
 - At an alternate work site, such as your home, work where others cannot see your screen or overhear your conversations, keep paper and media secured and never leave them unattended, and do not print information not approved for public release on a personal printer (PE-17).
 

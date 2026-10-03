@@ -43,7 +43,7 @@ This checklist ties the personnel controls to account management (AC-2l asks for
 | 2 | Complete screening for the position | {{org:hr-office}} | Before access | PS-3a | |
 | 3 | Get the signed access agreement and Rules of Behavior | {{org:hr-office}} | Before access | PS-6c.1, PL-4 | |
 | 4 | Complete security and privacy literacy training | {{org:supervisor}} | Before access | AT-2a.1 | |
-| 5 | Submit and approve the access request for each system | {{org:supervisor}} | Before access | AC-2e | |
+| 5 | Submit and approve the [access request](/templates/forms/access-request-form/) for each system | {{org:supervisor}} | Before access | AC-2e | |
 | 6 | Create accounts and issue authenticators | {{org:account-manager}} | After steps 2 to 5 | AC-2, IA-5 | |
 | 7 | Issue a building pass and devices, and record them (the pass in the [physical access list](/templates/forms/physical-access-list/)) | {{fill:facilities or IT asset owner}} | First day | PE-2, CM-8 | |
 | 8 | Assign role-based training, if the role needs it | {{org:supervisor}} | Before duties begin | AT-3 | |
@@ -73,7 +73,7 @@ For an involuntary termination, or one for cause, do steps 1 and 2 no later than
 | 5 | Conduct the exit interview, covering {{param:ps-04_odp.02}} | {{org:hr-office}} | By the last day, where possible | PS-4c | |
 | 6 | Retrieve devices, tokens, keys, identification cards, building passes and information | {{org:supervisor}} | By the last day | PS-4d | |
 | 7 | Transfer ownership of the person's files, mailboxes and systems | {{org:supervisor}} | Before accounts are removed | PS-4e | |
-| 8 | Remove accounts, or keep them disabled, as the account management procedure says | {{org:account-manager}} | {{fill:when, for example after 30 days}} | AC-2f | |
+| 8 | Remove accounts, or keep them disabled, as the [account management procedure](/templates/procedures/account-management-procedure/) says | {{org:account-manager}} | {{fill:when, for example after 30 days}} | AC-2f | |
 
 ## External personnel
 

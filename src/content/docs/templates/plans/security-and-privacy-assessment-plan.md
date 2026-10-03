@@ -3,7 +3,7 @@ title: 'Security and Privacy Assessment Plan'
 description: 'The plan for one control assessment of a system or of common controls, with its scope, SP 800-53A procedures and methods, environment, team, assessor independence, schedule and approval, as SP 800-53 CA-2 requires.'
 sidebar:
   label: 'Security and Privacy Assessment Plan'
-  order: 26
+  order: 28
 controls: [ca-2, ca-2.1, ca-2.2, ca-8, ca-7.1]
 ---
 

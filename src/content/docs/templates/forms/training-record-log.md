@@ -3,7 +3,7 @@ title: 'Training Record Log'
 description: 'The record of each person''s security and privacy training, literacy and role-based, with dates and results, as SP 800-53 AT-4 requires.'
 sidebar:
   label: 'Training Record Log'
-  order: 17
+  order: 19
 controls: [at-4, at-2, at-3]
 ---
 

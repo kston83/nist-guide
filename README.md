@@ -61,7 +61,7 @@ src/content/docs/
   industries/          Industry guides (planned)
   technology/          Technology playbooks (planned)
   reference/           Library, glossary, page templates, roadmap, changelog (generated, not committed)
-templates/             Template sources: policy clauses, plans, standards, forms, reports (CC0)
+templates/             Template sources: policy clauses, plans, standards, procedures, forms, reports (CC0)
 src/data/              catalog.json and control-ids.json, generated from NIST's catalog
 src/components/        Astro components that add sections to control and program pages
 src/lib/               Template system (schema, assembly, editions, variables, worksheets) and site helpers
@@ -82,7 +82,7 @@ src/styles/theme.css   Colors and typefaces
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
-- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. Plans, standards, forms and reports go in their type's folder. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
+- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. Plans, standards, procedures, forms and reports go in their type's folder. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
 - **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text

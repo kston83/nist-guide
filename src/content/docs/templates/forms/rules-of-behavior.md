@@ -3,7 +3,7 @@ title: 'Rules of Behavior'
 description: 'The rules every person with system access reads and signs before access is granted, including social media and external site restrictions, with a register of acknowledgments, as SP 800-53 PL-4 requires.'
 sidebar:
   label: 'Rules of Behavior'
-  order: 13
+  order: 15
 controls: [pl-4, pl-4.1, pe-17]
 ---
 
@@ -77,7 +77,7 @@ These rules apply to everyone who needs access to <span class="tpl-field tpl-org
 
 #### Remote work
 
-- Connect remotely only through the organization's approved remote access methods (AC-17).
+- Connect remotely only through the organization's approved remote access methods, listed in its [remote access standard](/templates/standards/remote-access-standard/) (AC-17).
 - Do not let others use your device while you are connected to organizational systems.
 - At an alternate work site, such as your home, work where others cannot see your screen or overhear your conversations, keep paper and media secured and never leave them unattended, and do not print information not approved for public release on a personal printer (PE-17).
 

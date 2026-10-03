@@ -3,7 +3,7 @@ title: 'Supply Chain Risk Management Plan'
 description: 'A system''s cybersecurity supply chain risk management plan, following the sample outline in NIST SP 800-161 Rev. 1 Appendix D.3.1 and the outline example NIST publishes with SP 800-18 Rev. 2, with the system''s critical components, services and suppliers, the supply chain controls selected, the risks accepted, and the plan''s approval, review and protection, as SP 800-53 SR-2 requires.'
 sidebar:
   label: 'Supply Chain Risk Management Plan'
-  order: 28
+  order: 30
 controls: [sr-2, sr-2.1, sr-3]
 ---
 

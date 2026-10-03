@@ -3,7 +3,7 @@ title: 'Baseline Configuration Standard'
 description: 'The secure configuration each component type follows, the functions, ports, protocols and services it prohibits, how baselines are built, reviewed and kept, the register of approved deviations, and the scan evidence that shows compliance, making the configuration management policy''s CM-2, CM-6 and CM-7 requirements measurable.'
 sidebar:
   label: 'Baseline Configuration Standard'
-  order: 34
+  order: 36
 controls: [cm-6, cm-6.1, cm-6.2, cm-2, cm-2.2, cm-2.3, cm-2.7, cm-7, cm-7.1]
 ---
 

@@ -3,7 +3,7 @@ title: 'Risk Management Strategy'
 description: 'The organization-wide strategy for how the organization frames, assesses, responds to and monitors security and privacy risk, including its risk tolerance, following NIST SP 800-39 and RMF Prepare task P-2.'
 sidebar:
   label: 'Risk Management Strategy'
-  order: 24
+  order: 25
 controls: [pm-9, pm-28, pm-29, pm-31]
 ---
 

@@ -3,7 +3,7 @@ title: 'Acquisition Security Requirements'
 description: 'The standard security and privacy requirements that go into every contract for a system, system component or system service, and the review each solicitation gets before it is issued, as SP 800-53 SA-4 and its enhancements require.'
 sidebar:
   label: 'Acquisition Security Requirements'
-  order: 33
+  order: 35
 controls: [sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-4.10, sa-5, sa-10, sa-11, sa-15, sa-15.3, sa-22, sr-5]
 ---
 
@@ -129,7 +129,7 @@ This paragraph applies to High systems.
 - Each contract shall require the supplier to identify the origin of critical components and to tell the organization of changes in the suppliers of those components. <span class="tpl-field tpl-fill">Fill in: further supply chain terms from the supply chain risk management plan, or &quot;none&quot;</span> (SR-5)
 
 :::note[Guidance]
-[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024, current as of September 2026), covers supply chain requirements in acquisitions in more depth. Align the supply chain terms here with the SR-5 and SR-8 statements of the [Supply Chain Risk Management Policy](/templates/policies/sr/), which rely on them, and with each system's supply chain risk management plan (SR-2).
+[NIST SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations (May 2022, updated November 1, 2024, current as of September 2026), covers supply chain requirements in acquisitions in more depth. Align the supply chain terms here with the SR-5 and SR-8 statements of the [Supply Chain Risk Management Policy](/templates/policies/sr/), which rely on them, and with each system's [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) (SR-2).
 :::
 
 #### 4.6 Support, notification and updates

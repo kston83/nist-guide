@@ -8,6 +8,7 @@ control:
   id: CP-8
   family: CP
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -176,3 +177,46 @@ Determine if alternate telecommunications services, including necessary agreemen
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-8 asks you to set up alternate telecommunications services, with the agreements needed, so the system can resume the operations that support essential functions within a set time when primary telecommunications fail. It applies at the primary site and at the alternate processing and storage sites. NIST's CP-8 discussion covers data and voice services, and names extra ground-based circuits, network-based approaches and satellites as options; it lets you set different time periods for the primary and alternate sites. CP-8 is in the Moderate and High baselines, not in Low.
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) (May 2010, updated November 11, 2010; current as of October 2026), section 5.3, gives the telecommunications practices. Keep physical and logical network diagrams current, and record providers, contacts and service-level agreements in the plan. Find single points of failure, using the business impact analysis to set priorities. Where you use redundant links, make sure they are physically separated and do not follow the same path. Where you use more than one provider, make sure they share no common facilities, including building entries and demarcation points.
+
+**Common implementations.** At an office or data center, two internet or wide area network circuits from different providers, entering the building by different routes, with automatic failover; or a wireless or satellite backup link for lower-bandwidth operation. For a cloud system, the provider's network is inherited. What the organization provides is its users' and administrators' path to the system: redundant connections from offices, remote access from other locations, and a second private connection if the system depends on one. Voice matters too: the contingency team needs a way to talk if the primary phone system fails. Record the services in Appendix F of the [contingency plan](/templates/plans/contingency-plan/) and the providers in Appendix B.
+
+**Organization-defined parameters.** Typical values, from the [Contingency Planning policy](/templates/policies/cp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| System operations to resume | The system operations that support essential mission and business functions |
+| Time period for resumption | The recovery time objective set in the contingency plan from the business impact analysis |
+
+In the policy, the system owner establishes the services and their agreements. Using the recovery time objective keeps the telecommunications target consistent with the alternate processing site ([CP-7](/controls/cp/cp-7/)), which uses the same value.
+
+**Evidence assessors ask for.**
+
+- The contracts or service orders for the primary and alternate telecommunications services, with their priority-of-service terms (CP-8(1))
+- Network diagrams showing the primary and alternate paths, and how the alternate service connects at each site
+- The provider's statement or route documentation showing the services do not share a single point of failure (CP-8(2))
+- Records of failover tests or real outages, with the time it took to restore service
+- For CP-8(1)(b), the Telecommunications Service Priority assignments, or the reason it does not apply
+
+**Inheritance.** A cloud or data center provider's network redundancy is inherited. The organization usually provides the circuits at its own offices as a common control. The system owns the analysis of which telecommunications services it depends on and whether each has an alternate. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Two circuits from two providers that run through the same conduit or building entry, so one cut takes out both.
+- An alternate circuit installed but never tested, or with too little bandwidth for the operations it must carry.
+- Contracts with no priority-of-service terms, or standard terms nobody checked against the recovery time objective.
+- No plan for voice communications when the primary phone system or collaboration service is down.
+
+**Enhancements in the Moderate baseline.**
+
+- [CP-8(1)](#cp-8.1) priority of service provisions: (a) put priority-of-service terms in the primary and alternate telecommunications agreements, in line with the system's availability requirements and recovery time objective; (b) request Telecommunications Service Priority (TSP) for services used for national security emergency preparedness when a common carrier provides them. NIST's discussion asks you to consider the impact when a provider serves other organizations with similar priority terms. It describes TSP as a Federal Communications Commission program, managed by the Department of Homeland Security, that requires federal sponsorship to enroll. Part (b) applies only to services used for national security emergency preparedness; where the system has none, say so in the system security plan.
+- [CP-8(2)](#cp-8.2) single points of failure: obtain alternate services that reduce the chance of sharing a single point of failure with the primary services. NIST's discussion notes that providers may share the same physical lines, so ask each provider for transparency about the actual physical routes.
+
+High adds [CP-8(3)](#cp-8.3) separation of primary and alternate providers and [CP-8(4)](#cp-8.4) provider contingency plan. [CP-8(5)](#cp-8.5) alternate telecommunication service testing is in no baseline.
+
+**Federal systems** (as of October 2026). The Cybersecurity and Infrastructure Security Agency (CISA) describes [Telecommunications Service Priority](https://www.cisa.gov/resources-tools/services/telecommunications-service-priority-tsp) as a Federal Communications Commission program, managed by CISA, which requires service providers to prioritize provisioning and restoration requests for voice and data circuits from organizations with national security and emergency preparedness missions. Restoration priority must be requested on a circuit before an outage occurs. The CP-8(1) clause's federal block requires registering the system's national security and emergency preparedness circuits in the program.

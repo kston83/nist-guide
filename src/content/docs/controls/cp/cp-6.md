@@ -8,6 +8,7 @@ control:
   id: CP-6
   family: CP
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -128,3 +129,47 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-6 asks you to set up an alternate storage site, with the agreements needed to store and retrieve the system's backups, and to make sure it protects them as well as the primary site does. NIST's CP-6 discussion says alternate storage sites are geographically distinct from the primary site, and that geographically distributed architectures that support contingency requirements may count as alternate storage sites. The agreements cover environmental conditions, access rules, physical and environmental protection, and the delivery and retrieval of backup media. CP-6 is in the Moderate and High baselines, not in Low.
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) (May 2010, updated November 11, 2010; current as of October 2026), section 3.4.2, lists the criteria for choosing an offsite storage site:
+
+| Criterion | What to check |
+| --- | --- |
+| Geographic area | Distance from the primary site, and the chance that the same disaster affects both |
+| Accessibility | How long it takes to retrieve the backups, and when the site is open |
+| Security | The security of the shipping method, the facility and its staff, all meeting the data's requirements |
+| Environment | Structural and environmental conditions: temperature, humidity, fire prevention and power |
+| Cost | Shipping, operating fees, and disaster response and recovery services |
+
+**Common implementations.** For a cloud system, backups copied to a second region of the same provider, or to a separate backup service, with the copy held in a separate account or vault that production administrators cannot change or delete. For an on-premises system, backups replicated to a second data center or a recovery provider, or physical media sent to a commercial storage vendor. Either way, the site holds the copies [CP-9](/controls/cp/cp-9/) requires, including the immutable or offline copy that the [CP decision worksheet](/templates/worksheets/cp/) gives as the typical ransomware protection. Record the site and its agreement in Appendix F of the [contingency plan](/templates/plans/contingency-plan/).
+
+"Equivalent controls" (CP-6b) means the backups keep the protection they have at the primary site: the same access restrictions, encryption and monitoring, and physical protection at a vendor's facility. For a provider or vendor, check this with the [external service review](/templates/forms/external-service-review/). Physical media in transit and at the vendor fall under media transport and storage ([MP-5](/controls/mp/mp-5/), [MP-4](/controls/mp/mp-4/)).
+
+**Organization-defined parameters.** CP-6 and its Moderate enhancements have none. In the [Contingency Planning policy](/templates/policies/cp/), the system owner establishes the site and its agreements. The decision worksheet gives the typical answer for where the site is: a second region or availability zone of the same cloud provider for cloud systems, and a second data center or a recovery service for on-premises systems. The policy's guidance adds that a cloud region or zone serves only if it meets the separation and control requirements and the provider agreement supports it.
+
+**Evidence assessors ask for.**
+
+- The agreement or contract for the alternate storage site, or the cloud configuration and provider terms that establish it
+- The location of the site and the reasoning for why it is far enough from the primary site (CP-6(1))
+- Evidence of equivalent controls: access lists, encryption settings and the provider's or vendor's security documentation
+- Backup job reports showing copies reaching the site, and a recent retrieval or restore from it
+- The accessibility analysis and mitigation actions (CP-6(3))
+
+**Inheritance.** A cloud provider's storage services and a backup vendor's facility controls are inherited, often through the provider's authorization package or audit reports. The system owns the choice of site, the replication settings, who can reach the copies, and the accessibility plan. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- Backups kept in the same data center, or the same cloud region, as the system they protect.
+- An alternate copy that production administrators, or an attacker with their credentials, can delete.
+- No agreement for retrieving media from the storage vendor, or no one who knows how to request it.
+- No analysis of what happens if the alternate site cannot be reached in a regional disaster.
+
+**Enhancements in the Moderate baseline.**
+
+- [CP-6(1)](#cp-6.1) separation from primary site: choose a site far enough away that it is unlikely to suffer the same threats. NIST's discussion leaves the distance to the organization's risk assessment and says that for hostile attacks, distance matters less. For ransomware and stolen credentials, logical separation does the work: a separate account, separate credentials and an immutable copy. Record the threats you considered and how the site's location and separation address each.
+- [CP-6(3)](#cp-6.3) accessibility: identify what could stop you reaching the site in an area-wide disruption or disaster, and plan explicit mitigations. NIST's discussion gives two examples: duplicating backups at another site, and planning for physical retrieval if electronic access fails. For a cloud site, consider a regional outage of the provider and loss of the network path or identity service you use to reach it.
+
+High adds [CP-6(2)](#cp-6.2) recovery time and recovery point objectives: configure the site so recovery from it meets the objectives.

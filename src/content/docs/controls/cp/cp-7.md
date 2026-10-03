@@ -8,6 +8,7 @@ control:
   id: CP-7
   family: CP
   baselines: [Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -174,3 +175,48 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-7 asks you to set up an alternate processing site where the system can resume the operations that support essential functions, within a set time, when the primary site cannot run it. You make the equipment and supplies available there, or contract for their delivery in time, and provide controls equivalent to the primary site's. NIST's CP-7 discussion says the alternate capability may be a physical site or another option, such as failover to a cloud service provider or another internal or external processing service. CP-7 is in the Moderate and High baselines, not in Low.
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) (May 2010, updated November 11, 2010; current as of October 2026), section 3.4.3, says the plan for every moderate- or high-impact system should include a strategy to recover and run the system at an alternate facility for an extended period. It describes sites by readiness: cold sites (space and infrastructure only), warm sites (partly equipped), hot sites (fully equipped and staffed), and variations such as mirrored sites, which are fully redundant with real-time mirroring. Section 5.1.5 says to choose the type from the business impact analysis: the processes the system supports, the maximum tolerable downtime, and the impact of losing it. A cold site can take days to weeks to bring up, so it rarely meets a short recovery time objective.
+
+**Common implementations.** For a cloud system, a second region of the same provider, with infrastructure defined as code so the environment can be rebuilt there, and data replicated from the alternate storage site ([CP-6](/controls/cp/cp-6/)). Some systems run warm (scaled-down copies kept running) or active in both regions. For an on-premises system, a second data center the organization runs, or a commercial recovery service under contract. Record the site, its agreement and how operations move there in Appendices D and F of the [contingency plan](/templates/plans/contingency-plan/).
+
+When the site is under contract, SP 800-34 section 3.4.3 lists what the agreement should address, including disaster declaration, priority access, site availability, other subscribers to the same site, testing time, security requirements, and the system's hardware, software and telecommunications requirements. It warns that a commercial site may not be able to serve every customer if one disaster hits many of them, so negotiate how priority is decided (CP-7(3)).
+
+**Organization-defined parameters.** Typical values, from the [Contingency Planning policy](/templates/policies/cp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| System operations to transfer and resume (a) | The system operations that support essential mission and business functions |
+| Time period for transfer and resumption (a) | The recovery time objective set in the contingency plan from the business impact analysis |
+
+In the policy, the system owner establishes the site and its agreements. The time period ties CP-7 to the recovery time objective in section 2.2 of the contingency plan, so the site you choose must be ready enough to meet it. The [CP decision worksheet](/templates/worksheets/cp/) gives the typical answer for where the site is: a second region or availability zone of the same cloud provider for cloud systems, and a second data center or a recovery service for on-premises systems.
+
+**Evidence assessors ask for.**
+
+- The agreement or contract for the alternate processing site, or the cloud configuration and provider terms that establish it
+- The contingency plan's alternate processing procedures (Appendix D) and the recovery time objective they must meet
+- Evidence that equipment, images, licenses and supplies are in place at the site, or contracts for their delivery in time (CP-7b)
+- Evidence of equivalent controls at the site, such as the same baseline configurations, access controls and monitoring (CP-7c)
+- The separation and accessibility analysis (CP-7(1), CP-7(2)) and the priority-of-service terms (CP-7(3))
+- Results of the last failover test, if one was run (CP-4)
+
+**Inheritance.** A cloud provider's regions and their physical and environmental controls are inherited, as are a recovery vendor's facility controls. The system owns the choice of site, the failover design, the readiness of its own components there and the agreement terms. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- An alternate region with no copy of the configuration, images or secrets the system needs, so failover takes far longer than the recovery time objective.
+- Controls at the alternate site weaker than at the primary site: logging not enabled, older baselines, or no monitoring.
+- A recovery service contract that has lapsed, or that no longer covers the system's current hardware or capacity.
+- A site chosen without checking whether it meets the recovery time objective.
+
+**Enhancements in the Moderate baseline.**
+
+- [CP-7(1)](#cp-7.1) separation from primary site: choose a site far enough away that it is unlikely to suffer the same threats. NIST's discussion leaves the distance to the organization's risk assessment and says that for hostile attacks, distance matters less. Separate administrative access and credentials between the sites help against those.
+- [CP-7(2)](#cp-7.2) accessibility: identify what could stop you reaching or using the site in an area-wide disruption or disaster, and plan explicit mitigations. For a physical site, think of travel and staff access; for a cloud region, think of the network path, the identity service and the provider's own regional dependencies.
+- [CP-7(3)](#cp-7.3) priority of service: put priority-of-service terms in the alternate site agreements, in line with the system's availability requirements and recovery time objective. NIST's discussion means negotiated terms that give the organization priority treatment. For a commercial recovery site, that is your place in the queue when many customers declare at once; for a cloud region, consider reserved capacity so resources are there when everyone fails over.
+
+High adds [CP-7(4)](#cp-7.4) preparation for use: prepare the site so it can serve as the operational site, with configuration settings consistent with the primary site's. [CP-7(6)](#cp-7.6) inability to return to primary site is in no baseline.

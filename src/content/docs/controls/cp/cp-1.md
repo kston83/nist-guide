@@ -8,6 +8,7 @@ control:
   id: CP-1
   family: CP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,70 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-1 asks for a written contingency planning policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Contingency Planning policy template](/templates/policies/cp/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/cp/) lists every choice the family forces, with typical values and who decides. The procedures are yours to write; each system's recovery steps live in its [contingency plan](/templates/plans/contingency-plan/) (CP-2), built on a [business impact analysis](/templates/reports/business-impact-analysis/).
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final), Contingency Planning Guide for Federal Information Systems (May 2010, updated November 11, 2010; current as of October 2026), section 3.1, says the policy statement should set the organization's contingency objectives and the framework and responsibilities for system contingency planning. It lists the key policy elements: roles and responsibilities, scope, resource requirements, training requirements, exercise and testing schedules, the plan maintenance schedule, and the minimum frequency of backups and storage of backup media. The shared sections cover roles, scope and resources (Management commitment). The CP policy statements cover the rest: training in CP-3, testing in CP-4, plan review in CP-2 and backups in CP-9.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the CP-1 item it meets:
+
+| CP-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+SP 800-34 also says the policy must reflect the system impact levels and the contingency controls each level requires. The CP policy does this through its baseline editions: a Low system has no alternate storage or processing site requirement, and a Moderate system adds CP-6, CP-7 and CP-8. Its decision worksheet also sets the kind of test each baseline needs (CP-4).
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. NIST's CP-1 discussion asks security and privacy programs to collaborate on it, which the shared Coordination section does by including the privacy function. SP 800-34 section 3.1 adds coordination with physical security, human resources, system operations and emergency preparedness, so name those owners in the Coordination section too. Procedures written for the work CP-2 to CP-10 describe:
+
+- Running the business impact analysis, and writing, approving, distributing, reviewing and protecting each system's contingency plan (CP-2)
+- Training people for their contingency roles, and keeping the content current (CP-3)
+- Planning and running contingency plan tests, reviewing the results and tracking corrective actions (CP-4)
+- Setting up and maintaining the alternate storage site, the alternate processing site and alternate telecommunications, with their agreements (CP-6, CP-7, CP-8)
+- Making, protecting, transferring and test-restoring backups (CP-9)
+- Activating the plan, recovering the system, validating it and declaring reconstitution complete (CP-10)
+
+System-specific recovery objectives, contacts and steps go in the contingency plan and the [system security plan](/templates/plans/system-security-plan/).
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within its scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's CP-1 discussion. For CP, the people who carry out the procedures are, for example, the contingency plan coordinators, the system and backup administrators, the network team, the service desk, and the facilities and communications staff each plan names. The Chief Information Security Officer often delegates the day-to-day management to a contingency planning or disaster recovery lead. Typical procedure triggers for CP are lessons learned from a test or an actual activation, a new backup service or alternate site, a move to a new hosting provider or region, and a change of telecommunications provider.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one, including the backup and restore runbooks
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the facilities, communications and service desk staff, who are easy to miss
+- Evidence of the last review of the policy and of each procedure, with the changes made, including changes after a test or an actual activation
+
+**Inheritance.** CP-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its system security plan. It adds its own procedures where it recovers differently, for example a system whose cloud provider runs backups and failover.
+
+**Common findings.**
+
+- A policy that restates the CP controls but has no procedures behind it. NIST's discussion of CP-1 says restating controls is not a policy or procedure.
+- Recovery steps that exist only in the heads of a few administrators, or runbooks that name tools and sites no longer in use.
+- The policy or procedures not reviewed within the stated period, or not updated after a move to a new data center or cloud region.
+- A policy that does not say who sets recovery objectives, so each system owner picks numbers with no business input.
+
+**Enhancements in the Moderate baseline.** CP-1 has no enhancements.
+
+**Federal systems** (as of October 2026). Agency continuity programs follow FEMA's [Federal Continuity Directive: Federal Executive Branch Continuity Program Management Requirements](https://www.fema.gov/sites/default/files/documents/fema_oncp_fcd-federal-executive-branch-continuity-program-management-requirements.pdf) (August 2024), which rescinds and supersedes FCD-1 (January 2017), as section 1.1 states. FEMA's [continuity resources page](https://www.fema.gov/emergency-managers/national-preparedness/continuity/documents) still lists it, with the Essential Functions Risk Identification and Management directive of the same date. Coordinate the contingency planning policy with the agency's continuity program, so that system recovery priorities support its essential functions. The shared sections' federal block ties the policy to FISMA and OMB Circular A-130.

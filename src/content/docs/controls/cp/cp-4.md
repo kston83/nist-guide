@@ -8,6 +8,7 @@ control:
   id: CP-4
   family: CP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -182,3 +183,56 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-4 asks you to test the contingency plan at a set frequency, with tests you name, to find out whether the plan works and whether people are ready to carry it out. You then review the results and start corrective actions where needed. NIST's CP-4 discussion lists checklists, walk-through and tabletop exercises, simulations (parallel or full interrupt) and comprehensive exercises. It also asks you to determine the effects of contingency operations on the organization, its assets and individuals. CP-4 is in the Low, Moderate and High baselines.
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) (May 2010, updated November 11, 2010; current as of October 2026) scales the test to the system's availability impact level (section 3.5.4):
+
+| Impact level | What SP 800-34 says the test should be |
+| --- | --- |
+| Low | A tabletop exercise that simulates a disruption and includes all the plan's main points of contact |
+| Moderate | A functional exercise that includes all the plan's points of contact and an element of system recovery from backup media |
+| High | A full-scale functional exercise that includes failover to the alternate location and a full recovery and reconstitution to a known state |
+
+Section 3.5.1 lists what a test should address, as applicable: notification procedures, system recovery on an alternate platform from backup media, internal and external connectivity, system performance on alternate equipment, restoration of normal operations, and coordination with other plans. It asks for a test plan with objectives, success criteria, scope, scenario, logistics, a schedule and participants, and a scenario that mimics reality. Section 3.5 says the results of each event go in an after-action report, and the lessons learned update the plan.
+
+[NIST SP 800-84](https://csrc.nist.gov/pubs/sp/800/84/final), Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (September 2006; current as of October 2026), describes how to run both kinds of exercise. A tabletop exercise is discussion-based: a facilitator presents a scenario and asks questions about roles, coordination and decisions. A functional exercise has personnel perform their duties in a simulated environment. Section 4.5 puts the debrief comments and lessons learned in an after-action report, with recommendations for updating the plan.
+
+**Common implementations.** Plan each test with the [contingency plan test plan](/templates/plans/contingency-plan-test-plan/), which follows SP 800-84: scope and safeguards, objectives with measures, participants, scenario and injects, and evaluation. Record the results in the [contingency plan after-action report](/templates/reports/contingency-plan-after-action-report/), with each finding given an owner, a due date and a tracking reference. For a Moderate system, the test restores the system, or a representative part of it, from backup and times it against the recovery time and recovery point objectives in the [contingency plan](/templates/plans/contingency-plan/). The tabletop part walks the contingency team through activation, notification and the decision to fail over.
+
+**Organization-defined parameters.** Typical values, from the [Contingency Planning policy](/templates/policies/cp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Test frequency (a) | Annually |
+| Tests that determine the plan's effectiveness (a) | A functional test that restores the system, or a representative part of it, from backup |
+| Tests that determine readiness to execute the plan (a) | A tabletop exercise that walks the contingency team through the plan |
+
+In the policy, the system owner tests the plan, reviews the results and tracks corrective actions in the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/). The [CP decision worksheet](/templates/worksheets/cp/) sets the test by baseline, as SP 800-34 does: a tabletop exercise each year for Low systems, and a functional recovery test each year for Moderate and High systems, at the alternate site for High. The annual frequency matches the incident response test in the Incident Response policy ([IR-3](/controls/ir/ir-3/)), which makes a joint exercise easy to schedule.
+
+**Evidence assessors ask for.**
+
+- The test plan for the last test: scope, objectives, scenario, participants and schedule
+- The after-action report, with results against each objective and measured recovery times against the recovery objectives
+- The review of the results (CP-4b): who reviewed them and when
+- The corrective actions, tracked to closure in the plan of action and milestones, and the plan, training or backup changes they produced
+- Records showing the tests met the stated frequency, matching Appendix J of the contingency plan
+- For CP-4(1), evidence that the owners of related plans took part or reviewed the scenario, such as attendance lists or a joint after-action report
+
+**Inheritance.** CP-4 is usually system-specific: each system's plan is tested. A system hosted by a cloud or data center provider inherits the provider's tests of its own infrastructure, and still tests the parts it owns, such as restoring its data and applications. Ask the provider for evidence of its tests and record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- A tabletop exercise held for a Moderate system, with no functional test that actually restores anything.
+- A restore test that proves the backup job ran but never times the recovery against the recovery time objective.
+- No after-action report, or findings that never reached the plan of action and milestones.
+- Contact lists and call trees not exercised, so the first real activation finds wrong phone numbers.
+- Contingency plan tests and incident response tests run by different teams that never involve each other.
+
+**Enhancements in the Moderate baseline.** [CP-4(1)](#cp-4.1) coordinate with related plans: coordinate contingency plan testing with the organizational elements responsible for related plans. NIST's discussion lists business continuity, disaster recovery, continuity of operations, crisis communications, critical infrastructure, cyber incident response and occupant emergency plans. It does not require you to create such elements, only to coordinate with those that exist. A practical way to meet CP-4(1) is to run the contingency plan test and the incident response tabletop as one exercise, which also meets [IR-3(2)](/controls/ir/ir-3/#ir-3.2). Use a scenario that moves from containment under the [Incident Response Plan](/templates/plans/incident-response-plan/) into recovery under the contingency plan, such as ransomware that encrypts the system's servers. The test plan's section 2 has a row for the related plans and their teams, and the plan's Appendix K lists them.
+
+High adds [CP-4(2)](#cp-4.2) alternate processing site: test the plan at the alternate processing site, to familiarize personnel with it and to evaluate its capabilities. [CP-4(3)](#cp-4.3) automated testing, [CP-4(4)](#cp-4.4) full recovery and reconstitution and [CP-4(5)](#cp-4.5) self-challenge are in no baseline.
+
+**Federal systems** (as of October 2026). FEMA's [Federal Continuity Directive: Federal Executive Branch Continuity Program Management Requirements](https://www.fema.gov/sites/default/files/documents/fema_oncp_fcd-federal-executive-branch-continuity-program-management-requirements.pdf) (August 2024), section 7.1.4, requires agencies' continuity testing programs to include annual testing of recovery strategies (disaster recovery plans or IT contingency plans) for critical information systems, services and data. It also requires annual testing of information systems and access to essential records at alternate sites. Where a system supports the agency's essential functions, schedule its contingency plan test so it also counts toward the agency's continuity testing.

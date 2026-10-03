@@ -8,6 +8,7 @@ control:
   id: CP-3
   family: CP
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -109,3 +110,45 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+CP-3 asks you to train the people with a role in the contingency plan for that role: when they take it on, when system changes require it, and at a set interval after that. You also review and update the training content on a schedule and after set events. NIST's CP-3 discussion scales the content to the role. Some people only need to know when and where to report during contingency operations. System administrators need to know how to set up systems at the alternate sites, and officials how to carry out essential functions from another location. CP-3 is in the Low, Moderate and High baselines.
+
+[NIST SP 800-34 Rev. 1](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final) (May 2010, updated November 11, 2010; current as of October 2026), section 3.5.2, says training should be provided at least annually, and soon after someone is newly appointed to a plan role. Its goal is that recovery personnel can do their jobs without the plan in hand, because the plan may be unavailable in the first hours of a disruption. It lists what to cover: the plan's purpose, cross-team coordination and communication, reporting procedures, security requirements, team-specific processes, and individual responsibilities in each of the three phases (activation and notification, recovery, reconstitution).
+
+**Common implementations.** A short briefing for each plan role, given by the contingency plan coordinator when someone joins the contingency team and repeated each year. It walks through the [contingency plan](/templates/plans/contingency-plan/): the roles table in section 2.3, the activation criteria and notification steps in section 3, and the person's own recovery procedures in Appendix C or D. Administrators also practice their recovery steps, for example restoring a server or database from backup. List the course in section 5 (role-based training) of the [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/), and record completions in the learning management system or the [training record log](/templates/forms/training-record-log/).
+
+NIST's discussion lets the organization count taking part in a contingency plan test or exercise, including its lessons-learned session, as training. Many programs schedule the annual training just before the annual test (CP-4), so people learn their role and then practice it. Users with no contingency role need only know where to get instructions, which literacy training ([AT-2](/controls/at/at-2/)) can cover.
+
+**Organization-defined parameters.** Typical values, from the [Contingency Planning policy](/templates/policies/cp/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Time to train after assuming a contingency role (a.1) | 30 days |
+| Refresher frequency (a.3) | Annually |
+| Content review frequency (b) | Annually |
+| Events that trigger a content review (b) | A change to the contingency plan, and lessons learned from a test or an actual contingency event |
+
+The trigger events follow NIST's discussion, which names contingency plan testing and actual contingencies. In the policy, the system owner provides the training. The values match the incident response training in [IR-2](/controls/ir/ir-2/) (30 days, then annually), so one training cycle can cover both where the same people hold both roles.
+
+**Evidence assessors ask for.**
+
+- The training material for each contingency role, with the date it was last reviewed and what changed
+- The list of people with contingency roles, from the plan's roles table and contact list, with their training dates
+- Records showing new members were trained within 30 days of joining the contingency team
+- Records of the annual refresher, or of exercise participation where the organization counts it as training
+- Evidence that content was updated after a plan change or after the lessons learned from a test
+
+**Inheritance.** CP-3 is usually system-specific, because the training follows each system's plan and roles. An organization can provide a common course on the contingency program, and each system adds its own role briefings. Where a cloud provider runs recovery, the provider trains its own staff, and the system trains only the roles it keeps. Record the split in the [system security plan](/templates/plans/system-security-plan/).
+
+**Common findings.**
+
+- No training records for the people named in the contingency plan, or names in the plan who have left.
+- Training that covers the plan in general but not each person's own recovery steps.
+- Content never updated after the plan changed, for example after a move to a new backup service or alternate site.
+- Exercise participation counted as training, but no attendance list to show who took part.
+
+**Enhancements in the Moderate baseline.** None. High adds [CP-3(1)](#cp-3.1) simulated events: training that puts people through realistic events, which NIST's discussion illustrates with cyber-attacks that disable websites, ransomware that encrypts data on servers, hurricanes that damage facilities, and hardware or software failures. [CP-3(2)](#cp-3.2) mechanisms used in training environments is in no baseline.
+
+**Federal systems** (as of October 2026). FEMA's [Federal Continuity Directive: Federal Executive Branch Continuity Program Management Requirements](https://www.fema.gov/sites/default/files/documents/fema_oncp_fcd-federal-executive-branch-continuity-program-management-requirements.pdf) (August 2024), section 7.1.3, requires annual training on roles and responsibilities for all continuity personnel assigned to activate, support or sustain essential function operations. That training must include the use of continuity capabilities such as alternate sites and access to backup records, and the communications and IT system planning that supports continuity operations. Where a system supports the agency's essential functions, align its contingency training with the agency's continuity training so the two do not conflict.

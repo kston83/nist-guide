@@ -1,6 +1,6 @@
 ---
 title: 'Templates'
-description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, procedures, standards, forms and reports. CC0.'
+description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, standards, procedures, forms and reports. CC0.'
 sidebar:
   label: 'All templates'
   order: 0
@@ -78,12 +78,6 @@ Each template is written once and assembled for your baseline. Download the read
 | [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) | [Mature](/program/mature/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
 
-## Procedures
-
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Account Management Procedure](/templates/procedures/account-management-procedure/) | [Core](/program/core/) | Draft |
-
 ## Standards
 
 | Template | Program stage | Status |
@@ -96,6 +90,12 @@ Each template is written once and assembled for your baseline. Download the read
 | [Remote Access Standard](/templates/standards/remote-access-standard/) | [Core](/program/core/) | Draft |
 | [System Monitoring Standard](/templates/standards/system-monitoring-standard/) | [Operate](/program/operate/) | Draft |
 | [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | [Core](/program/core/) | Draft |
+
+## Procedures
+
+| Template | Program stage | Status |
+| --- | --- | --- |
+| [Account Management Procedure](/templates/procedures/account-management-procedure/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers
 

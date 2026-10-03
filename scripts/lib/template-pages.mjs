@@ -15,8 +15,8 @@ const TYPE_GROUP = {
 	policy: 'Policies',
 	worksheet: 'Decision worksheets',
 	plan: 'Plans',
-	procedure: 'Procedures',
 	standard: 'Standards',
+	procedure: 'Procedures',
 	form: 'Forms and registers',
 	report: 'Reports',
 };
@@ -257,7 +257,7 @@ export function indexPage(summaries) {
 	return [
 		'---',
 		"title: 'Templates'",
-		"description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, procedures, standards, forms and reports. CC0.'",
+		"description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, standards, procedures, forms and reports. CC0.'",
 		'sidebar:',
 		"  label: 'All templates'",
 		'  order: 0',

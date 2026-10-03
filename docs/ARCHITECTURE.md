@@ -64,7 +64,7 @@ templates/
   plans/ standards/ procedures/ forms/ reports/   one file per artifact
 ```
 
-Every type folder is flat, procedures included (`templates/procedures/account-management-procedure.md`), so each template page sits one level under its type in the sidebar and the URL. The PRD's layout sketch shows `procedures/<family>/<slug>.md`; the loader and schema accept either, but a family subfolder would add a sidebar group named by its folder (`ac`).
+Every type folder is flat, procedures included (`templates/procedures/account-management-procedure.md`), so each template page sits one level under its type in the sidebar and the URL. The owner chose this layout in the row 27 review (PRD 3.9); a family subfolder would add a sidebar group named by its folder (`ac`).
 
 1. **Validation.** `src/content.config.ts` loads the sources as Astro content collections (`clauses`, `templates`, `families`, `variables`) and checks them with the schemas in `src/lib/template-schema.ts` against `src/data/catalog.json`. A bad control ID, type, status, stage or variable fails the build (TPL-01).
 2. **Assembly.** `src/lib/template-assemble.ts` builds each family policy from `_common.md` plus the family's clauses in catalog order, once per baseline. Baseline membership comes from the catalog, never from the sources (TPL-03). A family with `baseline: none` (PM) gets one organization-wide edition; a privacy-only family (PT) gets only a Privacy edition.

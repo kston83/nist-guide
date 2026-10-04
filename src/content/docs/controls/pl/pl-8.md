@@ -8,6 +8,7 @@ control:
   id: PL-8
   family: PL
   baselines: [Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -137,3 +138,46 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PL-8 asks for security and privacy architectures for the system that describe four things: how it protects information, how it processes personally identifiable information to limit privacy risk, how it fits the enterprise architecture, and what it assumes about and depends on outside. You review them on a schedule, and carry planned architecture changes into the plans, the concept of operations, the criticality analysis, procedures and acquisitions.
+
+**Common implementations.** NIST's PL-8 discussion lists what an architecture contains:
+
+- An architectural description
+- Where security and privacy functions and controls are allocated
+- The external interfaces, the information exchanged across each, and how each is protected
+- Optionally, user roles and their privileges, the types of information handled, supply chain risk management requirements and restoration priorities
+
+Most systems keep the architecture as a section of the [system security plan](/templates/plans/system-security-plan/) or an attachment it references, with the boundary, network and data flow diagrams from section 7. NIST's discussion says the security and privacy architectures may be one document when the privacy objectives need nothing beyond the security requirements. Record the security design principles applied to the system there too (SA-8).
+
+Place the system in the enterprise architecture, as [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) task P-16 describes, and stay consistent with the organization-wide architecture (PM-7). For dependencies, name each external service the system relies on, such as the cloud platform, the identity provider or a managed security service, and state what you assume it provides. NIST's discussion points to [SP 800-160 Vol. 1 Rev. 1](https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final) (November 2022) for using architectures in the life cycle, and to SA-17 when an outside developer builds the system.
+
+**Organization-defined parameters.** Typical value, from the [Planning policy](/templates/policies/pl/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review and update frequency (b) | Annually, and whenever the enterprise architecture changes |
+
+Also review the architecture with each significant change to the system, since PL-8c asks you to carry planned architecture changes into the plans, the criticality analysis (RA-9) and acquisitions before they happen.
+
+**Evidence assessors ask for.**
+
+- The architecture description, with its version, date and owner, covering each of a.1 to a.4
+- Diagrams that match the authorization boundary and the component inventory
+- The list of external services the system depends on, with the assumptions made about each
+- The record of the last review
+- For a recent architecture change, evidence that the security plan, the criticality analysis and the related acquisition were updated
+
+**Inheritance.** The enterprise architecture and the organization's security and privacy architecture are common inputs (PM-7), and shared services document their own architectures. The system's architecture is system-specific. A cloud provider's documentation describes the parts of the stack it runs; your architecture states which of its services you use and what you rely on them for.
+
+**Common findings.**
+
+- Diagrams with no description of the protection approach or where controls are allocated.
+- No privacy architecture, or no statement that the security architecture also covers privacy.
+- External dependencies, such as software as a service or a shared identity provider, missing, or listed with no assumptions.
+- An architecture not updated after a migration to the cloud or a new interconnection.
+- No link to the enterprise architecture.
+
+**Enhancements in the Moderate baseline.** None. [PL-8(1)](#pl-8.1) defense in depth and [PL-8(2)](#pl-8.2) supplier diversity are in no baseline. PL-8 is in the Moderate, High and Privacy baselines, not in Low.

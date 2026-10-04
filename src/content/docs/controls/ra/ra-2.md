@@ -8,6 +8,7 @@ control:
   id: RA-2
   family: RA
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -84,3 +85,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+RA-2 asks you to categorize the system and the information it processes, stores and transmits, record the result and its rationale in the security plan, and have the authorizing official or a designated representative approve it. Categorization picks the control baseline (PL-10), so finish it and get it approved before you select controls.
+
+**Common implementations.** The system owner and the information owners list the system's information types, rate the impact of a loss of confidentiality, integrity and availability for each, and take the highest rating for each objective as the system's rating. The highest of the three then picks the baseline, the "high-water mark" that [SP 800-53B](https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final) section 2.2 describes. The [security categorization worksheet](/templates/forms/security-categorization-worksheet/) walks through each step and records the approval, and the result goes in section 6 of the [system security plan](/templates/plans/system-security-plan/).
+
+[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) (December 2018) sets out who does what:
+
+- **Task C-2:** the system owner and the information owner or steward categorize the system, working with senior leaders who hold mission and risk responsibilities. They consider the security risk assessment, and the privacy risk assessment when the system processes personally identifiable information. Business impact analyses or criticality analyses are among its inputs.
+- **Task C-3:** for systems that process personally identifiable information, the senior agency official for privacy reviews and approves the categorization before the authorizing official does. The authorizing official checks it against the categorizations of the organization's other systems, and can limit the tailoring allowed later (PL-11).
+
+NIST's RA-2 discussion makes categorization an organization-wide activity. It names the chief information officer, the senior information security and privacy officials, system owners, mission and business owners, and information owners. Revisit it through the life cycle.
+
+**Organization-defined parameters.** RA-2 has none. In the [Risk Assessment policy](/templates/policies/ra/), the system owner categorizes the system, documents the results with their rationale in the system security plan, and has the authorizing official or a designated representative approve them. The system owner also reviews the categorization whenever the system, the information it handles or its environment of operation changes significantly.
+
+**Evidence assessors ask for.**
+
+- The categorization worksheet, listing every information type with its ratings and the reason for each rating and for any change from a provisional rating
+- The authorizing official's or designated representative's approval, dated before the baseline was selected and the plan approved
+- The privacy official's review, for a system that processes personally identifiable information
+- Section 6 of the system security plan, matching the worksheet
+- Evidence that the categorization was reviewed after the last significant change, such as a new information type or a new interconnection
+
+**Inheritance.** The organization usually provides the method, the information type list and the approval process as common elements. The categorization itself is always system-specific.
+
+**Common findings.**
+
+- No approval, or an approval dated after controls were selected and implemented.
+- Missing information types, most often the system's own security, audit and administration data.
+- Provisional ratings lowered with no recorded reason.
+- A system that holds personally identifiable information rated low for confidentiality.
+- A categorization not revisited after the system took on new data or new users.
+- The worksheet, the security plan and the system inventory showing different results.
+
+**Enhancements in the Moderate baseline.** None. [RA-2(1)](#ra-2.1) impact-level prioritization is in no baseline; SP 800-37 Rev. 2 task P-6 describes it as an optional organization-level task.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.a(2), requires agencies to categorize information and systems "in accordance with FIPS Publication 199 and NIST SP 800-60". Use [FIPS 199](https://csrc.nist.gov/pubs/fips/199/final) (February 2004) and [SP 800-60 Vol. 1 Rev. 1](https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final) (August 2008), whose [Volume 2](https://csrc.nist.gov/pubs/sp/800/60/v2/r1/final) lists the information types and their provisional impact levels. NIST published an [SP 800-60 Rev. 2 initial working draft](https://csrc.nist.gov/pubs/sp/800/60/r2/iwd) on January 31, 2024; comments closed March 18, 2024, and no later draft or final has appeared. Section 4.e(7) has the senior agency official for privacy review and approve the categorization of systems that process personally identifiable information. Its footnote 86 says agencies should generally categorize those systems at the moderate or high confidentiality impact level. For national security systems, NIST's RA-2 discussion points to CNSSI 1253.

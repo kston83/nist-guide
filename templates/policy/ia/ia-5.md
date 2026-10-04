@@ -9,7 +9,7 @@ typical:
 ---
 
 :::guidance
-For passwords, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025) says verifiers shall not require periodic changes, and shall force a change when there is evidence of compromise. Set the change periods below by authenticator type, and keep scheduled changes for secrets such as shared or service account keys.
+For passwords, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025) says verifiers shall not require periodic changes, and shall force a change when there is evidence of compromise. Set the change periods below by authenticator type, and keep scheduled changes for secrets such as shared or service account keys. The [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) carries the procedures these statements call for: identity checks before issue and reset, binding, recovery, loss and revocation.
 :::
 
 - The {{org:account-manager}} shall verify the identity of the individual, group, role, service or device receiving an authenticator as part of its initial distribution. (IA-5a)

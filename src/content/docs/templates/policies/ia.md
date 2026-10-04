@@ -128,6 +128,10 @@ Each statement below comes from the clause for one control or enhancement in the
 
 #### Identification and authentication (organizational users) (IA-2)
 
+:::note[Guidance]
+The [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) makes the IA-2 statements measurable: the assurance level for each group of users, the approved authenticators, which are required for privileged and non-privileged access, and a part where each system records how its users authenticate.
+:::
+
 - The <span class="tpl-field tpl-org">System owner</span> shall ensure the system uniquely identifies and authenticates organizational users. (IA-2)
 - The <span class="tpl-field tpl-org">System owner</span> shall ensure the system associates that unique identification with processes acting on behalf of those users. (IA-2)
 
@@ -179,7 +183,7 @@ Federal employees and contractors are issued PIV credentials under Homeland Secu
 #### Authenticator management (IA-5)
 
 :::note[Guidance]
-For passwords, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025) says verifiers shall not require periodic changes, and shall force a change when there is evidence of compromise. Set the change periods below by authenticator type, and keep scheduled changes for secrets such as shared or service account keys.
+For passwords, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025) says verifiers shall not require periodic changes, and shall force a change when there is evidence of compromise. Set the change periods below by authenticator type, and keep scheduled changes for secrets such as shared or service account keys. The [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) carries the procedures these statements call for: identity checks before issue and reset, binding, recovery, loss and revocation.
 :::
 
 - The <span class="tpl-field tpl-org">Account manager</span> shall verify the identity of the individual, group, role, service or device receiving an authenticator as part of its initial distribution. (IA-5a)
@@ -198,7 +202,7 @@ For passwords, [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/fina
 #### Password-based authentication (IA-5(1))
 
 :::note[Guidance]
-The typical values follow [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025): a minimum of 15 characters for a password used alone and 8 when it is one factor of several, no other composition rules, at least 64 characters allowed, and a check against a list of common and breached passwords.
+The typical values follow [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025): a minimum of 15 characters for a password used alone and 8 when it is one factor of several, no other composition rules, at least 64 characters allowed, and a check against a list of common and breached passwords. Section 7 of the [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) sets out the full password rules.
 :::
 
 - The <span class="tpl-field tpl-org">System owner</span> shall maintain a list of commonly used, expected or compromised passwords, and update it <span class="tpl-field tpl-param">Fill in: the frequency at which to update the list of commonly used, expected, or compromised passwords <span class="tpl-typical">Typical: at least monthly, and whenever a relevant breach corpus is published</span></span> and when organizational passwords are suspected to have been compromised. (IA-5(1)(a))

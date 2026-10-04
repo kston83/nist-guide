@@ -3,7 +3,7 @@ title: 'Remote Access Standard'
 description: 'The allowed remote access methods, and the device, authentication, encryption, connection, session, monitoring and privileged access requirements for each, that make the access control policy''s remote access requirements (SP 800-53 AC-17 and its enhancements) measurable.'
 sidebar:
   label: 'Remote Access Standard'
-  order: 43
+  order: 44
 controls: [ac-17, ac-17.1, ac-17.2, ac-17.3, ac-17.4, ac-12, sc-10]
 ---
 
@@ -115,7 +115,7 @@ SP 800-46 Rev. 2 section 5.1.2 describes tiered access: the most-controlled devi
 - Remote access shall be granted only to accounts whose approved access request includes it, and shall end when the account is disabled. (AC-17b)
 
 :::note[Guidance]
-The multi-factor and replay-resistance requirements are those of IA-2(1), IA-2(2) and IA-2(8), set out in the identification and authentication policy; this standard applies them to every remote session. SP 800-46 Rev. 2 section 3.3 says remote access servers should authenticate each user before granting any access, use authorization technologies so only the necessary resources can be used, and implement mutual authentication whenever feasible. [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html) (July 2025, final as of October 2026) describes phishing-resistant authenticators and the authentication assurance levels.
+The multi-factor and replay-resistance requirements are those of IA-2(1), IA-2(2) and IA-2(8), set out in the identification and authentication policy and made measurable in the [identification and authentication standard](/templates/standards/identification-and-authentication-standard/), whose section 5 lists the approved authenticators and which are phishing-resistant; this standard applies them to every remote session. SP 800-46 Rev. 2 section 3.3 says remote access servers should authenticate each user before granting any access, use authorization technologies so only the necessary resources can be used, and implement mutual authentication whenever feasible. [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html) (July 2025, final as of October 2026) describes phishing-resistant authenticators and the authentication assurance levels.
 :::
 
 ### 6. Encryption

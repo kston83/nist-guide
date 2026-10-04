@@ -97,7 +97,7 @@ IA-1 asks for a written identification and authentication policy, procedures tha
 | Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
 | Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
 
-**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written as runbooks for the work IA-2 to IA-12 describe: issuing identifiers and accounts, identity proofing at enrollment, issuing and resetting authenticators, enrolling device certificates, and onboarding external identity providers. Procedures can sit in the [system security plan](/templates/plans/system-security-plan/) or in separate documents.
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. Procedures written as runbooks for the work IA-2 to IA-12 describe: issuing identifiers and accounts, identity proofing at enrollment, issuing and resetting authenticators, enrolling device certificates, and onboarding external identity providers. Procedures can sit in the [system security plan](/templates/plans/system-security-plan/) or in separate documents. The [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) sets the values those procedures apply: assurance levels, approved authenticators, password rules and the authenticator life cycle.
 
 **Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
 

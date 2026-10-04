@@ -85,7 +85,7 @@ Part A applies across the organization. Each system completes Part B.
 - Each system owner shall select, for each group of users of the system, an authentication assurance level (AAL), and an identity assurance level (IAL) and federation assurance level (FAL) where identity proofing or federation is used, through the digital identity risk management process of NIST SP 800-63-4, and record them in Part B. (IA-2)
 - The initial levels shall follow the effective impact level found for the user group: AAL1, IAL1 and FAL1 for low impact; AAL2, IAL2 and FAL2 for moderate impact; AAL3 and IAL3 for high impact, with FAL2 or FAL3 chosen after assessing the risk of a compromised identity provider. (IA-2)
 - Users who need accounts shall be identity proofed at the IAL that Part B records for their group, following NIST SP 800-63A-4, before an account or authenticator is issued to them. (IA-12a)
-- A level tailored below its initial level shall be recorded with its rationale and the compensating controls and residual risk, and approved by the <span class="tpl-field tpl-org">System owner</span>. (IA-2)
+- A level tailored below its initial level shall be recorded with its rationale, compensating controls and residual risk, and approved by the authorizing official, who accepts that risk. (IA-2)
 - Accounts that can perform privileged functions shall authenticate at AAL3, or with a phishing-resistant authenticator whose private key cannot be exported, as section 6 requires. (IA-2(1))
 
 :::note[Guidance]

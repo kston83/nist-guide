@@ -60,7 +60,7 @@ Determine if:
 
 RA-7 asks you to decide a response to every finding from security and privacy assessments, monitoring and audits, within the organization's risk tolerance. NIST's RA-7 discussion lists the options: mitigate with new or stronger controls, accept with a justification, share or transfer, or avoid. It also says to decide the response before creating a plan of action and milestones entry. A finding fixed at once needs no entry; a mitigation that cannot be finished at once gets one.
 
-**Common implementations.** Every source of findings feeds one process: assessment reports, vulnerability scans, continuous monitoring, internal and external audits, and privacy assessments. The system owner proposes a response for each finding, and the official the [Risk Management Strategy](/templates/plans/risk-management-strategy/) names for that risk level decides it. The strategy's section 3.3 sets the tolerance and who may accept each level. Each decision is recorded in the [risk register](/templates/forms/risk-register/), and mitigations that take time go into the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/) (CA-5).
+**Common implementations.** Every source of findings feeds one process: assessment reports, vulnerability scans, continuous monitoring, internal and external audits, and privacy assessments. The system owner proposes a response for each finding, and the authorizing official decides it, after consulting the roles the [Risk Management Strategy](/templates/plans/risk-management-strategy/) names for that risk level. The strategy's section 3.3 sets the tolerance and who is consulted at each level. Each decision is recorded in the [risk register](/templates/forms/risk-register/), and mitigations that take time go into the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/) (CA-5).
 
 [SP 800-39](https://csrc.nist.gov/pubs/sp/800/39/final) (March 2011), section 3.3, describes the steps behind each decision:
 
@@ -71,13 +71,13 @@ RA-7 asks you to decide a response to every finding from security and privacy as
 
 SP 800-39 notes that transferring risk is less applicable in the public sector, where liability is generally set by law or policy.
 
-[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) (December 2018) task R-3 says "the authorizing official is the only person who can accept risk" for an authorized system. Its task M-3 has the authorizing official, system owner and common control provider respond to risk from ongoing monitoring, risk assessments and open plan of action items. So where the strategy lets more than one official accept risk, make sure no one below the authorizing official accepts risk for an authorized system. Keep the accepted deficiencies documented in the assessment reports and monitor them for changes in threat, vulnerability, likelihood or impact.
+[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) (December 2018) task R-3 says "the authorizing official is the only person who can accept risk" for an authorized system. Its task M-3 has the authorizing official, system owner and common control provider respond to risk from ongoing monitoring, risk assessments and open plan of action items. So the strategy should never let anyone other than the authorizing official accept risk for an authorized system; the template's section 3.3 names who is consulted at each level instead. Keep the accepted deficiencies documented in the assessment reports and monitor them for changes in threat, vulnerability, likelihood or impact.
 
 **Organization-defined parameters.** RA-7 has none. In the [Risk Assessment policy](/templates/policies/ra/), the system owner responds to findings within the risk tolerance set in the risk management strategy and records each response as a remediation, a plan of action and milestones item, or a risk acceptance. Only an official the strategy authorizes for that level may accept a risk.
 
 **Evidence assessors ask for.**
 
-- The risk management strategy, showing the tolerance and who may accept each risk level
+- The risk management strategy, showing the tolerance and who is consulted before each risk level is accepted
 - The risk register, with a response recorded for each risk
 - A sample of findings from the last assessment, recent scans, an audit and a privacy assessment, each traced to a fix, a plan of action and milestones item or an acceptance
 - Signed risk acceptances, each with the risk, its level, the reason, the compensating measures, the official who accepted it and an expiry or review date

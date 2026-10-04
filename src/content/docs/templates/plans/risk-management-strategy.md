@@ -86,18 +86,20 @@ The constraints on risk assessment, response and monitoring (PM-28a.2): <span cl
 #### 3.3 Risk tolerance
 
 :::note[Guidance]
-Risk tolerance is the level of risk the organization will accept in pursuit of its mission. Say it per risk level and per impact type, and say who can accept each level. Tie the levels to the scale in section 4, so an assessed risk maps straight to a decision maker.
+Risk tolerance is the level of risk the organization will accept in pursuit of its mission. Say it per risk level and per impact type, and say who must be consulted before each level is accepted. Tie the levels to the scale in section 4, so an assessed risk maps straight to a decision.
+
+Only the authorizing official accepts risk for an authorized system: [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), task R-3, says "the authorizing official is the only person who can accept risk." The system owner proposes; the authorizing official decides. Task R-4 has the authorizing official consult the senior accountable official for risk management or the risk executive (function) before the authorization decision. Use the table to say who else to consult for higher risks, rather than moving the acceptance to them.
 :::
 
-The <span class="tpl-field tpl-org">Senior leader</span> sets the organization's risk tolerance as follows (PM-28a.4):
+The <span class="tpl-field tpl-org">Senior leader</span> sets the organization's risk tolerance as follows (PM-28a.4). For an authorized system, the authorizing official accepts risk at every level, after consulting the roles named for that level:
 
-| Assessed risk level | Tolerance | Who may accept it | Conditions |
+| Assessed risk level | Tolerance | Consult before accepting | Conditions |
 | --- | --- | --- | --- |
-| Very high | <span class="tpl-field tpl-fill">Fill in: for example not accepted; the system does not operate until the risk is reduced</span> | <span class="tpl-field tpl-fill">Fill in: role</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
-| High | <span class="tpl-field tpl-fill">Fill in: for example accepted only for a limited time with a plan of action</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the senior leader</span> | <span class="tpl-field tpl-fill">Fill in: for example no longer than 90 days</span> |
-| Moderate | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the authorizing official</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
-| Low | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the authorizing official</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
-| Very low | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the system owner</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
+| Very high | <span class="tpl-field tpl-fill">Fill in: for example not accepted; the system does not operate until the risk is reduced</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the risk executive (function) and the senior leader</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
+| High | <span class="tpl-field tpl-fill">Fill in: for example accepted only for a limited time with a plan of action</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the risk executive (function)</span> | <span class="tpl-field tpl-fill">Fill in: for example no longer than 90 days</span> |
+| Moderate | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example the CISO</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
+| Low | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example none; reported in the risk register</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
+| Very low | <span class="tpl-field tpl-fill">Fill in: tolerance</span> | <span class="tpl-field tpl-fill">Fill in: role, for example none; reported in the risk register</span> | <span class="tpl-field tpl-fill">Fill in: conditions</span> |
 
 Additional statements of tolerance: <span class="tpl-field tpl-fill">Fill in: for example no tolerance for loss of personal data of more than a set number of individuals; no single outage of a mission-essential service longer than a set time</span>.
 
@@ -137,7 +139,7 @@ For each risk above the tolerance in section 3.3, the system owner proposes one 
 
 #### 5.2 Decisions
 
-The role named in section 3.3 for the assessed risk level decides the response. Mitigations are tracked in the system's plan of action and milestones (CA-5), within the organization's plan of action and milestones process (PM-4).
+The authorizing official decides the response, after consulting the roles named in section 3.3 for the assessed risk level. Mitigations are tracked in the system's plan of action and milestones (CA-5), within the organization's plan of action and milestones process (PM-4).
 
 #### 5.3 Record of accepted risk
 

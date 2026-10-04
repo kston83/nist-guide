@@ -8,6 +8,7 @@ control:
   id: PS-1
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,66 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-1 asks for a written personnel security policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Personnel Security policy template](/templates/policies/ps/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/ps/) lists the choices the family forces, with typical values and who decides. The procedures are yours to write.
+
+PS is the family where most of the work happens outside the security team. The human resources office designates positions, screens people and runs the sanctions process; supervisors and account managers act on hires, transfers and departures. The policy's accountable role is the Chief Information Security Officer, but most PS statements name the human resources office. So the shared Coordination section, which brings in the legal, privacy, human resources and procurement functions, does real work here.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the PS-1 item it meets:
+
+| PS-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. The human resources office often has its own procedures already; the security procedures point to them rather than repeat them. Procedures written for the work PS-2 to PS-9 describe:
+
+- Designating each position's risk and the screening each level needs (PS-2), and screening and rescreening people (PS-3)
+- Onboarding, transfers and terminations (PS-4, PS-5), with the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/), which the [account management procedure](/templates/procedures/account-management-procedure/) starts from
+- Collecting signed [access agreements](/templates/forms/access-agreement/) and the [Rules of Behavior](/templates/forms/rules-of-behavior/) before access, and the re-signing cycle (PS-6)
+- Writing personnel security requirements into contracts and checking external providers meet them (PS-7)
+- Handling violations through the sanctions process and notifying the security and privacy officials (PS-8)
+- Writing security and privacy duties into position descriptions (PS-9)
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within its scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's PS-1 discussion. For PS, the people who carry out the procedures are, for example, the human resources office, supervisors, account managers, the badge office, and the contract managers who oversee external providers. Typical procedure triggers for PS are a change to the human resources system or its feed to the identity provider, a change in screening law, and a new standard contract clause.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one, including the human resources procedures the policy relies on
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the human resources office and supervisors
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** PS-1 is almost always a common control, provided once for the organization, since personnel actions are not system-specific. A system inherits the policy and records that in its system security plan.
+
+**Common findings.**
+
+- A policy that restates the PS controls but has no procedures behind it. NIST's discussion of PS-1 says restating controls is not a policy or procedure.
+- Human resources processes that meet the controls but are not referenced, so no one can show the link.
+- No procedure for an involuntary termination, where timing matters most.
+- Procedures that cover employees but not contractors.
+
+**Enhancements in the Moderate baseline.** PS-1 has no enhancements.
+
+**Federal systems** (as of October 2026). NIST's PS-2 discussion names Parts 731 and 1400 of Title 5, Code of Federal Regulations, as the requirements for position risk and sensitivity designation. [5 CFR 731.106](https://www.ecfr.gov/current/title-5/section-731.106) (as amended at 91 FR 39380, June 30, 2026) sets risk designation, investigation and continuous vetting for public trust positions. [5 CFR 1400.201](https://www.ecfr.gov/current/title-5/section-1400.201) sets the sensitivity levels for national security positions. An agency's personnel security office usually owns those procedures, and the PS procedures point to them. The shared sections' federal block ties the policy to FISMA and OMB Circular A-130.

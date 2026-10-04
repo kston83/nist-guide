@@ -1,8 +1,8 @@
 ---
 title: Account Management Procedure
 type: procedure
-description: The steps, by role, for requesting, approving, creating, changing, disabling, removing and reviewing system accounts, with the inputs, outputs and record each step leaves, that carry out the access control policy's account management requirements (SP 800-53 AC-2) and separation of duties (AC-5).
-controls: [ac-2, ac-2.1, ac-2.2, ac-2.3, ac-2.4, ac-2.13, ac-5, ac-6.7]
+description: The steps, by role, for requesting, approving, creating, changing, disabling, removing and reviewing system accounts, with the inputs, outputs and record each step leaves, that carry out the access control policy's account management requirements (SP 800-53 AC-2), separation of duties (AC-5) and the disabling of access when employment ends (PS-4).
+controls: [ac-2, ac-2.1, ac-2.2, ac-2.3, ac-2.4, ac-2.13, ac-5, ac-6.7, ps-4]
 status: draft
 stage: core
 typical:
@@ -24,10 +24,11 @@ typical:
   ac-05_odp: requesting and approving access; developing and deploying code to production; administering a system and reviewing its audit logs
   ac-06.07_odp.01: quarterly for privileged roles and at least annually for all other roles
   ac-06.07_odp.02: all roles and classes of users on the system
+  ps-04_odp.01: '24 hours, or the same day for privileged users; for an involuntary termination, no later than when the individual is told'
 ---
 
 :::guidance
-The Access Control policy's AC-2 statements say what must happen to accounts and who is accountable; this procedure says how, step by step. The AC-2 clause sets AC-2f's "policy, procedures, prerequisites and criteria" to the policy and this procedure, so an assessor reads the two together and then tests the records this procedure says each step leaves. NIST's AC-1 discussion warns that restating controls is not a procedure: fill in the tools, queues and time limits you actually use, and delete nothing an assessor will ask about. The typical values are copied from the Access Control policy's AC-2, AC-2(2), AC-2(3), AC-2(13), AC-5 and AC-6(7) clauses; keep the two in step. One procedure can serve every system that uses the organization's identity provider. A system with its own application accounts adds a system-specific section 3 and notes any step it does differently.
+The Access Control policy's AC-2 statements say what must happen to accounts and who is accountable; this procedure says how, step by step. The AC-2 clause sets AC-2f's "policy, procedures, prerequisites and criteria" to the policy and this procedure, so an assessor reads the two together and then tests the records this procedure says each step leaves. NIST's AC-1 discussion warns that restating controls is not a procedure: fill in the tools, queues and time limits you actually use, and delete nothing an assessor will ask about. The typical values are copied from the Access Control policy's AC-2, AC-2(2), AC-2(3), AC-2(13), AC-5 and AC-6(7) clauses, and the departure time in 5.5 from the Personnel Security policy's PS-4 clause; keep them in step. One procedure can serve every system that uses the organization's identity provider. A system with its own application accounts adds a system-specific section 3 and notes any step it does differently.
 :::
 
 | Owner | Approved by | Version | Effective date |
@@ -134,10 +135,11 @@ Each step names the role that performs it, what it starts from, what it produces
 | --- | --- | --- | --- | --- | --- |
 | 1 | {{org:supervisor}} | Notify the account manager and {{param:ac-02_odp.05}} within {{param:ac-02_odp.06}} when a user's account is no longer required (AC-2h.1) | End of need | Notice | Notice, dated |
 | 2 | {{org:hr-office}} | Notify the account manager and {{param:ac-02_odp.05}} within {{param:ac-02_odp.07}} when a user is terminated (AC-2h.2), through the termination section of the checklist | Approved departure | Notice; checklist started | Checklist, dated |
-| 3 | {{org:account-manager}} | Disable the account within {{param:ac-02.03_odp.01}} when it has expired, is no longer associated with a user, or is in violation of policy (AC-2(3)) | Notice; review finding; expiry | Account disabled | Audit record of the disabling, dated |
-| 4 | {{org:account-manager}} | Confirm the system disables accounts inactive for {{param:ac-02.03_odp.02}}, other than accounts of last resort listed in section 3 (AC-2(3)(d)) | System setting | Inactive accounts disabled | Setting, checked at each access review |
-| 5 | {{org:account-manager}} | On notice of {{param:ac-02.13_odp.02}}, disable all of the individual's accounts within {{param:ac-02.13_odp.01}} of discovery (AC-2(13)) | Notice from the {{org:hr-office}}, {{org:security-operations}} or the insider threat program | Accounts disabled | Audit records; case reference |
-| 6 | {{org:account-manager}} | Remove a disabled account after {{fill:for example 30 days, once the supervisor has moved any files the organization needs}}, unless a legal hold or investigation requires it be kept | Disabled account | Account removed | Audit record of the removal |
+| 3 | {{org:account-manager}} | When a user's employment ends, disable all of their system access within {{param:ps-04_odp.01}} of the termination, and revoke their authenticators and credentials, as steps 2 and 3 of the termination section of the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) set out (PS-4a, PS-4b) | Notice; checklist | Access disabled; authenticators and credentials revoked | Audit record of the disabling, dated; checklist steps 2 and 3, dated |
+| 4 | {{org:account-manager}} | Disable the account within {{param:ac-02.03_odp.01}} when it has expired, is no longer associated with a user for a reason other than a departure under step 3, or is in violation of policy (AC-2(3)) | Notice; review finding; expiry | Account disabled | Audit record of the disabling, dated |
+| 5 | {{org:account-manager}} | Confirm the system disables accounts inactive for {{param:ac-02.03_odp.02}}, other than accounts of last resort listed in section 3 (AC-2(3)(d)) | System setting | Inactive accounts disabled | Setting, checked at each access review |
+| 6 | {{org:account-manager}} | On notice of {{param:ac-02.13_odp.02}}, disable all of the individual's accounts within {{param:ac-02.13_odp.01}} of discovery (AC-2(13)) | Notice from the {{org:hr-office}}, {{org:security-operations}} or the insider threat program | Accounts disabled | Audit records; case reference |
+| 7 | {{org:account-manager}} | Remove a disabled account after {{fill:for example 30 days, once the supervisor has moved any files the organization needs}}, unless a legal hold or investigation requires it be kept | Disabled account | Account removed | Audit record of the removal |
 
 ### 5.6 Shared and group accounts
 

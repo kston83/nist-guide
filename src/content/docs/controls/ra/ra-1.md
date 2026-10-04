@@ -8,6 +8,7 @@ control:
   id: RA-1
   family: RA
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,68 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+RA-1 asks for a written risk assessment policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Risk Assessment policy template](/templates/policies/ra/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/ra/) lists the choices the family forces, with typical values and who decides. The procedures are yours to write.
+
+NIST's RA-1 discussion calls the risk management strategy "an important factor" in setting risk assessment policy and procedures. So point the policy and procedures to the organization's [Risk Management Strategy](/templates/plans/risk-management-strategy/) for the assessment method, the scales and the risk tolerance, rather than restating them. Every system then assesses and responds to risk the same way, and the results can be compared.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the RA-1 item it meets:
+
+| RA-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library. NIST's RA-1 discussion asks security and privacy programs to collaborate on it, which the shared Coordination section does by including the privacy function. Procedures written for the work RA-2 to RA-9 describe:
+
+- Categorizing a system and having the categorization approved (RA-2), with the [security categorization worksheet](/templates/forms/security-categorization-worksheet/)
+- Conducting, documenting, reviewing, sharing and updating system risk assessments, including supply chain risk (RA-3, RA-3(1)), with the [risk assessment report](/templates/reports/risk-assessment-report/)
+- Scanning for vulnerabilities, analyzing the results, remediating within set times and handling outside reports (RA-5), as the [vulnerability management standard](/templates/standards/vulnerability-management-standard/) sets out
+- Deciding a response to each finding and recording risk acceptances (RA-7), in the [risk register](/templates/forms/risk-register/)
+- Screening new systems and collections for privacy risk and conducting [privacy impact assessments](/templates/reports/privacy-impact-assessment/) (RA-8), where the Privacy baseline applies
+- Performing a criticality analysis at set points in the system life cycle (RA-9)
+
+System-specific results go in the [system security plan](/templates/plans/system-security-plan/) and the artifacts it references.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within its scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The Chief Information Security Officer |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's RA-1 discussion. For RA, the people who carry out the procedures are, for example, the system owners and information owners, the system security officers, the vulnerability management team, the privacy office and the authorizing officials who approve categorizations and accept risk. The Chief Information Security Officer often delegates the day-to-day management to a risk management or governance, risk and compliance lead. Typical procedure triggers for RA are a change to the risk management strategy's method, scales or tolerance; a new scanning tool or service; and new external remediation deadlines, such as a regulator's or a customer's.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one, including the categorization, risk assessment, vulnerability management and risk acceptance procedures
+- The record naming the official who manages the policy and procedures
+- Records showing dissemination, including to the system owners and the vulnerability management team
+- Evidence of the last review of the policy and of each procedure, with the changes made, including changes after the risk management strategy changed
+
+**Inheritance.** RA-1 is usually a common control, provided once for the organization. A system inherits the organization's policy and records that in its system security plan. It adds its own procedures only where it assesses risk differently, for example a system whose cloud provider runs the vulnerability scanning.
+
+**Common findings.**
+
+- A policy that restates the RA controls but has no procedures behind it. NIST's discussion of RA-1 says restating controls is not a policy or procedure.
+- Risk assessment procedures that use a different method or scale from the risk management strategy, so system risks cannot be compared or rolled up.
+- The policy or procedures not reviewed within the stated period, or not updated after the risk management strategy or the scanning tools changed.
+- No procedure for risk response, so findings sit with no decision and acceptances are made by whoever is available.
+
+**Enhancements in the Moderate baseline.** RA-1 has no enhancements.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 5.a, says FIPS are mandatory and that agencies must apply NIST guidelines to non-national security systems unless OMB states otherwise. Section 4.a requires agencies to categorize information and systems under [FIPS 199](https://csrc.nist.gov/pubs/fips/199/final) and [NIST SP 800-60](https://csrc.nist.gov/pubs/sp/800/60/v1/r1/final). So write the RA procedures around them, and around [SP 800-30 Rev. 1](https://csrc.nist.gov/pubs/sp/800/30/r1/final) (September 2012) for risk assessments. The shared sections' federal block ties the policy to FISMA and OMB Circular A-130.

@@ -8,6 +8,7 @@ control:
   id: PS-6
   family: PS
   baselines: [Low, Moderate, High, Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -121,3 +122,43 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-6 asks you to write access agreements for your systems and review them on a schedule. You check that each person signs the right agreements before getting access, and re-signs when they change and at a set frequency. NIST's PS-6 discussion names four kinds: nondisclosure agreements, acceptable use agreements, rules of behavior and conflict-of-interest agreements. A signed agreement acknowledges that the person has read, understands and agrees to the constraints of the systems they may use. NIST accepts electronic signatures unless organizational policy prohibits them.
+
+**Common implementations.** The [access agreement](/templates/forms/access-agreement/) combines nondisclosure and acceptable use, with added terms for privileged users and a conflict-of-interest disclosure. It takes in the [Rules of Behavior](/templates/forms/rules-of-behavior/) ([PL-4](/controls/pl/pl-4/)) by reference, so each person signs two documents on one cycle. People sign during onboarding, before any account exists. The account manager checks the agreement's register, or the signature line on the [access request form](/templates/forms/access-request-form/), before creating the account. Re-signing is often built into the annual awareness course (AT-2), and a person who does not re-sign loses access until they do.
+
+Have legal counsel review the terms before adoption: an agreement binds the people who sign it, and employment law varies by country and state.
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review and update frequency (b) | Annually |
+| Re-signing frequency (c.2) | Annually |
+
+These match the Rules of Behavior's annual review and re-acknowledgment in the PL-4 clause, so one signature event a year covers both. In the policy, the Chief Information Security Officer writes and reviews the agreements, and the account manager checks signatures before granting access and suspends access when someone does not re-sign.
+
+**Evidence assessors ask for.**
+
+- The current agreements, with the version, the owner and the date of the last review
+- The register of signatures, or an export from the training or identity system
+- A sample of accounts, each with an agreement signed before the account was created
+- Re-signatures after the last update and for the last annual cycle
+- The privileged user terms signed by a sample of administrators
+- Accounts suspended for a missing signature, if any
+
+**Inheritance.** Organization-wide agreements are a common control. A system adds its own agreement where its users need one, for example privileged users of a production environment or users of a partner's data under an exchange agreement.
+
+**Common findings.**
+
+- Agreements signed after the account was created.
+- No re-signature after the agreement changed.
+- Contractors who signed only their employer's nondisclosure agreement, not the organization's.
+- Administrators with no privileged user terms.
+- Agreements not reviewed within the stated period.
+
+**Enhancements in the Moderate baseline.** None. [PS-6(2)](#ps-6.2) classified information requiring special protection and [PS-6(3)](#ps-6.3) post-employment requirements are in no baseline. PS-6 is also in the Privacy baseline; the agreement's personal information terms serve it.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.h(6) and (7), requires rules of behavior, including the consequences of violating them, for employees and contractors with access to federal information or systems. Each person must read and agree to them before being granted access. Since NIST counts rules of behavior as an access agreement, collecting the Rules of Behavior acknowledgment with the access agreement meets both.

@@ -8,6 +8,7 @@ control:
   id: PS-3
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -158,3 +159,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-3 asks you to screen people before you authorize their access to a system, and to rescreen them under conditions and, where called for, at a frequency you set. The screening is what the position's risk designation requires ([PS-2](/controls/ps/ps-2/)). NIST's PS-3 discussion gives background investigations and agency checks as examples. It also lets you set different rescreening conditions and frequencies by the kind of information a system handles.
+
+**Common implementations.** The human resources office, or a screening vendor it hires, runs the checks the position's level requires and records the completion date. Employment and privacy laws limit what may be checked and when, and they vary by country and state, so settle the screening criteria with legal counsel. The [access request form](/templates/forms/access-request-form/) has a line for screening, so the account manager confirms it is complete before creating the account. On a transfer to a position with a higher designation, the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) has a rescreening step before the new access is granted.
+
+For contractors, the contract requires the provider to screen its staff to the same criteria as employees in comparable positions, and to give you evidence ([PS-7](/controls/ps/ps-7/)).
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Conditions that require rescreening (b) | The individual moves to a position with a higher risk designation, or information comes to light that raises a concern about their suitability |
+| Rescreening frequency, where periodic rescreening applies (b) | Every 5 years for positions designated high risk |
+
+In the policy, the human resources office does the screening and the rescreening.
+
+**Evidence assessors ask for.**
+
+- The screening criteria for each position designation
+- For a sample of users, the screening completion date compared with the date their account was created
+- Rescreening records for people who moved to positions with a higher designation
+- For high-risk positions, the date of each person's last screening
+- Evidence from external providers that their staff were screened
+
+**Inheritance.** PS-3 is a common control, run by the human resources office. A system with users outside the organization's screening, such as contractor administrators or partner staff, must show how they were screened, which makes it hybrid for those users.
+
+**Common findings.**
+
+- Accounts created before screening was complete, with no recorded decision allowing it.
+- Contractor staff screened by their employer, with no evidence given to the organization.
+- No rescreening when someone moved into a privileged or higher-risk role.
+- Periodic rescreening overdue for high-risk positions.
+
+**Enhancements in the Moderate baseline.** None. [PS-3(1)](#ps-3.1) classified information, [PS-3(2)](#ps-3.2) formal indoctrination, [PS-3(3)](#ps-3.3) information requiring special protective measures and [PS-3(4)](#ps-3.4) citizenship requirements are in no baseline.
+
+**Federal systems** (as of October 2026). [5 CFR 731.106](https://www.ecfr.gov/current/title-5/section-731.106) (as amended June 30, 2026) requires a background investigation for each person entering a covered position. It should be initiated before appointment, or as soon as possible where the agency did not initiate it in time (731.106(c)(1)). A hiring agency may not ask about criminal history, and for competitive service or career Senior Executive Service positions about credit history, before a conditional offer of employment, with limited exceptions (731.106(g)). Rescreening is now continuous vetting: "Continuous vetting for an individual in a public trust position satisfies the requirement for a periodic reinvestigation" (731.106(d)(1)). The agency must tell each covered employee of the requirement (731.106(d)(3)). So for federal positions, record the frequency parameter as continuous vetting to OPM's standards in place of a fixed interval. An upgraded investigation after a move to a higher risk level "should be initiated within 14 days" (731.106(e)). [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022), section 2.2, requires the FBI National Criminal History Check to be completed and favorably adjudicated before a PIV Card is issued to someone with no prior investigation.

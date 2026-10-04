@@ -8,6 +8,7 @@ control:
   id: PS-5
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -57,3 +58,42 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-5 asks you to act when someone moves to another position inside the organization. You review and confirm their need for current logical and physical access, and start set transfer actions within a set time. You also change their access to match the new position, and notify set roles within a set time. A transfer is where access accumulates: people keep what they had and gain what the new job needs.
+
+NIST's PS-5 discussion applies the control to reassignments that are permanent or long enough to warrant the actions. It lists actions such as returning old keys, identification cards and building passes and issuing new ones, closing and opening accounts, changing privileges, and giving access to official records from the old position.
+
+**Common implementations.** The transfer section of the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) records each step. The losing and gaining supervisors review the person's access together. Access tied to roles in the identity provider makes the change cleaner: the old role's groups come off and the new role's go on, and anything extra goes through a new [access request](/templates/forms/access-request-form/). The [access review record](/templates/forms/access-review-record/) compares accounts with the human resources office's list of transfers, which catches anything the transfer missed (AC-2j).
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Transfer or reassignment actions (b) | A review of the individual's access by the losing and gaining supervisors, removal of access the new position does not need, and the return or issue of keys, badges and equipment |
+| Time to initiate them after the formal transfer action (b) | 5 business days |
+| Who is notified (d) | The account managers and system owners of the systems the individual has access to |
+| Time to notify (d) | 24 hours |
+
+The notice time agrees with AC-2h.2 in the [AC-2](/controls/ac/ac-2/) clause (24 hours). In the policy, the supervisor reviews the access, the human resources office starts the actions and gives the notice, and the account manager changes the access.
+
+**Evidence assessors ask for.**
+
+- A list of transfers for a period from the human resources office, with each person's access before and after
+- Completed transfer checklists for a sample, with the notice dates
+- Records of the supervisors' access review for each sampled transfer
+- Access review results that flagged access left over from a previous position, and what was done
+
+**Inheritance.** The organization usually provides the human resources feed and the identity provider as common controls. Each system still changes its own local and application roles, so PS-5 is often hybrid.
+
+**Common findings.**
+
+- People holding the access of every position they have held.
+- Transfers recorded in the human resources system as a title change, with no notice to account managers.
+- Long temporary assignments never treated as transfers.
+- Physical access left unchanged after a move to another building or unit.
+
+**Enhancements in the Moderate baseline.** PS-5 has no enhancements.
+
+**Federal systems** (as of October 2026). [5 CFR 731.106](https://www.ecfr.gov/current/title-5/section-731.106)(e) (as amended June 30, 2026) covers a move to a higher position risk level through reassignment or transfer. The person may stay in the position, and any upgraded investigation "should be initiated within 14 days" after the move is final. The PS-3 clause's federal block sets that step, and the checklist's transfer section has a rescreening step. [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022), section 2.9.4, requires a contractor's PIV Card to be terminated when the contractor changes positions and no longer needs access to federal buildings or systems.

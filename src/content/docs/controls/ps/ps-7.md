@@ -8,6 +8,7 @@ control:
   id: PS-7
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -59,3 +60,40 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-7 asks you to set personnel security requirements, including security roles and responsibilities, for external providers. You require providers to follow your personnel security policies and procedures, document the requirements, and have providers report transfers and terminations of their staff within a set time. You also monitor whether they comply. NIST's PS-7 discussion counts service bureaus, contractors, and organizations that provide development, IT, testing, assessment or security services as external providers. It asks organizations to put the requirements explicitly in acquisition documents.
+
+**Common implementations.** A contract clause carries the requirements: screening to the same criteria as employees in comparable positions ([PS-3](/controls/ps/ps-3/)), signed [access agreements](/templates/forms/access-agreement/), required training, the notice of transfers and terminations, and a staff roster. Section 4.9 of the [acquisition security requirements standard](/templates/standards/acquisition-security-requirements/) states each one, with the notice time below, and its solicitation review checklist has a PS-7 line. The provider's report starts the transfer or termination section of the [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/), which records the date it arrived.
+
+Monitoring means checking, not trusting. Each month, compare the provider's staff roster with the accounts and badges issued to its people, and ask for evidence of screening and training for a sample. NIST's discussion lets you define which transfers and terminations must be reported by role and by the credentials or privileges involved; most organizations require all of them.
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who the provider notifies (d) | The organization's contract manager for the provider, and the account managers of the systems the individual has access to |
+| Time to notify (d) | 24 hours |
+
+The 24 hours matches the organization's own termination and transfer notices (PS-4, PS-5 and AC-2h.2), so a contractor's access ends as quickly as an employee's. In the policy, the Chief Information Security Officer sets the requirements, puts them in contracts and monitors compliance.
+
+**Evidence assessors ask for.**
+
+- The personnel security clause in a sample of contracts or agreements
+- The provider's staff rosters, and the reconciliation against accounts and badges
+- For a sample of provider staff who left, the date of the provider's notice and the date access was disabled
+- Evidence of screening, signed access agreements and training for a sample of provider staff
+
+**Inheritance.** The contract language and the monitoring process are usually common controls, run through the acquisition office. Each system still monitors the providers whose staff use it. For a cloud or managed service whose staff never hold your credentials, the provider's personnel controls are reviewed through its authorization or the [external service review](/templates/forms/external-service-review/) ([SA-9](/controls/sa/sa-9/)).
+
+**Common findings.**
+
+- Contracts with no personnel security clause, or one that says only "comply with organizational policy".
+- Provider staff who left still holding accounts or badges, because the provider never reported it.
+- No roster reconciliation, so the organization does not know who works for the provider.
+- Screening assumed, with no evidence from the provider.
+
+**Enhancements in the Moderate baseline.** PS-7 has no enhancements.
+
+**Federal systems** (as of October 2026). [5 CFR 731.106](https://www.ecfr.gov/current/title-5/section-731.106)(a) (as amended June 30, 2026) requires a risk designation for every covered position, including one "in which the occupant performs a service as a contractor employee". The investigation and continuous vetting requirements of 731.106(c) and (d) follow from that designation, so contractor staff in federal positions are screened under OPM's rules ([PS-3](/controls/ps/ps-3/)). [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022), section 2.9.4, requires a contractor's PIV Card to be terminated when the contractor changes positions and no longer needs access to federal buildings or systems.

@@ -9,7 +9,7 @@ typical:
 ---
 
 :::guidance
-The typical values follow [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025): a minimum of 15 characters for a password used alone and 8 when it is one factor of several, no other composition rules, at least 64 characters allowed, and a check against a list of common and breached passwords.
+The typical values follow [NIST SP 800-63B-4](https://csrc.nist.gov/pubs/sp/800/63/b/4/final) (July 2025): a minimum of 15 characters for a password used alone and 8 when it is one factor of several, no other composition rules, at least 64 characters allowed, and a check against a list of common and breached passwords. Section 7 of the [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) sets out the full password rules.
 :::
 
 - The {{org:system-owner}} shall maintain a list of commonly used, expected or compromised passwords, and update it {{param:ia-05.01_odp.01}} and when organizational passwords are suspected to have been compromised. (IA-5(1)(a))

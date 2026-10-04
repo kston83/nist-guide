@@ -7,6 +7,8 @@ automatability
 automatable
 baselined
 baselining
+blocklist
+blocklists
 bypassable
 Calibri
 CISA
@@ -19,6 +21,7 @@ CMVP
 CNSS
 CNSSI
 coercivity
+corpuses
 COSAIS
 Crowell
 cryptoperiods
@@ -92,6 +95,7 @@ STIG
 STIGs
 subnetworks
 supercapacitors
+syncable
 TDEA
 telework
 TSIG

@@ -122,7 +122,7 @@ Each step names the role that performs it, what it starts from, what it produces
 | # | Role | Action | Inputs | Outputs | Record |
 | --- | --- | --- | --- | --- | --- |
 | 1 | <span class="tpl-field tpl-org">Account manager</span> | Create or enable the account only after the approval in 5.1 step 4 (AC-2e), with the type, groups and roles approved, and the attributes in section 3 | Approved request | Account in the identity provider or system | Provisioning record linked to the request; the system's audit record of the creation (AC-2(4)) |
-| 2 | <span class="tpl-field tpl-org">Account manager</span> | Issue the initial authenticator through the process the identification and authentication policy sets (IA-5) | Account | Authenticator delivered to the user | Issuance record |
+| 2 | <span class="tpl-field tpl-org">Account manager</span> | Issue the initial authenticator through the process the identification and authentication policy sets, as section 9 of the [identification and authentication standard](/templates/standards/identification-and-authentication-standard/) describes (IA-5) | Account | Authenticator delivered to the user | Issuance record |
 | 3 | <span class="tpl-field tpl-org">Account manager</span> | Close the request, noting the account identifier and the date | Provisioning record | Closed request | Access request, Part F |
 
 #### 5.3 Temporary and emergency accounts

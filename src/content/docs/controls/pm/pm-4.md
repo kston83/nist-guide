@@ -8,6 +8,7 @@ control:
   id: PM-4
   family: PM
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -73,3 +74,43 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PM-4 is the organization-level process behind every plan of action and milestones (POA&M). It makes sure POA&Ms exist and stay current for the information security, privacy and supply chain risk management programs and for each system. Each records the remedial actions planned, and each is reported as required. The program then reviews them against the risk management strategy and the organization's priorities for risk response (b).
+
+[CA-5](/controls/ca/ca-5/) is each system's POA&M; PM-4 is the process across all of them. NIST's PM-4 discussion says there can be POA&Ms at the system, mission or business process, and organization levels, updated from control assessments and continuous monitoring. PM-4 is in the SP 800-53B Privacy baseline.
+
+**Common implementations.** Every system and program uses one format, such as the [POA&M template](/templates/forms/plan-of-action-and-milestones/), in one tool, so items roll up and compare. Program-level POA&Ms hold weaknesses in the programs themselves, such as findings from a program review or a missing program management control. [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) task P-5 adds POA&Ms from common control providers for common controls with unacceptable deficiencies.
+
+The Chief Information Security Officer's team checks POA&M quality each month: an owner, milestones, a realistic date and a link to the finding for every item. It reports the roll-up to the senior leader and checks priorities against the [Risk Management Strategy](/templates/plans/risk-management-strategy/), whose section 5.2 places mitigations in the POA&M process. When a system owner proposes to accept a risk rather than fix it, only the authorizing official decides, as SP 800-37 Rev. 2 task R-3 says, and the POA&M records the decision.
+
+**Organization-defined parameters.** PM-4 has none. The [Program Management policy](/templates/policies/pm/) clause leaves one choice open, with a typical value your organization may set differently:
+
+| Choice | Typical value |
+| --- | --- |
+| How often POA&Ms are reported to the senior leader (a.3) | Quarterly (the clause's example) |
+
+Each system updates its own POA&M at the frequency CA-5 sets; the typical value there is at least monthly, and whenever an assessment, audit, scan or monitoring activity finds a new weakness.
+
+**Evidence assessors ask for.**
+
+- The documented POA&M process: who keeps POA&Ms, the format, the review cycle and the reporting
+- POA&Ms for each system and for the security, privacy and supply chain risk management programs
+- Reports to the senior leader, and to regulators or customers where laws or contracts require
+- Records of the program's review of POA&Ms against the risk management strategy (b)
+- A sample of items traced back to the assessment, scan or audit that found them
+
+**Inheritance.** PM-4 is implemented once, for the whole organization, and every system relies on it. Each system still keeps its own POA&M under CA-5, and common control providers keep the POA&Ms for the controls they provide.
+
+**Common findings.**
+
+- POA&Ms for systems only, with no program-level POA&M for privacy or supply chain weaknesses.
+- Different formats in each system, so the program cannot roll items up or compare them.
+- Reports that count items but say nothing about risk or overdue work.
+- Items ordered by ease of fixing rather than by the risk priorities in the strategy (b).
+- Items marked "risk accepted" with no decision from the authorizing official.
+
+**Enhancements.** PM-4 has no enhancements.
+
+**Federal systems** (as of October 2026). NIST's PM-4 discussion says the POA&M is subject to reporting requirements set by OMB. FISMA requires each agency program to include "a process for planning, implementing, evaluating, and documenting remedial action to address any deficiencies" ([44 U.S.C. § 3554(b)(6)](https://www.govinfo.gov/link/uscode/44/3554?link-type=html)). Section 3554(a)(5) has the Chief Information Officer report annually to the agency head on the program's effectiveness, "including progress of remedial actions." [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.c(15), has agencies use POA&Ms to record and manage the remediation of weaknesses not associated with accepted risks, and make them available to OMB, DHS, inspectors general and the Government Accountability Office on request. Section 4.k tracks every deficiency from assessments, continuous monitoring and audits through the POA&M process; material deficiencies also go in the annual Federal Managers Financial Integrity Act report.

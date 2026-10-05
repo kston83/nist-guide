@@ -8,6 +8,7 @@ control:
   id: PM-5
   family: PM
   baselines: []
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -79,3 +80,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PM-5 asks for one organization-wide inventory of systems, updated at a frequency you set. NIST's PM-5 discussion says it is an inventory of systems, not of the components inside them, which is [CM-8](/controls/cm/cm-8/). The inventory is the starting point for authorization, continuous monitoring and reporting: a system missing from it has no owner, no authorization and no assessment.
+
+[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) task P-18 has the system owner register each system, and "as part of the system registration process, organizations add the system to the organization-wide system inventory." The entry is updated with the security categorization once the Categorize step is done.
+
+**Common implementations.** A register in a GRC tool or spreadsheet, using the [System Inventory template](/templates/forms/system-inventory/). Each entry records the system owner, authorizing official, categorization, baseline, hosting, interconnections, authorization status and dates, and whether it processes personally identifiable information. The [Program Management policy](/templates/policies/pm/) has the Chief Information Security Officer keep the inventory, and each system owner add a system before it is authorized or placed in operation.
+
+Keep it complete by reconciling it on each update with the authorization records, the cloud and software-as-a-service subscriptions that procurement and finance pay for, and network discovery. Each system's [component inventory](/templates/forms/component-inventory/) is compared with it to confirm the boundary. Keep retired systems with their retirement date rather than deleting them.
+
+**Organization-defined parameters.** From `templates/policy/pm/`. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Inventory update frequency (PM-5) | Quarterly, and whenever a system is authorized, significantly changed or retired |
+| Personally identifiable information inventory update frequency (PM-5(1)) | At least annually, and whenever a privacy impact assessment is completed or updated |
+
+**Evidence assessors ask for.**
+
+- The current inventory, with its update history
+- The procedure for registering a new system and retiring an old one
+- Records of reconciliation against authorization records, subscriptions and discovery scans
+- A sample check: every authorization decision matches an inventory entry, with the same status and dates
+- For PM-5(1), the list of systems, applications and projects that process personally identifiable information, with the privacy official's review dates
+
+**Inheritance.** PM-5 is implemented once, for the whole organization, and every system relies on it. Each system owner supplies and maintains the system's entry.
+
+**Common findings.**
+
+- Software-as-a-service applications bought by business units and never registered.
+- Systems operated by contractors on the organization's behalf left off the inventory.
+- Authorization status and dates that do not match the authorization letters.
+- Entries with no owner or authorizing official.
+- An inventory updated only before an audit.
+
+**Enhancements in the Privacy baseline.** [PM-5(1)](#pm-5.1) asks for an inventory of all systems, applications and projects that process personally identifiable information, kept and updated at a frequency you set. NIST's discussion says it supports mapping data actions, giving privacy notices, keeping the information accurate, and limiting processing to authorized and still-necessary purposes. The PM-5(1) clause gives this inventory to the senior privacy official.
+
+The System Inventory template's "Processes PII" column, with its privacy impact assessment reference, covers the systems. PM-5(1) also reaches applications and projects that are not systems, so add rows for them or keep a separate list the privacy official owns. Each entry links its [privacy impact assessment](/templates/reports/privacy-impact-assessment/), which is why a new or updated assessment triggers an update.
+
+**Federal systems** (as of October 2026). [44 U.S.C. § 3505(c)](https://www.govinfo.gov/link/uscode/44/3505?link-type=html) requires the agency head to keep an inventory of information systems. The Code carries two subsections (c), added by two 2002 laws: one for major information systems and one for all information systems, each including national security systems. Both require the inventory to identify each system's interfaces with other systems and networks, to be updated at least annually, and to be available to the Comptroller General. [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), main body section 5.a(1)(a), requires an inventory of major information systems (i) and an inventory of systems that process personally identifiable information (ii). Its footnote 4 says every system is subject to FISMA whether or not it is major, and footnote 5 allows the two inventories to be combined. Appendix I, section 4.j(2)(c), requires systems operated by contractors on the agency's behalf to be included.

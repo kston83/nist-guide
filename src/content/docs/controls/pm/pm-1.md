@@ -8,6 +8,7 @@ control:
   id: PM-1
   family: PM
   baselines: []
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -85,3 +86,57 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PM-1 asks for an organization-wide information security program plan. It describes the program's requirements, the program management and common controls that meet them, and who is responsible for what. A senior official accountable for the organization's risk approves it, you review it on a set cycle and after set events, and you protect it from unauthorized disclosure and change.
+
+PM-1 is not the "policy and procedures" control that opens every other family. It asks for a plan, so the PM family has its own shared sections instead of the ones the other family policies use. The [Program Management policy template](/templates/policies/pm/) commits the organization to the plan and sets the rules for keeping it. The [Information Security Program Plan template](/templates/plans/information-security-program-plan/) is the plan itself, and the [decision worksheet](/templates/worksheets/pm/) lists the choices the family forces.
+
+**How the policy and plan templates meet each element.** Each statement in the policy and each section of the plan cites the PM-1 item it meets:
+
+| PM-1 element | Where the policy template meets it | Where the plan template meets it |
+| --- | --- | --- |
+| Develop and disseminate the plan (a) | Information security program plan section: the Chief Information Security Officer develops, maintains and disseminates it to every system owner, authorizing official and coordinating function | The whole plan |
+| Overview of requirements; program management and common controls in place or planned (a.1) | Information security program plan section, second statement; Scope says systems inherit the program management controls | Section 2 (program requirements) and section 7 (program management and common controls) |
+| Roles, responsibilities, management commitment, coordination and compliance (a.2) | The Roles and responsibilities, Management commitment, Coordination and Compliance sections | Sections 3, 4, 5 and 6 |
+| Coordination among the entities responsible for security (a.3) | Coordination: the functions the program coordinates with, recorded in the plan | Section 5 |
+| Approval by a senior official accountable for the risk (a.4) | The senior leader approves the plan | Section 9 |
+| Review and update (b) | A frequency and trigger events for the plan; the policy is reviewed whenever the plan is | Section 10 |
+| Protection from unauthorized disclosure and modification (c) | Limit who can change the plan and keep each approved version | Section 10, and the plan's opening guidance on restricting access |
+
+**Common implementations.** One plan, owned by the Chief Information Security Officer and approved by the head of the organization, kept in a restricted document library with version history. NIST's PM-1 discussion says common controls are documented in an appendix to the plan unless a separate security plan holds them, and the plan says which separate plans do. Section 7 of the plan template is that list: each common control with its provider, the systems that inherit it, and its status.
+
+[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) task P-5 has the senior information security and privacy officials identify, document and publish the common controls available for inheritance. Its footnote 60 says designated authorizing officials authorize common controls before systems inherit them. The privacy program plan and the supply chain risk management plan are separate documents (PM-18 and SR-2, as the PM-1 discussion says); the plan's section 8 lists them with the risk management strategy (PM-9).
+
+**Organization-defined parameters.** From `templates/policy/pm/_common.md` and the plan template. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Plan review and update frequency (b) | Annually |
+| Events that trigger a plan review (b) | A significant change to the organization's mission, structure, risk tolerance or systems, a major incident, or a finding from an assessment or audit of the program |
+
+NIST's PM-1 discussion also names changes in laws, executive orders, directives, regulations, policies, standards and guidelines as events that may call for an update. Add them to your list of events if your organization tracks those changes.
+
+**Evidence assessors ask for.**
+
+- The approved plan, with the approver, the approval date and the version history
+- The list of common controls, with the provider of each, the systems that inherit it and its authorization
+- Records showing the plan went to system owners, authorizing officials and the coordinating functions
+- The record of the last review, and of updates made after a trigger event
+- The access settings on the plan's library: who can read it and who can change it
+- The approved Program Management policy
+
+**Inheritance.** PM-1 is implemented once, for the whole organization, and every system relies on it. NIST's PM-1 discussion treats program management controls as distinct from common controls, because they are independent of any one system; together, the system security plans and this plan cover every control. Each system security plan references the program plan for the program management controls and for the common controls it inherits.
+
+**Common findings.**
+
+- A plan signed by the Chief Information Security Officer alone, not by a senior official accountable for the organization's risk (a.4).
+- Common controls claimed as inherited in system security plans but missing from the plan, or listed with no provider and never assessed or authorized.
+- A plan that restates the controls without saying how each is met, or whether it is in place or planned (a.1).
+- A plan that names people who have left, systems that are retired, or an older revision of SP 800-53, with no review in the last cycle.
+- A plan posted where anyone can read or edit it (c).
+
+**Enhancements.** PM-1 has no enhancements.
+
+**Federal systems** (as of October 2026). The Federal Information Security Modernization Act of 2014 requires each agency to develop, document and implement an agency-wide information security program ([44 U.S.C. § 3554(b)](https://www.govinfo.gov/link/uscode/44/3554?link-type=html)). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.c(1), requires agencies to "develop and maintain an information security program plan that provides an overview of the organization-wide information security requirements and documents the program management controls and common controls in place or planned for meeting those requirements." Section 4.c(12) has agencies designate common controls that multiple systems can inherit. Its footnote 82 says common controls that protect systems of differing impact levels are implemented at the highest impact level among them. Section 4.c(2) requires a separate privacy program plan (PM-18).

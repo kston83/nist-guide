@@ -8,6 +8,7 @@ control:
   id: PM-8
   family: PM
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -56,3 +57,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PM-8 applies where the organization owns or operates critical infrastructure and key resources, or helps protect them. It asks you to address information security and privacy whenever the critical infrastructure and key resources protection plan is developed, documented or updated. NIST's PM-8 discussion says protection strategies rest on prioritizing critical assets, and that the requirements for defining critical infrastructure and preparing the plan come from applicable laws, directives and policies.
+
+If your organization has no such role, PM-8 does not apply. Record that decision and the reason in the program plan, as the [decision worksheet](/templates/worksheets/pm/) suggests. PM-8 is in the SP 800-53B Privacy baseline.
+
+**Common implementations.** The protection plan is often owned by an emergency management, continuity or operations office, and the security and privacy officials contribute to it. The [Program Management policy](/templates/policies/pm/) has the Chief Information Security Officer and the senior privacy official address security and privacy each time the plan is developed or updated. Their contributions usually cover:
+
+- The critical assets and systems, prioritized from the criticality analysis ([RA-9](/controls/ra/ra-9/)) and the [business impact analysis](/templates/reports/business-impact-analysis/)
+- The cyber dependencies of physical operations, such as control systems, communications and the providers behind them
+- How the plan coordinates with the [contingency plan](/templates/plans/contingency-plan/) (CP-2) and its testing (CP-4), and with incident response
+- Privacy safeguards for personally identifiable information shared with partners and government bodies under the plan
+
+**Organization-defined parameters.** PM-8 has none. The family's decision worksheet poses one choice, with a typical value your organization may set differently:
+
+| Choice | Typical value |
+| --- | --- |
+| Whether PM-8 applies | Only where the organization owns or operates critical infrastructure or key resources, or helps protect them; the decision is recorded in the program plan |
+
+**Evidence assessors ask for.**
+
+- The critical infrastructure and key resources protection plan, with its security and privacy content
+- Records showing the security and privacy officials took part in its last update
+- Or, where PM-8 does not apply, the recorded decision and its reason in the program plan (section 7)
+
+**Inheritance.** PM-8 is implemented once, for the whole organization, and every system relies on it. Systems that support critical infrastructure feed their criticality and contingency information into the plan.
+
+**Common findings.**
+
+- A protection plan that covers physical security only, with no cyber dependencies.
+- A plan not updated after major system changes or a move to new providers.
+- PM-8 marked not applicable with no recorded reason.
+- Sharing of personal information with partners under the plan with no privacy review.
+
+**Enhancements.** PM-8 has no enhancements.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 5.l, in its discussion of the major provisions, says agencies that operate systems that are part of the critical infrastructure must assess risk so those systems' controls are tailored appropriately, adding controls when needed. It also calls for privacy controls that meet applicable requirements, and continuous monitoring of the controls on systems designated as critical infrastructure. A-130 defines critical infrastructure by reference to [42 U.S.C. § 5195c(e)](https://www.govinfo.gov/link/uscode/42/5195c?link-type=html).

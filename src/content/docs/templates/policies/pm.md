@@ -155,9 +155,9 @@ PM-2 asks for one named senior official who owns the security program. Assessors
 
 ##### Federal systems
 
-FISMA requires the agency head to designate a senior agency information security officer who has information security duties as that official's primary duty ([44 U.S.C. § 3554(a)(3)(A)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title44-section3554&num=0&edition=prelim)).
+FISMA requires the agency head to delegate to the Chief Information Officer the authority to ensure compliance, including designating a senior agency information security officer who has information security duties as that official's primary duty and heads an office with the mission and resources to assist in ensuring compliance ([44 U.S.C. § 3554(a)(3)(A)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title44-section3554&num=0&edition=prelim)).
 
-- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall be the senior agency information security officer the agency head designates under 44 U.S.C. § 3554(a)(3)(A), with information security duties as that official's primary duty. (PM-2)
+- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall be the senior agency information security officer designated under 44 U.S.C. § 3554(a)(3)(A), with information security duties as that official's primary duty. (PM-2)
 
 </div>
 

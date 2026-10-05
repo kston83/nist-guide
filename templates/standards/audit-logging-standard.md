@@ -10,7 +10,7 @@ typical:
   au-2_prm_2: 'the event types listed in the audit logging standard, each logged whenever it occurs'
   au-02_odp.04: annually and after a significant incident or system change
   au-03.01_odp: 'session and request identifiers, source and destination addresses, and the full command line for privileged commands'
-  au-03.03_odp: 'the account identifier, the source address and device, and the identifiers of records accessed, not their contents, as the system''s privacy impact assessment lists'
+  au-03.03_odp: 'the account identifier, the source address and device, and the identifiers of records accessed, not their contents'
   au-04_odp: 'the retention period set under AU-11, with room for a year of growth'
   au-05_odp.01: the system administrators and the security operations team
   au-05_odp.02: 1 hour
@@ -117,7 +117,7 @@ NIST's AU-3 discussion gives examples for each item: event descriptions, time st
 
 This section applies to systems that process personally identifiable information.
 
-- Personally identifiable information contained in audit records shall be limited to {{param:au-03.03_odp}} identified in the privacy risk assessment. (AU-3(3))
+- Personally identifiable information contained in audit records shall be limited to the following elements identified in the privacy risk assessment: {{param:au-03.03_odp}}. (AU-3(3))
 - The {{org:system-owner}} shall list in Part B the personally identifiable information elements each log source writes, and record them in the system's privacy impact assessment. (AU-3(3))
 - Request bodies, form inputs, query strings and other content that may hold personal information shall be masked, truncated or left out of audit records unless the privacy impact assessment lists them as needed. (AU-3(3))
 - Access to audit records that contain personally identifiable information shall be limited to the roles that need it for review, investigation and audit. (AU-9)

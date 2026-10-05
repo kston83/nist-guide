@@ -130,7 +130,7 @@ NIST's AU-3 discussion gives examples for each item: event descriptions, time st
 
 This section applies to systems that process personally identifiable information.
 
-- Personally identifiable information contained in audit records shall be limited to <span class="tpl-field tpl-param">Fill in: elements identified in the privacy risk assessment <span class="tpl-typical">Typical: the account identifier, the source address and device, and the identifiers of records accessed, not their contents, as the system's privacy impact assessment lists</span></span> identified in the privacy risk assessment. (AU-3(3))
+- Personally identifiable information contained in audit records shall be limited to the following elements identified in the privacy risk assessment: <span class="tpl-field tpl-param">Fill in: elements identified in the privacy risk assessment <span class="tpl-typical">Typical: the account identifier, the source address and device, and the identifiers of records accessed, not their contents</span></span>. (AU-3(3))
 - The <span class="tpl-field tpl-org">System owner</span> shall list in Part B the personally identifiable information elements each log source writes, and record them in the system's privacy impact assessment. (AU-3(3))
 - Request bodies, form inputs, query strings and other content that may hold personal information shall be masked, truncated or left out of audit records unless the privacy impact assessment lists them as needed. (AU-3(3))
 - Access to audit records that contain personally identifiable information shall be limited to the roles that need it for review, investigation and audit. (AU-9)

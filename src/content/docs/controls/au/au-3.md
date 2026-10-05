@@ -151,7 +151,7 @@ In the [Audit and Accountability policy](/templates/policies/au/), the system ow
 
 | Parameter | Typical value |
 | --- | --- |
-| Personally identifiable information elements allowed in audit records (AU-3(3)) | The account identifier, the source address and device, and the identifiers of records accessed, not their contents, as the system's privacy impact assessment lists |
+| Personally identifiable information elements allowed in audit records (AU-3(3)) | The account identifier, the source address and device, and the identifiers of records accessed, not their contents |
 
 In the [Audit and Accountability policy](/templates/policies/au/) (Privacy baseline), the system owner limits the elements, the privacy official reviews them with the system owner, and request bodies, form inputs and query strings are masked or left out unless the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) lists them as needed. Section 5 of the [audit logging standard](/templates/standards/audit-logging-standard/) sets the masking, and its Part B lists the elements each log source writes. Limiting personal information never removes the identity of the person who acted (AU-3f). Assessors examine the privacy risk assessment and its results, the logging configuration, and sample audit records, checking that the records hold only the listed elements; logs that capture full requests or form fields are the usual finding.
 

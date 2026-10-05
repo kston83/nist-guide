@@ -8,6 +8,7 @@ control:
   id: PS-4
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -113,3 +114,44 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-4 asks you to act when someone's employment ends: disable their system access within a set time, and revoke their authenticators and credentials. You also hold an exit interview on set security topics, get back the organization's property, and keep access to the information and systems they controlled. It is the most tested personnel control: assessors take a list of recent departures and check when each person's access was disabled.
+
+NIST's PS-4 discussion says timely action is essential when someone is terminated for cause. In some cases, organizations consider disabling accounts before the person is told. It also notes that an exit interview is not always possible, for example when the person is ill or has abandoned the job. Exit interviews matter most for people with security clearances.
+
+**Common implementations.** The termination record in the human resources system feeds the identity provider, which disables the person's accounts and sends notices. The [onboarding, transfer and termination checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) records who confirmed each step and when. Step 3 of section 5.5 of the [account management procedure](/templates/procedures/account-management-procedure/) has the account manager disable access and revoke credentials within the PS-4 time. For an involuntary termination, accounts are disabled no later than when the person is told.
+
+Revocation reaches beyond the main account: multifactor tokens, certificates, VPN and remote access, cloud console and API keys, SSH keys, and building passes on the [physical access list](/templates/forms/physical-access-list/). The checklist also has the account manager change the authenticators of any shared account the person used (AC-2k). The supervisor moves ownership of files, mailboxes and systems before the accounts are removed under section 5.5 of the procedure, which covers item e. The [access agreement](/templates/forms/access-agreement/) tells each person the exit interview topics when they sign it, so the interview repeats what they already agreed to.
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Time to disable system access (a) | 24 hours, or the same day for privileged users; for an involuntary termination, no later than when the individual is told |
+| Exit interview topics (c) | The individual's continuing duty not to disclose organizational information, the return of all organizational property and information, and that former credentials must not be used |
+
+The time agrees with the notice the human resources office gives under AC-2h.2 (24 hours, or the same day for privileged users), in the [AC-2](/controls/ac/ac-2/) clause. In the policy, the account manager disables access and revokes credentials, the human resources office holds the exit interview, and the supervisor retrieves property and keeps access to the person's information.
+
+**Evidence assessors ask for.**
+
+- A list of departures for a period from the human resources office, compared with the date each person's accounts were disabled, in the identity provider and in each system's local accounts
+- Completed termination checklists for a sample of departures
+- Records of revoked certificates, tokens and building passes
+- Exit interview records, or the reason none was held
+- Records of property returned, and of files and mailboxes moved to a new owner
+
+**Inheritance.** The organization usually provides the human resources feed, the identity provider and the badge system as common controls. The system still owns its local and application accounts, keys and tokens issued outside the identity provider, so PS-4 is often hybrid.
+
+**Common findings.**
+
+- Terminated users still enabled days or weeks after leaving, most often in application-local accounts.
+- API keys, SSH keys or cloud access keys left active after the person left.
+- Contractor departures never reported to the organization ([PS-7](/controls/ps/ps-7/)).
+- Building passes and tokens not collected, or not recorded as collected.
+- No record that an exit interview was held, or why it was not.
+
+**Enhancements in the Moderate baseline.** None. High adds [PS-4(2)](#ps-4.2) automated actions. Its clause sets the identity governance system, triggered by the termination record in the human resources system, to notify the account managers and system owners and to disable access. [PS-4(1)](#ps-4.1) post-employment requirements is in no baseline.
+
+**Federal systems** (as of October 2026). [FIPS 201-3](https://csrc.nist.gov/pubs/fips/201-3/final) (January 2022), section 2.9.4, requires a PIV Card to be terminated when a federal employee separates, voluntarily or involuntarily, from federal service, and when a contractor changes positions and no longer needs access to federal buildings or systems, among other circumstances. The checklist's federal step has the human resources office see that the PIV Card issuer does it.

@@ -8,6 +8,7 @@ control:
   id: PS-8
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -53,3 +54,38 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-8 asks for a formal sanctions process for people who do not comply with information security and privacy policies and procedures. When a formal employee sanctions process starts, set roles are notified within a set time, with who was sanctioned and why. NIST's PS-8 discussion says sanctions are described in access agreements, and can be part of general personnel policies or set out in security and privacy policies. It advises consulting the general counsel on sanctions matters.
+
+**Common implementations.** The human resources disciplinary process handles the sanction; the security policy makes security and privacy violations subject to it and names who is told. The shared Compliance section of every family policy says violations are handled through the sanctions process. The [access agreement](/templates/forms/access-agreement/) and the [Rules of Behavior](/templates/forms/rules-of-behavior/) both state the consequences, so people know them before they sign. Sanctions are graduated to the violation, for example retraining, loss of access, a written warning, or termination. For contractor staff, the usual remedy is through the contract, such as removing the person from the work.
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who is notified when a sanctions process starts (b) | The Chief Information Security Officer, and the senior privacy official when the violation concerns privacy |
+| Time to notify (b) | 2 business days |
+
+In the policy, the human resources office runs the sanctions process and sends the notice.
+
+**Evidence assessors ask for.**
+
+- The documented sanctions process, and where security and privacy violations enter it
+- The consequences stated in the access agreement and the Rules of Behavior
+- Notices of sanctions to the security and privacy officials, with their dates, for a sample (assessors accept redacted records)
+- An example of a violation found by monitoring or an incident that led to a sanction
+
+**Inheritance.** PS-8 is a common control, provided once for the organization by the human resources office. Systems inherit it.
+
+**Common findings.**
+
+- A disciplinary process with no stated link to security and privacy violations.
+- No notice to the security or privacy official when a sanction starts, so access is not reviewed.
+- Violations found by monitoring that never reach the sanctions process.
+- Contractor staff left outside any process.
+
+**Enhancements in the Moderate baseline.** PS-8 has no enhancements.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 3.b(9), requires agencies to implement policies and procedures to ensure all personnel are held accountable for complying with agency-wide information security and privacy requirements and policies. Section 4.h(6) requires the rules of behavior to include the consequences of violating them.

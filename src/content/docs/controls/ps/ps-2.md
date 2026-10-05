@@ -8,6 +8,7 @@ control:
   id: PS-2
   family: PS
   baselines: [Low, Moderate, High]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -55,3 +56,41 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PS-2 asks you to give every position a risk designation, set screening criteria for the people who fill each level, and review the designations on a schedule. A designation rates the harm a person in the position could do through misconduct. It drives the screening the position needs ([PS-3](/controls/ps/ps-3/)), so designate the position before you hire into it.
+
+NIST's PS-2 discussion calls proper position designation "the foundation of an effective and consistent suitability and personnel security program." It adds that risk designations can guide the kinds of system authorizations people receive, and that screening criteria include explicit information security role appointment requirements.
+
+**Common implementations.** The human resources office records a designation (low, moderate or high) in each position's record, working with the security team. Positions with privileged access, control of money or access to large amounts of sensitive information rate higher. A one-page table sets the screening for each level, from identity and employment checks at low to criminal history checks at high, where the law allows them. Positions filled by contractors get a designation too, written into the contract (PS-7).
+
+Designations go stale when duties change, most often when a position gains privileged access. Make a change in duties a trigger: the supervisor tells the human resources office, which reviews the designation and, if it rises, starts rescreening (PS-3).
+
+**Organization-defined parameters.** Typical values, from the [Personnel Security policy](/templates/policies/ps/), which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Review and update frequency for position risk designations (c) | At least every 3 years, and whenever a position's duties change |
+
+In the policy, the human resources office assigns each designation in consultation with the Chief Information Security Officer, and sets the screening criteria for each level. The policy's [decision worksheet](/templates/worksheets/ps/) asks who designates positions and what screening each level requires.
+
+**Evidence assessors ask for.**
+
+- The list of positions with their risk designations, including positions filled by contractors
+- The screening criteria for each designation
+- Records of the last review, and of designations changed when duties changed
+- For a sample of privileged users, the designation of their position and the screening it required
+
+**Inheritance.** PS-2 is a common control, run by the human resources office for the whole organization. The system's part is to make sure the people who hold its privileged roles sit in positions designated for that access.
+
+**Common findings.**
+
+- Positions with privileged access designated low risk.
+- Contractor positions never designated.
+- Designations never reviewed, or not changed when a position gained administrator rights.
+- No written screening criteria for each level, so screening varies by hiring manager.
+
+**Enhancements in the Moderate baseline.** PS-2 has no enhancements.
+
+**Federal systems** (as of October 2026). [5 CFR 731.106](https://www.ecfr.gov/current/title-5/section-731.106)(a) (as amended June 30, 2026) requires the agency head to designate every covered position at high, moderate or low risk level. That includes positions whose occupant performs service as a contractor employee. Positions at high or moderate risk are public trust positions (731.106(b)). Each position also gets a sensitivity designation: Special-Sensitive, Critical-Sensitive, Noncritical-Sensitive or Non-sensitive (731.106(c)(2)). [5 CFR 1400.201](https://www.ecfr.gov/current/title-5/section-1400.201) defines the levels for national security positions. OPM, with the Defense Counterintelligence and Security Agency, provides the [Position Designation Tool](https://www.opm.gov/suitability/suitability-executive-agent/position-designation-tool/) for making these designations; keep its output with the position record as the evidence.

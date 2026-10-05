@@ -77,7 +77,7 @@ Handling follows the CSF 2.0 Functions. The incident handling playbook holds the
 
 ### Detect
 
-The {{org:security-operations}} monitors alerts, logs and user reports; triages events; and escalates suspected incidents to the {{org:incident-response-team}}. The team confirms whether an incident has occurred, declares it, assigns a severity and opens an incident record (IR-5).
+The {{org:security-operations}} monitors alerts, logs and user reports; triages events; and escalates suspected incidents to the {{org:incident-response-team}}, as the [log review procedure](/templates/procedures/log-review-procedure/) describes for findings in audit records. The team confirms whether an incident has occurred, declares it, assigns a severity and opens an incident record (IR-5).
 
 ### Respond
 

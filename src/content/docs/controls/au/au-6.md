@@ -263,7 +263,7 @@ AU-6 turns logs into detection: someone, or something, must review them for sign
 
 **Evidence assessors ask for.**
 
-- The log review procedure
+- The log review procedure; the [log review procedure](/templates/procedures/log-review-procedure/) template sets the review steps by role, the list of inappropriate or unusual activity in its section 3, and the record each step leaves
 - Dated records of reviews, with what was found and who it was reported to
 - The list of detection rules or use cases in the SIEM
 - Examples of alerts that led to action

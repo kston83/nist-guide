@@ -3,7 +3,7 @@ title: 'Identification and Authentication Standard'
 description: 'The assurance levels, identifiers, approved authenticators, multi-factor and password rules, authenticator life cycle, and the service account, device and federation requirements that make the identification and authentication policy (SP 800-53 IA-2, IA-5 and related controls) measurable, with a part where each system records how it authenticates.'
 sidebar:
   label: 'Identification and Authentication Standard'
-  order: 42
+  order: 44
 controls: [ia-2, ia-2.1, ia-2.2, ia-2.8, ia-2.12, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-3, ia-4, ia-4.4, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ac-7]
 ---
 

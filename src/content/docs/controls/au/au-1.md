@@ -106,7 +106,7 @@ AU-1 asks for a written audit and accountability policy, procedures that carry i
 - Limiting who can manage logging, and protecting the logs themselves
 - Keeping audit records for the retention period, and disposing of them after it
 
-Templates for an audit logging standard and a log review procedure are planned for this family. Until they are published, the [system monitoring standard](/templates/standards/system-monitoring-standard/) covers log sources, review and retention for the monitoring platform. System-specific settings go in the [system security plan](/templates/plans/system-security-plan/).
+Two templates carry out the policy. The [audit logging standard](/templates/standards/audit-logging-standard/) sets the event list with its rationale, record content, collection, time stamps, storage, failure response, protection and retention, with a Part B where each system records what it logs. The [log review procedure](/templates/procedures/log-review-procedure/) gives the review steps by role, the list of inappropriate or unusual activity, and the record each step leaves. The [system monitoring standard](/templates/standards/system-monitoring-standard/) covers detections and alert handling on the monitoring platform. System-specific settings go in the [system security plan](/templates/plans/system-security-plan/).
 
 NIST's log management guide, SP 800-92, Guide to Computer Security Log Management ([September 2006](https://csrc.nist.gov/pubs/sp/800/92/final), final), helps with planning the procedures. Its revision, SP 800-92 Rev. 1, Cybersecurity Log Management Planning Guide, is an [initial public draft](https://csrc.nist.gov/pubs/sp/800/92/r1/ipd) from October 11, 2023, with no later version as of September 2026.
 

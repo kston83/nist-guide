@@ -83,6 +83,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Acquisition Security Requirements](/templates/standards/acquisition-security-requirements/) | [Operate](/program/operate/) | Draft |
+| [Audit Logging Standard](/templates/standards/audit-logging-standard/) | [Core](/program/core/) | Draft |
 | [Baseline Configuration Standard](/templates/standards/baseline-configuration-standard/) | [Core](/program/core/) | Draft |
 | [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
 | [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
@@ -97,6 +98,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Account Management Procedure](/templates/procedures/account-management-procedure/) | [Core](/program/core/) | Draft |
+| [Log Review Procedure](/templates/procedures/log-review-procedure/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers
 

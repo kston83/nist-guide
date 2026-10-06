@@ -73,7 +73,7 @@ Determine if:
 
 AU-2 is about choosing what to log. First list every event type the system can log, then pick the subset you will log and write down why that subset is enough to investigate an incident. Most organizations do this once, in an audit logging standard, and every system starts from it.
 
-**Common implementations.** An audit logging standard listing the minimum event types: logons and logoffs, account and privilege changes, use of privileged functions, access to security-relevant files, configuration changes and security tool events. Each system's security plan records which events its components log and any additions. The standard is coordinated with the security operations, legal and privacy teams (AU-2b).
+**Common implementations.** An audit logging standard listing the minimum event types: logons and logoffs, account and privilege changes, use of privileged functions, access to security-relevant files, configuration changes and security tool events. Each system's security plan records which events its components log and any additions. The [audit logging standard](/templates/standards/audit-logging-standard/) template has this list in section 3, with a rationale for each event type, and a Part B where each system records what its components can log, what they log, and why the selection is enough. The standard is coordinated with the security operations, legal and privacy teams (AU-2b).
 
 **Organization-defined parameters.** Typical values, which your organization may set differently:
 

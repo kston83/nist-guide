@@ -3,7 +3,7 @@ title: 'Encryption and Key Management Standard'
 description: 'The approved cryptography, the protection required for information in transit and at rest, and the key and certificate management rules that make the system and communications protection policy''s cryptographic requirements (SP 800-53 SC-8, SC-12, SC-13, SC-17 and SC-28) measurable.'
 sidebar:
   label: 'Encryption and Key Management Standard'
-  order: 41
+  order: 43
 controls: [sc-8, sc-8.1, sc-12, sc-12.1, sc-13, sc-17, sc-28, sc-28.1]
 ---
 

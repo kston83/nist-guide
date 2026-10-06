@@ -3,7 +3,7 @@ title: 'System Monitoring Standard'
 description: 'The monitoring objectives, log sources, detections, alert handling, retention and reporting that make the system and information integrity policy''s monitoring requirements (SP 800-53 SI-4) measurable, with audit record review (AU-6) and retention (AU-11).'
 sidebar:
   label: 'System Monitoring Standard'
-  order: 45
+  order: 47
 controls: [si-4, si-4.2, si-4.4, si-4.5, si-4.10, si-4.12, si-4.14, si-4.20, si-4.22, au-6, au-11]
 ---
 
@@ -44,7 +44,7 @@ The monitoring objectives, log sources, detections, alert handling, retention an
 ## Preview (annotated)
 
 :::note[Guidance]
-The system and information integrity policy says each system must be monitored for attacks and misuse; this standard says what is monitored, where the data goes, which detections run, how fast alerts are handled, how long the data is kept and what is reported. Keep the values here in step with the SI-4 statements in the policy, and with the AU-6 and AU-11 statements in the audit and accountability policy, since assessors compare them. Which events each component logs, and what each record contains, belong to the audit and accountability policy (AU-2, AU-3 and AU-12). Most monitoring is a common control: the security operations team, the SIEM platform, endpoint detection and response, and network detection. Record in each system security plan which parts the system inherits and which it owns, such as sending its logs and its application-specific detections. [NIST SP 800-137](https://csrc.nist.gov/pubs/sp/800/137/final), Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations (September 2011, current as of September 2026), places system monitoring within an organization's continuous monitoring program.
+The system and information integrity policy says each system must be monitored for attacks and misuse; this standard says what is monitored, where the data goes, which detections run, how fast alerts are handled, how long the data is kept and what is reported. Keep the values here in step with the SI-4 statements in the policy, and with the AU-6 and AU-11 statements in the audit and accountability policy, since assessors compare them. Which events each component logs, and what each record contains, belong to the audit and accountability policy (AU-2, AU-3 and AU-12) and the [audit logging standard](/templates/standards/audit-logging-standard/); the steps of the manual review in section 7 are in the [log review procedure](/templates/procedures/log-review-procedure/). Most monitoring is a common control: the security operations team, the SIEM platform, endpoint detection and response, and network detection. Record in each system security plan which parts the system inherits and which it owns, such as sending its logs and its application-specific detections. [NIST SP 800-137](https://csrc.nist.gov/pubs/sp/800/137/final), Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations (September 2011, current as of September 2026), places system monitoring within an organization's continuous monitoring program.
 :::
 
 | Owner | Approved by | Version | Effective date |

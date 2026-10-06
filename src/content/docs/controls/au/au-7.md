@@ -103,7 +103,7 @@ AU-7 asks for tools that summarize, search and report on audit records, for rout
 | --- | --- |
 | Fields that can be processed, sorted and searched (AU-7(1)) | Event type, time, source and destination, user identity, outcome and system component |
 
-These fields match the content [AU-3](/controls/au/au-3/) requires, so records that meet AU-3 and parse cleanly can be searched on them. In the [Audit and Accountability policy](/templates/policies/au/), the system owner provides the capability, often by inheriting the organization's log platform.
+These fields match the content [AU-3](/controls/au/au-3/) requires, so records that meet AU-3 and parse cleanly can be searched on them. In the [Audit and Accountability policy](/templates/policies/au/), the system owner provides the capability, often by inheriting the organization's log platform. Section 4 of the [log review procedure](/templates/procedures/log-review-procedure/) records the capability and the saved searches the reviews use.
 
 **Evidence assessors ask for.**
 

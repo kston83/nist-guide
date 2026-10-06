@@ -3,7 +3,7 @@ title: 'Remote Access Standard'
 description: 'The allowed remote access methods, and the device, authentication, encryption, connection, session, monitoring and privileged access requirements for each, that make the access control policy''s remote access requirements (SP 800-53 AC-17 and its enhancements) measurable.'
 sidebar:
   label: 'Remote Access Standard'
-  order: 44
+  order: 46
 controls: [ac-17, ac-17.1, ac-17.2, ac-17.3, ac-17.4, ac-12, sc-10]
 ---
 

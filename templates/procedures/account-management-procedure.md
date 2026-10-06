@@ -171,7 +171,7 @@ If the system has no shared or group accounts, the system security plan says so.
 | Record | Kept in | Retention |
 | --- | --- | --- |
 | Access requests and approvals | {{fill:for example the service management tool}} | {{fill:for example the life of the account plus 3 years}} |
-| Account change audit records (AC-2(4)) | {{fill:for example the log platform}} | As the audit logging requirements set (AU-11) |
+| Account change audit records (AC-2(4)) | {{fill:for example the log platform}} | As the [audit logging standard](/templates/standards/audit-logging-standard/) sets (AU-11) |
 | Onboarding, transfer and termination checklists | {{fill:location}} | {{fill:period}} |
 | Emergency account use reviews | {{fill:location}} | {{fill:period}} |
 | Access review records | {{fill:location}} | {{fill:for example 3 years, or at least until the next assessment}} |

@@ -10,7 +10,7 @@ typical:
 ---
 
 :::guidance
-Most findings under AU-6 are about evidence, not effort: the review happened but left no record. Keep a dated record of each review with what was looked at, what was found and who it was reported to.
+Most findings under AU-6 are about evidence, not effort: the review happened but left no record. Keep a dated record of each review with what was looked at, what was found and who it was reported to. The [log review procedure](/templates/procedures/log-review-procedure/) lists the activity the review looks for in its section 3 and names the record each step leaves.
 :::
 
 - The {{org:security-operations}} shall review and analyze system audit records {{param:au-06_odp.01}} for indications of {{param:au-06_odp.02}} and its potential impact. (AU-6a)

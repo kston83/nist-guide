@@ -60,6 +60,14 @@ Pick the path that matches the question. Each step names the resource and the on
 2. **DoD Cybersecurity Risk Management Construct (CSRMC)**, announced September 2025, which the Department describes as replacing the RMF's snapshot-in-time approach.
 3. **Software Fast Track (SWFT)**, the April 2025 initiative on acquiring and authorizing software.
 
+### 6. KSIs for an RMF practitioner, starting from Change Management
+
+1. **The FedRAMP rules repository README**, for how the dataset is organized (definitions, rules, KSIs, control guidance).
+2. **The Change Management KSIs**, the four `KSI-CMT` indicators, and the controls each lists (see the table under [Next steps](#next-steps)). Read each as "the outcome an assessor will measure" and the controls as "where the RMF already says it".
+3. **The Significant Change Notification rules** (`FRR.SCN`) and the definitions of routine recurring, adaptive and transformative changes: FedRAMP's answer to "which changes need the authorizer".
+4. **FedRAMP's CM control guidance** (`CTL.CM` in the dataset): for example, CM-1 says to follow the Significant Change Notification rules, and CM-11 sets `cm-11_odp.03` to "Continuously (via CM-7 (5))".
+5. **This guide's CM-3, CM-4 and CM-2 pages and the change management templates**, to see where the KSIs land in a conventional RMF package.
+
 ## The resources
 
 Each entry: what it is, the problem it solves, where it stops, status, and license where it matters for this repo (CC BY-SA text cannot be copied into CC BY or CC0 content; see the PRD's Copyright section).
@@ -71,7 +79,8 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 - *Solves:* states what the federal cloud authorizer will measure, as outcomes, with an automated, machine-readable path.
 - *Stops at:* KSIs say what must be true, not how a team makes it true or what evidence is good enough.
 - *Status:* CR26 launched June 24, 2026; optional early adoption from July 4, 2026; mandatory from January 1, 2027; "FedRAMP will no longer accept applications for new FedRAMP Rev5 Certifications" after June 11, 2027. FedRAMP Ready closed to new submissions on July 28, 2026. A certification has a type (Rev5 or 20x) and a class, A to D, "increasing from minimal assurance at Class A to significant assurance at Class D". Each KSI lists "Related SP 800-53 Controls"; for example KSI-CMT-LMC ("Modifications to the cloud service offering are logged and monitored") lists AU-2, CM-3, CM-3(2), CM-4(2), CM-6, CM-8(3) and MA-2.
-- *Not verified at FedRAMP:* the number of KSIs per class and how classes correspond to the old Low, Moderate and High levels. Vendor articles give figures; check the rules repository before citing any.
+- *The rules dataset:* [`fedramp-consolidated-rules.json`](https://github.com/FedRAMP/rules) holds the definitions (`FRD`), process rules (`FRR`), KSIs (`KSI`) and FedRAMP's control parameters and guidance (`CTL`), with a JSON schema. Version 2026.10.08.01 (read 2026-10-09) has 46 indicators in 10 themes: Cybersecurity Education (CED), Change Management (CMT), Cloud Native Architecture (CNA), Identity and Access Management (IAM), Incident Response (INR), Monitoring, Logging, and Auditing (MLA), Policy and Inventory (PIY), Recovery Planning (RPL), Supply Chain Risk (SCR) and Service Configuration (SVC). Each indicator lists its controls in the same lowercase form as this repo's slugs (`cm-3`, `cm-3.2`); some vary by class (a `varies_by_class` field; for example KSI-CNA-EIS is optional at Class B). The repository asserts no license in its GitHub metadata. <!-- TODO(verify): reuse terms for the FedRAMP rules dataset before importing it -->
+- *Not verified at FedRAMP:* how the classes correspond to the old Low, Moderate and High levels. Vendor articles give figures for KSIs per level that do not match the dataset's 46 (they may count class variants separately); use the dataset.
 
 **DoD continuous ATO.** [cATO memo, February 2022](https://dodcio.defense.gov/Portals/0/Documents/Library/20220204-cATO-memo-Signed-Cleared.pdf), [evaluation criteria](https://dodcio.defense.gov/Portals/0/Documents/Library/cATO-EvaluationCriteria.pdf), [implementation guide, April 2024](https://dodcio.defense.gov/Portals/0/Documents/Library/DoDCIO-ContinuousAuthorizationImplementationGuide.pdf).
 
@@ -183,7 +192,7 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 
 Read across the layers, these are the questions the resources above leave to the practitioner:
 
-1. **Change management under continuous delivery.** CM-3 and CM-4, and FedRAMP's significant change rules, assume discrete changes; teams deploy many times a day. What is the change record, who approves what, and which changes need the authorizer?
+1. **Change management under continuous delivery.** CM-3 and CM-4 assume discrete, reviewed changes; teams deploy many times a day. What is the change record, who approves what, and which changes need the authorizer? For FedRAMP cloud services this is now partly answered: the Significant Change Notification rules (`FRR.SCN`, for both 20x and Rev5, Classes B to D) sort significant changes into routine recurring ("regularly and routinely recurs as part of ongoing operations, vulnerability mitigation, or vulnerability remediation"), adaptive and transformative ("introduces substantive potential security risks that are likely to affect existing risk determinations"), each with its own rules, and four Change Management KSIs (logging changes, redeploying rather than modifying, reviewing change procedures, validating throughout deployment) set the outcomes. For systems authorized by an agency outside FedRAMP, nothing equivalent was found; the answer stays with the authorizing official, SP 800-37 and SP 800-128.
 2. **What evidence is good enough.** Tools produce results and KSIs name outcomes, but nothing vendor-neutral says, outcome by outcome, which pipeline outputs an assessor will accept, for how long, and with what coverage.
 3. **Scanner findings to POA&M.** How SAST, SCA, container and DAST findings become risk decisions, deviations and POA&M items without flooding them.
 4. **Inheritance from the platform.** What a team inherits from a hardened pipeline or platform (the cATO model's assumption) and how that is recorded in the SSP.
@@ -192,8 +201,68 @@ Read across the layers, these are the questions the resources above leave to the
 
 The site's existing layers (control pages, guidance, templates) are the natural landing place for answers: each open question ends at a control page and a template (the change management procedure, the POA&M, the SSP). A possible direction, not yet a PRD change: "implementation patterns", one per outcome, that cite FedRAMP's and NIST's published mappings and link OWASP and OpenSSF material by ID rather than copying it.
 
+## Is the repository's direction right?
+
+Discussed with the owner on 2026-10-09. The conclusion: yes, with a shift in what the guide leads with over time.
+
+**Why the foundation keeps its value.**
+
+- SP 800-53 stays the shared vocabulary. FedRAMP 20x does not drop it: every KSI lists its controls. The pipeline tools above (MITRE SAF, OSCAL, ComplianceAsCode) tag their results to 800-53 as well.
+- Most federal systems are not FedRAMP cloud services. Agency systems still go through the RMF under FISMA and OMB Circular A-130 and still need policies, plans and procedures; so do non-federal organizations adopting 800-53.
+- Writing the control guidance builds the fluency the bridge needs: knowing a control well enough to judge what evidence satisfies it is what most DevSecOps material lacks.
+
+**What has weakened.**
+
+- FedRAMP's own definitions call Rev5 "a legacy approach based primarily on documented plans". DoD announced CSRMC as a move away from the RMF's snapshot approach, and OMB M-26-05 dropped the mandated attestation form.
+- Narrative paperwork matters less than it did, especially for cloud providers. For a 20x provider the templates are the least important part of the package, so they should not be the thing that keeps growing.
+
+**The adjustment.** Treat what is built as the foundation, and make the next layer the one this research found missing: how each outcome is met in a pipeline and proven with evidence. The PRD already has the slots: Phase 4 (methods, starting with the SSDF) and the technology playbooks. This refocuses them rather than adding a new strand.
+
+## Next steps
+
+In order, agreed with the owner on 2026-10-09:
+
+1. **Finish the foundation (Phase 3).** All 287 Low and Moderate policy clauses exist and the Moderate guidance is complete; finish the remaining rows before anything new.
+2. **Focus on the CM family.** CM is the owner's priority in their own practice, and it is where the gap is sharpest (change management under continuous delivery, above). The CM foundation is already merged: draft guidance on CM-1 to CM-12, every CM base control in a baseline (G7, #86, plus the pages written earlier; CM-13 and CM-14 are in no baseline) and the CM artifacts (row 29, #99: the Configuration Management Plan, baseline configuration standard, change request form and component inventory). The next CM work is an owner review of those pages and artifacts against real practice, then the first implementation pattern.
+3. **A short learning stretch before writing new content.** Reading paths 1, 3 and 6. Run MITRE SAF or a public 20x pilot package against something real. Read two or three vendor 20x evidence guides.
+4. **Prototype one pattern page: change management under continuous delivery.** Built from the CM controls, the four Change Management KSIs, the Significant Change Notification rules, the SSDF tasks that cite CM controls (if any; to check), and OWASP and OpenSSF material linked by ID. If it proves useful to the owner and one or two peers, amend the PRD to make patterns the Phase 4 focus.
+
+### Idea: a control-to-KSI relationship map
+
+The owner would like a visual map: pick a control and see its relationships down to the KSIs, and onward to methods and patterns. The data for the first link already exists and needs no judgment of ours: the FedRAMP rules dataset lists each KSI's controls in this repo's slug format, so a build step could import it the way `npm run controls` imports OSCAL, and the control pages could show "FedRAMP 20x KSIs that cite this control" much as METH-01 plans a Methods section. The map would then join, per control: the KSIs (FedRAMP's mapping), the SSDF tasks (NIST's references), this guide's templates (`controls` front matter), and later the patterns. OpenCRE links, if used, would be labelled as OpenCRE's.
+
+What the CM slice looks like, from dataset version 2026.10.08.01 (the KSIs that list each CM control):
+
+| Control | KSIs that list it |
+| --- | --- |
+| CM-2 | KSI-CMT-RMV (Redeploying vs Modifying), KSI-CNA-DFP (Defining Functionality and Privileges), KSI-CNA-IBP (Implementing Best Practices), KSI-MLA-EVC (Evaluating Configurations), KSI-SVC-ACM (Automating Configuration Management) |
+| CM-2(2) | KSI-PIY-GIV (Generating Inventories), KSI-SVC-ACM (Automating Configuration Management), KSI-SVC-VRI (Validating Resource Integrity) |
+| CM-2(3) | KSI-RPL-ABO (Aligning Backups with Objectives), KSI-SVC-ACM (Automating Configuration Management) |
+| CM-2(7) | KSI-IAM-ELP (Ensuring Least Privilege) |
+| CM-3 | KSI-CMT-LMC (Logging Changes), KSI-CMT-RMV (Redeploying vs Modifying), KSI-CMT-RVP (Reviewing Change Procedures), KSI-CMT-VTD (Validating Throughout Deployment) |
+| CM-3(2) | KSI-CMT-LMC (Logging Changes), KSI-CMT-RVP (Reviewing Change Procedures), KSI-CMT-VTD (Validating Throughout Deployment) |
+| CM-3(4) | KSI-CMT-RVP (Reviewing Change Procedures), KSI-PIY-RSD (Reviewing Security in the SDLC) |
+| CM-4(2) | KSI-CMT-LMC (Logging Changes), KSI-CMT-VTD (Validating Throughout Deployment) |
+| CM-5 | KSI-CMT-RMV (Redeploying vs Modifying), KSI-CMT-RVP (Reviewing Change Procedures), KSI-IAM-JIT (Authorizing Just-in-Time) |
+| CM-6 | KSI-CMT-LMC (Logging Changes), KSI-CMT-RMV (Redeploying vs Modifying), KSI-MLA-EVC (Evaluating Configurations), KSI-SVC-ACM (Automating Configuration Management) |
+| CM-7 | KSI-CMT-RMV (Redeploying vs Modifying), KSI-IAM-JIT (Authorizing Just-in-Time) |
+| CM-7(1) | KSI-CMT-RVP (Reviewing Change Procedures), KSI-CNA-RNT (Restricting Network Traffic), KSI-SVC-ACM (Automating Configuration Management), KSI-SVC-EIS (Evaluating and Improving Security) |
+| CM-7(2) | KSI-IAM-JIT (Authorizing Just-in-Time) |
+| CM-7(5) | KSI-IAM-JIT (Authorizing Just-in-Time), KSI-PIY-GIV (Generating Inventories) |
+| CM-8 | KSI-PIY-GIV (Generating Inventories) |
+| CM-8(1) | KSI-CMT-RMV (Redeploying vs Modifying), KSI-PIY-GIV (Generating Inventories) |
+| CM-8(3) | KSI-CMT-LMC (Logging Changes), KSI-SVC-VRI (Validating Resource Integrity) |
+| CM-9 | KSI-CMT-RVP (Reviewing Change Procedures), KSI-IAM-ELP (Ensuring Least Privilege), KSI-IAM-JIT (Authorizing Just-in-Time) |
+| CM-12 | KSI-PIY-GIV (Generating Inventories) |
+| CM-12(1) | KSI-PIY-GIV (Generating Inventories), KSI-SVC-EIS (Evaluating and Improving Security) |
+
+Two things the slice already shows. CM-3 is the hub: all four Change Management KSIs list it. And some CM controls appear under no KSI (CM-1, the base CM-4, CM-10, CM-11 and CM-14 among them); FedRAMP covers some of those through its control guidance instead (CM-1 points to the Significant Change Notification rules).
+
+Before building it: a new import script, front matter or page section is a change to how the site is built, and an interactive graph may need a dependency the PRD does not name, so both wait for the owner's go-ahead (CLAUDE.md). The dataset's reuse terms also need checking (TODO above). A static prototype outside the repo is the cheap first step.
+
 ## Open points for the owner
 
 - Is the pain in "What is still open" the one you and peers hit? Practitioner experience is the test; this note rests on published sources only.
 - Several vendor guides on 20x evidence and continuous monitoring were not read closely. Read two or three before calling the gap open.
 - Whether to publish a version of this note on the site (for example under Reference), which would need a navigation change.
+- The control-to-KSI map: a static prototype first, then, if it earns its place, a PRD requirement for the import and the control-page section.

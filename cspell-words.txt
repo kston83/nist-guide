@@ -2,6 +2,7 @@
 # program terms, plus project words. One per line, lines starting # ignored.
 airmf
 AODR
+ASVS
 auditd
 automatability
 automatable
@@ -11,6 +12,8 @@ blocklist
 blocklists
 bypassable
 Calibri
+CAPEC
+CICD
 CISA
 CISO
 CISSP
@@ -34,11 +37,14 @@ disassociability
 DMARC
 DNSKEY
 DNSSEC
+DSOMM
 ECDH
 exfiltration
 FASC
+fedramp
 FEMA
 FFIEC
+FINOS
 FIPS
 FISMA
 FOIA
@@ -51,6 +57,7 @@ HMAC
 hotwash
 HSPD
 HSTS
+IAST
 IATT
 ICAM
 Interdomain
@@ -62,6 +69,7 @@ ITIL
 journaling
 KMAC
 LDAPS
+MASVS
 microgrid
 multifactor
 NERC
@@ -70,8 +78,12 @@ nonsecure
 nonsecurity
 NSEC
 OLIR
+opencre
+openssf
 OSCAL
+OSPS
 pandoc
+Paramify
 PPTP
 preapproved
 preproduction
@@ -84,17 +96,21 @@ rescreening
 rlogin
 rulemaking
 SAISO
+SAMM
 sandboxing
 SAOP
 SCRM
+SCVS
 SDLC
 SIEM
+slsa
 SSDF
 STARTTLS
 STIG
 STIGs
 subnetworks
 supercapacitors
+SWFT
 syncable
 TDEA
 telework

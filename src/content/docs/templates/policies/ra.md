@@ -221,12 +221,12 @@ A public reporting channel lets researchers and others tell the organization abo
 #### Risk response (RA-7)
 
 :::note[Guidance]
-Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and who may accept each level of risk (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5); every response, including acceptance, goes in the [risk register](/templates/forms/risk-register/).
+Every finding from an assessment, monitoring or audit needs a decision: fix it, avoid it, share or transfer it, or accept it. The risk management strategy sets the organization's risk tolerance and the roles the authorizing official consults before accepting risk at each level (PM-9, PM-28). Fixes that take time go in the plan of action and milestones (CA-5); every response, including acceptance, goes in the [risk register](/templates/forms/risk-register/).
 :::
 
 - Each <span class="tpl-field tpl-org">System owner</span> shall respond to findings from security and privacy assessments, monitoring and audits in accordance with the organizational risk tolerance set in the risk management strategy. (RA-7)
 - The <span class="tpl-field tpl-org">System owner</span> shall record each response as a remediation, a plan of action and milestones item, or a risk acceptance. (RA-7)
-- A risk shall be accepted only by an official the risk management strategy authorizes to accept risk at that level. (RA-7)
+- A risk to an authorized system shall be accepted only by its authorizing official, after consulting the roles the risk management strategy names for that risk level. (RA-7)
 
 #### Criticality analysis (RA-9)
 

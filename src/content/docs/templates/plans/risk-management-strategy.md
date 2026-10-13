@@ -164,4 +164,12 @@ Risk is monitored under the continuous monitoring strategy (PM-31), which sets t
 | --- | --- | --- | --- |
 | <span class="tpl-field tpl-fill">Fill in: version</span> | <span class="tpl-field tpl-fill">Fill in: date</span> | <span class="tpl-field tpl-fill">Fill in: summary of change</span> | <span class="tpl-field tpl-fill">Fill in: name and title</span> |
 
-<!-- TODO(verify): federal block. Confirm the exact OMB Circular A-130 requirement for an organization-wide risk management strategy (Appendix I section and wording) before citing it. -->
+<div class="tpl-federal">
+
+#### Federal systems
+
+[OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 3.a, requires agencies to implement "an agency-wide risk management process that frames, assesses, responds to, and monitors information security and privacy risk on an ongoing basis across the three organizational tiers." Its footnote points to SP 800-39 and to section 5. Section 5.b, in the discussion of major provisions, says the risk management strategy "describes how an agency intends to assess risk, respond to risk, and monitor risk," and that a credible strategy identifies risk assumptions, constraints, tolerance, and priorities and trade-offs.
+
+- This strategy shall describe how the agency carries out the agency-wide risk management process that OMB Circular A-130, Appendix I, section 3.a, requires, and shall state the risk assumptions, constraints, tolerance, and priorities and trade-offs that section 5.b describes. (PM-9)
+
+</div>

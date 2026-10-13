@@ -73,7 +73,7 @@ SP 800-39 notes that transferring risk is less applicable in the public sector, 
 
 [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) (December 2018) task R-3 says "the authorizing official is the only person who can accept risk" for an authorized system. Its task M-3 has the authorizing official, system owner and common control provider respond to risk from ongoing monitoring, risk assessments and open plan of action items. So the strategy should never let anyone other than the authorizing official accept risk for an authorized system; the template's section 3.3 names who is consulted at each level instead. Keep the accepted deficiencies documented in the assessment reports and monitor them for changes in threat, vulnerability, likelihood or impact.
 
-**Organization-defined parameters.** RA-7 has none. In the [Risk Assessment policy](/templates/policies/ra/), the system owner responds to findings within the risk tolerance set in the risk management strategy and records each response as a remediation, a plan of action and milestones item, or a risk acceptance. Only an official the strategy authorizes for that level may accept a risk.
+**Organization-defined parameters.** RA-7 has none. In the [Risk Assessment policy](/templates/policies/ra/), the system owner responds to findings within the risk tolerance set in the risk management strategy and records each response as a remediation, a plan of action and milestones item, or a risk acceptance. Only the system's authorizing official may accept a risk, after consulting the roles the strategy names for that level.
 
 **Evidence assessors ask for.**
 
@@ -83,7 +83,7 @@ SP 800-39 notes that transferring risk is less applicable in the public sector, 
 - Signed risk acceptances, each with the risk, its level, the reason, the compensating measures, the official who accepted it and an expiry or review date
 - The plan of action and milestones, with dates that are being met
 
-**Inheritance.** The organization provides the risk management strategy, the tolerance and the acceptance authority as common elements. Responding to the system's own findings is system-specific; a common control provider responds to findings in the controls it provides.
+**Inheritance.** The organization provides the risk management strategy, the tolerance and the roles consulted before risk is accepted as common elements. Responding to the system's own findings is system-specific; a common control provider responds to findings in the controls it provides.
 
 **Common findings.**
 

@@ -46,6 +46,49 @@ function rehypeRebaseLinks() {
 	};
 }
 
+// Analytics (PRD PRES-05, owner decision 2026-10-13): GoatCounter, which sets no
+// cookies and stores no IP address or full user agent. count.js ignores localhost,
+// so dev and preview builds are not counted, and the accessibility check blocks
+// its host (.pa11yci.json) so CI does not depend on it. The script is a pinned
+// version with its published SRI hash (goatcounter.com/help/countjs-versions); to
+// upgrade, change both. The second script counts left and middle clicks on this
+// site's template downloads (every file under /downloads/) as events named
+// "download-<file>", titled with the file name and with the page they came from
+// as the referrer (GoatCounter keeps one title per event, so the page cannot go
+// in the title), because count.js only counts page views on its own.
+const GOATCOUNTER_ENDPOINT = 'https://kston83.goatcounter.com/count';
+const DOWNLOADS_PREFIX = `${BASE_PATH.replace(/\/$/, '')}/downloads/`;
+const analytics = [
+	{
+		tag: 'script',
+		attrs: {
+			'data-goatcounter': GOATCOUNTER_ENDPOINT,
+			async: true,
+			src: 'https://gc.zgo.at/count.v5.js',
+			crossorigin: 'anonymous',
+			integrity: 'sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ',
+		},
+	},
+	{
+		tag: 'script',
+		content: `(function () {
+	var prefix = ${JSON.stringify(DOWNLOADS_PREFIX)};
+	function countDownload(e) {
+		if (e.type === 'auxclick' && e.button !== 1) return;
+		var a = e.target instanceof Element && e.target.closest('a[href]');
+		if (!a || !window.goatcounter || !window.goatcounter.count) return;
+		var url = new URL(a.href, location.href);
+		if (url.origin !== location.origin || url.pathname.indexOf(prefix) !== 0) return;
+		var file;
+		try { file = decodeURIComponent(url.pathname.slice(prefix.length)); } catch (err) { return; }
+		if (file) window.goatcounter.count({ path: 'download-' + file, title: file, referrer: location.pathname, event: true });
+	}
+	document.addEventListener('click', countDownload);
+	document.addEventListener('auxclick', countDownload);
+})();`,
+	},
+];
+
 // The 20 SP 800-53 Rev. 5 families, in catalog order.
 const families = [
 	['ac', 'Access Control'], ['at', 'Awareness and Training'], ['au', 'Audit and Accountability'],
@@ -96,7 +139,8 @@ export default defineConfig({
 				['og:image:alt', 'RMF Field Guide: applying the NIST Risk Management Framework and SP 800-53 to real systems'],
 			]
 				.map(([property, content]) => ({ tag: 'meta', attrs: { property, content } }))
-				.concat({ tag: 'meta', attrs: { name: 'twitter:image', content: OG_IMAGE } }),
+				.concat({ tag: 'meta', attrs: { name: 'twitter:image', content: OG_IMAGE } })
+				.concat(analytics),
 			social: [
 				{ icon: 'linkedin', label: 'Kristopher Stone on LinkedIn', href: 'https://www.linkedin.com/in/kristopher-stone-cissp-655b4866' },
 				{ icon: 'github', label: 'Source on GitHub', href: REPO_URL },

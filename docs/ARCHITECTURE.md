@@ -93,6 +93,10 @@ Control files hold only the NIST block and the guidance. Everything else on a co
 
 Other components: `ControlCoverage.astro` (the coverage page, CTRL-05), `StageArtifacts.astro` (artifacts per program stage, from template `stage` front matter, PROG-01), `StepStrip.astro` (home page step strip) and `Footer.astro` (disclaimer and license).
 
+### Page head and analytics
+
+Every page's `<head>` gets the entries in Starlight's `head` array in `astro.config.mjs`: the social preview image tags (PRES-01) and the GoatCounter analytics script (PRES-05). The script is a pinned version (`count.v5.js`) with GoatCounter's published SRI hash, so an upgrade changes both. GoatCounter sets no cookies and ignores localhost, so dev and preview builds are not counted, and the accessibility check blocks its host (`.pa11yci.json`) so CI does not depend on it. A small inline script counts left and middle clicks on this site's links under `/downloads/` as GoatCounter events named `download-<file>`, with the file name as the title and the page they came from as the referrer (GoatCounter keeps one title per event, so the page cannot go in the title; its dashboard lists referrers per event), so the template pages and kit need no markup for it. The About page's Analytics section describes what is collected; change it with the script.
+
 ### Markdown plugins and search
 
 `astro.config.mjs` registers three rehype plugins:

@@ -22,6 +22,8 @@ The guide is a practical guidebook to two NIST frameworks: the Risk Management F
 
 `main` is protected and squash-merge only. Changes land through a pull request, and the **Check** workflow must pass before merge: tests, lint and spelling, a check that generated pages are current, the build with the template kit, and the link, search and accessibility checks. The owner merges pull requests. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.
 
+Visits and template downloads are counted with [GoatCounter](https://www.goatcounter.com/) (no cookies; the dashboard is at `kston83.goatcounter.com`). The script and its endpoint (`GOATCOUNTER_ENDPOINT`) are in `astro.config.mjs`, and the About page says what is collected.
+
 ## Work on it locally
 
 Requires [Node.js](https://nodejs.org) 22.12 or later (Astro's minimum; CI uses Node 24). Word (`.docx`) downloads also need [pandoc](https://pandoc.org) 3.11, the version CI pins: put it on your `PATH` or set `PANDOC` to its path. Without it the build still passes but skips the `.docx` files.

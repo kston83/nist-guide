@@ -22,6 +22,7 @@ CNSS
 CNSSI
 coercivity
 corpuses
+countjs
 COSAIS
 Crowell
 cryptoperiods
@@ -44,6 +45,7 @@ FISMA
 FOIA
 GIDEP
 GLBA
+goatcounter
 granularities
 headshot
 HITRUST

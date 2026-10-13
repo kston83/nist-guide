@@ -37,15 +37,15 @@ Recheck these with the next change that touches them.
 | SP 800-18 Rev. 2, Developing Security, Privacy, and C-SCRM Plans for Systems | Final, June 2026; supersedes Rev. 1 (02/24/2006); C-SCRM Plan Example Outline (docx) | 2026-10-03 | Row 26 |
 | SP 800-28 Version 2, Active Content and Mobile Code | Final, March 2008 | 2026-10-01 | G11 |
 | SP 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems | Final, May 2010 (updated 11/11/2010); planning note 03/17/2023 (contact address only) | 2026-10-03 | G17 |
-| SP 800-30 Rev. 1, Guide for Conducting Risk Assessments | Final, September 2012; supersedes SP 800-30 (07/01/2002); no newer revision or draft | 2026-10-03 | G18 |
-| SP 800-37 Rev. 2, Risk Management Framework | Final, December 2018; supersedes Rev. 1 (06/05/2014); no newer revision or draft | 2026-10-05 | CA, G18, G20 |
-| SP 800-39, Managing Information Security Risk | Final, March 2011 | 2026-10-03 | G18 |
+| SP 800-30 Rev. 1, Guide for Conducting Risk Assessments | Final, September 2012; supersedes SP 800-30 (07/01/2002); no newer revision or draft | 2026-10-03 | G18, G21 |
+| SP 800-37 Rev. 2, Risk Management Framework | Final, December 2018; supersedes Rev. 1 (06/05/2014); no newer revision or draft | 2026-10-05 | CA, G18, G20, G21 |
+| SP 800-39, Managing Information Security Risk | Final, March 2011 | 2026-10-03 | G18, G21 |
 | SP 800-40 Rev. 4, Enterprise Patch Management Planning | Final, April 2022 | 2026-09-29 | SI |
 | SP 800-46 Rev. 2, Enterprise Telework, Remote Access and BYOD Security | Final, 07/29/2016; Rev. 3 only a pre-draft call for comments (09/10/2020) | 2026-10-03 | Row 24, G13, row 27 |
 | SP 800-47 Rev. 1, Managing the Security of Information Exchanges | Final, July 2021 | 2026-09-29 | CA |
-| SP 800-50 Rev. 1, Building a Cybersecurity and Privacy Learning Program | Final, September 2024; supersedes SP 800-50 (10/01/2003) and SP 800-16 (04/01/1998); no newer draft | 2026-10-04 | AT (row 8), G19 |
+| SP 800-50 Rev. 1, Building a Cybersecurity and Privacy Learning Program | Final, September 2024; supersedes SP 800-50 (10/01/2003) and SP 800-16 (04/01/1998); no newer draft | 2026-10-04 | AT (row 8), G19, G21 |
 | SP 800-55 Vol. 1 and Vol. 2, Measurement Guide for Information Security | Final, December 2024 (both volumes, 12/04/2024); supersede SP 800-55 Rev. 1 (07/16/2008); no planning note | 2026-10-05 | G20 |
-| SP 800-53B, Control Baselines | Final, September 2020 (updates as of 12/10/2020); release 5.2.0 (08/27/2025) made no changes to the baselines | 2026-10-03 | G18 |
+| SP 800-53B, Control Baselines | Final, September 2020 (updates as of 12/10/2020); release 5.2.0 (08/27/2025) made no changes to the baselines | 2026-10-03 | G18, G21 |
 | SP 800-52 Rev. 2, TLS Implementations | Final, August 2019; under review (planning note 05/07/2026) | 2026-10-01 | SC, G11 |
 | SP 800-53A Rev. 5, Assessing Security and Privacy Controls | Final, January 2022; release 5.2.0 (08/27/2025) | 2026-09-29 | CA |
 | SP 800-57 Part 1 Rev. 5, Key Management | Final, May 2020; Rev. 6 initial public draft 12/05/2025, comments closed 02/05/2026 | 2026-09-30 | G9 |
@@ -56,19 +56,20 @@ Recheck these with the next change that touches them.
 | SP 800-77 Rev. 1, IPsec VPNs | Final, June 2020 | 2026-09-28 | SC |
 | SP 800-81 Rev. 3, Secure DNS Deployment Guide | Final, 03/19/2026; errata planning note 07/10/2026 (editorial) | 2026-10-01 | SC, G11 |
 | SP 800-83 Rev. 1, Malware Incident Prevention and Handling | Final, 07/22/2013 | 2026-10-02 | G14 |
-| SP 800-84, Test, Training and Exercise Programs | Final, September 2006 | 2026-10-02 | G16 |
+| SP 800-84, Test, Training and Exercise Programs | Final, September 2006 | 2026-10-02 | G16, G21 |
 | SP 800-88 Rev. 2, Media Sanitization | Final, September 2025; FAQ published 07/16/2026 | 2026-10-02 | MA, row 23, G10, G14 |
 | SP 800-92, Log Management | Final, September 2006; Rev. 1 initial public draft 10/11/2023, comments closed 11/29/2023, no later version | 2026-10-05 | G6, row 30 |
 | SP 800-115, Technical Security Testing | Final, September 2008 | 2026-09-29 | CA |
 | SP 800-116 Rev. 1, PIV Credentials in Facility Access | Final, June 2018 | 2026-10-01 | Row 24, G12 |
 | SP 800-128, Security-Focused Configuration Management | Final, August 2011, updates as of 10/10/2019 | 2026-10-02 | G7, row 29 |
 | SP 800-131A Rev. 2, Transitioning Cryptographic Algorithms | Final, March 2019; Rev. 3 draft October 2024 | 2026-09-28 | SC |
-| SP 800-137, Information Security Continuous Monitoring | Final, September 2011 | 2026-09-29 | CA |
+| SP 800-137, Information Security Continuous Monitoring | Final, September 2011 | 2026-09-29 | CA, G21 |
 | SP 800-137A, Assessing ISCM Programs | Final, May 2020 | 2026-09-29 | CA |
+| SP 800-150, Guide to Cyber Threat Information Sharing | Final, October 2016 (10/04/2016; draft 04/21/2016); no newer draft or planning note | 2026-10-13 | G21 |
 | SP 800-160 Vol. 1 Rev. 1, Engineering Trustworthy Secure Systems | Final, 11/16/2022 | 2026-09-29 | SA |
 | SP 800-161 Rev. 1 Update 1, C-SCRM Practices | Final, May 2022, updates as of 11/01/2024; fillable Table 26 (xlsx) added 12/02/2025 | 2026-10-03 | Row 25, G15, row 26 |
 | SP 800-167, Application Whitelisting | Final, October 2015 | 2026-09-30 | G7 |
-| SP 800-181 Rev. 1, Workforce Framework for Cybersecurity (NICE Framework) | Final, November 2020; supersedes SP 800-181 (08/07/2017); planning note 06/26/2025 points to the NICE Framework Resource Center for current components | 2026-10-04 | AT (row 8), G19 |
+| SP 800-181 Rev. 1, Workforce Framework for Cybersecurity (NICE Framework) | Final, November 2020; supersedes SP 800-181 (08/07/2017); planning note 06/26/2025 points to the NICE Framework Resource Center for current components | 2026-10-04 | AT (row 8), G19, G21 |
 | SP 800-188, De-Identifying Government Datasets | Final, 09/14/2023 | 2026-10-02 | SI, G14 |
 | SP 800-189, Resilient Interdomain Traffic Exchange | Final, December 2019 | 2026-09-30 | G9 |
 | SP 800-190, Application Container Security | Final, September 2017 | 2026-10-01 | G11 |
@@ -87,7 +88,7 @@ Recheck these with the next change that touches them.
 
 | Source | Status as last checked | Last checked | Notes |
 | --- | --- | --- | --- |
-| Circular A-130, Managing Information as a Strategic Resource | July 2016 | 2026-10-05 | CA, SA, row 29, row 25, G15, G18, G19, G20 |
+| Circular A-130, Managing Information as a Strategic Resource | July 2016 | 2026-10-13 | CA, SA, row 29, row 25, G15, G18, G19, G20, G21 |
 | M-19-17, Enabling Mission Delivery through Improved ICAM | May 21, 2019; listed as existing policy in M-26-18 footnote 5 (which supersedes only its Section V.5) | 2026-10-03 | G1, MA, row 28 |
 | M-22-09, Moving the U.S. Government Toward Zero Trust | January 26, 2022; not rescinded | 2026-10-03 | MA, G11, row 28 |
 | M-26-05, Adopting a Risk-based Approach to Software and Hardware Security | January 23, 2026; rescinds M-22-18 and M-23-16 | 2026-10-02 | SA, row 25, G15 |
@@ -108,6 +109,7 @@ Recheck these with the next change that touches them.
 | CISA BOD 26-02 (end-of-support edge devices) | February 5, 2026; in effect | 2026-09-29 | SA |
 | CISA BOD 26-04 (security updates based on risk; revokes BOD 19-02 and 22-01) | June 10, 2026; in effect | 2026-10-02 | RA-5 and SI-2, G14 |
 | CISA Federal Incident Notification Guidelines | Effective April 1, 2017; no superseding notice | 2026-10-02 | G16 |
+| CISA Automated Indicator Sharing (AIS) page | Says the Cybersecurity Information Sharing Act of 2015 was extended through September 30, 2026 ("February 2026 Update"); status after that not confirmed; not cited | 2026-10-13 | G21 |
 | CISA Logging Reference Architecture | Published August 20, 2026 | 2026-09-30 | SI, G6 |
 | CISA Telecommunications Service Priority | FCC program managed by CISA; restoration priority must be requested before an outage | 2026-10-03 | G17 |
 | FEMA Federal Continuity Directive: Federal Executive Branch Continuity Program Management Requirements | August 2024; rescinds FCD-1 (January 2017); FEMA Continuity Resources page (updated 08/31/2026) lists it with nothing rescinded | 2026-10-03 | G17 |
@@ -125,23 +127,25 @@ Recheck these with the next change that touches them.
 | 5 U.S.C. § 552a (Privacy Act) | United States Code, 2024 edition | 2026-10-03 | CA, SA, SI, row 24, G12, row 27 |
 | 5 U.S.C. § 6502 (telework) | United States Code, 2024 edition | 2026-10-02 | Row 24, G13 |
 | 41 U.S.C. §§ 1323, 1326, 1328 (Federal Acquisition Supply Chain Security Act; terminates 12/31/2033) | United States Code, 2024 edition | 2026-10-02 | Row 25, G15 |
-| 44 U.S.C. §§ 3554, 3556 (FISMA) | United States Code, 2024 edition | 2026-10-05 | CA, SI, G14, G16, G20 |
+| 44 U.S.C. §§ 3554, 3556 (FISMA) | United States Code, 2024 edition | 2026-10-13 | CA, SI, G14, G16, G20, G21 |
 | 44 U.S.C. § 3505(c) (inventories of information systems; two subsections (c), from Pub. L. 107-296 and 107-347) | United States Code, 2024 edition | 2026-10-05 | G20 |
 | 42 U.S.C. § 5195c(e) (critical infrastructure defined) | United States Code, 2024 edition | 2026-10-05 | G20 |
 | 44 U.S.C. §§ 3101, 3303a, 3314 (federal records) | United States Code, 2024 edition | 2026-10-02 | SI, G14 |
 | 5 CFR 731.106 (OPM; public trust positions, investigations, continuous vetting) | As amended at 91 FR 39380, June 30, 2026 (eCFR versions dated 2026-06-30 and 2026-07-30) | 2026-10-04 | PS (row 11), G19 |
-| 5 CFR 930.301 (OPM; security awareness training program) | Last amended 2017-01-01 (eCFR versions) | 2026-10-04 | AT (row 8), G19 |
+| 5 CFR 930.301 (OPM; security awareness training program) | Last amended 2017-01-01 (eCFR versions) | 2026-10-04 | AT (row 8), G19, G21 |
 | 5 CFR 1400.201 (OPM; national security position sensitivity levels) | Last amended 2017-01-01 (eCFR versions) | 2026-10-04 | PS (row 11), G19 |
 | 32 CFR 2002.14, 2002.20 (CUI) | Last amended 12/22/2016 | 2026-10-01 | MA, row 23, G10 |
 | 41 CFR 201-1.201, 201-1.304 (Federal Acquisition Security Council) | Part 201-1 last substantively amended 09/27/2021 | 2026-10-03 | Row 25, G15, G16, row 26 |
 
 ### Not cited until verified
 
-The FAR (see Open questions in `PROGRESS.md`); Section 889 of the National Defense Authorization Act for Fiscal Year 2019; CNSS Directive 505; Executive Orders 14028 and 14111 (current status seen only in secondary sources); OMB M-15-13 and M-17-12; HSPD-12 (see Open questions); whether DoD policy makes DISA STIGs mandatory.
+The FAR (see Open questions in `PROGRESS.md`); Section 889 of the National Defense Authorization Act for Fiscal Year 2019; CNSS Directive 505; Executive Orders 14028 and 14111 (current status seen only in secondary sources); OMB M-15-13 and M-17-12; HSPD-12 (see Open questions); Executive Order 13587 and the National Insider Threat Policy and Minimum Standards, and the Cybersecurity Information Sharing Act of 2015 (see Open questions); whether DoD policy makes DISA STIGs mandatory.
 
 ## Verification notes
 
 Newest first. One note per row or PR that checked sources; add new notes at the top.
+
+- **Verified 2026-10-13 for PM guidance (G21)** (cite with "as of October 2026"): **OMB Circular A-130** (PDF at the White House legacy URL, re-read with `pdftotext`): main body 5.c(1) (the Chief Human Capital Officer, CIO, CAO and SAOP develop competency requirements for information resources staff, including information security and privacy positions, and a current workforce planning process), 5.c(2), (3) and (6) (SAOP involved in privacy hiring, training and professional development); Appendix I 3.a ("Agencies shall implement an agency-wide risk management process that frames, assesses, responds to, and monitors information security and privacy risk on an ongoing basis across the three organizational tiers", quoted; footnote 76 points to SP 800-39 and section 5.b), 4.a(2) (categorize per FIPS 199 and SP 800-60, quoted), 4.c(14) (assessments before operation and at the ISCM and PCM frequencies), 4.d(1) to (5) (designate senior federal officials to authorize systems and common controls; initial authorization on "explicit acceptance of" risk before operation; ongoing authorization with the authorizing official's approval; time- or event-driven reauthorization; ISCM strategy), 4.h (awareness and training), 4.i(7) (privileged user monitoring "to help reduce the risk from insider threats", quoted), footnote 88 (insider threat implementation plan among plans related to contingency planning); discussion sections 5.b (risk management strategy, quoted; no "shall"), 5.c (categorization "based on a mission or business impact analysis"; footnote 104, the risk executive function) and 5.f ("only Federal Government personnel may serve as an authorizing official", quoted; SAOP reviews authorization packages for PII systems). Not cited: 5.f's sentence that the head of the agency makes the final determination where the authorizing official and SAOP cannot agree (raised with the owner, given the 2026-10-03 risk acceptance rule). **44 U.S.C. § 3554** (GPO, United States Code, 2024 edition): (a)(1)(C) (quoted in G20), (a)(3)(D) (CIO trains and oversees personnel with significant security responsibilities), (a)(4) ("trained personnel sufficient", quoted), (b)(4) (security awareness training) and (b)(5) (testing "with a frequency depending on risk, but no less than annually", quoted). **SP 800-37 Rev. 2** (PDF; landing page from the G20 check): tasks P-1 (roles; AOs cannot be system owner or common control provider for what they authorize; references SP 800-181), P-2 ("that includes a determination of risk tolerance"; head of agency primary; single or separate security and privacy documents), P-8 (missions and processes a system supports), R-3, Appendix D (AODR: only the authorization decision and signing cannot be delegated, quoted; risk executive (function)) and Appendix F (four decision types). **SP 800-150** landing page (final October 2016; draft 04/21/2016; no newer draft or planning note) and, from the PDF, sections 2.1 (four types of threat information), 3.1, 3.4 (sharing rules), 3.4.3 ("Automate the processing and exchange of threat information where possible", quoted), 3.5 (sharing communities, including ISACs, ISAOs and the DHS AIS initiative) and 4.5 ("Any automated mechanisms should be hardened and tested ...", quoted); its TLP table (version 1.0) not cited. **CISA AIS page**: STIX/TAXII capability required (TAXII 2.1 client named); says CISA 2015 was extended through September 30, 2026; not cited (open question). **EO 13587**: Federal Register API (document 2011-26729, signed 2011-10-07) shows no disposition notes; the ODNI National Insider Threat Task Force page redirects to archive.dni.gov, and the task force fact sheet and 2026 course flyer returned 403 or redirected; the Defense Counterintelligence and Security Agency industrial security letter on insider threat returned Access Denied. Not verified; PM-12 keeps its TODO(verify). SP 800-39, SP 800-30 Rev. 1, SP 800-50 Rev. 1, SP 800-53B, SP 800-84, SP 800-137, SP 800-181 Rev. 1 and 5 CFR 930.301 cited from their rows (checked within 30 days). Privacy baseline membership of PM-9, PM-10, PM-11, PM-13 and PM-14 from the generated pages (OSCAL).
 
 - **Checked 2026-10-13 for PRES-05** (GoatCounter, cited on the About page, not a NIST source): goatcounter.com/help/privacy (aggregate counts of path, referrer, browser name and version, OS, screen width, country from IP, language; "doesn't store IP addresses, the full User-Agent header, or any tracker ID"; no cookies, localStorage or cache in the visitor's browser; "No information is shared with third parties"; per-pageview logging optional and off by default); /help/sessions (session key from site ID, user agent and IP, mapped to a random UUID in memory for 8 hours; IP and user agent "never stored to the database or disk"); /help/js and /help/events (`count()` with `event: true`; event paths cannot start with `/`; requests from local addresses ignored unless `allow_local`); /help/countjs-versions (v5, 9 June 2025, latest; its published sha384 SRI hash matches one computed locally from the downloaded file; served with `Access-Control-Allow-Origin: *`); GoatCounter source `path.go` on GitHub (`updateTitle`: one title per path; a new title replaces it only after it is seen more than 10 times, so download events carry the page as the referrer, not the title); /help/gdpr ("probably doesn't require a GDPR consent notice", with the author's caveats; not cited on the site).
 

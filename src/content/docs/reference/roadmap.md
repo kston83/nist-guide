@@ -35,10 +35,10 @@ The second guidebook does the same for AI: how to apply the AI RMF, and how to a
 As of October 2026:
 
 - **The framework.** All seven RMF steps, roles, the ATO package checklist and program variants.
-- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for 125 of the 177 Moderate-baseline controls. See [guidance coverage](/controls/coverage/) for each control.
+- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for all 177 Moderate-baseline controls and 16 of the 32 program management controls. See [guidance coverage](/controls/coverage/) for each control.
 - **The template kit.** [Version 1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) is released: every template in Word and Markdown, per baseline, with a [starter kit](/templates/starter-kit/) for a new program.
-- **Policies.** Family policies for 19 of 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC and SI. 275 of the 287 Moderate-baseline controls have a policy clause.
-- **Plans, standards, forms and reports.** 37 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, Configuration Management Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, change request form, component inventory, visitor log, and the baseline configuration, encryption, boundary protection and patching standards. See [all templates](/templates/).
+- **Policies.** Family policies for all 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI and SR. All 287 Moderate-baseline controls have a policy clause.
+- **Plans, standards, procedures, forms and reports.** 46 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, Configuration Management Plan, Supply Chain Risk Management Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, account management and log review procedures, change request form, component inventory, and the baseline configuration, identification and authentication, audit logging, encryption and patching standards. See [all templates](/templates/).
 - **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage.
 - **The AI RMF guidebook.** Not started; it follows the program kit and the methods.
 

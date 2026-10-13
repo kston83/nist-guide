@@ -52,6 +52,10 @@ Control statements, discussion and assessment objectives are reproduced from NIS
 
 This guide is independent and is not endorsed by NIST, any agency or any employer.
 
+## Analytics
+
+The site counts visits with [GoatCounter](https://www.goatcounter.com/), an analytics service that sets no cookies and stores nothing in your browser. It keeps totals, not a record of each visit: the page, the referring site, and the browser, operating system, screen width, language and country, with the country worked out from the IP address. It also counts template downloads by file name; these counts are approximate, as downloads saved with "Save link as" or linked from other sites are not counted. GoatCounter does not store IP addresses, the full user agent or any tracking ID, and shares nothing with third parties ([privacy policy](https://www.goatcounter.com/help/privacy)). To tell repeat views apart, it keeps a key built from the IP address and browser in memory for eight hours, and never writes it to disk ([sessions](https://www.goatcounter.com/help/sessions)). If your browser blocks the script, the site works the same.
+
 ## License
 
 Original content is licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/): you may reuse and adapt it with credit. Program templates are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), so you can adopt them in your own policies and plans without attribution. Suggestions and corrections are welcome through the "Edit page" link at the bottom of every page.

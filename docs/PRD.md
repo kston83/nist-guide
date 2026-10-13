@@ -666,7 +666,7 @@ None of these block Phase 1.
 - [ ] Custom domain now or later (site is at `kston83.github.io/nist-guide` today)
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
-- [ ] Privacy-friendly analytics: yes or no
+- [x] Privacy-friendly analytics: yes, GoatCounter, with template downloads counted as events (owner decision, 2026-10-13)
 - [ ] AI RMF machine-readable source for AI-02 (Phase 5): NIST's AI RMF Playbook data, CPRT, or another NIST export
 - [ ] SSDF source for SSDF-01 (Phase 4): the SP 800-218 Excel table or CPRT
 - [ ] AI templates (AI-06): confirm the list of five before Phase 5 writing starts

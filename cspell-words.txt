@@ -57,6 +57,8 @@ IATT
 ICAM
 Interdomain
 Intune
+ISAC
+ISAO
 ISCM
 ISSM
 ISSO
@@ -71,6 +73,7 @@ nonlocal
 nonsecure
 nonsecurity
 NSEC
+ODNI
 OLIR
 OSCAL
 pandoc
@@ -95,9 +98,11 @@ SSDF
 STARTTLS
 STIG
 STIGs
+STIX
 subnetworks
 supercapacitors
 syncable
+TAXII
 TDEA
 telework
 TSIG

@@ -91,7 +91,7 @@ Rows run in table order. Numbered rows are the original template plan; G rows ar
 | G19 | Guidance: AT-1, AT-3, AT-4, PS-1, PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8, PS-9 | Merged (#114) |
 | G20 | Guidance: PM-1, PM-2, PM-3, PM-4, PM-5 (with PM-5(1)), PM-6, PM-7 (with PM-7(1)), PM-8 | Merged (#118) |
 | 30 | Content: AU artifacts (audit logging standard, log review procedure), and the AU-3(3) clause, with an AU-3(3) paragraph in the AU-3 guidance | Merged (#119) |
-| G21 | Guidance: PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16 (with PM-16(1)) | In review (#N) |
+| G21 | Guidance: PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16 (with PM-16(1)) | In review (#128) |
 | 31 | Content: IR artifacts (incident handling playbook, incident report form, tabletop exercise kit), and the IR-2(3) and IR-8(1) clauses, with IR-2(3) and IR-8(1) paragraphs in the IR-2 and IR-8 guidance | |
 | G22 | Guidance: PM-17, PM-18, PM-19, PM-20 (with PM-20(1)), PM-21, PM-22, PM-23, PM-24 | |
 | G23 | Guidance: PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-31, PM-32 | |

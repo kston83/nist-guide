@@ -140,7 +140,7 @@ IR-6 has two parts: everyone reports suspected incidents to the incident respons
 | --- | --- |
 | Time to report a suspected incident (a) | 1 hour of discovery |
 | Authorities that receive incident information (b) | Senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified |
-| Automated reporting mechanisms (IR-6(1)) | The incident reporting form and case management system, which notify the incident response team automatically |
+| Automated reporting mechanisms (IR-6(1)) | The incident report form and case management system, which notify the incident response team automatically |
 
 The Incident Response Plan uses the same two IR-6 values. IR-6(3) has no parameters. Contract notice times run the other way: the [acquisition security requirements](/templates/standards/acquisition-security-requirements/) standard (section 4.6) has suppliers notify the organization of incidents affecting its information or products, which then enter this reporting process.
 

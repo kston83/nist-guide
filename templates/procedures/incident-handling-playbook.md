@@ -9,7 +9,7 @@ typical:
   ir-04.01_odp: the case management system and automated playbooks in the security operations platform
   ir-06_odp.01: 1 hour of discovery
   ir-06_odp.02: 'senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified'
-  ir-06.01_odp: 'the incident reporting form and case management system, which notify the incident response team automatically'
+  ir-06.01_odp: 'the incident report form and case management system, which notify the incident response team automatically'
 ---
 
 :::guidance

@@ -52,7 +52,7 @@ This is the form IR-6(1)'s typical value names: anyone can submit Parts A to C, 
 - Anyone who suspects an incident or a breach completes Parts A to C, or calls the service desk, which completes them during the call. Report within <span class="tpl-field tpl-param">Fill in: time period for personnel to report suspected incidents to the organizational incident response capability <span class="tpl-typical">Typical: 1 hour of discovery</span></span> (IR-6a). Do not wait to confirm it, and do not investigate first.
 - Report what you know. A blank answer is better than a guess, and the team will follow up.
 - Describe information that was exposed without copying it into the form: write "a spreadsheet of customer names and account numbers", not the names and numbers.
-- Submitting the form through <span class="tpl-field tpl-param">Fill in: automated mechanisms used for reporting incidents <span class="tpl-typical">Typical: the incident reporting form and case management system, which notify the incident response team automatically</span></span> alerts the <span class="tpl-field tpl-org">Incident response team</span> (IR-6(1)).
+- Submitting the form through <span class="tpl-field tpl-param">Fill in: automated mechanisms used for reporting incidents <span class="tpl-typical">Typical: the incident report form and case management system, which notify the incident response team automatically</span></span> alerts the <span class="tpl-field tpl-org">Incident response team</span> (IR-6(1)).
 - The <span class="tpl-field tpl-org">Incident response team</span> completes Parts D to F and enters the report in the register.
 
 ### Part A. Who is reporting

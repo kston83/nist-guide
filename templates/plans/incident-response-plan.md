@@ -65,7 +65,7 @@ The {{org:incident-response-team}} assigns each incident a severity, which sets 
 
 ## 5. Reporting and notification
 
-Personnel report suspected incidents to the {{org:incident-response-team}} within {{param:ir-06_odp.01}}, through {{fill:reporting channels, for example the service desk phone number and the incident reporting form}}, and reports are recorded on the [incident report form](/templates/forms/incident-report-form/). The {{org:incident-response-team}} reports incident information to {{param:ir-06_odp.02}}.
+Personnel report suspected incidents to the {{org:incident-response-team}} within {{param:ir-06_odp.01}}, through {{fill:reporting channels, for example the service desk phone number and the incident report form}}, and reports are recorded on the [incident report form](/templates/forms/incident-report-form/). The {{org:incident-response-team}} reports incident information to {{param:ir-06_odp.02}}.
 
 :::federal
 Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of October 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require notification within one hour of the incident being identified by the agency's top-level incident response team, security operations center or IT department. Record the agency's reporting channel to CISA and who submits the report: {{fill:agency CISA reporting procedure and submitter}}.

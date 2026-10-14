@@ -172,7 +172,7 @@ Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CI
 
 #### Automated reporting (IR-6(1))
 
-- The <span class="tpl-field tpl-org">Incident response team</span> shall report incidents using <span class="tpl-field tpl-param">Fill in: automated mechanisms used for reporting incidents <span class="tpl-typical">Typical: the incident reporting form and case management system, which notify the incident response team automatically</span></span>. (IR-6(1))
+- The <span class="tpl-field tpl-org">Incident response team</span> shall report incidents using <span class="tpl-field tpl-param">Fill in: automated mechanisms used for reporting incidents <span class="tpl-typical">Typical: the incident report form and case management system, which notify the incident response team automatically</span></span>. (IR-6(1))
 
 #### Supply chain coordination (IR-6(3))
 

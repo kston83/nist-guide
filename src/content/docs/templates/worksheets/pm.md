@@ -46,7 +46,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | The frequency at which to review and update the policy | PM-17 | Annually | Chief Information Security Officer |
 | The frequency at which to review and update the procedures | PM-17 | Annually | Chief Information Security Officer |
 | The frequency of updates to the privacy program plan | PM-18 | Annually | Chief Information Security Officer |
-| The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
+| The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information officer, the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
 | The responsibilities of a Data Governance Body | PM-23 | Setting data governance policy, approving data sharing agreements, and resolving data quality and access issues | Chief Information Security Officer |
 | The frequency for reviewing policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually | Chief Information Security Officer |
 | The frequency for updating policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually, and whenever the review finds a change is needed | Chief Information Security Officer |

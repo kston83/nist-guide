@@ -7,7 +7,7 @@ status: draft
 stage: foundation
 typical:
   pm-09_odp: annually
-  pm-28_odp.01: authorizing officials, system owners, and the leaders of mission and business functions
+  pm-28_odp.01: 'authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management'
   pm-28_odp.02: annually, with this strategy
 ---
 

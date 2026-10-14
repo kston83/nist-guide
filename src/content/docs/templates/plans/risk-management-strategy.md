@@ -109,7 +109,7 @@ The priorities and trade-offs <span class="tpl-field tpl-org">Organization name<
 
 #### 3.5 Distribution
 
-The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall distribute the results of risk framing, this section, to <span class="tpl-field tpl-param">Fill in: the personnel to receive the results of risk framing activities <span class="tpl-typical">Typical: authorizing officials, system owners, and the leaders of mission and business functions</span></span>. (PM-28b)
+The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall distribute the results of risk framing, this section, to <span class="tpl-field tpl-param">Fill in: the personnel to receive the results of risk framing activities <span class="tpl-typical">Typical: authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management</span></span>. (PM-28b)
 
 ### 4. Risk assessment
 

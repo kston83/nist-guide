@@ -321,9 +321,9 @@ Controlled unclassified information (CUI) is information the U.S. government cre
 
 ##### Federal systems
 
-Agencies must require non-federal systems that handle CUI to protect it with NIST SP 800-171, which [32 CFR 2002.14(h)](https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002/subpart-A/section-2002.14) incorporates by reference. [NIST SP 800-171 Rev. 3](https://csrc.nist.gov/pubs/sp/800/171/r3/final) (May 2024) is the current revision, as of September 2026.
+Under [32 CFR 2002.14(h)(2)](https://www.ecfr.gov/current/title-32/section-2002.14), agencies must use NIST SP 800-171 when establishing security requirements to protect CUI's confidentiality on non-federal information systems. [32 CFR 2002.2](https://www.ecfr.gov/current/title-32/section-2002.2) still incorporates the June 2015 edition of SP 800-171 by reference, while NIST's current revision is [SP 800-171 Rev. 3](https://csrc.nist.gov/pubs/sp/800/171/r3/final) (May 2024), so each agreement should name the revision it requires. As of October 2026.
 
-- Each agreement that shares CUI with a non-federal organization shall require the recipient to protect it as 32 CFR 2002.14(h) requires. (PM-17a)
+- Each agreement that shares CUI with a non-federal organization shall require the recipient to protect it as 32 CFR 2002.14(h) requires, and shall name the revision of NIST SP 800-171 that applies. (PM-17a)
 
 </div>
 
@@ -421,7 +421,7 @@ For records in a Privacy Act system of records, [5 U.S.C. § 552a(c)](https://us
 
 #### Data governance body (PM-23)
 
-- The <span class="tpl-field tpl-org">Senior leader</span> shall establish a data governance body made up of <span class="tpl-field tpl-param">Fill in: the roles of a Data Governance Body <span class="tpl-typical">Typical: the chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets</span></span>, with responsibility for <span class="tpl-field tpl-param">Fill in: the responsibilities of a Data Governance Body <span class="tpl-typical">Typical: setting data governance policy, approving data sharing agreements, and resolving data quality and access issues</span></span>. (PM-23)
+- The <span class="tpl-field tpl-org">Senior leader</span> shall establish a data governance body made up of <span class="tpl-field tpl-param">Fill in: the roles of a Data Governance Body <span class="tpl-typical">Typical: the chief data officer (chair), the chief information officer, the chief information security officer, the senior privacy official, the records manager and the owners of major data sets</span></span>, with responsibility for <span class="tpl-field tpl-param">Fill in: the responsibilities of a Data Governance Body <span class="tpl-typical">Typical: setting data governance policy, approving data sharing agreements, and resolving data quality and access issues</span></span>. (PM-23)
 
 #### Data integrity board (PM-24)
 

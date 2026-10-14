@@ -180,7 +180,7 @@ MA-3(3) covers maintenance equipment, such as a vendor's diagnostic laptop or an
 
 ##### Federal systems
 
-Under [32 CFR 2002.14(f)(2)](https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002/subpart-A/section-2002.14), agencies that destroy controlled unclassified information (CUI), including in electronic form, must make it unreadable, indecipherable and irrecoverable. They must use any destruction method specifically required by law, regulation or Government-wide policy for that CUI; otherwise they must use the destruction guidance in NIST SP 800-53 and SP 800-88, or a method approved for classified national security information under 32 CFR 2001.47. As of September 2026.
+Under [32 CFR 2002.14(f)(2)](https://www.ecfr.gov/current/title-32/section-2002.14), agencies that destroy controlled unclassified information (CUI), including in electronic form, must make it unreadable, indecipherable and irrecoverable. They must use any destruction method specifically required by law, regulation or Government-wide policy for that CUI; otherwise they must use the destruction guidance in NIST SP 800-53 and SP 800-88, or a method approved for classified national security information under 32 CFR 2001.47. As of September 2026.
 
 - Where maintenance equipment containing CUI is destroyed to prevent its removal, the <span class="tpl-field tpl-org">System owner</span> shall destroy it by a method that 32 CFR 2002.14(f)(2) permits. (MA-3(3)(b))
 

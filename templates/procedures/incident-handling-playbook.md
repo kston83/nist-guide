@@ -1,0 +1,221 @@
+---
+title: Incident Handling Playbook
+type: procedure
+description: The steps, by role, for taking an incident from the first report through triage, analysis, containment, eradication, recovery, notification and lessons learned, with extra steps for breaches involving personally identifiable information and the inputs, outputs and record each step leaves, that carry out the Incident Response Plan and the incident response policy's handling, monitoring and reporting requirements (SP 800-53 IR-4, IR-5, IR-6).
+controls: [ir-4, ir-4.1, ir-5, ir-6, ir-6.1, ir-6.3, ir-7, ir-8.1]
+status: draft
+stage: core
+typical:
+  ir-04.01_odp: the case management system and automated playbooks in the security operations platform
+  ir-06_odp.01: 1 hour of discovery
+  ir-06_odp.02: 'senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified'
+  ir-06.01_odp: 'the incident report form and case management system, which notify the incident response team automatically'
+---
+
+:::guidance
+The [Incident Response Plan](/templates/plans/incident-response-plan/) says who does what and when; this playbook says how, step by step, which is what IR-4a's "incident handling capability" and IR-1's procedures look like to an assessor. [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025; current as of October 2026), section 2.3, recommends documenting procedures for the most common types of incidents, and says many organizations write them as playbooks with actionable steps for each scenario. The steps here follow its CSF 2.0 Community Profile: Incident Management (RS.MA), Incident Analysis (RS.AN), Incident Response Reporting and Communication (RS.CO), Incident Mitigation (RS.MI) and Incident Recovery Plan Execution (RC.RP). They also cover each phase IR-4a names: preparation, detection and analysis, containment, eradication and recovery. Section 6 adds the first steps for each common incident type; add a row for each type your organization sees often. The typical values are copied from the IR-4(1), IR-6 and IR-6(1) clauses; keep them in step. Assessors sample incident records and trace them through these steps, so every step names the record it leaves.
+:::
+
+| Owner | Approved by | Version | Effective date |
+| --- | --- | --- | --- |
+| {{org:ciso}} | {{fill:name and title}} | {{fill:version}} | {{fill:date}} |
+
+## 1. Purpose and scope
+
+This procedure carries out the incident handling, monitoring and reporting requirements of the {{org:name}} Incident Response Policy (IR-4, IR-5, IR-6) and section 6 of the Incident Response Plan. It applies to every suspected or confirmed incident affecting a system in the system inventory, or {{org:name}} information wherever it is held, including at suppliers and service providers.
+
+Incident handling is supported by {{param:ir-04.01_odp}} (IR-4(1)). Personnel report suspected incidents within {{param:ir-06_odp.01}} (IR-6a), and incidents are reported using {{param:ir-06.01_odp}} (IR-6(1)).
+
+## 2. Roles
+
+| Role | Responsibilities in this procedure |
+| --- | --- |
+| All personnel | Report suspected incidents and breaches (5.1), preserve what they have, and follow the team's instructions |
+| Service desk | Takes reports by phone or in person, records them on the [incident report form](/templates/forms/incident-report-form/), gives first steps, and hands them to the team (IR-7) |
+| {{org:security-operations}} | Triages alerts, escalates suspected incidents, and searches for indicators across systems |
+| Incident lead | A member of the {{org:incident-response-team}} named for each incident; runs it from declaration to closure and keeps the incident record |
+| {{org:incident-response-team}} | Validates, analyzes, contains, eradicates and helps recover; keeps evidence |
+| {{org:system-owner}} | Gives system knowledge and access; approves containment and recovery actions on the system; restores it |
+| {{org:ciso}} | Declares major incidents; decides on outside notification with legal counsel; briefs senior leadership |
+| {{org:privacy-official}} | Leads the breach steps in 5.8 for any incident involving personally identifiable information |
+| Legal counsel | Advises on evidence, notification duties, law enforcement contact, and any delay in containment |
+| Communications | Prepares internal, public and media messages the {{org:ciso}} approves |
+| {{org:hr-office}} | Supports incidents that involve personnel, including insider activity |
+| Retained incident response provider | Adds forensics and staff for major incidents, when the incident lead invokes the retainer |
+
+## 3. Severity and declaration
+
+Severity levels and their response times are in section 4 of the Incident Response Plan. The {{org:incident-response-team}} sets the severity from these factors, which SP 800-61 Rev. 3 gives as examples for triage and prioritization (RS.MA):
+
+| Factor | Question to answer |
+| --- | --- |
+| Asset criticality | How important are the affected systems and services to the mission? |
+| Functional impact | What can the organization no longer do, or do only with difficulty? |
+| Information impact | What information was, or may have been, exposed, changed or lost, and does it include personally identifiable information? |
+| Stage of activity | Is the activity an attempt, an intrusion in progress, or completed, with data taken or systems damaged? |
+| Threat actor | What is known about who is behind it and what they want? |
+| Recoverability | Can the organization recover with its own resources, with added resources, or not at all? |
+
+A **major incident** is one the {{org:ciso}} declares under these criteria, which the Incident Response Plan's severity table should match: {{fill:major incident criteria, for example Critical severity, a breach affecting more than a set number of individuals, or an incident that must be reported to a regulator}}.
+
+## 4. Before an incident
+
+These are the preparation steps IR-4a names. Check them {{fill:frequency, for example quarterly}} and before each exercise.
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | {{org:incident-response-team}} | Check the contacts in Appendix A of the Incident Response Plan and the outside notification list (5.7) are current, and that the retained provider can be reached | Contact lists; retainer | Lists updated | Dated review note on each list |
+| 2 | {{org:incident-response-team}} | Confirm responders have the access, tools and clean workstations they need, including out-of-band communications for use if email or chat is compromised | Tool and access list | Gaps fixed | Readiness checklist |
+| 3 | {{org:incident-response-team}} | Confirm the reporting channels and the [incident report form](/templates/forms/incident-report-form/) work end to end, and that a test report alerts the team (IR-6(1)) | Test report | Channel confirmed | Test report in the case management system |
+| 4 | {{org:incident-response-team}} | Confirm logs, backups and asset inventories needed for analysis and recovery are available | [Audit logging standard](/templates/standards/audit-logging-standard/); [component inventory](/templates/forms/component-inventory/) | Gaps listed | Readiness checklist |
+
+## 5. Procedures
+
+Each step names the role that performs it, what it starts from, what it produces, and the record it leaves. Unless a step says otherwise, the record is an entry in the incident record, time-stamped, with who acted.
+
+### 5.1 Report and intake
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | All personnel | Report a suspected incident or breach within {{param:ir-06_odp.01}}, through {{fill:reporting channels, for example the service desk phone number, the shared mailbox and the reporting portal}}, without waiting to confirm it (IR-6a). Do not investigate, power off or delete anything first | What was seen | Report | Incident report form, Parts A to C |
+| 2 | Service desk | For a report by phone or in person, complete the incident report form with the reporter, ask the questions on it, and give first steps: disconnect from the network but leave the device on, keep what was received, and tell no one outside the team (IR-7) | Report | Completed form | Incident report form, with the time received |
+| 3 | {{org:security-operations}} | For an alert from monitoring tools, open the form or case directly from the alert; detection tools that confirm an incident report it automatically (RS.MA) | Alert | Case opened | Case linked to the alert |
+| 4 | Case management system | Notify the on-call member of the {{org:incident-response-team}} when a form or case is submitted (IR-6(1)) | Form or case | Alert to the team | Notification log |
+| 5 | {{org:incident-response-team}} | Take reports from outside parties the same way, such as a customer, supplier, researcher or another organization's response team, and treat them seriously (RS.MA) | Outside report | Form completed by the team | Incident report form, with the outside reporter |
+
+### 5.2 Triage and declare
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | {{org:incident-response-team}} | Within {{fill:time, for example 30 minutes}} of the alert, review the report to decide whether an incident has occurred or is under way, or whether it is a false alarm or a routine request | Incident report form; related alerts | Decision | Triage outcome on the form, Part D |
+| 2 | {{org:incident-response-team}} | For an incident, open the incident record (IR-5), assign an incident lead, and set the incident type (section 6) and severity using section 3 | Form | Incident record | Incident record opened, with type, severity and lead |
+| 3 | Incident lead | Ask whether personally identifiable information is, or may be, involved. If so, notify the {{org:privacy-official}} at once and start 5.8 alongside the other steps (IR-8(1)) | Form, Part C | Privacy official engaged, or not applicable | Answer and time of notice in the record |
+| 4 | Incident lead | Tell the affected {{org:system-owner}}, and for a High or Critical incident the {{org:ciso}} | Incident record | Owners informed | Time and person told |
+| 5 | {{org:ciso}} | Decide whether the incident is a major incident under section 3, and for a federal system under the criteria in section 6's federal block; decide again whenever new facts change the scope | Severity; scope | Decision | Decision, with the time, the reason and who took part |
+| 6 | Incident lead | Open the matching type-specific steps in section 6, and start any other plan the incident needs, such as the contingency plan or the business continuity plan (IR-4b) | Incident type; impact | Plans started | Plan activation noted, with who approved it |
+
+### 5.3 Analyze and preserve evidence
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | {{org:incident-response-team}} | Build the timeline: what happened, in what order, and which assets, accounts and data were involved in each event (RS.AN) | Logs; alerts; interviews | Timeline | Timeline in the record |
+| 2 | {{org:incident-response-team}} | Find the magnitude: look for the same indicators of compromise, persistence and other signs on other assets, not only those known to be targeted, as in 5.6 of the [log review procedure](/templates/procedures/log-review-procedure/) | Indicators | Full list of affected assets | Search results in the record |
+| 3 | {{org:incident-response-team}} | Collect and preserve evidence under the evidence handling steps: copies with hashes, chain of custody where prosecution or litigation is possible, and a legal hold through legal counsel where needed (RS.AN) | Affected assets | Preserved evidence | Evidence log, with hashes, custodian and location |
+| 4 | {{org:incident-response-team}} | Record every action taken during the investigation, by whom and when, and keep the incident record readable only by the team and named staff (RS.AN) | Actions | Action log | Action log in the record |
+| 5 | Incident lead | Ask the retained provider for help when the incident is beyond the team's skills or capacity, and record the request | Incident needs | Provider engaged | Request and provider case number |
+| 6 | {{org:incident-response-team}} | Identify the vulnerabilities, threats and threat actors involved, and the underlying root cause | Timeline; evidence | Root cause, or the best current view | Analysis in the record |
+
+### 5.4 Contain
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Incident lead | Choose the containment strategy, weighing the need to stop the damage against the need to keep evidence or observe the attacker. A decision to delay containment to observe the attacker is made only after consulting legal counsel (RS.MI) | Analysis; type-specific steps | Containment plan | Strategy and reason, with legal counsel's advice where given |
+| 2 | {{org:system-owner}} | Approve containment actions on the system, or name who may approve them when the system owner cannot be reached in time | Containment plan | Approval | Approval, with time |
+| 3 | {{org:incident-response-team}} | Contain: for example isolate hosts, disable or reset accounts, block addresses and domains, or revoke sessions and keys. Record whether each action is an emergency, temporary or permanent measure, and when temporary ones come off | Approval | Incident contained | Each action, with time and duration |
+| 4 | {{org:incident-response-team}} | Confirm containment is holding, by monitoring for the indicators found in 5.3 | Monitoring | Confirmation | Note in the record |
+
+### 5.5 Eradicate and recover
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | {{org:incident-response-team}} | Eradicate on every affected asset: remove malware and persistence, disable breached accounts, and fix the exploited vulnerabilities (RS.MI) | List of affected assets | Cause removed | Each action, by asset |
+| 2 | {{org:system-owner}} | Check backups and other restoration assets for indicators of compromise and corruption before using them (RC.RP) | Backups | Clean restore point chosen | Restore point and the check made |
+| 3 | {{org:system-owner}} | Restore systems and data in priority order, rebuilding where trust cannot be restored; follow the contingency plan where it was started in 5.2 step 6 (IR-4b) | Recovery plan | Systems restored | Restore actions and times |
+| 4 | {{org:incident-response-team}} | Verify restored systems are clean and working before they go back into production, and monitor them for recurrence for {{fill:period, for example 30 days}} | Restored systems | Return to production approved | Verification and the monitoring end date |
+| 5 | Incident lead | Declare the end of recovery when {{fill:criteria, for example every affected system restored and verified, no recurrence during monitoring, and the system owner agrees}} | Verification | Recovery ended | Declaration, with time |
+
+### 5.6 Coordinate and keep leaders informed
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Incident lead | Keep the incident record current: summary, indicators, status and expected time of each assigned action, and next steps (IR-5) | Team updates | Current record | Record, updated at least {{fill:interval, for example every 4 hours for High and Critical incidents}} |
+| 2 | Incident lead | Brief the {{org:ciso}} and, for a major incident, senior leadership at the agreed interval until recovery ends (RS.CO, RC.CO) | Record | Briefings | Briefing notes |
+| 3 | Incident lead | Notify the {{org:hr-office}} when malicious insider activity is involved | Analysis | Notice | Time and person told |
+
+### 5.7 Notify and report
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Incident lead | Check the outside notification list for every party that law, regulation or contract requires be told, and the time each allows | Notification list; incident facts | Parties and deadlines | Part E of the incident report form |
+| 2 | {{org:ciso}} | Decide, with legal counsel, which outside notifications to make and when; for a breach, use the decision from 5.8 | Part E | Decision | Decision, with who decided and when |
+| 3 | {{org:incident-response-team}} | Report incident information to {{param:ir-06_odp.02}} (IR-6b), sending only what each needs and no more personally identifiable information than necessary | Decision | Reports sent | Each report: to whom, when, by whom, and any reference number |
+| 4 | {{org:incident-response-team}} | Give the provider of an affected product or service, and other organizations in the supply chain, the information they need, consistent with contracts and sharing agreements (IR-6(3)) | Affected components | Supplier notified | Notice and the supplier's reference |
+| 5 | Communications | Prepare any public or media statement through the communications procedures, for approval by the {{org:ciso}} | Decision | Approved statement | Statement, approver and time |
+| 6 | {{org:incident-response-team}} | Share indicators and tactics with information sharing partners where the Incident Response Plan section 7 allows | Indicators | Information shared | What was shared, with whom |
+
+### 5.8 Breaches involving personally identifiable information
+
+Start this section when 5.2 step 3 finds that personally identifiable information is, or may be, involved. It runs alongside 5.3 to 5.7 and carries out the breach section of the Incident Response Plan (IR-8(1)).
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | {{org:privacy-official}} | Join the response and confirm what information is involved: the data elements, the medium (paper, oral or electronic), the number of individuals, and the protections in place, such as encryption | Incident report form, Part C; analysis | Information profile | Breach section of the incident record |
+| 2 | {{org:incident-response-team}} | Before sanitizing any media or deleting any data, confirm with legal counsel whether it must be kept as evidence, as SP 800-122 section 5.3 advises | Evidence log | Decision | Decision in the evidence log |
+| 3 | {{org:privacy-official}} | Assess the harm to affected individuals: the likelihood and extent of harm, embarrassment, inconvenience or unfairness, considering the sensitivity of the elements, how many individuals, whether the information was actually accessed or used, and the context (IR-8(1)(b)) | Information profile; analysis | Harm assessment | Harm assessment, signed and dated |
+| 4 | {{org:privacy-official}} | Identify the privacy requirements that apply from the list in the Incident Response Plan, with the notice each requires, to whom and by when (IR-8(1)(c)) | Applicable requirements list | Duties and deadlines | List in the breach section |
+| 5 | {{org:privacy-official}} | Decide, with legal counsel and the {{org:ciso}}, whether to notify individuals and other organizations, including oversight bodies, and when, how and from whom (IR-8(1)(a)) | Harm assessment; duties | Notification decision | Decision, with who decided and when |
+| 6 | {{org:privacy-official}} | Decide which mitigation to offer, such as credit monitoring, a call center, or help changing account numbers, and arrange it (IR-8(1)(b)) | Harm assessment | Mitigation in place | Decision and arrangements |
+| 7 | Communications | Prepare notices in plain language: what happened, what information was involved, what the organization is doing, what individuals can do, and whom to contact | Decision | Approved notice | Notice text, approver and date sent |
+| 8 | {{org:privacy-official}} | Track notices sent, returns and inquiries until the breach is closed | Mailing or contact records | Notification complete | Counts and dates in the breach section |
+
+:::guidance
+SP 800-122 section 5.1 says organizations should plan how, when and to whom notice is given before a breach happens, decide in advance when remedial help such as credit monitoring is offered, and use the confidentiality impact of the information to weigh the likelihood of harm. Its section 5.4 adds that notices should make individuals aware of their options, such as a free credit report, a credit freeze, a fraud alert or contacting their financial institutions; other kinds of harm, such as exposed medical or law enforcement information, need other kinds of help. Keep the harm assessment even when the decision is not to notify: it is the record an assessor or regulator asks for.
+:::
+
+### 5.9 Close and learn
+
+| # | Role | Action | Inputs | Outputs | Record |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Incident lead | Check every step is recorded, every notification made, and the root cause known, then close the incident record | Incident record | Record closed | Closure date and summary |
+| 2 | Incident lead | For an incident at or above the severity the Incident Response Plan section 6 sets, hold a lessons-learned review within the time it sets, with everyone who took part | Incident record | Review held | Attendance and notes |
+| 3 | Incident lead | Write the after-action report: the incident, the response and recovery actions taken, and the lessons learned (RC.RP) | Review notes | After-action report | After-action report |
+| 4 | {{org:incident-response-team}} | Turn each lesson into an action with an owner and due date: changes to this playbook, the Incident Response Plan, training or tests, or a control weakness for the [plan of action and milestones](/templates/forms/plan-of-action-and-milestones/), and track each to completion (IR-4c) | After-action report | Actions tracked | Action list, with closure dates |
+| 5 | {{org:incident-response-team}} | Update the metrics in section 8 of the Incident Response Plan | Closed record | Metrics updated | Metrics report |
+
+## 6. Type-specific first steps
+
+These rows add to section 5; they do not replace it. Incident types follow the examples SP 800-61 Rev. 3 gives for categorizing incidents (RS.MA): data breach, ransomware, account takeover and denial of service, with others common to most organizations.
+
+| Incident type | First steps after declaration | Watch for |
+| --- | --- | --- |
+| Ransomware or destructive malware | Isolate affected hosts and segments; disable shared drives and accounts the malware uses; protect backups by taking them offline; start the contingency plan if services are down | Data taken before encryption, which also makes it a breach; do not pay or contact the attacker without the {{org:ciso}} and legal counsel |
+| Phishing and account takeover | Reset the account's password and revoke sessions and tokens; check sign-in history, mailbox rules and new multifactor devices; find other recipients and remove the message | Other accounts with the same sign-in pattern; fraudulent payment requests sent from the account |
+| Lost or stolen device or media | Confirm whether it was encrypted; wipe it remotely if possible; disable its certificates and sessions; ask for a police report where needed | Personally identifiable information on an unencrypted device, which starts 5.8 |
+| Information sent to the wrong recipient | Ask the recipient to delete it and confirm in writing; recall the message where the system allows | Personally identifiable information, which starts 5.8 |
+| Malicious insider or misuse | Involve the {{org:hr-office}} and legal counsel before any interview; preserve evidence quietly; restrict access as legal counsel advises | Evidence handling, since action against the person may follow |
+| Denial of service | Engage the internet or cloud service provider's mitigation; apply filtering; communicate service status to users | A distraction from another attack under way at the same time |
+| Supplier or cloud provider incident | Get the provider's notice and facts in writing; find the affected services and data from the component inventory and contracts; rotate shared credentials and keys | Notification duties that run through the provider's contract (IR-6(3)) |
+| {{fill:other common incident type}} | {{fill:first steps}} | {{fill:what to watch for}} |
+
+:::federal
+Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of October 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require agencies to report incidents within one hour of identification by the agency's top-level incident response team, security operations center or IT department, with seven required elements: functional impact, information impact, recoverability, when the activity was first detected, the number of systems, records and users affected, the network location of the activity, and a point of contact. The attack vectors, indicators of compromise and mitigation steps are added if known. Agencies give their best estimate at the time of notification and update it as information becomes available. CISA asks agencies not to put sensitive personally identifiable information in submissions, returns a tracking number within one hour, and lists "privacy data breach" as an information impact category. The guidelines tell agencies to use OMB's most recent guidance to decide whether an incident is major.
+
+That guidance is [OMB Memorandum M-25-04](https://www.whitehouse.gov/wp-content/uploads/2025/01/M-25-04-Fiscal-Year-2025-Guidance-on-Federal-Information-Security-and-Privacy-Management-Requirements.pdf), Fiscal Year 2025 Guidance on Federal Information Security and Privacy Management Requirements (January 15, 2025), the most recent FISMA guidance memorandum as of October 2026. Its section X says reporting to CISA includes events under investigation for 72 hours without a determination of their root cause or nature (malicious, suspicious or benign). A major incident is either an incident likely to result in demonstrable harm to the national security interests, foreign relations or economy of the United States, or to the public confidence, civil liberties or public health and safety of the American people (footnote 36 ties this to CISA Cyber Incident Scoring System levels orange, red and black), or a breach of personally identifiable information likely to result in that harm. A major incident determination is required for any unauthorized modification, deletion, exfiltration of, or access to the personally identifiable information of 100,000 or more people. The analysis includes the CIO, the CISO, mission or system owners and, for a breach, the senior agency official for privacy, and agencies may consult OMB and CISA. Agencies report to CISA and the OMB Office of the Federal Chief Information Officer within 1 hour of determining that a major incident occurred, counted from the determination, not from detection (footnote 42). They notify the appropriate congressional committees and their Office of Inspector General within 7 days of determining there is a reasonable basis to conclude a major incident occurred (44 U.S.C. § 3554(b)(7)(C)(iii)(III)), and supplement that report with updates as more is learned. For a breach that is a major incident, they file a further report within 30 days of discovering the breach, and the principal security operations center and the senior agency official for privacy coordinate on tracking and documenting it under [OMB Memorandum M-17-12](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2017/m-17-12_0.pdf), section VIII.
+
+| Step | Federal addition |
+| --- | --- |
+| 5.2 step 2 | Record the time of identification by the top-level team, which starts the one-hour CISA clock. Report to CISA any event still unresolved after 72 hours of investigation |
+| 5.2 step 5 | Apply the M-25-04 major incident definition, including the required determination for a breach affecting 100,000 or more people; the CIO, the CISO, mission or system owners and, for a breach, the senior agency official for privacy take part. Record the time of the determination |
+| 5.7 step 3 | Report to CISA within one hour of identification, with the seven required elements and no sensitive personally identifiable information, and record CISA's tracking number. For a major incident, contact CISA and the OMB Office of the Federal Chief Information Officer directly within 1 hour of the determination, or of determining that an already-reported incident is major |
+| 5.7, new step | For a major incident, notify the appropriate congressional committees and the Office of Inspector General within 7 days of the reasonable-basis determination, through the officials the Incident Response Plan names, and send updates as more is learned |
+| 5.8 | For a breach, follow the agency's breach response plan under OMB M-17-12: the senior agency official for privacy leads the breach response team, which is always convened for a major incident (section VII.A); the head of the agency makes the final notification decision (section VII.G). For a breach that is a major incident, the principal security operations center and the senior agency official for privacy track and document it jointly (M-17-12, section VIII), and the supplemental report to Congress follows within 30 days of discovery with how the breach occurred, the estimated number of individuals and the risk of harm, any reason for delaying notice, and whether and when individuals will be notified (M-25-04, section X) |
+
+:::
+
+## 7. Records
+
+| Record | Kept in | Retention |
+| --- | --- | --- |
+| Incident report forms and the register | {{fill:for example the case management system}} | {{fill:period}} |
+| Incident records, with timelines, action logs and notifications | {{fill:for example the case management system, readable only by the team and named staff}} | {{fill:for example 3 years after closure}} |
+| Evidence and the evidence log | {{fill:location with restricted access}} | {{fill:period, or until legal holds are released}} |
+| Breach records: harm assessments, notification decisions and notices | {{fill:location}} | {{fill:period}} |
+| After-action reports and action lists | {{fill:location}} | {{fill:period}} |
+
+## 8. Review
+
+The {{org:ciso}} reviews this playbook {{fill:for example annually}}, after each major incident, after each exercise of the incident response capability (IR-3), and when tools, contacts or notification duties change.
+
+| Version | Date | Change | Approved by |
+| --- | --- | --- | --- |
+| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |

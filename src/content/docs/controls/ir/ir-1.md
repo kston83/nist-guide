@@ -83,7 +83,7 @@ Determine if:
 
 ## How to apply it
 
-IR-1 asks for a written incident response policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Incident Response policy template](/templates/policies/ir/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/ir/) lists every choice the family forces, with typical values and who decides. The procedures are yours to write; the [Incident Response Plan](/templates/plans/incident-response-plan/) template holds the organization's plan (IR-8), and an incident handling playbook is planned for this kit.
+IR-1 asks for a written incident response policy, procedures that carry it out, an official who manages both, and a set review cycle. The [Incident Response policy template](/templates/policies/ir/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/ir/) lists every choice the family forces, with typical values and who decides. The [Incident Response Plan](/templates/plans/incident-response-plan/) template holds the organization's plan (IR-8), and the [incident handling playbook](/templates/procedures/incident-handling-playbook/) is the main procedure: steps by role from the first report to lessons learned, with the record each step leaves. The [incident report form](/templates/forms/incident-report-form/) and the [tabletop exercise kit](/templates/plans/tabletop-exercise-kit/) carry out reporting (IR-6) and testing (IR-3).
 
 [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final), Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile (April 2025; current as of October 2026), lists in section 2.3 the elements most incident response policies share. They are a statement of management commitment, purpose and objectives, scope, definitions of events and incidents, roles, responsibilities and authorities, guidelines for prioritizing incidents and estimating severity, and performance measures. The shared sections cover the first three and the roles; this kit puts definitions and severity in the plan's section 4 and the measures in its section 8.
 
@@ -105,7 +105,7 @@ SP 800-61 Rev. 3 also names authorities, such as which roles may confiscate, dis
 
 - Training people for their incident response roles, and keeping the content current (IR-2)
 - Planning, running and reviewing incident response exercises, and coordinating them with contingency plan tests (IR-3, IR-3(2))
-- Handling each type of incident, from detection to recovery and lessons learned (IR-4), usually as playbooks
+- Handling each type of incident, from detection to recovery and lessons learned (IR-4), usually as playbooks; the incident handling playbook's section 6 has first steps for the common types
 - Opening, updating and closing incident records (IR-5)
 - Reporting suspected incidents, notifying outside parties, and telling suppliers about incidents involving their products (IR-6, IR-6(1), IR-6(3))
 - Answering users who need help handling or reporting an incident (IR-7, IR-7(1))

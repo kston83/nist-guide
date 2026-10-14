@@ -3,7 +3,7 @@ title: 'Audit Logging Standard'
 description: 'The event list, record content, collection, time stamps, storage, failure response, protection and retention that make the audit and accountability policy''s logging requirements (SP 800-53 AU-2, AU-3, AU-12 and related controls) measurable, with the limits on personal information in audit records (AU-3(3)) and a part where each system records what it logs and why.'
 sidebar:
   label: 'Audit Logging Standard'
-  order: 40
+  order: 43
 controls: [au-2, au-3, au-3.1, au-3.3, au-4, au-5, au-8, au-9, au-9.4, au-11, au-12, au-5.1, au-5.2, au-9.2, au-9.3, au-10, au-12.1, au-12.3]
 ---
 

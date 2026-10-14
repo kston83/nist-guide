@@ -29,6 +29,9 @@ cryptoperiods
 CSAM
 CSIRT
 CSRMC
+CTEP
+CTEPs
+detailees
 Diffie
 DISA
 disassociability

@@ -3,7 +3,7 @@ title: 'Log Review Procedure'
 description: 'The steps, by role, for reviewing and analyzing audit records, correlating them across systems, reporting findings and handing suspected incidents to the incident response team, with the inputs, outputs and record each step leaves, that carry out the audit and accountability policy''s review requirements (SP 800-53 AU-6) and its reduction and reporting capability (AU-7).'
 sidebar:
   label: 'Log Review Procedure'
-  order: 33
+  order: 36
 controls: [au-6, au-6.1, au-6.3, au-6.5, au-6.6, au-7, au-7.1]
 ---
 

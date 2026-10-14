@@ -8,6 +8,7 @@ control:
   id: PT-3
   family: PT
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -113,3 +114,45 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PT-3 asks you to identify and document why you process personally identifiable information (a), describe those purposes in your public privacy notices and policies (b), keep processing compatible with them (c), and monitor changes in processing so that any change follows set requirements (d). PT-3 is in the SP 800-53B Privacy baseline only.
+
+NIST's PT-3 discussion makes the documented purpose the basis for everything else: it lets the system's owners and operators, and individuals, understand how the information will be processed. The same purposes appear in the privacy notices, the privacy impact assessment and, for federal systems, system of records notices, Privacy Act statements and matching notices. When processing changes, staff consult the senior privacy official and legal counsel on whether a new purpose is compatible with the purpose of collection. If it is not, the organization can allow it only through set mechanisms, such as obtaining consent or revising its privacy policies.
+
+**Common implementations.** The PT-3 clause of the [PII Processing and Transparency policy](/templates/policies/pt/) has the system owner document the purposes in the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) (section 4, with a column for whether each purpose is compatible with the purpose of collection) and the senior privacy official make sure the public notices describe them. The [privacy notice](/templates/forms/privacy-notice/) lists each purpose with the information used and its authority (PT-5d). Write purposes that a reader could test a proposed use against: "to decide eligibility for the program", not "to improve our services".
+
+For monitoring changes (d), the usual point of control is change control. The [change request form](/templates/forms/change-request-form/) has a privacy step (Part B5) that asks whether the privacy impact assessment or a system of records notice needs updating, with a named privacy reviewer. Other triggers worth wiring in: new analytics or reporting on personal information, a new recipient or interface, use of production data for testing or model training, and a new contract that involves the information.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Purposes for processing (a) | The specific, explicit purposes of the system or program |
+| Processing restricted to compatible purposes (c) | All use, sharing and retention |
+| Mechanisms that keep changes in line (d) | A privacy review of each proposed change through change control, with an updated privacy impact assessment (CM-3, CM-4, RA-8) |
+| Requirements changes must meet (d) | Approval by the senior privacy official, an updated privacy notice before the change takes effect, and the consent of individuals where the new purpose is not compatible with the original one |
+
+These match the PT-3 clause, section 4 and section 12 of the privacy impact assessment, and the "Changes to this notice" section of the privacy notice.
+
+**Evidence assessors ask for.**
+
+- The documented purposes for a sample of systems, in their privacy impact assessments
+- The public notices, compared with the documented purposes (b)
+- A sample of recent changes with their privacy review in change control, and the updated assessment or notice that followed (d)
+- Where a new purpose was not compatible, the approval, the notice update and the consent records
+- Training records and audit evidence that processing stays within the purposes (c)
+
+**Inheritance.** The privacy office provides the review process, the notices and the training as common controls. Each system documents its purposes and routes its changes through the review, so PT-3 is hybrid.
+
+**Common findings.**
+
+- Purposes written so broadly they exclude nothing.
+- The notice and the privacy impact assessment listing different purposes.
+- New uses, such as analytics, testing with real data or sharing with a new partner, made without any privacy review, because change control does not ask about personal information.
+- The privacy impact assessment never updated after the system changed.
+
+**Enhancements.** PT-3 has two enhancements, PT-3(1) data tagging and PT-3(2) automation, in no baseline. Neither has a clause in the policy template.
+
+**Federal systems** (as of October 2026). Under the Privacy Act ([5 U.S.C. § 552a](https://www.govinfo.gov/link/uscode/5/552a?link-type=html)), a routine use is a disclosure "for a purpose which is compatible with the purpose for which it was collected" (subsection (a)(7)). Each system of records notice lists the routine uses and their purposes (subsection (e)(4)(D)), and a new use needs 30 days' Federal Register notice with a chance to comment (subsection (e)(11)). [OMB Circular A-108](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A108/omb_circular_a-108.pdf), section 6.b(4), lists a change that modifies the purposes of a system of records as a significant change that needs a revised notice; section 6.k requires routine uses "narrowly tailored" and described clearly enough for a member of the public to understand. [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix II, section 3.g, lists Purpose Specification and Use Limitation among the Fair Information Practice Principles, which the Circular says "are not OMB requirements" but principles agencies should apply.

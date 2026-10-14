@@ -3,7 +3,7 @@ title: 'Account Management Procedure'
 description: 'The steps, by role, for requesting, approving, creating, changing, disabling, removing and reviewing system accounts, with the inputs, outputs and record each step leaves, that carry out the access control policy''s account management requirements (SP 800-53 AC-2), separation of duties (AC-5) and the disabling of access when employment ends (PS-4).'
 sidebar:
   label: 'Account Management Procedure'
-  order: 32
+  order: 34
 controls: [ac-2, ac-2.1, ac-2.2, ac-2.3, ac-2.4, ac-2.13, ac-5, ac-6.7, ps-4]
 ---
 

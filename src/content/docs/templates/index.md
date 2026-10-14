@@ -77,6 +77,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | [Core](/program/core/) | Draft |
 | [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) | [Mature](/program/mature/) | Draft |
 | [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
+| [Tabletop Exercise Kit](/templates/plans/tabletop-exercise-kit/) | [Core](/program/core/) | Draft |
 
 ## Standards
 
@@ -98,6 +99,7 @@ Each template is written once and assembled for your baseline. Download the read
 | Template | Program stage | Status |
 | --- | --- | --- |
 | [Account Management Procedure](/templates/procedures/account-management-procedure/) | [Core](/program/core/) | Draft |
+| [Incident Handling Playbook](/templates/procedures/incident-handling-playbook/) | [Core](/program/core/) | Draft |
 | [Log Review Procedure](/templates/procedures/log-review-procedure/) | [Core](/program/core/) | Draft |
 
 ## Forms and registers
@@ -110,6 +112,7 @@ Each template is written once and assembled for your baseline. Download the read
 | [Change Request Form](/templates/forms/change-request-form/) | [Core](/program/core/) | Draft |
 | [Component Inventory](/templates/forms/component-inventory/) | [Core](/program/core/) | Draft |
 | [External Service Review](/templates/forms/external-service-review/) | [Operate](/program/operate/) | Draft |
+| [Incident Report Form](/templates/forms/incident-report-form/) | [Core](/program/core/) | Draft |
 | [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | [Operate](/program/operate/) | Draft |
 | [Maintenance Log](/templates/forms/maintenance-log/) | [Operate](/program/operate/) | Draft |
 | [Media Sanitization Record](/templates/forms/media-sanitization-record/) | [Operate](/program/operate/) | Draft |

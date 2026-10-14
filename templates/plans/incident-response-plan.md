@@ -2,7 +2,7 @@
 title: Incident Response Plan
 type: plan
 description: The organization's plan for detecting, handling, reporting and recovering from cybersecurity incidents, with the ten elements NIST SP 800-53 IR-8 requires.
-controls: [ir-8, ir-4, ir-5, ir-6, ir-7, ir-2, ir-3]
+controls: [ir-8, ir-8.1, ir-4, ir-5, ir-6, ir-7, ir-2, ir-3]
 status: draft
 stage: core
 typical:
@@ -17,7 +17,7 @@ typical:
 ---
 
 :::guidance
-This plan answers the ten questions IR-8a asks of an incident response plan; each section names the IR-8 item it meets. The handling sections follow the NIST Cybersecurity Framework (CSF) 2.0 Functions, as [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025) does: Detect, Respond and Recover for handling an incident, with preparation and improvement around them. Keep the plan short enough to use during an incident, and move step-by-step instructions into the incident handling playbook.
+This plan answers the ten questions IR-8a asks of an incident response plan; each section names the IR-8 item it meets. The handling sections follow the NIST Cybersecurity Framework (CSF) 2.0 Functions, as [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final) (April 2025) does: Detect, Respond and Recover for handling an incident, with preparation and improvement around them. Keep the plan short enough to use during an incident, and move step-by-step instructions into the [incident handling playbook](/templates/procedures/incident-handling-playbook/). The breach part of section 5 meets IR-8(1), which is in the Privacy baseline; a system that processes personally identifiable information needs it, and any organization that holds such information benefits from it.
 :::
 
 | Plan owner | Approved by | Review cycle | Version and date |
@@ -65,15 +65,30 @@ The {{org:incident-response-team}} assigns each incident a severity, which sets 
 
 ## 5. Reporting and notification
 
-Personnel report suspected incidents to the {{org:incident-response-team}} within {{param:ir-06_odp.01}}, through {{fill:reporting channels, for example the service desk phone number and the incident reporting form}}. The {{org:incident-response-team}} reports incident information to {{param:ir-06_odp.02}}.
+Personnel report suspected incidents to the {{org:incident-response-team}} within {{param:ir-06_odp.01}}, through {{fill:reporting channels, for example the service desk phone number and the incident reporting form}}, and reports are recorded on the [incident report form](/templates/forms/incident-report-form/). The {{org:incident-response-team}} reports incident information to {{param:ir-06_odp.02}}.
 
 :::federal
 Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of September 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require notification within one hour of the incident being identified by the agency's top-level incident response team, security operations center or IT department. Record the agency's reporting channel to CISA and who submits the report: {{fill:agency CISA reporting procedure and submitter}}.
 :::
 
+### Breaches involving personally identifiable information
+
+A breach is an incident involving personally identifiable information: its loss of control, compromise, unauthorized disclosure or acquisition, or a similar occurrence where someone other than an authorized user accesses or potentially accesses it, or an authorized user does so for other than authorized purposes. Suspected breaches are reported like any other incident, in any medium or form, including paper, oral and electronic. The {{org:incident-response-team}} tells the {{org:privacy-official}} as soon as personally identifiable information is, or may be, involved, and the {{org:privacy-official}} leads the steps below, which section 5.8 of the incident handling playbook carries out (IR-8(1)).
+
+| Element | How {{org:name}} meets it |
+| --- | --- |
+| Deciding whether to notify individuals and other organizations, including oversight organizations (IR-8(1)(a)) | The {{org:privacy-official}} decides with legal counsel and the {{org:ciso}}, using the harm assessment and the requirements below: {{fill:who else is consulted, and how quickly the decision is made}} |
+| Assessing harm, embarrassment, inconvenience or unfairness to individuals, and how to mitigate it (IR-8(1)(b)) | The {{org:privacy-official}} weighs the sensitivity of the information, the number of individuals, whether it was actually accessed or used, and the context. Mitigation available: {{fill:for example credit monitoring, a call center, help replacing account numbers}} |
+| Applicable privacy requirements (IR-8(1)(c)) | Listed below, and reviewed each time this plan is reviewed |
+
+| Requirement | Applies to | Notice required, to whom | Deadline |
+| --- | --- | --- | --- |
+| {{fill:law, regulation, policy or contract}} | {{fill:information, individuals or systems it covers}} | {{fill:who must be notified}} | {{fill:time allowed}} |
+| {{fill:requirement}} | {{fill:scope}} | {{fill:notice}} | {{fill:deadline}} |
+
 ## 6. Handling incidents
 
-Handling follows the CSF 2.0 Functions. The incident handling playbook holds the step-by-step instructions for each type of incident.
+Handling follows the CSF 2.0 Functions. The [incident handling playbook](/templates/procedures/incident-handling-playbook/) holds the step-by-step instructions, with first steps for each common type of incident.
 
 ### Detect
 
@@ -109,7 +124,7 @@ Maintaining and maturing the capability requires {{fill:staff, tools, retained s
 
 ## 10. Training and testing
 
-Incident response roles receive training on joining the role and at the interval the Incident Response Policy sets (IR-2). The capability is tested through exercises at the interval that policy sets, and the results feed section 6's improvement step (IR-3).
+Incident response roles receive training on joining the role and at the interval the Incident Response Policy sets (IR-2). The capability is tested through exercises at the interval that policy sets, and the results feed section 6's improvement step (IR-3). The [tabletop exercise kit](/templates/plans/tabletop-exercise-kit/) holds the materials and the after-action report for each exercise. Where {{org:name}} holds personally identifiable information, at least one exercise each year simulates a breach (IR-2(3)).
 
 ## 11. Plan maintenance
 

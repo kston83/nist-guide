@@ -98,7 +98,7 @@ IR-5 asks you to track and document every incident. NIST's IR-5 discussion says 
 - Notifications made under IR-6, to whom and when
 - Root cause, closure date and lessons-learned actions (IR-4c)
 
-An incident report form is planned for this kit, for the first report that opens a record. Trend reports from the records (incidents by type, severity and time to contain) feed the plan's metrics (IR-8a.6) and the risk assessment.
+The [incident report form](/templates/forms/incident-report-form/) is the first report that opens a record: it holds the reporter, what happened, the information involved, the triage, the notifications and the closure, and its register lists every report with when it was discovered, received and declared. The [incident handling playbook](/templates/procedures/incident-handling-playbook/) names the record each step leaves. Trend reports from the records (incidents by type, severity and time to contain) feed the plan's metrics (IR-8a.6) and the risk assessment.
 
 **Organization-defined parameters.** IR-5 has none. In the policy, the incident response team tracks and documents incidents. The High enhancement IR-5(1) adds a parameter for its automated mechanisms.
 
@@ -120,4 +120,4 @@ An incident report form is planned for this kit, for the first report that opens
 
 **Enhancements in the Moderate baseline.** None. High adds [IR-5(1)](#ir-5.1) automated tracking, data collection and analysis.
 
-**Federal systems** (as of October 2026). The [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) list the information agencies must give CISA: functional impact, information impact, recoverability, when the activity was first detected, the number of systems, records and users affected, the network location, and a point of contact. Build those fields into the incident record so the one-hour report on the [IR-6](/controls/ir/ir-6/) page can be filed from it.
+**Federal systems** (as of October 2026). The [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) list the information agencies must give CISA: functional impact, information impact, recoverability, when the activity was first detected, the number of systems, records and users affected, the network location, and a point of contact. Build those fields into the incident record so the one-hour report on the [IR-6](/controls/ir/ir-6/) page can be filed from it; the incident report form's federal block lists them.

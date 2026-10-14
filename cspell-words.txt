@@ -29,6 +29,7 @@ cryptoperiods
 CSAM
 CSIRT
 CSRMC
+detailees
 Diffie
 DISA
 disassociability

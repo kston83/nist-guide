@@ -126,7 +126,9 @@ The <span class="tpl-field tpl-org">Incident response team</span> reports incide
 
 #### Federal systems
 
-Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of October 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require a report within one hour of identification by the agency's top-level incident response team, security operations center or IT department, with seven required elements. Part D's impact fields follow the guidelines' functional impact, information impact and recoverability categories, so the report can be filed from this form. CISA asks agencies not to include sensitive personally identifiable information in submissions. <!-- TODO(verify): which OMB memorandum currently defines a major incident and sets agency incident and breach reporting (and whether OMB M-17-12 is still in effect); not confirmed at an OMB page on 2026-10-14, so the major incident field cites none. -->
+Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of October 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require a report within one hour of identification by the agency's top-level incident response team, security operations center or IT department, with seven required elements. Part D's impact fields follow the guidelines' functional impact, information impact and recoverability categories, so the report can be filed from this form. CISA asks agencies not to include sensitive personally identifiable information in submissions.
+
+[OMB Memorandum M-25-04](https://www.whitehouse.gov/wp-content/uploads/2025/01/M-25-04-Fiscal-Year-2025-Guidance-on-Federal-Information-Security-and-Privacy-Management-Requirements.pdf) (January 15, 2025), the most recent FISMA guidance memorandum as of October 2026, section X, sets the major incident fields below. Events still unresolved after 72 hours of investigation are reported to CISA. A major incident determination is required for a breach affecting the personally identifiable information of 100,000 or more people. A major incident is reported to CISA and the OMB Office of the Federal Chief Information Officer within 1 hour of the determination, to the appropriate congressional committees and the Office of Inspector General within 7 days of the reasonable-basis determination, and, for a breach, in a supplemental report to Congress within 30 days of discovering it. [OMB Memorandum M-17-12](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2017/m-17-12_0.pdf), section VIII, requires the principal security operations center to track each breach, including the number of individuals, the types of information, whether individuals were notified or offered services, and whether it was reported to CISA or Congress.
 
 | CISA element | Entry |
 | --- | --- |
@@ -141,6 +143,13 @@ Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CI
 | Attack vector, indicators of compromise and mitigation, if known | <span class="tpl-field tpl-fill">Fill in: details</span> |
 | Reported to CISA by, date and time | <span class="tpl-field tpl-fill">Fill in: name, date and time</span> |
 | CISA tracking number | <span class="tpl-field tpl-fill">Fill in: number</span> |
+| Unresolved after 72 hours of investigation; reported to CISA | <span class="tpl-field tpl-fill">Fill in: not applicable; or date and time reported</span> |
+| Major incident determination (M-25-04 section X) | <span class="tpl-field tpl-fill">Fill in: not major; or major, under criterion A or B, and whether the 100,000-person rule applies</span> |
+| Determination made by, with date and time; who took part | <span class="tpl-field tpl-fill">Fill in: name, date and time; for example the CIO, CISO, system owner and, for a breach, the senior agency official for privacy</span> |
+| Reported to CISA and the OMB Office of the Federal Chief Information Officer | <span class="tpl-field tpl-fill">Fill in: by whom, date and time, within 1 hour of the determination</span> |
+| Congressional committees and Office of Inspector General notified | <span class="tpl-field tpl-fill">Fill in: by whom and date, within 7 days of the reasonable-basis determination</span> |
+| Breach supplemental report to Congress | <span class="tpl-field tpl-fill">Fill in: not applicable; or date sent, within 30 days of discovering the breach</span> |
+| Breach tracked jointly by the principal security operations center and the senior agency official for privacy, for a breach that is a major incident (M-25-04 section X; M-17-12 section VIII) | <span class="tpl-field tpl-fill">Fill in: tracking reference</span> |
 
 </div>
 

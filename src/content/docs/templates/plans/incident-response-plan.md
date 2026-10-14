@@ -95,7 +95,9 @@ Personnel report suspected incidents to the <span class="tpl-field tpl-org">Inci
 
 #### Federal systems
 
-Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of September 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require notification within one hour of the incident being identified by the agency's top-level incident response team, security operations center or IT department. Record the agency's reporting channel to CISA and who submits the report: <span class="tpl-field tpl-fill">Fill in: agency CISA reporting procedure and submitter</span>.
+Federal agencies notify the Cybersecurity and Infrastructure Security Agency (CISA) of incidents under FISMA (44 U.S.C. §§ 3553 and 3554). As of October 2026, the [CISA Federal Incident Notification Guidelines](https://www.cisa.gov/federal-incident-notification-guidelines) (effective April 1, 2017) require notification within one hour of the incident being identified by the agency's top-level incident response team, security operations center or IT department. Record the agency's reporting channel to CISA and who submits the report: <span class="tpl-field tpl-fill">Fill in: agency CISA reporting procedure and submitter</span>.
+
+[OMB Memorandum M-25-04](https://www.whitehouse.gov/wp-content/uploads/2025/01/M-25-04-Fiscal-Year-2025-Guidance-on-Federal-Information-Security-and-Privacy-Management-Requirements.pdf) (January 15, 2025), the most recent FISMA guidance memorandum as of October 2026, section X, defines a major incident and requires a major incident determination for any breach affecting the personally identifiable information of 100,000 or more people. Events unresolved after 72 hours of investigation are reported to CISA. A major incident is reported to CISA and the OMB Office of the Federal Chief Information Officer within 1 hour of the determination, and to the appropriate congressional committees and the Office of Inspector General within 7 days of the reasonable-basis determination. Use M-25-04's definition when major incidents are declared (section 3), and record who makes the determination and who sends each report: <span class="tpl-field tpl-fill">Fill in: officials who determine major incidents and report to OMB, CISA, Congress and the Office of Inspector General</span>.
 
 </div>
 
@@ -113,6 +115,14 @@ A breach is an incident involving personally identifiable information: its loss 
 | --- | --- | --- | --- |
 | <span class="tpl-field tpl-fill">Fill in: law, regulation, policy or contract</span> | <span class="tpl-field tpl-fill">Fill in: information, individuals or systems it covers</span> | <span class="tpl-field tpl-fill">Fill in: who must be notified</span> | <span class="tpl-field tpl-fill">Fill in: time allowed</span> |
 | <span class="tpl-field tpl-fill">Fill in: requirement</span> | <span class="tpl-field tpl-fill">Fill in: scope</span> | <span class="tpl-field tpl-fill">Fill in: notice</span> | <span class="tpl-field tpl-fill">Fill in: deadline</span> |
+
+<div class="tpl-federal">
+
+##### Federal systems
+
+[OMB Memorandum M-17-12](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2017/m-17-12_0.pdf) (January 3, 2017), section VII, requires the senior agency official for privacy to develop a breach response plan as part of the agency's formal incident response plan; this section can serve as that plan once it covers each element section VII lists. Record the breach response team the head of the agency designates, which the senior agency official for privacy leads and which includes at least the CIO or designee, the senior agency information security officer, legal counsel, and legislative affairs and communications officials (section VII.A): <span class="tpl-field tpl-fill">Fill in: team members by title, and the criteria for convening the team</span>. The head of the agency makes the final decision on notifying individuals, on the senior agency official for privacy's advice (section VII.G). The senior agency official for privacy reviews the plan at the end of each fiscal year (section X.B) and convenes the team for a tabletop exercise at least annually (section X.A). For a breach that is a major incident under OMB M-25-04, section X, a supplemental report goes to Congress within 30 days of discovering the breach. As of October 2026.
+
+</div>
 
 ### 6. Handling incidents
 

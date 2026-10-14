@@ -73,6 +73,15 @@ These rules apply to everyone who needs access to {{org:name}}'s information or 
 ### Consequences
 
 - Breaking these rules may lead to loss of access and to action under the organization's sanctions process (PS-8).
+- Failing to report a suspected incident, or delaying a report, breaks these rules and has the same consequences (IR-6, PS-8).
+
+:::federal
+[OMB Memorandum M-17-12](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2017/m-17-12_0.pdf) (January 3, 2017), section VI, requires everyone with access to federal information and information systems to report a suspected or confirmed breach of personally identifiable information, in any medium, including paper, oral and electronic, as soon as possible and without unreasonable delay, and not to wait for confirmation that a breach has occurred. The same section requires agencies to establish rules of behavior that include consequences for violating them, to include in those rules the consequences for failing to comply with the memorandum's reporting requirements, and to ensure that employees and contractors have read and agreed to the rules before being granted access. As of October 2026, add these rules for a federal system:
+
+- Report a suspected or confirmed breach of personally identifiable information, in any form, including paper and spoken disclosures, to {{fill:where to report a breach, for example the incident response email address or toll-free number}} as soon as possible and without unreasonable delay. Do not wait until you are sure a breach has occurred, and report a lost device even if you think you may find it (IR-6).
+- Failing to report a suspected or confirmed breach as these rules require may lead to {{fill:the consequences, for example loss of access and disciplinary or contractual action under the agency's policies}} (PS-8).
+
+:::
 
 ## Acknowledgment
 

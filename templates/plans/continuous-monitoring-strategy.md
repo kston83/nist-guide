@@ -179,9 +179,10 @@ The owner of each part reviews and updates it at least annually, when the system
 | {{fill:date}} | {{fill:version}} | {{fill:description}} | {{fill:name and title}} |
 
 :::federal
-[OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.d(5) to (8), requires agencies to develop and maintain an information security continuous monitoring (ISCM) strategy, update it at an agency-defined frequency, ensure all selected and implemented controls are addressed in it and effectively monitored on an ongoing basis, and keep an ISCM program with metrics that show security status and trends at every risk management tier. Section 4.d(9) adds a privacy continuous monitoring (PCM) strategy, and footnote 85 allows the two to be combined. Section 5.e says the strategies define the controls selected for assessment in each one-year period, the "annual assessment window", so not every control need be assessed every year, and that assessment frequencies are set in accordance with NIST SP 800-137. Section 5.h sets the two conditions for ongoing authorization described in section 12 and requires a process in which the authorizing official formally acknowledges the transition; until then, systems keep specific termination dates. Section 5.i says that under ongoing authorization, reauthorization is typically event-driven, in response to an event or significant change that raises risk above the agency's tolerance, and may be a complete or a targeted review. As of September 2026.
+[OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 4.d(5) to (8), requires agencies to develop and maintain an information security continuous monitoring (ISCM) strategy, update it at an agency-defined frequency, ensure all selected and implemented controls are addressed in it and effectively monitored on an ongoing basis, and keep an ISCM program with metrics that show security status and trends at every risk management tier. Section 4.d(9) adds a privacy continuous monitoring (PCM) strategy, and footnote 85 allows the two to be combined. Section 5.e says the strategies define the controls selected for assessment in each one-year period, the "annual assessment window", so not every control need be assessed every year, and that assessment frequencies are set in accordance with NIST SP 800-137. Section 5.k says the ISCM and PCM strategies "must be approved by the appropriate agency authorizing official and SAOP, respectively," and must include all common controls inherited by agency information systems. Section 5.h sets the two conditions for ongoing authorization described in section 12 and requires a process in which the authorizing official formally acknowledges the transition; until then, systems keep specific termination dates. Section 5.i says that under ongoing authorization, reauthorization is typically event-driven, in response to an event or significant change that raises risk above the agency's tolerance, and may be a complete or a targeted review. As of September 2026.
 
 - The {{org:ciso}} shall maintain this strategy as the agency ISCM strategy and, with the {{org:privacy-official}}, as the PCM strategy, or state where the separate PCM strategy is kept, as OMB Circular A-130, Appendix I, section 4.d(5) to (9), requires. (PM-31)
+- The ISCM strategy shall be approved by the appropriate agency authorizing official, and the PCM strategy by the {{org:privacy-official}}, as section 5.k requires; record both approvals in section 14, adding a row for the authorizing official who approves Part A. (PM-31)
 - The {{org:system-owner}} shall ensure every control selected and implemented for the system is addressed in Part B and monitored on an ongoing basis, as section 4.d(7) requires. (CA-7)
 - The {{org:system-owner}} shall move the system to ongoing authorization only with the authorizing official's formal, recorded approval, after both conditions of OMB Circular A-130, Appendix I, section 5.h, are met. (CA-6e)
 
@@ -189,8 +190,14 @@ The owner of each part reviews and updates it at least annually, when the system
 
 ## 14. Approval
 
+:::guidance
+[NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), task P-7, says the senior accountable official for risk management or the risk executive (function) "approves the continuous monitoring strategy including the minimum frequency with which controls are to be monitored." The Chief Information Security Officer prepares Part A, and that official or function approves it. The senior privacy official approves the monitoring of the privacy controls.
+:::
+
 | Name | Title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:name}} | {{org:ciso}} (Part A) | | {{fill:date}} |
+| {{fill:name}} | {{org:ciso}} (Part A, prepared by) | | {{fill:date}} |
+| {{fill:name}} | Senior accountable official for risk management, or the risk executive (function) (Part A) | | {{fill:date}} |
+| {{fill:name}} | {{org:privacy-official}} (Part A, for the privacy controls) | | {{fill:date}} |
 | {{fill:name}} | {{org:system-owner}} (Part B) | | {{fill:date}} |
 | {{fill:name}} | Authorizing official (Part B) | | {{fill:date}} |

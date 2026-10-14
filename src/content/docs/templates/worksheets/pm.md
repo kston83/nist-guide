@@ -60,7 +60,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Privacy oversight bodies | PM-27 | The board of directors or its audit committee, and regulators where law requires | Chief Information Security Officer |
 | Officials responsible for monitoring privacy program compliance | PM-27 | The senior leader, the chief information security officer and general counsel | Chief Information Security Officer |
 | The frequency for reviewing and updating privacy reports | PM-27 | Annually | Chief Information Security Officer |
-| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, and the leaders of mission and business functions | Chief Information Security Officer |
+| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management | Chief Information Security Officer |
 | The frequency for reviewing and updating risk framing considerations | PM-28 | Annually, with the risk management strategy | Chief Information Security Officer |
 | The frequency for reviewing and updating the supply chain risk management strategy | PM-30 | Annually | Chief Information Security Officer |
 | The metrics for organization-wide continuous monitoring | PM-31 | Systems with a current authorization, plan of action items past due, vulnerabilities remediated within the required times, and staff with current security awareness training | Chief Information Security Officer |

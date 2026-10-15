@@ -126,6 +126,7 @@ Record each residual risk that needs action or acceptance in the risk register.
 
 - The {{org:privacy-official}} reviews and approves this assessment before the system is developed or procured, or before the new collection begins (RA-8).
 - The {{org:system-owner}} updates this assessment when a change to the system or the processing creates new privacy risks, found through {{param:pt-03_odp.03}} (RA-8, PT-3d).
+- The {{org:system-owner}} reviews this assessment at least annually, with the check of the relevance of the information under SI-18, and records the review and its date even when nothing has changed (RA-8, SI-18).
 - A plain-language version is published on the organization's privacy page, {{fill:or the reason it is not}}, with anything that would reveal security weaknesses removed (PM-20b).
 
 :::federal

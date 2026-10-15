@@ -154,6 +154,7 @@ Record each residual risk that needs action or acceptance in the risk register.
 
 - The <span class="tpl-field tpl-org">Senior privacy official</span> reviews and approves this assessment before the system is developed or procured, or before the new collection begins (RA-8).
 - The <span class="tpl-field tpl-org">System owner</span> updates this assessment when a change to the system or the processing creates new privacy risks, found through <span class="tpl-field tpl-param">Fill in: mechanisms to be implemented for ensuring any changes in the processing of personally identifiable information are made in accordance with requirements <span class="tpl-typical">Typical: a privacy review of each proposed change through change control, with an updated privacy impact assessment (CM-3, CM-4, RA-8)</span></span> (RA-8, PT-3d).
+- The <span class="tpl-field tpl-org">System owner</span> reviews this assessment at least annually, with the check of the relevance of the information under SI-18, and records the review and its date even when nothing has changed (RA-8, SI-18).
 - A plain-language version is published on the organization's privacy page, <span class="tpl-field tpl-fill">Fill in: or the reason it is not</span>, with anything that would reveal security weaknesses removed (PM-20b).
 
 <div class="tpl-federal">

@@ -76,7 +76,7 @@ NIST's RA-8 discussion describes the assessment as both an analysis and a formal
 - Section 1 is the screening, for every new system, project or collection and every significant change. If it finds no personally identifiable information, the signed screening is the record.
 - Sections 3 to 9 cover the questions section 208(b) of the E-Government Act lists (what is collected, why, its use, sharing, notice and consent, security), plus retention and redress.
 - Section 10 rates privacy risks with the organization's RA-3 scales and sends residual risks to the [risk register](/templates/forms/risk-register/).
-- Section 12 records approval, the triggers for updates, and publication.
+- Section 12 records approval, the triggers for updates, the annual review, and publication.
 
 The assessment only comes first if something makes it come first. Common gates are a privacy question in the acquisition process ([SA-4](/controls/sa/sa-4/)), a privacy review step in the system development life cycle, and a privacy question on every [change request](/templates/forms/change-request-form/), which is how the PT-3d review works ([CM-3](/controls/cm/cm-3/), [CM-4](/controls/cm/cm-4/)).
 
@@ -88,7 +88,7 @@ The assessment only comes first if something makes it come first. Common gates a
 | Who reviews and approves it | The senior privacy official (the clause) |
 | What is screened | Every new system, project or collection, and every significant change to one (template section 1) |
 | When it is updated | When a change to the system or the processing creates new privacy risks, found through a privacy review of each proposed change through change control (the clause; the PT-3 clause, `pt-03_odp.03`) |
-| Scheduled review | At least annually, when the relevance of the information is checked under the SI-18 clause (`si-18_odp.02`) |
+| Scheduled review | At least annually, when the relevance of the information is checked under the SI-18 clause (`si-18_odp.02`), with the review recorded even when nothing has changed (template section 12) |
 | Publication | A plain-language version on the privacy page, with anything that would reveal security weaknesses removed (template section 12) |
 
 The template also uses the typical values of other clauses. If one of these changes, change the template with it:

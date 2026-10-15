@@ -8,6 +8,7 @@ control:
   id: PT-5
   family: PT
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -115,3 +116,52 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PT-5 asks you to give individuals notice about the processing of their personally identifiable information. The notice is available when they first interact with the organization and again at a set frequency (a), is written in plain language (b), names the authority for the processing (c) and its purposes (d), and includes whatever else you define (e). PT-5 is in the SP 800-53B Privacy baseline only.
+
+NIST's PT-5 discussion says notices tell individuals how, under what authority and for what purpose their information is processed, along with the choices they have and the other parties it is shared with. Laws may require specific elements or formats; federal staff consult the senior privacy official and legal counsel on when and where to give notice and what it contains. Where no law requires a notice, organizational policy can, and the privacy risk assessment helps decide what to include.
+
+**Common implementations.** The PT-5 clause of the [PII Processing and Transparency policy](/templates/policies/pt/) gives notices to the senior privacy official, who approves each notice and each change before it is published. The [privacy notice](/templates/forms/privacy-notice/) template has three parts:
+
+- Part 1, the full notice for the privacy page ([PM-20](/controls/pm/pm-20/)), which also serves as the website privacy policy PM-20(1) asks for
+- Part 2, a short notice for each form or screen that collects information, linking to Part 1, which makes the notice available at first interaction (a)
+- Part 3, a Privacy Act statement for federal collections (PT-5(2))
+
+Its register lists every notice, where it is posted, its version, and its approval, effective and review dates. Write each notice from the system's [privacy impact assessment](/templates/reports/privacy-impact-assessment/), so the two describe the same information, purposes, authority and sharing (PT-2, PT-3). A notice is only accurate if the privacy office hears about changes first: the privacy notice and the change request form both route changes in collection or sharing to the privacy office before they take effect.
+
+**Organization-defined parameters.** Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| When notice is given again after first interaction (a) | At each later collection of personally identifiable information, and whenever the notice changes materially |
+| What else the notice includes (e) | What information is collected, with whom it is shared, the choices individuals have and how to exercise them, how individuals can access and correct their information, how long it is kept, how it is protected, and how to contact the privacy office |
+
+These match the PT-5 clause and the privacy notice template, whose sections follow the list in (e).
+
+**Evidence assessors ask for.**
+
+- The published notices, and the register showing each one's approval and posting
+- The short notice at a sample of collection points, with its link to the full notice
+- A comparison of each notice with what the system actually collects and shares, from its privacy impact assessment
+- The record of the last review of each notice, and of notices updated after a change
+- How a material change was communicated to individuals before it took effect
+
+**Inheritance.** The privacy office writes, approves and publishes the full notice for the organization, and systems inherit it. Each system provides the short notice at its own collection points and keeps its part of the notice accurate, so PT-5 is usually hybrid.
+
+**Common findings.**
+
+- A notice that describes the organization's website but not the systems behind it.
+- Forms and mobile screens that collect information with no notice or link.
+- A notice that does not name the authority (c), or lists purposes that differ from the privacy impact assessment (d).
+- Legal language that fails the plain-language test (b).
+- No approval record, so nobody can show the posted text is the approved text.
+
+**Enhancements in the Privacy baseline.** [PT-5(2)](#pt-5.2) asks for a Privacy Act statement on each form that collects information to be kept in a Privacy Act system of records, or on a separate form the individual can keep. NIST's discussion says the statement is given whatever the medium (paper or electronic form, website, mobile application or telephone) and names the authority, whether providing the information is mandatory or voluntary, the principal purposes, the published routine uses, the effects of not providing it, and a citation and link to the system of records notice.
+
+The PT-5(2) clause has the system owner include the statement and the senior privacy official approve it before the form is used. Part 3 of the privacy notice is a Privacy Act statement with a row for each element. The Privacy Act applies to federal agencies and to contractors that operate a system of records for an agency ([5 U.S.C. § 552a(m)](https://www.govinfo.gov/link/uscode/5/552a?link-type=html)); an organization that maintains no system of records records that PT-5(2) does not apply. Common findings are online forms that carried over a paper form's statement without the link to the notice, statements citing a notice that has since been revised, and telephone collections with no statement at all. PT-5(1), just-in-time notice, is in no baseline and has no clause.
+
+**Federal systems** (as of October 2026). [Section 208(c)(1)(B) of the E-Government Act of 2002](https://www.congress.gov/107/plaws/publ347/PLAW-107publ347.htm) (Pub. L. 107-347) directs OMB to issue guidance under which a privacy notice on an agency website addresses, consistent with the Privacy Act, what information is collected, why, the intended use, with whom it will be shared, what notice or opportunities for consent individuals have, how it will be secured, and the individual's rights under the Privacy Act and other privacy laws. [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), main body section 5.f(1)(j), requires agencies to "maintain and post privacy policies on all agency websites, mobile applications, and other digital services". [OMB M-23-22](https://www.whitehouse.gov/wp-content/uploads/2023/09/M-23-22-Delivering-a-Digital-First-Public-Experience.pdf), section III.A.9.a, adds that each policy is in plain language, linked from major entry points and pages that collect PII, and updated with a time-and-date stamp after substantive changes; the PM-20 page covers it.
+
+For PT-5(2), the Privacy Act, subsection (e)(3), requires the statement on the collection form or a separate form the individual can keep. [OMB Circular A-108](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A108/omb_circular_a-108.pdf), section 6.l, requires it in plain language whatever the medium, with a citation and, if practicable, a link to the system of records notice. Its footnote 59 has the agency give the information orally on the telephone and provide a way to receive it in writing, and footnote 61 allows a plain-language summary of the routine uses with a link to the full list.

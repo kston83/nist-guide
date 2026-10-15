@@ -2,7 +2,7 @@
 title: Privacy Impact Assessment
 type: report
 description: The analysis and record of how a system, program or activity handles personally identifiable information, the privacy risks that creates for individuals and how they are reduced, done before development, procurement or a new collection and kept up to date as the processing changes, as SP 800-53 RA-8 requires.
-controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, sc-7.24, ra-3]
+controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, pt-8, sc-7.24, ra-3]
 status: draft
 stage: core
 typical:
@@ -139,6 +139,7 @@ Add to section 4 the statute or executive order that authorizes the collection, 
 | --- | --- |
 | Is a system of records being created or changed under 5 U.S.C. § 552a? | {{fill:yes or no}} |
 | System of records notice | {{fill:name, number and Federal Register citation, or the date a new or revised notice will be published}} |
+| Is the system part of a matching program under 5 U.S.C. § 552a(a)(8)? (PT-8) | {{fill:no, or the matching program, its computer matching agreement and expiry date, and its Federal Register matching notice}} |
 | Privacy Act statement on each collection form | {{fill:yes, not needed, or planned}} |
 | Paperwork Reduction Act information collection | {{fill:the OMB control number, or not applicable}} |
 

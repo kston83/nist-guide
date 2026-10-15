@@ -77,7 +77,7 @@ Matching programs are run by federal agencies, often with state or local agencie
 
 **Common implementations.** The PT-8 clause of the [PII Processing and Transparency policy](/templates/policies/pt/) gives approval, the agreement and the notice to the senior privacy official, and verification and notice to individuals to the system owner. In practice:
 
-- A screening question, added to section 1 of the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) and to data-sharing reviews, that asks whether a planned comparison of records is a matching program, with legal counsel deciding close cases
+- A screening question that asks whether a planned comparison of records is a matching program, with legal counsel deciding close cases. The federal table of the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) asks it for each system, along with the agreement and notice; ask it in data-sharing reviews too
 - A calendar of every matching agreement's expiry date, so the board can renew or the program can be re-established in time
 - Written verification steps for each program, and a template letter that states the findings and how to contest them
 - A hold in the benefit or payment system that blocks adverse action until verification and the response period are complete

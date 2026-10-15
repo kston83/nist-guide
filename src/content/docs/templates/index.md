@@ -1,6 +1,6 @@
 ---
 title: 'Templates'
-description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, standards, procedures, forms and reports. CC0.'
+description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: a consolidated policy and family policies per baseline, plans, standards, procedures, forms and reports. CC0.'
 sidebar:
   label: 'All templates'
   order: 0
@@ -10,12 +10,15 @@ sidebar:
 
 Each template is written once and assembled for your baseline. Download the ready-to-adopt edition to fill in, or the annotated edition to learn why each section exists. Templates are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/): adopt and change them without attribution. They are not legal advice; tailor them before adoption.
 
+Policies come two ways, from the same statements: one [Information Security and Privacy Policy](/templates/policies/consolidated/) for every family, or a policy per family.
+
 **Download the full kit:** [every template, in Word and Markdown, with the decision worksheets (.zip)](/downloads/rmf-field-guide-kit.zip).
 
 ## Policies
 
 | Template | Program stage | Status |
 | --- | --- | --- |
+| [Information Security and Privacy Policy](/templates/policies/consolidated/) | [Foundation](/program/foundation/) | Draft |
 | [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
 | [Awareness and Training Policy](/templates/policies/at/) | [Core](/program/core/) | Draft |
 | [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |

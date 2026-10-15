@@ -1,7 +1,16 @@
 // Builds the generated template pages under src/content/docs/templates/
 // (PRD TPL-07) and names the download files, so pages and kit agree.
 // No file access, so npm test can run it on fixtures.
-import { assemblePolicy, inSecurityBaseline, ORGANIZATION, policyBaselines } from '../../src/lib/template-assemble.ts';
+import {
+	assembleConsolidated,
+	assemblePolicy,
+	CONSOLIDATED,
+	CONSOLIDATED_TITLE,
+	consolidatedBaselines,
+	inSecurityBaseline,
+	ORGANIZATION,
+	policyBaselines,
+} from '../../src/lib/template-assemble.ts';
 import { renderBlocks } from '../../src/lib/template-editions.ts';
 import { renderVariables } from '../../src/lib/template-vars.ts';
 import { WORKSHEET_COLUMNS, worksheetRows } from '../../src/lib/template-worksheet.ts';
@@ -257,7 +266,7 @@ export function indexPage(summaries) {
 	return [
 		'---',
 		"title: 'Templates'",
-		"description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: family policies per baseline, plans, standards, procedures, forms and reports. CC0.'",
+		"description: 'Ready-to-adopt security program templates for NIST SP 800-53 Rev. 5: a consolidated policy and family policies per baseline, plans, standards, procedures, forms and reports. CC0.'",
 		'sidebar:',
 		"  label: 'All templates'",
 		'  order: 0',
@@ -266,6 +275,8 @@ export function indexPage(summaries) {
 		GENERATED_NOTE,
 		'',
 		'Each template is written once and assembled for your baseline. Download the ready-to-adopt edition to fill in, or the annotated edition to learn why each section exists. Templates are dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/): adopt and change them without attribution. They are not legal advice; tailor them before adoption.',
+		'',
+		`Policies come two ways, from the same statements: one [${CONSOLIDATED_TITLE}](/templates/policies/${CONSOLIDATED_SLUG}/) for every family, or a policy per family.`,
 		'',
 		`**Download the full kit:** [every template, in Word and Markdown, with the decision worksheets (.zip)](/downloads/${KIT_FILE}).`,
 		'',
@@ -342,5 +353,118 @@ export function worksheetPage({ family, clauses, common, catalog, variables, ver
 			stage: family.stage,
 			status: 'draft',
 		},
+	};
+}
+
+// The consolidated Information Security and Privacy Policy (PRD TPL-09): every
+// family policy in one document, per baseline, assembled from the same sources
+// (src/lib/template-assemble.ts, assembleConsolidated).
+export const CONSOLIDATED_SLUG = 'consolidated';
+export const CONSOLIDATED_STAGE = 'foundation';
+export const consolidatedFile = (baseline, edition) => policyFile(CONSOLIDATED_SLUG, baseline, edition);
+
+/** The families as assembleConsolidated takes them, in the order given (catalog order). */
+export function consolidatedSources({ families, clauses, common, variables }) {
+	return families.map((family) => ({
+		family,
+		clauses: clauses.filter((c) => c.id.startsWith(`policy/${family.id}/`)),
+		common: family.common?.body,
+		typical: family.common ? commonTypical(family, common, variables) : undefined,
+		organizationWide: organizationWide(family),
+	}));
+}
+
+// The shared sections' -1 parameters, as the consolidated policy names them
+// (xx-01_odp.01 ...): each is the first family's -1 parameter, with the
+// family's name in its 800-53A description replaced by the policy's, so
+// "the access control policy" reads "the information security and privacy policy".
+export function consolidatedParams(catalog, families) {
+	const first = families.find((f) => !f.common);
+	if (!first) return {};
+	const name = first.title.toLowerCase();
+	const own = CONSOLIDATED.title.toLowerCase();
+	const swap = (s) => (typeof s === 'string' ? s.split(name).join(own) : s);
+	return Object.fromEntries(
+		Object.entries(catalog.params)
+			.filter(([id]) => id.startsWith(`${first.id}-01_odp.`))
+			.map(([id, p]) => [`${CONSOLIDATED.id}${id.slice(first.id.length)}`, { ...p, label: swap(p.label), prompt: swap(p.prompt) }]),
+	);
+}
+
+/** Variable context for the consolidated policy: the shared -1 values, then the clauses' own. */
+export function consolidatedContext({ families, common, catalog, variables, typical }) {
+	return {
+		variables,
+		params: { ...catalog.params, ...consolidatedParams(catalog, families) },
+		typical: { ...commonTypical(CONSOLIDATED, common, variables), ...typical },
+		family: CONSOLIDATED,
+	};
+}
+
+/**
+ * The consolidated policy page: facts, what it is, the families and how many
+ * controls each variant covers, downloads per baseline, and a preview of the
+ * Moderate variant with each family's part summarized and linked.
+ */
+export function consolidatedPage({ families, clauses, common, catalog, variables, version, order = 0 }) {
+	const sources = consolidatedSources({ families, clauses, common, variables });
+	const baselines = consolidatedBaselines(sources, catalog.controls);
+	const variants = Object.fromEntries(
+		baselines.map((b) => [b, assembleConsolidated({ common: common.body, families: sources, controls: catalog.controls, baseline: b })]),
+	);
+	const shownBaseline = variants[PREVIEW_BASELINE] ? PREVIEW_BASELINE : baselines[0];
+	const position = new Map(catalog.controls.map((c, i) => [c.id, i]));
+	const policyControls = [...new Set(Object.values(variants).flatMap((v) => v.families.map((f) => `${f}-1`)))].sort(
+		(a, b) => position.get(a) - position.get(b),
+	);
+	const sourcesReviewed = [common, ...families.map((f) => f.common).filter(Boolean)].every((c) => c.data?.status === 'reviewed');
+	const status = clauses.length && clauses.every((c) => c.status === 'reviewed') && sourcesReviewed ? 'reviewed' : 'draft';
+
+	const count = (f, b) => (variants[b].families.includes(f.id) ? String(variants[b].controls.filter((id) => id.split('-')[0] === f.id).length) : '');
+	const included = families.filter((f) => baselines.some((b) => variants[b].families.includes(f.id)));
+	const familyTable = [
+		`| Family | ${baselines.map(variantLabel).join(' | ')} |`,
+		`| --- | ${baselines.map(() => '---').join(' | ')} |`,
+		...included.map((f) => `| [${f.title} (${f.id.toUpperCase()})](/templates/policies/${f.id}/) | ${baselines.map((b) => count(f, b)).join(' | ')} |`),
+	].join('\n');
+
+	const summary = (f, ids) => {
+		const what = organizationWide(f) ? 'organization-wide edition' : `${shownBaseline} variant`;
+		const opening = f.common ? `Opens with its own ${f.id.toUpperCase()}-1 statements, then has the` : 'The';
+		return `${opening} statements of the [${f.title} Policy](/templates/policies/${f.id}/), ${what}: ${ids.length - 1} controls and enhancements.`;
+	};
+	const shown = assembleConsolidated({ common: common.body, families: sources, controls: catalog.controls, baseline: shownBaseline, summary });
+	const ctx = consolidatedContext({ families, common, catalog, variables, typical: shown.typical });
+
+	const body = [
+		facts({ type: 'policy', stage: CONSOLIDATED_STAGE, status, version, basis: catalog.source }),
+		'## What it is',
+		`The ${CONSOLIDATED_TITLE} is every family policy in one document, for an organization that would rather adopt one policy than twenty. It is assembled from the same sources as the [family policies](/templates/#policies), so its statements are theirs word for word. The sections every family policy shares are written once and meet each family's -1 control, such as [AC-1](${controlUrl('ac-1')}). Each family then has its own part under Policy statements, with the accountable role of its family policy.`,
+		"Each baseline variant includes only the controls in that baseline, taken from the NIST SP 800-53B profiles. The Program Management part is the same in every variant: SP 800-53B allocates no PM control to a baseline, and the organization carries them out once for all its systems. The Personally Identifiable Information Processing and Transparency family, which NIST places in the Privacy baseline only, is in the Privacy variant only. The Privacy variant has every family's Privacy-baseline statements: adopt it alongside the security variant wherever systems process personally identifiable information, or move its statements into the matching parts of the security variant so there is one document.",
+		'Adopt the ready-to-adopt edition: fill every highlighted field, delete any "Federal systems" section that does not apply, and have the accountable official approve it. The annotated edition adds guidance on why each section exists and what assessors look for. For any one scope, adopt either this policy or the family policies, not both. The [starter kit](/templates/starter-kit/) carries this policy at your baseline.',
+		'## Families covered',
+		'Each cell counts the controls and enhancements the variant has statements for, the -1 control included; the family policy lists them. A blank cell means the family has no part in that variant.',
+		familyTable,
+		'## Decisions to make first',
+		"The shared sections take one set of -1 values for every family: who receives the policy and the procedures, the managing official, and how often and after which events each is reviewed. Every other field is a family's own parameter. Record your values in the [decision worksheets](/templates/#decision-worksheets), one per family, and give each family's -1 rows the values you choose for the shared sections.",
+		'## Downloads',
+		downloadRows(baselines.map((b) => ({ label: variantLabel(b), file: (e) => consolidatedFile(b, e) }))),
+		'The family policies stay available on their own pages, in each family pack and in the full kit.',
+		`## Preview (${shownBaseline} baseline, annotated)`,
+		"Each family's part is summarized here, with a link to its family policy; the downloads have the full text.",
+		preview(shown.source, ctx),
+	].join('\n\n');
+
+	return {
+		file: `policies/${CONSOLIDATED_SLUG}.md`,
+		text: page({
+			title: CONSOLIDATED_TITLE,
+			description: `Ready-to-adopt consolidated security and privacy policy template for NIST SP 800-53 Rev. 5: every family policy in one document, with a variant per baseline (${baselines.join(', ')}).`,
+			label: 'Consolidated policy',
+			order,
+			controls: policyControls,
+			body,
+		}),
+		summary: { title: CONSOLIDATED_TITLE, href: `/templates/policies/${CONSOLIDATED_SLUG}/`, type: 'policy', stage: CONSOLIDATED_STAGE, status },
 	};
 }

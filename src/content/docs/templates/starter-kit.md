@@ -18,15 +18,15 @@ Download one file for your baseline and you have the documents a new program ado
 | --- | --- | --- |
 | [Information Security Program Plan](/templates/plans/information-security-program-plan/) | PM-1, PM-2, PM-3, PM-6, PM-10, PM-29 | Included |
 | [Risk Management Strategy](/templates/plans/risk-management-strategy/) | PM-9, PM-28, PM-29, PM-31 | Included |
-| [Family policies (AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, RA, SA, SC, SI, SR)](/templates/#policies) | AC-1, AT-1, AU-1, CA-1, CM-1, CP-1, IA-1, IR-1, MA-1, MP-1, PE-1, PL-1, PM-1, PS-1, RA-1, SA-1, SC-1, SI-1, SR-1 | Included |
+| [Information Security and Privacy Policy](/templates/policies/consolidated/) | AC-1, AT-1, AU-1, CA-1, CM-1, CP-1, IA-1, IR-1, MA-1, MP-1, PE-1, PL-1, PM-1, PS-1, RA-1, SA-1, SC-1, SI-1, SR-1 | Included |
 | [System Security Plan](/templates/plans/system-security-plan/) | PL-2, RA-2, CM-8, CA-3, CA-5 | Included |
 | [Rules of Behavior](/templates/forms/rules-of-behavior/) | PL-4, PL-4(1), PE-17 | Included |
 | [Incident Response Plan](/templates/plans/incident-response-plan/) | IR-8, IR-8(1), IR-4, IR-5, IR-6, IR-7, IR-2, IR-3 | Included |
 | [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | CA-5, CA-7, PM-4 | Included |
 | [System Inventory](/templates/forms/system-inventory/) | PM-5, PM-5(1) | Included |
-| [Decision worksheets for those families](/templates/#decision-worksheets) |  | Included |
+| [Decision worksheets for the families in the kit](/templates/#decision-worksheets) |  | Included |
 
-Until the consolidated policy is published, the kit carries the family policies for your baseline.
+The kit carries the [Information Security and Privacy Policy](/templates/policies/consolidated/) for your baseline: every family policy in one document. To adopt a policy per family instead, download the [family policies](/templates/#policies) from their pages, in the family packs or in the [full kit](/downloads/rmf-field-guide-kit.zip).
 
 ## Downloads
 
@@ -39,6 +39,6 @@ Until the consolidated policy is published, the kit carries the family policies 
 ## Where to start
 
 1. Fill in the decision worksheets with the people who own each decision.
-2. Adopt the family policies, carrying the worksheet values into their highlighted fields.
+2. Adopt the Information Security and Privacy Policy, carrying the worksheet values into its highlighted fields.
 3. Write the System Security Plan for your first system, and start its POA&M.
 4. Adopt the Incident Response Plan and test it with a tabletop exercise.

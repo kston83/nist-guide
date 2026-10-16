@@ -10,11 +10,13 @@
  *
  * Family policies: policy/_common.md (or the family's own) plus each family's clauses, in catalog
  * order, one file per baseline (TPL-03), in a clean and an annotated edition
- * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. Plans,
+ * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. The consolidated
+ * Information Security and Privacy Policy (TPL-09): the shared sections once, then
+ * every family's clauses, per baseline: consolidated-policy-<baseline>.md. Plans,
  * standards, procedures, forms and reports: one file per edition. Decision worksheets
  * (TPL-08): worksheets/<family>-decisions-<baseline>.csv. Every document also
  * as .docx, styled by templates/reference.docx, and every family as a .zip
- * pack, plus the full kit (TPL-05).
+ * pack, plus the full kit (TPL-05), and a starter kit per baseline (PROG-02).
  *
  * Downloads are build output and never committed.
  */
@@ -26,6 +28,11 @@ import {
 	GENERATED_NOTE,
 	commonFor,
 	commonTypical,
+	consolidatedContext,
+	consolidatedFile,
+	consolidatedPage,
+	consolidatedSources,
+	CONSOLIDATED_SLUG,
 	indexPage,
 	KIT_FILE,
 	organizationWide,
@@ -39,7 +46,7 @@ import {
 	worksheetInput,
 	worksheetPage,
 } from './lib/template-pages.mjs';
-import { assemblePolicy, policyBaselines } from '../src/lib/template-assemble.ts';
+import { assembleConsolidated, assemblePolicy, consolidatedBaselines, policyBaselines } from '../src/lib/template-assemble.ts';
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
@@ -102,6 +109,9 @@ async function writeIfChanged(file, text) {
 
 if (pagesMode) {
 	const pages = [];
+	await attempt('consolidated policy page', () =>
+		pages.push(consolidatedPage({ families: orderedFamilies, clauses, common, catalog, variables, version })),
+	);
 	for (const [i, family] of orderedFamilies.entries())
 		await attempt(`${family.id.toUpperCase()} policy page`, () =>
 			pages.push(policyPage({ family, clauses, common, catalog, variables, version, order: i + 1 })),
@@ -184,6 +194,14 @@ if (pagesMode) {
 				),
 			);
 	}
+	// The consolidated policy (TPL-09): every family policy in one document, per baseline.
+	const consolidated = consolidatedSources({ families: orderedFamilies, clauses, common, variables });
+	for (const baseline of consolidatedBaselines(consolidated, catalog.controls))
+		await attempt(`consolidated policy (${baseline})`, () => {
+			const policy = assembleConsolidated({ common: common.body, families: consolidated, controls: catalog.controls, baseline });
+			const ctx = consolidatedContext({ families: orderedFamilies, common, catalog, variables, typical: policy.typical });
+			return editions(policy.source, ctx, (e) => consolidatedFile(baseline, e), { baseline, url: `${homepage}templates/policies/${CONSOLIDATED_SLUG}/` });
+		});
 	for (const template of templates) {
 		// Forms: the register as a spreadsheet too.
 		if (template.type === 'form')

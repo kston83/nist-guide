@@ -3,17 +3,21 @@
 #
 # Each item is one of:
 #   template: <id under templates/>       a plan, standard, procedure or form
+#   include: consolidated-policy          the Information Security and Privacy
+#                                         Policy (TPL-09) at the chosen baseline
 #   include: policies | worksheets        every family policy, or every decision
 #                                         worksheet, at the chosen baseline
 #   title + controls + planned: true      an artifact the kit will include when its
 #                                         template exists (listed on the page as coming)
 #
-# Until the consolidated policy exists (TPL-09), the kit carries the family policies.
+# The kit carries the consolidated policy in place of the family policies
+# (PRD Artifact catalog, Starter kit); the family policies stay in the family
+# packs and the full kit.
 
 items:
   - template: plans/information-security-program-plan
   - template: plans/risk-management-strategy
-  - include: policies
+  - include: consolidated-policy
   - template: plans/system-security-plan
   - template: forms/rules-of-behavior
   - template: plans/incident-response-plan

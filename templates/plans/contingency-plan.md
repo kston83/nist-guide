@@ -5,6 +5,7 @@ description: The plan for recovering one system after a disruption, compromise o
 controls: [cp-2, cp-2.1, cp-2.3, cp-2.8, cp-6, cp-7, cp-8, cp-9, cp-10]
 status: draft
 stage: core
+role: system-owner
 typical:
   cp-02_odp.01: the system owner and the system security officer
   cp-02_odp.02: the authorizing official, or the business owner the authorizing official names

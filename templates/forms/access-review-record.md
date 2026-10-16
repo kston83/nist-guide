@@ -5,6 +5,7 @@ description: The record of one periodic review of a system's accounts and privil
 controls: [ac-2, ac-2.3, ac-5, ac-6.7]
 status: draft
 stage: core
+role: system-owner
 typical:
   ac-02_odp.10: quarterly for privileged accounts and at least annually for all other accounts
   ac-02.03_odp.02: 90 days

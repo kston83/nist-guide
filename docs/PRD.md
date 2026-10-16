@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.9 · Oct 3, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.10 · Oct 16, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -240,6 +240,9 @@ description: One sentence on what the artifact is for
 controls: [ir-8, ir-4, ir-6]   # controls this artifact satisfies or supports
 ssdf: [RV.1]                   # SSDF practices it supports, if any
 airmf: [GOVERN 1.6]            # AI RMF subcategories it supports, if any (AI templates)
+role: system-owner             # optional: key in variables.yml for the role accountable for the
+                               # artifact; without it, the role of the family policy of the first
+                               # control listed (used by the artifact checklist, PROG-03)
 status, reviewed, stage        # as above
 
 # templates/policy/ac/_family.yml
@@ -699,6 +702,7 @@ None of these block Phase 1.
 | Two frameworks | The site is a guidebook to two NIST frameworks: the RMF with SP 800-53 first, then the AI RMF, whose guide covers applying the AI RMF and adopting and securing AI for any organization, with systems governed by NIST frameworks in mind. The public Roadmap page (`reference/roadmap.md`) summarizes the vision and phases | Sep 28, 2026 |
 | Moderate guidance | Written in Phase 3, not Depth: each remaining family's guidance in the pull request after its policy, and the families already written backfilled in batches between template rows. A policy clause says what the organization commits to; guidance says how to do it and what the assessor asks for, which is the guide's first goal | Sep 29, 2026 |
 | PM and privacy guidance | Also written in Phase 3, after the Moderate guidance: every PM control (no baseline, but the program-level controls a new program builds first) and every privacy-only control (PT, PL-9, RA-8, SI-18, SI-19). A privacy-only enhancement is covered on its base control's page, like any enhancement | Sep 29, 2026 |
+| Template `role` field | Non-policy templates may name the role accountable for the artifact (`role:`, a `variables.yml` key; an unknown key fails the build), so the artifact checklist (PROG-03) shows, for example, the system owner for a System Security Plan rather than the CISO of the PL policy. Without it, the role of the family policy of the first control listed | Oct 16, 2026 |
 | Report template type | A fifth non-policy type, `report` (`templates/reports/`), for the written results of assessments, analyses and exercises: the risk assessment report first, then the CA assessment report and the CP after-action report | Sep 28, 2026 |
 
 ## Revision history
@@ -718,3 +722,4 @@ None of these block Phase 1.
 | 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md`. Owner request in the same PR: the site footer names the templates' CC0 dedication, and the public Roadmap page counts are brought up to date |
 | 3.8 | Oct 3, 2026 | Working records, no change in scope (owner request, to cut the context each task reads): Instructions for Claude Code split progress into `PROGRESS.md` (working state, under 40 KB), `docs/progress-log.md` (the log) and `docs/sources.md` (source registry and verification notes), and the PRD is read in full only at a phase start or a scope change |
 | 3.9 | Oct 3, 2026 | Owner decision (row 27 review): procedures sit flat in `templates/procedures/<slug>.md`, like every other type folder, not in a folder per family (Sources and layout) |
+| 3.10 | Oct 16, 2026 | Owner decision (PROG-03 review): an optional `role` field in non-policy template front matter, a key in `variables.yml` for the role accountable for the artifact; without it, the role of the family policy of the first control listed (Clause and template front matter, Decided) |

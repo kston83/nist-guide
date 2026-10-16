@@ -5,6 +5,7 @@ description: The plan for one contingency plan test or exercise, tabletop or fun
 controls: [cp-4, cp-4.1, cp-4.2, cp-3.1, cp-9.2]
 status: draft
 stage: operate
+role: system-owner
 typical:
   cp-04_odp.01: annually
   cp-04_odp.02: 'a functional test that restores the system, or a representative part of it, from backup'

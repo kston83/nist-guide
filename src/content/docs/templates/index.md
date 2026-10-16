@@ -14,6 +14,8 @@ Policies come two ways, from the same statements: one [Information Security and 
 
 **Download the full kit:** [every template, in Word and Markdown, with the decision worksheets (.zip)](/downloads/rmf-field-guide-kit.zip).
 
+To track which of these your program has adopted, use the [program artifact checklist](/program/checklist/): every template with its stage, controls and accountable role, as a spreadsheet.
+
 ## Policies
 
 | Template | Program stage | Status |

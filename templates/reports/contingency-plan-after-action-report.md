@@ -5,6 +5,7 @@ description: The report of a contingency plan test, exercise or real activation,
 controls: [cp-4, cp-2]
 status: draft
 stage: operate
+role: system-owner
 ---
 
 :::guidance

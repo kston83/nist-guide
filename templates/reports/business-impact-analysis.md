@@ -5,6 +5,7 @@ description: The analysis of what a system's disruption would do to the mission 
 controls: [cp-2, cp-2.3, cp-2.8]
 status: draft
 stage: core
+role: system-owner
 typical:
   cp-02.03_odp.01: essential
   cp-02.08_odp: essential

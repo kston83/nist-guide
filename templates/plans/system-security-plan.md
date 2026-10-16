@@ -5,6 +5,7 @@ description: The security plan for one system, following the NIST SP 800-18 Rev.
 controls: [pl-2, ra-2, cm-8, ca-3, ca-5]
 status: draft
 stage: foundation
+role: system-owner
 typical:
   pl-02_odp.01: the system's stakeholders named in section 5, the common control providers, and the security and privacy teams
   pl-02_odp.02: the authorizing official, the system owner, the system security officer and the assessor

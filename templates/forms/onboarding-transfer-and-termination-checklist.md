@@ -5,6 +5,7 @@ description: The steps, owners and time limits for granting, changing and removi
 controls: [ps-4, ps-5, ps-3, ps-6, ps-7, ac-2, at-2]
 status: draft
 stage: core
+role: hr-office
 typical:
   ps-04_odp.01: '24 hours, or the same day for privileged users; for an involuntary termination, no later than when the individual is told'
   ps-04_odp.02: 'the individual''s continuing duty not to disclose organizational information, the return of all organizational property and information, and that former credentials must not be used'

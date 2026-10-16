@@ -5,6 +5,7 @@ description: The register of a system's or an organization's identified risks, t
 controls: [ra-3, ra-7]
 status: draft
 stage: foundation
+role: system-owner
 ---
 
 :::guidance

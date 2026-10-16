@@ -5,6 +5,7 @@ description: The analysis and record of how a system, program or activity handle
 controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, pt-8, sc-7.24, ra-3]
 status: draft
 stage: core
+role: privacy-official
 typical:
   pt-02_odp.01: 'the law, regulation, contract or consent'
   pt-03_odp.01: 'the specific, explicit purposes of the system or program'

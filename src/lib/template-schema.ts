@@ -31,8 +31,14 @@ const variableRef = z
 // SSDF practice ids from SP 800-218: PO.1, PS.2, PW.4, RV.1.
 const ssdfId = z.string().regex(/^(?:PO|PS|PW|RV)\.\d+$/, 'Use an SSDF practice id such as "PO.1" or "RV.2".');
 
-export function templateSchemas(catalog: CatalogData) {
+// `roles`: the keys of templates/variables.yml. When given, a template's `role`
+// must be one of them.
+export function templateSchemas(catalog: CatalogData, roles?: string[]) {
 	const paramsOf = new Map(catalog.controls.map((c) => [c.id, new Set(c.params)]));
+	const roleKey = key.superRefine((role, ctx) => {
+		if (roles && !roles.includes(role))
+			ctx.addIssue({ code: 'custom', message: `Unknown role "${role}". Use a key from templates/variables.yml: ${roles.join(', ')}.` });
+	});
 
 	const controlId = z.string().superRefine((id, ctx) => {
 		if (paramsOf.has(id)) return;
@@ -84,6 +90,10 @@ export function templateSchemas(catalog: CatalogData) {
 			controls: z.array(controlId).min(1, 'List the controls this artifact satisfies or supports.'),
 			ssdf: z.array(ssdfId).optional(),
 			typical: z.record(z.string(), z.string().min(1)).optional(),
+			// Optional key in templates/variables.yml for the role accountable for the
+			// artifact (PROG-03). Without it, the role of the family policy of the
+			// first-listed control.
+			role: roleKey.optional(),
 		})
 		.strict()
 		.superRefine((t, ctx) => {

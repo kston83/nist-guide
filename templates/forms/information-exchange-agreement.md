@@ -5,6 +5,7 @@ description: The agreement that approves and governs one exchange of information
 controls: [ca-3, ca-3.6, sa-9]
 status: draft
 stage: operate
+role: system-owner
 typical:
   ca-03_odp.01: 'interconnection security agreements or information exchange security agreements, and service level agreements or contract terms with the same content for external services'
   ca-03_odp.03: 'at least annually, and when either system makes a significant change that affects the exchange'

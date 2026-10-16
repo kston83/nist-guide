@@ -39,7 +39,7 @@ npm run check:a11y   # after a build: axe finds no serious or critical issues (.
 npm test             # unit tests for the generators and template system (fixtures, no network)
 npm run lint         # markdown lint, template lint and spell check (cspell-words.txt is the dictionary)
 npm run controls     # regenerate control pages from the pinned NIST catalog; should produce no git diff
-npm run templates    # regenerate template pages from templates/; run after changing a source, and commit the result
+npm run templates    # regenerate template pages and the program artifact checklist from templates/; run after changing a source, and commit the result
 npm run kit          # build only the downloadable kit into dist/downloads
 npm run og-image     # remake the social preview image, public/og-default.png
 npm run reference-docx # remake templates/reference.docx, the Word styles for the kit
@@ -51,7 +51,7 @@ npm run reference-docx # remake templates/reference.docx, the Word styles for th
 src/content/docs/
   index.mdx            Home page
   about.md             About the guide and author
-  program/             Build your program: the four stages (Foundation to Mature)
+  program/             Build your program: the four stages (Foundation to Mature); checklist.md is generated
   rmf/                 The framework: overview, roles, ATO package, program variants
     steps/             One page per RMF step (0 Prepare to 6 Monitor)
   controls/            SP 800-53 control pages, generated (see below)
@@ -84,7 +84,7 @@ src/styles/theme.css   Colors and typefaces
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
-- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. The consolidated Information Security and Privacy Policy has no source of its own: the build assembles it per baseline from `_common.md` and every family's clauses, and the starter kit (`templates/starter-kit.yml`) carries it in place of the family policies. Plans, standards, procedures, forms and reports go in their type's folder. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
+- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. The consolidated Information Security and Privacy Policy has no source of its own: the build assembles it per baseline from `_common.md` and every family's clauses, and the starter kit (`templates/starter-kit.yml`) carries it in place of the family policies. Plans, standards, procedures, forms and reports go in their type's folder. The program artifact checklist (`program/checklist.md` and its `.csv`) is generated from the same sources, so a new template appears on it without other changes; a template's optional `role` front matter (a key in `templates/variables.yml`) sets its accountable role there, and without it the checklist uses the role of the family policy of the template's first control. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
 - **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text

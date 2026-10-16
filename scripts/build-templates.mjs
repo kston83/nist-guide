@@ -17,6 +17,8 @@
  * (TPL-08): worksheets/<family>-decisions-<baseline>.csv. Every document also
  * as .docx, styled by templates/reference.docx, and every family as a .zip
  * pack, plus the full kit (TPL-05), and a starter kit per baseline (PROG-02).
+ * The program artifact checklist (PROG-03): its page under program/ and
+ * program-artifact-checklist.csv, which the full kit also carries.
  *
  * Downloads are build output and never committed.
  */
@@ -50,6 +52,7 @@ import { assembleConsolidated, assemblePolicy, consolidatedBaselines, policyBase
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
+import { CHECKLIST_FILE, CHECKLIST_PAGE, checklistCsv, checklistPage, checklistRows } from './lib/artifact-checklist.mjs';
 import { resolveStarterKit, STARTER_BASELINES, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
 import { documentHeader, findPandoc, kitReadme, NO_DOCX, registerCsv, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
 
@@ -134,6 +137,11 @@ if (pagesMode) {
 
 	let changed = 0;
 	for (const p of pages) if (await writeIfChanged(path.join(PAGES, p.file), p.text)) changed++;
+	// The artifact checklist (PROG-03) sits with the program stage pages, outside the templates folder.
+	await attempt('artifact checklist page', async () => {
+		const rows = checklistRows({ families, clauses, common, templates, catalog });
+		if (await writeIfChanged(CHECKLIST_PAGE, checklistPage({ rows, catalog, variables }))) changed++;
+	});
 	// Remove generated pages whose source is gone.
 	const keep = new Set(pages.map((p) => path.join(PAGES, p.file)));
 	const walk = async (dir) => {
@@ -147,7 +155,7 @@ if (pagesMode) {
 		}
 	};
 	await walk(PAGES);
-	finish(`Template pages: ${pages.length} page(s); ${changed} file(s) changed.`);
+	finish(`Template pages: ${pages.length + 1} page(s); ${changed} file(s) changed.`);
 } else {
 	// .docx needs pandoc (PRD TPL-05): CI installs a pinned version and fails
 	// without it; a local build without pandoc skips .docx and says so.
@@ -220,6 +228,11 @@ if (pagesMode) {
 			),
 		);
 	}
+
+	// The program artifact checklist (PROG-03), before the zips so the full kit carries it.
+	await attempt('artifact checklist', () =>
+		write(CHECKLIST_FILE, checklistCsv({ rows: checklistRows({ families, clauses, common, templates, catalog }), catalog, variables, homepage })),
+	);
 
 	// Zips: one pack per family, and the full kit (TPL-05).
 	const documents = { ...files };

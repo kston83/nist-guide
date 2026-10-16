@@ -5,6 +5,7 @@ description: A worksheet for categorizing a system and its information by the im
 controls: [ra-2]
 status: draft
 stage: foundation
+role: system-owner
 ---
 
 :::guidance

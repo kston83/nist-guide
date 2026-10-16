@@ -5,6 +5,7 @@ description: A system's cybersecurity supply chain risk management plan, followi
 controls: [sr-2, sr-2.1, sr-3]
 status: draft
 stage: mature
+role: system-owner
 typical:
   sr-02_odp.01: 'each system, including the components and services the criticality analysis (RA-9) identifies as critical and the external services the system depends on'
   sr-02_odp.02: 'annually, and at each life cycle milestone or gate review and each significant contracting action, such as a new contract, a renewal or a change of supplier for a critical component or service'

@@ -5,6 +5,7 @@ description: The register of every hardware, software, firmware, virtual and clo
 controls: [cm-8, cm-8.1, cm-8.2, cm-8.3, cm-8.4, pe-16, mp-7]
 status: draft
 stage: core
+role: system-owner
 typical:
   cm-08_odp.01: 'name, type, manufacturer and model, serial number or asset tag, software version, location, network address, owner and administrator'
   cm-08_odp.02: at least quarterly

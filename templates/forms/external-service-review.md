@@ -5,6 +5,7 @@ description: The review of one external system service before the organization u
 controls: [sa-9, sa-9.2, sa-4, ca-3, ca-5]
 status: draft
 stage: operate
+role: system-owner
 typical:
   sa-09_odp.01: 'the controls of the system''s baseline that the provider is responsible for, per the shared responsibility matrix, with evidence from an independent attestation'
   sa-09_odp.02: 'annual review of independent attestation reports, review of the provider''s continuous monitoring or status reports, and contract service reviews'

@@ -5,6 +5,7 @@ description: The report of a system risk assessment, following the three-part ou
 controls: [ra-3, ra-3.1]
 status: draft
 stage: foundation
+role: system-owner
 typical:
   ra-03_odp.03: annually
   ra-03_odp.04: 'the authorizing official, the system owner and the Chief Information Security Officer'

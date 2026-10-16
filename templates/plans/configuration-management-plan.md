@@ -5,6 +5,7 @@ description: A system's security configuration management plan, following the sa
 controls: [cm-9, cm-1, cm-2, cm-2.3, cm-3, cm-3.1, cm-3.4, cm-5]
 status: draft
 stage: core
+role: system-owner
 typical:
   cm-09_odp: the system owner and the Chief Information Security Officer
   cm-02.03_odp: at least the two most recent

@@ -51,7 +51,7 @@ npm run reference-docx # remake templates/reference.docx, the Word styles for th
 src/content/docs/
   index.mdx            Home page
   about.md             About the guide and author
-  program/             Build your program: the four stages (Foundation to Mature); checklist.md is generated
+  program/             Build your program: the four stages (Foundation to Mature) and scaling guidance; checklist.md is generated
   rmf/                 The framework: overview, roles, ATO package, program variants
     steps/             One page per RMF step (0 Prepare to 6 Monitor)
   controls/            SP 800-53 control pages, generated (see below)

@@ -7,10 +7,12 @@ automatability
 automatable
 baselined
 baselining
+Bliley
 blocklist
 blocklists
 bypassable
 Calibri
+CCPA
 CISA
 CISO
 CISSP
@@ -21,6 +23,7 @@ CMVP
 CNSS
 CNSSI
 coercivity
+COPPA
 corpuses
 countjs
 COSAIS
@@ -29,6 +32,7 @@ cryptoperiods
 CSAM
 CSIRT
 CSRMC
+CSWP
 CTEP
 CTEPs
 detailees
@@ -49,6 +53,7 @@ FOIA
 GIDEP
 GLBA
 goatcounter
+Gramm
 granularities
 headshot
 HITRUST

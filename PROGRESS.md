@@ -5,7 +5,9 @@ Tracks work against [`docs/PRD.md`](docs/PRD.md). This file is the working state
 - **Log:** [`docs/progress-log.md`](docs/progress-log.md), one row per pull request, newest first. Append there; do not read it to get oriented.
 - **Sources:** [`docs/sources.md`](docs/sources.md), the status of every external source checked, with the detailed verification notes. Read its registry table before checking a source; update the row and add a note after.
 
-## Current phase: 3 Full program kit
+## Current phase: 3 Full program kit (complete; end-of-phase review pending)
+
+Every Phase 3 exit criterion is met: kit v2.0.0 was released on 2026-10-19. Phase 4 starts only after the owner's end-of-phase review (CLAUDE.md).
 
 Phases 1 and 2 are complete and approved by the owner (Phase 2 approved by merging PRD v3, #43, 2026-09-28). PRD 3.1 sets the order: finish what the guide already covers first, the RMF program kit (Phase 3, kit v2.0.0); then methods and the SSDF (Phase 4, kit v2.1.0); then the AI security guide (Phase 5, kit v2.2.0).
 
@@ -17,7 +19,7 @@ Phases 1 and 2 are complete and approved by the owner (Phase 2 approved by mergi
 - [x] Every PM control and every privacy-only control has guidance at `draft` or better, shown on its page (PRD 3.6): **44 of 44** base controls, met with G25; the privacy-only enhancements are covered on their base control's page
 - [x] Program path complete: every PROG requirement is done. PROG-01, PROG-02 and PROG-05 in Phase 2 (#21, #30); the artifact checklist (PROG-03, row 33, #138); and the scaling guidance (PROG-04, row 34, #139), which completes it
 - [x] Every template has the standard approval and version history section (TPL-13, row 38): every policy, plan, standard, procedure and report, and the four forms that are controlled documents; met with #147
-- [ ] Kit v2.0.0 released
+- [x] Kit v2.0.0 released (TPL-10, row 39, #148): [GitHub Release v2.0.0](https://github.com/kston83/nist-guide/releases/tag/v2.0.0), tagged on `e003502` on 2026-10-19, with the full kit, three starter kits and 21 family packs
 
 Also in scope: TPL-11 (row 35), NAV-02 (row 36), PRES-02 (row 37) and TPL-13 (row 38). PRES-05 (a Phase 7 requirement) was done early at the owner's request (#125). Methods and the SSDF are Phase 4; the AI guide is Phase 5.
 
@@ -29,73 +31,7 @@ Earlier owner decisions whose work is done (moving Moderate guidance into Phase 
 
 ### Phase 3 plan
 
-Rows run in table order. Numbered rows are the original template plan; G rows are guidance.
-
-| # | Pull request | Status |
-| --- | --- | --- |
-| 1 | Content: PM policy (organization-wide edition, PM-1 sections, 37 clauses) | Merged (#45) |
-| 2 | Content: Information Security Program Plan and Risk Management Strategy | Merged (#46) |
-| 3 | Content: Rules of Behavior and system inventory (completes the starter kit) | Merged (#47) |
-| 4 | Content: PL policy | Merged (#48) |
-| 5 | Content: RA policy | Merged (#49) |
-| 6 | Content: RA artifacts (categorization worksheet, risk assessment report, risk register, vulnerability management standard) | Merged (#50) |
-| 7 | TPL-01: `report` template type (`templates/reports/`, schema, sidebar, PRD); the risk assessment report moves to it | Merged (#51) |
-| 8 | Content: AT policy, training plan and training record log | Merged (#52) |
-| 9, 10 | Content: CP policy; CP artifacts (contingency plan, business impact analysis, test plan and after-action report) | Merged (#53, #54) |
-| 11 | Content: PS policy, access agreement, and onboarding, transfer and termination checklist | Merged (#55) |
-| 12, 13 | Content: SC policy; SC standards (encryption and key management, boundary protection) | Merged (#56, #58) |
-| 14, 15 | Content: PT policy (Privacy baseline); PT artifacts (privacy notice, privacy impact assessment) | Merged (#59, #60) |
-| 16 | Content: SI policy | Merged (#62) |
-| G0 | Fix: guidance hidden on 14 control pages by a cut marker line; build check added (details in the log) | Merged (#67) |
-| UX1 | Fix: tables hard to read and wider than the page ([issue #66](https://github.com/kston83/nist-guide/issues/66); details in the log) | Merged (#69) |
-| 17 | Content: SI standards (patch and flaw remediation, system monitoring) | Merged (#70) |
-| G1 | Guidance: IA-1, IA-3, IA-4, IA-6, IA-7, IA-8, IA-11, IA-12 | Merged (#71) |
-| 18 | Content: CA policy | Merged (#73) |
-| G2 | Guidance: CA-1, CA-3, CA-6, CA-9 | Merged (#74) |
-| G3 | Guidance: AC-1, AC-4, AC-5, AC-7, AC-8, AC-11, AC-12 | Merged (#75) |
-| 19 | Content: CA artifacts (assessment plan and report, Continuous Monitoring Strategy, information exchange agreement) | Merged (#76) |
-| G4 | Guidance: AC-14, AC-18, AC-19, AC-20, AC-21, AC-22 | Merged (#78) |
-| 20 | Content: SA policy (with the privacy-only SA-8(33)) | Merged (#79) |
-| G5 | Guidance: SA-1, SA-2, SA-3, SA-4, SA-5, SA-8, SA-10, SA-11, SA-15, SA-22 | Merged (#81) |
-| G6 | Guidance: AU-1, AU-3, AU-4, AU-5, AU-7, AU-8, AU-9, AU-11 | Merged (#84) |
-| 21 | Content: SA artifacts (acquisition security requirements, external service review; the SSDF-based ones are Phase 4) | Merged (#85) |
-| G7 | Guidance: CM-1, CM-3, CM-4, CM-5, CM-9, CM-10, CM-11, CM-12 | Merged (#86) |
-| 22 | Content: MA policy and maintenance log | Merged (#87) |
-| G8 | Guidance: MA-1, MA-2, MA-3, MA-4, MA-5, MA-6 | Merged (#88) |
-| G9 | Guidance: SC-1, SC-2, SC-4, SC-5, SC-10, SC-12, SC-15 | Merged (#89) |
-| 23 | Content: MP policy and media sanitization record | Merged (#91) |
-| G10 | Guidance: MP-1, MP-2, MP-3, MP-4, MP-5, MP-6, MP-7 | Merged (#92) |
-| G11 | Guidance: SC-17, SC-18, SC-20, SC-21, SC-22, SC-23, SC-39 | Merged (#93) |
-| 24 | Content: PE policy (with the privacy-only PE-8(3)), physical access list and visitor log | Merged (#95) |
-| G12 | Guidance: PE-1, PE-2, PE-3, PE-4, PE-5, PE-6, PE-8, PE-9 | Merged (#96) |
-| G13 | Guidance: PE-10, PE-11, PE-12, PE-13, PE-14, PE-15, PE-16, PE-17 | Merged (#97) |
-| 29 | Content: CM artifacts (Configuration Management Plan, baseline configuration standard, change request form, component inventory; required content in the owner decision of 2026-09-30 above) | Merged (#99) |
-| G14 | Guidance: SI-1, SI-3, SI-5, SI-7, SI-8, SI-10, SI-11, SI-12, SI-16 | Merged (#101) |
-| 25 | Content: SR policy | Merged (#102) |
-| G15 | Guidance: SR-1, SR-2, SR-3, SR-5, SR-6, SR-8, SR-10, SR-11, SR-12 | Merged (#104) |
-| G16 | Guidance: IR-1, IR-2, IR-3, IR-5, IR-6, IR-7 | Merged (#106) |
-| 26 | Content: SR artifacts (Supply Chain Risk Management Plan, supplier assessment questionnaire) | Merged (#108) |
-| G17 | Guidance: CP-1, CP-3, CP-4, CP-6, CP-7, CP-8, CP-10 | Merged (#109) |
-| 27 | Content: AC artifacts (account management procedure, access request form, access review record, remote access standard), and the AC-3(14) clause, with an AC-3(14) paragraph in the AC-3 guidance | Merged (#111) |
-| G18 | Guidance: RA-1, RA-2, RA-7, RA-9, PL-1, PL-4, PL-8, PL-10, PL-11 | Merged (#112) |
-| 28 | Content: IA artifact (identification and authentication standard) | Merged (#113) |
-| G19 | Guidance: AT-1, AT-3, AT-4, PS-1, PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8, PS-9 | Merged (#114) |
-| G20 | Guidance: PM-1, PM-2, PM-3, PM-4, PM-5 (with PM-5(1)), PM-6, PM-7 (with PM-7(1)), PM-8 | Merged (#118) |
-| 30 | Content: AU artifacts (audit logging standard, log review procedure), and the AU-3(3) clause, with an AU-3(3) paragraph in the AU-3 guidance | Merged (#119) |
-| G21 | Guidance: PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16 (with PM-16(1)) | Merged (#128) |
-| 31 | Content: IR artifacts (incident handling playbook, incident report form, tabletop exercise kit), and the IR-2(3) and IR-8(1) clauses, with IR-2(3) and IR-8(1) paragraphs in the IR-2 and IR-8 guidance | Merged (#131) |
-| G22 | Guidance: PM-17, PM-18, PM-19, PM-20 (with PM-20(1)), PM-21, PM-22, PM-23, PM-24 | Merged (#133) |
-| G23 | Guidance: PM-25, PM-26, PM-27, PM-28, PM-29, PM-30 (with PM-30(1)), PM-31, PM-32 | Merged (#134) |
-| G24 | Guidance: PT-1, PT-2, PT-3, PT-4, PT-5, PT-6, PT-7, PT-8, with their enhancements | Merged (#135) |
-| G25 | Guidance: PL-9, RA-8, SI-18 (with SI-18(4)), SI-19, and an SC-7(24) paragraph in the SC-7 guidance | Merged (#136) |
-| 32 | TPL-09 consolidated policy, and the starter kit uses it | Merged (#137) |
-| 33 | PROG-03 program artifact checklist (page and `.csv`, generated from template front matter) | Merged (#138) |
-| 34 | PROG-04 scaling guidance (`program/scaling.md`: merge, skip or defer, federal must-haves, with sources) | Merged (#139) |
-| 35 | TPL-11 template change history (each template page lists, per kit version, the merged pull requests that changed its sources; built from git history at build time) | Merged (#144) |
-| 36 | NAV-02 generated indexes (industry, technology and template indexes from front matter, each with a one-line summary) | Merged (#145) |
-| 37 | PRES-02 print styles for step, control and template pages | Merged (#146) |
-| 38 | TPL-13 approval and version history section in every template, and shorter template descriptions (owner decisions, 2026-10-19; PRD 3.11) | Merged (#147) |
-| 39 | TPL-10 kit v2.0.0 version bump; tag only with the owner's go-ahead | In review (#148) |
+All 39 rows merged; the table is archived in [`docs/progress-log.md`](docs/progress-log.md#phase-3-plan-complete).
 
 ## Notes for the next session
 
@@ -104,7 +40,7 @@ Rows run in table order. Numbered rows are the original template plan; G rows ar
 - **Dependencies (updated 2026-10-13, DEPS-01):** everything that can be updated within the current version ranges is (`npm outdated` empty; `http-cache-semantics` 4.3.0 closes its Dependabot alert). Owner decision (2026-09-30), still standing: not acting on the high-severity `extract-zip` alerts, which have no patched version; the fix is pa11y 10 with Puppeteer 25, once pa11y-ci supports it. `npm audit` also lists findings that only a newer parent can fix, all in tools that never ship to visitors: `basic-ftp` and `extract-zip` (pa11y-ci, through Puppeteer), `braces`, `katex` and `smol-toml` (markdownlint-cli2), and `postcss-selector-parser` (Expressive Code's build-time CSS). Never run `npm audit fix --force`: it "fixes" these by downgrading pa11y-ci, markdownlint-cli2 and Starlight (to 0.21.5). Wait for the parents to update. The DEPS-01 pull request describes how each update was checked by hand.
 - **Waiting on the owner (2026-09-30):** (1) the decision worksheets' "Who decides" column: the family questions name different deciders (for SA: the CIO for SA-3, the authorizing official for SA-22, the system owner for SA-10, SA-11 and SA-15), but every parameter row shows the family policy's role; the owner has not chosen whether parameter rows should follow the question that covers their control. Leave the logic alone until they decide. (2) The FAR question in Open questions (SA-4, SA-4(10) clauses and the SA-4 guidance).
 - **Subagent working copies:** subagents may run with `isolation: "worktree"` so the owner's checkout stays put; remove each worktree under `.claude/worktrees/` once its PR merges (`git worktree remove`). If a PR opens while an earlier one is unmerged, rebase it after the merge and keep both sides of any `PROGRESS.md` conflict.
-- **Phase 3 handoff (row 39, TPL-10, 2026-10-19):** every Phase 3 exit criterion is met except "Kit v2.0.0 released". `package.json` is at 2.0.0 and every template page prints it. Next: (1) the owner merges row 39; (2) with the owner's go-ahead, tag the merge commit `v2.0.0` on `main` and push the tag (README, "Releasing the template kit"); never tag without it; (3) watch the Release kit workflow, its first run since `ubuntu-latest` moved to Ubuntu 26 on 2026-10-19, then tick "Kit v2.0.0 released" and mark row 39 merged; (4) the end-of-phase review with the owner before any Phase 4 work (CLAUDE.md: stop and ask at the end of each phase), raising the open questions deferred to Phase 4 (the SSDF source for SSDF-01) and the items waiting on the owner. `node scripts/build-changelog.mjs --notes v2.0.0` works only once the tag exists; before that, `--notes Unreleased` previews the same notes. **TPL-13 decisions still binding (owner, 2026-10-19, #147):** policies, plans, standards, procedures and reports, and the four forms that are controlled documents (access agreement, information exchange agreement, privacy notice, rules of behavior, listed in `CONTROLLED_FORMS`), end with one "Approval and version history" section of two four-column tables, written word for word from `policy/_common.md` (`scripts/test/template-version-record.test.mjs` checks it). Copy it to the end of every new plan, standard, procedure or report (and a form only if it is a controlled document); name the approver in the template's own text rather than adding a signature table, except for acknowledgments, attestations, two-party signatures and per-event decisions; keep hand-written `description`s to about 25 words. Downloads carry the section; the TPL-11 change history stays site-only. **PRES-02 print choices (owner, 2026-10-19):** details print expanded; only external links print URLs; the footer license and disclaimer print; keep new page elements legible in `src/styles/print.css` and hide site-only ones there.
+- **Phase 3 handoff (2026-10-19, after v2.0.0):** row 39 merged (#148) and `v2.0.0` was tagged on its merge commit with the owner's go-ahead; the Release kit workflow passed on its first run on Ubuntu 26 and published 24 assets (each `.docx` present, documents print 2.0.0), with notes grouped by the fixed changelog types. The records pass (#149) archived the plan table and refreshed the PRD Current state, the roadmap, the README and the About page. Next: the end-of-phase review with the owner before any Phase 4 work: approve Phase 3; settle the SSDF source for SSDF-01 (Open questions); the items waiting on the owner (the worksheets' "Who decides" column, the FAR question); then draft the Phase 4 plan table for approval. **TPL-13 decisions still binding (owner, 2026-10-19, #147):** policies, plans, standards, procedures and reports, and the four forms that are controlled documents (access agreement, information exchange agreement, privacy notice, rules of behavior, listed in `CONTROLLED_FORMS`), end with one "Approval and version history" section of two four-column tables, written word for word from `policy/_common.md` (`scripts/test/template-version-record.test.mjs` checks it). Copy it to the end of every new plan, standard, procedure or report (and a form only if it is a controlled document); name the approver in the template's own text rather than adding a signature table, except for acknowledgments, attestations, two-party signatures and per-event decisions; keep hand-written `description`s to about 25 words. Downloads carry the section; the TPL-11 change history stays site-only. **PRES-02 print choices (owner, 2026-10-19):** details print expanded; only external links print URLs; the footer license and disclaimer print; keep new page elements legible in `src/styles/print.css` and hide site-only ones there.
 - **Phase 3 settled notes** (2026-10-19): the plan table shows what has merged; out-of-plan PRs and the settled notes on rows 32 to 37 are in the log. Still binding: the consolidated policy's own text (intro guidance, Control families section) lives in code (`assembleConsolidated`), not in a `templates/` source, and clause text that names another family's policy reads as a reference to that family's part, so write clauses with that in mind. `variables.yml` has no control assessor or authorizing official key, so the assessment plan and report keep the CISO fallback in the artifact checklist (SP 800-37 Rev. 2 tasks A-2 and A-4); set `role` on a new template whenever the fallback is wrong. **Template change history (TPL-11, owner 2026-10-19):** standard elements, not a design change; downloads do not carry it; the shared `_common.md` counts for every family policy and worksheet, and only `template-assemble.ts` counts as code (consolidated policy); entries drop plan-row prefixes (`Row N:`, `Gn:`, `Wn:`, `UXn:`) as they drop `Content:`, so keep squash subjects readable (`ID: summary`). **Generated indexes (NAV-02, PRD 3.12):** a template page, industry guide or technology playbook with no `description` fails the run or the build. **G25 review fix (owner, 2026-10-15):** the privacy impact assessment section 12 has an annual review tied to the SI-18 relevance check (`si-18_odp.02`); keep the two in step. **Keep in step:** the privacy impact assessment (`templates/reports/privacy-impact-assessment.md`) copies the PT-2, PT-3, PT-7 and SC-7(24) typical values (the RA-8 page lists them); the privacy notice and the PT-5 values; the incident handling playbook, incident report form and tabletop exercise kit with the IR-3, IR-4(1), IR-6 and IR-6(1) clauses; the audit logging standard and log review procedure with the AU clauses; the IA standard with the IA and AC-7 clauses; the account management procedure (section 5.5 step 3) and the acquisition security requirements standard (section 4.9) with `ps-04_odp.01` and `ps-07_odp.*`; the PM-28 distribution value with the Risk Management Strategy. **Owner decisions still binding:** OMB M-16-24, M-23-22, Circular A-108 and M-17-12 are treated as current, as are M-19-23 and EO 13719 (2026-10-14); the best-practice values on PM-20, PM-21 and PM-22 stay; there is no privacy program plan template for now, so the PM-18 page maps PM-18 to the Information Security Program Plan (G22 review); cite A-130 Appendix II section 3 (the Fair Information Practice Principles) only with "not OMB requirements"; only the authorizing official accepts risk for an authorized system (SP 800-37 Rev. 2 task R-3; G18), so write risk acceptance as "consult before accepting"; procedures sit flat in `templates/procedures/`, written as numbered steps by role in tables with no "shall". The PT-8 page cites Treasury's Do Not Pay waiver notice (90 FR 43729, effective through September 10, 2029); update it if Treasury ends or extends the waiver. If OMB issues new FISMA guidance or rescinds M-17-12, update the IR-6, IR-2, IR-8 and PL-4 guidance, the IR-2(3) and IR-8(1) clauses, the playbook, the form, the Rules of Behavior and the Incident Response Plan. **At the contingency plan's next change:** add a reconstitution time row to section 2.2 (the CP-10 typical value points to it). **At the encryption and key management standard's next change:** mention the SP 800-57 Part 1 Rev. 6 draft and consider OMB M-22-09 Section III.C. Do not cite the FAR, HSPD-12 or OMB M-03-22 while their open questions stand. **Counts:** 287 of 287 Moderate controls with clauses; privacy-only clauses 29 of 29; artifacts 49 of 50 (the 50th is the SSDF-based SA artifact, Phase 4); Moderate guidance 177 of 177; PM and privacy-only guidance 44 of 44 with G25. The roadmap page and the README Roadmap table were refreshed for kit v2.0.0 on 2026-10-19 (row 39); refresh them when the owner asks, at the end of each phase and with each kit release. The owner merges each PR before the next starts.
 - **Home page cards (low priority, owner 2026-09-29):** the "What's in the guide" cards in `src/content/docs/index.mdx` are out of date: Industry guides and Technology playbooks don't say they are planned, and there is no card for the program templates. Owner decision: pick this up later, once more content lands, as its own PR; changing the cards is a visual change, so confirm the layout with the owner first.
 - **Roadmap page** (`src/content/docs/reference/roadmap.md`, #57): the public summary of the PRD's vision and phases, with status "as of" a month, counted on `main`. Update its "Where it stands" counts and phase statuses at the end of each phase and with each kit release (v2.0.0 at the end of Phase 3), and keep the README Roadmap table in step. It names no PR numbers, owner decisions, or the proposed industries and platforms (still open questions).

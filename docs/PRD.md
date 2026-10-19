@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.12 · Oct 19, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.13 · Oct 19, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -75,22 +75,22 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 
 ## Current state
 
-As of Oct 1, 2026, in Phase 3. The repo builds about 420 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
+As of Oct 19, 2026, Phase 3 is complete (kit v2.0.0 released) and its end-of-phase review is pending. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
 
 | Area | Status | Location |
 | --- | --- | --- |
 | Stack | Astro 7.3 with Starlight 0.42, Node 22.12+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
 | Deploy | GitHub Actions to GitHub Pages at `https://kston83.github.io/nist-guide/` (subpath; see `BASE_PATH`) | `.github/workflows/deploy.yml` |
 | Checks | On every PR, required on `main`: tests, Markdown and template lint, spell check, generated pages current, build with the kit, links, search and accessibility. Actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/` |
-| Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026 | `.github/workflows/release.yml` |
+| Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026, and v2.0.0 Oct 19, 2026 | `.github/workflows/release.yml` |
 | Theme | Public Sans body, Source Serif 4 headings, teal accent, light and dark | `src/styles/theme.css` |
 | Home page | Hero, clickable seven-step strip, section cards, about blurb | `src/content/docs/index.mdx`, `src/components/StepStrip.astro` |
 | RMF section | Overview, roles, 7 step pages, ATO checklist, program variants, 2 SVG diagrams | `src/content/docs/rmf/`, `public/diagrams/` |
-| Build your program | Four stage pages listing their artifacts from template front matter | `src/content/docs/program/` |
+| Build your program | Four stage pages listing their artifacts from template front matter, an artifact checklist (page and `.csv`) and scaling guidance | `src/content/docs/program/` |
 | Control pages | 300 active controls in 20 families from NIST OSCAL release 5.2.0; baselines, enhancements, 800-53A objectives, parameters; family hubs, baseline lists, coverage page and status badges | `src/content/docs/controls/`, `scripts/import-oscal.mjs` |
-| Control guidance | 95 controls at `draft`, in the AC-2 format | `controls/<family>/<id>.md` |
-| Templates | Template system complete (TPL-01 to TPL-08, TPL-10). Policies for 17 of 20 families (MP, PE and SR to come), 32 plans, standards, forms and reports, decision worksheets and a starter kit | `templates/`, `src/content/docs/templates/` |
-| Industries, technology | Overview pages with planned topics only | `industries/`, `technology/` |
+| Control guidance | 221 controls at `draft`, in the AC-2 format: all 177 Moderate, all 32 PM and the 12 privacy-only base controls | `controls/<family>/<id>.md` |
+| Templates | Template system complete (TPL-01 to TPL-11, TPL-13; TPL-12 is P3). Policies for all 20 families and a consolidated policy per baseline, 51 plans, standards, procedures, forms and reports, decision worksheets and a starter kit; each template page has a change history, and every template except per-event forms and registers ends with an approval and version history section | `templates/`, `src/content/docs/templates/` |
+| Industries, technology | Index pages generated from front matter; no guides or playbooks yet (Phase 6) | `industries/`, `technology/` |
 | Reference | Library, glossary, page templates, roadmap, changelog (generated from git history) | `reference/` |
 | Footer | Disclaimer, CC BY 4.0 notice for content and CC0 notice for templates | `src/components/Footer.astro` |
 | Author identity | Name, bio and LinkedIn in place; LinkedIn in the header. Headshot still to come | `about.md`, `index.mdx`, `LICENSE`, `astro.config.mjs` |
@@ -730,3 +730,4 @@ None of these block Phase 1.
 | 3.10 | Oct 16, 2026 | Owner decision (PROG-03 review): an optional `role` field in non-policy template front matter, a key in `variables.yml` for the role accountable for the artifact; without it, the role of the family policy of the first control listed (Clause and template front matter, Decided) |
 | 3.11 | Oct 19, 2026 | Owner decision (TPL-11 review): TPL-13, a standard approval and version history section in every template, in Phase 3 before kit v2.0.0 (Templates, Writing templates, Phase 3 row, Decided) |
 | 3.12 | Oct 19, 2026 | NAV-02 (row 36), no change in scope: the Front matter contract notes that `description`, Starlight's own field, is required on industry and technology pages, as the one-line summary their section indexes list; the build fails without it (confirmed by the owner in the NAV-02 review) |
+| 3.13 | Oct 19, 2026 | Records after kit v2.0.0, no change in scope: Current state refreshed (Phase 3 complete, v2.0.0 released, guidance, template and program counts) |

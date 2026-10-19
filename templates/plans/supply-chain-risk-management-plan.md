@@ -1,7 +1,7 @@
 ---
 title: Supply Chain Risk Management Plan
 type: plan
-description: A system's cybersecurity supply chain risk management plan, following the sample outline in NIST SP 800-161 Rev. 1 Appendix D.3.1 and the outline example NIST publishes with SP 800-18 Rev. 2, with the system's critical components, services and suppliers, the supply chain controls selected, the risks accepted, and the plan's approval, review and protection, as SP 800-53 SR-2 requires.
+description: A system's cybersecurity supply chain risk management plan, following the NIST SP 800-161 Rev. 1 and SP 800-18 Rev. 2 outlines, with critical components, suppliers, controls and accepted risks (SR-2).
 controls: [sr-2, sr-2.1, sr-3]
 status: draft
 stage: mature
@@ -34,13 +34,7 @@ This plan contains information about the system's suppliers, critical components
 SP 800-18 Rev. 2 says the authorizing official approves the plan before the controls are implemented or assessed, and that approving the plan accepts the allocated controls and their proposed implementation; approval of the plan is not an authorization to operate. When reviewing the plan, the authorizing official consults the supply chain risk management team and, for technology purchases, the acquisition staff (section 4.3.3). The sample plan in SP 800-161 Rev. 1 (section D.3.1.12) carries the authorizing official's signature.
 :::
 
-This plan was reviewed and is approved by the authorizing official, after coordination with the supply chain risk management team and the procurement office (SR-2a).
-
-| Name | Role | Signature | Date |
-| --- | --- | --- | --- |
-| {{fill:name}} | {{org:system-owner}} (plan owner) | | {{fill:date}} |
-| {{fill:name}} | Lead of the supply chain risk management team (coordination) | | {{fill:date}} |
-| {{fill:name}} | Authorizing official (approval) | | {{fill:date}} |
+This plan was reviewed and is approved by the authorizing official, after coordination with the supply chain risk management team and the procurement office (SR-2a). The {{org:system-owner}} signs as the plan owner and the lead of the supply chain risk management team for the coordination, with the authorizing official's approval. Each signature, review and change is recorded under Approval and version history at the end of this plan.
 
 ## 1. System name and identifier
 
@@ -254,17 +248,7 @@ SP 800-18 Rev. 2 says the plan identifies suppliers or products that are prohibi
 SP 800-161 Rev. 1 section D.3.1.11 has the plan reviewed at least at life cycle milestones, gate reviews and significant contracting activities, and checked against higher-level plans. The change events above are from SP 800-18 Rev. 2 (section 4.7), which lists them among the reasons to update system plans. Changes to this plan can go through the system's change control.
 :::
 
-Review log:
-
-| Date | Reviewed by | Result and notes |
-| --- | --- | --- |
-| {{fill:date}} | {{fill:name and title}} | {{fill:for example no change needed, or the changes made}} |
-
-Change log:
-
-| Version | Date | Description of change | Sections affected | Changed by | Approved by |
-| --- | --- | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:description}} | {{fill:sections}} | {{fill:name, title and organization}} | {{fill:name and title}} |
+Each review, with its result, and each change, with the sections affected, is recorded in the version history at the end of this plan.
 
 ## 12. Acronyms and glossary
 
@@ -284,3 +268,23 @@ Change log:
 | Component-specific risk assessments | {{fill:location, or "none"}} |
 | Supply chain risk management plans of contractors or suppliers | {{fill:location, or "none"}} |
 | {{fill:other artifacts referenced in section 7.3}} | {{fill:location}} |
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

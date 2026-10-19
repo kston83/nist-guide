@@ -1,7 +1,7 @@
 ---
 title: External Service Review
 type: form
-description: The review of one external system service before the organization uses it and at each review after that, covering the contract's security and privacy requirements, the provider's evidence of compliance, the shared responsibilities and the decision, with a register of every external service and its next review, as SP 800-53 SA-9 requires.
+description: The review of one external system service before use and at each review after, covering contract requirements, provider evidence, shared responsibilities and the decision, with a service register (SA-9).
 controls: [sa-9, sa-9.2, sa-4, ca-3, ca-5]
 status: draft
 stage: operate

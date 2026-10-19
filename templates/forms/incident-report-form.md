@@ -1,7 +1,7 @@
 ---
 title: Incident Report Form
 type: form
-description: The record of one report of a suspected incident or breach, from the first report through triage, notifications and closure, with a register of every report, as SP 800-53 IR-6 and IR-5 require.
+description: The record of one report of a suspected incident or breach, through triage, notifications and closure, with a register of every report (IR-5, IR-6).
 controls: [ir-6, ir-6.1, ir-5, ir-7, ir-8.1]
 status: draft
 stage: core

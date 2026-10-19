@@ -1,7 +1,7 @@
 ---
 title: Log Review Procedure
 type: procedure
-description: The steps, by role, for reviewing and analyzing audit records, correlating them across systems, reporting findings and handing suspected incidents to the incident response team, with the inputs, outputs and record each step leaves, that carry out the audit and accountability policy's review requirements (SP 800-53 AU-6) and its reduction and reporting capability (AU-7).
+description: The steps, by role, for reviewing, analyzing and correlating audit records, reporting findings and handing suspected incidents to the incident response team (AU-6, AU-7).
 controls: [au-6, au-6.1, au-6.3, au-6.5, au-6.6, au-7, au-7.1]
 status: draft
 stage: core
@@ -186,6 +186,22 @@ SP 800-92 section 5.2.3 says system-level administrators usually review the entr
 
 The {{org:ciso}} reviews this procedure {{fill:for example annually}}, and after assessment or audit findings, security incidents that the review missed or found late, and changes to the central log platform or the event list.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

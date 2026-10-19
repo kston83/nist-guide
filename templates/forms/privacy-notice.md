@@ -1,7 +1,7 @@
 ---
 title: Privacy Notice
 type: form
-description: The privacy notice an organization publishes on its privacy page and links from every point where it collects personally identifiable information, with a short notice for forms and screens, a Privacy Act statement for federal collections, and a register of where each notice is posted, as SP 800-53 PT-5 and PM-20(1) require.
+description: The privacy notice published on the organization's privacy page and linked from each collection point, with a short notice, a federal Privacy Act statement and a posting register (PT-5, PM-20(1)).
 controls: [pt-5, pt-5.2, pm-20, pm-20.1, pt-2, pt-3, pt-4, pt-7]
 status: draft
 stage: core
@@ -131,3 +131,23 @@ The Privacy Act requires each agency to inform every individual it asks to suppl
 | Notice | Type | Where posted | Version | Approved by | Approved date | Effective date | Last reviewed | Replaced on |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | {{fill:notice name}} | {{fill:full notice, short notice or Privacy Act statement}} | {{fill:web address, form number or screen}} | {{fill:version}} | {{fill:name and title}} | {{fill:date}} | {{fill:date}} | {{fill:date}} | {{fill:date, or blank if current}} |
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

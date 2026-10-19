@@ -154,22 +154,12 @@ Controls that the organization provides once and systems inherit, fully or in pa
 | Family policies | The -1 control of each family | {{fill:location}} | {{fill:date}} |
 | Incident response plan | IR-8 | {{fill:location}} | {{fill:date}} |
 
-## 9. Approval
+## 9. Approval, review and protection
 
-The {{org:senior-leader}} approves this plan as the senior official responsible and accountable for the risk that {{org:name}} incurs to its operations, assets, individuals, other organizations and the Nation (PM-1a.4).
-
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| {{fill:name}} | {{org:senior-leader}} | | {{fill:date}} |
-
-## 10. Review, change history and protection
+The {{org:senior-leader}} approves this plan as the senior official responsible and accountable for the risk that {{org:name}} incurs to its operations, assets, individuals, other organizations and the Nation (PM-1a.4). Each approval, review and change is recorded under Approval and version history at the end of this plan.
 
 - The {{org:ciso}} shall review and update this plan {{param:pm-01_odp.01}} and following {{param:pm-01_odp.02}}. (PM-1b)
 - The {{org:ciso}} shall protect this plan from unauthorized disclosure and modification by keeping it in {{fill:where the plan is kept, with access limited to named roles}} and keeping each approved version. (PM-1c)
-
-| Version | Date | Change | Approved by |
-| --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
 
 :::federal
 For federal agencies, this plan documents the agency-wide information security program required by the Federal Information Security Modernization Act of 2014 ([44 U.S.C. § 3554(b)](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title44-section3554&num=0&edition=prelim)). The {{org:ciso}} is the senior agency information security officer designated under 44 U.S.C. § 3554(a)(3)(A), and the {{org:privacy-official}} is the Senior Agency Official for Privacy designated under [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf).
@@ -177,3 +167,23 @@ For federal agencies, this plan documents the agency-wide information security p
 - Section 2 shall list the federal laws, OMB policies and CISA directives that apply to the agency's systems. (PM-1a.1)
 
 :::
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

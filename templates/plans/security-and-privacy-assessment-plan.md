@@ -1,7 +1,7 @@
 ---
 title: Security and Privacy Assessment Plan
 type: plan
-description: The plan for one control assessment of a system or of common controls, with its scope, SP 800-53A procedures and methods, environment, team, assessor independence, schedule and approval, as SP 800-53 CA-2 requires.
+description: The plan for one control assessment of a system or of common controls, with its scope, SP 800-53A procedures, team, assessor independence, schedule and approval (CA-2).
 controls: [ca-2, ca-2.1, ca-2.2, ca-8, ca-7.1]
 status: draft
 stage: operate
@@ -167,10 +167,24 @@ The Federal Information Security Modernization Act requires periodic testing and
 
 ## 10. Approval
 
-The authorizing official or designated representative has reviewed this plan, confirmed that the assessors' independence is sufficient, and approves the assessment to begin (CA-2c, CA-2(1)).
+The authorizing official or designated representative has reviewed this plan, confirmed that the assessors' independence is sufficient, and approves the assessment to begin (CA-2c, CA-2(1)). The lead assessor and the {{org:system-owner}} sign with the authorizing official. Each signature, review and change is recorded under Approval and version history at the end of this plan.
 
-| Name | Title | Signature | Date |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:name}} | {{fill:authorizing official or designated representative}} | | {{fill:date}} |
-| {{fill:name}} | Lead assessor | | {{fill:date}} |
-| {{fill:name}} | {{org:system-owner}} | | {{fill:date}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

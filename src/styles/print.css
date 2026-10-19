@@ -1,0 +1,181 @@
+/*
+ * Print styles (PRD PRES-02): step, control and template pages print as clean
+ * documents, with no navigation chrome. Every rule is inside `@media print`, so
+ * the screen is unchanged.
+ *
+ * Starlight's own print stylesheet already forces its light colors, hides the
+ * sidebars, mobile menu, edit link and pagination (`print:hidden`), lets the
+ * content use the full width, and keeps code blocks, asides and headings from
+ * breaking badly. This file adds what the site's own styles need on paper:
+ * - the site's accent colors, which `theme.css` sets after Starlight's print
+ *   colors, so a dark theme would otherwise print light teal on white;
+ * - the header, skip link and footer meta hidden, keeping the footer's
+ *   disclaimer and license line, which attribution needs on a printed copy;
+ * - tables at full width with borders and repeated header rows, instead of
+ *   scrolling boxes that clip columns;
+ * - collapsed `<details>` blocks (the NIST discussion and assessment
+ *   objectives on control pages) printed open, since paper cannot expand them;
+ *   the template "Change history" is left out, as the downloads leave it out;
+ * - the URL after each external link, where a reader of paper can use it.
+ */
+@media print {
+	@page {
+		margin: 1.5cm;
+	}
+
+	/* Black on white whatever the theme. Matches the specificity of the theme
+	   selectors in theme.css, and comes after it. */
+	:root,
+	:root[data-theme] {
+		color-scheme: light;
+		font-size: 11pt;
+		--sl-color-text: #000;
+		--sl-color-white: #000;
+		--sl-color-gray-1: #111;
+		--sl-color-gray-2: #222;
+		--sl-color-gray-3: #444;
+		--sl-color-accent-low: #d4ece9;
+		--sl-color-accent: #0f5c5a;
+		--sl-color-accent-high: #093a39;
+		--sl-color-text-accent: #0f5c5a;
+		--rfg-table-stripe: transparent;
+	}
+
+	body {
+		background: #fff;
+		color: #000;
+	}
+
+	/* Chrome Starlight leaves on paper. */
+	.page > header,
+	.sl-skip-link,
+	.sl-anchor-link,
+	footer .meta,
+	.status-badges a,
+	.template-history {
+		display: none !important;
+	}
+
+	/* Content at the full page width. */
+	.sl-markdown-content > :is(p, ul, ol, dl, blockquote) {
+		max-width: none;
+	}
+
+	.sl-markdown-content a {
+		color: inherit;
+	}
+
+	/* External links show where they go; internal links read as cross-references
+	   by their text (a control ID or a page title), and table cells stay short. */
+	:is(.sl-markdown-content, .site-notice) a[href^='http']:not(:where(table *))::after {
+		content: ' <' attr(href) '>';
+		font-size: 0.85em;
+		overflow-wrap: anywhere;
+		text-decoration: none;
+		display: inline;
+	}
+
+	/* Headings stay with what follows them. */
+	.sl-heading-wrapper,
+	.sl-markdown-content summary {
+		break-after: avoid;
+		break-inside: avoid;
+	}
+
+	.sl-markdown-content :is(img, svg, figure, blockquote, .starlight-aside, tr) {
+		break-inside: avoid;
+	}
+
+	.sl-markdown-content img {
+		max-width: 100%;
+	}
+
+	/* Tables: a real table at full width, bordered, header rows repeated on each page. */
+	.sl-markdown-content table:not(:where(.not-content *)) {
+		display: table;
+		width: 100%;
+		overflow: visible;
+		border-collapse: collapse;
+		font-size: 0.9em;
+		animation: none;
+		box-shadow: none;
+	}
+
+	.sl-markdown-content thead:not(:where(.not-content *)) {
+		display: table-header-group;
+	}
+
+	.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+		min-width: 0;
+		padding: 0.3rem 0.5rem;
+		border: 1px solid #777;
+	}
+
+	.sl-markdown-content thead th:not(:where(.not-content *)) {
+		border-bottom: 2px solid #000;
+	}
+
+	/* Collapsed blocks print open (browsers with ::details-content: Chrome and
+	   Edge 131, Safari 18.4, Firefox 143). Older browsers print the summary line. */
+	.sl-markdown-content details::details-content {
+		content-visibility: visible;
+		display: block;
+	}
+
+	/* The summary prints as a label, without the disclosure arrow. */
+	.sl-markdown-content details summary {
+		color: #000;
+		margin-bottom: 0.5rem;
+	}
+
+	.sl-markdown-content details summary::before {
+		display: none;
+	}
+
+	/* Code blocks: light colors, wrapped lines, no clipping. */
+	.expressive-code {
+		--ec-codeBg: #fff !important;
+		--ec-codeFg: #000 !important;
+		--ec-brdCol: #777 !important;
+	}
+
+	.expressive-code .ec-line span[style^='--'] {
+		color: var(--1, inherit) !important;
+	}
+
+	.expressive-code pre,
+	.expressive-code .ec-line,
+	.expressive-code .ec-line .code {
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+		overflow: visible;
+	}
+
+	/* Badges, fill-in fields and federal blocks keep their shape without
+	   background colors, and read in grayscale. */
+	.sl-badge {
+		border: 1px solid #000;
+		color: #000;
+	}
+
+	.sl-markdown-content .tpl-field {
+		background: none;
+		color: #000;
+		border: 1px solid #555;
+	}
+
+	.sl-markdown-content .tpl-federal {
+		border-inline-start-color: #000;
+	}
+
+	.starlight-aside {
+		background: none;
+		border: 1px solid #555;
+		border-inline-start-width: 4px;
+	}
+
+	.starlight-aside__title,
+	.starlight-aside__icon {
+		color: #000;
+	}
+}

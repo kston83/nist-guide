@@ -74,6 +74,7 @@ public/diagrams/       SVG diagrams used in pages
 .github/workflows/     Check, Deploy to GitHub Pages, Release kit
 astro.config.mjs       Site settings, base path and sidebar
 src/styles/theme.css   Colors and typefaces
+src/styles/print.css   Print styles (print only)
 ```
 
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains how these fit together.

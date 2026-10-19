@@ -152,6 +152,7 @@ export default defineConfig({
 				'@fontsource/public-sans/600.css',
 				'@fontsource/source-serif-4/600.css',
 				'./src/styles/theme.css',
+				'./src/styles/print.css', // PRES-02; print only, so the screen is unchanged
 			],
 			components: {
 				Footer: './src/components/Footer.astro',

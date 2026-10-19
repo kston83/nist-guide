@@ -13,7 +13,7 @@ controls: [ra-3, ra-7]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

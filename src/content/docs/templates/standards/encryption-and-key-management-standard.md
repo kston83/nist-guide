@@ -13,7 +13,7 @@ controls: [sc-8, sc-8.1, sc-12, sc-12.1, sc-13, sc-17, sc-28, sc-28.1]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

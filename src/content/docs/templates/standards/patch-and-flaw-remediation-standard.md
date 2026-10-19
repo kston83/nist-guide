@@ -13,7 +13,7 @@ controls: [si-2, si-2.2, si-3, si-5, si-7.15]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

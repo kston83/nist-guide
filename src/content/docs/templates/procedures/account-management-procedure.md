@@ -13,7 +13,7 @@ controls: [ac-2, ac-2.1, ac-2.2, ac-2.3, ac-2.4, ac-2.13, ac-5, ac-6.7, ps-4]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Procedure | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Procedure | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

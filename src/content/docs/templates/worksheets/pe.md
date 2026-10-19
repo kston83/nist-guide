@@ -13,7 +13,7 @@ controls: [pe-1, pe-2, pe-3, pe-3.1, pe-4, pe-5, pe-6, pe-6.1, pe-6.4, pe-8, pe-
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

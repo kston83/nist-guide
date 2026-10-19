@@ -13,7 +13,7 @@ controls: [mp-6, mp-6.1, mp-6.2, mp-6.3, mp-4, mp-5, ma-2, ma-3.3]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

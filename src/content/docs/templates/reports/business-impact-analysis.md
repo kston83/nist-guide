@@ -13,7 +13,7 @@ controls: [cp-2, cp-2.3, cp-2.8]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Report | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Report | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

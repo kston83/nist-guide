@@ -13,7 +13,7 @@ controls: [pe-2, pe-3, pe-3.1, ps-4, ps-5]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

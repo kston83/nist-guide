@@ -6,8 +6,9 @@
 // Change types, from the start of the commit subject, in display order.
 export const TYPES = [
 	['feature', 'Site and template kit', /^(?:CTRL|TPL|PROG|NAV|LINK|PRES|QA|FEAT|SSDF)-\d+/],
-	['content', 'Content', /^Content:/],
-	['dependency', 'Dependencies', /^(?:Bump|build\(deps|chore\(deps)/i],
+	// Plan-row subjects ("Row 27:", "G25:") are content too.
+	['content', 'Content', /^(?:Content|Row \d+|G\d+):/],
+	['dependency', 'Dependencies', /^(?:Bump|build\(deps|chore\(deps|DEPS-\d+)/i],
 	['project', 'Project notes', /^(?:Progress|PRD|Docs?)\b/],
 	['other', 'Other changes', /./],
 ];

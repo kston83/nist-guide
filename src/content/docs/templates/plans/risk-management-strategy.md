@@ -13,7 +13,7 @@ controls: [pm-9, pm-28, pm-29, pm-31]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Plan | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Plan | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

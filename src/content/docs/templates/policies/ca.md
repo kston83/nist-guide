@@ -13,7 +13,7 @@ controls: [ca-1, ca-2, ca-2.1, ca-2.2, ca-3, ca-3.6, ca-5, ca-6, ca-7, ca-7.1, c
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

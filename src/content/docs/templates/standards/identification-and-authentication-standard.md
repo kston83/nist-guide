@@ -13,7 +13,7 @@ controls: [ia-2, ia-2.1, ia-2.2, ia-2.8, ia-2.12, ia-5, ia-5.1, ia-5.2, ia-5.6, 
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

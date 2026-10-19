@@ -13,7 +13,7 @@ controls: [ac-17, ac-17.1, ac-17.2, ac-17.3, ac-17.4, ac-12, sc-10]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

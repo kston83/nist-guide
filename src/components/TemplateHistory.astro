@@ -1,0 +1,65 @@
+---
+// Change history at the bottom of each template page (PRD TPL-11): the merged
+// pull requests that changed the template's sources, by kit version. Reads
+// src/data/template-history.json, which scripts/build-changelog.mjs writes from
+// git history before every build (not committed; see
+// scripts/lib/template-history.mjs). Without it, as when Astro runs on its own,
+// the section is left out.
+import { readFileSync } from 'node:fs';
+import { withBase } from '../lib/url';
+
+interface Section {
+	title: string;
+	version?: string;
+	entries: { id: string | null; text: string; pr: number | null }[];
+}
+interface Props {
+	id: string;
+}
+
+let data: { repoUrl: string; shallow: boolean; pages: Record<string, Section[]> } | undefined;
+try {
+	data = JSON.parse(readFileSync('src/data/template-history.json', 'utf8'));
+} catch {}
+const sections = data?.pages[Astro.props.id] ?? [];
+const count = (n: number) => `${n} ${n === 1 ? 'change' : 'changes'}`;
+---
+
+{
+	sections.length > 0 && (
+		<section class="template-history" data-pagefind-ignore>
+			<h2 id="change-history">Change history</h2>
+			<p>
+				Changes to this template by kit version, newest first, from the project history. Each is one merged pull request.
+				Unreleased changes are already in this page and its downloads, and get a version number with the next kit release. The{' '}
+				<a href={withBase('/reference/changelog/')}>changelog</a> lists every change to the guide and the kit.
+				{data!.shallow && ' This build had only part of the history available, so older changes may be missing.'}
+			</p>
+			{sections.map((s) => (
+				<details>
+					<summary>
+						{s.title}: {count(s.entries.length)}
+					</summary>
+					<ul>
+						{s.entries.map((e) => (
+							<li>
+								{e.id && (
+									<>
+										<strong>{e.id}</strong>{' '}
+									</>
+								)}
+								{e.text}
+								{e.pr && (
+									<>
+										{' '}
+										(<a href={`${data!.repoUrl}/pull/${e.pr}`}>#{e.pr}</a>)
+									</>
+								)}
+							</li>
+						))}
+					</ul>
+				</details>
+			))}
+		</section>
+	)
+}

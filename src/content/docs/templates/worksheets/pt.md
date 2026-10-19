@@ -13,7 +13,7 @@ controls: [pt-1, pt-2, pt-3, pt-4, pt-5, pt-5.2, pt-6, pt-6.1, pt-6.2, pt-7, pt-
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

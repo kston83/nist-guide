@@ -13,7 +13,7 @@ controls: [ra-1, ra-2, ra-3, ra-3.1, ra-5, ra-5.2, ra-5.4, ra-5.5, ra-5.11, ra-7
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

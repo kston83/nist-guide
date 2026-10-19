@@ -13,7 +13,7 @@ controls: [ma-1, ma-2, ma-2.2, ma-3, ma-3.1, ma-3.2, ma-3.3, ma-4, ma-4.3, ma-5,
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

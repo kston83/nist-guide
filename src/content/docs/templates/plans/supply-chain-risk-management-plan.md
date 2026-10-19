@@ -13,7 +13,7 @@ controls: [sr-2, sr-2.1, sr-3]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Plan | [Mature](/program/mature/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Plan | [Mature](/program/mature/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

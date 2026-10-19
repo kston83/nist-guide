@@ -13,7 +13,7 @@ controls: [pt-5, pt-5.2, pm-20, pm-20.1, pt-2, pt-3, pt-4, pt-7]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

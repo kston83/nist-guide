@@ -13,7 +13,7 @@ controls: [ps-1, ps-2, ps-3, ps-4, ps-4.2, ps-5, ps-6, ps-7, ps-8, ps-9]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

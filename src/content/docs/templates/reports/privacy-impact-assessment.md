@@ -13,7 +13,7 @@ controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, pt-8, sc-7.24, ra-3]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Report | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Report | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

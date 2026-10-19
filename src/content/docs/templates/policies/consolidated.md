@@ -13,7 +13,7 @@ controls: [ac-1, at-1, au-1, ca-1, cm-1, cp-1, ia-1, ir-1, ma-1, mp-1, pe-1, pl-
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

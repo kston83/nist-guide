@@ -13,7 +13,7 @@ controls: [at-2, at-2.2, at-2.3, at-3, at-3.5, at-4, pm-13, pm-14]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Plan | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Plan | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

@@ -13,7 +13,7 @@ controls: [cm-8, cm-8.1, cm-8.2, cm-8.3, cm-8.4, pe-16, mp-7]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

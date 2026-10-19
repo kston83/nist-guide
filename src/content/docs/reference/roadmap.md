@@ -18,9 +18,9 @@ The first guidebook covers the RMF from start to finish: the seven steps, every 
 | Question | What the guide gives you | Status |
 | --- | --- | --- |
 | **Requirement:** what does NIST require? | The control text, parameters and assessment objectives, generated from NIST's official catalog | Available for all 300 controls |
-| **Policy:** what do we commit to? | A policy clause for the control, assembled into family policies | In progress (Phase 3) |
+| **Policy:** what do we commit to? | A policy clause for the control, assembled into family policies | Available for every Low and Moderate control, and every program management and privacy control |
 | **Method:** what is the established way to do it? | The NIST publication that shows how, such as the Secure Software Development Framework (SSDF) | Planned (Phase 4) |
-| **Procedure:** how do we do it here? | Standards, procedures and plans to adopt | In progress (Phase 3) |
+| **Procedure:** how do we do it here? | Standards, procedures and plans to adopt | Available for every family; secure software development templates in Phase 4 |
 | **Implementation:** where is it configured? | Technology playbooks for specific platforms | Planned (Phase 6) |
 | **Evidence:** how do we prove it? | What assessors ask for, and the forms and registers that record it | Available for every control with guidance; growing with each family |
 
@@ -35,11 +35,11 @@ The second guidebook does the same for AI: how to apply the AI RMF, and how to a
 As of October 2026:
 
 - **The framework.** All seven RMF steps, roles, the ATO package checklist and program variants.
-- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for all 177 Moderate-baseline controls and 16 of the 32 program management controls. See [guidance coverage](/controls/coverage/) for each control.
-- **The template kit.** [Version 1.0.0](https://github.com/kston83/nist-guide/releases/tag/v1.0.0) is released: every template in Word and Markdown, per baseline, with a [starter kit](/templates/starter-kit/) for a new program.
-- **Policies.** Family policies for all 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI and SR. All 287 Moderate-baseline controls have a policy clause.
-- **Plans, standards, procedures, forms and reports.** 46 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, Configuration Management Plan, Supply Chain Risk Management Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, account management and log review procedures, change request form, component inventory, and the baseline configuration, identification and authentication, audit logging, encryption and patching standards. See [all templates](/templates/).
-- **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage.
+- **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for all 177 Moderate-baseline controls, all 32 program management controls and all 12 privacy controls outside the security baselines. See [guidance coverage](/controls/coverage/) for each control.
+- **The template kit.** Kit v2.0.0 is the release that completes the program kit: every template in Word and Markdown, per baseline, with a [starter kit](/templates/starter-kit/) for a new program. Each released version is on the [releases page](https://github.com/kston83/nist-guide/releases).
+- **Policies.** Family policies for all 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI and SR, or all of them in one [consolidated policy](/templates/policies/consolidated/). All 287 Low and Moderate controls and enhancements have a policy clause, as do the 37 program management controls and enhancements and the 29 privacy controls and enhancements outside the security baselines.
+- **Plans, standards, procedures, forms and reports.** 49 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, Configuration Management Plan, Supply Chain Risk Management Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, account management and log review procedures, incident handling playbook, change request form, component inventory, and the baseline configuration, identification and authentication, audit logging, encryption and patching standards. Every policy, plan, standard, procedure and report ends with an approval and version history section for the adopting organization. The 50th, a secure software development policy and standard built on the SSDF, comes with the methods in Phase 4. See [all templates](/templates/).
+- **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage, an [artifact checklist](/program/checklist/), and guidance on [scaling the program](/program/scaling/) to the organization's size.
 - **The AI RMF guidebook.** Not started; it follows the program kit and the methods.
 
 Everything is published as a draft, and marked reviewed only after the author has reviewed it.
@@ -52,7 +52,7 @@ The work runs in phases. Each phase ends with a review before the next starts, a
 | --- | --- | --- | --- |
 | 1 Launch | The public site, generated control pages and quality checks | Done | |
 | 2 Templates and first kit | The template system, guidance for the priority controls, and the first five family policies with the SSP, IR plan and POA&M | Done, September 2026 | v1.0.0 |
-| **3 Full program kit** | **The remaining family policies, a consolidated policy, the other plans, standards and forms the controls call for, and practical guidance for every Moderate, program management and privacy control** | **Every Low and Moderate control has a policy clause, every Moderate, program management and privacy control has guidance, and the program path is complete** | **v2.0.0** |
+| **3 Full program kit** | **The remaining family policies, a consolidated policy, the other plans, standards and forms the controls call for, and practical guidance for every Moderate, program management and privacy control** | **Every Low and Moderate control has a policy clause, every Moderate, program management and privacy control has guidance, and the program path is complete. All met; kit v2.0.0 completes the phase** | **v2.0.0** |
 | 4 Methods and the SSDF | NIST's how-to guidance shown on each control page, starting with the SSDF, plus secure software development templates | Every family names its NIST methods, and every SSDF practice has a page | v2.1.0 |
 | 5 AI RMF and AI security | The second guidebook: the AI RMF, securing AI systems through the RMF, NIST and OWASP AI security guidance, and AI templates | The AI RMF pages, the RMF walkthrough, the OWASP pages and the AI templates are published, with a current status table of every source | v2.2.0 |
 | 6 Industries and technology | Three industry guides, four technology playbooks, and articles | All seven are published and linked from the control pages they cover | |
@@ -60,15 +60,15 @@ The work runs in phases. Each phase ends with a review before the next starts, a
 
 ### Phase 3, the current phase
 
-What remains:
+The work of Phase 3 is published:
 
-- **The SR family policy**, including its Privacy-baseline clauses, and the few Privacy-baseline clauses still to add to the AC, AU and IR policies.
-- **Artifacts for SR:** a Supply Chain Risk Management Plan with a supplier questionnaire.
-- **Artifacts for families already covered:** an account management procedure, access request and access review forms and a remote access standard; an identification and authentication standard; an audit logging standard and log review procedure; and an incident handling playbook, incident report form and tabletop exercise kit.
-- **Guidance for the remaining 52 Moderate controls, and for the program management and privacy controls:** how to apply each control, the typical values, the evidence assessors ask for, what is usually inherited and the common findings, family by family, alongside the policies.
-- **A consolidated policy:** one Information Security and Privacy Policy per baseline, as an alternative to 20 family policies. The starter kit will use it.
+- **Policies:** all 20 family policies, with a clause for every Low and Moderate control, every program management control and every privacy control, and a consolidated policy per baseline, which the starter kit uses.
+- **Artifacts:** every plan, standard, procedure, form and report in the plan except the secure software development ones, which move to Phase 4 with the SSDF.
+- **Guidance:** every Moderate, program management and privacy control has practical guidance on its page.
 - **The program path:** an artifact checklist, and guidance on scaling the program to the organization's size.
-- **A template changelog** on each template page, then kit v2.0.0.
+- **Templates and pages:** a change history by kit version on each template page, a one-line summary for each template in the index, print styles for step, control and template pages, and a standard approval and version history section in each policy, plan, standard, procedure and report.
+
+Kit v2.0.0 is the release that completes the phase. As with every phase, it ends with a review before Phase 4 starts.
 
 ### Methods and the SSDF (Phase 4)
 

@@ -13,7 +13,7 @@ controls: [sc-1, sc-2, sc-3, sc-4, sc-5, sc-7, sc-7.3, sc-7.4, sc-7.5, sc-7.7, s
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

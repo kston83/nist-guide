@@ -13,7 +13,7 @@ controls: [ps-6, ps-4, ps-8, pl-4]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

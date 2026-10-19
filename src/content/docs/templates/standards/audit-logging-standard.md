@@ -13,7 +13,7 @@ controls: [au-2, au-3, au-3.1, au-3.3, au-4, au-5, au-8, au-9, au-9.4, au-11, au
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

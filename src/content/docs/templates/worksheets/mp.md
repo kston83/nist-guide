@@ -13,7 +13,7 @@ controls: [mp-1, mp-2, mp-3, mp-4, mp-5, mp-6, mp-6.1, mp-6.2, mp-6.3, mp-7]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

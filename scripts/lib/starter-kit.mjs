@@ -17,6 +17,9 @@ import {
 
 export const STARTER_BASELINES = ['Low', 'Moderate', 'High'];
 export const starterKitFile = (baseline) => `starter-kit-${baseline.toLowerCase()}.zip`;
+// The page's front matter description, which the templates index also shows (NAV-02).
+const DESCRIPTION = 'The minimal set of security program templates a new program adopts first, for NIST RMF and SP 800-53, in one download per baseline.';
+export const STARTER_KIT_SUMMARY = { title: 'Starter kit', href: '/templates/starter-kit/', type: 'kit', description: DESCRIPTION };
 
 /**
  * Checks each item and resolves it to a row: { title, href?, controls, planned, files(baseline) }.
@@ -105,7 +108,7 @@ export function starterKitPage({ rows, catalog, version }) {
 	return [
 		'---',
 		"title: 'Starter kit'",
-		"description: 'The minimal set of security program templates a new program adopts first, for NIST RMF and SP 800-53, in one download per baseline.'",
+		`description: '${DESCRIPTION}'`,
 		'sidebar:',
 		"  label: 'Starter kit'",
 		'  order: 1',

@@ -16,129 +16,133 @@ Policies come two ways, from the same statements: one [Information Security and 
 
 To track which of these your program has adopted, use the [program artifact checklist](/program/checklist/): every template with its stage, controls and accountable role, as a spreadsheet.
 
+## Starter kit
+
+- [Starter kit](/templates/starter-kit/): The minimal set of security program templates a new program adopts first, for NIST RMF and SP 800-53, in one download per baseline.
+
 ## Policies
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Information Security and Privacy Policy](/templates/policies/consolidated/) | [Foundation](/program/foundation/) | Draft |
-| [Access Control Policy](/templates/policies/ac/) | [Core](/program/core/) | Draft |
-| [Awareness and Training Policy](/templates/policies/at/) | [Core](/program/core/) | Draft |
-| [Audit and Accountability Policy](/templates/policies/au/) | [Core](/program/core/) | Draft |
-| [Assessment, Authorization, and Monitoring Policy](/templates/policies/ca/) | [Operate](/program/operate/) | Draft |
-| [Configuration Management Policy](/templates/policies/cm/) | [Core](/program/core/) | Draft |
-| [Contingency Planning Policy](/templates/policies/cp/) | [Core](/program/core/) | Draft |
-| [Identification and Authentication Policy](/templates/policies/ia/) | [Core](/program/core/) | Draft |
-| [Incident Response Policy](/templates/policies/ir/) | [Core](/program/core/) | Draft |
-| [Maintenance Policy](/templates/policies/ma/) | [Operate](/program/operate/) | Draft |
-| [Media Protection Policy](/templates/policies/mp/) | [Operate](/program/operate/) | Draft |
-| [Physical and Environmental Protection Policy](/templates/policies/pe/) | [Operate](/program/operate/) | Draft |
-| [Planning Policy](/templates/policies/pl/) | [Foundation](/program/foundation/) | Draft |
-| [Program Management Policy](/templates/policies/pm/) | [Foundation](/program/foundation/) | Draft |
-| [Personnel Security Policy](/templates/policies/ps/) | [Core](/program/core/) | Draft |
-| [Personally Identifiable Information Processing and Transparency Policy](/templates/policies/pt/) | [Core](/program/core/) | Draft |
-| [Risk Assessment Policy](/templates/policies/ra/) | [Foundation](/program/foundation/) | Draft |
-| [System and Services Acquisition Policy](/templates/policies/sa/) | [Operate](/program/operate/) | Draft |
-| [System and Communications Protection Policy](/templates/policies/sc/) | [Core](/program/core/) | Draft |
-| [System and Information Integrity Policy](/templates/policies/si/) | [Operate](/program/operate/) | Draft |
-| [Supply Chain Risk Management Policy](/templates/policies/sr/) | [Mature](/program/mature/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Information Security and Privacy Policy](/templates/policies/consolidated/) | Ready-to-adopt consolidated security and privacy policy template for NIST SP 800-53 Rev. 5: every family policy in one document, with a variant per baseline (Low, Moderate, High, Privacy). | [Foundation](/program/foundation/) | Draft |
+| [Access Control Policy](/templates/policies/ac/) | Ready-to-adopt Access Control policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Awareness and Training Policy](/templates/policies/at/) | Ready-to-adopt Awareness and Training policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Audit and Accountability Policy](/templates/policies/au/) | Ready-to-adopt Audit and Accountability policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Assessment, Authorization, and Monitoring Policy](/templates/policies/ca/) | Ready-to-adopt Assessment, Authorization, and Monitoring policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Operate](/program/operate/) | Draft |
+| [Configuration Management Policy](/templates/policies/cm/) | Ready-to-adopt Configuration Management policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Contingency Planning Policy](/templates/policies/cp/) | Ready-to-adopt Contingency Planning policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High). | [Core](/program/core/) | Draft |
+| [Identification and Authentication Policy](/templates/policies/ia/) | Ready-to-adopt Identification and Authentication policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High). | [Core](/program/core/) | Draft |
+| [Incident Response Policy](/templates/policies/ir/) | Ready-to-adopt Incident Response policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Maintenance Policy](/templates/policies/ma/) | Ready-to-adopt Maintenance policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High). | [Operate](/program/operate/) | Draft |
+| [Media Protection Policy](/templates/policies/mp/) | Ready-to-adopt Media Protection policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Operate](/program/operate/) | Draft |
+| [Physical and Environmental Protection Policy](/templates/policies/pe/) | Ready-to-adopt Physical and Environmental Protection policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Operate](/program/operate/) | Draft |
+| [Planning Policy](/templates/policies/pl/) | Ready-to-adopt Planning policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Foundation](/program/foundation/) | Draft |
+| [Program Management Policy](/templates/policies/pm/) | Ready-to-adopt Program Management policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and one organization-wide edition. | [Foundation](/program/foundation/) | Draft |
+| [Personnel Security Policy](/templates/policies/ps/) | Ready-to-adopt Personnel Security policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [Personally Identifiable Information Processing and Transparency Policy](/templates/policies/pt/) | Ready-to-adopt Personally Identifiable Information Processing and Transparency policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Privacy). | [Core](/program/core/) | Draft |
+| [Risk Assessment Policy](/templates/policies/ra/) | Ready-to-adopt Risk Assessment policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Foundation](/program/foundation/) | Draft |
+| [System and Services Acquisition Policy](/templates/policies/sa/) | Ready-to-adopt System and Services Acquisition policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Operate](/program/operate/) | Draft |
+| [System and Communications Protection Policy](/templates/policies/sc/) | Ready-to-adopt System and Communications Protection policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Core](/program/core/) | Draft |
+| [System and Information Integrity Policy](/templates/policies/si/) | Ready-to-adopt System and Information Integrity policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High, Privacy). | [Operate](/program/operate/) | Draft |
+| [Supply Chain Risk Management Policy](/templates/policies/sr/) | Ready-to-adopt Supply Chain Risk Management policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and a variant per baseline (Low, Moderate, High). | [Mature](/program/mature/) | Draft |
 
 ## Decision worksheets
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Access Control Decision Worksheet](/templates/worksheets/ac/) | [Core](/program/core/) | Draft |
-| [Awareness and Training Decision Worksheet](/templates/worksheets/at/) | [Core](/program/core/) | Draft |
-| [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | [Core](/program/core/) | Draft |
-| [Assessment, Authorization, and Monitoring Decision Worksheet](/templates/worksheets/ca/) | [Operate](/program/operate/) | Draft |
-| [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | [Core](/program/core/) | Draft |
-| [Contingency Planning Decision Worksheet](/templates/worksheets/cp/) | [Core](/program/core/) | Draft |
-| [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | [Core](/program/core/) | Draft |
-| [Incident Response Decision Worksheet](/templates/worksheets/ir/) | [Core](/program/core/) | Draft |
-| [Maintenance Decision Worksheet](/templates/worksheets/ma/) | [Operate](/program/operate/) | Draft |
-| [Media Protection Decision Worksheet](/templates/worksheets/mp/) | [Operate](/program/operate/) | Draft |
-| [Physical and Environmental Protection Decision Worksheet](/templates/worksheets/pe/) | [Operate](/program/operate/) | Draft |
-| [Planning Decision Worksheet](/templates/worksheets/pl/) | [Foundation](/program/foundation/) | Draft |
-| [Program Management Decision Worksheet](/templates/worksheets/pm/) | [Foundation](/program/foundation/) | Draft |
-| [Personnel Security Decision Worksheet](/templates/worksheets/ps/) | [Core](/program/core/) | Draft |
-| [Personally Identifiable Information Processing and Transparency Decision Worksheet](/templates/worksheets/pt/) | [Core](/program/core/) | Draft |
-| [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | [Foundation](/program/foundation/) | Draft |
-| [System and Services Acquisition Decision Worksheet](/templates/worksheets/sa/) | [Operate](/program/operate/) | Draft |
-| [System and Communications Protection Decision Worksheet](/templates/worksheets/sc/) | [Core](/program/core/) | Draft |
-| [System and Information Integrity Decision Worksheet](/templates/worksheets/si/) | [Operate](/program/operate/) | Draft |
-| [Supply Chain Risk Management Decision Worksheet](/templates/worksheets/sr/) | [Mature](/program/mature/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Access Control Decision Worksheet](/templates/worksheets/ac/) | Every decision the Access Control family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Awareness and Training Decision Worksheet](/templates/worksheets/at/) | Every decision the Awareness and Training family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Audit and Accountability Decision Worksheet](/templates/worksheets/au/) | Every decision the Audit and Accountability family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Assessment, Authorization, and Monitoring Decision Worksheet](/templates/worksheets/ca/) | Every decision the Assessment, Authorization, and Monitoring family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [Configuration Management Decision Worksheet](/templates/worksheets/cm/) | Every decision the Configuration Management family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Contingency Planning Decision Worksheet](/templates/worksheets/cp/) | Every decision the Contingency Planning family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Identification and Authentication Decision Worksheet](/templates/worksheets/ia/) | Every decision the Identification and Authentication family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Incident Response Decision Worksheet](/templates/worksheets/ir/) | Every decision the Incident Response family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Maintenance Decision Worksheet](/templates/worksheets/ma/) | Every decision the Maintenance family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [Media Protection Decision Worksheet](/templates/worksheets/mp/) | Every decision the Media Protection family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [Physical and Environmental Protection Decision Worksheet](/templates/worksheets/pe/) | Every decision the Physical and Environmental Protection family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [Planning Decision Worksheet](/templates/worksheets/pl/) | Every decision the Planning family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Foundation](/program/foundation/) | Draft |
+| [Program Management Decision Worksheet](/templates/worksheets/pm/) | Every decision the Program Management family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, for the whole organization, as a spreadsheet. | [Foundation](/program/foundation/) | Draft |
+| [Personnel Security Decision Worksheet](/templates/worksheets/ps/) | Every decision the Personnel Security family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Personally Identifiable Information Processing and Transparency Decision Worksheet](/templates/worksheets/pt/) | Every decision the Personally Identifiable Information Processing and Transparency family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [Risk Assessment Decision Worksheet](/templates/worksheets/ra/) | Every decision the Risk Assessment family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Foundation](/program/foundation/) | Draft |
+| [System and Services Acquisition Decision Worksheet](/templates/worksheets/sa/) | Every decision the System and Services Acquisition family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [System and Communications Protection Decision Worksheet](/templates/worksheets/sc/) | Every decision the System and Communications Protection family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Core](/program/core/) | Draft |
+| [System and Information Integrity Decision Worksheet](/templates/worksheets/si/) | Every decision the System and Information Integrity family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Operate](/program/operate/) | Draft |
+| [Supply Chain Risk Management Decision Worksheet](/templates/worksheets/sr/) | Every decision the Supply Chain Risk Management family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, per baseline, as a spreadsheet. | [Mature](/program/mature/) | Draft |
 
 ## Plans
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Configuration Management Plan](/templates/plans/configuration-management-plan/) | [Core](/program/core/) | Draft |
-| [Information System Contingency Plan](/templates/plans/contingency-plan/) | [Core](/program/core/) | Draft |
-| [Contingency Plan Test Plan](/templates/plans/contingency-plan-test-plan/) | [Operate](/program/operate/) | Draft |
-| [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) | [Operate](/program/operate/) | Draft |
-| [Incident Response Plan](/templates/plans/incident-response-plan/) | [Core](/program/core/) | Draft |
-| [Information Security Program Plan](/templates/plans/information-security-program-plan/) | [Foundation](/program/foundation/) | Draft |
-| [Risk Management Strategy](/templates/plans/risk-management-strategy/) | [Foundation](/program/foundation/) | Draft |
-| [Security and Privacy Assessment Plan](/templates/plans/security-and-privacy-assessment-plan/) | [Operate](/program/operate/) | Draft |
-| [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | [Core](/program/core/) | Draft |
-| [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) | [Mature](/program/mature/) | Draft |
-| [System Security Plan](/templates/plans/system-security-plan/) | [Foundation](/program/foundation/) | Draft |
-| [Tabletop Exercise Kit](/templates/plans/tabletop-exercise-kit/) | [Core](/program/core/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Configuration Management Plan](/templates/plans/configuration-management-plan/) | A system's security configuration management plan, following the sample outline in NIST SP 800-128 Appendix D, with its configuration item list, the change control board charter (Appendix H), and how baselines, changes, monitoring and records are handled, as SP 800-53 CM-9 requires. | [Core](/program/core/) | Draft |
+| [Information System Contingency Plan](/templates/plans/contingency-plan/) | The plan for recovering one system after a disruption, compromise or failure, following the NIST SP 800-34 Rev. 1 template and covering every element SP 800-53 CP-2 requires. | [Core](/program/core/) | Draft |
+| [Contingency Plan Test Plan](/templates/plans/contingency-plan-test-plan/) | The plan for one contingency plan test or exercise, tabletop or functional, with objectives, scenario, participants and evaluation, based on the sample exercise documentation in NIST SP 800-84. | [Operate](/program/operate/) | Draft |
+| [Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/) | The organization-wide continuous monitoring strategy (PM-31) and each system's strategy under it (CA-7), with metrics, monitoring and assessment frequencies, reporting, response, and the triggers for ongoing authorization and reauthorization, following the NIST SP 800-137 process. | [Operate](/program/operate/) | Draft |
+| [Incident Response Plan](/templates/plans/incident-response-plan/) | The organization's plan for detecting, handling, reporting and recovering from cybersecurity incidents, with the ten elements NIST SP 800-53 IR-8 requires. | [Core](/program/core/) | Draft |
+| [Information Security Program Plan](/templates/plans/information-security-program-plan/) | The organization-wide plan for the information security program, covering every element SP 800-53 PM-1 requires, with the program management and common controls the organization provides. | [Foundation](/program/foundation/) | Draft |
+| [Risk Management Strategy](/templates/plans/risk-management-strategy/) | The organization-wide strategy for how the organization frames, assesses, responds to and monitors security and privacy risk, including its risk tolerance, following NIST SP 800-39 and RMF Prepare task P-2. | [Foundation](/program/foundation/) | Draft |
+| [Security and Privacy Assessment Plan](/templates/plans/security-and-privacy-assessment-plan/) | The plan for one control assessment of a system or of common controls, with its scope, SP 800-53A procedures and methods, environment, team, assessor independence, schedule and approval, as SP 800-53 CA-2 requires. | [Operate](/program/operate/) | Draft |
+| [Security and Privacy Training Plan](/templates/plans/security-and-privacy-training-plan/) | The organization's plan for security and privacy literacy training, awareness activities and role-based training, with audiences, courses, schedule and tracking, as SP 800-53 AT-2, AT-3 and AT-4 require. | [Core](/program/core/) | Draft |
+| [Supply Chain Risk Management Plan](/templates/plans/supply-chain-risk-management-plan/) | A system's cybersecurity supply chain risk management plan, following the sample outline in NIST SP 800-161 Rev. 1 Appendix D.3.1 and the outline example NIST publishes with SP 800-18 Rev. 2, with the system's critical components, services and suppliers, the supply chain controls selected, the risks accepted, and the plan's approval, review and protection, as SP 800-53 SR-2 requires. | [Mature](/program/mature/) | Draft |
+| [System Security Plan](/templates/plans/system-security-plan/) | The security plan for one system, following the NIST SP 800-18 Rev. 2 outline and covering every element SP 800-53 PL-2 requires. | [Foundation](/program/foundation/) | Draft |
+| [Tabletop Exercise Kit](/templates/plans/tabletop-exercise-kit/) | Everything for one incident response tabletop exercise, from planning and logistics through the facilitator guide, participant guide, scenarios with injects, the debrief and the after-action report, based on the sample tabletop exercise documentation in NIST SP 800-84. | [Core](/program/core/) | Draft |
 
 ## Standards
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Acquisition Security Requirements](/templates/standards/acquisition-security-requirements/) | [Operate](/program/operate/) | Draft |
-| [Audit Logging Standard](/templates/standards/audit-logging-standard/) | [Core](/program/core/) | Draft |
-| [Baseline Configuration Standard](/templates/standards/baseline-configuration-standard/) | [Core](/program/core/) | Draft |
-| [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | [Core](/program/core/) | Draft |
-| [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | [Core](/program/core/) | Draft |
-| [Identification and Authentication Standard](/templates/standards/identification-and-authentication-standard/) | [Core](/program/core/) | Draft |
-| [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) | [Operate](/program/operate/) | Draft |
-| [Remote Access Standard](/templates/standards/remote-access-standard/) | [Core](/program/core/) | Draft |
-| [System Monitoring Standard](/templates/standards/system-monitoring-standard/) | [Operate](/program/operate/) | Draft |
-| [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | [Core](/program/core/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Acquisition Security Requirements](/templates/standards/acquisition-security-requirements/) | The standard security and privacy requirements that go into every contract for a system, system component or system service, and the review each solicitation gets before it is issued, as SP 800-53 SA-4 and its enhancements require, including the personnel security requirements for supplier staff (PS-7). | [Operate](/program/operate/) | Draft |
+| [Audit Logging Standard](/templates/standards/audit-logging-standard/) | The event list, record content, collection, time stamps, storage, failure response, protection and retention that make the audit and accountability policy's logging requirements (SP 800-53 AU-2, AU-3, AU-12 and related controls) measurable, with the limits on personal information in audit records (AU-3(3)) and a part where each system records what it logs and why. | [Core](/program/core/) | Draft |
+| [Baseline Configuration Standard](/templates/standards/baseline-configuration-standard/) | The secure configuration each component type follows, the functions, ports, protocols and services it prohibits, how baselines are built, reviewed and kept, the register of approved deviations, and the scan evidence that shows compliance, making the configuration management policy's CM-2, CM-6 and CM-7 requirements measurable. | [Core](/program/core/) | Draft |
+| [Boundary Protection Standard](/templates/standards/boundary-protection-standard/) | The managed interfaces, traffic rules, segmentation, remote access and monitoring requirements that make the system and communications protection policy's boundary requirements (SP 800-53 SC-7) and information flow enforcement (AC-4) measurable. | [Core](/program/core/) | Draft |
+| [Encryption and Key Management Standard](/templates/standards/encryption-and-key-management-standard/) | The approved cryptography, the protection required for information in transit and at rest, and the key and certificate management rules that make the system and communications protection policy's cryptographic requirements (SP 800-53 SC-8, SC-12, SC-13, SC-17 and SC-28) measurable. | [Core](/program/core/) | Draft |
+| [Identification and Authentication Standard](/templates/standards/identification-and-authentication-standard/) | The assurance levels, identifiers, approved authenticators, multi-factor and password rules, authenticator life cycle, and the service account, device and federation requirements that make the identification and authentication policy (SP 800-53 IA-2, IA-5 and related controls) measurable, with a part where each system records how it authenticates. | [Core](/program/core/) | Draft |
+| [Patch and Flaw Remediation Standard](/templates/standards/patch-and-flaw-remediation-standard/) | The sources of flaws, installation times, testing, deployment, verification and exception rules that make the system and information integrity policy's flaw remediation requirements (SP 800-53 SI-2 and SI-2(2)) measurable. | [Operate](/program/operate/) | Draft |
+| [Remote Access Standard](/templates/standards/remote-access-standard/) | The allowed remote access methods, and the device, authentication, encryption, connection, session, monitoring and privileged access requirements for each, that make the access control policy's remote access requirements (SP 800-53 AC-17 and its enhancements) measurable. | [Core](/program/core/) | Draft |
+| [System Monitoring Standard](/templates/standards/system-monitoring-standard/) | The monitoring objectives, log sources, detections, alert handling, retention and reporting that make the system and information integrity policy's monitoring requirements (SP 800-53 SI-4) measurable, with audit record review (AU-6) and retention (AU-11). | [Operate](/program/operate/) | Draft |
+| [Vulnerability Management Standard](/templates/standards/vulnerability-management-standard/) | The scanning coverage, frequencies, remediation times and exception rules that make the risk assessment policy's vulnerability requirements (SP 800-53 RA-5) measurable. | [Core](/program/core/) | Draft |
 
 ## Procedures
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Account Management Procedure](/templates/procedures/account-management-procedure/) | [Core](/program/core/) | Draft |
-| [Incident Handling Playbook](/templates/procedures/incident-handling-playbook/) | [Core](/program/core/) | Draft |
-| [Log Review Procedure](/templates/procedures/log-review-procedure/) | [Core](/program/core/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Account Management Procedure](/templates/procedures/account-management-procedure/) | The steps, by role, for requesting, approving, creating, changing, disabling, removing and reviewing system accounts, with the inputs, outputs and record each step leaves, that carry out the access control policy's account management requirements (SP 800-53 AC-2), separation of duties (AC-5) and the disabling of access when employment ends (PS-4). | [Core](/program/core/) | Draft |
+| [Incident Handling Playbook](/templates/procedures/incident-handling-playbook/) | The steps, by role, for taking an incident from the first report through triage, analysis, containment, eradication, recovery, notification and lessons learned, with extra steps for breaches involving personally identifiable information and the inputs, outputs and record each step leaves, that carry out the Incident Response Plan and the incident response policy's handling, monitoring and reporting requirements (SP 800-53 IR-4, IR-5, IR-6). | [Core](/program/core/) | Draft |
+| [Log Review Procedure](/templates/procedures/log-review-procedure/) | The steps, by role, for reviewing and analyzing audit records, correlating them across systems, reporting findings and handing suspected incidents to the incident response team, with the inputs, outputs and record each step leaves, that carry out the audit and accountability policy's review requirements (SP 800-53 AU-6) and its reduction and reporting capability (AU-7). | [Core](/program/core/) | Draft |
 
 ## Forms and registers
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Access Agreement](/templates/forms/access-agreement/) | [Core](/program/core/) | Draft |
-| [Access Request Form](/templates/forms/access-request-form/) | [Core](/program/core/) | Draft |
-| [Access Review Record](/templates/forms/access-review-record/) | [Core](/program/core/) | Draft |
-| [Change Request Form](/templates/forms/change-request-form/) | [Core](/program/core/) | Draft |
-| [Component Inventory](/templates/forms/component-inventory/) | [Core](/program/core/) | Draft |
-| [External Service Review](/templates/forms/external-service-review/) | [Operate](/program/operate/) | Draft |
-| [Incident Report Form](/templates/forms/incident-report-form/) | [Core](/program/core/) | Draft |
-| [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | [Operate](/program/operate/) | Draft |
-| [Maintenance Log](/templates/forms/maintenance-log/) | [Operate](/program/operate/) | Draft |
-| [Media Sanitization Record](/templates/forms/media-sanitization-record/) | [Operate](/program/operate/) | Draft |
-| [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | [Core](/program/core/) | Draft |
-| [Physical Access List](/templates/forms/physical-access-list/) | [Operate](/program/operate/) | Draft |
-| [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | [Operate](/program/operate/) | Draft |
-| [Privacy Notice](/templates/forms/privacy-notice/) | [Core](/program/core/) | Draft |
-| [Risk Register](/templates/forms/risk-register/) | [Foundation](/program/foundation/) | Draft |
-| [Rules of Behavior](/templates/forms/rules-of-behavior/) | [Foundation](/program/foundation/) | Draft |
-| [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | [Foundation](/program/foundation/) | Draft |
-| [Supplier Assessment Questionnaire](/templates/forms/supplier-assessment-questionnaire/) | [Mature](/program/mature/) | Draft |
-| [System Inventory](/templates/forms/system-inventory/) | [Foundation](/program/foundation/) | Draft |
-| [Training Record Log](/templates/forms/training-record-log/) | [Core](/program/core/) | Draft |
-| [Visitor Log](/templates/forms/visitor-log/) | [Operate](/program/operate/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Access Agreement](/templates/forms/access-agreement/) | The nondisclosure and acceptable use agreement each person signs before getting access to the organization's information and systems, and re-signs when it changes, with a register of signatures, as SP 800-53 PS-6 requires. | [Core](/program/core/) | Draft |
+| [Access Request Form](/templates/forms/access-request-form/) | The record of one request to create an account or change a person's access to a system, with the prerequisite checks, separation of duties check, approvals and provisioning, and a register of every request, as SP 800-53 AC-2 requires. | [Core](/program/core/) | Draft |
+| [Access Review Record](/templates/forms/access-review-record/) | The record of one periodic review of a system's accounts and privileges, with a decision for every account, the actions taken and the sign-off, and a register of every review, as SP 800-53 AC-2j and AC-6(7) require. | [Core](/program/core/) | Draft |
+| [Change Request Form](/templates/forms/change-request-form/) | The record of one configuration-controlled change, from request through security and privacy impact analysis, significant-change decision, testing, approval, implementation and verification, adapted from the sample change request and security impact analysis template in NIST SP 800-128, with a register of every change, as SP 800-53 CM-3 and CM-4 require. | [Core](/program/core/) | Draft |
+| [Component Inventory](/templates/forms/component-inventory/) | The register of every hardware, software, firmware, virtual and cloud component inside one system's boundary, with its owner, administrator and assigned user, reconciled against the system inventory and against discovery and vulnerability scans so that unauthorized components are found, as SP 800-53 CM-8 and CM-8(3) require. | [Core](/program/core/) | Draft |
+| [External Service Review](/templates/forms/external-service-review/) | The review of one external system service before the organization uses it and at each review after that, covering the contract's security and privacy requirements, the provider's evidence of compliance, the shared responsibilities and the decision, with a register of every external service and its next review, as SP 800-53 SA-9 requires. | [Operate](/program/operate/) | Draft |
+| [Incident Report Form](/templates/forms/incident-report-form/) | The record of one report of a suspected incident or breach, from the first report through triage, notifications and closure, with a register of every report, as SP 800-53 IR-6 and IR-5 require. | [Core](/program/core/) | Draft |
+| [Information Exchange Agreement](/templates/forms/information-exchange-agreement/) | The agreement that approves and governs one exchange of information with a system outside the authorization boundary, usable as an interconnection security agreement or an information exchange security agreement, with a register of every exchange and its review date, as SP 800-53 CA-3 requires. | [Operate](/program/operate/) | Draft |
+| [Maintenance Log](/templates/forms/maintenance-log/) | The record of each maintenance, repair and replacement activity on a system, local or nonlocal, with its approval, the people and escort, the tools, any removal and sanitization, and the control check afterward, plus the system's authorized maintenance personnel and approved maintenance tools, as SP 800-53 MA-2 requires. | [Operate](/program/operate/) | Draft |
+| [Media Sanitization Record](/templates/forms/media-sanitization-record/) | The record of each item of system media sanitized or destroyed before disposal, release out of organizational control or reuse, with its approval, custody, method, verification and final disposition, plus the sanitization methods by media type, the equipment tests and the outside providers, as SP 800-53 MP-6 requires. | [Operate](/program/operate/) | Draft |
+| [Onboarding, Transfer and Termination Checklist](/templates/forms/onboarding-transfer-and-termination-checklist/) | The steps, owners and time limits for granting, changing and removing a person's access when they join, move or leave, with a register of each personnel action, as SP 800-53 PS-3, PS-4, PS-5 and AC-2 require. | [Core](/program/core/) | Draft |
+| [Physical Access List](/templates/forms/physical-access-list/) | The list of individuals authorized to enter a facility and each controlled area within it, with the credential issued, the approval, each review and each removal, plus the facility's areas and its inventory of keys, combinations and badges, as SP 800-53 PE-2 and PE-3 require. | [Operate](/program/operate/) | Draft |
+| [Plan of Action and Milestones (POA&M)](/templates/forms/plan-of-action-and-milestones/) | The register of a system's known weaknesses and the planned actions, milestones and dates to fix them, as SP 800-53 CA-5 requires. | [Operate](/program/operate/) | Draft |
+| [Privacy Notice](/templates/forms/privacy-notice/) | The privacy notice an organization publishes on its privacy page and links from every point where it collects personally identifiable information, with a short notice for forms and screens, a Privacy Act statement for federal collections, and a register of where each notice is posted, as SP 800-53 PT-5 and PM-20(1) require. | [Core](/program/core/) | Draft |
+| [Risk Register](/templates/forms/risk-register/) | The register of a system's or an organization's identified risks, their assessed level, the response decided and who owns it, based on the cybersecurity risk register in NIST IR 8286 Rev. 1. | [Foundation](/program/foundation/) | Draft |
+| [Rules of Behavior](/templates/forms/rules-of-behavior/) | The rules every person with system access reads and signs before access is granted, including social media and external site restrictions, with a register of acknowledgments, as SP 800-53 PL-4 requires. | [Foundation](/program/foundation/) | Draft |
+| [Security Categorization Worksheet](/templates/forms/security-categorization-worksheet/) | A worksheet for categorizing a system and its information by the impact of a loss of confidentiality, integrity or availability, with the rationale and approval SP 800-53 RA-2 requires. | [Foundation](/program/foundation/) | Draft |
+| [Supplier Assessment Questionnaire](/templates/forms/supplier-assessment-questionnaire/) | The assessment of one supplier and the products or services it provides, before award or renewal and at each review after that, with the organization's scoping and criticality answers, the supplier's questionnaire, the organization's own research with its sources, a rating against the same core risk factors for every supplier, and the decision, with a register of every supplier assessment, as SP 800-53 SR-6 requires. | [Mature](/program/mature/) | Draft |
+| [System Inventory](/templates/forms/system-inventory/) | The organization-wide register of its systems, each with an owner, categorization, authorization status and boundary, and whether it processes personally identifiable information, as SP 800-53 PM-5 and PM-5(1) require. | [Foundation](/program/foundation/) | Draft |
+| [Training Record Log](/templates/forms/training-record-log/) | The record of each person's security and privacy training, literacy and role-based, with dates and results, as SP 800-53 AT-4 requires. | [Core](/program/core/) | Draft |
+| [Visitor Log](/templates/forms/visitor-log/) | The record of each visit to the non-public areas of a facility, with the visitor, the person visited, the times, the badge and the escort, its retention and review, and the anomalies reported, limited to the elements the privacy risk assessment allows, as SP 800-53 PE-8 requires. | [Operate](/program/operate/) | Draft |
 
 ## Reports
 
-| Template | Program stage | Status |
-| --- | --- | --- |
-| [Business Impact Analysis](/templates/reports/business-impact-analysis/) | [Core](/program/core/) | Draft |
-| [Contingency Plan After-Action Report](/templates/reports/contingency-plan-after-action-report/) | [Operate](/program/operate/) | Draft |
-| [Privacy Impact Assessment](/templates/reports/privacy-impact-assessment/) | [Core](/program/core/) | Draft |
-| [Risk Assessment Report](/templates/reports/risk-assessment-report/) | [Foundation](/program/foundation/) | Draft |
-| [Security and Privacy Assessment Report](/templates/reports/security-and-privacy-assessment-report/) | [Operate](/program/operate/) | Draft |
+| Template | What it is | Program stage | Status |
+| --- | --- | --- | --- |
+| [Business Impact Analysis](/templates/reports/business-impact-analysis/) | The analysis of what a system's disruption would do to the mission and business processes it supports, setting the recovery objectives and priorities the contingency plan uses, following the NIST SP 800-34 Rev. 1 BIA template. | [Core](/program/core/) | Draft |
+| [Contingency Plan After-Action Report](/templates/reports/contingency-plan-after-action-report/) | The report of a contingency plan test, exercise or real activation, with findings, evaluation against objectives and corrective actions, based on the sample after-action reports in NIST SP 800-84. | [Operate](/program/operate/) | Draft |
+| [Privacy Impact Assessment](/templates/reports/privacy-impact-assessment/) | The analysis and record of how a system, program or activity handles personally identifiable information, the privacy risks that creates for individuals and how they are reduced, done before development, procurement or a new collection and kept up to date as the processing changes, as SP 800-53 RA-8 requires. | [Core](/program/core/) | Draft |
+| [Risk Assessment Report](/templates/reports/risk-assessment-report/) | The report of a system risk assessment, following the three-part outline in NIST SP 800-30 Rev. 1 Appendix K, with the documentation, review and distribution SP 800-53 RA-3 requires. | [Foundation](/program/foundation/) | Draft |
+| [Security and Privacy Assessment Report](/templates/reports/security-and-privacy-assessment-report/) | The results of one control assessment, with a finding of satisfied or other than satisfied for each control and the evidence behind it, following the key elements in SP 800-53A Rev. 5 Appendix E; its findings feed the POA&M (CA-5) and the authorization package (CA-6). | [Operate](/program/operate/) | Draft |

@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.11 · Oct 19, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.12 · Oct 19, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -164,6 +164,8 @@ industries: [healthcare]               # slug list
 technologies: [entra-id]               # slug list
 controls: [ac-2, ia-2, ia-5]           # NEW: controls this page gives guidance on
 reviewed: 2026-09-27                   # NEW: date of last full accuracy review
+description: One sentence              # Starlight's field; required on industry and technology pages,
+                                       # the one-line summary their section index lists (NAV-02)
 
 # Method and SSDF pages
 implements: [sa-15, sa-11]             # NEW: controls the method implements, only as NIST cites them;
@@ -727,3 +729,4 @@ None of these block Phase 1.
 | 3.9 | Oct 3, 2026 | Owner decision (row 27 review): procedures sit flat in `templates/procedures/<slug>.md`, like every other type folder, not in a folder per family (Sources and layout) |
 | 3.10 | Oct 16, 2026 | Owner decision (PROG-03 review): an optional `role` field in non-policy template front matter, a key in `variables.yml` for the role accountable for the artifact; without it, the role of the family policy of the first control listed (Clause and template front matter, Decided) |
 | 3.11 | Oct 19, 2026 | Owner decision (TPL-11 review): TPL-13, a standard approval and version history section in every template, in Phase 3 before kit v2.0.0 (Templates, Writing templates, Phase 3 row, Decided) |
+| 3.12 | Oct 19, 2026 | NAV-02 (row 36), no change in scope: the Front matter contract notes that `description`, Starlight's own field, is required on industry and technology pages, as the one-line summary their section indexes list; the build fails without it (for the owner to confirm) |

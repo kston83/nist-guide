@@ -1,0 +1,31 @@
+---
+title: Industry guides
+description: How the RMF and SP 800-53 apply under sector-specific rules.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+import SectionIndex from '../../../components/SectionIndex.astro';
+
+Each industry guide explains how the RMF and SP 800-53 controls fit alongside that sector's own rules: which frameworks overlap, which controls carry extra weight, and what regulators and auditors expect to see. Federal civilian systems are covered by the [RMF section](/rmf/).
+
+## Guides
+
+<SectionIndex section="industries" heading="Guide">
+
+No industry guide is published yet. Industry guides are planned for Phase 6 of the [roadmap](/reference/roadmap/#industries-and-technology-phase-6), and which industries come first is not decided. Each guide appears here when it is published, with a one-line summary.
+
+</SectionIndex>
+
+## Sectors a guide could cover
+
+| Industry | Main rules alongside 800-53 |
+| --- | --- |
+| Defense and defense industrial base | DoDI 8510.01, CNSSI 1253, CMMC, SP 800-171 |
+| Healthcare | HIPAA Security Rule, HHS 405(d) practices |
+| Financial services | FFIEC guidance, GLBA Safeguards Rule, PCI DSS |
+| Energy and utilities | NERC CIP, DOE C2M2 |
+| State and local government | StateRAMP (GovRAMP), CJIS Security Policy, IRS Publication 1075 |
+
+To write a new guide, copy the industry template from [Page templates](/reference/page-templates/) into this folder. Its front matter `description` is the one-line summary this page lists, and the build fails without one.

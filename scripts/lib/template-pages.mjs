@@ -211,17 +211,18 @@ export function policyPage({ family, clauses, common, catalog, variables, versio
 		.filter(Boolean)
 		.join('\n\n');
 
+	const description = `Ready-to-adopt ${family.title} policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and ${orgWide ? 'one organization-wide edition' : `a variant per baseline (${baselines.join(', ')})`}.`;
 	return {
 		file: `policies/${family.id}.md`,
 		text: page({
 			title: `${family.title} Policy`,
-			description: `Ready-to-adopt ${family.title} policy template for NIST SP 800-53 Rev. 5, with a statement group for each control and ${orgWide ? 'one organization-wide edition' : `a variant per baseline (${baselines.join(', ')})`}.`,
+			description,
 			label: `${family.title} (${fam})`,
 			order,
 			controls: covered,
 			body,
 		}),
-		summary: { title: `${family.title} Policy`, href: `/templates/policies/${family.id}/`, type: 'policy', stage: family.stage, status },
+		summary: { title: `${family.title} Policy`, href: `/templates/policies/${family.id}/`, type: 'policy', stage: family.stage, status, description },
 	};
 }
 
@@ -257,22 +258,45 @@ export function templatePage({ template, catalog, variables, version, order }) {
 			controls: template.controls,
 			body,
 		}),
-		summary: { title: template.title, href: `/templates/${folder}/${rest.join('/')}/`, type: template.type, stage: template.stage, status: template.status },
+		summary: {
+			title: template.title,
+			href: `/templates/${folder}/${rest.join('/')}/`,
+			type: template.type,
+			stage: template.stage,
+			status: template.status,
+			description: template.description,
+		},
 	};
 }
 
-/** The templates index: every generated page, grouped by type. */
+/**
+ * The templates index (PRD NAV-02): every generated page, grouped by type in
+ * sidebar order, each with its one-line summary: the `description` the page
+ * carries in its own front matter. The starter kit (type `kit`) opens the list.
+ * A page without a description, or of a type with no group, fails the run.
+ */
 export function indexPage(summaries) {
-	const groups = Object.keys(TYPE_GROUP)
-		.map((type) => {
+	const problems = summaries.flatMap((s) => [
+		...(s.description?.trim() ? [] : [`${s.href}: no description for the templates index`]),
+		...(s.type === 'kit' || TYPE_GROUP[s.type] ? [] : [`${s.href}: type "${s.type}" has no group in the templates index`]),
+	]);
+	if (problems.length) throw new Error(problems.join('; '));
+	const kit = summaries.filter((s) => s.type === 'kit');
+	const groups = [
+		kit.length ? ['## Starter kit', kit.map((s) => `- [${s.title}](${s.href}): ${s.description}`).join('\n')].join('\n\n') : '',
+		...Object.keys(TYPE_GROUP).map((type) => {
 			const list = summaries.filter((s) => s.type === type);
 			if (!list.length) return '';
 			return [
 				`## ${TYPE_GROUP[type]}`,
-				['| Template | Program stage | Status |', '| --- | --- | --- |', ...list.map((s) => `| [${s.title}](${s.href}) | [${cap(s.stage)}](/program/${s.stage}/) | ${cap(s.status)} |`)].join('\n'),
+				[
+					'| Template | What it is | Program stage | Status |',
+					'| --- | --- | --- | --- |',
+					...list.map((s) => `| [${s.title}](${s.href}) | ${cell(s.description)} | [${cap(s.stage)}](/program/${s.stage}/) | ${cap(s.status)} |`),
+				].join('\n'),
 			].join('\n\n');
-		})
-		.filter(Boolean);
+		}),
+	].filter(Boolean);
 	return [
 		'---',
 		"title: 'Templates'",
@@ -324,7 +348,7 @@ export function worksheetInput({ family, baseline, clauses, common, catalog, var
 	};
 }
 
-const cell = (s) => String(s).replace(/\|/g, '\|').replace(/\n/g, ' ');
+const cell = (s) => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
 
 /** One decision worksheet page per family, showing the Moderate baseline, or the only one (PT: Privacy). */
 export function worksheetPage({ family, clauses, common, catalog, variables, version, order }) {
@@ -348,11 +372,12 @@ export function worksheetPage({ family, clauses, common, catalog, variables, ver
 			...rows.map((r) => `| ${cell(r.decision)} | ${r.controls.join(', ')} | ${cell(r.typical)} | ${cell(r.decides)} |`),
 		].join('\n'),
 	].join('\n\n');
+	const description = `Every decision the ${family.title} family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, ${orgWide ? 'for the whole organization' : 'per baseline'}, as a spreadsheet.`;
 	return {
 		file: `worksheets/${family.id}.md`,
 		text: page({
 			title: `${family.title} Decision Worksheet`,
-			description: `Every decision the ${family.title} family of NIST SP 800-53 Rev. 5 forces, with typical values and who decides, ${orgWide ? 'for the whole organization' : 'per baseline'}, as a spreadsheet.`,
+			description,
 			label: `${family.title} (${family.id.toUpperCase()})`,
 			order,
 			controls,
@@ -364,6 +389,7 @@ export function worksheetPage({ family, clauses, common, catalog, variables, ver
 			type: 'worksheet',
 			stage: family.stage,
 			status: 'draft',
+			description,
 		},
 	};
 }
@@ -466,16 +492,17 @@ export function consolidatedPage({ families, clauses, common, catalog, variables
 		preview(shown.source, ctx),
 	].join('\n\n');
 
+	const description = `Ready-to-adopt consolidated security and privacy policy template for NIST SP 800-53 Rev. 5: every family policy in one document, with a variant per baseline (${baselines.join(', ')}).`;
 	return {
 		file: `policies/${CONSOLIDATED_SLUG}.md`,
 		text: page({
 			title: CONSOLIDATED_TITLE,
-			description: `Ready-to-adopt consolidated security and privacy policy template for NIST SP 800-53 Rev. 5: every family policy in one document, with a variant per baseline (${baselines.join(', ')}).`,
+			description,
 			label: 'Consolidated policy',
 			order,
 			controls: policyControls,
 			body,
 		}),
-		summary: { title: CONSOLIDATED_TITLE, href: `/templates/policies/${CONSOLIDATED_SLUG}/`, type: 'policy', stage: CONSOLIDATED_STAGE, status },
+		summary: { title: CONSOLIDATED_TITLE, href: `/templates/policies/${CONSOLIDATED_SLUG}/`, type: 'policy', stage: CONSOLIDATED_STAGE, status, description },
 	};
 }

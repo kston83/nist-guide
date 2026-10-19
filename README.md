@@ -80,7 +80,7 @@ src/styles/theme.css   Colors and typefaces
 
 ## Writing guidance
 
-- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
+- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. An industry guide or technology playbook also appears on its section's index (`industries/`, `technology/`), with its front matter `description` as the one-line summary; the build fails if it has none. The templates index lists every template page the same way, from the description each generated page carries. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.

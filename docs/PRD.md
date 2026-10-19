@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.10 · Oct 16, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.11 · Oct 19, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -326,6 +326,7 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | TPL-10 | Versioned kit releases | P2 | Tagging `vX.Y.Z` publishes the kit `.zip` files to a GitHub Release, with release notes and the NIST release basis |
 | TPL-11 | Template changelog | P2 | Each template page shows what changed in each kit version, from git history or front matter |
 | TPL-12 | In-browser fill-in | P3 | Owner decision. A reader enters `variables.yml` values in a form and downloads filled documents; nothing leaves the browser; no server |
+| TPL-13 | Approval and version history in every template | P2 | Owner decision. Every template ends with one standard section the adopting organization fills in: an approval table and a version history table, with the same columns in every template type (family and consolidated policies, plans, standards, procedures and reports; forms where the form is itself a controlled document). It cites the review and update element it records (for example the -1 controls' c and PM-1b and c). The existing tables in four plans move to it. Distinct from TPL-11, which records changes to the template itself |
 
 ### Build your program (PROG)
 
@@ -443,6 +444,7 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 - **Policy clauses** use "shall", one requirement per sentence, name an accountable role (as a variable, never a person), and cite the control ID in a trailing reference, for example "(AC-2)".
 - **Every parameter is handled.** Each organization-defined parameter of a clause's control is either a `{{param:...}}` field or explicitly set with a note that it is a typical value.
 - **Any organization, federal-ready.** Write the body for any organization ("the organization", not "the agency"). Put federal-only requirements in `:::federal` blocks, and write them as carefully as the body: federal systems are the most common place these templates will be applied. Cite the federal source (OMB, CISA, FedRAMP, DoD) in each block.
+- **Version record.** Every template ends with the standard approval and version history section (TPL-13), left blank for the adopting organization.
 - **Guidance is separable.** All teaching text lives in `:::guidance` blocks so the clean edition is produced mechanically.
 - **Procedures** are numbered steps by role, with inputs, outputs and the record each step leaves behind (the evidence).
 - **Plans** follow the structure NIST or the owning program publishes (for example SP 800-34 for contingency plans, SP 800-61 for incident response) and cite it.
@@ -605,7 +607,7 @@ Work in seven phases; each ends with an owner review before the next starts. Pha
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
+| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, TPL-13, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
 | 4 Methods and the SSDF | Each family's NIST methods, the SSDF section, and the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01 to METH-03, SSDF-01 to SSDF-05 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; SSDF templates at `draft` in the kit; kit v2.1.0 |
 | 5 AI RMF and AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v2.2.0 |
 | 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02, FEAT-01 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
@@ -703,6 +705,7 @@ None of these block Phase 1.
 | Moderate guidance | Written in Phase 3, not Depth: each remaining family's guidance in the pull request after its policy, and the families already written backfilled in batches between template rows. A policy clause says what the organization commits to; guidance says how to do it and what the assessor asks for, which is the guide's first goal | Sep 29, 2026 |
 | PM and privacy guidance | Also written in Phase 3, after the Moderate guidance: every PM control (no baseline, but the program-level controls a new program builds first) and every privacy-only control (PT, PL-9, RA-8, SI-18, SI-19). A privacy-only enhancement is covered on its base control's page, like any enhancement | Sep 29, 2026 |
 | Template `role` field | Non-policy templates may name the role accountable for the artifact (`role:`, a `variables.yml` key; an unknown key fails the build), so the artifact checklist (PROG-03) shows, for example, the system owner for a System Security Plan rather than the CISO of the PL policy. Without it, the role of the family policy of the first control listed | Oct 16, 2026 |
+| Template version history | Every template carries a standard approval and version history section for the adopting organization (TPL-13), in Phase 3 before kit v2.0.0, so adopters of v2.0.0 have it and later kits need not change every document. Separate from the site's per-template change history (TPL-11), which stays on the site and is not added to downloads | Oct 19, 2026 |
 | Report template type | A fifth non-policy type, `report` (`templates/reports/`), for the written results of assessments, analyses and exercises: the risk assessment report first, then the CA assessment report and the CP after-action report | Sep 28, 2026 |
 
 ## Revision history
@@ -723,3 +726,4 @@ None of these block Phase 1.
 | 3.8 | Oct 3, 2026 | Working records, no change in scope (owner request, to cut the context each task reads): Instructions for Claude Code split progress into `PROGRESS.md` (working state, under 40 KB), `docs/progress-log.md` (the log) and `docs/sources.md` (source registry and verification notes), and the PRD is read in full only at a phase start or a scope change |
 | 3.9 | Oct 3, 2026 | Owner decision (row 27 review): procedures sit flat in `templates/procedures/<slug>.md`, like every other type folder, not in a folder per family (Sources and layout) |
 | 3.10 | Oct 16, 2026 | Owner decision (PROG-03 review): an optional `role` field in non-policy template front matter, a key in `variables.yml` for the role accountable for the artifact; without it, the role of the family policy of the first control listed (Clause and template front matter, Decided) |
+| 3.11 | Oct 19, 2026 | Owner decision (TPL-11 review): TPL-13, a standard approval and version history section in every template, in Phase 3 before kit v2.0.0 (Templates, Writing templates, Phase 3 row, Decided) |

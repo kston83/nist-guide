@@ -65,12 +65,24 @@ const escape = (s) => s.replace(/([\\`*_[\]<>|])/g, '\\$1');
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-function entry(c, repoUrl) {
+/**
+ * A commit's entry as plain text: the requirement id(s) it starts with, if any,
+ * and the rest of the subject, capitalized. Shared by the changelog page and the
+ * template change history (TPL-11, scripts/lib/template-history.mjs).
+ * @returns { id: string | null, text: string, pr: number | null }
+ */
+export function entryParts(c) {
 	// "TPL-05: ...", "PROG-01, PROG-05: ...", "CTRL-01 to CTRL-03: ..."
 	const id = c.subject.match(/^([A-Z]+-\d+(?:(?:,\s*|\s+to\s+)[A-Z]+-\d+)*):\s*(.*)$/);
-	const text = id ? `**${id[1]}** ${escape(cap(id[2]))}` : escape(cap(c.subject.replace(/^Content:\s*/, '')));
+	// Other subjects drop "Content:" and plan-row prefixes ("Row 27:", "G25:", "W2:", "UX1:").
+	const text = c.subject.replace(/^(?:Content|Row \d+|G\d+|W\d+|UX\d+):\s*/, '');
+	return id ? { id: id[1], text: cap(id[2]), pr: c.pr } : { id: null, text: cap(text), pr: c.pr };
+}
+
+function entry(c, repoUrl) {
+	const { id, text } = entryParts(c);
 	const link = c.pr ? ` ([#${c.pr}](${repoUrl}/pull/${c.pr}))` : '';
-	return `- ${text}${link}`;
+	return `- ${id ? `**${id}** ` : ''}${escape(text)}${link}`;
 }
 
 // One section's notes: an h3 per change type, entries newest first.

@@ -34,6 +34,7 @@ flowchart LR
 | Template pages (`src/content/docs/templates/`) and the program artifact checklist (`src/content/docs/program/checklist.md`) | `templates/` | `npm run templates` | Yes, so diffs and edit links work |
 | Downloadable kit (`.docx`, `.md`, `.csv`, `.zip`) | `templates/` | `npm run kit` (part of `npm run build`) | No: build output in `dist/downloads/` |
 | Changelog page (`reference/changelog.md`) | First-parent git history of `main` | `scripts/build-changelog.mjs` (runs before `dev` and `build`) | No: in `.gitignore` |
+| Template change history (`src/data/template-history.json`), shown at the end of each template page | First-parent git history of `main`, with the files each commit changed | `scripts/build-changelog.mjs`, with `scripts/lib/template-history.mjs` | No: in `.gitignore`, so the committed template pages carry no git-derived text and `npm run templates` gives no diff |
 | RMF, program, industry, technology and reference pages | `src/content/docs/` | Hand | Yes |
 
 Never hand-edit generated text. Change the generator or the source in `templates/`, then regenerate. CI regenerates both and fails on any diff.
@@ -94,6 +95,15 @@ Control files hold only the NIST block and the guidance. Everything else on a co
 | Artifacts | Template pages whose `controls` name the control | TPL-06 |
 | Referenced by | Other pages whose `controls` front matter names the control or an enhancement (`src/lib/references.ts`) | LINK-01 |
 
+The same component ends every page under `templates/` (except the index) with a **Change history** section (TPL-11), rendered by `TemplateHistory.astro` from `src/data/template-history.json`: an `h2`, one paragraph, and a collapsed `<details>` per kit version (release tag, plus "Unreleased (since vX.Y.Z)" for later changes) listing the merged pull requests that changed the page's sources, each as its squash-commit subject with the requirement ID in bold and a link to the pull request. The section is excluded from search (`data-pagefind-ignore`). It is built at build time, not by `npm run templates`, because the generated pages are committed and checked for staleness: text that changes with every commit cannot be in them. A component, not a Markdown plugin, renders it, because Astro caches rendered Markdown between builds. `scripts/lib/template-history.mjs` reuses the changelog's parsing and grouping (`parseCommit`, `sections` and `entryParts` in `scripts/lib/changelog.mjs`) and decides which files count for each page (`pageSources`):
+
+- a plan, standard, procedure, form or report: its own file in `templates/`;
+- a family policy and its decision worksheet: the family folder (clauses, `_family.yml`) and the shared `templates/policy/_common.md`, unless the family has its own `_common.md` (PM): the shared sections are part of every family policy and give its -1 typical values;
+- the consolidated policy: all of `templates/policy/`, plus `src/lib/template-assemble.ts`, where its opening guidance and Control families section are written;
+- the starter kit: `templates/starter-kit.yml`.
+
+Other generator code and `templates/variables.yml` (field labels every template shares) do not count; the site changelog lists those changes. A page's history starts with the commit that first published the page, so source changes from before a template had a page (clauses written before the consolidated policy existed) are left out. Renames are followed (`git log -M`), so a moved template, such as the risk assessment report (plans to reports, TPL-01), keeps its earlier history. Without git history the data file has no pages and the section is left out; with a shallow clone the section says older changes may be missing. The downloadable documents do not carry the history.
+
 Other components: `ControlCoverage.astro` (the coverage page, CTRL-05), `StageArtifacts.astro` (artifacts per program stage, from template `stage` front matter, PROG-01), `StepStrip.astro` (home page step strip) and `Footer.astro` (disclaimer and license).
 
 ### Page head and analytics
@@ -114,7 +124,7 @@ The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-
 
 | Check | Command | Fails when |
 | --- | --- | --- |
-| Unit tests | `npm test` | Any test in `scripts/test/` fails (generator, template system, coverage, references, search tokens, changelog), or `PROGRESS.md` grows past 40 KB or the source registry has a row without a date |
+| Unit tests | `npm test` | Any test in `scripts/test/` fails (generator, template system, coverage, references, search tokens, changelog, template history), or `PROGRESS.md` grows past 40 KB or the source registry has a row without a date |
 | Markdown lint | `npm run lint` (markdownlint-cli2) | A rule in `.markdownlint-cli2.jsonc` is broken |
 | Template lint | `npm run lint:templates` (in `lint`) | A template writing rule is broken (QA-05) |
 | Spelling | `npm run spell` (in `lint`) | cspell finds a word not in `cspell-words.txt`; NIST text, variables and code are skipped |
@@ -141,4 +151,4 @@ All actions are pinned to full commit SHAs, each workflow sets `permissions: {}`
 
 - The site and the kit share `version` in `package.json`, which every generated document prints. The README's "Releasing the template kit" section gives the steps.
 - The NIST basis is the OSCAL release pinned by `OSCAL_REF`; the release notes and every document header name it.
-- The changelog groups merged pull requests by release tag, so the squash-commit subject of each pull request (`ID: summary (#n)`) is its changelog entry.
+- The changelog groups merged pull requests by release tag, so the squash-commit subject of each pull request (`ID: summary (#n)`) is its changelog entry, on the changelog page and in the change history of each template it touched (TPL-11).

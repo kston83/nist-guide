@@ -177,5 +177,7 @@ test('the page lists the -1 controls, counts per variant, downloads per baseline
 	assert.match(text, /The statements of the \[Access Control Policy\]\(\/templates\/policies\/ac\/\), Moderate variant: 1 controls and enhancements\./);
 	assert.match(text, /Typical: annually/);
 	assert.doesNotMatch(text, /\{\{/);
-	assert.deepEqual(summary, { title: 'Information Security and Privacy Policy', href: '/templates/policies/consolidated/', type: 'policy', stage: 'foundation', status: 'draft' });
+	const { description, ...rest } = summary;
+	assert.deepEqual(rest, { title: 'Information Security and Privacy Policy', href: '/templates/policies/consolidated/', type: 'policy', stage: 'foundation', status: 'draft' });
+	assert.ok(text.includes(`\ndescription: '${description}'\n`), 'the summary is the page description');
 });

@@ -53,7 +53,7 @@ import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
 import { CHECKLIST_FILE, CHECKLIST_PAGE, checklistCsv, checklistPage, checklistRows } from './lib/artifact-checklist.mjs';
-import { resolveStarterKit, STARTER_BASELINES, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
+import { resolveStarterKit, STARTER_BASELINES, STARTER_KIT_SUMMARY, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
 import { documentHeader, findPandoc, kitReadme, NO_DOCX, registerCsv, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
 
 // Clean (ready to adopt) is the default file; annotated keeps the guidance (TPL-04).
@@ -127,7 +127,9 @@ if (pagesMode) {
 		await attempt(`templates/${template.id}.md page`, () =>
 			pages.push(templatePage({ template, catalog, variables, version, order: i + 1 })),
 		);
-	pages.push({ file: 'index.md', text: indexPage(pages.map((p) => p.summary)) });
+	await attempt('templates index', () =>
+		pages.push({ file: 'index.md', text: indexPage([STARTER_KIT_SUMMARY, ...pages.map((p) => p.summary)]) }),
+	);
 	await attempt('starter kit page', () =>
 		pages.push({
 			file: 'starter-kit.md',

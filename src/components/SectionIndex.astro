@@ -1,0 +1,40 @@
+---
+// Lists the published pages of a docs section (PRD NAV-02), generated from
+// their front matter: title and `description` as the one-line summary. With
+// no published pages yet, it shows its slot instead (what is planned).
+import { getCollection } from 'astro:content';
+import { sectionPages } from '../lib/section-index.mjs';
+import { withBase } from '../lib/url';
+
+interface Props {
+	section: 'industries' | 'technology';
+	heading: string;
+}
+const { section, heading } = Astro.props;
+const pages = sectionPages(await getCollection('docs'), section);
+---
+
+{
+	pages.length ? (
+		<table>
+			<thead>
+				<tr>
+					<th>{heading}</th>
+					<th>What it covers</th>
+				</tr>
+			</thead>
+			<tbody>
+				{pages.map((p) => (
+					<tr>
+						<td>
+							<a href={withBase(p.href)}>{p.title}</a>
+						</td>
+						<td>{p.description}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	) : (
+		<slot />
+	)
+}

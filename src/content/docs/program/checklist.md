@@ -21,6 +21,8 @@ Every artifact this guide has a template for, in one list: 92 documents across t
 
 Policies come two ways: the Information Security and Privacy Policy covers every family in one document, and the family policies cover one family each. For any one scope, adopt one or the other, not both, and track the one you adopt. The decision worksheets serve either.
 
+A small organization can merge or skip some of these documents. [Scaling guidance](/program/scaling/) says which, and which ones a federal information system must have.
+
 ## Artifacts
 
 | Artifact | Type | Stage | Controls | Accountable role | Status |

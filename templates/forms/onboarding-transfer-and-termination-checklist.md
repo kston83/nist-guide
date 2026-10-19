@@ -1,7 +1,7 @@
 ---
 title: Onboarding, Transfer and Termination Checklist
 type: form
-description: The steps, owners and time limits for granting, changing and removing a person's access when they join, move or leave, with a register of each personnel action, as SP 800-53 PS-3, PS-4, PS-5 and AC-2 require.
+description: The steps, owners and time limits for granting, changing and removing access when a person joins, moves or leaves, with a register of personnel actions (PS-3, PS-4, PS-5, AC-2).
 controls: [ps-4, ps-5, ps-3, ps-6, ps-7, ac-2, at-2]
 status: draft
 stage: core

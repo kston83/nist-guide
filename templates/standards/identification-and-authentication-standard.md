@@ -1,7 +1,7 @@
 ---
 title: Identification and Authentication Standard
 type: standard
-description: The assurance levels, identifiers, approved authenticators, multi-factor and password rules, authenticator life cycle, and the service account, device and federation requirements that make the identification and authentication policy (SP 800-53 IA-2, IA-5 and related controls) measurable, with a part where each system records how it authenticates.
+description: The assurance levels, identifiers, authenticators, multi-factor and password rules, and service account, device and federation requirements (IA-2, IA-5), with each system's authentication record.
 controls: [ia-2, ia-2.1, ia-2.2, ia-2.8, ia-2.12, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-3, ia-4, ia-4.4, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ac-7]
 status: draft
 stage: core
@@ -306,6 +306,22 @@ Complete one Part B for each system, and reference it in the system security pla
 
 The {{org:ciso}} reviews Part A {{fill:for example annually}}, and whenever NIST revises SP 800-63, a new authenticator type is adopted or retired, an incident involves stolen credentials, or the identification and authentication policy changes. Each system owner reviews Part B {{fill:for example annually}}, and when the system's users, access paths or identity provider change.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

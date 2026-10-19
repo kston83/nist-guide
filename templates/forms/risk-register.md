@@ -1,7 +1,7 @@
 ---
 title: Risk Register
 type: form
-description: The register of a system's or an organization's identified risks, their assessed level, the response decided and who owns it, based on the cybersecurity risk register in NIST IR 8286 Rev. 1.
+description: The register of identified risks for a system or organization, with each risk's level, response and owner, based on the cybersecurity risk register in NIST IR 8286 Rev. 1.
 controls: [ra-3, ra-7]
 status: draft
 stage: foundation

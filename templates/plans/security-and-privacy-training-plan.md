@@ -73,7 +73,7 @@ People in the roles below complete role-based training before being authorized t
 
 - The {{org:ciso}} and the {{org:privacy-official}} review and update literacy and awareness content {{param:at-02_odp.06}} and following {{param:at-02_odp.07}} (AT-2c).
 - They review and update role-based content {{param:at-03_odp.04}} (AT-3b).
-- Lessons learned from internal and external incidents and breaches are added to the content, with the change and its date recorded in section 9 (AT-2d, AT-3c).
+- Lessons learned from internal and external incidents and breaches are added to the content, with the change and its date recorded in the version history at the end of this plan (AT-2d, AT-3c).
 
 ## 7. Tracking and records
 
@@ -97,13 +97,26 @@ Assignments and completions are recorded in {{fill:for example the learning mana
 Federal agencies set the schedule in sections 3 and 5 to meet [5 CFR 930.301](https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-930/subpart-C/section-930.301) (OPM): awareness material for new employees before access, exposure of every user to awareness materials at least annually, role-specific training for employees with significant information security responsibilities, and training when the environment changes significantly or an employee moves into a role that needs more of it. [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix II, section 5.g, adds mandatory privacy awareness and training for all employees and contractors, and role-based privacy training before access for those with privacy roles. Training records follow NARA [GRS 2.6](https://www.archives.gov/files/records-mgmt/grs/grs02-6.pdf) item 030. Checked September 2026.
 :::
 
-## 9. Approval and change history
+## 9. Approval
 
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| {{fill:name}} | {{org:ciso}} | | {{fill:date}} |
-| {{fill:name}} | {{org:privacy-official}} | | {{fill:date}} |
+The {{org:ciso}} and the {{org:privacy-official}} approve this plan. Each approval, review and change is recorded under Approval and version history at the end of this plan.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

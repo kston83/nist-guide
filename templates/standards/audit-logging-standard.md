@@ -1,7 +1,7 @@
 ---
 title: Audit Logging Standard
 type: standard
-description: The event list, record content, collection, time stamps, storage, failure response, protection and retention that make the audit and accountability policy's logging requirements (SP 800-53 AU-2, AU-3, AU-12 and related controls) measurable, with the limits on personal information in audit records (AU-3(3)) and a part where each system records what it logs and why.
+description: The events, record content, time stamps, storage, protection and retention that make the audit and accountability policy measurable (AU-2, AU-3, AU-12), with each system's logging record.
 controls: [au-2, au-3, au-3.1, au-3.3, au-4, au-5, au-8, au-9, au-9.4, au-11, au-12, au-5.1, au-5.2, au-9.2, au-9.3, au-10, au-12.1, au-12.3]
 status: draft
 stage: core
@@ -252,6 +252,22 @@ Complete for a system that processes personally identifiable information.
 
 The {{org:ciso}} reviews Part A {{param:au-02_odp.04}}, and whenever the audit and accountability policy, the central log platform, or a federal logging requirement changes. Each system owner reviews Part B at the same time, and when the system's components or log sources change.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

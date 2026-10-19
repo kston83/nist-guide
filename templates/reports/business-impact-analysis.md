@@ -1,7 +1,7 @@
 ---
 title: Business Impact Analysis
 type: report
-description: The analysis of what a system's disruption would do to the mission and business processes it supports, setting the recovery objectives and priorities the contingency plan uses, following the NIST SP 800-34 Rev. 1 BIA template.
+description: The analysis of a system's disruption impact on the processes it supports, setting the recovery objectives and priorities the contingency plan uses, following NIST SP 800-34 Rev. 1.
 controls: [cp-2, cp-2.3, cp-2.8]
 status: draft
 stage: core
@@ -74,9 +74,26 @@ Recovery priorities follow from the processes' outage impacts and RTOs. The plan
 
 ## 6. Approval
 
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| {{fill:name}} | {{fill:business or process owner}} | | {{fill:date}} |
-| {{fill:name}} | {{org:system-owner}} | | {{fill:date}} |
+The business or process owner and the {{org:system-owner}} approve this analysis. Each approval, review and change is recorded under Approval and version history at the end of this analysis.
 
 Review this analysis with the contingency plan, and whenever the processes the system supports, or their priorities, change.
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

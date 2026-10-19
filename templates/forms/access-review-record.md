@@ -1,7 +1,7 @@
 ---
 title: Access Review Record
 type: form
-description: The record of one periodic review of a system's accounts and privileges, with a decision for every account, the actions taken and the sign-off, and a register of every review, as SP 800-53 AC-2j and AC-6(7) require.
+description: The record of one periodic review of a system's accounts and privileges, with a decision per account, the actions taken and sign-off, and a register of reviews (AC-2j, AC-6(7)).
 controls: [ac-2, ac-2.3, ac-5, ac-6.7]
 status: draft
 stage: core

@@ -1,7 +1,7 @@
 ---
 title: Maintenance Log
 type: form
-description: The record of each maintenance, repair and replacement activity on a system, local or nonlocal, with its approval, the people and escort, the tools, any removal and sanitization, and the control check afterward, plus the system's authorized maintenance personnel and approved maintenance tools, as SP 800-53 MA-2 requires.
+description: The record of each maintenance, repair and replacement activity on a system, with its approval, people, tools and sanitization, plus the authorized maintenance personnel and tools (MA-2).
 controls: [ma-2, ma-2.2, ma-3, ma-3.1, ma-3.2, ma-3.3, ma-4, ma-4.3, ma-5, ma-5.1]
 status: draft
 stage: operate

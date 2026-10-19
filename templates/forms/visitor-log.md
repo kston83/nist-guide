@@ -1,7 +1,7 @@
 ---
 title: Visitor Log
 type: form
-description: The record of each visit to the non-public areas of a facility, with the visitor, the person visited, the times, the badge and the escort, its retention and review, and the anomalies reported, limited to the elements the privacy risk assessment allows, as SP 800-53 PE-8 requires.
+description: The record of each visit to a facility's non-public areas, with the visitor, host, times, badge and escort, limited to what the privacy risk assessment allows (PE-8).
 controls: [pe-8, pe-8.1, pe-8.3, pe-3]
 status: draft
 stage: operate

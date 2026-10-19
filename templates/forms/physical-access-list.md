@@ -1,7 +1,7 @@
 ---
 title: Physical Access List
 type: form
-description: The list of individuals authorized to enter a facility and each controlled area within it, with the credential issued, the approval, each review and each removal, plus the facility's areas and its inventory of keys, combinations and badges, as SP 800-53 PE-2 and PE-3 require.
+description: The list of individuals authorized to enter a facility and each controlled area, with credentials, approvals, reviews and removals, plus the inventory of keys, combinations and badges (PE-2, PE-3).
 controls: [pe-2, pe-3, pe-3.1, ps-4, ps-5]
 status: draft
 stage: operate

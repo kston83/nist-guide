@@ -1,7 +1,7 @@
 ---
 title: Access Request Form
 type: form
-description: The record of one request to create an account or change a person's access to a system, with the prerequisite checks, separation of duties check, approvals and provisioning, and a register of every request, as SP 800-53 AC-2 requires.
+description: The record of one request to create an account or change access, with the prerequisite and separation of duties checks, approvals and provisioning, and a register of requests (AC-2).
 controls: [ac-2, ac-2.2, ac-5, ac-6, ac-6.2]
 status: draft
 stage: core

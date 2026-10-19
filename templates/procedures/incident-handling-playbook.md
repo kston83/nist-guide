@@ -1,7 +1,7 @@
 ---
 title: Incident Handling Playbook
 type: procedure
-description: The steps, by role, for taking an incident from the first report through triage, analysis, containment, eradication, recovery, notification and lessons learned, with extra steps for breaches involving personally identifiable information and the inputs, outputs and record each step leaves, that carry out the Incident Response Plan and the incident response policy's handling, monitoring and reporting requirements (SP 800-53 IR-4, IR-5, IR-6).
+description: The steps, by role, for handling an incident from first report through triage, containment, recovery and notification, with extra steps for breaches involving personally identifiable information (IR-4, IR-5, IR-6).
 controls: [ir-4, ir-4.1, ir-5, ir-6, ir-6.1, ir-6.3, ir-7, ir-8.1]
 status: draft
 stage: core
@@ -218,6 +218,22 @@ That guidance is [OMB Memorandum M-25-04](https://www.whitehouse.gov/wp-content/
 
 The {{org:ciso}} reviews this playbook {{fill:for example annually}}, after each major incident, after each exercise of the incident response capability (IR-3), and when tools, contacts or notification duties change.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

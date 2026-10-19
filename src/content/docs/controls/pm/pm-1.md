@@ -102,7 +102,7 @@ PM-1 is not the "policy and procedures" control that opens every other family. I
 | Roles, responsibilities, management commitment, coordination and compliance (a.2) | The Roles and responsibilities, Management commitment, Coordination and Compliance sections | Sections 3, 4, 5 and 6 |
 | Coordination among the entities responsible for security (a.3) | Coordination: the functions the program coordinates with, recorded in the plan | Section 5 |
 | Approval by a senior official accountable for the risk (a.4) | The senior leader approves the plan | Section 9 |
-| Review and update (b) | A frequency and trigger events for the plan; the policy is reviewed whenever the plan is | Section 10 |
+| Review and update (b) | A frequency and trigger events for the plan; the policy is reviewed whenever the plan is | Section 9 |
 | Protection from unauthorized disclosure and modification (c) | Limit who can change the plan and keep each approved version | Section 10, and the plan's opening guidance on restricting access |
 
 **Common implementations.** One plan, owned by the Chief Information Security Officer and approved by the head of the organization, kept in a restricted document library with version history. NIST's PM-1 discussion says common controls are documented in an appendix to the plan unless a separate security plan holds them, and the plan says which separate plans do. Section 7 of the plan template is that list: each common control with its provider, the systems that inherit it, and its status.

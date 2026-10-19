@@ -149,20 +149,12 @@ Each risk acceptance is recorded with the risk, its level, the reason, the compe
 
 Risk is monitored under the continuous monitoring strategy (PM-31), which sets the metrics, frequencies and reporting. These events trigger a new assessment of the affected risk: <span class="tpl-field tpl-fill">Fill in: for example a significant change to a system, a major incident, a new threat or vulnerability affecting the organization, a change in law or mission</span>.
 
-### 7. Approval
+### 7. Approval and review
 
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| <span class="tpl-field tpl-fill">Fill in: name</span> | <span class="tpl-field tpl-org">Senior leader</span> | | <span class="tpl-field tpl-fill">Fill in: date</span> |
-
-### 8. Review and change history
+The <span class="tpl-field tpl-org">Senior leader</span> approves this strategy. Each approval, review and change is recorded under Approval and version history at the end of this strategy.
 
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall review and update this strategy <span class="tpl-field tpl-param">Fill in: the frequency at which to review and update the risk management strategy <span class="tpl-typical">Typical: annually</span></span>, and whenever organizational changes require it. (PM-9c)
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall review and update the risk framing in section 3 <span class="tpl-field tpl-param">Fill in: the frequency for reviewing and updating risk framing considerations <span class="tpl-typical">Typical: annually, with this strategy</span></span>. (PM-28c)
-
-| Version | Date | Change | Approved by |
-| --- | --- | --- | --- |
-| <span class="tpl-field tpl-fill">Fill in: version</span> | <span class="tpl-field tpl-fill">Fill in: date</span> | <span class="tpl-field tpl-fill">Fill in: summary of change</span> | <span class="tpl-field tpl-fill">Fill in: name and title</span> |
 
 <div class="tpl-federal">
 
@@ -173,3 +165,23 @@ Risk is monitored under the continuous monitoring strategy (PM-31), which sets t
 - This strategy shall describe how the agency carries out the agency-wide risk management process that OMB Circular A-130, Appendix I, section 3.a, requires, and shall state the risk assumptions, constraints, tolerance, and priorities and trade-offs that section 5.b describes. (PM-9)
 
 </div>
+
+### Approval and version history
+
+<span class="tpl-field tpl-org">Organization name</span> records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::note[Guidance]
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+#### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+#### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

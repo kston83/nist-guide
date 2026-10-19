@@ -82,7 +82,7 @@ const history = templateHistory(parseLog(log), pages, { ownCommon: new Set(['pm'
 
 test('a family policy lists its own and shared changes by kit version, from when its page was published', () => {
 	assert.deepEqual(history['templates/policies/ac'], [
-		{ title: 'Unreleased (since v1.0.0)', entries: [{ id: null, text: 'W2: typical values for the -1 controls', pr: 83 }] },
+		{ title: 'Unreleased (since v1.0.0)', entries: [{ id: null, text: 'Typical values for the -1 controls', pr: 83 }] },
 		{
 			title: 'v1.0.0 (2026-10-02)',
 			version: 'v1.0.0',
@@ -138,4 +138,12 @@ test('without release tags, sections are months and "Unreleased" is not used', (
 test('entry parts split the requirement id from the subject', () => {
 	assert.deepEqual(entryParts({ subject: 'CTRL-01 to CTRL-03: generator tests', pr: 3 }), { id: 'CTRL-01 to CTRL-03', text: 'Generator tests', pr: 3 });
 	assert.deepEqual(entryParts({ subject: 'Content: IR plan', pr: null }), { id: null, text: 'IR plan', pr: null });
+	for (const [subject, text] of [
+		['Row 27: AC artifacts', 'AC artifacts'],
+		['G25: guidance for PL-9', 'Guidance for PL-9'],
+		['W2: typical values', 'Typical values'],
+		['UX1: table readability', 'Table readability'],
+		['Fix: search tokens', 'Fix: search tokens'],
+	])
+		assert.equal(entryParts({ subject, pr: 1 }).text, text, subject);
 });

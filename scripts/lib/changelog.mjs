@@ -74,7 +74,9 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 export function entryParts(c) {
 	// "TPL-05: ...", "PROG-01, PROG-05: ...", "CTRL-01 to CTRL-03: ..."
 	const id = c.subject.match(/^([A-Z]+-\d+(?:(?:,\s*|\s+to\s+)[A-Z]+-\d+)*):\s*(.*)$/);
-	return id ? { id: id[1], text: cap(id[2]), pr: c.pr } : { id: null, text: cap(c.subject.replace(/^Content:\s*/, '')), pr: c.pr };
+	// Other subjects drop "Content:" and plan-row prefixes ("Row 27:", "G25:", "W2:", "UX1:").
+	const text = c.subject.replace(/^(?:Content|Row \d+|G\d+|W\d+|UX\d+):\s*/, '');
+	return id ? { id: id[1], text: cap(id[2]), pr: c.pr } : { id: null, text: cap(text), pr: c.pr };
 }
 
 function entry(c, repoUrl) {

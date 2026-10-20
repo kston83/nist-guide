@@ -7,7 +7,7 @@
  *   npm run og-image
  *
  * Run it again after changing the wording or colours below, and commit the PNG.
- * Uses the site's typefaces from @fontsource and the theme's teal.
+ * Uses the site's typefaces from @fontsource and the theme's blue accent.
  */
 import fs from 'node:fs/promises';
 import os from 'node:os';
@@ -20,10 +20,10 @@ const W = 1200;
 const H = 630;
 const PAD = 96;
 
-// Colours from src/styles/theme.css and public/favicon.svg.
-const BG = '#093a39'; // accent-high (light theme)
-const ACCENT = '#4fb3a8'; // accent (dark theme)
-const SOFT = '#c6e9e4'; // accent-high (dark theme)
+// Colours from the Flexoki blue accent (astro.config.mjs) and public/favicon.svg.
+const BG = '#163b66'; // Flexoki blue-800, a step darker than the light-theme accent
+const ACCENT = '#66a0c8'; // accent (dark theme), Flexoki blue-300
+const SOFT = '#abcfe2'; // accent-high (dark theme), Flexoki blue-150
 
 const TITLE = 'RMF Field Guide';
 const TAGLINE = 'Applying the NIST Risk Management Framework\nand SP 800-53 to real systems';
@@ -86,7 +86,7 @@ async function text(value, { fontfile, font, color, spacing = 0 }) {
 		.toBuffer();
 }
 
-// Background: teal field, accent bar on the left, and the favicon mark (three lines).
+// Background: blue field, accent bar on the left, and the favicon mark (three lines).
 const background = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
 	<rect width="${W}" height="${H}" fill="${BG}"/>
 	<rect x="0" y="0" width="16" height="${H}" fill="${ACCENT}"/>

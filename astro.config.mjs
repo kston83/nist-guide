@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightThemeFlexoki from 'starlight-theme-flexoki';
 import { fileURLToPath } from 'node:url';
 import { visit } from 'unist-util-visit';
 import { rehypeEnhancementTokens } from './src/lib/search-tokens.mjs';
@@ -147,6 +148,7 @@ export default defineConfig({
 			],
 			editLink: { baseUrl: `${REPO_URL}/edit/main/` },
 			lastUpdated: true,
+			plugins: [starlightThemeFlexoki({ accentColor: 'blue' })],
 			customCss: [
 				'@fontsource/public-sans/400.css',
 				'@fontsource/public-sans/600.css',

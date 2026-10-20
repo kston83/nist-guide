@@ -73,7 +73,7 @@ scripts/lib/           Logic for the scripts, tested in scripts/test/
 public/diagrams/       SVG diagrams used in pages
 .github/workflows/     Check, Deploy to GitHub Pages, Release kit
 astro.config.mjs       Site settings, base path and sidebar
-src/styles/theme.css   Colors and typefaces
+src/styles/theme.css   Typefaces (colors come from starlight-theme-flexoki)
 src/styles/print.css   Print styles (print only)
 ```
 

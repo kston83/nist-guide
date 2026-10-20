@@ -7,8 +7,8 @@
  * sidebars, mobile menu, edit link and pagination (`print:hidden`), lets the
  * content use the full width, and keeps code blocks, asides and headings from
  * breaking badly. This file adds what the site's own styles need on paper:
- * - the site's accent colors, which `theme.css` sets after Starlight's print
- *   colors, so a dark theme would otherwise print light teal on white;
+ * - the site's accent colors, which the theme sets after Starlight's print
+ *   colors, so a dark theme would otherwise print a light accent on white;
  * - the header, skip link and footer meta hidden, keeping the footer's
  *   disclaimer and license line, which attribution needs on a printed copy;
  * - tables at full width with borders and repeated header rows, instead of
@@ -34,10 +34,10 @@
 		--sl-color-gray-1: #111;
 		--sl-color-gray-2: #222;
 		--sl-color-gray-3: #444;
-		--sl-color-accent-low: #d4ece9;
-		--sl-color-accent: #0f5c5a;
-		--sl-color-accent-high: #093a39;
-		--sl-color-text-accent: #0f5c5a;
+		--sl-color-accent-low: #e1eceb;
+		--sl-color-accent: #1a4f8c;
+		--sl-color-accent-high: #1a4f8c;
+		--sl-color-text-accent: #1a4f8c;
 		--rfg-table-stripe: transparent;
 	}
 

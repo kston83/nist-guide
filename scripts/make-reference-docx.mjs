@@ -6,8 +6,10 @@
  *   fonts     Calibri body and Georgia headings: close to the site's Public Sans
  *             and Source Serif 4, and installed with Office, so every reader sees
  *             the same document
- *   color     the site's deep teal (#0F5C5A) on headings, links and table header rows
- *   tables    light grid, teal header row with white bold text
+ *   color     the site's ink blue accent (#1A4F8C, Flexoki blue-700) on headings,
+ *             links and table header rows; Flexoki blue-800 (#163B66) on heading
+ *             levels 3 and 4; Flexoki blue-50 (#E1ECEB) behind guidance (PRES-07)
+ *   tables    light grid, blue header row with white bold text
  *   header    document title and "Version x.y.z" ({{title}} and {{version}}, which
  *             toDocx in scripts/lib/template-kit.mjs fills per document)
  *   footer    "Page X of Y"
@@ -29,8 +31,8 @@ import { zipDeterministic } from './lib/template-kit.mjs';
 const PANDOC = process.env.PANDOC || 'pandoc';
 const OUT = 'templates/reference.docx';
 
-const TEAL = '0F5C5A';
-const TEAL_DARK = '093A39';
+const ACCENT = '1A4F8C';
+const ACCENT_DARK = '163B66';
 const GREY = '595959';
 const BODY_FONT = 'Calibri';
 const HEADING_FONT = 'Georgia';
@@ -47,20 +49,20 @@ const heading = (id, name, level, { font, halfPoints, color, before, after, bold
 // Whole-style replacements, keyed by style id.
 const REPLACE = {
 	BodyText: `<w:style w:type="paragraph" w:styleId="BodyText"><w:name w:val="Body Text"/><w:basedOn w:val="Normal"/><w:link w:val="BodyTextChar"/><w:qFormat/><w:pPr><w:spacing w:before="0" w:after="160"/></w:pPr></w:style>`,
-	Title: `<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="BodyText"/><w:link w:val="TitleChar"/><w:uiPriority w:val="10"/><w:qFormat/><w:pPr><w:spacing w:after="240"/><w:contextualSpacing/></w:pPr><w:rPr>${fonts(HEADING_FONT)}<w:color w:val="${TEAL}"/>${size(52)}</w:rPr></w:style>`,
-	Heading1: heading('Heading1', 'heading 1', 0, { font: HEADING_FONT, halfPoints: 36, color: TEAL, before: 360, after: 120 }),
-	Heading2: heading('Heading2', 'heading 2', 1, { font: HEADING_FONT, halfPoints: 28, color: TEAL, before: 300, after: 100 }),
-	Heading3: heading('Heading3', 'heading 3', 2, { font: HEADING_FONT, halfPoints: 24, color: TEAL_DARK, before: 240, after: 80, bold: true }),
-	Heading4: heading('Heading4', 'heading 4', 3, { font: BODY_FONT, halfPoints: 22, color: TEAL_DARK, before: 200, after: 60, bold: true }),
-	Hyperlink: `<w:style w:type="character" w:styleId="Hyperlink"><w:name w:val="Hyperlink"/><w:basedOn w:val="BodyTextChar"/><w:rPr><w:color w:val="${TEAL}"/><w:u w:val="single"/></w:rPr></w:style>`,
-	Table: `<w:style w:type="table" w:default="1" w:styleId="Table"><w:name w:val="Table"/><w:basedOn w:val="TableNormal"/><w:uiPriority w:val="59"/><w:qFormat/><w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr><w:rPr>${size(20)}</w:rPr><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblBorders>${['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map(border).join('')}</w:tblBorders><w:tblCellMar><w:top w:w="60" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblStylePr w:type="firstRow"><w:rPr><w:b/><w:bCs/><w:color w:val="FFFFFF"/></w:rPr><w:tcPr><w:shd w:val="clear" w:color="auto" w:fill="${TEAL}"/><w:vAlign w:val="bottom"/></w:tcPr></w:tblStylePr></w:style>`,
+	Title: `<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="BodyText"/><w:link w:val="TitleChar"/><w:uiPriority w:val="10"/><w:qFormat/><w:pPr><w:spacing w:after="240"/><w:contextualSpacing/></w:pPr><w:rPr>${fonts(HEADING_FONT)}<w:color w:val="${ACCENT}"/>${size(52)}</w:rPr></w:style>`,
+	Heading1: heading('Heading1', 'heading 1', 0, { font: HEADING_FONT, halfPoints: 36, color: ACCENT, before: 360, after: 120 }),
+	Heading2: heading('Heading2', 'heading 2', 1, { font: HEADING_FONT, halfPoints: 28, color: ACCENT, before: 300, after: 100 }),
+	Heading3: heading('Heading3', 'heading 3', 2, { font: HEADING_FONT, halfPoints: 24, color: ACCENT_DARK, before: 240, after: 80, bold: true }),
+	Heading4: heading('Heading4', 'heading 4', 3, { font: BODY_FONT, halfPoints: 22, color: ACCENT_DARK, before: 200, after: 60, bold: true }),
+	Hyperlink: `<w:style w:type="character" w:styleId="Hyperlink"><w:name w:val="Hyperlink"/><w:basedOn w:val="BodyTextChar"/><w:rPr><w:color w:val="${ACCENT}"/><w:u w:val="single"/></w:rPr></w:style>`,
+	Table: `<w:style w:type="table" w:default="1" w:styleId="Table"><w:name w:val="Table"/><w:basedOn w:val="TableNormal"/><w:uiPriority w:val="59"/><w:qFormat/><w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr><w:rPr>${size(20)}</w:rPr><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblBorders>${['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map(border).join('')}</w:tblBorders><w:tblCellMar><w:top w:w="60" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblStylePr w:type="firstRow"><w:rPr><w:b/><w:bCs/><w:color w:val="FFFFFF"/></w:rPr><w:tcPr><w:shd w:val="clear" w:color="auto" w:fill="${ACCENT}"/><w:vAlign w:val="bottom"/></w:tcPr></w:tblStylePr></w:style>`,
 };
 
 // Styles pandoc's default lacks.
 const ADD = [
 	`<w:style w:type="character" w:customStyle="1" w:styleId="Fill-in"><w:name w:val="Fill-in"/><w:rPr><w:highlight w:val="yellow"/></w:rPr></w:style>`,
-	`<w:style w:type="paragraph" w:customStyle="1" w:styleId="Guidance"><w:name w:val="Guidance"/><w:basedOn w:val="Normal"/><w:qFormat/><w:pPr><w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="${TEAL}"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="EAF4F3"/><w:ind w:left="284"/></w:pPr><w:rPr><w:i/></w:rPr></w:style>`,
-	`<w:style w:type="paragraph" w:styleId="Header"><w:name w:val="header"/><w:basedOn w:val="Normal"/><w:uiPriority w:val="99"/><w:unhideWhenUsed/><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="4" w:color="${TEAL}"/></w:pBdr><w:tabs><w:tab w:val="right" w:pos="9360"/></w:tabs><w:spacing w:after="0"/></w:pPr><w:rPr><w:color w:val="${GREY}"/>${size(18)}</w:rPr></w:style>`,
+	`<w:style w:type="paragraph" w:customStyle="1" w:styleId="Guidance"><w:name w:val="Guidance"/><w:basedOn w:val="Normal"/><w:qFormat/><w:pPr><w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="${ACCENT}"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="E1ECEB"/><w:ind w:left="284"/></w:pPr><w:rPr><w:i/></w:rPr></w:style>`,
+	`<w:style w:type="paragraph" w:styleId="Header"><w:name w:val="header"/><w:basedOn w:val="Normal"/><w:uiPriority w:val="99"/><w:unhideWhenUsed/><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="4" w:color="${ACCENT}"/></w:pBdr><w:tabs><w:tab w:val="right" w:pos="9360"/></w:tabs><w:spacing w:after="0"/></w:pPr><w:rPr><w:color w:val="${GREY}"/>${size(18)}</w:rPr></w:style>`,
 	`<w:style w:type="paragraph" w:styleId="Footer"><w:name w:val="footer"/><w:basedOn w:val="Normal"/><w:uiPriority w:val="99"/><w:unhideWhenUsed/><w:pPr><w:jc w:val="center"/><w:spacing w:after="0"/></w:pPr><w:rPr><w:color w:val="${GREY}"/>${size(18)}</w:rPr></w:style>`,
 ];
 

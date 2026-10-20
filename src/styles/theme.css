@@ -9,6 +9,34 @@
 	--rfg-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 }
 
+/*
+ * Light theme readability (PRES-07, owner 2026-10-20): white instead of Flexoki's
+ * paper cream, muted text (sidebar, table of contents, captions) one step darker
+ * (base-700, 7.3:1 on white instead of base-600 at 5:1), and hairlines back between
+ * the header, sidebars and content. The theme's rules sit in a CSS layer and these
+ * do not, so these win. The dark theme stays as Flexoki sets it.
+ */
+:root[data-theme='light'] {
+	--sl-color-black: #ffffff;
+	--sl-color-gray-3: #575653;
+}
+
+:root[data-theme='light'] header.header {
+	border-bottom: 1px solid var(--sl-color-hairline-shade);
+}
+
+@media (min-width: 50rem) {
+	:root[data-theme='light'] .sidebar-pane {
+		border-inline-end: 1px solid var(--sl-color-hairline-shade);
+	}
+}
+
+@media (min-width: 72rem) {
+	:root[data-theme='light'] .right-sidebar {
+		border-inline-start: 1px solid var(--sl-color-hairline);
+	}
+}
+
 /* Serif headings carry the voice of the site; body text stays in Public Sans. */
 h1#_top,
 .hero h1,

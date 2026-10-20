@@ -38,7 +38,7 @@
   "devDependencies": {
     "cspell": "^10.3.6",
     "markdownlint-cli2": "^0.23.3",
-    "pa11y-ci": "^4.1.1"
+    "pa11y-ci": "^5.0.0"
   },
   "homepage": "https://kston83.github.io/nist-guide/",
   "repository": {

@@ -70,8 +70,8 @@ test('pandoc makes a .docx that uses the reference styles for fields and guidanc
 	assert.match(doc, /<w:headerReference[^>]*\/>/);
 	assert.match(strFromU8(parts['word/header1.xml']), />T<\/w:t>[\s\S]*>Version 1\.0\.0</);
 	assert.match(strFromU8(parts['word/footer1.xml']), /PAGE[\s\S]*NUMPAGES/);
-	assert.match(styles, /w:styleId="Heading1"[\s\S]*?w:ascii="Georgia"[\s\S]*?<w:color w:val="1A4F8C"\s*\/>/);
-	assert.match(styles, /w:styleId="Table"[\s\S]*?w:type="firstRow"[\s\S]*?w:fill="1A4F8C"/);
+	assert.match(styles, /w:styleId="Heading1"[\s\S]*?w:ascii="Georgia"[\s\S]*?<w:color w:val="0F5C5A"\s*\/>/);
+	assert.match(styles, /w:styleId="Table"[\s\S]*?w:type="firstRow"[\s\S]*?w:fill="0F5C5A"/);
 });
 
 test('header placeholders take the first heading and the version, escaped', () => {

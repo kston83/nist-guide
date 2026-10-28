@@ -13,7 +13,7 @@ controls: [pt-1, pt-2, pt-3, pt-4, pt-5, pt-5.2, pt-6, pt-6.1, pt-6.2, pt-7, pt-
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -339,10 +339,10 @@ A matching program is a computerized comparison of records from U.S. federal sys
 
 ##### Federal systems
 
-The Privacy Act ([5 U.S.C. § 552a](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section552a&num=0&edition=prelim)) requires a written matching agreement stating, among other things, the purpose and legal authority, the justification and expected results, the records and data elements matched, and the verification, retention, security and redisclosure rules (subsection (o)(1)); the agreement takes effect 30 days after it is sent to the congressional committees, lasts no more than 18 months, and may be renewed once for up to one year (subsection (o)(2)). The data integrity board approves each agreement (subsection (u)(3)(A)). A matching notice is published in the Federal Register at least 30 days before the program is conducted (subsection (e)(12)), and OMB and Congress get advance notice (subsection (r)). No adverse action may follow until the information is independently verified, or the board makes the determination subsection (p)(1)(A)(ii) allows, and the individual has been notified and has had the period set by statute or regulation, or else 30 days, to respond (subsection (p)). [OMB Circular A-108](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A108/omb_circular_a-108.pdf), sections 8 and 9, sets how matching notices are published and reported. As of September 2026.
+The Privacy Act ([5 U.S.C. § 552a](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title5-section552a&num=0&edition=prelim)) requires a written matching agreement stating, among other things, the purpose and legal authority, the justification and expected results, the records and data elements matched, and the verification, retention, security and redisclosure rules (subsection (o)(1)); the agreement takes effect 30 days after it is sent to the congressional committees, lasts no more than 18 months, and may be renewed once for up to one year (subsection (o)(2)); after that, the program continues only if it is re-established, with a new matching notice and report ([OMB Circular A-108](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A108/omb_circular_a-108.pdf), section 8 and footnote 72). The data integrity board approves each agreement (subsection (u)(3)(A)). A matching notice is published in the Federal Register at least 30 days before the program is conducted (subsection (e)(12)), and OMB and Congress get advance notice (subsection (r)). No adverse action may follow until the information is independently verified, or the board makes the determination subsection (p)(1)(A)(ii) allows, and the individual has been notified and has had the period set by statute or regulation, or else 30 days, to respond (subsection (p)). [OMB Circular A-108](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A108/omb_circular_a-108.pdf), sections 8 and 9, sets how matching notices are published and reported. As of October 2026.
 
 - Each computer matching agreement shall contain every element 5 U.S.C. § 552a(o)(1) lists, and be sent to the congressional committees at least 30 days before it takes effect. (PT-8b)
-- The data integrity board shall set each agreement's term at no more than 18 months, and renew it only as 5 U.S.C. § 552a(o)(2)(D) allows. (PT-8b)
+- The data integrity board shall set each agreement's term at no more than 18 months, and renew it no more than once, for up to one year, as 5 U.S.C. § 552a(o)(2)(D) and OMB Circular A-108, section 8, allow. (PT-8b)
 - The <span class="tpl-field tpl-org">Senior privacy official</span> shall publish the matching notice at least 30 days before the matching program is conducted. (PT-8c)
 - The <span class="tpl-field tpl-org">System owner</span> shall allow the individual the period set by statute or regulation, or else 30 days from the notice, to respond before taking adverse action. (PT-8e)
 
@@ -362,3 +362,23 @@ For federal information systems, this policy also carries out the agency's infor
 - Where the agency's organization-wide policy sets a value for a parameter in this policy, each system shall use that value or a stricter one. (PT-1a.1(b))
 
 </div>
+
+### Approval and version history
+
+<span class="tpl-field tpl-org">Organization name</span> records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::note[Guidance]
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+#### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+#### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

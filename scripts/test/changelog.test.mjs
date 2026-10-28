@@ -16,6 +16,10 @@ test('commits parse into subject, pull request, release tags and type', () => {
 		type: 'feature',
 	});
 	assert.equal(parseCommit(line('b', '2026-10-01', 'Content: IR plan (#27)')).type, 'content');
+	assert.equal(parseCommit(line('b2', '2026-10-01', 'Row 27: AC artifacts (#111)')).type, 'content');
+	assert.equal(parseCommit(line('b3', '2026-10-01', 'G25: Guidance for PL-9 (#136)')).type, 'content');
+	assert.equal(parseCommit(line('b4', '2026-10-01', 'W2: Typical values (#83)')).type, 'other');
+	assert.equal(parseCommit(line('c2', '2026-10-01', 'DEPS-01: Apply all updates (#126)')).type, 'dependency');
 	assert.equal(parseCommit(line('c', '2026-10-01', 'Bump astro from 7.2 to 7.3 (#40)')).type, 'dependency');
 	assert.equal(parseCommit(line('d', '2026-10-01', 'Progress: notes (#33)')).type, 'project');
 	assert.equal(parseCommit(line('e', '2026-10-01', 'initial commit')).pr, null);

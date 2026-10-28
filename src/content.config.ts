@@ -14,7 +14,9 @@ import { BlockError, renderBlocks } from './lib/template-editions';
 // Template sources in templates/ (PRD TPL-01). Ids are paths without the
 // extension ("policy/ac/ac-2.3"); the default slug would drop the dot.
 const pathId = ({ entry }: { entry: string }) => entry.replace(/\.(md|ya?ml)$/, '');
-const templates = templateSchemas(catalog);
+// Organization-wide fill-in values; their keys are the roles a template's `role` may name.
+const orgVariables = parseYaml(readFileSync('./templates/variables.yml', 'utf8')) ?? {};
+const templates = templateSchemas(catalog, Object.keys(orgVariables));
 
 // Runs checks that need the whole collection after it loads; any problem fails the build.
 function checked(loader: Loader, check: (entries: SourceEntry[]) => string[]): Loader {
@@ -31,7 +33,6 @@ const families = new Set(catalog.controls.map((c) => c.family));
 
 // Every :::guidance and :::federal block must be well formed (PRD TPL-04), and
 // every {{...}} must render in all three targets (PRD TPL-02).
-const orgVariables = parseYaml(readFileSync('./templates/variables.yml', 'utf8')) ?? {};
 function variableProblems(entries: SourceEntry[]): string[] {
 	const problems: string[] = [];
 	for (const e of entries as (SourceEntry & { body?: string })[]) {

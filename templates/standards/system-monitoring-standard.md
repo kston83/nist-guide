@@ -1,7 +1,7 @@
 ---
 title: System Monitoring Standard
 type: standard
-description: The monitoring objectives, log sources, detections, alert handling, retention and reporting that make the system and information integrity policy's monitoring requirements (SP 800-53 SI-4) measurable, with audit record review (AU-6) and retention (AU-11).
+description: The monitoring objectives, log sources, detections, alert handling, retention and reporting that make SI-4 measurable, with audit record review (AU-6) and retention (AU-11).
 controls: [si-4, si-4.2, si-4.4, si-4.5, si-4.10, si-4.12, si-4.14, si-4.20, si-4.22, au-6, au-11]
 status: draft
 stage: operate
@@ -32,7 +32,7 @@ typical:
 ---
 
 :::guidance
-The system and information integrity policy says each system must be monitored for attacks and misuse; this standard says what is monitored, where the data goes, which detections run, how fast alerts are handled, how long the data is kept and what is reported. Keep the values here in step with the SI-4 statements in the policy, and with the AU-6 and AU-11 statements in the audit and accountability policy, since assessors compare them. Which events each component logs, and what each record contains, belong to the audit and accountability policy (AU-2, AU-3 and AU-12). Most monitoring is a common control: the security operations team, the SIEM platform, endpoint detection and response, and network detection. Record in each system security plan which parts the system inherits and which it owns, such as sending its logs and its application-specific detections. [NIST SP 800-137](https://csrc.nist.gov/pubs/sp/800/137/final), Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations (September 2011, current as of September 2026), places system monitoring within an organization's continuous monitoring program.
+The system and information integrity policy says each system must be monitored for attacks and misuse; this standard says what is monitored, where the data goes, which detections run, how fast alerts are handled, how long the data is kept and what is reported. Keep the values here in step with the SI-4 statements in the policy, and with the AU-6 and AU-11 statements in the audit and accountability policy, since assessors compare them. Which events each component logs, and what each record contains, belong to the audit and accountability policy (AU-2, AU-3 and AU-12) and the [audit logging standard](/templates/standards/audit-logging-standard/); the steps of the manual review in section 7 are in the [log review procedure](/templates/procedures/log-review-procedure/). Most monitoring is a common control: the security operations team, the SIEM platform, endpoint detection and response, and network detection. Record in each system security plan which parts the system inherits and which it owns, such as sending its logs and its application-specific detections. [NIST SP 800-137](https://csrc.nist.gov/pubs/sp/800/137/final), Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations (September 2011, current as of September 2026), places system monitoring within an organization's continuous monitoring program.
 :::
 
 | Owner | Approved by | Version | Effective date |
@@ -148,6 +148,22 @@ This section applies to High systems.
 
 The {{org:ciso}} reviews this standard {{fill:for example annually}}, and whenever the system and information integrity policy, the monitoring platforms, the threat environment or a federal logging requirement changes.
 
-| Version | Date | Change | Approved by |
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

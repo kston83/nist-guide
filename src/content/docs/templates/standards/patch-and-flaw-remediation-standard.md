@@ -3,7 +3,7 @@ title: 'Patch and Flaw Remediation Standard'
 description: 'The sources of flaws, installation times, testing, deployment, verification and exception rules that make the system and information integrity policy''s flaw remediation requirements (SP 800-53 SI-2 and SI-2(2)) measurable.'
 sidebar:
   label: 'Patch and Flaw Remediation Standard'
-  order: 43
+  order: 48
 controls: [si-2, si-2.2, si-3, si-5, si-7.15]
 ---
 
@@ -13,7 +13,7 @@ controls: [si-2, si-2.2, si-3, si-5, si-7.15]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Standard | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Standard | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -141,6 +141,22 @@ CISA binding operational directives set minimums for federal civilian agencies; 
 
 The <span class="tpl-field tpl-org">Chief Information Security Officer</span> reviews this standard <span class="tpl-field tpl-fill">Fill in: for example annually</span>, and whenever the system and information integrity policy, a CISA directive or the organization's risk tolerance changes.
 
-| Version | Date | Change | Approved by |
+### Approval and version history
+
+<span class="tpl-field tpl-org">Organization name</span> records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::note[Guidance]
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+#### Approval
+
+| Version | Name, role and title | Signature | Date |
 | --- | --- | --- | --- |
-| <span class="tpl-field tpl-fill">Fill in: version</span> | <span class="tpl-field tpl-fill">Fill in: date</span> | <span class="tpl-field tpl-fill">Fill in: summary of change</span> | <span class="tpl-field tpl-fill">Fill in: name and title</span> |
+|  |  |  |  |
+
+#### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

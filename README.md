@@ -12,8 +12,8 @@ The guide is a practical guidebook to two NIST frameworks: the Risk Management F
 | --- | --- | --- | --- |
 | 1 Launch foundation | Public site, generated control pages, CI checks | | Done |
 | 2 Template system and first kit | Template pipeline, 31 priority controls, five family policies, SSP, IR plan, POA&M | v1.0.0 | Done |
-| 3 Full program kit | All 20 family policies, the consolidated policy, every catalog artifact, guidance for every Moderate, program management and privacy control, the program path | v2.0.0 | In progress |
-| 4 Methods and the SSDF | NIST implementation guidance on control pages, starting with the SSDF | v2.1.0 | Planned |
+| 3 Full program kit | All 20 family policies, the consolidated policy, every catalog artifact except the SSDF-based ones (Phase 4), guidance for every Moderate, program management and privacy control, the program path | v2.0.0 | Done |
+| 4 Methods and the SSDF | NIST implementation guidance on control pages, starting with the SSDF | v2.1.0 | Next |
 | 5 AI RMF and AI security | The second guidebook: applying the AI RMF, securing AI systems through the RMF, NIST and OWASP AI security guidance, AI templates | v2.2.0 | Planned |
 | 6 Industries and technology | Three industry guides, four technology playbooks, articles | | Planned |
 | 7 Depth | Guidance for High controls, High clauses, crosswalks, automation | | Planned |
@@ -21,6 +21,8 @@ The guide is a practical guidebook to two NIST frameworks: the Risk Management F
 ## How it's published
 
 `main` is protected and squash-merge only. Changes land through a pull request, and the **Check** workflow must pass before merge: tests, lint and spelling, a check that generated pages are current, the build with the template kit, and the link, search and accessibility checks. The owner merges pull requests. Each merge to `main` runs **Deploy to GitHub Pages**, which rebuilds and republishes the site in about a minute. Site address settings (`GITHUB_USER`, `REPO_NAME`, `SITE_URL`, `BASE_PATH`) are at the top of `astro.config.mjs`.
+
+Visits and template downloads are counted with [GoatCounter](https://www.goatcounter.com/) (no cookies; the dashboard is at `kston83.goatcounter.com`). The script and its endpoint (`GOATCOUNTER_ENDPOINT`) are in `astro.config.mjs`, and the About page says what is collected.
 
 ## Work on it locally
 
@@ -37,7 +39,7 @@ npm run check:a11y   # after a build: axe finds no serious or critical issues (.
 npm test             # unit tests for the generators and template system (fixtures, no network)
 npm run lint         # markdown lint, template lint and spell check (cspell-words.txt is the dictionary)
 npm run controls     # regenerate control pages from the pinned NIST catalog; should produce no git diff
-npm run templates    # regenerate template pages from templates/; run after changing a source, and commit the result
+npm run templates    # regenerate template pages and the program artifact checklist from templates/; run after changing a source, and commit the result
 npm run kit          # build only the downloadable kit into dist/downloads
 npm run og-image     # remake the social preview image, public/og-default.png
 npm run reference-docx # remake templates/reference.docx, the Word styles for the kit
@@ -49,7 +51,7 @@ npm run reference-docx # remake templates/reference.docx, the Word styles for th
 src/content/docs/
   index.mdx            Home page
   about.md             About the guide and author
-  program/             Build your program: the four stages (Foundation to Mature)
+  program/             Build your program: the four stages (Foundation to Mature) and scaling guidance; checklist.md is generated
   rmf/                 The framework: overview, roles, ATO package, program variants
     steps/             One page per RMF step (0 Prepare to 6 Monitor)
   controls/            SP 800-53 control pages, generated (see below)
@@ -62,8 +64,8 @@ src/content/docs/
   technology/          Technology playbooks (planned)
   reference/           Library, glossary, page templates, roadmap, changelog (generated, not committed)
 templates/             Template sources: policy clauses, plans, standards, procedures, forms, reports (CC0)
-src/data/              catalog.json and control-ids.json, generated from NIST's catalog
-src/components/        Astro components that add sections to control and program pages
+src/data/              catalog.json and control-ids.json, generated from NIST's catalog; template-history.json (generated at build time, not committed)
+src/components/        Astro components that add sections to control, template and program pages
 src/lib/               Template system (schema, assembly, editions, variables, worksheets) and site helpers
 src/content.config.ts  Content collections and front matter validation
 scripts/               Generators (import-oscal, build-templates, build-changelog) and checks (check-*)
@@ -72,17 +74,18 @@ public/diagrams/       SVG diagrams used in pages
 .github/workflows/     Check, Deploy to GitHub Pages, Release kit
 astro.config.mjs       Site settings, base path and sidebar
 src/styles/theme.css   Colors and typefaces
+src/styles/print.css   Print styles (print only)
 ```
 
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains how these fit together.
 
 ## Writing guidance
 
-- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
+- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. An industry guide or technology playbook also appears on its section's index (`industries/`, `technology/`), with its front matter `description` as the one-line summary; the build fails if it has none. The templates index lists every template page the same way, from the description each generated page carries. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
-- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. Plans, standards, procedures, forms and reports go in their type's folder. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages.
+- **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. The consolidated Information Security and Privacy Policy has no source of its own: the build assembles it per baseline from `_common.md` and every family's clauses, and the starter kit (`templates/starter-kit.yml`) carries it in place of the family policies. Plans, standards, procedures, forms and reports go in their type's folder. The program artifact checklist (`program/checklist.md` and its `.csv`) is generated from the same sources, so a new template appears on it without other changes; a template's optional `role` front matter (a key in `templates/variables.yml`) sets its accountable role there, and without it the checklist uses the role of the family policy of the template's first control. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages. Every policy, plan, standard, procedure and report, and each form that is itself a controlled document (the access agreement, information exchange agreement, privacy notice and rules of behavior), ends with the same "Approval and version history" section for the adopting organization to fill in (TPL-13). It is written into each source (the policies get it from `_common.md`), so the downloads carry it; a new template copies it from `templates/policy/_common.md` word for word, and `npm test` fails if any copy differs. Each template page then ends with a site-only change history, built from git history at build time (not committed): the merged pull requests that changed its sources, by kit version, so the squash-commit subject (`ID: summary (#n)`) is what readers see there.
 - **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text
@@ -100,7 +103,7 @@ Kit versions follow `version` in `package.json`, which every document prints.
 
 1. In a pull request, set the new version in `package.json` (for example with `npm version 1.1.0 --no-git-tag-version`), run `npm run templates`, and merge.
 2. Tag the merge commit on `main` and push the tag: `git tag v1.1.0 origin/main` and `git push origin v1.1.0`.
-3. The **Release kit** workflow checks the tag is on `main` and matches `package.json`, builds the kit, and publishes a GitHub Release with the full kit, starter kits and family packs. Its notes are the changelog section for the tag (`node scripts/build-changelog.mjs --notes v1.1.0`).
+3. The **Release kit** workflow checks the tag is on `main` and matches `package.json`, builds the kit, and publishes a GitHub Release with the full kit, starter kits and family packs. Its notes are the changelog section for the tag (`node scripts/build-changelog.mjs --notes v1.1.0`). On the next deploy, each template page's change history moves the pull requests listed as unreleased under the new version.
 
 ## Using a custom domain later
 

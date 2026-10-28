@@ -13,7 +13,7 @@ controls: [pm-1, pm-2, pm-3, pm-4, pm-5, pm-5.1, pm-6, pm-7, pm-7.1, pm-8, pm-9,
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -270,7 +270,15 @@ An insider threat program brings together information that security, human resou
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall implement an insider threat program. (PM-12)
 - The program shall include a cross-discipline insider threat incident handling team, with members from at least security, human resources, legal and privacy. (PM-12)
 
-<!-- TODO(verify): federal block for PM-12. Executive Order 13587 (October 7, 2011) and the National Insider Threat Policy and Minimum Standards (November 2012) set the federal program; confirm both are still in effect as of 2026 at a primary source before citing them. -->
+<div class="tpl-federal">
+
+##### Federal systems
+
+[Executive Order 13587](https://www.federalregister.gov/documents/2011/10/13/2011-26729/structural-reforms-to-improve-the-security-of-classified-networks-and-the-responsible-sharing-and) (October 7, 2011), section 2.1(b), requires the heads of agencies that operate or access classified computer networks to "implement an insider threat detection and prevention program consistent with guidance and standards developed by the Insider Threat Task Force" that section 6 establishes.
+
+- If the agency operates or accesses classified computer networks, the insider threat program shall meet Executive Order 13587, section 2.1(b), and the guidance and standards of the Insider Threat Task Force. (PM-12)
+
+</div>
 
 #### Security and privacy workforce (PM-13)
 
@@ -313,9 +321,9 @@ Controlled unclassified information (CUI) is information the U.S. government cre
 
 ##### Federal systems
 
-Agencies must require non-federal systems that handle CUI to protect it with NIST SP 800-171, which [32 CFR 2002.14(h)](https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002/subpart-A/section-2002.14) incorporates by reference. [NIST SP 800-171 Rev. 3](https://csrc.nist.gov/pubs/sp/800/171/r3/final) (May 2024) is the current revision, as of September 2026.
+Under [32 CFR 2002.14(h)(2)](https://www.ecfr.gov/current/title-32/section-2002.14), agencies must use NIST SP 800-171 when establishing security requirements to protect CUI's confidentiality on non-federal information systems. [32 CFR 2002.2](https://www.ecfr.gov/current/title-32/section-2002.2) still incorporates the June 2015 edition of SP 800-171 by reference, while NIST's current revision is [SP 800-171 Rev. 3](https://csrc.nist.gov/pubs/sp/800/171/r3/final) (May 2024), so each agreement should name the revision it requires. As of October 2026.
 
-- Each agreement that shares CUI with a non-federal organization shall require the recipient to protect it as 32 CFR 2002.14(h) requires. (PM-17a)
+- Each agreement that shares CUI with a non-federal organization shall require the recipient to protect it as 32 CFR 2002.14(h) requires, and shall name the revision of NIST SP 800-171 that applies. (PM-17a)
 
 </div>
 
@@ -413,7 +421,7 @@ For records in a Privacy Act system of records, [5 U.S.C. § 552a(c)](https://us
 
 #### Data governance body (PM-23)
 
-- The <span class="tpl-field tpl-org">Senior leader</span> shall establish a data governance body made up of <span class="tpl-field tpl-param">Fill in: the roles of a Data Governance Body <span class="tpl-typical">Typical: the chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets</span></span>, with responsibility for <span class="tpl-field tpl-param">Fill in: the responsibilities of a Data Governance Body <span class="tpl-typical">Typical: setting data governance policy, approving data sharing agreements, and resolving data quality and access issues</span></span>. (PM-23)
+- The <span class="tpl-field tpl-org">Senior leader</span> shall establish a data governance body made up of <span class="tpl-field tpl-param">Fill in: the roles of a Data Governance Body <span class="tpl-typical">Typical: the chief data officer (chair), the chief information officer, the chief information security officer, the senior privacy official, the records manager and the owners of major data sets</span></span>, with responsibility for <span class="tpl-field tpl-param">Fill in: the responsibilities of a Data Governance Body <span class="tpl-typical">Typical: setting data governance policy, approving data sharing agreements, and resolving data quality and access issues</span></span>. (PM-23)
 
 #### Data integrity board (PM-24)
 
@@ -469,7 +477,7 @@ Risk framing is the context every risk decision uses: the assumptions, constrain
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall identify and document the constraints affecting risk assessment, risk response and risk monitoring. (PM-28a.2)
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall identify and document the priorities and trade-offs the organization considers in managing risk. (PM-28a.3)
 - The <span class="tpl-field tpl-org">Senior leader</span> shall set and document the organization's risk tolerance. (PM-28a.4)
-- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall distribute the results of risk framing to <span class="tpl-field tpl-param">Fill in: the personnel to receive the results of risk framing activities <span class="tpl-typical">Typical: authorizing officials, system owners, and the leaders of mission and business functions</span></span>. (PM-28b)
+- The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall distribute the results of risk framing to <span class="tpl-field tpl-param">Fill in: the personnel to receive the results of risk framing activities <span class="tpl-typical">Typical: authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management</span></span>. (PM-28b)
 - The <span class="tpl-field tpl-org">Chief Information Security Officer</span> shall review and update the risk framing <span class="tpl-field tpl-param">Fill in: the frequency for reviewing and updating risk framing considerations <span class="tpl-typical">Typical: annually, with the risk management strategy</span></span>. (PM-28c)
 
 #### Risk management program leadership roles (PM-29)
@@ -525,3 +533,23 @@ For federal agencies, this policy carries out the agency-wide information securi
 - The program plan shall carry out the agency-wide information security program that 44 U.S.C. § 3554(b) requires. (PM-1a)
 
 </div>
+
+### Approval and version history
+
+<span class="tpl-field tpl-org">Organization name</span> records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::note[Guidance]
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+#### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+#### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

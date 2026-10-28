@@ -8,6 +8,7 @@ control:
   id: PT-1
   family: PT
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -77,3 +78,69 @@ Determine if:
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PT-1 asks for a written personally identifiable information processing and transparency policy, procedures that carry it out, an official who manages both, and a set review cycle. PT-1 is in the SP 800-53B Privacy baseline only, like every PT control; no security baseline selects it. The [PII Processing and Transparency policy template](/templates/policies/pt/) meets the policy half through the sections every family policy shares, and its [decision worksheet](/templates/worksheets/pt/) lists the choices the family forces, with typical values and who decides. The procedures are yours to write.
+
+NIST's PT-1 discussion asks security and privacy programs to collaborate on the policy and procedures, and names the risk management strategy as an important factor in setting them. The policy template gives the PT policy to the senior privacy official, and its Coordination section has that official coordinate it with the legal, privacy, human resources and procurement functions before each approval. Bring the Chief Information Security Officer in too: PT-2 and PT-3 restrictions are enforced through access control (AC-3) and change control (CM-3), which the security program runs.
+
+Because PT is in no security baseline, the template kit builds the PT policy in one Privacy variant and leaves it out of the Low, Moderate and High starter kits. An organization that processes personally identifiable information adopts it alongside the security policies.
+
+**How the policy template meets each element.** The shared sections come before and after the policy statements, and each statement cites the PT-1 item it meets:
+
+| PT-1 element | Where the policy template meets it |
+| --- | --- |
+| Policy at the selected level (a.1) | Scope: the policy applies at the level you select, to every system and every person with access |
+| Purpose, scope, roles, responsibilities, management commitment, coordination and compliance (a.1(a)) | The Purpose, Scope, Roles and responsibilities, Management commitment, Coordination and Compliance sections, one for each |
+| Consistent with applicable laws and guidance (a.1(b)) | Compliance: the first statement, where you list the laws, regulations and standards that apply; the federal block adds FISMA and OMB Circular A-130 |
+| Procedures (a.2) | Procedures: the managing official ensures documented procedures exist |
+| Dissemination of policy and procedures (a) | Dissemination: one statement for the policy and one for the procedures, each to the roles you name |
+| Designated official (b) | Roles and responsibilities: the official who manages the policy and procedures |
+| Review and update (c.1, c.2) | Review and update: a frequency and trigger events for the policy, and again for the procedures |
+
+**Common implementations.** One organization-level policy, approved by a senior leader and published in the policy library, with the senior privacy official as its owner. Procedures written for the work PT-2 to PT-8 describe:
+
+- Screening each new system, collection and significant change for personally identifiable information, and writing or updating the [privacy impact assessment](/templates/reports/privacy-impact-assessment/), where the authority (PT-2), purposes (PT-3) and specific categories (PT-7) are recorded
+- Reviewing proposed changes in processing through change control, in Part B5 of the [change request form](/templates/forms/change-request-form/) (PT-3d)
+- Designing, recording and honoring consent and its withdrawal (PT-4)
+- Drafting, approving, publishing and reviewing privacy notices, with the register in the [privacy notice](/templates/forms/privacy-notice/) (PT-5)
+- For federal systems: drafting and publishing system of records notices, reviewing routine uses and exemptions (PT-6), Privacy Act statements (PT-5(2)), and running matching programs through the data integrity board (PT-8)
+
+NIST's discussion lets procedures live in privacy plans or in separate documents, and prefers organization-level policies and procedures, which may make system-level ones unnecessary. Many privacy offices write these steps as a privacy compliance handbook; that is acceptable if each step names who does it and what record it leaves.
+
+**Organization-defined parameters.** The shared sections leave these as fields to fill. Typical values, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Who receives the policy (a) | Everyone within its scope, through the policy library |
+| Who receives the procedures (a) | The people who carry them out, and the system owners |
+| Policy level (a.1) | Organization-level |
+| Official who manages the policy and procedures (b) | The senior privacy official |
+| Policy review frequency (c.1) | Annually |
+| Events that trigger a policy review (c.1) | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines |
+| Procedure review frequency (c.2) | Annually |
+| Events that trigger a procedure review (c.2) | The same events as the policy, and changes to the systems, tools or services the procedures describe |
+
+The trigger events follow NIST's PT-1 discussion, which names assessment or audit findings, breaches, and changes in laws and guidance. For PT, the people who carry out the procedures are, for example, the privacy office, system owners, legal counsel, the web and communications staff who publish notices, and the change control board. Typical procedure triggers for PT are a new privacy law or regulation in a jurisdiction where the organization operates, a new way of collecting information (a new application, form or channel), a new consent or notice tool, and a breach that showed a gap in a procedure.
+
+**Evidence assessors ask for.**
+
+- The approved policy, with the approver, the approval date and the version history
+- The procedures, and who owns each one
+- The record naming the senior privacy official as the managing official
+- Records showing dissemination, including to system owners and the staff who publish notices
+- Evidence of the last review of the policy and of each procedure, with the changes made
+
+**Inheritance.** PT-1 is almost always a common control, provided once for the organization; the generated table above gives its implementation level as organization. A system inherits the policy and records that in its privacy plan or system security plan. It needs procedures of its own only for processing specific to the system, such as a consent flow in its own application.
+
+**Common findings.**
+
+- No PT policy at all, because the organization adopted only the security baseline policies and PT is in none of them.
+- A website privacy policy offered as the PT policy. That is a notice to the public (PT-5), not an internal policy with roles, procedures and a review cycle.
+- A policy that restates the PT controls with no procedures behind it. NIST's discussion of PT-1 says restating controls is not a policy or procedure.
+- The policy not reviewed after a new privacy law took effect in a jurisdiction where the organization operates.
+
+**Enhancements.** PT-1 has no enhancements.
+
+**Federal systems** (as of October 2026). [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), main body section 5.f(1)(a) and (b), requires a comprehensive privacy program that "develops and evaluates privacy policy", led by a Senior Agency Official for Privacy (SAOP) with agency-wide responsibility. Appendix II, section 4, gives the SAOP "a central policy-making role", and section 5 lets other qualified staff perform privacy functions assigned to the SAOP. The SAOP is the natural managing official for PT-1. The shared sections' federal block ties the policy to FISMA and OMB Circular A-130.

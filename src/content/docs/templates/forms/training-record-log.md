@@ -3,7 +3,7 @@ title: 'Training Record Log'
 description: 'The record of each person''s security and privacy training, literacy and role-based, with dates and results, as SP 800-53 AT-4 requires.'
 sidebar:
   label: 'Training Record Log'
-  order: 19
+  order: 20
 controls: [at-4, at-2, at-3]
 ---
 
@@ -13,7 +13,7 @@ controls: [at-4, at-2, at-3]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

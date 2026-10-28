@@ -4,3 +4,4 @@ dist/
 .cache/
 .DS_Store
 src/content/docs/reference/changelog.md
+src/data/template-history.json

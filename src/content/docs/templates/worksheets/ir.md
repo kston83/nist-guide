@@ -13,7 +13,7 @@ controls: [ir-1, ir-2, ir-2.1, ir-2.2, ir-2.3, ir-3, ir-3.2, ir-4, ir-4.1, ir-4.
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Core](/program/core/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Core](/program/core/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -55,7 +55,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Automated mechanisms used to support the incident handling process | IR-4(1) | The case management system and automated playbooks in the security operations platform | Chief Information Security Officer |
 | Time period for personnel to report suspected incidents to the organizational incident response capability | IR-6 | 1 hour of discovery | Chief Information Security Officer |
 | Authorities to whom incident information is to be reported | IR-6 | Senior leadership, legal counsel, and any regulator, customer or partner that law or contract requires be notified | Chief Information Security Officer |
-| Automated mechanisms used for reporting incidents | IR-6(1) | The incident reporting form and case management system, which notify the incident response team automatically | Chief Information Security Officer |
+| Automated mechanisms used for reporting incidents | IR-6(1) | The incident report form and case management system, which notify the incident response team automatically | Chief Information Security Officer |
 | Automated mechanisms used to increase the availability of incident response information and support | IR-7(1) | A self-service reporting portal and an incident response page on the intranet | Chief Information Security Officer |
 | Personnel or roles that review and approve the incident response plan | IR-8 | The Chief Information Security Officer | Chief Information Security Officer |
 | The frequency at which to review and approve the incident response plan | IR-8 | Annually | Chief Information Security Officer |

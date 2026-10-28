@@ -104,6 +104,8 @@ test('other templates get a page at their source path with both editions', () =>
 test('the index groups pages by type', () => {
 	const index = indexPage([ac.summary, plan.summary]);
 	assert.match(index, /\n## Policies\n/);
-	assert.match(index, /\| \[Access Control Policy\]\(\/templates\/policies\/ac\/\) \| \[Core\]\(\/program\/core\/\) \| Draft \|/);
+	assert.ok(
+		index.includes(`| [Access Control Policy](/templates/policies/ac/) | ${ac.summary.description} | [Core](/program/core/) | Draft |`),
+	);
 	assert.match(index, /## Plans\n\n\| Template/);
 });

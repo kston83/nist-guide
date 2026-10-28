@@ -10,11 +10,15 @@
  *
  * Family policies: policy/_common.md (or the family's own) plus each family's clauses, in catalog
  * order, one file per baseline (TPL-03), in a clean and an annotated edition
- * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. Plans,
+ * (TPL-04): <family>-policy-<baseline>.md and ...-annotated.md. The consolidated
+ * Information Security and Privacy Policy (TPL-09): the shared sections once, then
+ * every family's clauses, per baseline: consolidated-policy-<baseline>.md. Plans,
  * standards, procedures, forms and reports: one file per edition. Decision worksheets
  * (TPL-08): worksheets/<family>-decisions-<baseline>.csv. Every document also
  * as .docx, styled by templates/reference.docx, and every family as a .zip
- * pack, plus the full kit (TPL-05).
+ * pack, plus the full kit (TPL-05), and a starter kit per baseline (PROG-02).
+ * The program artifact checklist (PROG-03): its page under program/ and
+ * program-artifact-checklist.csv, which the full kit also carries.
  *
  * Downloads are build output and never committed.
  */
@@ -26,6 +30,11 @@ import {
 	GENERATED_NOTE,
 	commonFor,
 	commonTypical,
+	consolidatedContext,
+	consolidatedFile,
+	consolidatedPage,
+	consolidatedSources,
+	CONSOLIDATED_SLUG,
 	indexPage,
 	KIT_FILE,
 	organizationWide,
@@ -39,11 +48,12 @@ import {
 	worksheetInput,
 	worksheetPage,
 } from './lib/template-pages.mjs';
-import { assemblePolicy, policyBaselines } from '../src/lib/template-assemble.ts';
+import { assembleConsolidated, assemblePolicy, consolidatedBaselines, policyBaselines } from '../src/lib/template-assemble.ts';
 import { renderVariables } from '../src/lib/template-vars.ts';
 import { renderBlocks } from '../src/lib/template-editions.ts';
 import { worksheetCsv, worksheetRows } from '../src/lib/template-worksheet.ts';
-import { resolveStarterKit, STARTER_BASELINES, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
+import { CHECKLIST_FILE, CHECKLIST_PAGE, checklistCsv, checklistPage, checklistRows } from './lib/artifact-checklist.mjs';
+import { resolveStarterKit, STARTER_BASELINES, STARTER_KIT_SUMMARY, starterKitFile, starterKitPage } from './lib/starter-kit.mjs';
 import { documentHeader, findPandoc, kitReadme, NO_DOCX, registerCsv, toDocx, withHeader, zipDeterministic } from './lib/template-kit.mjs';
 
 // Clean (ready to adopt) is the default file; annotated keeps the guidance (TPL-04).
@@ -102,6 +112,9 @@ async function writeIfChanged(file, text) {
 
 if (pagesMode) {
 	const pages = [];
+	await attempt('consolidated policy page', () =>
+		pages.push(consolidatedPage({ families: orderedFamilies, clauses, common, catalog, variables, version })),
+	);
 	for (const [i, family] of orderedFamilies.entries())
 		await attempt(`${family.id.toUpperCase()} policy page`, () =>
 			pages.push(policyPage({ family, clauses, common, catalog, variables, version, order: i + 1 })),
@@ -114,7 +127,9 @@ if (pagesMode) {
 		await attempt(`templates/${template.id}.md page`, () =>
 			pages.push(templatePage({ template, catalog, variables, version, order: i + 1 })),
 		);
-	pages.push({ file: 'index.md', text: indexPage(pages.map((p) => p.summary)) });
+	await attempt('templates index', () =>
+		pages.push({ file: 'index.md', text: indexPage([STARTER_KIT_SUMMARY, ...pages.map((p) => p.summary)]) }),
+	);
 	await attempt('starter kit page', () =>
 		pages.push({
 			file: 'starter-kit.md',
@@ -124,6 +139,11 @@ if (pagesMode) {
 
 	let changed = 0;
 	for (const p of pages) if (await writeIfChanged(path.join(PAGES, p.file), p.text)) changed++;
+	// The artifact checklist (PROG-03) sits with the program stage pages, outside the templates folder.
+	await attempt('artifact checklist page', async () => {
+		const rows = checklistRows({ families, clauses, common, templates, catalog });
+		if (await writeIfChanged(CHECKLIST_PAGE, checklistPage({ rows, catalog, variables }))) changed++;
+	});
 	// Remove generated pages whose source is gone.
 	const keep = new Set(pages.map((p) => path.join(PAGES, p.file)));
 	const walk = async (dir) => {
@@ -137,7 +157,7 @@ if (pagesMode) {
 		}
 	};
 	await walk(PAGES);
-	finish(`Template pages: ${pages.length} page(s); ${changed} file(s) changed.`);
+	finish(`Template pages: ${pages.length + 1} page(s); ${changed} file(s) changed.`);
 } else {
 	// .docx needs pandoc (PRD TPL-05): CI installs a pinned version and fails
 	// without it; a local build without pandoc skips .docx and says so.
@@ -184,6 +204,14 @@ if (pagesMode) {
 				),
 			);
 	}
+	// The consolidated policy (TPL-09): every family policy in one document, per baseline.
+	const consolidated = consolidatedSources({ families: orderedFamilies, clauses, common, variables });
+	for (const baseline of consolidatedBaselines(consolidated, catalog.controls))
+		await attempt(`consolidated policy (${baseline})`, () => {
+			const policy = assembleConsolidated({ common: common.body, families: consolidated, controls: catalog.controls, baseline });
+			const ctx = consolidatedContext({ families: orderedFamilies, common, catalog, variables, typical: policy.typical });
+			return editions(policy.source, ctx, (e) => consolidatedFile(baseline, e), { baseline, url: `${homepage}templates/policies/${CONSOLIDATED_SLUG}/` });
+		});
 	for (const template of templates) {
 		// Forms: the register as a spreadsheet too.
 		if (template.type === 'form')
@@ -202,6 +230,11 @@ if (pagesMode) {
 			),
 		);
 	}
+
+	// The program artifact checklist (PROG-03), before the zips so the full kit carries it.
+	await attempt('artifact checklist', () =>
+		write(CHECKLIST_FILE, checklistCsv({ rows: checklistRows({ families, clauses, common, templates, catalog }), catalog, variables, homepage })),
+	);
 
 	// Zips: one pack per family, and the full kit (TPL-05).
 	const documents = { ...files };

@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.9 · Oct 3, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.16 · Oct 28, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -75,22 +75,22 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 
 ## Current state
 
-As of Oct 1, 2026, in Phase 3. The repo builds about 420 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
+As of Oct 28, 2026, Phase 3 is complete (kit v2.0.0 released) and approved by the owner, and Phase 4 (methods and the SSDF) is next. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
 
 | Area | Status | Location |
 | --- | --- | --- |
 | Stack | Astro 7.3 with Starlight 0.42, Node 22.12+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
 | Deploy | GitHub Actions to GitHub Pages at `https://kston83.github.io/nist-guide/` (subpath; see `BASE_PATH`) | `.github/workflows/deploy.yml` |
 | Checks | On every PR, required on `main`: tests, Markdown and template lint, spell check, generated pages current, build with the kit, links, search and accessibility. Actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/` |
-| Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026 | `.github/workflows/release.yml` |
+| Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026, and v2.0.0 Oct 19, 2026 | `.github/workflows/release.yml` |
 | Theme | Public Sans body, Source Serif 4 headings, teal accent, light and dark | `src/styles/theme.css` |
 | Home page | Hero, clickable seven-step strip, section cards, about blurb | `src/content/docs/index.mdx`, `src/components/StepStrip.astro` |
 | RMF section | Overview, roles, 7 step pages, ATO checklist, program variants, 2 SVG diagrams | `src/content/docs/rmf/`, `public/diagrams/` |
-| Build your program | Four stage pages listing their artifacts from template front matter | `src/content/docs/program/` |
+| Build your program | Four stage pages listing their artifacts from template front matter, an artifact checklist (page and `.csv`) and scaling guidance | `src/content/docs/program/` |
 | Control pages | 300 active controls in 20 families from NIST OSCAL release 5.2.0; baselines, enhancements, 800-53A objectives, parameters; family hubs, baseline lists, coverage page and status badges | `src/content/docs/controls/`, `scripts/import-oscal.mjs` |
-| Control guidance | 95 controls at `draft`, in the AC-2 format | `controls/<family>/<id>.md` |
-| Templates | Template system complete (TPL-01 to TPL-08, TPL-10). Policies for 17 of 20 families (MP, PE and SR to come), 32 plans, standards, forms and reports, decision worksheets and a starter kit | `templates/`, `src/content/docs/templates/` |
-| Industries, technology | Overview pages with planned topics only | `industries/`, `technology/` |
+| Control guidance | 221 controls at `draft`, in the AC-2 format: all 177 Moderate, all 32 PM and the 12 privacy-only base controls | `controls/<family>/<id>.md` |
+| Templates | Template system complete (TPL-01 to TPL-11, TPL-13; TPL-12 is P3). Policies for all 20 families and a consolidated policy per baseline, 51 plans, standards, procedures, forms and reports, decision worksheets and a starter kit; each template page has a change history, and every template except per-event forms and registers ends with an approval and version history section | `templates/`, `src/content/docs/templates/` |
+| Industries, technology | Index pages generated from front matter; no guides or playbooks yet (Phase 6) | `industries/`, `technology/` |
 | Reference | Library, glossary, page templates, roadmap, changelog (generated from git history) | `reference/` |
 | Footer | Disclaimer, CC BY 4.0 notice for content and CC0 notice for templates | `src/components/Footer.astro` |
 | Author identity | Name, bio and LinkedIn in place; LinkedIn in the header. Headshot still to come | `about.md`, `index.mdx`, `LICENSE`, `astro.config.mjs` |
@@ -164,6 +164,8 @@ industries: [healthcare]               # slug list
 technologies: [entra-id]               # slug list
 controls: [ac-2, ia-2, ia-5]           # NEW: controls this page gives guidance on
 reviewed: 2026-09-27                   # NEW: date of last full accuracy review
+description: One sentence              # Starlight's field; required on industry and technology pages,
+                                       # the one-line summary their section index lists (NAV-02)
 
 # Method and SSDF pages
 implements: [sa-15, sa-11]             # NEW: controls the method implements, only as NIST cites them;
@@ -240,6 +242,9 @@ description: One sentence on what the artifact is for
 controls: [ir-8, ir-4, ir-6]   # controls this artifact satisfies or supports
 ssdf: [RV.1]                   # SSDF practices it supports, if any
 airmf: [GOVERN 1.6]            # AI RMF subcategories it supports, if any (AI templates)
+role: system-owner             # optional: key in variables.yml for the role accountable for the
+                               # artifact; without it, the role of the family policy of the first
+                               # control listed (used by the artifact checklist, PROG-03)
 status, reviewed, stage        # as above
 
 # templates/policy/ac/_family.yml
@@ -323,6 +328,7 @@ Priority: P1 = needed for the phase it's scheduled in, P2 = next, P3 = later. Ea
 | TPL-10 | Versioned kit releases | P2 | Tagging `vX.Y.Z` publishes the kit `.zip` files to a GitHub Release, with release notes and the NIST release basis |
 | TPL-11 | Template changelog | P2 | Each template page shows what changed in each kit version, from git history or front matter |
 | TPL-12 | In-browser fill-in | P3 | Owner decision. A reader enters `variables.yml` values in a form and downloads filled documents; nothing leaves the browser; no server |
+| TPL-13 | Approval and version history in every template | P2 | Owner decision. Every template ends with one standard section the adopting organization fills in: an approval table and a version history table, with the same columns in every template type (family and consolidated policies, plans, standards, procedures and reports; forms where the form is itself a controlled document). It cites the review and update element it records (for example the -1 controls' c and PM-1b and c). The existing tables in four plans move to it. Distinct from TPL-11, which records changes to the template itself |
 
 ### Build your program (PROG)
 
@@ -354,7 +360,7 @@ The SSDF is the first method: NIST's practice set for SA and SR controls on secu
 | SSDF-02 | SSDF to 800-53 references from NIST's own table | P1 | Shown on SSDF practice pages and in the Methods section (METH-01) of every cited control, for example SA-15 lists the tasks that cite it; only references NIST publishes |
 | SSDF-03 | Secure Software Development Policy and SDLC standard | P1 | Templates organized by SSDF practice, cross-referenced to SA controls, with `ssdf` front matter |
 | SSDF-04 | Software producer artifacts | P2 | Vulnerability disclosure policy, SBOM guidance, and attestation readiness checklist; every program-status claim (including current federal secure software attestation policy) is checked at the source and carries an "as of" month |
-| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Sep 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
+| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Oct 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
 
 ### AI security guide (AI)
 
@@ -411,6 +417,7 @@ A guide within the guide: how an organization adopts and secures AI, and how an 
 | PRES-04 | Author identity: About page with bio, photo, LinkedIn link; social links in header | P1 | Placeholders replaced with owner-provided content |
 | PRES-05 | Privacy-friendly analytics, if the owner chooses | P3 | No cookies; documented in About |
 | PRES-06 | Generated `.docx` files look professional | P2 | Styles from `reference.docx`: fonts close to the site's that Office installs (Calibri body, Georgia headings; owner decision, Sep 28, 2026, so every reader sees the same document), heading hierarchy, table style, header with title and version, page numbers. The site's teal accent on headings and table header rows; no guide name or logo |
+| PRES-07 | Withdrawn: site palette, Flexoki with a blue accent | — | Done on Oct 20, 2026 and reverted on Oct 27, 2026 at the owner's request; the site and the Word styles keep the teal accent on Starlight's defaults. The ID is not reused |
 
 ### Quality and CI (QA)
 
@@ -440,6 +447,7 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 - **Policy clauses** use "shall", one requirement per sentence, name an accountable role (as a variable, never a person), and cite the control ID in a trailing reference, for example "(AC-2)".
 - **Every parameter is handled.** Each organization-defined parameter of a clause's control is either a `{{param:...}}` field or explicitly set with a note that it is a typical value.
 - **Any organization, federal-ready.** Write the body for any organization ("the organization", not "the agency"). Put federal-only requirements in `:::federal` blocks, and write them as carefully as the body: federal systems are the most common place these templates will be applied. Cite the federal source (OMB, CISA, FedRAMP, DoD) in each block.
+- **Version record.** Every template ends with the standard approval and version history section (TPL-13), left blank for the adopting organization.
 - **Guidance is separable.** All teaching text lives in `:::guidance` blocks so the clean edition is produced mechanically.
 - **Procedures** are numbered steps by role, with inputs, outputs and the record each step leaves behind (the evidence).
 - **Plans** follow the structure NIST or the owning program publishes (for example SP 800-34 for contingency plans, SP 800-61 for incident response) and cite it.
@@ -602,7 +610,7 @@ Work in seven phases; each ends with an owner review before the next starts. Pha
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
-| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
+| 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, TPL-13, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
 | 4 Methods and the SSDF | Each family's NIST methods, the SSDF section, and the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01 to METH-03, SSDF-01 to SSDF-05 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; SSDF templates at `draft` in the kit; kit v2.1.0 |
 | 5 AI RMF and AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v2.2.0 |
 | 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02, FEAT-01 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
@@ -666,9 +674,8 @@ None of these block Phase 1.
 - [ ] Custom domain now or later (site is at `kston83.github.io/nist-guide` today)
 - [ ] Which three industries to cover first (proposed: defense, healthcare, financial services)
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
-- [ ] Privacy-friendly analytics: yes or no
+- [x] Privacy-friendly analytics: yes, GoatCounter, with template downloads counted as events (owner decision, 2026-10-13)
 - [ ] AI RMF machine-readable source for AI-02 (Phase 5): NIST's AI RMF Playbook data, CPRT, or another NIST export
-- [ ] SSDF source for SSDF-01 (Phase 4): the SP 800-218 Excel table or CPRT
 - [ ] AI templates (AI-06): confirm the list of five before Phase 5 writing starts
 - [ ] OWASP's GenAI framework crosswalk (Sep 2026) maps AI risks to controls in 25 frameworks "including NIST". If it maps to SP 800-53, may AI guide pages cite it as OWASP's mapping before NIST's overlays exist? Default until decided: yes on AI guide pages, clearly labelled as OWASP's; never on control pages
 
@@ -684,10 +691,15 @@ None of these block Phase 1.
 | Employer publishing policy | No issues | Sep 28, 2026 |
 | Employer in the bio | Not named; keep the employer out of the site | Sep 28, 2026 |
 | Phase 1 | Approved; remaining open questions deferred to the phase that needs them | Sep 28, 2026 |
+| Phase 3 | Approved at the end-of-phase review; Phase 4 starts from a plan the owner approves | Oct 28, 2026 |
+| SSDF source (SSDF-01) | The SP 800-218 v1.1 Excel table (`nist.sp.800-218.ssdf-table.xlsx`), not CPRT | Oct 28, 2026 |
+| Worksheet "Who decides" (TPL-08) | Each parameter row names the decider of the family question that covers its control, not the family policy's role | Oct 28, 2026 |
+| FAR citations | Not cited in the SA-4, SA-4(10) and SR-5 clauses and guidance while the Revolutionary FAR Overhaul deviations and codified text differ; recheck when the RFO final rule is issued | Oct 28, 2026 |
 | YAML parser | `yaml` package, for `build-templates.mjs` | Sep 28, 2026 |
 | Zip packs | `fflate` package, so zips build the same on Windows and in CI | Sep 28, 2026 |
 | `_common.md` variables | `{{family:title}}`, `{{family:role}}` and the `xx-` parameter prefix (see Fill-in variables) | Sep 28, 2026 |
 | Word styling | Calibri body, Georgia headings, teal accent, title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026 |
+| Site palette | The teal accent on Starlight's defaults. The Flexoki palette with a blue accent (PRES-07) was adopted on Oct 20, 2026 and reverted, as its light theme was harder to read | Oct 20, 2026; reverted Oct 27, 2026 |
 | Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
 | AI security guide | A separate section (a guide within the guide), kept separate from the SSDF and methods work. Phase 5, after the RMF program kit and methods | Sep 28, 2026 |
 | Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate, PM and privacy-only control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026; PM and privacy guidance added Sep 29, 2026 |
@@ -699,6 +711,8 @@ None of these block Phase 1.
 | Two frameworks | The site is a guidebook to two NIST frameworks: the RMF with SP 800-53 first, then the AI RMF, whose guide covers applying the AI RMF and adopting and securing AI for any organization, with systems governed by NIST frameworks in mind. The public Roadmap page (`reference/roadmap.md`) summarizes the vision and phases | Sep 28, 2026 |
 | Moderate guidance | Written in Phase 3, not Depth: each remaining family's guidance in the pull request after its policy, and the families already written backfilled in batches between template rows. A policy clause says what the organization commits to; guidance says how to do it and what the assessor asks for, which is the guide's first goal | Sep 29, 2026 |
 | PM and privacy guidance | Also written in Phase 3, after the Moderate guidance: every PM control (no baseline, but the program-level controls a new program builds first) and every privacy-only control (PT, PL-9, RA-8, SI-18, SI-19). A privacy-only enhancement is covered on its base control's page, like any enhancement | Sep 29, 2026 |
+| Template `role` field | Non-policy templates may name the role accountable for the artifact (`role:`, a `variables.yml` key; an unknown key fails the build), so the artifact checklist (PROG-03) shows, for example, the system owner for a System Security Plan rather than the CISO of the PL policy. Without it, the role of the family policy of the first control listed | Oct 16, 2026 |
+| Template version history | Every template carries a standard approval and version history section for the adopting organization (TPL-13), in Phase 3 before kit v2.0.0, so adopters of v2.0.0 have it and later kits need not change every document. Separate from the site's per-template change history (TPL-11), which stays on the site and is not added to downloads | Oct 19, 2026 |
 | Report template type | A fifth non-policy type, `report` (`templates/reports/`), for the written results of assessments, analyses and exercises: the risk assessment report first, then the CA assessment report and the CP after-action report | Sep 28, 2026 |
 
 ## Revision history
@@ -718,3 +732,10 @@ None of these block Phase 1.
 | 3.7 | Oct 1, 2026 | Documentation pass, no change in scope: Current state brought up to date for Phase 3; Node minimum and build size corrected; QA-01 marked done; Instructions for Claude Code brought in step with `CLAUDE.md` (owner merges, CC0 templates, template-page check) and pointed at the new `docs/ARCHITECTURE.md`. Owner request in the same PR: the site footer names the templates' CC0 dedication, and the public Roadmap page counts are brought up to date |
 | 3.8 | Oct 3, 2026 | Working records, no change in scope (owner request, to cut the context each task reads): Instructions for Claude Code split progress into `PROGRESS.md` (working state, under 40 KB), `docs/progress-log.md` (the log) and `docs/sources.md` (source registry and verification notes), and the PRD is read in full only at a phase start or a scope change |
 | 3.9 | Oct 3, 2026 | Owner decision (row 27 review): procedures sit flat in `templates/procedures/<slug>.md`, like every other type folder, not in a folder per family (Sources and layout) |
+| 3.10 | Oct 16, 2026 | Owner decision (PROG-03 review): an optional `role` field in non-policy template front matter, a key in `variables.yml` for the role accountable for the artifact; without it, the role of the family policy of the first control listed (Clause and template front matter, Decided) |
+| 3.11 | Oct 19, 2026 | Owner decision (TPL-11 review): TPL-13, a standard approval and version history section in every template, in Phase 3 before kit v2.0.0 (Templates, Writing templates, Phase 3 row, Decided) |
+| 3.12 | Oct 19, 2026 | NAV-02 (row 36), no change in scope: the Front matter contract notes that `description`, Starlight's own field, is required on industry and technology pages, as the one-line summary their section indexes list; the build fails without it (confirmed by the owner in the NAV-02 review) |
+| 3.13 | Oct 19, 2026 | Records after kit v2.0.0, no change in scope: Current state refreshed (Phase 3 complete, v2.0.0 released, guidance, template and program counts) |
+| 3.14 | Oct 20, 2026 | Owner decision: PRES-07, the Flexoki palette with a blue accent in place of the teal, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
+| 3.15 | Oct 27, 2026 | Owner decision: PRES-07 reverted and withdrawn; back to the teal accent on Starlight's defaults, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
+| 3.16 | Oct 28, 2026 | Owner's Phase 3 review: Phase 3 approved; the SSDF source (Excel table), worksheet "Who decides" and FAR decisions recorded (Current state, SSDF-05, Open questions, Decided). No change in scope |

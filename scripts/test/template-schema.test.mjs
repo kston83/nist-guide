@@ -63,6 +63,14 @@ test('templates need a known type, at least one control, and valid SSDF ids', ()
 	assert.match(messages(template.safeParse({ ...goodTemplate, ssdf: ['XX.1'] }))[0], /SSDF practice id/);
 });
 
+test('a template role is optional and must be a key in variables.yml', () => {
+	const withRoles = templateSchemas(catalog, ['ciso', 'system-owner']).template;
+	assert.ok(withRoles.safeParse(goodTemplate).success);
+	assert.ok(withRoles.safeParse({ ...goodTemplate, role: 'system-owner' }).success);
+	assert.match(messages(withRoles.safeParse({ ...goodTemplate, role: 'auditor' }))[0], /^role: Unknown role "auditor"\. Use a key from templates\/variables\.yml: ciso, system-owner/);
+	assert.match(messages(withRoles.safeParse({ ...goodTemplate, role: 'System Owner' }))[0], /^role: Use a lowercase key/);
+});
+
 test('template typical values must belong to one of the listed controls', () => {
 	assert.ok(template.safeParse({ ...goodTemplate, controls: ['ac-2', 'ir-8'], typical: { 'ac-02_odp.01': 'x' } }).success);
 	assert.match(

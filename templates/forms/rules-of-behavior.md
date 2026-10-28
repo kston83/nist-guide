@@ -1,7 +1,7 @@
 ---
 title: Rules of Behavior
 type: form
-description: The rules every person with system access reads and signs before access is granted, including social media and external site restrictions, with a register of acknowledgments, as SP 800-53 PL-4 requires.
+description: The rules every person with system access reads and signs before access is granted, including social media and external site restrictions, with a register of acknowledgments (PL-4).
 controls: [pl-4, pl-4.1, pe-17]
 status: draft
 stage: foundation
@@ -73,6 +73,15 @@ These rules apply to everyone who needs access to {{org:name}}'s information or 
 ### Consequences
 
 - Breaking these rules may lead to loss of access and to action under the organization's sanctions process (PS-8).
+- Failing to report a suspected incident, or delaying a report, breaks these rules and has the same consequences (IR-6, PS-8).
+
+:::federal
+[OMB Memorandum M-17-12](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/memoranda/2017/m-17-12_0.pdf) (January 3, 2017), section VI, requires everyone with access to federal information and information systems to report a suspected or confirmed breach of personally identifiable information, in any medium, including paper, oral and electronic, as soon as possible and without unreasonable delay, and not to wait for confirmation that a breach has occurred. The same section requires agencies to establish rules of behavior that include consequences for violating them, to include in those rules the consequences for failing to comply with the memorandum's reporting requirements, and to ensure that employees and contractors have read and agreed to the rules before being granted access. As of October 2026, add these rules for a federal system:
+
+- Report a suspected or confirmed breach of personally identifiable information, in any form, including paper and spoken disclosures, to {{fill:where to report a breach, for example the incident response email address or toll-free number}} as soon as possible and without unreasonable delay. Do not wait until you are sure a breach has occurred, and report a lost device even if you think you may find it (IR-6).
+- Failing to report a suspected or confirmed breach as these rules require may lead to {{fill:the consequences, for example loss of access and disciplinary or contractual action under the agency's policies}} (PS-8).
+
+:::
 
 ## Acknowledgment
 
@@ -98,3 +107,23 @@ The acknowledgment must be recorded before access is authorized, so the account 
 | Name | Title or role | Rules version | Date acknowledged | Access granted on | Recorded by |
 | --- | --- | --- | --- | --- | --- |
 | {{fill:name}} | {{fill:title or role}} | {{fill:version}} | {{fill:date}} | {{fill:date}} | {{fill:name}} |
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

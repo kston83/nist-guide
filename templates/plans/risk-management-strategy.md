@@ -7,7 +7,7 @@ status: draft
 stage: foundation
 typical:
   pm-09_odp: annually
-  pm-28_odp.01: authorizing officials, system owners, and the leaders of mission and business functions
+  pm-28_odp.01: 'authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management'
   pm-28_odp.02: annually, with this strategy
 ---
 
@@ -124,19 +124,36 @@ Each risk acceptance is recorded with the risk, its level, the reason, the compe
 
 Risk is monitored under the continuous monitoring strategy (PM-31), which sets the metrics, frequencies and reporting. These events trigger a new assessment of the affected risk: {{fill:for example a significant change to a system, a major incident, a new threat or vulnerability affecting the organization, a change in law or mission}}.
 
-## 7. Approval
+## 7. Approval and review
 
-| Name | Title | Signature | Date |
-| --- | --- | --- | --- |
-| {{fill:name}} | {{org:senior-leader}} | | {{fill:date}} |
-
-## 8. Review and change history
+The {{org:senior-leader}} approves this strategy. Each approval, review and change is recorded under Approval and version history at the end of this strategy.
 
 - The {{org:ciso}} shall review and update this strategy {{param:pm-09_odp}}, and whenever organizational changes require it. (PM-9c)
 - The {{org:ciso}} shall review and update the risk framing in section 3 {{param:pm-28_odp.02}}. (PM-28c)
 
-| Version | Date | Change | Approved by |
-| --- | --- | --- | --- |
-| {{fill:version}} | {{fill:date}} | {{fill:summary of change}} | {{fill:name and title}} |
+:::federal
+[OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix I, section 3.a, requires agencies to implement "an agency-wide risk management process that frames, assesses, responds to, and monitors information security and privacy risk on an ongoing basis across the three organizational tiers." Its footnote points to SP 800-39 and to section 5. Section 5.b, in the discussion of major provisions, says the risk management strategy "describes how an agency intends to assess risk, respond to risk, and monitor risk," and that a credible strategy identifies risk assumptions, constraints, tolerance, and priorities and trade-offs.
 
-<!-- TODO(verify): federal block. Confirm the exact OMB Circular A-130 requirement for an organization-wide risk management strategy (Appendix I section and wording) before citing it. -->
+- This strategy shall describe how the agency carries out the agency-wide risk management process that OMB Circular A-130, Appendix I, section 3.a, requires, and shall state the risk assumptions, constraints, tolerance, and priorities and trade-offs that section 5.b describes. (PM-9)
+
+:::
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

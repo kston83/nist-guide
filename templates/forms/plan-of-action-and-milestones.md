@@ -5,6 +5,7 @@ description: The register of a system's known weaknesses and the planned actions
 controls: [ca-5, ca-7, pm-4]
 status: draft
 stage: operate
+role: system-owner
 typical:
   ca-05_odp: at least monthly, and whenever an assessment, audit, scan or monitoring activity finds a new weakness
 ---

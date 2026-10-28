@@ -13,7 +13,7 @@ controls: [pm-1, pm-2, pm-3, pm-4, pm-5, pm-5.1, pm-6, pm-7, pm-7.1, pm-8, pm-9,
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -46,7 +46,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | The frequency at which to review and update the policy | PM-17 | Annually | Chief Information Security Officer |
 | The frequency at which to review and update the procedures | PM-17 | Annually | Chief Information Security Officer |
 | The frequency of updates to the privacy program plan | PM-18 | Annually | Chief Information Security Officer |
-| The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
+| The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information officer, the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
 | The responsibilities of a Data Governance Body | PM-23 | Setting data governance policy, approving data sharing agreements, and resolving data quality and access issues | Chief Information Security Officer |
 | The frequency for reviewing policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually | Chief Information Security Officer |
 | The frequency for updating policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually, and whenever the review finds a change is needed | Chief Information Security Officer |
@@ -60,7 +60,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Privacy oversight bodies | PM-27 | The board of directors or its audit committee, and regulators where law requires | Chief Information Security Officer |
 | Officials responsible for monitoring privacy program compliance | PM-27 | The senior leader, the chief information security officer and general counsel | Chief Information Security Officer |
 | The frequency for reviewing and updating privacy reports | PM-27 | Annually | Chief Information Security Officer |
-| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, and the leaders of mission and business functions | Chief Information Security Officer |
+| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management | Chief Information Security Officer |
 | The frequency for reviewing and updating risk framing considerations | PM-28 | Annually, with the risk management strategy | Chief Information Security Officer |
 | The frequency for reviewing and updating the supply chain risk management strategy | PM-30 | Annually | Chief Information Security Officer |
 | The metrics for organization-wide continuous monitoring | PM-31 | Systems with a current authorization, plan of action items past due, vulnerabilities remediated within the required times, and staff with current security awareness training | Chief Information Security Officer |

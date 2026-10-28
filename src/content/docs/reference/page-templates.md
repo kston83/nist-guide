@@ -42,6 +42,7 @@ The build checks these fields and fails with a message naming the page and the b
 
 - `controls` lists lowercase ids of active SP 800-53 controls or enhancements, as NIST writes them in OSCAL: `ac-2` for AC-2, `ac-2.3` for AC-2(3). Withdrawn controls are rejected. The list of valid ids is `src/data/control-ids.json`, written by `npm run controls`. Each control page lists the pages that name it (or its enhancements) under **Referenced by**, so there is no need to edit the control page.
 - `industries` and `technologies` are slugs: lowercase letters and digits, with single hyphens between words (`entra-id`, not `Entra_ID`).
+- `description` is required on industry guides and technology playbooks: one sentence, which the [industry](/industries/) and [technology](/technology/) indexes show as the page's summary. The indexes are generated from front matter, so a new page appears there with no other edit.
 
 ## Industry guide
 

@@ -10,7 +10,7 @@ typical:
 ---
 
 :::guidance
-AU-2 asks for two lists: every event type the system can log, and the subset you actually log, with a reason the subset is enough to investigate an incident. Keep both in the audit logging standard so every system starts from the same list. Assessors ask for the rationale (AU-2d) more often than any other item.
+AU-2 asks for two lists: every event type the system can log, and the subset you actually log, with a reason the subset is enough to investigate an incident. Keep both in the [audit logging standard](/templates/standards/audit-logging-standard/) so every system starts from the same list: section 3 holds the organization-wide list and Part B each system's own. Assessors ask for the rationale (AU-2d) more often than any other item.
 :::
 
 - The {{org:system-owner}} shall identify {{param:au-02_odp.01}} as the event types the system is capable of logging in support of the audit function. (AU-2a)

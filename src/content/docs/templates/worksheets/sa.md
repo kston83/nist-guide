@@ -13,7 +13,7 @@ controls: [sa-1, sa-2, sa-3, sa-4, sa-4.1, sa-4.2, sa-4.5, sa-4.9, sa-4.10, sa-5
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

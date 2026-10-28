@@ -25,7 +25,7 @@ The guide has five layers, from general to specific:
 
 1. **The framework.** The seven RMF steps from [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), with the tasks, roles, outputs and pitfalls for each.
 2. **The controls.** Every SP 800-53 Rev. 5 control, generated from NIST's official machine-readable catalog, with practical guidance added over time.
-3. **Program templates (in progress).** Policies for every control family, plus the plans, standards, procedures and forms the controls call for, ready to fill in or modify.
+3. **Program templates.** Policies for every control family, plus the plans, standards, procedures and forms the controls call for, ready to fill in or modify.
 4. **Industries (planned).** How the framework and controls apply under sector rules such as HIPAA, NERC CIP, PCI DSS and CMMC.
 5. **Technologies (planned).** How specific controls are implemented and evidenced on specific platforms.
 
@@ -51,6 +51,10 @@ Connect with Kristopher on [LinkedIn](https://www.linkedin.com/in/kristopher-sto
 Control statements, discussion and assessment objectives are reproduced from NIST SP 800-53 Rev. 5 and SP 800-53A Rev. 5 (release 5.2.0), which are U.S. government works in the public domain. Everything else is original, not copied from other sources, and is written by Claude Opus 5.5 under the owner's direction (see [How this guide is made](#how-this-guide-is-made)). Program rules change often, especially for FedRAMP and DoD, so each page shows when it was last updated. Always confirm requirements with your agency or program office.
 
 This guide is independent and is not endorsed by NIST, any agency or any employer.
+
+## Analytics
+
+The site counts visits with [GoatCounter](https://www.goatcounter.com/), an analytics service that sets no cookies and stores nothing in your browser. It keeps totals, not a record of each visit: the page, the referring site, and the browser, operating system, screen width, language and country, with the country worked out from the IP address. It also counts template downloads by file name; these counts are approximate, as downloads saved with "Save link as" or linked from other sites are not counted. GoatCounter does not store IP addresses, the full user agent or any tracking ID, and shares nothing with third parties ([privacy policy](https://www.goatcounter.com/help/privacy)). To tell repeat views apart, it keeps a key built from the IP address and browser in memory for eight hours, and never writes it to disk ([sessions](https://www.goatcounter.com/help/sessions)). If your browser blocks the script, the site works the same.
 
 ## License
 

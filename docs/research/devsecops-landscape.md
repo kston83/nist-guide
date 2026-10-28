@@ -2,7 +2,7 @@
 
 Research notes for the owner, not a site page and not a PRD change. The question (owner, 2026-10-09): the guide explains the RMF and SP 800-53 and ships the paperwork, but teams that build software in pipelines, and programs moving to FedRAMP 20x, need the step from "the control says" to "the pipeline does, and here is the evidence". Do public resources already bridge that, and where do they stop?
 
-Everything below was checked at the source on 2026-10-09 unless marked otherwise. Treat statuses as "as of October 2026". Statements taken only from vendor or press articles are marked as such and are not to be cited on the site until checked at a primary source.
+Everything below was checked at the source on 2026-10-09 unless marked otherwise; entries marked "2026-10-28" were rechecked or added during the owner's Phase 3 review, and [Update, 2026-10-28](#update-2026-10-28-validating-the-approach) records what changed. Treat statuses as "as of October 2026". Statements taken only from vendor or press articles are marked as such and are not to be cited on the site until checked at a primary source.
 
 ## The short answer
 
@@ -59,6 +59,7 @@ Pick the path that matches the question. Each step names the resource and the on
 1. **DoD continuous ATO (cATO)**: the February 2022 memo, the evaluation criteria and the April 2024 implementation guide.
 2. **DoD Cybersecurity Risk Management Construct (CSRMC)**, announced September 2025, which the Department describes as replacing the RMF's snapshot-in-time approach.
 3. **Software Fast Track (SWFT)**, the April 2025 initiative on acquiring and authorizing software.
+4. **DoD Enterprise DevSecOps Activities & Tools Guidebook** (2026-10-28), the activities for each DevSecOps phase; the government counterpart of the OWASP DevSecOps Guideline.
 
 ### 6. KSIs for an RMF practitioner, starting from Change Management
 
@@ -78,8 +79,8 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 
 - *Solves:* states what the federal cloud authorizer will measure, as outcomes, with an automated, machine-readable path.
 - *Stops at:* KSIs say what must be true, not how a team makes it true or what evidence is good enough.
-- *Status:* CR26 launched June 24, 2026; optional early adoption from July 4, 2026; mandatory from January 1, 2027; "FedRAMP will no longer accept applications for new FedRAMP Rev5 Certifications" after June 11, 2027. FedRAMP Ready closed to new submissions on July 28, 2026. A certification has a type (Rev5 or 20x) and a class, A to D, "increasing from minimal assurance at Class A to significant assurance at Class D". Each KSI lists "Related SP 800-53 Controls"; for example KSI-CMT-LMC ("Modifications to the cloud service offering are logged and monitored") lists AU-2, CM-3, CM-3(2), CM-4(2), CM-6, CM-8(3) and MA-2.
-- *The rules dataset:* [`fedramp-consolidated-rules.json`](https://github.com/FedRAMP/rules) holds the definitions (`FRD`), process rules (`FRR`), KSIs (`KSI`) and FedRAMP's control parameters and guidance (`CTL`), with a JSON schema. Version 2026.10.08.01 (read 2026-10-09) has 46 indicators in 10 themes: Cybersecurity Education (CED), Change Management (CMT), Cloud Native Architecture (CNA), Identity and Access Management (IAM), Incident Response (INR), Monitoring, Logging, and Auditing (MLA), Policy and Inventory (PIY), Recovery Planning (RPL), Supply Chain Risk (SCR) and Service Configuration (SVC). Each indicator lists its controls in the same lowercase form as this repo's slugs (`cm-3`, `cm-3.2`); some vary by class (a `varies_by_class` field; for example KSI-CNA-EIS is optional at Class B). The repository asserts no license in its GitHub metadata. <!-- TODO(verify): reuse terms for the FedRAMP rules dataset before importing it -->
+- *Status:* CR26 launched June 24, 2026; optional early adoption from July 4, 2026; mandatory from January 1, 2027; "FedRAMP will no longer accept applications for new FedRAMP Rev5 Certifications" after June 11, 2027. FedRAMP Ready closed to new submissions on July 28, 2026. Rechecked 2026-10-28 on [fedramp.gov/20x](https://www.fedramp.gov/20x/): "FedRAMP 20x is currently in Phase 3" (wide-scale adoption, FY26 Q3 to Q4) and "The pilots are over. FedRAMP 20x is here to stay." Phase 1 (the Low pilot, April to September 2025) and Phase 2 (the Moderate pilot, November 18, 2025 through March 2026) are marked completed; Phase 4 (the Class D, High, pilot) is estimated for FY27 Q1 to Q2 and Phase 5 (no new Rev5 Certifications, transition paths) for FY27 Q3 to Q4, dates FedRAMP calls "estimates for public awareness, not firm commitments". [RFC-0014](https://www.fedramp.gov/rfcs/0014/): "During Phase Two, FedRAMP will expect truly automated and opinionated validation of Key Security Indicators for a Moderate authorization." A certification has a type (Rev5 or 20x) and a class, A to D, "increasing from minimal assurance at Class A to significant assurance at Class D". Each KSI lists "Related SP 800-53 Controls"; for example KSI-CMT-LMC ("Modifications to the cloud service offering are logged and monitored") lists AU-2, CM-3, CM-3(2), CM-4(2), CM-6, CM-8(3) and MA-2.
+- *The rules dataset:* [`fedramp-consolidated-rules.json`](https://github.com/FedRAMP/rules) holds the definitions (`FRD`), process rules (`FRR`), KSIs (`KSI`) and FedRAMP's control parameters and guidance (`CTL`), with a JSON schema. Version 2026.10.08.01 (read 2026-10-09) has 46 indicators in 10 themes: Cybersecurity Education (CED), Change Management (CMT), Cloud Native Architecture (CNA), Identity and Access Management (IAM), Incident Response (INR), Monitoring, Logging, and Auditing (MLA), Policy and Inventory (PIY), Recovery Planning (RPL), Supply Chain Risk (SCR) and Service Configuration (SVC). Each indicator lists its controls in the same lowercase form as this repo's slugs (`cm-3`, `cm-3.2`); some vary by class (a `varies_by_class` field; for example KSI-CNA-EIS is optional at Class B). The repository asserts no license in its GitHub metadata and has no license file (GitHub API, 2026-10-28). <!-- TODO(verify): reuse terms for the FedRAMP rules dataset before importing it -->
 - *Not verified at FedRAMP:* how the classes correspond to the old Low, Moderate and High levels. Vendor articles give figures for KSIs per level that do not match the dataset's 46 (they may count class variants separately); use the dataset.
 
 **DoD continuous ATO.** [cATO memo, February 2022](https://dodcio.defense.gov/Portals/0/Documents/Library/20220204-cATO-memo-Signed-Cleared.pdf), [evaluation criteria](https://dodcio.defense.gov/Portals/0/Documents/Library/cATO-EvaluationCriteria.pdf), [implementation guide, April 2024](https://dodcio.defense.gov/Portals/0/Documents/Library/DoDCIO-ContinuousAuthorizationImplementationGuide.pdf).
@@ -95,7 +96,18 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 **DoD Software Fast Track (SWFT).** [DoD CIO article, May 2025](https://dowcio.war.gov/In-the-News/Article/4367436/software-fast-track-initiative).
 
 - *Solves:* aims to reform how the Department "acquires, tests, and authorizes secure software".
-- *Status:* the article describes a 90-day sprint to build a framework. Press reports of later phases and requirements were not checked at a DoD source.
+- *Status:* the article describes a 90-day sprint to build a framework. Press reports of later phases and requirements were not checked at a DoD source. Rechecked 2026-10-28: the April 24, 2025 memo, [Accelerating Secure Software](https://dodcio.war.gov/Portals/0/Documents/Library/Memo-AcceleratingSecureSoftware.pdf), is linked from the DoD CIO library (found by search, not opened); vendor blogs claim SWFT became a requirement in January 2026 and add a third-party certification phase, which no DoD source seen confirms.
+
+**DoD Enterprise DevSecOps Activities & Tools Guidebook** (added 2026-10-28). [Version 2.5, April 2025](https://dodcio.defense.gov/Portals/0/Documents/Library/DoD%20Enterprise%20DevSecOps%20Fundamentals%20v2.5.pdf), in the DoD CIO library with a companion spreadsheet; earlier versions 2.0 (March 2021) and 2.1 (September 2021).
+
+- *Solves:* the activities for each DevSecOps phase and a taxonomy of the tools that support them; the government counterpart of the OWASP DevSecOps Guideline.
+- *Why it matters here:* a U.S. government work, so its text may be adaptable into the CC0 templates where OWASP's CC BY-SA text cannot be (confirm its distribution statement and any third-party content first).
+- *Not read:* the PDF returned 403 to scripted access on 2026-10-28; version and date are from search results. <!-- TODO(verify): read the v2.5 guidebook, its distribution statement, its phases and whether it cites the RMF, cATO or SP 800-53 -->
+
+**NSA and CISA, Defending Continuous Integration/Continuous Delivery (CI/CD) Environments** (added 2026-10-28). A joint Cybersecurity Information Sheet, [announced by CISA on June 28, 2023](https://www.cisa.gov/news-events/alerts/2023/06/28/cisa-and-nsa-release-joint-guidance-defending-continuous-integrationcontinuous-delivery-cicd), "to provide recommendations and best practices for organizations to strengthen the security of their CI/CD pipelines".
+
+- *Solves:* government guidance on securing the pipeline itself, which the RMF treats as part of the system; pairs with the OWASP Top 10 CI/CD Security Risks and SP 800-204D.
+- *Not read:* the PDF on media.defense.gov returned 403 to scripted access on 2026-10-28.
 
 **OMB M-26-05** (January 23, 2026, already in `sources.md`): rescinds M-22-18 and M-23-16, so agencies are no longer required to collect the CISA secure software development attestation form; they set risk-based software assurance requirements of their own. Relevant because the SSDF stays the reference, without a mandated form.
 
@@ -114,7 +126,8 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 **SP 1800-44, Secure Software Development, Security, and Operations (DevSecOps) Practices (NCCoE).** [Volume A preliminary draft, July 2025](https://csrc.nist.gov/pubs/sp/1800/44/iprd), [current web edition](https://pages.nist.gov/nccoe-devsecops/).
 
 - *Solves:* NIST's practical DevSecOps reference model, built with industry collaborators, mapped to the SSDF: a seven-phase life cycle, two example implementations and many functional demonstrations.
-- *Status:* the July 2025 draft is marked obsolete as of March 24, 2026; the web edition is dated September 2026. <!-- TODO(verify): whether the September 2026 web edition is a draft or final, and its comment period; the NCCoE project page returned 403 on 2026-10-09 -->
+- *Status:* the July 2025 draft is marked obsolete as of March 24, 2026; the web edition is dated September 2026. Rechecked 2026-10-28: the web edition states no status, date or version; it has an Appendix E change log, three example implementations (the third, using agentic AI, has only its scope so far: "Additional documentation will be available here as the project develops") and a mapping of its reference model to the SSDF; it does not map to SP 800-53 or address authorization, and cites no OWASP project. A Microsoft blog (April 2026, vendor source, not checked at NIST) describes the project becoming "live guidelines". <!-- TODO(verify): whether the SP 1800-44 web edition is a draft, final or living publication, and its comment process; the NCCoE project page returned 403 on 2026-10-09 -->
+- *Why it matters here (2026-10-28):* it gives a NIST-only chain from a team's life-cycle phase to the SSDF, and the SSDF cites SP 800-53, so it can structure a DevSecOps section without leaving NIST.
 - *Stops at:* developer and platform practice; it does not address authorization packages.
 
 **OSCAL.** [pages.nist.gov/OSCAL](https://pages.nist.gov/OSCAL/); latest release v1.2.3 (GitHub, August 2026).
@@ -137,9 +150,10 @@ Each entry: what it is, the problem it solves, where it stops, status, and licen
 **DevSecOps Guideline.** [Project](https://owasp.org/www-project-devsecops-guideline/). Incubator project. The repository README describes a 2025/2026 refresh organized as people, process and governance, aligned with the SSDF, SAMM, DSOMM and SLSA.
 
 - *Solves:* the plain-language list of pipeline security stages: secrets scanning, SCA, SAST, IaC scanning, supply chain (SBOM, signing, provenance), IAST and DAST, API security, container and cloud-native protection, compliance checks.
-- *Stops at:* tool and stage level; compliance is one short section. License: the repository asserts none in its metadata. <!-- TODO(verify): the DevSecOps Guideline's content license -->
+- *Stops at:* tool and stage level; compliance is one short section. No version number on the project page (2026-10-28).
+- *License (2026-10-28):* the repository's `LICENSE.md` says "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License" (GitHub metadata shows "Other"). Cite stage names and link; do not copy or adapt its text into CC BY or CC0 content.
 
-**DSOMM (DevSecOps Maturity Model).** [Project](https://owasp.org/www-project-devsecops-maturity-model/), [model](https://dsomm.owasp.org/). Lab project; code GPL-3.0, content "Attribution-ShareAlike".
+**DSOMM (DevSecOps Maturity Model).** [Project](https://owasp.org/www-project-devsecops-maturity-model/), [model](https://dsomm.owasp.org/). Lab project; code GPL-3.0, content "Attribution-ShareAlike" (project page, rechecked 2026-10-28; the model's data repository, `devsecopsmaturitymodel/DevSecOps-MaturityModel-data`, is GPL-3.0). A separate OWASP project that the DevSecOps Guideline links as a resource, not part of the Guideline. Cite activity names and link; do not import its data into the build.
 
 - *Solves:* concrete maturity steps for pipeline activities; OpenCRE includes it.
 
@@ -218,7 +232,30 @@ Discussed with the owner on 2026-10-09. The conclusion: yes, with a shift in wha
 
 **The adjustment.** Treat what is built as the foundation, and make the next layer the one this research found missing: how each outcome is met in a pipeline and proven with evidence. The PRD already has the slots: Phase 4 (methods, starting with the SSDF) and the technology playbooks. This refocuses them rather than adding a new strand.
 
+## Update, 2026-10-28: validating the approach
+
+The owner's framing (2026-10-28, after Phase 3 was approved): the site shows what the RMF is and how to apply it, and OWASP's DevSecOps Guideline, with DSOMM for detail, partly answers how delivery teams apply it, with FedRAMP 20x as the model for evidence. The SSDF stays in Phase 4. Checked against the sources above:
+
+- **No framework or tool closes the gap.** Mapping is solved (OpenCRE), tooling is solved for experts, and FedRAMP 20x has solved the authorization end for cloud services. The vendor-neutral account, per outcome, of practice, pipeline evidence and its use by an assessor is still open.
+- **NIST already publishes the team-level structure.** SP 1800-44's seven phases map to the SSDF, which cites SP 800-53. Under the site's NIST-first rule that chain, not OWASP, is the spine; OWASP is cited practice detail.
+- **The OWASP projects are early and share-alike.** The Guideline is an incubator project with no version, DSOMM a lab project, both CC BY-SA. Cite by name and ID; the DoD guidebook is the government cross-check and may be adaptable.
+- **FedRAMP 20x is past its pilots** (Phase 3 active), but it is for cloud services; most agency RMF systems are not FedRAMP. Use it as the evidence model, labelled as FedRAMP's.
+- **Assumptions to keep in view.** DevSecOps covers the systems a team builds and runs: mainly the SA, CM, SI, RA, SR and CA-7 outcomes, not people, physical or purchased-software controls. "What evidence is good enough" is published nowhere; it rests on the owner's practice and the site's "would pass an assessment" test, so each page needs owner review.
+
+**The chain each page follows:**
+
+| Part | Anchor |
+| --- | --- |
+| Requirement | The RMF and SP 800-53 (the guide's control pages) |
+| Structure | NIST SP 1800-44 phases, through the SSDF to SP 800-53 |
+| Team practice | OWASP DevSecOps Guideline stages and DSOMM activities, cited; the DoD guidebook as cross-check |
+| Evidence | FedRAMP 20x KSIs as the model, labelled; the owner's practice as the test |
+
+**Owner decision (2026-10-28):** this becomes a section of the current site, not a new product: one sidebar section (working name "DevSecOps") with an overview and one page per topic, each linking to the existing control pages, policies and templates. On the roadmap's six questions it fills in Method, Implementation and Evidence for teams that ship through a pipeline. Adding the section needs a PRD amendment (page type, sidebar entry, the OWASP source rule); see the Phase 4 plan in `PROGRESS.md`.
+
 ## Next steps
+
+Revised on 2026-10-28 (the Phase 4 plan in `PROGRESS.md` is the working version): merge this note; the worksheet fix (TPL-08); the first DevSecOps page, change management under continuous delivery, for the owner to judge; then the PRD amendment, the SSDF rows and the remaining DevSecOps pages. The 2026-10-09 order, kept for the record:
 
 In order, agreed with the owner on 2026-10-09:
 

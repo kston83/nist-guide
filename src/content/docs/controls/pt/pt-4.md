@@ -8,6 +8,7 @@ control:
   id: PT-4
   family: PT
   baselines: [Privacy]
+guidance: draft
 ---
 
 <!-- nist:start -->
@@ -120,3 +121,55 @@ Determine if the [Assignment: organization-defined tools or mechanisms] are impl
 <!-- nist:end -->
 
 <!-- guidance: write below this line -->
+
+## How to apply it
+
+PT-4 asks you to give individuals tools or mechanisms to consent to the processing of their personally identifiable information before it is collected, in a way that helps them make an informed decision. PT-4 is in the SP 800-53B Privacy baseline only.
+
+NIST's PT-4 discussion treats consent as one control among several, not a default. Consent may be required by law; otherwise, choose it only where individuals can reasonably be expected to understand and accept the privacy risk they are authorizing, and consider whether other controls would manage the risk better. NIST's discussion asks you to consider:
+
+- Demographic and contextual factors that affect how people understand the request
+- The type of consent, such as opt-in or opt-out
+- How to authenticate and identity-proof the person giving consent, and how to obtain consent electronically
+- A way to revoke consent once given
+- Plain language, without technical jargon
+
+**Common implementations.** The PT-4 clause of the [PII Processing and Transparency policy](/templates/policies/pt/) has the senior privacy official make sure consent mechanisms exist, each request use plain language and say what will be processed, why and with whom it will be shared, and the system owner keep a record of each consent given and withdrawn. The [privacy notice](/templates/forms/privacy-notice/) lists the choices individuals have and how to withdraw consent, and section 5 of the [privacy impact assessment](/templates/reports/privacy-impact-assessment/) records which processing relies on consent, or why consent is not the basis.
+
+A consent mechanism that would pass an assessment usually has:
+
+- An empty checkbox or a separate action for each optional use, not a single acceptance of terms
+- The request shown next to the short notice at the point of collection, with a link to the full notice
+- A record of who consented, to what, when, and under which version of the notice
+- A withdrawal option in the same place, as easy to use as giving consent, which stops the processing that relied on it
+- A check that downstream systems and recipients receive withdrawals
+
+Where processing is required by law or needed to deliver what the individual asked for, do not ask for consent the individual cannot refuse. Say in the notice that the processing is required and why; purpose limits (PT-3) do the work instead.
+
+**Organization-defined parameters.** Typical value, which your organization may set differently:
+
+| Parameter | Typical value |
+| --- | --- |
+| Tools or mechanisms for consent | Opt-in consent forms and settings that record the date and the version of the notice shown, and let individuals withdraw consent as easily as they gave it |
+
+This matches the PT-4 clause. The PT decision worksheet adds the choice of when to rely on consent; its typical answer is where law requires it or where the processing is not needed to deliver what the individual asked for.
+
+**Evidence assessors ask for.**
+
+- The consent screens or forms, with the wording shown to individuals
+- Consent records for a sample of individuals, with the date and notice version
+- A test that withdrawal works and stops the processing
+- The privacy impact assessment's statement of which processing relies on consent
+
+**Inheritance.** The privacy office often provides a common consent management tool and the wording standards. Each system that collects information presents the request and honors the result, so PT-4 is usually hybrid.
+
+**Common findings.**
+
+- Consent bundled into terms of service, with no separate choice for optional uses.
+- Pre-ticked boxes, or consent implied from continued use of a site.
+- No record of what the individual saw when consenting, so consent cannot be shown.
+- Withdrawal that stops marketing email but not the sharing or analytics that relied on the same consent.
+
+**Enhancements.** PT-4 has three enhancements, PT-4(1) tailored consent, PT-4(2) just-in-time consent and PT-4(3) revocation, in no baseline. None has a clause in the policy template; the PT-4 clause already covers withdrawal.
+
+**Federal systems** (as of October 2026). Under the Privacy Act ([5 U.S.C. § 552a](https://www.govinfo.gov/link/uscode/5/552a?link-type=html)), subsection (b), an agency may disclose a record in a system of records "pursuant to a written request by, or with the prior written consent of" the individual, or under one of the subsection's listed conditions. [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf), Appendix II, section 3.f, lists Individual Participation among the Fair Information Practice Principles: agencies should, "to the extent practicable, seek individual consent" for the processing of PII. The Circular says these principles "are not OMB requirements" but principles agencies should apply.

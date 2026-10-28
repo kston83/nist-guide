@@ -1,10 +1,11 @@
 ---
 title: Component Inventory
 type: form
-description: The register of every hardware, software, firmware, virtual and cloud component inside one system's boundary, with its owner, administrator and assigned user, reconciled against the system inventory and against discovery and vulnerability scans so that unauthorized components are found, as SP 800-53 CM-8 and CM-8(3) require.
+description: The register of every hardware, software, firmware, virtual and cloud component in one system's boundary, with owners, reconciled against discovery scans to find unauthorized components (CM-8, CM-8(3)).
 controls: [cm-8, cm-8.1, cm-8.2, cm-8.3, cm-8.4, pe-16, mp-7]
 status: draft
 stage: core
+role: system-owner
 typical:
   cm-08_odp.01: 'name, type, manufacturer and model, serial number or asset tag, software version, location, network address, owner and administrator'
   cm-08_odp.02: at least quarterly

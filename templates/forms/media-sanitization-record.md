@@ -1,7 +1,7 @@
 ---
 title: Media Sanitization Record
 type: form
-description: The record of each item of system media sanitized or destroyed before disposal, release out of organizational control or reuse, with its approval, custody, method, verification and final disposition, plus the sanitization methods by media type, the equipment tests and the outside providers, as SP 800-53 MP-6 requires.
+description: The record of each item of media sanitized or destroyed before disposal, release or reuse, with its approval, method and verification, plus methods by media type and providers (MP-6).
 controls: [mp-6, mp-6.1, mp-6.2, mp-6.3, mp-4, mp-5, ma-2, ma-3.3]
 status: draft
 stage: operate

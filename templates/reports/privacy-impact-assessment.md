@@ -1,10 +1,11 @@
 ---
 title: Privacy Impact Assessment
 type: report
-description: The analysis and record of how a system, program or activity handles personally identifiable information, the privacy risks that creates for individuals and how they are reduced, done before development, procurement or a new collection and kept up to date as the processing changes, as SP 800-53 RA-8 requires.
-controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, sc-7.24, ra-3]
+description: The record of how a system, program or activity handles personally identifiable information, its privacy risks to individuals and how they are reduced, kept current as processing changes (RA-8).
+controls: [ra-8, pt-2, pt-3, pt-4, pt-5, pt-7, pt-8, sc-7.24, ra-3]
 status: draft
 stage: core
+role: privacy-official
 typical:
   pt-02_odp.01: 'the law, regulation, contract or consent'
   pt-03_odp.01: 'the specific, explicit purposes of the system or program'
@@ -119,13 +120,11 @@ Record each residual risk that needs action or acceptance in the risk register.
 
 ## 12. Approval, publication and updates
 
-| Role | Name | Decision | Signature | Date |
-| --- | --- | --- | --- | --- |
-| {{org:system-owner}} | {{fill:name}} | Prepared | | {{fill:date}} |
-| {{org:privacy-official}} | {{fill:name}} | {{fill:approved or not approved}} | | {{fill:date}} |
+The {{org:system-owner}} signs this assessment as its preparer. Its approval, and each review and update, are recorded under Approval and version history at the end of this assessment.
 
 - The {{org:privacy-official}} reviews and approves this assessment before the system is developed or procured, or before the new collection begins (RA-8).
 - The {{org:system-owner}} updates this assessment when a change to the system or the processing creates new privacy risks, found through {{param:pt-03_odp.03}} (RA-8, PT-3d).
+- The {{org:system-owner}} reviews this assessment at least annually, with the check of the relevance of the information under SI-18, and records the review and its date even when nothing has changed (RA-8, SI-18).
 - A plain-language version is published on the organization's privacy page, {{fill:or the reason it is not}}, with anything that would reveal security weaknesses removed (PM-20b).
 
 :::federal
@@ -139,6 +138,7 @@ Add to section 4 the statute or executive order that authorizes the collection, 
 | --- | --- |
 | Is a system of records being created or changed under 5 U.S.C. § 552a? | {{fill:yes or no}} |
 | System of records notice | {{fill:name, number and Federal Register citation, or the date a new or revised notice will be published}} |
+| Is the system part of a matching program under 5 U.S.C. § 552a(a)(8)? (PT-8) | {{fill:no, or the matching program, its computer matching agreement and expiry date, and its Federal Register matching notice}} |
 | Privacy Act statement on each collection form | {{fill:yes, not needed, or planned}} |
 | Paperwork Reduction Act information collection | {{fill:the OMB control number, or not applicable}} |
 
@@ -147,3 +147,23 @@ Add to section 4 the statute or executive order that authorizes the collection, 
 - Each PIA shall state whether a system of records is being created under the Privacy Act. (RA-8)
 
 :::
+
+## Approval and version history
+
+{{org:name}} records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::guidance
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

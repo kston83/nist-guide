@@ -1,7 +1,7 @@
 {
   "name": "rmf-field-guide",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "npm run changelog && astro dev",
@@ -24,18 +24,18 @@
     "changelog": "node scripts/build-changelog.mjs"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.3.1",
-    "@astrojs/starlight": "^0.42.4",
+    "@astrojs/markdown-remark": "^7.3.2",
+    "@astrojs/starlight": "^0.42.6",
     "@fontsource/public-sans": "^5.2.5",
     "@fontsource/source-serif-4": "^5.2.5",
-    "astro": "^7.2.10",
+    "astro": "^7.3.8",
     "fflate": "^0.8.3",
     "sharp": "^0.35.3",
     "unist-util-visit": "^5.1.0",
     "yaml": "^2.9.1"
   },
   "devDependencies": {
-    "cspell": "^10.3.5",
+    "cspell": "^10.3.6",
     "markdownlint-cli2": "^0.23.3",
     "pa11y-ci": "^4.1.1"
   },

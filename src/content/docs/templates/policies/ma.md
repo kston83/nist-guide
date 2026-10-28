@@ -13,7 +13,7 @@ controls: [ma-1, ma-2, ma-2.2, ma-3, ma-3.1, ma-3.2, ma-3.3, ma-4, ma-4.3, ma-5,
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Policy | [Operate](/program/operate/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Policy | [Operate](/program/operate/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 
@@ -180,7 +180,7 @@ MA-3(3) covers maintenance equipment, such as a vendor's diagnostic laptop or an
 
 ##### Federal systems
 
-Under [32 CFR 2002.14(f)(2)](https://www.ecfr.gov/current/title-32/subtitle-B/chapter-XX/part-2002/subpart-A/section-2002.14), agencies that destroy controlled unclassified information (CUI), including in electronic form, must make it unreadable, indecipherable and irrecoverable. They must use any destruction method specifically required by law, regulation or Government-wide policy for that CUI; otherwise they must use the destruction guidance in NIST SP 800-53 and SP 800-88, or a method approved for classified national security information under 32 CFR 2001.47. As of September 2026.
+Under [32 CFR 2002.14(f)(2)](https://www.ecfr.gov/current/title-32/section-2002.14), agencies that destroy controlled unclassified information (CUI), including in electronic form, must make it unreadable, indecipherable and irrecoverable. They must use any destruction method specifically required by law, regulation or Government-wide policy for that CUI; otherwise they must use the destruction guidance in NIST SP 800-53 and SP 800-88, or a method approved for classified national security information under 32 CFR 2001.47. As of September 2026.
 
 - Where maintenance equipment containing CUI is destroyed to prevent its removal, the <span class="tpl-field tpl-org">System owner</span> shall destroy it by a method that 32 CFR 2002.14(f)(2) permits. (MA-3(3)(b))
 
@@ -250,3 +250,23 @@ For federal information systems, this policy also carries out the agency's infor
 - Where the agency's organization-wide policy sets a value for a parameter in this policy, each system shall use that value or a stricter one. (MA-1a.1(b))
 
 </div>
+
+### Approval and version history
+
+<span class="tpl-field tpl-org">Organization name</span> records here the approval of each version of this document and each review of it, including a review that changes nothing. This is the record of the approval, review and update that SP 800-53 Rev. 5 asks for: item c of each family's -1 control for policies and procedures (for example AC-1c), PM-1a.4 and PM-1b for the information security program plan, and PL-2a.15, PL-2c and PL-2d for system plans.
+
+:::note[Guidance]
+Assessors ask for evidence that a document was approved, and that it was reviewed and updated on its cycle and after the events its review section names. This section is that evidence. It is the same in every template in the kit, so the records read alike across the program. Between them, the two tables hold what [NIST SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, section 3.2) says system plan approval, review records and change records include: the approvers' full names, roles, organizational titles, signatures and signature dates; who reviewed the plan, when, and the outcome; and for each change, its date, revision, who made it, the sections affected and what changed. Add a version history row for every review, including one that changes nothing: keep the version number, write "Reviewed, no change", and say what prompted the review, the scheduled cycle or an event. SP 800-18 Rev. 2 notes that document management systems can capture the signatures electronically; an approval recorded that way can stand in for the Signature column.
+:::
+
+#### Approval
+
+| Version | Name, role and title | Signature | Date |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+#### Version history
+
+| Version and date | Review or change (what, where and why) | By (name and role) | Approved by |
+| --- | --- | --- | --- |
+|  |  |  |  |

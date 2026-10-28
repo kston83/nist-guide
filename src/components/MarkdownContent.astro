@@ -6,10 +6,12 @@
 //   Artifacts (PRD TPL-06): template pages whose `controls` name the control.
 //   Referenced by (PRD LINK-01): every other page whose `controls` name it.
 //   Status badges (PRD CTRL-06): guidance and policy-clause status, at the top.
+// And to template pages: their change history by kit version (PRD TPL-11), at the end.
 import Default from '@astrojs/starlight/components/MarkdownContent.astro';
 import { getCollection, render } from 'astro:content';
 import catalog from '../data/catalog.json';
 import StatusBadges from './StatusBadges.astro';
+import TemplateHistory from './TemplateHistory.astro';
 import { statusOf } from '../lib/coverage';
 import { coverageSources } from '../lib/coverage-data';
 import { referencesFor } from '../lib/references';
@@ -20,6 +22,7 @@ const NIST_END = '<!-- nist:end -->';
 const controlId = Astro.locals.starlightRoute.entry.data.control?.id;
 const base = controlId?.toLowerCase();
 const family = base?.split('-')[0];
+const pageId = Astro.locals.starlightRoute.entry.id;
 
 let refs: ReturnType<typeof referencesFor> = [];
 let statements: { label: string; title: string; enhancement: boolean; Content: any }[] = [];
@@ -141,6 +144,7 @@ const showStatement = policy && (isPolicyControl || statements.length > 0);
 			</section>
 		)
 	}
+	{pageId.startsWith('templates/') && <TemplateHistory id={pageId} />}
 </Default>
 
 <style>

@@ -1,11 +1,25 @@
 // The starter kit (PRD PROG-02): resolves templates/starter-kit.yml against the
 // sources, lists the files it contains per baseline, and builds its page.
 // No file access, so npm test can run it.
-import { inSecurityBaseline, policyBaselines } from '../../src/lib/template-assemble.ts';
-import { GENERATED_NOTE, organizationWide, policyFile, templateFile, worksheetBaselines, worksheetFile } from './template-pages.mjs';
+import { CONSOLIDATED_TITLE, consolidatedBaselines, inSecurityBaseline, policyBaselines } from '../../src/lib/template-assemble.ts';
+import {
+	CONSOLIDATED_SLUG,
+	consolidatedFile,
+	consolidatedSources,
+	GENERATED_NOTE,
+	KIT_FILE,
+	organizationWide,
+	policyFile,
+	templateFile,
+	worksheetBaselines,
+	worksheetFile,
+} from './template-pages.mjs';
 
 export const STARTER_BASELINES = ['Low', 'Moderate', 'High'];
 export const starterKitFile = (baseline) => `starter-kit-${baseline.toLowerCase()}.zip`;
+// The page's front matter description, which the templates index also shows (NAV-02).
+const DESCRIPTION = 'The minimal set of security program templates a new program adopts first, for NIST RMF and SP 800-53, in one download per baseline.';
+export const STARTER_KIT_SUMMARY = { title: 'Starter kit', href: '/templates/starter-kit/', type: 'kit', description: DESCRIPTION };
 
 /**
  * Checks each item and resolves it to a row: { title, href?, controls, planned, files(baseline) }.
@@ -29,6 +43,18 @@ export function resolveStarterKit({ starterKit, families, clauses, templates, ca
 				files: () => [...editions((e) => templateFile(t.id, e)), ...(t.type === 'form' ? [`${templateFile(t.id, 'clean')}.csv`] : [])],
 			};
 		}
+		// The consolidated policy (TPL-09) at the kit's baseline: every family in one document.
+		if (item.include === 'consolidated-policy') {
+			const baselines = consolidatedBaselines(consolidatedSources({ families: [...families.values()], clauses }), catalog.controls);
+			return {
+				title: CONSOLIDATED_TITLE,
+				href: `/templates/policies/${CONSOLIDATED_SLUG}/`,
+				controls: familyList.map((f) => `${f.id}-1`),
+				planned: false,
+				consolidated: true,
+				files: (b) => (baselines.includes(b) ? editions((e) => consolidatedFile(b, e)) : []),
+			};
+		}
 		if (item.include === 'policies')
 			return {
 				title: `Family policies (${familyList.map((f) => f.id.toUpperCase()).join(', ')})`,
@@ -45,7 +71,7 @@ export function resolveStarterKit({ starterKit, families, clauses, templates, ca
 			};
 		if (item.include === 'worksheets')
 			return {
-				title: 'Decision worksheets for those families',
+				title: 'Decision worksheets for the families in the kit',
 				href: '/templates/#decision-worksheets',
 				controls: [],
 				planned: false,
@@ -58,13 +84,14 @@ export function resolveStarterKit({ starterKit, families, clauses, templates, ca
 			};
 		if (item.planned && item.title && item.controls?.length)
 			return { title: item.title, controls: item.controls, planned: true, files: () => [] };
-		throw new Error(`starter-kit.yml item ${i + 1}: use template:, include: policies|worksheets, or title + controls + planned: true`);
+		throw new Error(`starter-kit.yml item ${i + 1}: use template:, include: consolidated-policy|policies|worksheets, or title + controls + planned: true`);
 	});
 }
 
 const controlLabel = (catalog, id) => catalog.controls.find((c) => c.id === id)?.label ?? id.toUpperCase();
 
 export function starterKitPage({ rows, catalog, version }) {
+	const consolidated = rows.some((r) => r.consolidated);
 	const table = [
 		'| Artifact | Main controls | In this version |',
 		'| --- | --- | --- |',
@@ -81,7 +108,7 @@ export function starterKitPage({ rows, catalog, version }) {
 	return [
 		'---',
 		"title: 'Starter kit'",
-		"description: 'The minimal set of security program templates a new program adopts first, for NIST RMF and SP 800-53, in one download per baseline.'",
+		`description: '${DESCRIPTION}'`,
 		'sidebar:',
 		"  label: 'Starter kit'",
 		'  order: 1',
@@ -97,7 +124,9 @@ export function starterKitPage({ rows, catalog, version }) {
 		'',
 		table,
 		'',
-		'Until the consolidated policy is published, the kit carries the family policies for your baseline.',
+		consolidated
+			? `The kit carries the [${CONSOLIDATED_TITLE}](/templates/policies/${CONSOLIDATED_SLUG}/) for your baseline: every family policy in one document. To adopt a policy per family instead, download the [family policies](/templates/#policies) from their pages, in the family packs or in the [full kit](/downloads/${KIT_FILE}).`
+			: 'The kit carries the family policies for your baseline.',
 		'',
 		'## Downloads',
 		'',
@@ -106,7 +135,9 @@ export function starterKitPage({ rows, catalog, version }) {
 		'## Where to start',
 		'',
 		'1. Fill in the decision worksheets with the people who own each decision.',
-		'2. Adopt the family policies, carrying the worksheet values into their highlighted fields.',
+		consolidated
+			? `2. Adopt the ${CONSOLIDATED_TITLE}, carrying the worksheet values into its highlighted fields.`
+			: '2. Adopt the family policies, carrying the worksheet values into their highlighted fields.',
 		'3. Write the System Security Plan for your first system, and start its POA&M.',
 		'4. Adopt the Incident Response Plan and test it with a tabletop exercise.',
 		'',

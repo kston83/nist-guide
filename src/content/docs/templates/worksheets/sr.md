@@ -13,7 +13,7 @@ controls: [sr-1, sr-2, sr-2.1, sr-3, sr-5, sr-6, sr-8, sr-9, sr-9.1, sr-10, sr-1
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Decision worksheet | [Mature](/program/mature/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Decision worksheet | [Mature](/program/mature/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

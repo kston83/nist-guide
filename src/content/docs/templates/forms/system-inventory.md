@@ -3,7 +3,7 @@ title: 'System Inventory'
 description: 'The organization-wide register of its systems, each with an owner, categorization, authorization status and boundary, and whether it processes personally identifiable information, as SP 800-53 PM-5 and PM-5(1) require.'
 sidebar:
   label: 'System Inventory'
-  order: 18
+  order: 19
 controls: [pm-5, pm-5.1]
 ---
 
@@ -13,7 +13,7 @@ controls: [pm-5, pm-5.1]
 
 | Type | Program stage | Status | Template version | NIST basis |
 | --- | --- | --- | --- | --- |
-| Form or register | [Foundation](/program/foundation/) | Draft | 1.0.0 | SP 800-53 release 5.2.0 |
+| Form or register | [Foundation](/program/foundation/) | Draft | 2.0.0 | SP 800-53 release 5.2.0 |
 
 ## What it is
 

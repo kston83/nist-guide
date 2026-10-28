@@ -1,0 +1,32 @@
+---
+title: Technology playbooks
+description: How specific SP 800-53 controls are implemented and evidenced on specific platforms.
+sidebar:
+  label: Overview
+  order: 0
+---
+
+import SectionIndex from '../../../components/SectionIndex.astro';
+
+Technology playbooks are the most hands-on part of the guide: how to meet and evidence specific controls on a specific platform, which settings to use, and what assessors will ask to see. Each playbook links back to the [control pages](/controls/) it covers.
+
+## Playbooks
+
+<SectionIndex section="technology" heading="Playbook">
+
+No technology playbook is published yet. Playbooks are planned for Phase 6 of the [roadmap](/reference/roadmap/#industries-and-technology-phase-6), and which platforms come first is not decided. Each playbook appears here when it is published, with a one-line summary.
+
+</SectionIndex>
+
+## Areas a playbook could cover
+
+| Area | Example platforms |
+| --- | --- |
+| Cloud infrastructure | AWS, Microsoft Azure, Google Cloud |
+| Identity | Microsoft Entra ID, Okta, PIV and smart cards |
+| Productivity and collaboration | Microsoft 365, Google Workspace |
+| Endpoints | Windows, macOS, Linux (STIG and CIS baselines) |
+| Containers and platforms | Kubernetes, container registries, CI/CD pipelines |
+| Logging and monitoring | SIEM platforms, log retention, alerting |
+
+To write a new playbook, copy the technology template from [Page templates](/reference/page-templates/) into this folder. Its front matter `description` is the one-line summary this page lists, and the build fails without one.

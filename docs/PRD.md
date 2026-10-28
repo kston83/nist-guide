@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.14 · Oct 20, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.15 · Oct 27, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -83,7 +83,7 @@ As of Oct 19, 2026, Phase 3 is complete (kit v2.0.0 released) and its end-of-pha
 | Deploy | GitHub Actions to GitHub Pages at `https://kston83.github.io/nist-guide/` (subpath; see `BASE_PATH`) | `.github/workflows/deploy.yml` |
 | Checks | On every PR, required on `main`: tests, Markdown and template lint, spell check, generated pages current, build with the kit, links, search and accessibility. Actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/` |
 | Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026, and v2.0.0 Oct 19, 2026 | `.github/workflows/release.yml` |
-| Theme | Flexoki palette from `starlight-theme-flexoki` (warm neutrals, one blue accent), Public Sans body, Source Serif 4 headings, light and dark | `astro.config.mjs`, `src/styles/theme.css` |
+| Theme | Public Sans body, Source Serif 4 headings, teal accent, light and dark | `src/styles/theme.css` |
 | Home page | Hero, clickable seven-step strip, section cards, about blurb | `src/content/docs/index.mdx`, `src/components/StepStrip.astro` |
 | RMF section | Overview, roles, 7 step pages, ATO checklist, program variants, 2 SVG diagrams | `src/content/docs/rmf/`, `public/diagrams/` |
 | Build your program | Four stage pages listing their artifacts from template front matter, an artifact checklist (page and `.csv`) and scaling guidance | `src/content/docs/program/` |
@@ -416,8 +416,8 @@ A guide within the guide: how an organization adopts and secures AI, and how an 
 | PRES-03 | Accessibility at WCAG 2.2 AA | P1 | Automated axe check on home, a step page, a control page, a template page and an industry page shows no serious or critical issues |
 | PRES-04 | Author identity: About page with bio, photo, LinkedIn link; social links in header | P1 | Placeholders replaced with owner-provided content |
 | PRES-05 | Privacy-friendly analytics, if the owner chooses | P3 | No cookies; documented in About |
-| PRES-06 | Generated `.docx` files look professional | P2 | Styles from `reference.docx`: fonts close to the site's that Office installs (Calibri body, Georgia headings; owner decision, Sep 28, 2026, so every reader sees the same document), heading hierarchy, table style, header with title and version, page numbers. The site's accent on headings and table header rows (blue since PRES-07); no guide name or logo |
-| PRES-07 | Site palette: Flexoki with a blue accent | P2 | `starlight-theme-flexoki` sets the palette, with the blue accent; the favicon, diagrams, social preview image, print styles and `.docx` styles use the same blue, and no teal is left; the accessibility check passes in both themes (owner decision, Oct 20, 2026) |
+| PRES-06 | Generated `.docx` files look professional | P2 | Styles from `reference.docx`: fonts close to the site's that Office installs (Calibri body, Georgia headings; owner decision, Sep 28, 2026, so every reader sees the same document), heading hierarchy, table style, header with title and version, page numbers. The site's teal accent on headings and table header rows; no guide name or logo |
+| PRES-07 | Withdrawn: site palette, Flexoki with a blue accent | — | Done on Oct 20, 2026 and reverted on Oct 27, 2026 at the owner's request; the site and the Word styles keep the teal accent on Starlight's defaults. The ID is not reused |
 
 ### Quality and CI (QA)
 
@@ -599,7 +599,7 @@ The site stays fully static and free to host; anything that needs a server, a da
 | Generated files | Pages committed to git so edit links and diffs work; never hand-edited between `nist:start` and `nist:end`. Binary downloads built in CI, never committed |
 | Browsers | Last two versions of Chrome, Edge, Firefox and Safari; mobile layout from 360 px wide |
 | Documents | `.docx` opens cleanly in current Microsoft Word and LibreOffice |
-| Styling | The Flexoki palette from `starlight-theme-flexoki`, with its blue accent (PRES-07), and the typefaces in `theme.css` (Public Sans, Source Serif 4). No new colors without a reason |
+| Styling | Keep the existing tokens in `theme.css` (Public Sans, Source Serif 4, one teal accent). No new colors without a reason |
 | Actions security | Actions pinned to full commit SHAs; `permissions: {}` at top level with per-job least privilege; only allow-listed actions |
 
 ## Delivery phases
@@ -695,8 +695,8 @@ None of these block Phase 1.
 | YAML parser | `yaml` package, for `build-templates.mjs` | Sep 28, 2026 |
 | Zip packs | `fflate` package, so zips build the same on Windows and in CI | Sep 28, 2026 |
 | `_common.md` variables | `{{family:title}}`, `{{family:role}}` and the `xx-` parameter prefix (see Fill-in variables) | Sep 28, 2026 |
-| Word styling | Calibri body, Georgia headings, the site's accent (teal until Oct 20, 2026, now blue), title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026; accent Oct 20, 2026 |
-| Site palette | Flexoki, through the `starlight-theme-flexoki` plugin, with its blue accent in place of the teal; the favicon, diagrams, social image, print styles and Word styles follow (PRES-07) | Oct 20, 2026 |
+| Word styling | Calibri body, Georgia headings, teal accent, title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026 |
+| Site palette | The teal accent on Starlight's defaults. The Flexoki palette with a blue accent (PRES-07) was adopted on Oct 20, 2026 and reverted, as its light theme was harder to read | Oct 20, 2026; reverted Oct 27, 2026 |
 | Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
 | AI security guide | A separate section (a guide within the guide), kept separate from the SSDF and methods work. Phase 5, after the RMF program kit and methods | Sep 28, 2026 |
 | Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate, PM and privacy-only control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026; PM and privacy guidance added Sep 29, 2026 |
@@ -734,3 +734,4 @@ None of these block Phase 1.
 | 3.12 | Oct 19, 2026 | NAV-02 (row 36), no change in scope: the Front matter contract notes that `description`, Starlight's own field, is required on industry and technology pages, as the one-line summary their section indexes list; the build fails without it (confirmed by the owner in the NAV-02 review) |
 | 3.13 | Oct 19, 2026 | Records after kit v2.0.0, no change in scope: Current state refreshed (Phase 3 complete, v2.0.0 released, guidance, template and program counts) |
 | 3.14 | Oct 20, 2026 | Owner decision: PRES-07, the Flexoki palette with a blue accent in place of the teal, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
+| 3.15 | Oct 27, 2026 | Owner decision: PRES-07 reverted and withdrawn; back to the teal accent on Starlight's defaults, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="t">
 <title id="t">Only significant changes go back to the AO</title>
 <style>
-text{font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;fill:#100f0f}
-.q{fill:#6f6e69}.b{fill:none;stroke:#878580;stroke-width:1.25}.acc{fill:#1a4f8c;fill-opacity:.1;stroke:#1a4f8c;stroke-width:2}.ln{fill:none;stroke:#878580;stroke-width:1.25}.ah{fill:#878580}
-@media (prefers-color-scheme:dark){text{fill:#cecdc3}.q{fill:#9f9d96}.acc{fill:#66a0c8;fill-opacity:.15;stroke:#66a0c8}}
+text{font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;fill:#1b2430}
+.q{fill:#5a6573}.b{fill:none;stroke:#8a94a0;stroke-width:1.25}.acc{fill:#0f5c5a;fill-opacity:.1;stroke:#0f5c5a;stroke-width:2}.ln{fill:none;stroke:#8a94a0;stroke-width:1.25}.ah{fill:#8a94a0}
+@media (prefers-color-scheme:dark){text{fill:#e6ebef}.q{fill:#a7b0ba}.acc{fill:#4fb3a8;fill-opacity:.15;stroke:#4fb3a8}}
 </style>
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ah"/></marker></defs>
 <text x="24" y="34" font-size="15" font-weight="600">Only significant changes go back to the AO</text>

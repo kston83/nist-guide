@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.15 · Oct 27, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.16 · Oct 28, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -75,7 +75,7 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 
 ## Current state
 
-As of Oct 19, 2026, Phase 3 is complete (kit v2.0.0 released) and its end-of-phase review is pending. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
+As of Oct 28, 2026, Phase 3 is complete (kit v2.0.0 released) and approved by the owner, and Phase 4 (methods and the SSDF) is next. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
 
 | Area | Status | Location |
 | --- | --- | --- |
@@ -360,7 +360,7 @@ The SSDF is the first method: NIST's practice set for SA and SR controls on secu
 | SSDF-02 | SSDF to 800-53 references from NIST's own table | P1 | Shown on SSDF practice pages and in the Methods section (METH-01) of every cited control, for example SA-15 lists the tasks that cite it; only references NIST publishes |
 | SSDF-03 | Secure Software Development Policy and SDLC standard | P1 | Templates organized by SSDF practice, cross-referenced to SA controls, with `ssdf` front matter |
 | SSDF-04 | Software producer artifacts | P2 | Vulnerability disclosure policy, SBOM guidance, and attestation readiness checklist; every program-status claim (including current federal secure software attestation policy) is checked at the source and carries an "as of" month |
-| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Sep 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
+| SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Oct 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
 
 ### AI security guide (AI)
 
@@ -676,7 +676,6 @@ None of these block Phase 1.
 - [ ] Which four platforms to cover first (proposed: AWS, Azure, Microsoft 365 with Entra ID, Kubernetes)
 - [x] Privacy-friendly analytics: yes, GoatCounter, with template downloads counted as events (owner decision, 2026-10-13)
 - [ ] AI RMF machine-readable source for AI-02 (Phase 5): NIST's AI RMF Playbook data, CPRT, or another NIST export
-- [ ] SSDF source for SSDF-01 (Phase 4): the SP 800-218 Excel table or CPRT
 - [ ] AI templates (AI-06): confirm the list of five before Phase 5 writing starts
 - [ ] OWASP's GenAI framework crosswalk (Sep 2026) maps AI risks to controls in 25 frameworks "including NIST". If it maps to SP 800-53, may AI guide pages cite it as OWASP's mapping before NIST's overlays exist? Default until decided: yes on AI guide pages, clearly labelled as OWASP's; never on control pages
 
@@ -692,6 +691,10 @@ None of these block Phase 1.
 | Employer publishing policy | No issues | Sep 28, 2026 |
 | Employer in the bio | Not named; keep the employer out of the site | Sep 28, 2026 |
 | Phase 1 | Approved; remaining open questions deferred to the phase that needs them | Sep 28, 2026 |
+| Phase 3 | Approved at the end-of-phase review; Phase 4 starts from a plan the owner approves | Oct 28, 2026 |
+| SSDF source (SSDF-01) | The SP 800-218 v1.1 Excel table (`nist.sp.800-218.ssdf-table.xlsx`), not CPRT | Oct 28, 2026 |
+| Worksheet "Who decides" (TPL-08) | Each parameter row names the decider of the family question that covers its control, not the family policy's role | Oct 28, 2026 |
+| FAR citations | Not cited in the SA-4, SA-4(10) and SR-5 clauses and guidance while the Revolutionary FAR Overhaul deviations and codified text differ; recheck when the RFO final rule is issued | Oct 28, 2026 |
 | YAML parser | `yaml` package, for `build-templates.mjs` | Sep 28, 2026 |
 | Zip packs | `fflate` package, so zips build the same on Windows and in CI | Sep 28, 2026 |
 | `_common.md` variables | `{{family:title}}`, `{{family:role}}` and the `xx-` parameter prefix (see Fill-in variables) | Sep 28, 2026 |
@@ -735,3 +738,4 @@ None of these block Phase 1.
 | 3.13 | Oct 19, 2026 | Records after kit v2.0.0, no change in scope: Current state refreshed (Phase 3 complete, v2.0.0 released, guidance, template and program counts) |
 | 3.14 | Oct 20, 2026 | Owner decision: PRES-07, the Flexoki palette with a blue accent in place of the teal, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
 | 3.15 | Oct 27, 2026 | Owner decision: PRES-07 reverted and withdrawn; back to the teal accent on Starlight's defaults, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
+| 3.16 | Oct 28, 2026 | Owner's Phase 3 review: Phase 3 approved; the SSDF source (Excel table), worksheet "Who decides" and FAR decisions recorded (Current state, SSDF-05, Open questions, Decided). No change in scope |

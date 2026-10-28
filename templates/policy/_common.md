@@ -7,8 +7,7 @@ status: draft
 # purpose: the build fills it with the role accountable for the family policy
 # (_family.yml `role`, as its label in variables.yml, without an article since
 # the sentences say "The ..."), the role the decision worksheet names under
-# "Who decides" when no family question lists XX-1 (scripts/lib/template-pages.mjs,
-# commonTypical).
+# "Who decides" (scripts/lib/template-pages.mjs, commonTypical).
 typical:
   xx-01_odp.01: everyone within its scope, through the policy library
   xx-01_odp.02: the people who carry them out, and the system owners

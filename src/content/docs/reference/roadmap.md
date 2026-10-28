@@ -68,7 +68,7 @@ Phase 3 is complete and published as kit v2.0.0:
 - **The program path:** an artifact checklist, and guidance on scaling the program to the organization's size.
 - **Templates and pages:** a change history by kit version on each template page, a one-line summary for each template in the index, print styles for step, control and template pages, and a standard approval and version history section in each policy, plan, standard, procedure and report.
 
-As with every phase, it ends with a review before the next starts; Phase 4 begins after that review.
+Its end-of-phase review was completed in October 2026, and Phase 4 is next.
 
 ### Methods and the SSDF (Phase 4)
 

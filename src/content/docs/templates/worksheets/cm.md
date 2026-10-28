@@ -19,7 +19,7 @@ controls: [cm-1, cm-2, cm-2.2, cm-2.3, cm-2.7, cm-3, cm-3.1, cm-3.2, cm-3.4, cm-
 
 Every decision the Configuration Management family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every CM control in the baseline, with a typical value where the [Configuration Management Policy](/templates/policies/cm/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -54,14 +54,14 @@ Typical values are starting points, not recommendations for every system. "Who d
 | The systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | Loaner laptops and mobile devices | Chief Information Security Officer |
 | Configurations for systems or system components to be issued when individuals travel to high-risk areas | CM-2(7) | A minimal configuration with full-disk encryption, no stored organizational data and access only through the organization's VPN | Chief Information Security Officer |
 | The controls to be applied when the individuals return from travel | CM-2(7) | Inspecting the device, wiping and reimaging it before reuse, and resetting the user's credentials | Chief Information Security Officer |
-| The time period to retain records of configuration-controlled changes | CM-3 | At least one year, or the life of the system if longer | Chief Information Security Officer |
-| The configuration change control element responsible for coordinating and overseeing change control activities | CM-3 | A change control board with the system owner, technical leads and a security representative | Chief Information Security Officer |
-| Select one or more: organization-defined frequency (see its row below); when organization-defined configuration change conditions (see its row below) | CM-3 | Weekly, and when an emergency change is requested | Chief Information Security Officer |
-| The frequency at which the configuration control element convenes | CM-3 | See the selection above | Chief Information Security Officer |
-| Configuration change conditions that prompt the configuration control element to convene | CM-3 | See the selection above | Chief Information Security Officer |
-| Security representatives required to be members of the change control element | CM-3(4) | A representative of the security team and, where the system processes personal information, of the privacy office | Chief Information Security Officer |
-| Privacy representatives required to be members of the change control element | CM-3(4) | See the row above | Chief Information Security Officer |
-| The configuration change control element of which the security and privacy representatives are to be members | CM-3(4) | The change control board | Chief Information Security Officer |
+| The time period to retain records of configuration-controlled changes | CM-3 | At least one year, or the life of the system if longer | System owner |
+| The configuration change control element responsible for coordinating and overseeing change control activities | CM-3 | A change control board with the system owner, technical leads and a security representative | System owner |
+| Select one or more: organization-defined frequency (see its row below); when organization-defined configuration change conditions (see its row below) | CM-3 | Weekly, and when an emergency change is requested | System owner |
+| The frequency at which the configuration control element convenes | CM-3 | See the selection above | System owner |
+| Configuration change conditions that prompt the configuration control element to convene | CM-3 | See the selection above | System owner |
+| Security representatives required to be members of the change control element | CM-3(4) | A representative of the security team and, where the system processes personal information, of the privacy office | System owner |
+| Privacy representatives required to be members of the change control element | CM-3(4) | See the row above | System owner |
+| The configuration change control element of which the security and privacy representatives are to be members | CM-3(4) | The change control board | System owner |
 | Common secure configurations to establish and document configuration settings for components employed within the system | CM-6 | The secure configuration baselines named in the baseline configuration standard | Chief Information Security Officer |
 | System components for which approval of deviations is needed | CM-6 | All system components | Chief Information Security Officer |
 | Operational requirements necessitating approval of deviations | CM-6 | Documented operational needs that the system owner approves and the security team reviews | Chief Information Security Officer |

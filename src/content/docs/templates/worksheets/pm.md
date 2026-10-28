@@ -19,7 +19,7 @@ controls: [pm-1, pm-2, pm-3, pm-4, pm-5, pm-5.1, pm-6, pm-7, pm-7.1, pm-8, pm-9,
 
 Every decision the Program Management family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every PM control, with a typical value where the [Program Management Policy](/templates/policies/pm/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -36,8 +36,8 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Who leads the security program, and who approves the program plan and sets the organization's risk tolerance? | PM-1, PM-2, PM-28 | The Chief Information Security Officer leads the program; the senior leader approves the plan and sets risk tolerance. | Senior leader |
 | Who leads the privacy program, and is it combined with another role? | PM-18, PM-19 | A senior privacy official who reports to the senior leader. A small organization may give the role to its general counsel or compliance lead. | Senior leader |
 | Which PM controls do not apply, and why? | PM-8, PM-17, PM-24 | PM-8 applies only to owners or operators of critical infrastructure, PM-17 only where the organization holds controlled unclassified information, and PM-24 only to organizations that run matching programs. Record each decision in the program plan. | Chief Information Security Officer |
-| The frequency at which to review and update the organization-wide information security program plan | PM-1 | Annually | Chief Information Security Officer |
-| Events that trigger the review and update of the organization-wide information security program plan | PM-1 | A significant change to the organization's mission, structure, risk tolerance or systems, a major incident, or a finding from an assessment or audit of the program | Chief Information Security Officer |
+| The frequency at which to review and update the organization-wide information security program plan | PM-1 | Annually | Senior leader |
+| Events that trigger the review and update of the organization-wide information security program plan | PM-1 | A significant change to the organization's mission, structure, risk tolerance or systems, a major incident, or a finding from an assessment or audit of the program | Senior leader |
 | The frequency at which to update the inventory of organizational systems | PM-5 | Quarterly, and whenever a system is authorized, significantly changed or retired | Chief Information Security Officer |
 | The frequency at which to update the inventory of systems, applications, and projects that process personally identifiable information | PM-5(1) | At least annually, and whenever a privacy impact assessment is completed or updated | Chief Information Security Officer |
 | Non-essential functions or services to be offloaded | PM-7(1) | Non-essential services, such as email, file sharing and public web hosting, on systems that support mission-essential functions | Chief Information Security Officer |
@@ -45,7 +45,7 @@ Typical values are starting points, not recommendations for every system. "Who d
 | The frequency at which to review and revise the mission and business processes | PM-11 | Annually, and whenever the organization changes its mission, structure or major services | Chief Information Security Officer |
 | The frequency at which to review and update the policy | PM-17 | Annually | Chief Information Security Officer |
 | The frequency at which to review and update the procedures | PM-17 | Annually | Chief Information Security Officer |
-| The frequency of updates to the privacy program plan | PM-18 | Annually | Chief Information Security Officer |
+| The frequency of updates to the privacy program plan | PM-18 | Annually | Senior leader |
 | The roles of a Data Governance Body | PM-23 | The chief data officer (chair), the chief information officer, the chief information security officer, the senior privacy official, the records manager and the owners of major data sets | Chief Information Security Officer |
 | The responsibilities of a Data Governance Body | PM-23 | Setting data governance policy, approving data sharing agreements, and resolving data quality and access issues | Chief Information Security Officer |
 | The frequency for reviewing policies that address the use of personally identifiable information for internal testing, training, and research | PM-25 | Annually | Chief Information Security Officer |
@@ -60,8 +60,8 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Privacy oversight bodies | PM-27 | The board of directors or its audit committee, and regulators where law requires | Chief Information Security Officer |
 | Officials responsible for monitoring privacy program compliance | PM-27 | The senior leader, the chief information security officer and general counsel | Chief Information Security Officer |
 | The frequency for reviewing and updating privacy reports | PM-27 | Annually | Chief Information Security Officer |
-| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management | Chief Information Security Officer |
-| The frequency for reviewing and updating risk framing considerations | PM-28 | Annually, with the risk management strategy | Chief Information Security Officer |
+| The personnel to receive the results of risk framing activities | PM-28 | Authorizing officials, system owners, information owners, the leaders of mission and business functions, the senior privacy official, and the senior accountable official for risk management | Senior leader |
+| The frequency for reviewing and updating risk framing considerations | PM-28 | Annually, with the risk management strategy | Senior leader |
 | The frequency for reviewing and updating the supply chain risk management strategy | PM-30 | Annually | Chief Information Security Officer |
 | The metrics for organization-wide continuous monitoring | PM-31 | Systems with a current authorization, plan of action items past due, vulnerabilities remediated within the required times, and staff with current security awareness training | Chief Information Security Officer |
 | The frequencies for monitoring | PM-31 | Continuously for automated controls, and at least monthly for vulnerability, configuration and account data | Chief Information Security Officer |

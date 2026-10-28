@@ -19,7 +19,7 @@ controls: [si-1, si-2, si-2.2, si-3, si-4, si-4.2, si-4.4, si-4.5, si-4.10, si-4
 
 Every decision the System and Information Integrity family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every SI control in the baseline, with a typical value where the [System and Information Integrity Policy](/templates/policies/si/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -49,9 +49,9 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current system and information integrity policy to be reviewed and updated | SI-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
 | The frequency at which the current system and information integrity procedures are reviewed and updated | SI-1 | Annually | Chief Information Security Officer |
 | Events that would require the system and information integrity procedures to be reviewed and updated | SI-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
-| Time period within which to install security-relevant software updates after the release of the updates | SI-2 | Known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days | Chief Information Security Officer |
-| Automated mechanisms to determine if applicable security-relevant software and firmware updates are installed on system components | SI-2(2) | The patch management and vulnerability scanning tools | Chief Information Security Officer |
-| The frequency at which to determine if applicable security-relevant software and firmware updates are installed on system components | SI-2(2) | At least weekly | Chief Information Security Officer |
+| Time period within which to install security-relevant software updates after the release of the updates | SI-2 | Known exploited: as soon as possible, within days; critical and high: 30 days; moderate: 90 days; low: 180 days | Chief Information Security Officer, with the change control board |
+| Automated mechanisms to determine if applicable security-relevant software and firmware updates are installed on system components | SI-2(2) | The patch management and vulnerability scanning tools | Chief Information Security Officer, with the change control board |
+| The frequency at which to determine if applicable security-relevant software and firmware updates are installed on system components | SI-2(2) | At least weekly | Chief Information Security Officer, with the change control board |
 | Select one or more: signature-based; non-signature-based | SI-3 | Signature-based and non-signature-based | Chief Information Security Officer |
 | The frequency at which malicious code protection mechanisms perform scans | SI-3 | At least weekly | Chief Information Security Officer |
 | Select one or more: endpoint; network entry and exit points | SI-3 | Endpoint and network entry and exit points | Chief Information Security Officer |

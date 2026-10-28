@@ -19,7 +19,7 @@ controls: [at-1, at-2, at-2.2, at-2.3, at-3, at-3.5, at-4]
 
 Every decision the Awareness and Training family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every AT control in the baseline, with a typical value where the [Awareness and Training Policy](/templates/policies/at/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 

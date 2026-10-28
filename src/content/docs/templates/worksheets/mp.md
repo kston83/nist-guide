@@ -19,7 +19,7 @@ controls: [mp-1, mp-2, mp-3, mp-4, mp-5, mp-6, mp-6.1, mp-6.2, mp-6.3, mp-7]
 
 Every decision the Media Protection family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every MP control in the baseline, with a typical value where the [Media Protection Policy](/templates/policies/mp/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -55,15 +55,15 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Personnel or roles authorized to access non-digital media | MP-2 | Personnel whose access authorizations permit access to the information on the media | Chief Information Security Officer |
 | Types of system media exempt from marking when remaining in controlled areas | MP-3 | Backup media and drives held in automated tape libraries, storage arrays and server enclosures | Chief Information Security Officer |
 | Controlled areas where media is exempt from marking | MP-3 | The data center and the media library, where physical access is limited to authorized personnel (PE-3) | Chief Information Security Officer |
-| Types of digital media to be physically controlled | MP-4 | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization | Chief Information Security Officer |
-| Types of non-digital media to be physically controlled | MP-4 | Paper and microfilm containing information not approved for public release | Chief Information Security Officer |
-| Types of digital media to be securely stored | MP-4 | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization | Chief Information Security Officer |
-| Types of non-digital media to be securely stored | MP-4 | Paper and microfilm containing information not approved for public release | Chief Information Security Officer |
-| Controlled areas within which to securely store digital media | MP-4 | The data center, the media library, or a locked container in an area with physical access control, with access limited to authorized personnel | Chief Information Security Officer |
-| Controlled areas within which to securely store non-digital media | MP-4 | Locked cabinets, drawers or rooms with access limited to authorized personnel | Chief Information Security Officer |
-| Types of system media to protect and control during transport outside of controlled areas | MP-5 | All digital and non-digital media containing information not approved for public release | Chief Information Security Officer |
-| Controls used to protect system media outside of controlled areas | MP-5 | Encryption of digital media under the encryption and key management standard, and sealed, tamper-evident packaging or locked containers | Chief Information Security Officer |
-| Controls used to control system media outside of controlled areas | MP-5 | Transport only by authorized personnel or by a courier service with tracking and a signature on delivery, and a chain-of-custody record from release to receipt | Chief Information Security Officer |
+| Types of digital media to be physically controlled | MP-4 | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization | System owner |
+| Types of non-digital media to be physically controlled | MP-4 | Paper and microfilm containing information not approved for public release | System owner |
+| Types of digital media to be securely stored | MP-4 | Removable and portable storage media, backup media, and storage removed from service and awaiting sanitization | System owner |
+| Types of non-digital media to be securely stored | MP-4 | Paper and microfilm containing information not approved for public release | System owner |
+| Controlled areas within which to securely store digital media | MP-4 | The data center, the media library, or a locked container in an area with physical access control, with access limited to authorized personnel | System owner |
+| Controlled areas within which to securely store non-digital media | MP-4 | Locked cabinets, drawers or rooms with access limited to authorized personnel | System owner |
+| Types of system media to protect and control during transport outside of controlled areas | MP-5 | All digital and non-digital media containing information not approved for public release | System owner |
+| Controls used to protect system media outside of controlled areas | MP-5 | Encryption of digital media under the encryption and key management standard, and sealed, tamper-evident packaging or locked containers | System owner |
+| Controls used to control system media outside of controlled areas | MP-5 | Transport only by authorized personnel or by a courier service with tracking and a signature on delivery, and a chain-of-custody record from release to receipt | System owner |
 | System media to be sanitized prior to disposal | MP-6 | All digital and non-digital system media, including the storage in workstations, laptops, servers, network devices, mobile devices, printers, copiers and scanners | Chief Information Security Officer |
 | System media to be sanitized prior to release from organizational control | MP-6 | All digital and non-digital system media, including media returned to a lessor or vendor, exchanged under warranty, or sent off site for repair | Chief Information Security Officer |
 | System media to be sanitized prior to release for reuse | MP-6 | All digital system media reissued to another user, system or part of the organization | Chief Information Security Officer |

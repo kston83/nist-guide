@@ -1,7 +1,7 @@
 // Tests for decision worksheets (TPL-08).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { COVERED, SEE_ABOVE, worksheetCsv, worksheetRows } from '../../src/lib/template-worksheet.ts';
+import { COVERED, SEE_ABOVE, questionDeciders, worksheetCsv, worksheetRows } from '../../src/lib/template-worksheet.ts';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { renderVariables } from '../../src/lib/template-vars.ts';
@@ -40,9 +40,38 @@ test('rows are the family questions, then every parameter of family controls in 
 		{ decision: 'Which account types?', controls: ['AC-2'], typical: 'Individual', decides: 'System owner' },
 		{ decision: 'Personnel to receive the policy', controls: ['AC-1'], typical: '', decides: 'Chief Information Security Officer' },
 		{ decision: 'Select one or more: organization-level; system-level', controls: ['AC-1'], typical: '', decides: 'Chief Information Security Officer' },
-		{ decision: 'The frequency of account review', controls: ['AC-2'], typical: 'Quarterly', decides: 'Chief Information Security Officer' },
+		{ decision: 'The frequency of account review', controls: ['AC-2'], typical: 'Quarterly', decides: 'System owner' },
 		{ decision: 'Time period, "inactive"', controls: ['AC-2(3)'], typical: '', decides: 'Chief Information Security Officer' },
 	]);
+});
+
+test('a parameter row names the decider of the family question that lists its control', () => {
+	const by = (r) => [r.controls[0], r.decides];
+	const got = rows('Moderate').slice(1).map(by);
+	// AC-2 is listed by a question; AC-1 is not, and AC-2(3) does not take AC-2's question.
+	assert.deepEqual(got, [
+		['AC-1', 'Chief Information Security Officer'],
+		['AC-1', 'Chief Information Security Officer'],
+		['AC-2', 'System owner'],
+		['AC-2(3)', 'Chief Information Security Officer'],
+	]);
+});
+
+test('questions that list the same control name one decider, or the family role decides', () => {
+	const q = (controls, decides) => ({ question: 'Q', controls, decides });
+	const decides = questionDeciders(
+		[q(['ac-2', 'ac-17'], 'System owner'), q(['ac-2'], 'Chief Information Security Officer'), q(['ac-17', 'ac-3'], 'System owner')],
+		'Family role',
+	);
+	// Two questions, different deciders: the family role.
+	assert.equal(decides('ac-2'), 'Family role');
+	// Two questions, the same decider: that decider.
+	assert.equal(decides('ac-17'), 'System owner');
+	assert.equal(decides('ac-3'), 'System owner');
+	// No question, and no inheritance from the base control.
+	assert.equal(decides('ac-1'), 'Family role');
+	assert.equal(decides('ac-17.3'), 'Family role');
+	assert.equal(questionDeciders([], 'Family role')('ac-2'), 'Family role');
 });
 
 test('lower baselines leave out their enhancements; controls in no baseline never appear', () => {
@@ -54,7 +83,7 @@ test('lower baselines leave out their enhancements; controls in no baseline neve
 test('the CSV has a BOM, a header, quoted cells where needed, an empty value column and CRLF', () => {
 	const csv = worksheetCsv(rows('Moderate'));
 	assert.ok(csv.startsWith('﻿Decision,Control,Typical value,Who decides,Your value\r\n'));
-	assert.match(csv, /\r\nThe frequency of account review,AC-2,Quarterly,Chief Information Security Officer,\r\n/);
+	assert.match(csv, /\r\nThe frequency of account review,AC-2,Quarterly,System owner,\r\n/);
 	assert.match(csv, /\r\n"Time period, ""inactive""",AC-2\(3\),,Chief Information Security Officer,\r\n$/);
 	assert.equal(csv.split('\r\n').length, 7);
 });
@@ -147,7 +176,7 @@ test('the worksheet page links each CSV and shows the Moderate rows', () => {
 	assert.equal(page.file, 'worksheets/ac.md');
 	assert.match(page.text, /\ncontrols: \[ac-1, ac-2, ac-2\.3\]\n/);
 	assert.ok(page.text.includes('[CSV](/downloads/worksheets/ac-decisions-high.csv)'));
-	assert.match(page.text, /\| The frequency of account review \| AC-2 \| Quarterly \| Chief Information Security Officer \|/);
+	assert.match(page.text, /\| The frequency of account review \| AC-2 \| Quarterly \| System owner \|/);
 	assert.match(page.text, /5 decisions\./);
 });
 

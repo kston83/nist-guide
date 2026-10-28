@@ -2,7 +2,8 @@
 // family forces. Rows come from the family's _family.yml questions, then the
 // organization-defined parameters of every family control in the baseline
 // (every family control, for the Organization variant), whether or not it has
-// a clause yet, in catalog order. Pure, so npm test can
+// a clause yet, in catalog order. Each parameter row names the decider of the
+// question that lists its control (questionDeciders). Pure, so npm test can
 // run it; scripts/build-templates.mjs writes the .csv and the page.
 import { ORGANIZATION, type Baseline, type CatalogControl } from './template-assemble.ts';
 import { paramPrompt, type Param } from './template-vars.ts';
@@ -44,6 +45,21 @@ const decisionText = (p: Param, params: Record<string, Param>) =>
 			.replace(/\[Assignment: ([^\]]+)\]/g, `$1 (${NESTED_NOTE})`),
 	);
 
+// Who decides a parameter (owner, 2026-10-28; PRD 3.16): the decider of the
+// family question that lists its control. A question covers only the control
+// ids it lists; an enhancement does not take its base control's question. When
+// no question lists the control, or the questions that do name different
+// deciders, the family policy's role decides.
+export function questionDeciders(questions: Question[], defaultDecider: string): (control: string) => string {
+	const deciders = new Map<string, Set<string>>();
+	for (const q of questions)
+		for (const id of q.controls) deciders.set(id, (deciders.get(id) ?? new Set()).add(q.decides));
+	return (control) => {
+		const named = deciders.get(control);
+		return named?.size === 1 ? [...named][0] : defaultDecider;
+	};
+}
+
 export function worksheetRows({
 	family,
 	baseline,
@@ -64,6 +80,7 @@ export function worksheetRows({
 	defaultDecider: string; // label of the family's accountable role
 }): WorksheetRow[] {
 	const labels = new Map(controls.map((c) => [c.id, c.label]));
+	const decides = questionDeciders(questions, defaultDecider);
 	// Follow-on parameter id -> the selection whose choices embed it (OSCAL nests it there).
 	const selectionOf = new Map<string, string>();
 	for (const [id, p] of Object.entries(params))
@@ -105,7 +122,7 @@ export function worksheetRows({
 			const p = params[id];
 			// Aggregating parameters repeat the ones they combine.
 			if (!p || p.aggregates) continue;
-			rows.push({ decision: decisionText(p, params), controls: [c.label], typical: typicalFor(id), decides: defaultDecider });
+			rows.push({ decision: decisionText(p, params), controls: [c.label], typical: typicalFor(id), decides: decides(c.id) });
 		}
 	}
 	return rows;

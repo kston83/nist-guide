@@ -232,30 +232,32 @@ Discussed with the owner on 2026-10-09. The conclusion: yes, with a shift in wha
 
 **The adjustment.** Treat what is built as the foundation, and make the next layer the one this research found missing: how each outcome is met in a pipeline and proven with evidence. The PRD already has the slots: Phase 4 (methods, starting with the SSDF) and the technology playbooks. This refocuses them rather than adding a new strand.
 
+*Superseded in part (2026-10-28):* the owner chose a sidebar section of its own (see the owner decision under [Update, 2026-10-28](#update-2026-10-28-validating-the-approach)), so DevSecOps is a new strand of the site, delivered in Phase 4 alongside the methods rather than inside them.
+
 ## Update, 2026-10-28: validating the approach
 
 The owner's framing (2026-10-28, after Phase 3 was approved): the site shows what the RMF is and how to apply it, and OWASP's DevSecOps Guideline, with DSOMM for detail, partly answers how delivery teams apply it, with FedRAMP 20x as the model for evidence. The SSDF stays in Phase 4. Checked against the sources above:
 
 - **No framework or tool closes the gap.** Mapping is solved (OpenCRE), tooling is solved for experts, and FedRAMP 20x has solved the authorization end for cloud services. The vendor-neutral account, per outcome, of practice, pipeline evidence and its use by an assessor is still open.
-- **NIST already publishes the team-level structure.** SP 1800-44's seven phases map to the SSDF, which cites SP 800-53. Under the site's NIST-first rule that chain, not OWASP, is the spine; OWASP is cited practice detail.
+- **NIST already publishes the team-level structure.** SP 1800-44's seven phases map to the SSDF, which cites SP 800-53. Under the site's NIST-first rule that chain, not OWASP, is the spine; OWASP is cited practice detail. *Narrowed in the #120 review (2026-10-28):* the chain is the spine for building software, not for every topic. SP 1800-44's status is unverified (TODO above), it does not map to SP 800-53, and whether any SSDF task cites a CM control was not checked, so a change management page cannot lean on it. Each page takes its structure from the NIST publication for its topic (table below).
 - **The OWASP projects are early and share-alike.** The Guideline is an incubator project with no version, DSOMM a lab project, both CC BY-SA. Cite by name and ID; the DoD guidebook is the government cross-check and may be adaptable.
 - **FedRAMP 20x is past its pilots** (Phase 3 active), but it is for cloud services; most agency RMF systems are not FedRAMP. Use it as the evidence model, labelled as FedRAMP's.
-- **Assumptions to keep in view.** DevSecOps covers the systems a team builds and runs: mainly the SA, CM, SI, RA, SR and CA-7 outcomes, not people, physical or purchased-software controls. "What evidence is good enough" is published nowhere; it rests on the owner's practice and the site's "would pass an assessment" test, so each page needs owner review.
+- **Assumptions to keep in view.** DevSecOps covers the systems a team builds and runs, and through the pipeline and infrastructure as code it delivers most of a system's technical controls: the SA, CM, SI, RA, SR and CA-7 outcomes, and also the settings that implement AC, IA, SC and AU controls, and recovery where systems are rebuilt from code (CP-10). The KSI slice under [Next steps](#next-steps) shows the reach: CM-2 and its enhancements appear under identity (KSI-IAM-ELP), cloud-native architecture (KSI-CNA) and recovery (KSI-RPL-ABO) indicators as well as change management ones. It is not how people, physical or governance controls are met (PS, PE, AT, PM, most of PL), nor purchased software the team does not build or run. (Widened in the #120 review, 2026-10-28.) "What evidence is good enough" is published nowhere; it rests on the owner's practice and the site's "would pass an assessment" test, so each page needs owner review.
 
 **The chain each page follows:**
 
 | Part | Anchor |
 | --- | --- |
 | Requirement | The RMF and SP 800-53 (the guide's control pages) |
-| Structure | NIST SP 1800-44 phases, through the SSDF to SP 800-53 |
+| Structure | The NIST publication for the topic: SP 1800-44's phases, through the SSDF to SP 800-53, for building software; SP 800-128 for change and configuration; SP 800-137 for continuous monitoring; SP 800-204D for the pipeline; SP 800-40 for findings and remediation |
 | Team practice | OWASP DevSecOps Guideline stages and DSOMM activities, cited; the DoD guidebook as cross-check |
-| Evidence | FedRAMP 20x KSIs as the model, labelled; the owner's practice as the test |
+| Evidence | SP 800-53A assessment objectives (on each control page) and assessment methods for what an assessor checks; FedRAMP 20x KSIs as the model of outcome-based evidence, labelled; the owner's practice as the test |
 
 **Owner decision (2026-10-28):** this becomes a section of the current site, not a new product: one sidebar section (working name "DevSecOps") with an overview and one page per topic, each linking to the existing control pages, policies and templates. On the roadmap's six questions it fills in Method, Implementation and Evidence for teams that ship through a pipeline. Adding the section needs a PRD amendment (page type, sidebar entry, the OWASP source rule); see the Phase 4 plan in `PROGRESS.md`.
 
 ## Next steps
 
-Revised on 2026-10-28 (the Phase 4 plan in `PROGRESS.md` is the working version): merge this note; the worksheet fix (TPL-08); the first DevSecOps page, change management under continuous delivery, for the owner to judge; then the PRD amendment, the SSDF rows and the remaining DevSecOps pages. The 2026-10-09 order, kept for the record:
+Revised on 2026-10-28 (the Phase 4 plan in `PROGRESS.md` is the working version): merge this note; the worksheet fix (TPL-08); the PRD amendment that sets up the section; the overview and the first DevSecOps page, change management under continuous delivery, for the owner and one or two peers to judge; then the SSDF rows and the remaining DevSecOps pages. The 2026-10-09 order, kept for the record:
 
 In order, agreed with the owner on 2026-10-09:
 

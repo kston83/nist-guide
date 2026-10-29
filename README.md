@@ -34,11 +34,12 @@ npm run dev          # live preview at http://localhost:4321
 npm run build        # site and template kit into dist/ (fails if a control page with guidance: set hides it)
 npm run preview      # serve the built dist/ locally
 npm run check:links  # after a build: fail on broken internal links or anchors
-npm run check:search # after a build: every control id, and sample enhancement ids, find their page first
+npm run check:search # after a build: every control id, and sample enhancement ids, find their page first; template titles find the template in the first three
 npm run check:a11y   # after a build: axe finds no serious or critical issues (.pa11yci.json lists the pages)
 npm test             # unit tests for the generators and template system (fixtures, no network)
 npm run lint         # markdown lint, template lint and spell check (cspell-words.txt is the dictionary)
 npm run controls     # regenerate control pages from the pinned NIST catalog; should produce no git diff
+npm run ssdf         # regenerate the SSDF practice pages from NIST's SP 800-218 table (pinned by checksum); should produce no git diff
 npm run templates    # regenerate template pages and the program artifact checklist from templates/; run after changing a source, and commit the result
 npm run kit          # build only the downloadable kit into dist/downloads
 npm run og-image     # remake the social preview image, public/og-default.png
@@ -60,12 +61,13 @@ src/content/docs/
     baselines/         Low, Moderate, High and Privacy lists, generated
     coverage.mdx       Guidance and policy-clause status, built at build time
   templates/           Template pages, generated from templates/ (never edit by hand)
+  methods/ssdf/        The SSDF (SP 800-218): a hand-written overview and one page per practice, generated (see below)
   devsecops/           DevSecOps: an overview and one page per topic, for teams that ship through a pipeline
   industries/          Industry guides (planned)
   technology/          Technology playbooks (planned)
   reference/           Library, glossary, page templates, roadmap, changelog (generated, not committed)
 templates/             Template sources: policy clauses, plans, standards, procedures, forms, reports (CC0)
-src/data/              catalog.json and control-ids.json, generated from NIST's catalog; template-history.json (generated at build time, not committed)
+src/data/              catalog.json and control-ids.json, generated from NIST's catalog; ssdf.json, generated from NIST's SSDF table; template-history.json (generated at build time, not committed)
 src/components/        Astro components that add sections to control, template and program pages
 src/lib/               Template system (schema, assembly, editions, variables, worksheets) and site helpers
 src/content.config.ts  Content collections and front matter validation
@@ -87,7 +89,7 @@ src/styles/print.css   Print styles (print only)
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.
 - **Templates** are written in `templates/`, never in `src/content/docs/templates/`. A policy clause is one file per control, `templates/policy/<family>/<control>.md` (`templates/policy/ac/ac-2.md` is the example), and the shared policy sections are in `templates/policy/_common.md`. The consolidated Information Security and Privacy Policy has no source of its own: the build assembles it per baseline from `_common.md` and every family's clauses, and the starter kit (`templates/starter-kit.yml`) carries it in place of the family policies. Plans, standards, procedures, forms and reports go in their type's folder. The program artifact checklist (`program/checklist.md` and its `.csv`) is generated from the same sources, so a new template appears on it without other changes; a template's optional `role` front matter (a key in `templates/variables.yml`) sets its accountable role there, and without it the checklist uses the role of the family policy of the template's first control. The format, front matter and fill-in variables (`{{org:...}}`, `{{param:...}}`, `{{fill:...}}`) are defined in the PRD's [Template system](docs/PRD.md#template-system) section. After changing a source, run `npm run templates` and commit the regenerated pages. Every policy, plan, standard, procedure and report, and each form that is itself a controlled document (the access agreement, information exchange agreement, privacy notice and rules of behavior), ends with the same "Approval and version history" section for the adopting organization to fill in (TPL-13). It is written into each source (the policies get it from `_common.md`), so the downloads carry it; a new template copies it from `templates/policy/_common.md` word for word, and `npm test` fails if any copy differs. Each template page then ends with a site-only change history, built from git history at build time (not committed): the merged pull requests that changed its sources, by kit version, so the squash-commit subject (`ID: summary (#n)`) is what readers see there.
-- **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
+- **Contributing:** `main` is protected. Open a pull request; the **Check** workflow must pass before merge. Before you push, run `npm test`, `npm run lint`, `npm run build` and `npm run check:links`, and check that `npm run controls`, `npm run ssdf` and `npm run templates` leave no diff. See `CLAUDE.md` and `docs/PRD.md`.
 
 ## Refreshing the NIST control text
 
@@ -97,6 +99,10 @@ The generator reads NIST's [oscal-content](https://github.com/usnistgov/oscal-co
 2. Run `npm run controls -- --refresh` to download it and rewrite the generated part of every control page, the family hubs and baseline pages, and the data files (`src/data/catalog.json` and `src/data/control-ids.json`). Guidance sections and hand-set front matter are kept.
 3. Run `npm run templates`: parameter labels and baseline membership in the template pages come from `catalog.json`. Then run the full build, which fails on any clause whose control or parameter no longer exists.
 4. Review the changes with `git diff` and open a pull request.
+
+## Refreshing the SSDF text
+
+The SSDF practice pages (`methods/ssdf/`) come from NIST's SP 800-218 table, the Excel file `nist.sp.800-218.ssdf-table.xlsx` on the [SP 800-218 landing page](https://csrc.nist.gov/pubs/sp/800/218/final). `npm run ssdf` (`scripts/import-ssdf.mjs`) downloads it into `.cache/ssdf/`, checks it against the SHA-256 pinned in the script, and writes the practice pages between the nist markers and `src/data/ssdf.json`. The overview (`methods/ssdf/index.md`) is written by hand; only its list of groups and practices is generated. Guidance below the marker on a practice page and hand-set front matter are kept, as on control pages. The table's address carries no version, so if NIST replaces the file the run stops. To take the new file, or SSDF version 1.2 when it is final, check the landing page, update `SHA256` and `SOURCE` in the script (the version, and `checked` with each status recheck), run `npm run ssdf -- --refresh`, and review the diff.
 
 ## Releasing the template kit
 

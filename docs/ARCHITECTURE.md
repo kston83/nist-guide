@@ -4,12 +4,15 @@ How the RMF Field Guide is built: where content comes from, what is generated an
 
 ## Overview
 
-The site is static: [Astro Starlight](https://starlight.astro.build) builds Markdown into HTML, Pagefind indexes it for search, and GitHub Pages serves it. Nothing runs at request time. Two generators turn source data into committed Markdown pages, and the build turns template sources into downloadable documents.
+The site is static: [Astro Starlight](https://starlight.astro.build) builds Markdown into HTML, Pagefind indexes it for search, and GitHub Pages serves it. Nothing runs at request time. Three generators turn source data into committed Markdown pages, and the build turns template sources into downloadable documents.
 
 ```mermaid
 flowchart LR
   oscal["NIST oscal-content<br/>(pinned commit)"] -->|npm run controls| ctrl["Control, family and<br/>baseline pages"]
   oscal -->|npm run controls| data["src/data/<br/>catalog.json, control-ids.json"]
+  sheet["NIST SP 800-218 table<br/>(.xlsx, pinned SHA-256)"] -->|npm run ssdf| practices["SSDF practice pages<br/>and src/data/ssdf.json"]
+  data -->|control ids| practices
+  practices --> astro
   tpl["templates/<br/>clauses, plans, forms ..."] -->|npm run templates| pages["Template pages"]
   data --> pages
   hand["Hand-written pages<br/>and guidance"] --> astro
@@ -30,6 +33,8 @@ flowchart LR
 | Control guidance | The control page, below `<!-- guidance: write below this line -->` | Hand | Yes |
 | Family hubs (`controls/<family>/index.md`) and baseline lists (`controls/baselines/`) | OSCAL | `scripts/import-oscal.mjs` | Yes |
 | `src/data/catalog.json`, `src/data/control-ids.json` | OSCAL | `scripts/import-oscal.mjs` | Yes, so the build needs no network or OSCAL cache |
+| SSDF practice text, tasks and notional implementation examples (`methods/ssdf/<practice>.md`), and the overview's list of groups and practices | NIST's SP 800-218 table (`nist.sp.800-218.ssdf-table.xlsx`) | `scripts/import-ssdf.mjs` | Yes, between the nist markers |
+| `src/data/ssdf.json` (groups, practices, tasks, each task's references and its SP 800-53 references as control ids) | NIST's SP 800-218 table | `scripts/import-ssdf.mjs` | Yes, so the build needs no download |
 | Policy clauses, plans, standards, procedures, forms, reports, variables | `templates/` | Hand | Yes |
 | Template pages (`src/content/docs/templates/`) and the program artifact checklist (`src/content/docs/program/checklist.md`) | `templates/` | `npm run templates` | Yes, so diffs and edit links work |
 | Downloadable kit (`.docx`, `.md`, `.csv`, `.zip`) | `templates/` | `npm run kit` (part of `npm run build`) | No: build output in `dist/downloads/` |
@@ -48,6 +53,17 @@ Never hand-edit generated text. Change the generator or the source in `templates
 - Each baseline page's count is checked against its NIST profile.
 
 Both libraries are pure functions, tested in `scripts/test/` against a small fixture catalog with no network access.
+
+## SSDF pipeline
+
+`npm run ssdf` (`scripts/import-ssdf.mjs`, SSDF-01) reads NIST's SP 800-218 table, the Excel version of the SSDF 1.1 table on the [SP 800-218 landing page](https://csrc.nist.gov/pubs/sp/800/218/final) (owner decision, 2026-10-28, rather than CPRT). The file's address carries no version, so the download is pinned by its SHA-256 in the script and cached in `.cache/ssdf/<sha prefix>/`; a file that does not match stops the run. CI downloads it on every run, as it does the OSCAL catalog.
+
+- `scripts/lib/xlsx.mjs` reads the workbook's sheets as rows of text: `fflate` unzips it, and a small reader takes shared strings, inline strings and plain values from the sheet XML. It reads no formulas, styles or dates, which the table does not need.
+- `scripts/lib/ssdf.mjs` (`parseSsdf`) checks the sheets' shape (the SSDF sheet's header row; "Name (ID): text" cells; each task under its practice; each task's examples numbered; the Practices sheet matching the SSDF sheet) and turns each task's References cell into a map by source, with the SP 800-53 references as lowercase control ids checked against `src/data/control-ids.json`, so `npm run controls` runs first. Any surprise stops the run rather than writing a wrong page.
+- `ssdfPages` builds one page per practice (`po-1.md` to `rv-3.md`): the practice, then each task with an anchor (`#po.1.1`) and its notional implementation examples in a collapsed `<details>`. The front matter keys it owns are `title`, `description`, `sidebar` and `source` (the publication, version, status and the month its status was checked, `checked` in `SOURCE`); `mergeGenerated` in `scripts/lib/generated.mjs` keeps every other key and everything below the guidance marker, as on control pages. The overview, `methods/ssdf/index.md`, is hand-written; only its nist block, the groups and their practices, is generated, and the run fails if the file is missing. A page for a practice no longer in the table is not deleted, as it may hold guidance: the run fails and names it.
+- The data file `src/data/ssdf.json` holds the source, groups, practices, tasks and references. The SP 800-53 references are data only for now: SSDF-02 and METH-01 (Phase 4 row 5) show them on the practice pages and in the Methods section of control pages, and set `implements`.
+
+The Methods sidebar group (after Templates, before DevSecOps, PRD 3.17) is built in `astro.config.mjs` from `ssdf.json`: an SSDF group with the overview and one collapsed group per SSDF group (PO, PS, PW, RV), so a practice appears in its group without a hand-kept list. The content schema validates `source` front matter (`src/content.config.ts`). Tests in `scripts/test/ssdf.test.mjs` build a small workbook with `fflate` and need no network.
 
 ## Template system
 
@@ -138,7 +154,7 @@ No automated check covers print. To look at a page, use the browser's print prev
 - `rehypeEnhancementTokens` (`src/lib/search-tokens.mjs`) adds hidden search tokens: one at the top of each control page for its own ID (`ac2ctl`, from the front matter's `control.id`), and one after each enhancement heading (`ac2e3`). Pagefind strips punctuation, so "AC-2(3)" would otherwise match AC-23, and "AC-2" is a prefix of AC-20 to AC-25, which can outrank AC-2 depending on page length and how Pagefind chunks its index. The control token ends in `ctl` because a statement-part reference such as "(AC-2c)" indexes as `ac2c`. `src/lib/pagefind-ui.mjs` wraps Starlight's search box (through a Vite alias) to rewrite IDs in queries to those tokens (NAV-01), so an ID search returns that control's page, or its enhancement's section, rather than every page that mentions it. Bare IDs are rewritten only for the 20 SP 800-53 family identifiers. Astro caches rendered content in `.astro/` and `node_modules/.astro/`; after changing a rehype plugin, delete them before building locally, or pages keep their old output.
 - `rehypeTaskListLabels` (`src/lib/task-list-labels.mjs`) wraps task-list checkboxes in labels for accessibility (PRES-03).
 
-The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-53 controls, one group per template type, and autogenerated groups for the other sections. A new template type folder needs its own sidebar group. The DevSecOps group (`devsecops/`, DSO-01) sits after Templates and before Industry guides, where PRD 3.17 puts it (after Methods, once that section exists, and before the AI guide); its overview is the folder's `index.mdx`, ordered first with the sidebar label "Overview".
+The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-53 controls, one group per template type, and autogenerated groups for the other sections. A new template type folder needs its own sidebar group. The Methods group (`methods/`, SSDF-01; see SSDF pipeline) sits after Templates, and the DevSecOps group (`devsecops/`, DSO-01) after Methods and before Industry guides, where PRD 3.17 puts them (the AI guide will follow DevSecOps); its overview is the folder's `index.mdx`, ordered first with the sidebar label "Overview".
 
 ## Checks
 
@@ -148,7 +164,7 @@ The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-
 | Markdown lint | `npm run lint` (markdownlint-cli2) | A rule in `.markdownlint-cli2.jsonc` is broken |
 | Template lint | `npm run lint:templates` (in `lint`) | A template writing rule is broken (QA-05) |
 | Spelling | `npm run spell` (in `lint`) | cspell finds a word not in `cspell-words.txt`; NIST text, variables and code are skipped |
-| Generated pages current | `npm run controls`, `npm run templates`, then `git diff` | A generated page or data file was hand-edited or not regenerated |
+| Generated pages current | `npm run controls`, `npm run ssdf`, `npm run templates`, then `git diff` | A generated page or data file was hand-edited or not regenerated |
 | Build | `npm run build` | A content schema or template check fails, or the kit cannot be built |
 | Guidance shows | `npm run check:guidance` (in `build`) | A control page with `guidance:` set has no rendered "How to apply it" heading |
 | Links | `npm run check:links` | An internal link or anchor in `dist/` points nowhere |

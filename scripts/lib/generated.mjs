@@ -38,10 +38,10 @@ export function topLevelEntries(yaml) {
 
 // Generated front matter plus any hand-set keys from the existing front matter,
 // in their original order, just before the closing fence.
-export function mergeFrontmatter(generated, existingYaml) {
+export function mergeFrontmatter(generated, existingYaml, owned = OWNED_KEYS) {
 	if (!existingYaml) return generated;
 	const kept = topLevelEntries(existingYaml)
-		.filter((e) => !OWNED_KEYS.has(e.key))
+		.filter((e) => !owned.has(e.key))
 		.flatMap((e) => e.lines);
 	if (!kept.length) return generated;
 	const lines = generated.split('\n');
@@ -49,15 +49,16 @@ export function mergeFrontmatter(generated, existingYaml) {
 }
 
 // Next contents of a generated file, or null when the file exists but has no
-// markers (hand-written; leave it alone). `frontmatter` null keeps the file's own.
-export function mergeGenerated(existing, { frontmatter, body, tail = `\n${GUIDE}\n` }) {
+// markers (hand-written; leave it alone). `frontmatter` null keeps the file's own;
+// `owned` names the front matter keys the generator writes (the control pages' by default).
+export function mergeGenerated(existing, { frontmatter, body, tail = `\n${GUIDE}\n` }, owned = OWNED_KEYS) {
 	const block = `${START}\n${LINT_OFF}\n${body.trim()}\n${LINT_ON}\n${END}`;
 	if (existing == null) return `${frontmatter ?? ''}\n\n${block}\n${tail}`;
 	const text = normalize(existing);
 	if (!text.includes(START) || !text.includes(END)) return null;
 	const before = text.slice(0, text.indexOf(START));
 	const after = text.slice(text.indexOf(END) + END.length);
-	const head = frontmatter ? `${mergeFrontmatter(frontmatter, splitFrontmatter(text).yaml)}\n\n` : before;
+	const head = frontmatter ? `${mergeFrontmatter(frontmatter, splitFrontmatter(text).yaml, owned)}\n\n` : before;
 	return `${head}${block}${after}`;
 }
 

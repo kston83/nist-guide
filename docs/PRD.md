@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.16 · Oct 28, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.17 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -8,9 +8,10 @@ The RMF Field Guide is a free, public, static website: a practical guidebook to 
 
 The same templates serve three uses: as teaching material inside the guide, as a downloadable, versioned kit other organizations can adopt, and as the owner's consulting playbook.
 
-Two further strands build on the controls, each kept as its own topic:
+Three further strands build on the controls, each kept as its own topic:
 
 - **Methods.** For many controls NIST also publishes *how* to meet them: an established process or practice set. The Secure Software Development Framework (SSDF, SP 800-218) is the first example; its task table cites the SP 800-53 controls each task supports, mainly in the SA and SR families. Others include SP 800-61 for incident handling and SP 800-34 for contingency planning. Each control page names the NIST methods that implement it, so a reader meeting SA-15 is pointed to the SSDF.
+- **DevSecOps.** How a team that ships through a CI/CD pipeline meets the RMF and SP 800-53: one page per topic (change management, configuration baselines as code, scanner findings, the pipeline boundary, platform inheritance, continuous monitoring), each following one chain from the control, through the NIST publication for the topic and the team practice that meets it, to the evidence an assessor checks. It answers the Method, Implementation and Evidence questions below for pipeline teams, and links into the existing control pages, policies and templates rather than replacing them. See [DevSecOps (DSO)](#devsecops-dso).
 - **AI security guide.** The second guidebook: a comprehensive guide to applying the AI RMF and to adopting, implementing and securing AI, written for any organization, with the same depth for systems governed by NIST frameworks (a system authorized under the RMF and SP 800-53). It is built on two sources only: NIST guidance (the AI Risk Management Framework (AI RMF) and its profiles, NIST's AI security publications, and NIST's SP 800-53 control overlays for AI systems once NIST publishes them) and OWASP's AI security guidance (the OWASP Top 10 lists for LLM and agentic applications and the OWASP AI Exchange) for application-level threats and mitigations. It links into the RMF steps, control pages and templates, but it is a separate section with its own entry point.
 
 This document tells a Claude Code session what to build on top of the existing repo, in what order, and how to know each piece is done.
@@ -27,6 +28,8 @@ Procedure     How we do it here               Procedure or standard template
 Implementation Where it's configured          Technology playbook (Phase 6)
 Evidence      How we prove it                 Evidence list and forms
 ```
+
+For a system that ships through a pipeline, the DevSecOps section answers Method, Implementation and Evidence by topic rather than control by control, as the pipeline meets several controls at once.
 
 Families roll the per-control pieces up into artifacts an organization actually adopts: a policy per family (or one consolidated policy), the plans the controls require (SSP, incident response plan, contingency plan and so on), and a decision worksheet listing every choice the family forces the organization to make.
 
@@ -50,6 +53,7 @@ Families roll the per-control pieces up into artifacts an organization actually 
 | Program kit | Versioned release with every template in `.docx` and `.md`, per baseline, from Phase 2 |
 | AI security guide | Overview, AI RMF pages, securing AI through the RMF steps, OWASP LLM and agentic Top 10 pages, and AI templates by end of Phase 5; new OWASP editions reflected within one release; NIST's AI control overlays reflected within one release of each final publication |
 | Methods | Every family hub names NIST's implementation guidance; every SSDF practice has a page and its NIST-published 800-53 references, shown on the control pages, by end of Phase 4 |
+| DevSecOps | Overview and six topic pages at `draft` by end of Phase 4, each listed under "Referenced by" on every control it names |
 | Industry guides and technology playbooks | 3 and 4 in Phase 6 |
 | Broken internal links | 0 on every build |
 | Build time | Under 3 minutes in CI, including kit generation |
@@ -67,6 +71,7 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 | Control assessor | A control to test | Assessment objectives, what good evidence looks like, common findings | Control pages |
 | New practitioner or student | A new job or certification goal | Plain explanations, glossary, the big picture | RMF overview, glossary |
 | Engineer or cloud architect | A platform to harden | Which settings meet which controls, customer vs provider responsibility | Technology playbooks, standards |
+| Delivery team lead or DevSecOps engineer | A system that deploys through a pipeline, and an authorization or assessment to support | What the change record is, which pipeline output counts as evidence, how findings reach the POA&M, what the pipeline adds to the boundary | DevSecOps, control pages, CM and CA templates |
 | Software producer | Customers or contracts asking about secure development | SSDF practices, a secure development policy, attestation readiness | Methods (SSDF), SA family templates |
 | AI adopter or AI system owner | An AI tool, model or agent heading into the organization or into an authorized system | What NIST expects, how the RMF steps change for AI, an AI use policy and inventory, what to tell the authorizing official | AI security guide, RMF steps, templates |
 | Compliance lead in a regulated industry | A sector rule (HIPAA, NERC CIP, PCI DSS) | How 800-53 overlaps, what extra is required | Industry guides |
@@ -75,7 +80,7 @@ The primary reader is a practitioner mid-task who needs a concrete answer or a u
 
 ## Current state
 
-As of Oct 28, 2026, Phase 3 is complete (kit v2.0.0 released) and approved by the owner, and Phase 4 (methods and the SSDF) is next. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
+As of Oct 29, 2026, Phase 3 is complete (kit v2.0.0 released) and approved by the owner, and Phase 4 (methods, the SSDF and DevSecOps) is in progress. The repo builds about 450 pages with zero broken internal links; CI enforces that and every other check on each pull request. [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit together, and `PROGRESS.md` has the live counts. Build on it; do not restructure it without a stated reason.
 
 | Area | Status | Location |
 | --- | --- | --- |
@@ -117,6 +122,9 @@ src/content/docs/
   methods/                  NEW (Phase 4): NIST implementation guidance, by family
     index.md                What a method is; each family's NIST methods, with versions
     ssdf/                   SSDF overview and one page per practice (the first method)
+  devsecops/                NEW (Phase 4): DevSecOps, its own sidebar group after Methods
+    index.md                Overview: the chain, and the seven RMF steps for a system that ships through a pipeline
+    <topic>.md              One page per topic (DSO-04)
   ai/                       NEW (Phase 5): AI security guide, its own sidebar group
     index.md                Start here: what applies, NIST AI publications and their status
     ai-rmf/                 AI RMF overview and one page per function (GOVERN, MAP, MEASURE, MANAGE)
@@ -144,6 +152,7 @@ scripts/build-templates.mjs NEW: renders template pages and the downloadable kit
 | Template | Preview and download one artifact | What it is, when to use it, controls satisfied, decisions to make first, preview, downloads (clean, annotated, per baseline), version |
 | Method | Explain one NIST method: a process or practice set that implements controls | What it is and who it is for, version and status ("as of" month), the controls it implements (only as NIST states), how to adopt it, related templates |
 | SSDF practice | Explain one SSDF practice | Practice and tasks (NIST text), how to apply it, 800-53 references (NIST-published), related templates, evidence |
+| DevSecOps topic | How a pipeline team meets one group of controls, and proves it | The problem (what the control assumes and how continuous delivery changes it); the requirement (the controls, linked, with the SP 800-53A objectives that matter); the structure (the NIST publication for the topic, cited with version and status); team practice (OWASP and DoD practice, cited by name and ID); evidence (what the pipeline produces, mapped to the assessment objectives; FedRAMP 20x KSIs as a labelled model where they apply); templates to use or change; federal notes in `:::federal`-style asides; common findings |
 | AI guide page | One topic in the AI security guide | What NIST and OWASP say (cited, with version or edition and status), what to do, how it connects to the RMF steps and controls (NIST-stated links only; see AI-07), templates, federal notes in `:::federal`-style asides |
 | Industry guide | Apply RMF and 800-53 under sector rules | Rules that apply, how the steps change, controls with extra weight, findings, references |
 | Technology playbook | Implement controls on a platform | Controls covered, recommended configuration, evidence to collect, findings, references |
@@ -159,7 +168,7 @@ control: { id: AC-2, family: AC, baselines: [Low, Moderate, High] }
 # NEW, hand-set; the generator must preserve it (requirement CTRL-01)
 guidance: none | draft | reviewed
 
-# Industry guides, technology playbooks, method, SSDF and AI guide pages
+# Industry guides, technology playbooks, method, SSDF, DevSecOps and AI guide pages
 industries: [healthcare]               # slug list
 technologies: [entra-id]               # slug list
 controls: [ac-2, ia-2, ia-5]           # NEW: controls this page gives guidance on
@@ -171,6 +180,9 @@ description: One sentence              # Starlight's field; required on industry
 implements: [sa-15, sa-11]             # NEW: controls the method implements, only as NIST cites them;
                                        # feeds the Methods section on control pages (METH-01)
 source: { id: 'SP 800-218', version: '1.1', status: final, checked: 2026-09 }
+
+# DevSecOps pages: `controls` (feeds "Referenced by", LINK-01) and `description` are required;
+# the build fails without them (DSO-03); `guidance: draft | reviewed` marks review state, as on control pages. No new fields.
 
 # AI guide pages and AI templates
 airmf: [GOVERN 1.6, MAP 1.1]           # NEW: AI RMF subcategories the page or template supports;
@@ -348,7 +360,7 @@ A method is an established process or practice set that NIST publishes for meeti
 | --- | --- | --- | --- |
 | METH-01 | "Methods" section on control pages | P1 | Built from the `implements` front matter of method and SSDF pages; lists each method with its version, links to the page, and names the task or section that cites the control. Hidden when there is none. No edit to control files |
 | METH-02 | Methods index by family | P1 | `methods/index.md`: for each family, NIST's implementation publications (number, title, version, status, "as of" month), each checked at csrc.nist.gov before writing; family hubs link their row |
-| METH-03 | One method page per family's main NIST guide | P2 | Page-type sections; `implements` only from controls the publication itself cites, otherwise the page names the family without control-level links. Candidates to verify before writing: SP 800-61 (incident response), SP 800-34 (contingency planning), SP 800-40 (patch management), SP 800-92 (log management), SP 800-128 (configuration management), SP 800-137 (continuous monitoring), SP 800-161 (supply chain), SP 800-88 (media sanitization), SP 800-50 (awareness and training), SP 800-30 (risk assessment), SP 800-63 (digital identity), SP 800-57 (key management) |
+| METH-03 | One method page per family's main NIST guide | P2 | Page-type sections; `implements` only from controls the publication itself cites, otherwise the page names the family without control-level links. Batch 1, in Phase 4 (the methods the DevSecOps pages lean on): SP 800-128 (configuration management), SP 800-137 (continuous monitoring), SP 800-40 (patch management), SP 800-161 (supply chain). Batches 2 and 3, in Phase 7: SP 800-61 (incident response), SP 800-34 (contingency planning), SP 800-92 (log management), SP 800-88 (media sanitization), SP 800-50 (awareness and training), SP 800-30 (risk assessment), SP 800-63 (digital identity), SP 800-57 (key management). Verify each publication before writing |
 
 ### Secure software development (SSDF)
 
@@ -361,6 +373,28 @@ The SSDF is the first method: NIST's practice set for SA and SR controls on secu
 | SSDF-03 | Secure Software Development Policy and SDLC standard | P1 | Templates organized by SSDF practice, cross-referenced to SA controls, with `ssdf` front matter |
 | SSDF-04 | Software producer artifacts | P2 | Vulnerability disclosure policy, SBOM guidance, and attestation readiness checklist; every program-status claim (including current federal secure software attestation policy) is checked at the source and carries an "as of" month |
 | SSDF-05 | Track SSDF v1.2 | P2 | SP 800-218 Rev. 1 (SSDF v1.2) was an initial public draft (Dec 2025); NIST's SSDF project page still listed v1.1 as current when checked on Oct 28, 2026. Note it on the SSDF overview; migrate when final, in a dedicated PR |
+
+### DevSecOps (DSO)
+
+How a team that ships through a CI/CD pipeline meets the RMF and SP 800-53, and proves it. A section of the site with its own sidebar group (label "DevSecOps", after Methods, before the AI guide) and pages under `devsecops/`. It covers vendor-neutral process and evidence; platform settings stay in the technology playbooks (Phase 6), including the Kubernetes playbook's CM-2, CM-7, SC-7, SI-2 and RA-5. DevSecOps covers the systems a team builds and runs, and the controls the pipeline and infrastructure as code deliver; it is not how people, physical or governance controls are met, nor purchased software the team does not build or run. Phase 4.
+
+Every topic page follows one chain:
+
+| Part | Anchor |
+| --- | --- |
+| Requirement | The RMF and SP 800-53: the guide's control pages |
+| Structure | The NIST publication for the topic: SP 800-128 for change and configuration; SP 800-40 for findings and remediation; SP 800-204D for the pipeline; SP 800-137 for continuous monitoring; for building software, the SSDF, with the NCCoE DevSecOps practice guide's (SP 1800-44) life-cycle phases cited as a draft |
+| Team practice | OWASP DevSecOps Guideline stages, DSOMM activities and the OWASP Top 10 CI/CD Security Risks, cited by name and ID in the author's own words; the DoD Enterprise DevSecOps Activities & Tools Guidebook as the government cross-check, which may be adapted (see Copyright) |
+| Evidence | The SP 800-53A assessment objectives and methods (examine, interview, test) for each control named: what an assessor checks, and which pipeline output meets it. FedRAMP 20x Key Security Indicators (KSIs) as the model of outcome-based evidence, always labelled as FedRAMP's and as applying to FedRAMP cloud services. The rest is informed practice under the "would pass an assessment" test, reviewed by the owner on each page |
+
+| ID | Requirement | Priority | Acceptance criteria |
+| --- | --- | --- | --- |
+| DSO-01 | DevSecOps section and overview | P1 | Sidebar group "DevSecOps" after Methods. `devsecops/index.md`: who it is for, the chain above, how the section relates to the control pages, methods and technology playbooks, and the seven RMF steps (SP 800-37 Rev. 2) for a system that ships through a pipeline, each step linking its existing step page. Lists the topic pages from front matter, with no hand-maintained list |
+| DSO-02 | DevSecOps topic page type | P1 | Each topic page has the DevSecOps topic sections (Page types), `guidance: draft` until the owner sets `reviewed`, and `controls` and `description` front matter. Names a control only where the page gives guidance on it. Every program fact (FedRAMP rules, KSIs, DoD cATO, publication status) carries an "as of" month |
+| DSO-03 | DevSecOps pages under "Referenced by" | P1 | A `devsecops` entry with the label "DevSecOps" in `KINDS` (`src/lib/references.ts`), so a topic page's `controls` make it appear on each named control page with no edit to control files (LINK-01). The build fails when a DevSecOps page has no `controls` or no `description`, as the section indexes do for a missing description (NAV-02) |
+| DSO-04 | Six topic pages | P1 | At `draft`: (1) change management under continuous delivery (CM-3, CM-4; SP 800-128; the FedRAMP Change Management KSIs and Significant Change Notification rules); (2) configuration baselines as code (CM-2, CM-6, CM-8; SP 800-128); (3) scanner findings to risk decisions and the POA&M (RA-5, SI-2, CA-5; SP 800-40); (4) the pipeline as part of the system boundary, with pipeline secrets and machine identities (IA-5, and AC-2 and AC-6 for service accounts; SP 800-204D, the NSA and CISA CI/CD information sheet, the OWASP CI/CD Top 10); (5) inheritance from a platform, and how it is recorded in the SSP (SP 800-37 Rev. 2 task P-5, common control identification, and the inheritance decisions of the Select step; its controls are set with the owner when the page is planned, before writing); (6) continuous monitoring from pipeline output (CA-7; SP 800-137). Page 1 is written first and judged by the owner and one or two peers; if it does not hold up, pages 2 to 6 stop and the owner resets the plan |
+| DSO-05 | Templates changed where a pipeline is the record | P1 | With page 1: the Configuration Management Plan's standard (preapproved) change class and the change request form say when a pipeline run is the change record. Other topic pages may change the templates they name, in the same PR, following Writing templates; each change shows in the template's change history (TPL-11) |
+| DSO-06 | Track DevSecOps sources | P2 | The overview carries a status table of the publications the section relies on (NIST, NCCoE, OWASP, DoD, NSA and CISA, FedRAMP: name, version or edition, status, date, license for OWASP, "as of" month), rechecked at every kit release. The NCCoE DevSecOps practice guide is cited as a draft (a live document open for comment, as of Oct 2026) and never as the only source for a requirement; update the pages when NIST marks a version final |
 
 ### AI security guide (AI)
 
@@ -385,7 +419,7 @@ A guide within the guide: how an organization adopts and secures AI, and how an 
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| LINK-01 | "Referenced by" section on control pages, built from the `controls` front matter of industry, technology, AI guide and template pages (method and SSDF pages feed the Methods section instead, METH-01) | P1 | Adding `controls: [ac-2]` to a playbook makes it appear on the AC-2 page after build, with no edit to `ac-2.md` |
+| LINK-01 | "Referenced by" section on control pages, built from the `controls` front matter of industry, technology, DevSecOps, AI guide and template pages (method and SSDF pages feed the Methods section instead, METH-01) | P1 | Adding `controls: [ac-2]` to a playbook makes it appear on the AC-2 page after build, with no edit to `ac-2.md` |
 | LINK-02 | Industry and technology pages list the controls they cover, with titles, from front matter | P2 | Rendered automatically from `controls` |
 | LINK-03 | Build fails on broken internal links and anchors | P1 | Done: `npm run check:links` in `check.yml` |
 | LINK-04 | Control IDs in prose can be written as a short component or remark plugin that renders a link | P3 | Writing the ID token renders a link to the control or enhancement anchor |
@@ -459,6 +493,7 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 - AI guidance states only what NIST or OWASP publishes (and OMB and CISA, for federal notes), attributing each point to its source. No AI-specific control selections, tailoring or control mappings of the author's own until NIST's overlays are final (AI-07).
 - Never invent numbers, control mappings or requirements. If a fact cannot be verified, leave an HTML comment `<!-- TODO(verify): ... -->` and add it to the open questions list instead of guessing.
 - Cross-framework mappings come only from published sources (NIST OLIR and CPRT, the SSDF's own references, the regulator's own crosswalks). Label any author-made mapping as the author's judgment.
+- DevSecOps pages follow the chain in [DevSecOps (DSO)](#devsecops-dso): NIST first for the requirement and the structure, then team practice and evidence. Tie each "what evidence is good enough" judgment to the control's SP 800-53A objectives first. FedRAMP's KSI-to-control lists may be cited as FedRAMP's on DevSecOps pages; they are not imported and add nothing to control pages.
 
 ### Copyright and sensitivity
 
@@ -467,6 +502,10 @@ Content quality is the product. Accuracy and usefulness win over volume: one cor
 | NIST SPs (including SP 800-218), FIPS, OMB circulars and memos, U.S. regulations (for example 45 CFR Part 164) | Yes, public domain | Quote as needed; cite |
 | U.S. government templates (for example FedRAMP, CISA) | Generally yes | Adapt with citation after confirming the page carries no restrictive terms |
 | DISA STIGs | Generally yes (U.S. government work) | Quote settings sparingly; link the STIG and version |
+| DoD Enterprise DevSecOps Activities & Tools Guidebook (v2.5, April 2025) | Yes: U.S. government work under Distribution Statement A, "Approved for public release. Distribution is unlimited." (checked Oct 29, 2026) | May be adapted into DevSecOps pages and templates with citation; leave out third-party content and tool or product names |
+| NSA and CISA Cybersecurity Information Sheets (for example Defending CI/CD Environments, June 2023, TLP:CLEAR) | Generally yes (U.S. government work) | Cite and summarize; adapt with citation after confirming the document carries no restrictive terms |
+| OWASP DevSecOps Guideline, DSOMM, Top 10 CI/CD Security Risks | Not into this site: CC BY-SA 4.0 (DSOMM's data GPL-3.0) | Cite stage, activity and risk names and IDs, explain in your own words, link. Never copy text or import data |
+| FedRAMP rules dataset (`FedRAMP/rules`) | Unclear: no license file (checked Oct 28, 2026) | Cite KSI and rule IDs and titles on DevSecOps pages, labelled as FedRAMP's; do not import the dataset until its reuse terms are confirmed |
 | OWASP AI Exchange | Yes, CC0 1.0 (checked Sep 28, 2026) | May be adapted into pages and templates; credit and link as a courtesy |
 | OWASP GenAI Security Project (Top 10 for LLM Applications, Top 10 for Agentic Applications, crosswalk) and the OWASP ML Security Top Ten | Not into this site: CC BY-SA 4.0, whose share-alike terms conflict with the site's CC BY 4.0 and the templates' CC0 | Cite IDs and titles, explain in your own words, link each entry. Never copy descriptions, examples or mitigation text into pages or templates |
 | Commercial policy template libraries (for example SANS), PCI DSS, ISO/IEC 27001, HITRUST, CIS Benchmarks, NERC CIP standards text, vendor documentation | No | Never copy or closely paraphrase; write templates from the NIST requirement up. Link where useful |
@@ -563,6 +602,14 @@ Pages (P1 first): entry page, AI RMF overview and four function pages, the AI RM
 - One page per practice, grouped: Prepare the Organization (PO), Protect the Software (PS), Produce Well-Secured Software (PW), Respond to Vulnerabilities (RV).
 - Templates: Secure Software Development Policy, SDLC standard, vulnerability disclosure policy, SBOM guidance, attestation readiness checklist.
 - References: NIST's 800-53 references for each task, on the practice page and in the Methods section of each cited control.
+- Method pages, batch 1 (METH-03): SP 800-128, SP 800-137, SP 800-40, SP 800-161.
+
+### DevSecOps (Phase 4)
+
+- Overview: the chain, and the seven RMF steps for a system that ships through a pipeline (DSO-01), with the source status table (DSO-06).
+- Change management under continuous delivery, first, for the owner and peers to judge; with the Configuration Management Plan and change request form changes (DSO-05).
+- Configuration baselines as code; scanner findings to the POA&M; the pipeline as part of the boundary; inheritance from a platform; continuous monitoring from pipeline output (DSO-04).
+- Not in Phase 4: a control-to-KSI map or any import of the FedRAMP rules dataset (a new build step, and the dataset has no license file); platform settings (technology playbooks, Phase 6).
 
 ### Industry guides (Phase 6, proposed)
 
@@ -604,17 +651,17 @@ The site stays fully static and free to host; anything that needs a server, a da
 
 ## Delivery phases
 
-Work in seven phases; each ends with an owner review before the next starts. Phases are ordered by dependency and priority, not by date. Templates come before industry and technology content because they depend only on the controls layer and deliver the most value to a program builder. What the guide already covers is finished first: the full program kit (owner decision). Then methods and the SSDF, which add NIST's how-to to the finished families, then the AI security guide. Both depend only on the RMF and controls layers.
+Work in seven phases; each ends with an owner review before the next starts. Phases are ordered by dependency and priority, not by date. Templates come before industry and technology content because they depend only on the controls layer and deliver the most value to a program builder. What the guide already covers is finished first: the full program kit (owner decision). Then methods, the SSDF and DevSecOps, which add NIST's how-to to the finished families and show how pipeline teams meet them, then the AI security guide. Both depend only on the RMF and controls layers.
 
 | Phase | Scope | Requirements | Exit criteria |
 | --- | --- | --- | --- |
 | 1 Launch foundation | Make the existing site production-ready and public | CTRL-01, CTRL-02, CTRL-03, LINK-01, LINK-03 (done), NAV-01, PRES-01, PRES-03, PRES-04, QA-01, QA-02, QA-04 | Site live; PR checks green; placeholders replaced; owner approves home and About |
 | 2 Template system and first kit | Template pipeline; guidance for the 30 priority controls; policies, clauses and worksheets for AC, AU, CM, IA and IR; SSP, IR plan and POA&M | CTRL-04, CTRL-05, CTRL-06, CTRL-08, TPL-01 to TPL-08, TPL-10, PROG-01, PROG-02, PROG-05, FEAT-04, QA-03, QA-05, PRES-06 | Done (Sep 28, 2026): 31 controls at `guidance: draft`; 5 family policies downloadable per baseline; kit v1.0.0 released |
 | 3 Full program kit | Finish what the guide already covers: the remaining 15 family policies, the consolidated policy, every catalog artifact except the SSDF-based SA artifacts, guidance for every Moderate, PM and privacy-only control, the program path | TPL-09, TPL-11, TPL-13, PROG-03, PROG-04, PRES-02, NAV-02 | Every Low and Moderate control has a clause at `draft` or better; every Moderate, PM and privacy-only control has guidance at `draft` or better, shown on its page; every catalog artifact published except the SSDF-based SA artifacts; program path complete; kit v2.0.0 |
-| 4 Methods and the SSDF | Each family's NIST methods, the SSDF section, and the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01 to METH-03, SSDF-01 to SSDF-05 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; SSDF templates at `draft` in the kit; kit v2.1.0 |
+| 4 Methods, the SSDF and DevSecOps | The methods index and the first method pages, the SSDF section, the DevSecOps section, the SSDF-based SA artifacts (Secure Software Development Policy, SDLC standard) and software producer artifacts | METH-01, METH-02, METH-03 (batch 1), SSDF-01 to SSDF-05, DSO-01 to DSO-06 | Methods index complete; SSDF pages live and shown in control pages' Methods sections; DevSecOps overview and six topic pages at `draft`, each under "Referenced by" on the controls it names; SSDF templates at `draft` in the kit (the artifact catalog complete); kit v2.1.0 |
 | 5 AI RMF and AI security guide | The AI guide as its own section: entry page, AI RMF pages, the AI RMF alongside the RMF, securing an AI system through the RMF steps, OWASP Top 10 pages, topic pages, AI templates, federal notes; tracking of NIST's AI overlays and OWASP editions | AI-01 to AI-12 | Entry page with a current NIST and OWASP status table; AI RMF function pages from NIST data; the RMF-steps walkthrough; OWASP LLM and agentic Top 10 pages; five AI templates at `draft` in the kit; kit v2.2.0 |
 | 6 Industries and technology | 3 industry guides, 4 playbooks, articles | LINK-02, FEAT-01 | All seven pages published with `controls` front matter; control pages show them under "Referenced by"; first article published |
-| 7 Depth | Guidance for High-baseline controls, High clauses, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05 | Coverage page shows every High control at `draft` or better; High variants complete; monthly NIST check running |
+| 7 Depth | Guidance for High-baseline controls, High clauses, the remaining method pages, crosswalks, automation | FEAT-03, NAV-03, CTRL-07, LINK-04, TPL-12, PRES-05, METH-03 (batches 2 and 3) | Coverage page shows every High control at `draft` or better; High variants complete; monthly NIST check running |
 
 AI-07's tracking is part of Phase 5; publishing an overlay happens whenever NIST finalizes one, in whatever phase is current.
 
@@ -627,6 +674,7 @@ AI-07's tracking is part of Phase 5; publishing an overlay happens whenever NIST
 - No private or client-specific content in this repository.
 - No AI tooling: the site does not test, evaluate, red-team or monitor models, and runs no AI at build or run time. The AI guide is guidance and templates only.
 - No home-made AI control overlays: the guide waits for NIST's (AI-07).
+- No DevSecOps tooling: the site runs no scanners or pipelines and recommends no products. DevSecOps pages describe process and evidence; platform settings belong in the technology playbooks.
 
 ## Instructions for Claude Code
 
@@ -657,6 +705,7 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 - Templates are CC0 and written for any organization. Put federal-only requirements in `:::federal` blocks, written as carefully as the body and citing the federal source.
 - When a change alters how the site or kit is built, update `docs/ARCHITECTURE.md` and the README in the same PR.
 - Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST or OWASP publishes (or OMB and CISA, for federal notes), with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final. OWASP GenAI Security Project text is CC BY-SA 4.0: cite IDs and titles and write in your own words, never copy; the OWASP AI Exchange is CC0 and may be adapted.
+- DevSecOps pages follow the requirement, structure, team practice and evidence chain (DSO): NIST for the requirement and structure, OWASP practice cited by name and ID in your own words (CC BY-SA, never copied), the DoD guidebook adaptable with citation, evidence tied to the SP 800-53A objectives first, and FedRAMP KSIs labelled as FedRAMP's. Set `controls` on every page; leave platform settings to the technology playbooks.
 
 ### When to stop and ask the owner
 
@@ -701,8 +750,12 @@ None of these block Phase 1.
 | Word styling | Calibri body, Georgia headings, teal accent, title and version header, page numbers, no guide branding (PRES-06) | Sep 28, 2026 |
 | Site palette | The teal accent on Starlight's defaults. The Flexoki palette with a blue accent (PRES-07) was adopted on Oct 20, 2026 and reverted, as its light theme was harder to read | Oct 20, 2026; reverted Oct 27, 2026 |
 | Methods | NIST implementation guidance (the SSDF first) is shown as a Methods section on control pages, linked only where NIST cites the control | Sep 28, 2026 |
+| DevSecOps section | A section of the current site, not a new product: sidebar group "DevSecOps" after Methods, an overview and six topic pages, each following the requirement, structure, team practice and evidence chain (DSO). Phase 4, with the SSDF; METH-03 batches 2 and 3 move to Phase 7 | Oct 28, 2026; details Oct 29, 2026 |
+| NCCoE DevSecOps practice guide (SP 1800-44) | Cited on DevSecOps pages as a draft (a live document, open for comment through Nov 9, 2026), with an "as of" month; never the only source for a requirement | Oct 29, 2026 |
+| DoD DevSecOps Activities & Tools Guidebook | May be adapted with citation (Distribution Statement A); the government cross-check for team practice, not the structure | Oct 29, 2026 |
+| Control-to-KSI map | Not in Phase 4: a new import, and the FedRAMP rules dataset has no license file. KSIs are cited on DevSecOps pages, labelled as FedRAMP's | Oct 28, 2026 |
 | AI security guide | A separate section (a guide within the guide), kept separate from the SSDF and methods work. Phase 5, after the RMF program kit and methods | Sep 28, 2026 |
-| Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods and the SSDF (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate, PM and privacy-only control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026; PM and privacy guidance added Sep 29, 2026 |
+| Phase order | Finish what the guide already covers first: the RMF program kit as first scoped (Phase 3). Then methods, the SSDF and DevSecOps (Phase 4), then the AI guide (Phase 5). "RMF complete" means the full program kit and guidance for every Moderate, PM and privacy-only control; High guidance and High clauses stay in Depth | Sep 28, 2026; guidance moved into Phase 3 Sep 29, 2026; PM and privacy guidance added Sep 29, 2026 |
 | AI control guidance | Wait for NIST's COSAIS overlays; no AI-specific control selections, tailoring or mappings of the author's own until they are final | Sep 28, 2026 |
 | AI guide sources | NIST and OWASP only (plus OMB and CISA for federal notes): the OWASP Top 10 for LLM and for Agentic Applications, and the OWASP AI Exchange | Sep 28, 2026 |
 | Articles (FEAT-01) | Deferred to Phase 6, with the first article; `starlight-blog` is compatible with Starlight 0.42 and remains the first choice | Sep 28, 2026 |
@@ -739,3 +792,4 @@ None of these block Phase 1.
 | 3.14 | Oct 20, 2026 | Owner decision: PRES-07, the Flexoki palette with a blue accent in place of the teal, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
 | 3.15 | Oct 27, 2026 | Owner decision: PRES-07 reverted and withdrawn; back to the teal accent on Starlight's defaults, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
 | 3.16 | Oct 28, 2026 | Owner's Phase 3 review: Phase 3 approved; the SSDF source (Excel table), worksheet "Who decides" and FAR decisions recorded (Current state, SSDF-05, Open questions, Decided). No change in scope |
+| 3.17 | Oct 29, 2026 | Owner decisions (Phase 4 plan, #120): DevSecOps added as a third strand (Summary, Vision, Success measures, persona, Information architecture, Page types, front matter, DSO-01 to DSO-06, LINK-01, Sourcing, Copyright, Content backlog, Phase 4 and 7 rows, Non-goals, Decided). Phase 4 renamed "Methods, the SSDF and DevSecOps"; METH-03 batch 1 (SP 800-128, 800-137, 800-40, 800-161) stays in Phase 4 and batches 2 and 3 move to Phase 7. The NCCoE DevSecOps practice guide is cited as a draft; the DoD Activities & Tools Guidebook may be adapted. #162 review: topic 5 anchored to SP 800-37 Rev. 2 task P-5; DSO-03 states the missing `controls` or `description` check as a build failure; Phase order row renamed. Instructions for Claude Code and `CLAUDE.md` gain the DevSecOps source rule |

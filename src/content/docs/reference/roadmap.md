@@ -53,7 +53,7 @@ The work runs in phases. Each phase ends with a review before the next starts, a
 | 1 Launch | The public site, generated control pages and quality checks | Done | |
 | 2 Templates and first kit | The template system, guidance for the priority controls, and the first five family policies with the SSP, IR plan and POA&M | Done, September 2026 | v1.0.0 |
 | 3 Full program kit | The remaining family policies, a consolidated policy, the other plans, standards and forms the controls call for, and practical guidance for every Moderate, program management and privacy control | Done, October 2026 | v2.0.0 |
-| 4 Methods and the SSDF | NIST's how-to guidance shown on each control page, starting with the SSDF, plus secure software development templates | Every family names its NIST methods, and every SSDF practice has a page | v2.1.0 |
+| 4 Methods, the SSDF and DevSecOps | NIST's how-to guidance shown on each control page, starting with the SSDF; a DevSecOps section for teams that ship through a pipeline; secure software development templates | Every family names its NIST methods, every SSDF practice has a page, and the DevSecOps overview and six topic pages are published | v2.1.0 |
 | 5 AI RMF and AI security | The second guidebook: the AI RMF, securing AI systems through the RMF, NIST and OWASP AI security guidance, and AI templates | The AI RMF pages, the RMF walkthrough, the OWASP pages and the AI templates are published, with a current status table of every source | v2.2.0 |
 | 6 Industries and technology | Three industry guides, four technology playbooks, and articles | All seven are published and linked from the control pages they cover | |
 | 7 Depth | Guidance for High-baseline controls, High-baseline clauses, NIST-published crosswalks and automated checks for new NIST releases | Every High control has guidance | |
@@ -68,15 +68,16 @@ Phase 3 is complete and published as kit v2.0.0:
 - **The program path:** an artifact checklist, and guidance on scaling the program to the organization's size.
 - **Templates and pages:** a change history by kit version on each template page, a one-line summary for each template in the index, print styles for step, control and template pages, and a standard approval and version history section in each policy, plan, standard, procedure and report.
 
-Its end-of-phase review was completed in October 2026, and Phase 4 is next.
+Its end-of-phase review was completed in October 2026, and Phase 4 is in progress.
 
-### Methods and the SSDF (Phase 4)
+### Methods, the SSDF and DevSecOps (Phase 4)
 
 A control says what to do; for many controls, NIST also publishes how it is normally done. This phase adds that how-to layer to the RMF guidebook.
 
 - **A methods index:** for each control family, the NIST publications that show how to meet its controls, such as SP 800-61 for incident response and SP 800-34 for contingency planning, each with its version and status.
 - **A Methods section on each control page.** A method is linked to a control only where the NIST publication itself cites that control.
 - **The Secure Software Development Framework (SSDF, [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final)) first:** a page for each practice in its four groups (Prepare the Organization, Protect the Software, Produce Well-Secured Software, Respond to Vulnerabilities), with the SP 800-53 controls NIST says each task supports, shown on those control pages too.
+- **A DevSecOps section:** for teams that ship through a CI/CD pipeline, an overview of the seven RMF steps for such a system and six topic pages: change management under continuous delivery, configuration baselines as code, scanner findings to the POA&M, the pipeline as part of the system boundary, inheritance from a platform, and continuous monitoring from pipeline output. Each page goes from the controls, through the NIST publication for the topic and the team practice that meets it, to the evidence an assessor checks, and is listed on the control pages it covers.
 - **Software development templates:** a Secure Software Development Policy and SDLC standard organized by SSDF practice, plus a vulnerability disclosure policy, SBOM guidance and an attestation readiness checklist for software producers.
 
 ### AI RMF and AI security (Phase 5)

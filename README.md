@@ -13,7 +13,7 @@ The guide is a practical guidebook to two NIST frameworks: the Risk Management F
 | 1 Launch foundation | Public site, generated control pages, CI checks | | Done |
 | 2 Template system and first kit | Template pipeline, 31 priority controls, five family policies, SSP, IR plan, POA&M | v1.0.0 | Done |
 | 3 Full program kit | All 20 family policies, the consolidated policy, every catalog artifact except the SSDF-based ones (Phase 4), guidance for every Moderate, program management and privacy control, the program path | v2.0.0 | Done |
-| 4 Methods and the SSDF | NIST implementation guidance on control pages, starting with the SSDF | v2.1.0 | Next |
+| 4 Methods, the SSDF and DevSecOps | NIST implementation guidance on control pages, starting with the SSDF; a DevSecOps section for pipeline teams | v2.1.0 | In progress |
 | 5 AI RMF and AI security | The second guidebook: applying the AI RMF, securing AI systems through the RMF, NIST and OWASP AI security guidance, AI templates | v2.2.0 | Planned |
 | 6 Industries and technology | Three industry guides, four technology playbooks, articles | | Planned |
 | 7 Depth | Guidance for High controls, High clauses, crosswalks, automation | | Planned |

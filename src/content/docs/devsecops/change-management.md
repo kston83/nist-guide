@@ -67,7 +67,7 @@ A pipeline run is the change record when the change belongs to a preapproved pip
 1. **The class is written and approved.** The plan names the systems, environments and kinds of change the class covers, and what it excludes. The board approves it with a security and privacy impact analysis of the class, and reviews it on a set schedule (CM-3a, CM-3b, CM-4).
 2. **The pipeline is the only path to production.** People cannot change production directly; their access is read-only or through a separate emergency process. The pipeline deploys with its own identity, which nothing else uses (CM-5, CM-3d).
 3. **Someone other than the author approves each change.** Version control requires an approving review before merge, and a new commit after approval needs a new review. The author cannot approve their own change, and no one can bypass the rule unrecorded (CM-3b).
-4. **The reviewer confirms the change is in the class.** The merge request records that the change touches nothing on the exclusion list. Rules that route changes to sensitive paths, such as identity, cryptography or the pipeline's own definition, to named reviewers back this up (CM-3 step iii, CM-4).
+4. **The reviewer confirms the change is in the class.** The merge request records that the change touches nothing on the exclusion list. Rules that route changes to sensitive paths, such as identity, cryptography or the pipeline's own definition, to named reviewers back this up (SP 800-128 section 3.3.2 step iii; CM-4).
 5. **Tests and security gates pass before production.** The run records each test and scan, its result, and the version of the gate's policy. A change that fails a gate does not deploy (CM-3(2), CM-4).
 6. **The artifact deployed is the artifact tested.** The pipeline builds once and promotes the same artifact, identified by its digest, through each environment. The deployment record names that digest and the commit it came from (CM-3d).
 7. **Deployment is verified.** After each deployment, checks confirm the affected controls still work, for example a configuration compliance scan of the changed resources. A failed check rolls the change back or opens a finding (CM-4(2)).
@@ -84,7 +84,7 @@ A pipeline run is the change record when the change belongs to a preapproved pip
 - Changes to security or privacy controls, including logging and monitoring
 - Changes to the pipeline itself: its gates, approval rules, deployment identity or secrets
 
-**Changes outside the class still use the pipeline.** A normal change goes through the board on a [change request form](/templates/forms/change-request-form/); once approved, the pipeline deploys it, and the run is attached as its test and implementation evidence. An emergency change that has to bypass a gate is an emergency change under the plan: the named approver authorizes it, and the board reviews it at its next meeting. A significant change also goes to the authorizing official before it deploys, as the form's Part C sets out.
+**Changes outside the class still use the pipeline.** A normal change goes through the board on a [change request form](/templates/forms/change-request-form/); once approved, the pipeline deploys it, and the run is attached as its test and implementation evidence. An emergency change that has to bypass a gate is an emergency change under the plan: the named approver authorizes it, and the board reviews it at its next meeting. A bypass without that approval is an unauthorized change, handled as the plan sets out for changes found by monitoring. A significant change also goes to the authorizing official before it deploys, as the form's Part C sets out.
 
 ## Team practice
 
@@ -127,7 +127,7 @@ FedRAMP 20x states change management as outcomes. These are FedRAMP's Key Securi
 
 Read against the conditions above, KSI-CMT-RMV is condition 2, KSI-CMT-VTD is conditions 5 and 7, KSI-CMT-LMC is condition 8, and KSI-CMT-RVP is condition 9. That alignment is this guide's reading, not FedRAMP's.
 
-FedRAMP's [Significant Change Notification rules](https://www.fedramp.gov/2026/providers/20x/rules/significant-change-notification/) (SCN) sort a provider's significant changes into three types, for 20x and Rev5 Certifications at Classes B to D:
+FedRAMP's [Significant Change Notification rules](https://www.fedramp.gov/2026/providers/20x/rules/significant-change-notification/) (SCN) first set aside a change of FedRAMP Certification class, which needs a new assessment and cannot be made under the SCN rules (SCN-CSO-EVA). They sort a provider's other significant changes into three types, for 20x and Rev5 Certifications at Classes B to D:
 
 - **[Routine recurring](https://www.fedramp.gov/2026/definitions/#routine-recurring-change):** recurs regularly as part of ongoing operations, or of vulnerability mitigation or remediation. No formal notification (SCN-RTR-NNR).
 - **[Adaptive](https://www.fedramp.gov/2026/definitions/#adaptive-change):** not routine, but without substantive new risk needing in-depth assessment. Notify within 10 business days after finishing (SCN-ADP-NTF).
@@ -139,8 +139,8 @@ The provider must evaluate every potential significant change and keep auditable
 
 - **[Configuration Management Plan](/templates/plans/configuration-management-plan/).** Section 3.3.1 defines when a pipeline run is the change record, and Appendix B holds the pipeline class with its conditions and exclusions. Fill in both.
 - **[Change request form](/templates/forms/change-request-form/).** Use it for normal, emergency and significant changes. Its "How to use this form" section says when a pipeline record stands in for it.
-- **[Configuration Management policy](/templates/policies/cm/).** Its CM-3 clauses need no change: a pipeline record is "one change record per change".
-- **[Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/).** Section 12 sets the significant change triggers that become the class's exclusion list.
+- **[Configuration Management policy](/templates/policies/cm/).** Its CM-3 clauses need no change; their guidance asks for one change record per change, which a pipeline record is.
+- **[Continuous Monitoring Strategy](/templates/plans/continuous-monitoring-strategy/).** Section 12 makes a significant change a trigger for review; keep its examples consistent with the class's exclusion list.
 - **[Baseline configuration standard](/templates/standards/baseline-configuration-standard/)** and **[component inventory](/templates/forms/component-inventory/).** A pipeline change that alters a baseline or adds a component updates them, as SP 800-128 step vii expects.
 
 :::note[Federal systems]

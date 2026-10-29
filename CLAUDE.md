@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](docs/PRD.md); the Repo notes at the end are kept here only. The PRD is the source of truth for vision, scope, priorities and acceptance criteria. The site teaches the RMF and SP 800-53 **and** ships ready-to-adopt program templates (policies, plans, procedures, forms); see the PRD's Template system section. Two further strands, each its own topic: **methods** (NIST's published ways to meet controls, the SSDF first, shown on control pages) and an **AI security guide** (the AI RMF and securing AI systems under the RMF, from NIST and OWASP guidance only).
+This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](docs/PRD.md); the Repo notes at the end are kept here only. The PRD is the source of truth for vision, scope, priorities and acceptance criteria. The site teaches the RMF and SP 800-53 **and** ships ready-to-adopt program templates (policies, plans, procedures, forms); see the PRD's Template system section. Three further strands, each its own topic: **methods** (NIST's published ways to meet controls, the SSDF first, shown on control pages), **DevSecOps** (how a team that ships through a pipeline meets the controls and proves it, one page per topic) and an **AI security guide** (the AI RMF and securing AI systems under the RMF, from NIST and OWASP guidance only).
 
 ## Getting oriented
 
@@ -27,6 +27,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 - Templates are CC0 and written for any organization. Put federal-only requirements in `:::federal` blocks, written as carefully as the body and citing the federal source.
 - When a change alters how the site or kit is built, update `docs/ARCHITECTURE.md` and the README in the same PR.
 - Link a method to a control only where the method's NIST publication cites that control. In the AI guide, state only what NIST or OWASP publishes (or OMB and CISA, for federal notes), with each publication's status and an "as of" month; make no AI-specific control selections or mappings until NIST's overlays are final. OWASP GenAI Security Project text is CC BY-SA 4.0: cite IDs and titles and write in your own words, never copy; the OWASP AI Exchange is CC0 and may be adapted.
+- DevSecOps pages follow the requirement, structure, team practice and evidence chain (DSO): NIST for the requirement and structure, OWASP practice cited by name and ID in your own words (CC BY-SA, never copied), the DoD guidebook adaptable with citation, evidence tied to the SP 800-53A objectives first, and FedRAMP KSIs labelled as FedRAMP's. Set `controls` on every page; leave platform settings to the technology playbooks.
 
 ## When to stop and ask the owner
 

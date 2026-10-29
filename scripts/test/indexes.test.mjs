@@ -80,8 +80,26 @@ test('a section page with no description fails the build', () => {
 	);
 });
 
-test('the industry and technology index pages are generated, not hand lists', () => {
-	for (const section of ['industries', 'technology']) {
+test('a DevSecOps page with no controls fails the build (DSO-03); other sections do not need them', () => {
+	const pages = [
+		entry('devsecops', { title: 'DevSecOps' }),
+		entry('devsecops/change-management', { title: 'Change management', controls: ['cm-3', 'cm-4'] }),
+		entry('devsecops/baselines', { title: 'Baselines' }),
+		entry('devsecops/findings', { title: 'Findings', controls: [] }),
+	];
+	assert.throws(
+		() => sectionPages(pages, 'devsecops'),
+		/devsecops index: give each page a front matter `controls` list, the controls it gives guidance on: devsecops\/baselines, devsecops\/findings\./,
+	);
+	assert.deepEqual(sectionPages(pages.slice(0, 2), 'devsecops'), [
+		{ title: 'Change management', href: '/devsecops/change-management/', description: 'About devsecops/change-management.' },
+	]);
+	assert.throws(() => sectionPages([entry('devsecops/x', { controls: ['cm-3'], description: ' ' })], 'devsecops'), /give each page a front matter description/);
+	assert.equal(sectionPages([entry('industries/healthcare', {})], 'industries').length, 1);
+});
+
+test('the industry, technology and DevSecOps index pages are generated, not hand lists', () => {
+	for (const section of ['industries', 'technology', 'devsecops']) {
 		const text = fs.readFileSync(`src/content/docs/${section}/index.mdx`, 'utf8');
 		assert.match(text, new RegExp(`<SectionIndex section="${section}"`));
 	}

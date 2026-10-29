@@ -221,11 +221,27 @@ These types of changes to the system are configuration-controlled: <span class="
 
 | Change type | Examples | Approval | Impact analysis |
 | --- | --- | --- | --- |
-| Standard (preapproved) | <span class="tpl-field tpl-fill">Fill in: for example routine patches through the patch management tools, adding a user to an existing role</span> | Approved once as a class by the board; listed in Appendix B | Done once for the class, and reviewed when the class is reviewed |
+| Standard (preapproved) | <span class="tpl-field tpl-fill">Fill in: for example routine patches through the patch management tools, adding a user to an existing role, and changes through the deployment pipeline that meet the conditions below</span> | Approved once as a class by the board; listed in Appendix B | Done once for the class, and reviewed when the class is reviewed |
 | Normal | Any change not standard or emergency | The change control board, before implementation | Before the board decides |
 | Emergency (unscheduled) | <span class="tpl-field tpl-fill">Fill in: for example a fix for a known exploited vulnerability that cannot wait for the next meeting</span> | <span class="tpl-field tpl-fill">Fill in: the role that may approve an emergency change, for example the system owner</span>, then the board at its next meeting | As soon as practical, before the board reviews it |
 
 Changes found by monitoring that have no approved request are treated as unauthorized: they are analyzed for their security impact, reversed or approved after the fact by the board, and investigated as a possible incident where the cause is unknown (SP 800-128 section 3.4).
+
+**Pipeline changes.** A change made through <span class="tpl-field tpl-fill">Fill in: the deployment pipeline, by name, or &quot;not applicable&quot; if the system has none</span> is a standard change, and the pipeline's own records are its change record in place of a change request form, when all of these hold (CM-3, CM-4):
+
+1. It falls within a pipeline change class in Appendix B, and touches nothing on that class's exclusion list.
+2. The pipeline is the only way the change reaches production. People have no direct write access to production, and the pipeline deploys with an identity used for nothing else (CM-5).
+3. A reviewer other than the author approves the merge request before it merges, and records there that the change is within the class. A commit added after approval needs a new approval (CM-3b).
+4. The tests and security gates the class lists pass before the production stage, and a failing gate stops the deployment (CM-3(2)).
+5. The artifact deployed to production is the artifact that was tested. The deployment record names it, by digest, and the commit it was built from (CM-3d).
+6. The post-deployment checks the class lists run and pass; if they fail, the change is rolled back or recorded as a finding (CM-4(2)).
+7. The merge request, its review, the run log, the gate results and the deployment record are kept for <span class="tpl-field tpl-param">Fill in: the time period to retain records of configuration-controlled changes <span class="tpl-typical">Typical: at least one year, or the life of the system if longer</span></span>, in <span class="tpl-field tpl-fill">Fill in: the location, if the pipeline platform deletes logs sooner</span> (CM-3e).
+
+A pipeline change that fails any condition is a normal change, and a change that bypasses a gate is an emergency change; each goes on the change request form, with the pipeline run attached as its test and implementation record. The <span class="tpl-field tpl-org">System owner</span> reviews the pipeline classes <span class="tpl-field tpl-fill">Fill in: frequency, for example monthly</span>: deployments compared with merge requests, gate overrides, failed checks, and drift between production and version control. The review and its actions are reported to the board (CM-3f, CM-3g).
+
+:::note[Guidance]
+SP 800-128 section 3.1.1 lets an organization designate "the types of changes that are preapproved (i.e., changes that are not sent to the CCB for approval)", and its footnote adds that "Preapproved changes are still tested and documented prior to implementation." Section 3.3.2, steps ii and iii, allows change requests to be tracked and approved electronically in automated tools, and a preapproved change to be made "without further analysis or approval". So the pipeline's record can be the change record, as long as it holds the request, review, test, implementation and verification that the steps need. Build each class's exclusion list from the kinds of change that SP 800-37 Rev. 2, Appendix F, says may be significant, so that a significant change never passes as a standard one. Delete this paragraph and Appendix B's pipeline row if the system has no deployment pipeline. The guide's [change management under continuous delivery](/devsecops/change-management/) page explains each condition and the evidence an assessor checks.
+:::
 
 ##### 3.3.2 Security impact analysis
 
@@ -316,6 +332,7 @@ This charter follows the sample in SP 800-128 Appendix H, which has six parts: p
 | Standard change | Conditions | Impact analysis reference | Approved by the board on | Next review |
 | --- | --- | --- | --- | --- |
 | <span class="tpl-field tpl-fill">Fill in: for example monthly operating system updates through the patch management tools</span> | <span class="tpl-field tpl-fill">Fill in: for example vendor security updates only, deployed in the test group first</span> | <span class="tpl-field tpl-fill">Fill in: change request ID of the class analysis</span> | <span class="tpl-field tpl-fill">Fill in: date</span> | <span class="tpl-field tpl-fill">Fill in: date</span> |
+| <span class="tpl-field tpl-fill">Fill in: for example application and infrastructure-as-code changes to the system's services through the deployment pipeline</span> | The conditions under Pipeline changes in section 3.3.1. Required tests and gates: <span class="tpl-field tpl-fill">Fill in: for example unit and integration tests, static analysis, dependency and container scans with no unaccepted high or critical findings, and an infrastructure-as-code policy check</span>. Post-deployment checks: <span class="tpl-field tpl-fill">Fill in: for example smoke tests and a configuration compliance scan of the changed resources</span>. Excluded: <span class="tpl-field tpl-fill">Fill in: for example changes to ports, protocols or services; cryptography, authentication or authorization; how personal information is processed, or new information types; interconnections and external services; operating systems, middleware or platforms; security or privacy controls, including logging; and the pipeline's own gates, approval rules, identity or secrets</span> | <span class="tpl-field tpl-fill">Fill in: change request ID of the class analysis</span> | <span class="tpl-field tpl-fill">Fill in: date</span> | <span class="tpl-field tpl-fill">Fill in: date</span> |
 
 ### Appendix C. References
 

@@ -211,6 +211,8 @@ export default defineConfig({
 						{ label: 'Reports', collapsed: true, items: [{ autogenerate: { directory: 'templates/reports' } }] },
 					],
 				},
+				// PRD DSO-01: after Methods (Phase 4, not yet added) and before the AI guide.
+				{ label: 'DevSecOps', items: [{ autogenerate: { directory: 'devsecops' } }] },
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },
 				{ label: 'Technology playbooks', items: [{ autogenerate: { directory: 'technology' } }] },
 				{ label: 'Reference', items: [{ autogenerate: { directory: 'reference' } }] },

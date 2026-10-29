@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.17 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.18 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -84,7 +84,7 @@ As of Oct 29, 2026, Phase 3 is complete (kit v2.0.0 released) and approved by th
 
 | Area | Status | Location |
 | --- | --- | --- |
-| Stack | Astro 7.3 with Starlight 0.42, Node 22.12+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
+| Stack | Astro 7.4 with Starlight 0.42, Node 22.12+, Pagefind search, sitemap | `package.json`, `astro.config.mjs` |
 | Deploy | GitHub Actions to GitHub Pages at `https://kston83.github.io/nist-guide/` (subpath; see `BASE_PATH`) | `.github/workflows/deploy.yml` |
 | Checks | On every PR, required on `main`: tests, Markdown and template lint, spell check, generated pages current, build with the kit, links, search and accessibility. Actions pinned to SHAs; Dependabot | `.github/workflows/check.yml`, `scripts/` |
 | Releases | Tagging `vX.Y.Z` on `main` publishes the kit to a GitHub Release; kit v1.0.0 released Sep 28, 2026, and v2.0.0 Oct 19, 2026 | `.github/workflows/release.yml` |
@@ -634,7 +634,7 @@ The site stays fully static and free to host; anything that needs a server, a da
 
 | Area | Requirement |
 | --- | --- |
-| Framework | Astro Starlight as installed (Astro 7.3, Starlight 0.42). Upgrade only in a dedicated pull request with a clean build |
+| Framework | Astro Starlight as installed (Astro 7.4, Starlight 0.42). Upgrade only in a dedicated pull request with a clean build |
 | Runtime | Node 22.12 or later locally (Astro 7's minimum); CI pins Node 24 in `check.yml` and `release.yml` and uses the `withastro/action` default for deploy |
 | Hosting | GitHub Pages via `deploy.yml` at `https://kston83.github.io/nist-guide/`; custom domain later via `public/CNAME`, `SITE_URL` and `BASE_PATH = '/'` |
 | Links | Root-relative links in Markdown are rebased automatically; links in components and MDX props use `withBase()` from `src/lib/url.ts` |
@@ -793,3 +793,4 @@ None of these block Phase 1.
 | 3.15 | Oct 27, 2026 | Owner decision: PRES-07 reverted and withdrawn; back to the teal accent on Starlight's defaults, on the site and in the Word styles (Current state, Presentation, Technical constraints, Decided) |
 | 3.16 | Oct 28, 2026 | Owner's Phase 3 review: Phase 3 approved; the SSDF source (Excel table), worksheet "Who decides" and FAR decisions recorded (Current state, SSDF-05, Open questions, Decided). No change in scope |
 | 3.17 | Oct 29, 2026 | Owner decisions (Phase 4 plan, #120): DevSecOps added as a third strand (Summary, Vision, Success measures, persona, Information architecture, Page types, front matter, DSO-01 to DSO-06, LINK-01, Sourcing, Copyright, Content backlog, Phase 4 and 7 rows, Non-goals, Decided). Phase 4 renamed "Methods, the SSDF and DevSecOps"; METH-03 batch 1 (SP 800-128, 800-137, 800-40, 800-161) stays in Phase 4 and batches 2 and 3 move to Phase 7. The NCCoE DevSecOps practice guide is cited as a draft; the DoD Activities & Tools Guidebook may be adapted. #162 review: topic 5 anchored to SP 800-37 Rev. 2 task P-5; DSO-03 states the missing `controls` or `description` check as a build failure; Phase order row renamed. Instructions for Claude Code and `CLAUDE.md` gain the DevSecOps source rule |
+| 3.18 | Oct 29, 2026 | DEPS-02, no change in scope: Astro 7.4 (Current state, Technical requirements and constraints) |

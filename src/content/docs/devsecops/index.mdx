@@ -40,7 +40,7 @@ Where NIST settles a question, the page follows NIST. Where it does not, the pag
 | Step | What changes for a pipeline team |
 | --- | --- |
 | [Prepare](/rmf/steps/prepare/) | Decide whether the pipeline (source repository, build runners, artifact registry, deployment identity) sits inside the authorization boundary (task P-11) and list its components as assets (P-10). Identify what a platform provides as common controls (P-5). |
-| [Categorize](/rmf/steps/categorize/) | Describe how the system is built and deployed in the system description (C-1). Deployments rarely change the categorization, but a new information type does, and is a significant change. |
+| [Categorize](/rmf/steps/categorize/) | Describe how the system is built and deployed in the system description (C-1). Deployments rarely change the categorization, but a new information type may, and is then a significant change. |
 | [Select](/rmf/steps/select/) | Set parameters to fit the pipeline, such as the change control body that oversees a preapproved pipeline class (S-2). Write in the system security plan which controls the pipeline implements (S-4), and which pipeline outputs feed monitoring (S-5). |
 | [Implement](/rmf/steps/implement/) | Many technical controls are implemented as code: infrastructure, configuration and gates (I-1). The as-implemented state is read from version control and recorded (I-2). |
 | [Assess](/rmf/steps/assess/) | Plan to use pipeline outputs as evidence, and to sample from deployment history (A-2). The assessor still examines, interviews and tests (A-3). |
@@ -77,6 +77,6 @@ Status as of October 2026. Each is rechecked at every kit release. OWASP text is
 | [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | CICD-SEC-1 to CICD-SEC-10 | Lab project | CC BY-SA 4.0: cite, do not copy |
 | [DoD Enterprise DevSecOps Activities & Tools Guidebook](https://dodcio.defense.gov/Portals/0/Documents/Library/DevSecOpsActivitesToolsGuidebook.pdf) | Version 2.5 | April 2025; cleared September 15, 2025 | Distribution Statement A: may be adapted with citation |
 | [NSA and CISA, Defending CI/CD Environments](https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF) | Version 1.0 | June 2023, TLP:CLEAR | U.S. government work: cite and summarize |
-| [FedRAMP Consolidated Rules for 2026](https://www.fedramp.gov/2026/) and the [rules repository](https://github.com/FedRAMP/rules) | Rules version 2026.10.13.01 | In effect July 4, 2026, enforced from January 1, 2027; FedRAMP 20x in Phase 3 | No license file: cite IDs and titles as FedRAMP's; not imported |
+| [FedRAMP Consolidated Rules for 2026](https://www.fedramp.gov/2026/) and the [rules repository](https://github.com/FedRAMP/rules) | Rules version 2026.10.13.01 | Optional early adoption from July 4, 2026; mandatory from January 1, 2027 ([timeline](https://www.fedramp.gov/2026/timeline/)); FedRAMP 20x in Phase 3 | No license file: cite IDs and titles as FedRAMP's; not imported |
 
 FedRAMP applies to cloud services that seek FedRAMP Certification. Its Key Security Indicators and rules appear on these pages as a model of outcome-based evidence, always labelled as FedRAMP's. Most agency systems are authorized under the RMF outside FedRAMP.

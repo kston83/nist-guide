@@ -19,7 +19,7 @@ controls: [sc-1, sc-2, sc-3, sc-4, sc-5, sc-7, sc-7.3, sc-7.4, sc-7.5, sc-7.7, s
 
 Every decision the System and Communications Protection family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every SC control in the baseline, with a typical value where the [System and Communications Protection Policy](/templates/policies/sc/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -48,9 +48,9 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current system and communications protection policy to be reviewed and updated | SC-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
 | The frequency at which the current system and communications protection procedures are reviewed and updated | SC-1 | Annually | Chief Information Security Officer |
 | Events that would require the system and communications protection procedures to be reviewed and updated | SC-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
-| Types of denial-of-service events to be protected against or limited | SC-5 | Network floods, protocol attacks and application-layer floods against internet-facing services | Chief Information Security Officer |
-| Select one: protect against; limit | SC-5 | Protect against | Chief Information Security Officer |
-| Controls to achieve the denial-of-service objective by type of denial-of-service event | SC-5 | An upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically | Chief Information Security Officer |
+| Types of denial-of-service events to be protected against or limited | SC-5 | Network floods, protocol attacks and application-layer floods against internet-facing services | System owner |
+| Select one: protect against; limit | SC-5 | Protect against | System owner |
+| Controls to achieve the denial-of-service objective by type of denial-of-service event | SC-5 | An upstream or cloud denial-of-service protection service for internet-facing services, rate limiting at load balancers and application gateways, and capacity that scales automatically | System owner |
 | Select one: physically; logically | SC-7 | Logically | Chief Information Security Officer |
 | The frequency at which to review exceptions to traffic flow policy | SC-7(4) | At least annually, and when the system changes | Chief Information Security Officer |
 | Select one or more: at managed interfaces; for organization-defined systems (see its row below) | SC-7(5) | At managed interfaces | Chief Information Security Officer |

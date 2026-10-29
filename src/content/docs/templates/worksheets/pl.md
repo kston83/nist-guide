@@ -19,7 +19,7 @@ controls: [pl-1, pl-2, pl-4, pl-4.1, pl-8, pl-9, pl-10, pl-11]
 
 Every decision the Planning family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every PL control in the baseline, with a typical value where the [Planning Policy](/templates/policies/pl/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 

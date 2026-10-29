@@ -19,7 +19,7 @@ controls: [cp-1, cp-2, cp-2.1, cp-2.2, cp-2.3, cp-2.5, cp-2.8, cp-3, cp-3.1, cp-
 
 Every decision the Contingency Planning family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every CP control in the baseline, with a typical value where the [Contingency Planning Policy](/templates/policies/cp/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -47,13 +47,13 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current contingency planning policy to be reviewed and updated | CP-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
 | The frequency at which the current contingency planning procedures are reviewed and updated | CP-1 | Annually | Chief Information Security Officer |
 | Events that would require procedures to be reviewed and updated | CP-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
-| Personnel or roles to review a contingency plan | CP-2 | The system owner and the system security officer | Chief Information Security Officer |
-| Personnel or roles to approve a contingency plan | CP-2 | The authorizing official, or the business owner the authorizing official names | Chief Information Security Officer |
-| Key contingency personnel (identified by name and/or by role) to whom copies of the contingency plan are distributed | CP-2 | The contingency team members, by role | Chief Information Security Officer |
-| Key contingency organizational elements to which copies of the contingency plan are distributed | CP-2 | The operations, facilities and communications functions | Chief Information Security Officer |
-| Frequency of contingency plan review | CP-2 | Annually | Chief Information Security Officer |
-| Key contingency personnel (identified by name and/or by role) to communicate changes to | CP-2 | The contingency team members, by role | Chief Information Security Officer |
-| Key contingency organizational elements to communicate changes to | CP-2 | The operations, facilities and communications functions | Chief Information Security Officer |
+| Personnel or roles to review a contingency plan | CP-2 | The system owner and the system security officer | System owner |
+| Personnel or roles to approve a contingency plan | CP-2 | The authorizing official, or the business owner the authorizing official names | System owner |
+| Key contingency personnel (identified by name and/or by role) to whom copies of the contingency plan are distributed | CP-2 | The contingency team members, by role | System owner |
+| Key contingency organizational elements to which copies of the contingency plan are distributed | CP-2 | The operations, facilities and communications functions | System owner |
+| Frequency of contingency plan review | CP-2 | Annually | System owner |
+| Key contingency personnel (identified by name and/or by role) to communicate changes to | CP-2 | The contingency team members, by role | System owner |
+| Key contingency organizational elements to communicate changes to | CP-2 | The operations, facilities and communications functions | System owner |
 | Select one: all; essential | CP-2(3) | Essential | Chief Information Security Officer |
 | The contingency plan activation time period within which to resume mission and business functions | CP-2(3) | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
 | Select one: all; essential | CP-2(8) | Essential | Chief Information Security Officer |
@@ -75,5 +75,5 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Frequency at which to test backup information for media reliability | CP-9(1) | Quarterly | Chief Information Security Officer |
 | Frequency at which to test backup information for information integrity | CP-9(1) | Quarterly | Chief Information Security Officer |
 | Backup information to protect against unauthorized disclosure and modification | CP-9(8) | All backup information | Chief Information Security Officer |
-| Time period consistent with recovery time and recovery point objectives for the recovery of the system | CP-10 | The recovery time objective set in the contingency plan from the business impact analysis | Chief Information Security Officer |
-| Time period consistent with recovery time and recovery point objectives for the reconstitution of the system | CP-10 | The reconstitution time set in the contingency plan | Chief Information Security Officer |
+| Time period consistent with recovery time and recovery point objectives for the recovery of the system | CP-10 | The recovery time objective set in the contingency plan from the business impact analysis | System owner |
+| Time period consistent with recovery time and recovery point objectives for the reconstitution of the system | CP-10 | The reconstitution time set in the contingency plan | System owner |

@@ -19,7 +19,7 @@ controls: [ps-1, ps-2, ps-3, ps-4, ps-4.2, ps-5, ps-6, ps-7, ps-8, ps-9]
 
 Every decision the Personnel Security family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every PS control in the baseline, with a typical value where the [Personnel Security Policy](/templates/policies/ps/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 
@@ -48,9 +48,9 @@ Typical values are starting points, not recommendations for every system. "Who d
 | Events that would require the current personnel security policy to be reviewed and updated | PS-1 | Assessment or audit findings, security incidents or breaches, and changes in applicable laws, executive orders, directives, regulations, policies, standards or guidelines | Chief Information Security Officer |
 | The frequency at which the current personnel security procedures are reviewed and updated | PS-1 | Annually | Chief Information Security Officer |
 | Events that would require the personnel security procedures to be reviewed and updated | PS-1 | The same events as the policy, and changes to the systems, tools or services the procedures describe | Chief Information Security Officer |
-| The frequency at which to review and update position risk designations | PS-2 | At least every 3 years, and whenever a position's duties change | Chief Information Security Officer |
-| Conditions requiring rescreening of individuals | PS-3 | The individual moves to a position with a higher risk designation, or information comes to light that raises a concern about their suitability | Chief Information Security Officer |
-| The frequency of rescreening individuals where it is so indicated | PS-3 | Every 5 years for positions designated high risk | Chief Information Security Officer |
+| The frequency at which to review and update position risk designations | PS-2 | At least every 3 years, and whenever a position's duties change | Human resources office, with the Chief Information Security Officer |
+| Conditions requiring rescreening of individuals | PS-3 | The individual moves to a position with a higher risk designation, or information comes to light that raises a concern about their suitability | Human resources office, with the Chief Information Security Officer |
+| The frequency of rescreening individuals where it is so indicated | PS-3 | Every 5 years for positions designated high risk | Human resources office, with the Chief Information Security Officer |
 | A time period within which to disable system access | PS-4 | 24 hours, or the same day for privileged users; for an involuntary termination, no later than when the individual is told | Chief Information Security Officer |
 | Information security topics to be discussed when conducting exit interviews | PS-4 | The individual's continuing duty not to disclose organizational information, the return of all organizational property and information, and that former credentials must not be used | Chief Information Security Officer |
 | Transfer or reassignment actions to be initiated following transfer or reassignment | PS-5 | A review of the individual's access by the losing and gaining supervisors, removal of access the new position does not need, and the return or issue of keys, badges and equipment | Chief Information Security Officer |

@@ -19,7 +19,7 @@ controls: [ac-1, ac-2, ac-2.1, ac-2.2, ac-2.3, ac-2.4, ac-2.5, ac-2.11, ac-2.12,
 
 Every decision the Access Control family asks your organization to make before its policy and procedures can be final: the family's key questions, then each organization-defined parameter of every AC control in the baseline, with a typical value where the [Access Control Policy](/templates/policies/ac/) gives one. Download the spreadsheet, fill the "Your value" column with the people who decide, and carry the values into the policy's highlighted fields.
 
-Typical values are starting points, not recommendations for every system. "Who decides" defaults to the role accountable for the family policy; many organizations delegate system-level values to the system owner.
+Typical values are starting points, not recommendations for every system. For a parameter, "Who decides" is the decider of the family question that lists its control; when no question lists the control, or the questions that do name different deciders, it is the role accountable for the family policy. Many organizations delegate system-level values to the system owner.
 
 ## Downloads
 

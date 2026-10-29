@@ -168,7 +168,7 @@ The sidebar is defined in `astro.config.mjs`: one group per family under SP 800-
 | Build | `npm run build` | A content schema or template check fails, or the kit cannot be built |
 | Guidance shows | `npm run check:guidance` (in `build`) | A control page with `guidance:` set has no rendered "How to apply it" heading |
 | Links | `npm run check:links` | An internal link or anchor in `dist/` points nowhere |
-| Search | `npm run check:search` | A control or enhancement ID does not return its page first; every base control ID in the catalog is checked as "AC-2", "ac-2" and "AC2" |
+| Search | `npm run check:search` | A control or enhancement ID does not return its page first; every base control ID in the catalog is checked as "AC-2", "ac-2" and "AC2"; a template title (such as "incident response plan") does not return the template within the first three results (PRD 3.19) |
 | Accessibility | `npm run check:a11y` | axe (through pa11y-ci) finds a serious or critical issue on a page in `.pa11yci.json`, in the light or dark theme |
 
 ## Workflows

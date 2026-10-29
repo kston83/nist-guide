@@ -19,6 +19,7 @@ export interface Reference {
 const KINDS: [string, string][] = [
 	['templates', 'Template'],
 	['ssdf', 'SSDF practice'],
+	['devsecops', 'DevSecOps'], // PRD DSO-03
 	['industries', 'Industry guide'],
 	['technology', 'Technology playbook'],
 ];

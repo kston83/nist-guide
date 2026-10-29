@@ -1,0 +1,82 @@
+---
+title: DevSecOps
+description: How a team that ships through a CI/CD pipeline meets the RMF and SP 800-53 controls, and proves it with the evidence an assessor checks.
+sidebar:
+  label: Overview
+  order: 0
+guidance: draft
+---
+
+import SectionIndex from '../../../components/SectionIndex.astro';
+
+This section is for teams that build and run a system through a CI/CD pipeline and need it authorized under the RMF. It shows, one topic at a time, how the pipeline meets the controls and which of its outputs an assessor will accept. It covers vendor-neutral process and evidence, with the status of each source as of October 2026.
+
+DevSecOps covers the systems a team builds and runs, and the controls that the pipeline and infrastructure as code deliver. It does not cover how people, physical or governance controls are met, or purchased software the team neither builds nor runs. Platform settings, such as how to configure a particular cloud or Kubernetes service, belong in the [technology playbooks](/technology/).
+
+## How each page is built
+
+Every topic page follows the same chain, from the requirement down to the evidence:
+
+| Part | What the page uses |
+| --- | --- |
+| Requirement | The RMF and SP 800-53: the guide's [control pages](/controls/), with the SP 800-53A objectives that matter |
+| Structure | The NIST publication for the topic: SP 800-128 for change and configuration, SP 800-40 for findings and remediation, SP 800-204D for the pipeline, SP 800-137 for continuous monitoring, and for building software the SSDF, with the NCCoE's draft DevSecOps practice guide (SP 1800-44) |
+| Team practice | OWASP DevSecOps Guideline sections, DSOMM activities and the OWASP Top 10 CI/CD Security Risks, cited by name and ID; the DoD DevSecOps Activities & Tools Guidebook as the government cross-check |
+| Evidence | The SP 800-53A assessment objectives and methods (examine, interview, test), and the pipeline output that meets each; FedRAMP 20x Key Security Indicators as a labelled model |
+
+Where NIST settles a question, the page follows NIST. Where it does not, the page gives practice that should pass an assessment, and says so.
+
+## How it relates to the rest of the guide
+
+- **Control pages** say what each control requires. Each topic page names its controls in front matter, so it appears under "Referenced by" on those control pages.
+- **[Templates](/templates/)** are the program documents. A topic page says which templates to use, and changes a template where a pipeline changes what the template should say.
+- **Methods** are NIST's published ways of meeting controls, starting with the SSDF; they are being added in Phase 4 of the [roadmap](/reference/roadmap/). A topic page cites the method that structures it.
+- **[Technology playbooks](/technology/)** hold the platform settings. A topic page stops at the vendor-neutral process.
+
+## The seven steps for a system that ships through a pipeline
+
+[SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final) applies the RMF to any type of development approach, "including Agile and DevOps approaches". The steps and tasks do not change; what changes is where their outputs come from.
+
+| Step | What changes for a pipeline team |
+| --- | --- |
+| [Prepare](/rmf/steps/prepare/) | Decide whether the pipeline (source repository, build runners, artifact registry, deployment identity) sits inside the authorization boundary (task P-11) and list its components as assets (P-10). Identify what a platform provides as common controls (P-5). |
+| [Categorize](/rmf/steps/categorize/) | Describe how the system is built and deployed in the system description (C-1). Deployments rarely change the categorization, but a new information type may, and is then a significant change. |
+| [Select](/rmf/steps/select/) | Set parameters to fit the pipeline, such as the change control body that oversees a preapproved pipeline class (S-2). Write in the system security plan which controls the pipeline implements (S-4), and which pipeline outputs feed monitoring (S-5). |
+| [Implement](/rmf/steps/implement/) | Many technical controls are implemented as code: infrastructure, configuration and gates (I-1). The as-implemented state is read from version control and recorded (I-2). |
+| [Assess](/rmf/steps/assess/) | Plan to use pipeline outputs as evidence, and to sample from deployment history (A-2). The assessor still examines, interviews and tests (A-3). |
+| [Authorize](/rmf/steps/authorize/) | The authorizing official's terms and conditions can define significant change for the system and accept a preapproved pipeline class (R-4). |
+| [Monitor](/rmf/steps/monitor/) | The pipeline is where most change happens, so it is where change is monitored (M-1). Its outputs feed ongoing assessments (M-2) and ongoing authorization (M-6). |
+
+## Topics
+
+<SectionIndex section="devsecops" heading="Topic">
+
+No topic page is published yet.
+
+</SectionIndex>
+
+More topics follow in Phase 4: configuration baselines as code; scanner findings to risk decisions and the plan of action and milestones; the pipeline as part of the system boundary, with its secrets and machine identities; inheritance from a platform; and continuous monitoring from pipeline output.
+
+## Sources and their status
+
+Status as of October 2026. Each is rechecked at every kit release. OWASP text is licensed CC BY-SA 4.0, which does not allow it into this guide's pages or CC0 templates, so the pages cite OWASP names and IDs and explain them in the guide's own words.
+
+| Source | Version or edition | Status and date | License or reuse |
+| --- | --- | --- | --- |
+| [NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), Risk Management Framework | Revision 2 | Final, December 2018 | Public domain |
+| [NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), Security and Privacy Controls | Release 5.2.0 | Final, September 2020, updated December 10, 2020; release August 27, 2025 | Public domain |
+| [NIST SP 800-53A Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/a/r5/final), Assessing Security and Privacy Controls | Release 5.2.0 | Final, January 2022; release August 27, 2025 | Public domain |
+| [NIST SP 800-128](https://csrc.nist.gov/pubs/sp/800/128/upd1/final), Security-Focused Configuration Management | Updates as of October 10, 2019 | Final, August 2011 | Public domain |
+| [NIST SP 800-137](https://csrc.nist.gov/pubs/sp/800/137/final), Information Security Continuous Monitoring | Original | Final, September 2011 | Public domain |
+| [NIST SP 800-40 Rev. 4](https://csrc.nist.gov/pubs/sp/800/40/r4/final), Enterprise Patch Management Planning | Revision 4 | Final, April 2022 | Public domain |
+| [NIST SP 800-204D](https://csrc.nist.gov/pubs/sp/800/204/d/final), Software Supply Chain Security in DevSecOps CI/CD Pipelines | Original | Final, February 2024 | Public domain |
+| [NIST SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final), Secure Software Development Framework | SSDF 1.1 | Final, February 2022; SSDF 1.2 (Rev. 1) is an initial public draft, December 2025 | Public domain |
+| [NCCoE DevSecOps Practices](https://pages.nist.gov/nccoe-devsecops/) (SP 1800-44) | Live document | Draft: open for comment through November 9, 2026; cited only as a draft | Public domain |
+| [OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/) | No version number | Incubator project | CC BY-SA 4.0: cite, do not copy |
+| [OWASP DevSecOps Maturity Model (DSOMM)](https://owasp.org/www-project-devsecops-maturity-model/) | Current model | Lab project | CC BY-SA content, GPL-3.0 data: cite, do not copy |
+| [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | CICD-SEC-1 to CICD-SEC-10 | Lab project | CC BY-SA 4.0: cite, do not copy |
+| [DoD Enterprise DevSecOps Activities & Tools Guidebook](https://dodcio.defense.gov/Portals/0/Documents/Library/DevSecOpsActivitesToolsGuidebook.pdf) | Version 2.5 | April 2025; cleared September 15, 2025 | Distribution Statement A: may be adapted with citation |
+| [NSA and CISA, Defending CI/CD Environments](https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF) | Version 1.0 | June 2023, TLP:CLEAR | U.S. government work: cite and summarize |
+| [FedRAMP Consolidated Rules for 2026](https://www.fedramp.gov/2026/) and the [rules repository](https://github.com/FedRAMP/rules) | Rules version 2026.10.13.01 | Optional early adoption from July 4, 2026; mandatory from January 1, 2027 ([timeline](https://www.fedramp.gov/2026/timeline/)); FedRAMP 20x in Phase 3 | No license file: cite IDs and titles as FedRAMP's; not imported |
+
+FedRAMP applies to cloud services that seek FedRAMP Certification. Its Key Security Indicators and rules appear on these pages as a model of outcome-based evidence, always labelled as FedRAMP's. Most agency systems are authorized under the RMF outside FedRAMP.

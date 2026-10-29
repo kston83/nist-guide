@@ -5,11 +5,18 @@
 // npm test can run it on plain objects shaped like docs collection entries.
 
 /**
+ * Sections whose pages must also name the controls they give guidance on, so
+ * each appears under "Referenced by" on those control pages (PRD DSO-03).
+ */
+export const CONTROLS_REQUIRED = ['devsecops'];
+
+/**
  * Pages under `section/`, except the section's own index and Starlight drafts
  * (`draft: true`, which production builds leave out, so a link would break),
  * sorted by sidebar order, then title. Throws when a page has no description,
- * so the build fails rather than showing a blank summary.
- * @param {{ id: string, data: { title: string, description?: string, draft?: boolean, sidebar?: { order?: number } } }[]} entries
+ * or, in a section listed in CONTROLS_REQUIRED, no `controls`, so the build
+ * fails rather than showing a blank summary or losing the page's links.
+ * @param {{ id: string, data: { title: string, description?: string, controls?: string[], draft?: boolean, sidebar?: { order?: number } } }[]} entries
  * @param {string} section
  */
 export function sectionPages(entries, section) {
@@ -21,6 +28,13 @@ export function sectionPages(entries, section) {
 		throw new Error(
 			`${section} index: give each page a front matter description, the one-line summary the index shows: ${missing.join(', ')}.`,
 		);
+	if (CONTROLS_REQUIRED.includes(section)) {
+		const noControls = pages.filter((e) => !e.data.controls?.length).map((e) => e.id);
+		if (noControls.length)
+			throw new Error(
+				`${section} index: give each page a front matter \`controls\` list, the controls it gives guidance on: ${noControls.join(', ')}.`,
+			);
+	}
 	const order = (e) => e.data.sidebar?.order ?? Number.MAX_SAFE_INTEGER;
 	return pages
 		.sort((a, b) => order(a) - order(b) || a.data.title.localeCompare(b.data.title))

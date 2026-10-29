@@ -9,6 +9,7 @@ const pages = [
 	{ id: 'templates/account-procedure', title: 'Account procedure', controls: ['ac-2', 'ac-2.3'] },
 	{ id: 'articles/lessons', title: 'Lessons learned', controls: ['ac-2'] },
 	{ id: 'technology/aws', title: 'AWS', controls: ['ac-20', 'ac-21'] },
+	{ id: 'devsecops/pipeline-boundary', title: 'The pipeline as part of the boundary', controls: ['ac-2', 'ia-5'] },
 ];
 
 test('lists every page citing the control or its enhancements, grouped by kind', () => {
@@ -16,6 +17,7 @@ test('lists every page citing the control or its enhancements, grouped by kind',
 		referencesFor('AC-2', pages).map((r) => [r.kind, r.title]),
 		[
 			['Template', 'Account procedure'],
+			['DevSecOps', 'The pipeline as part of the boundary'],
 			['Industry guide', 'Healthcare'],
 			['Technology playbook', 'Microsoft Entra ID'],
 			['Page', 'Lessons learned'],

@@ -60,6 +60,7 @@ src/content/docs/
     baselines/         Low, Moderate, High and Privacy lists, generated
     coverage.mdx       Guidance and policy-clause status, built at build time
   templates/           Template pages, generated from templates/ (never edit by hand)
+  devsecops/           DevSecOps: an overview and one page per topic, for teams that ship through a pipeline
   industries/          Industry guides (planned)
   technology/          Technology playbooks (planned)
   reference/           Library, glossary, page templates, roadmap, changelog (generated, not committed)
@@ -81,7 +82,7 @@ src/styles/print.css   Print styles (print only)
 
 ## Writing guidance
 
-- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. An industry guide or technology playbook also appears on its section's index (`industries/`, `technology/`), with its front matter `description` as the one-line summary; the build fails if it has none. The templates index lists every template page the same way, from the description each generated page carries. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
+- **New pages** are Markdown files. Put them in the right folder and they appear in the sidebar automatically. An industry guide, technology playbook or DevSecOps topic page also appears on its section's index (`industries/`, `technology/`, `devsecops/`), with its front matter `description` as the one-line summary; the build fails if it has none. A page's `controls` front matter (lowercase ids, such as `[cm-3, cm-4]`) lists it under "Referenced by" on those control pages, labelled with its section (for example "DevSecOps"); a DevSecOps topic page fails the build without one. The templates index lists every template page the same way, from the description each generated page carries. Templates for industry guides, technology playbooks and control guidance are on the site at *Reference → Page templates*.
 - **Control guidance** goes at the bottom of each control's file, below `<!-- guidance: write below this line -->`. Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`; that part is regenerated. `controls/ac/ac-2.md` is the worked example. Add `guidance: draft` to the front matter when you write guidance; the generator keeps any front matter key other than `title`, `description`, `sidebar` and `control`.
 - **Links** between pages use site paths, for example `[AC-2](/controls/ac/ac-2/)` or `[Assess](/rmf/steps/assess/)`. Enhancements have anchors: `/controls/si/si-2/#si-2.7`.
   Markdown links are rebased onto the site base path automatically. In `.astro` components and MDX component props (such as `<LinkCard href>`), wrap paths in `withBase()` from `src/lib/url.ts`.

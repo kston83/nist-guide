@@ -201,11 +201,27 @@ These types of changes to the system are configuration-controlled: {{fill:the ty
 
 | Change type | Examples | Approval | Impact analysis |
 | --- | --- | --- | --- |
-| Standard (preapproved) | {{fill:for example routine patches through the patch management tools, adding a user to an existing role}} | Approved once as a class by the board; listed in Appendix B | Done once for the class, and reviewed when the class is reviewed |
+| Standard (preapproved) | {{fill:for example routine patches through the patch management tools, adding a user to an existing role, and changes through the deployment pipeline that meet the conditions below}} | Approved once as a class by the board; listed in Appendix B | Done once for the class, and reviewed when the class is reviewed |
 | Normal | Any change not standard or emergency | The change control board, before implementation | Before the board decides |
 | Emergency (unscheduled) | {{fill:for example a fix for a known exploited vulnerability that cannot wait for the next meeting}} | {{fill:the role that may approve an emergency change, for example the system owner}}, then the board at its next meeting | As soon as practical, before the board reviews it |
 
 Changes found by monitoring that have no approved request are treated as unauthorized: they are analyzed for their security impact, reversed or approved after the fact by the board, and investigated as a possible incident where the cause is unknown (SP 800-128 section 3.4).
+
+**Pipeline changes.** A change made through {{fill:the deployment pipeline, by name, or "not applicable" if the system has none}} is a standard change, and the pipeline's own records are its change record in place of a change request form, when all of these hold (CM-3, CM-4):
+
+1. It falls within a pipeline change class in Appendix B, and touches nothing on that class's exclusion list.
+2. The pipeline is the only way the change reaches production. People have no direct write access to production except through the emergency access process, where each use is recorded and reviewed, and the pipeline deploys with an identity used for nothing else (CM-5).
+3. A reviewer other than the author approves the merge request before it merges, and records there that the change is within the class. A commit added after approval needs a new approval (CM-3b).
+4. The tests and security gates the class lists pass before the production stage, and a failing gate stops the deployment (CM-3(2)).
+5. The artifact deployed to production is the artifact that was tested. The deployment record names it, by digest, and the commit it was built from (CM-3d).
+6. The post-deployment checks the class lists run and pass; if they fail, the change is rolled back or recorded as a finding (CM-4(2)).
+7. The merge request, its review, the run log, the gate results and the deployment record are kept for {{param:cm-03_odp.01}}, in {{fill:the location, if the pipeline platform deletes logs sooner}} (CM-3e).
+
+A pipeline change that fails any condition is a normal change. A change that bypasses a gate with the approval of the emergency approver named in the table above is an emergency change; a bypass without that approval is an unauthorized change, handled as above. Normal and emergency changes go on the change request form, with the pipeline run attached as its test and implementation record. The {{org:system-owner}} reviews the pipeline classes {{fill:frequency, for example monthly}}: deployments compared with merge requests, gate overrides, failed checks, and drift between production and version control. The review and its actions are reported to the board (CM-3f, CM-3g).
+
+:::guidance
+SP 800-128 section 3.1.1 lets an organization designate "the types of changes that are preapproved (i.e., changes that are not sent to the CCB for approval)", and its footnote adds that "Preapproved changes are still tested and documented prior to implementation." Section 3.3.2, steps ii and iii, allows change requests to be tracked and approved electronically in automated tools, and a preapproved change to be made "without further analysis or approval". So the pipeline's record can be the change record, as long as it holds the request, review, test, implementation and verification that the steps need. Build each class's exclusion list from the kinds of change that SP 800-37 Rev. 2, Appendix F, says may be significant, so that a significant change never passes as a standard one. Delete this paragraph and Appendix B's pipeline row if the system has no deployment pipeline. The guide's [change management under continuous delivery](/devsecops/change-management/) page explains each condition and the evidence an assessor checks.
+:::
 
 #### 3.3.2 Security impact analysis
 
@@ -296,6 +312,7 @@ This charter follows the sample in SP 800-128 Appendix H, which has six parts: p
 | Standard change | Conditions | Impact analysis reference | Approved by the board on | Next review |
 | --- | --- | --- | --- | --- |
 | {{fill:for example monthly operating system updates through the patch management tools}} | {{fill:for example vendor security updates only, deployed in the test group first}} | {{fill:change request ID of the class analysis}} | {{fill:date}} | {{fill:date}} |
+| {{fill:for example application and infrastructure-as-code changes to the system's services through the deployment pipeline}} | The conditions under Pipeline changes in section 3.3.1. Required tests and gates: {{fill:for example unit and integration tests, static analysis, dependency and container scans with no unaccepted high or critical findings, and an infrastructure-as-code policy check}}. Post-deployment checks: {{fill:for example smoke tests and a configuration compliance scan of the changed resources}}. Excluded: {{fill:for example changes to ports, protocols or services; cryptography, authentication or authorization; how personal information is processed, or new information types; interconnections and external services; operating systems, middleware or platforms; security or privacy controls, including logging; and the pipeline's own gates, approval rules, identity or secrets}} | {{fill:change request ID of the class analysis}} | {{fill:date}} | {{fill:date}} |
 
 ## Appendix C. References
 

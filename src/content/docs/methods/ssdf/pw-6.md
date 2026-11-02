@@ -1,6 +1,6 @@
 ---
 title: 'PW.6 Configure the Compilation, Interpreter, and Build Processes to Improve Executable Security'
-description: 'SSDF practice PW.6, Configure the Compilation, Interpreter, and Build Processes to Improve Executable Security (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice PW.6, Configure the Compilation, Interpreter, and Build Processes to Improve Executable Security (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'PW.6 Configure the Compilation, Interpreter, and Build Processes to Improve Executable Security'
   order: 13
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-15, sr-9]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice PW.6 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice PW.6 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -58,6 +59,15 @@ Determine which compiler, interpreter, and build tool features should be used an
 - **Example 7:** Make the approved tool configurations available as configuration-as-code so developers can readily use them.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [PW.6.1](#pw.6.1) | [SA-15](/controls/sa/sa-15/) |
+| [PW.6.2](#pw.6.2) | [SA-15](/controls/sa/sa-15/), [SR-9](/controls/sr/sr-9/) |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

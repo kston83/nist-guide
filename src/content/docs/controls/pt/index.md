@@ -12,6 +12,8 @@ sidebar:
 
 The Personally Identifiable Information Processing and Transparency family has 8 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
 
+NIST's implementation publications for this family, with their versions and status, are in the [methods index](/methods/#pt).
+
 | Control | Title | Low | Moderate | High | Privacy |
 | --- | --- | --- | --- | --- | --- |
 | [PT-1](/controls/pt/pt-1/) | Policy and Procedures |  |  |  | Yes |

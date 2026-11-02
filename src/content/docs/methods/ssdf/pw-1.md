@@ -1,6 +1,6 @@
 ---
 title: 'PW.1 Design Software to Meet Security Requirements and Mitigate Security Risks'
-description: 'SSDF practice PW.1, Design Software to Meet Security Requirements and Mitigate Security Risks (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice PW.1, Design Software to Meet Security Requirements and Mitigate Security Risks (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'PW.1 Design Software to Meet Security Requirements and Mitigate Security Risks'
   order: 9
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-8, sa-10, sa-11.2, sa-11.6, sa-15.5, sa-17]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice PW.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice PW.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -70,6 +71,16 @@ Where appropriate, build in support for using standardized security features and
 - **Example 3:** Define criteria for which security features and services must be supported by software to be developed.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [PW.1.1](#pw.1.1) | [SA-8](/controls/sa/sa-8/), [SA-11(2)](/controls/sa/sa-11/#sa-11.2), [SA-11(6)](/controls/sa/sa-11/#sa-11.6), [SA-15(5)](/controls/sa/sa-15/#sa-15.5) |
+| [PW.1.2](#pw.1.2) | [SA-8](/controls/sa/sa-8/), [SA-10](/controls/sa/sa-10/), [SA-17](/controls/sa/sa-17/) |
+| [PW.1.3](#pw.1.3) | None in NIST's table |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

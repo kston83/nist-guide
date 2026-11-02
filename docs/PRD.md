@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.19 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.20 · Nov 2, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -690,7 +690,7 @@ Save this document as `docs/PRD.md` in the repo and keep `CLAUDE.md` at the repo
 
 - One requirement or one content item per branch and commit, with the ID in the message, for example `CTRL-01: preserve hand-set front matter` or `TPL-03: assemble family policies`.
 - `main` is protected: open a pull request; the Check workflow must pass before merge. The owner merges PRs; don't merge them yourself.
-- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls` and `npm run templates` produce no diff.
+- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls`, `npm run ssdf` and `npm run templates` produce no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
 - Keep progress in three files and update them at the end of each task. `PROGRESS.md` at the repo root is the working state: the current phase, its plan table, notes for the next session and open questions. Keep it under 40 KB (a test checks), and move history out of it. `docs/progress-log.md` is the log: one row per pull request, newest first (requirement ID, status, date, notes). `docs/sources.md` is the source registry and its verification notes. When a pull request merges, mark it merged in the plan table and the log.
 - Prefer small, reviewable changes over large rewrites. Do not rename folders or slugs; existing links depend on them.
@@ -795,3 +795,4 @@ None of these block Phase 1.
 | 3.17 | Oct 29, 2026 | Owner decisions (Phase 4 plan, #120): DevSecOps added as a third strand (Summary, Vision, Success measures, persona, Information architecture, Page types, front matter, DSO-01 to DSO-06, LINK-01, Sourcing, Copyright, Content backlog, Phase 4 and 7 rows, Non-goals, Decided). Phase 4 renamed "Methods, the SSDF and DevSecOps"; METH-03 batch 1 (SP 800-128, 800-137, 800-40, 800-161) stays in Phase 4 and batches 2 and 3 move to Phase 7. The NCCoE DevSecOps practice guide is cited as a draft; the DoD Activities & Tools Guidebook may be adapted. #162 review: topic 5 anchored to SP 800-37 Rev. 2 task P-5; DSO-03 states the missing `controls` or `description` check as a build failure; Phase order row renamed. Instructions for Claude Code and `CLAUDE.md` gain the DevSecOps source rule |
 | 3.18 | Oct 29, 2026 | DEPS-02, no change in scope: Astro 7.4 (Current state, Technical requirements and constraints) |
 | 3.19 | Oct 29, 2026 | Owner decision (#165 review): NAV-01's template title case is met when the template is within the first three results, not first, as IR-8 shares the Incident Response Plan's title and the two pages score within about 1% of each other |
+| 3.20 | Nov 2, 2026 | Owner request (#168), no change in scope: Instructions for Claude Code and `CLAUDE.md` add `npm run ssdf` to the generators that must produce no diff before a commit, matching the README and the Check workflow |

@@ -19,7 +19,7 @@ The first guidebook covers the RMF from start to finish: the seven steps, every 
 | --- | --- | --- |
 | **Requirement:** what does NIST require? | The control text, parameters and assessment objectives, generated from NIST's official catalog | Available for all 300 controls |
 | **Policy:** what do we commit to? | A policy clause for the control, assembled into family policies | Available for every Low and Moderate control, and every program management and privacy control |
-| **Method:** what is the established way to do it? | The NIST publication that shows how, such as the Secure Software Development Framework (SSDF) | Planned (Phase 4) |
+| **Method:** what is the established way to do it? | The NIST publication that shows how, such as the Secure Software Development Framework (SSDF) | Available for the SSDF on the control pages its tasks cite; more NIST publications in Phase 4 |
 | **Procedure:** how do we do it here? | Standards, procedures and plans to adopt | Available for every family; secure software development templates in Phase 4 |
 | **Implementation:** where is it configured? | Technology playbooks for specific platforms | Planned (Phase 6) |
 | **Evidence:** how do we prove it? | What assessors ask for, and the forms and registers that record it | Available for every control with guidance; growing with each family |
@@ -32,7 +32,7 @@ The second guidebook does the same for AI: how to apply the AI RMF, and how to a
 
 ## Where it stands
 
-As of October 2026:
+As of November 2026:
 
 - **The framework.** All seven RMF steps, roles, the ATO package checklist and program variants.
 - **The controls.** All 300 SP 800-53 Rev. 5 controls and their enhancements, with practical guidance for all 177 Moderate-baseline controls, all 32 program management controls and all 12 privacy controls outside the security baselines. See [guidance coverage](/controls/coverage/) for each control.
@@ -40,6 +40,8 @@ As of October 2026:
 - **Policies.** Family policies for all 20 families: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI and SR, or all of them in one [consolidated policy](/templates/policies/consolidated/). All 287 Low and Moderate controls and enhancements have a policy clause, as do the 37 program management controls and enhancements and the 29 privacy controls and enhancements outside the security baselines.
 - **Plans, standards, procedures, forms and reports.** 49 of the 50 artifacts in the plan, including the System Security Plan, Incident Response Plan, Contingency Plan, Configuration Management Plan, Supply Chain Risk Management Plan, POA&M, Continuous Monitoring Strategy, privacy impact assessment, account management and log review procedures, incident handling playbook, change request form, component inventory, and the baseline configuration, identification and authentication, audit logging, encryption and patching standards. Every policy, plan, standard, procedure and report ends with an approval and version history section for the adopting organization. The 50th, a secure software development policy and standard built on the SSDF, comes with the methods in Phase 4. See [all templates](/templates/).
 - **Build your program.** A [staged path](/program/) from Foundation to Mature, with the artifacts and decisions for each stage, an [artifact checklist](/program/checklist/), and guidance on [scaling the program](/program/scaling/) to the organization's size.
+- **Methods.** The [Secure Software Development Framework](/methods/ssdf/) (SP 800-218, version 1.1): a page for each of its 19 practices in four groups, generated from NIST's SSDF table, with the SP 800-53 controls each task cites in NIST's references. Those control pages list the practices in a Methods section.
+- **DevSecOps.** The [DevSecOps section](/devsecops/) for teams that ship through a pipeline: an overview of the seven RMF steps for such a system and the first topic page, [change management under continuous delivery](/devsecops/change-management/). Five more topic pages follow in Phase 4.
 - **The AI RMF guidebook.** Not started; it follows the program kit and the methods.
 
 Everything is published as a draft, and marked reviewed only after the author has reviewed it.

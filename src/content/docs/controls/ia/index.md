@@ -12,6 +12,8 @@ sidebar:
 
 The Identification and Authentication family has 13 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
 
+NIST's implementation publications for this family, with their versions and status, are in the [methods index](/methods/#ia).
+
 | Control | Title | Low | Moderate | High | Privacy |
 | --- | --- | --- | --- | --- | --- |
 | [IA-1](/controls/ia/ia-1/) | Policy and Procedures | Yes | Yes | Yes |  |

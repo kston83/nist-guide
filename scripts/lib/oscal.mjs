@@ -328,6 +328,8 @@ export function buildPages(catalog, profiles) {
 		const famBody = [
 			note,
 			`The ${group.title} family has ${rows.length} active controls in SP 800-53 release ${version}. "Yes" marks membership in the SP 800-53B baselines.`,
+			// METH-02: each hub links its family's row on the methods index.
+			`NIST's implementation publications for this family, with their versions and status, are in the [methods index](/methods/#${fam}).`,
 			'| Control | Title | Low | Moderate | High | Privacy |\n| --- | --- | --- | --- | --- | --- |\n' +
 				rows.join('\n'),
 			withdrawn.length ? `*Withdrawn controls: ${withdrawn.join(', ')}.*` : '',

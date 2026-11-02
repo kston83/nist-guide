@@ -8,8 +8,11 @@ import { splitFrontmatter, topLevelEntries } from './generated.mjs';
 export const HEADER = ['Practices', 'Tasks', 'Notional Implementation Examples', 'References'];
 
 // Front matter keys the SSDF generator writes on practice pages. Every other key
-// (guidance, reviewed, implements once row 5 adds it) is hand-set and kept.
-export const SSDF_OWNED_KEYS = new Set(['title', 'description', 'sidebar', 'source']);
+// (guidance, reviewed) is hand-set and kept. `implements` (SSDF-02, METH-01) is
+// generated: it is the practice's SP 800-53 references in NIST's table, and the
+// PRD links a method to a control only where NIST makes the link, so a hand-set
+// value could only add a link NIST does not publish or drift from the table.
+export const SSDF_OWNED_KEYS = new Set(['title', 'description', 'sidebar', 'source', 'implements']);
 
 const clean = (s) => s.replace(/\r\n?/g, '\n').replace(/[ \t]+/g, ' ').trim();
 
@@ -43,6 +46,28 @@ function named(cell, idPattern, what) {
 	if (!m) throw new Error(`Unexpected ${what} cell: "${clean(cell).slice(0, 80)}"`);
 	return { id: m[2], name: m[1], text: m[3] };
 }
+
+/** "sa-8.3" -> "SA-8(3)", the label NIST writes. */
+export const controlLabel = (id) => {
+	const [base, enh] = id.split('.');
+	return base.toUpperCase() + (enh ? `(${enh})` : '');
+};
+/** "sa-8.3" -> "/controls/sa/sa-8/#sa-8.3": the control page and, for an enhancement, its anchor. */
+export const controlUrl = (id) => {
+	const [base, enh] = id.split('.');
+	return `/controls/${base.split('-')[0]}/${base}/${enh ? `#${id}` : ''}`;
+};
+// Catalog order: family, then control number, then enhancement (the base control first).
+const idKey = (id) => {
+	const m = id.match(/^([a-z]{2})-(\d+)(?:\.(\d+))?$/);
+	return [m[1], Number(m[2]), Number(m[3] ?? 0)];
+};
+export const compareIds = (a, b) => {
+	const [x, y] = [idKey(a), idKey(b)];
+	return x[0].localeCompare(y[0]) || x[1] - y[1] || x[2] - y[2];
+};
+/** Every SP 800-53 id NIST's table cites for a practice's tasks, once each, in catalog order. */
+export const practiceControls = (practice) => [...new Set(practice.tasks.flatMap((t) => t.sp80053))].sort(compareIds);
 
 /** "SA-8(3)" -> "sa-8.3", the lowercase OSCAL id the rest of the site uses. */
 export function oscalId(label) {
@@ -138,14 +163,17 @@ export function ssdfPages({ groups, practices }, source) {
 	const pages = practices.map((p, i) => {
 		const group = groups.find((g) => g.id === p.group);
 		const title = `${p.id} ${p.name}`;
+		const controls = practiceControls(p);
 		const frontmatter = [
 			'---',
 			`title: ${yaml(title)}`,
-			`description: ${yaml(`SSDF practice ${p.id}, ${p.name} (NIST SP 800-218, version ${source.version}): the practice, its tasks and NIST's notional implementation examples.`)}`,
+			`description: ${yaml(`SSDF practice ${p.id}, ${p.name} (NIST SP 800-218, version ${source.version}): the practice, its tasks${controls.length ? ", NIST's notional implementation examples and the SP 800-53 controls NIST maps them to" : " and NIST's notional implementation examples"}.`)}`,
 			'sidebar:',
 			`  label: ${yaml(title)}`,
 			`  order: ${i + 1}`,
 			...sourceLines(source),
+			// The controls the practice implements, as NIST's table cites them (PRD front matter contract).
+			...(controls.length ? [`implements: [${controls.join(', ')}]`] : []),
 			'---',
 		].join('\n');
 		const tasks = p.tasks.flatMap((t) => [
@@ -169,7 +197,7 @@ export function ssdfPages({ groups, practices }, source) {
 		const body = [
 			note,
 			'',
-			`Practice ${p.id} of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version ${source.version}, in the group [${group.name} (${group.id})](/methods/ssdf/#${group.id.toLowerCase()}). The practice, task and example text is NIST's, from the table published with [SP 800-218](${source.landing}) (${source.published}, ${source.status}).`,
+			`Practice ${p.id} of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version ${source.version}, in the group [${group.name} (${group.id})](/methods/ssdf/#${group.id.toLowerCase()}). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](${source.landing}) (${source.published}, ${source.status}).`,
 			'',
 			'## Practice',
 			'',
@@ -180,6 +208,17 @@ export function ssdfPages({ groups, practices }, source) {
 			`NIST lists ${['no', 'one', 'two', 'three', 'four', 'five'][p.tasks.length] ?? p.tasks.length} task${p.tasks.length === 1 ? '' : 's'} for this practice. The examples under each are notional: no example or combination of examples is required, and they are not the only feasible options (SP 800-218, section 2).`,
 			'',
 			...tasks,
+			'## SP 800-53 references',
+			'',
+			`NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.`,
+			'',
+			'| Task | SP 800-53 references |',
+			'| --- | --- |',
+			...p.tasks.map((t) => {
+				const refs = t.sp80053.map((id) => `[${controlLabel(id)}](${controlUrl(id)})`).join(', ');
+				return `| [${t.id}](#${taskAnchor(t.id)}) | ${refs || "None in NIST's table"} |`;
+			}),
+			'',
 		].join('\n');
 		return { file: `${practiceSlug(p.id)}.md`, frontmatter, body };
 	});

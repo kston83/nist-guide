@@ -3,6 +3,8 @@
 //   Policy statement (PRD TPL-06): the control's clause and its enhancements'
 //     clauses from templates/policy/, clean edition, placed right after the
 //     generated NIST block. A -1 control points to the family policy instead.
+//   Methods (PRD METH-01): method and SSDF pages whose `implements` name the
+//     control, with the tasks that cite it, right after the policy statement.
 //   Artifacts (PRD TPL-06): template pages whose `controls` name the control.
 //   Referenced by (PRD LINK-01): every other page whose `controls` name it.
 //   Status badges (PRD CTRL-06): guidance and policy-clause status, at the top.
@@ -15,6 +17,8 @@ import TemplateHistory from './TemplateHistory.astro';
 import { statusOf } from '../lib/coverage';
 import { coverageSources } from '../lib/coverage-data';
 import { referencesFor } from '../lib/references';
+import { methodsFor, ssdfParts } from '../lib/methods';
+import ssdf from '../data/ssdf.json';
 import { withBase } from '../lib/url';
 import { existsSync } from 'node:fs';
 
@@ -25,6 +29,7 @@ const family = base?.split('-')[0];
 const pageId = Astro.locals.starlightRoute.entry.id;
 
 let refs: ReturnType<typeof referencesFor> = [];
+let methods: ReturnType<typeof methodsFor> = [];
 let statements: { label: string; title: string; enhancement: boolean; Content: any }[] = [];
 let policy: { title: string; href: string } | undefined;
 let draft = false;
@@ -39,6 +44,21 @@ if (base && family) {
 		controls: e.data.controls ?? [],
 	}));
 	refs = referencesFor(controlId, pages);
+
+	const methodDocs = await getCollection('docs', (e) => e.id.startsWith('methods/'));
+	const methodPages = methodDocs
+		.filter((e) => e.data.implements?.length)
+		.map((e) => ({
+			id: e.id,
+			title: e.data.title,
+			order: e.data.sidebar?.order,
+			implements: e.data.implements ?? [],
+			source: e.data.source,
+			parts: ssdfParts(e.id, ssdf),
+		}));
+	// A method's overview is its folder's index page (methods/ssdf).
+	const titles = new Map(methodDocs.map((e) => [e.id.replace(/\/index$/, ''), e.data.title]));
+	methods = methodsFor(controlId, methodPages, titles);
 
 	const fam = (await getCollection('families')).find((f) => f.id === family);
 	if (fam) policy = { title: `${fam.data.title} Policy`, href: `/templates/policies/${family}/` };
@@ -108,6 +128,43 @@ const showStatement = policy && (isPolicyControl || statements.length > 0);
 						your organization sets.
 					</p>
 				)}
+			</section>
+		)
+	}
+	{
+		methods.length > 0 && (
+			<section class="methods">
+				<h2 id="methods">Methods</h2>
+				<p>NIST implementation guidance that cites {controlId} or its enhancements, and where it cites them.</p>
+				<ul>
+					{methods.map((m) => (
+						<li>
+							<a href={withBase(m.href)}>{m.title}</a>
+							{m.source && (
+								<>
+									{' '}
+									<span class="kind">· {m.source}</span>
+								</>
+							)}
+							<ul>
+								{m.pages.map((p) => (
+									<li>
+										<a href={withBase(p.href)}>{p.title}</a>
+										{p.parts.length > 0
+											? p.parts.map((t, i) => (
+													<>
+														{i === 0 ? ': ' : ', '}
+														<a href={withBase(t.href)}>{t.id}</a>
+														{t.enhancements.length > 0 && ` (${t.enhancements.join(', ')})`}
+													</>
+												))
+											: p.enhancements.length > 0 && ` (${p.enhancements.join(', ')})`}
+									</li>
+								))}
+							</ul>
+						</li>
+					))}
+				</ul>
 			</section>
 		)
 	}

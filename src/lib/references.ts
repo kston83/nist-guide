@@ -16,9 +16,9 @@ export interface Reference {
 }
 
 // Section folder -> label, in display order. Other folders sort last as "Page".
+// Method and SSDF pages feed "Methods" (src/lib/methods.ts) through `implements`, not this list (LINK-01).
 const KINDS: [string, string][] = [
 	['templates', 'Template'],
-	['ssdf', 'SSDF practice'],
 	['devsecops', 'DevSecOps'], // PRD DSO-03
 	['industries', 'Industry guide'],
 	['technology', 'Technology playbook'],

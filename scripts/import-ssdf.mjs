@@ -8,11 +8,14 @@
  *
  * Writes, under src/content/docs/methods/ssdf/:
  *   <practice>.md  one page per practice (po-1.md ... rv-3.md): NIST's practice,
- *                  task and notional implementation example text between
+ *                  task and notional implementation example text, and each
+ *                  task's SP 800-53 references (SSDF-02), between
  *                  <!-- nist:start --> and <!-- nist:end -->, rewritten every run
  *                  with the front matter keys the generator owns (title,
- *                  description, sidebar, source). Other keys and everything
- *                  below the nist:end marker are kept, as on control pages.
+ *                  description, sidebar, source, and implements: the practice's
+ *                  SP 800-53 references, which feed "Methods" on control pages,
+ *                  METH-01). Other keys and everything below the nist:end
+ *                  marker are kept, as on control pages.
  *   index.md       the overview, hand-written; only its nist block (the list of
  *                  groups and practices) and its `source` front matter are
  *                  generated. The run fails if it is missing, or if an "as of

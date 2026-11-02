@@ -1,6 +1,6 @@
 ---
 title: 'PO.1 Define Security Requirements for Software Development'
-description: 'SSDF practice PO.1, Define Security Requirements for Software Development (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice PO.1, Define Security Requirements for Software Development (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'PO.1 Define Security Requirements for Software Development'
   order: 1
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-1, sa-4, sa-8, sa-8.3, sa-9, sa-10, sa-10.1, sa-15, sr-3, sr-4, sr-5]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice PO.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Prepare the Organization (PO)](/methods/ssdf/#po). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice PO.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Prepare the Organization (PO)](/methods/ssdf/#po). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -76,6 +77,16 @@ Communicate requirements to all third parties who will provide commercial softwa
 - **Example 5:** Establish and follow processes to address risk when there are security requirements that third-party software components to be acquired do not meet; this should include periodic reviews of all approved exceptions to requirements.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [PO.1.1](#po.1.1) | [SA-1](/controls/sa/sa-1/), [SA-8](/controls/sa/sa-8/), [SA-15](/controls/sa/sa-15/), [SR-3](/controls/sr/sr-3/) |
+| [PO.1.2](#po.1.2) | [SA-8](/controls/sa/sa-8/), [SA-8(3)](/controls/sa/sa-8/#sa-8.3), [SA-15](/controls/sa/sa-15/), [SR-3](/controls/sr/sr-3/) |
+| [PO.1.3](#po.1.3) | [SA-4](/controls/sa/sa-4/), [SA-9](/controls/sa/sa-9/), [SA-10](/controls/sa/sa-10/), [SA-10(1)](/controls/sa/sa-10/#sa-10.1), [SA-15](/controls/sa/sa-15/), [SR-3](/controls/sr/sr-3/), [SR-4](/controls/sr/sr-4/), [SR-5](/controls/sr/sr-5/) |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

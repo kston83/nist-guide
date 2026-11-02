@@ -119,6 +119,10 @@ export const collections = {
 				technologies: z.array(slug).optional(),
 				// Controls a page gives guidance on; feeds "Referenced by" (PRD LINK-01).
 				controls: z.array(controlId).optional(),
+				// Method and SSDF pages: controls the method implements, only as NIST cites
+				// them; feeds "Methods" on control pages (PRD METH-01). npm run ssdf writes
+				// it on SSDF practice pages from NIST's table.
+				implements: z.array(controlId).optional(),
 				// Method and SSDF pages: the NIST publication the page presents, and the
 				// month its status was last checked (PRD front matter contract, SSDF-01).
 				source: z

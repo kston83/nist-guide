@@ -1,6 +1,6 @@
 ---
 title: 'RV.1 Identify and Confirm Vulnerabilities on an Ongoing Basis'
-description: 'SSDF practice RV.1, Identify and Confirm Vulnerabilities on an Ongoing Basis (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice RV.1, Identify and Confirm Vulnerabilities on an Ongoing Basis (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'RV.1 Identify and Confirm Vulnerabilities on an Ongoing Basis'
   order: 17
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-10, sa-11, sa-15.10, sr-3, sr-4]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice RV.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Respond to Vulnerabilities (RV)](/methods/ssdf/#rv). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice RV.1 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Respond to Vulnerabilities (RV)](/methods/ssdf/#rv). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -69,6 +70,16 @@ Have a policy that addresses vulnerability disclosure and remediation, and imple
 - **Example 4:** Periodically conduct exercises of the product security incident response processes.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [RV.1.1](#rv.1.1) | [SA-10](/controls/sa/sa-10/), [SR-3](/controls/sr/sr-3/), [SR-4](/controls/sr/sr-4/) |
+| [RV.1.2](#rv.1.2) | [SA-11](/controls/sa/sa-11/) |
+| [RV.1.3](#rv.1.3) | [SA-15(10)](/controls/sa/sa-15/#sa-15.10) |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

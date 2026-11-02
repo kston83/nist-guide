@@ -1,6 +1,6 @@
 ---
 title: 'PO.2 Implement Roles and Responsibilities'
-description: 'SSDF practice PO.2, Implement Roles and Responsibilities (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice PO.2, Implement Roles and Responsibilities (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'PO.2 Implement Roles and Responsibilities'
   order: 2
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-3, sa-8]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice PO.2 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Prepare the Organization (PO)](/methods/ssdf/#po). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice PO.2 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Prepare the Organization (PO)](/methods/ssdf/#po). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -76,6 +77,16 @@ Obtain upper management or authorizing official commitment to secure development
 - **Example 4:** Educate all personnel with development-related roles and responsibilities on upper management’s commitment to secure development and the importance of secure development to the organization.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [PO.2.1](#po.2.1) | [SA-3](/controls/sa/sa-3/) |
+| [PO.2.2](#po.2.2) | [SA-8](/controls/sa/sa-8/) |
+| [PO.2.3](#po.2.3) | None in NIST's table |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

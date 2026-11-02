@@ -12,6 +12,8 @@ sidebar:
 
 The Contingency Planning family has 12 active controls in SP 800-53 release 5.2.0. "Yes" marks membership in the SP 800-53B baselines.
 
+NIST's implementation publications for this family, with their versions and status, are in the [methods index](/methods/#cp).
+
 | Control | Title | Low | Moderate | High | Privacy |
 | --- | --- | --- | --- | --- | --- |
 | [CP-1](/controls/cp/cp-1/) | Policy and Procedures | Yes | Yes | Yes |  |

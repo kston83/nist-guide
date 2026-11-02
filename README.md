@@ -56,11 +56,12 @@ src/content/docs/
   rmf/                 The framework: overview, roles, ATO package, program variants
     steps/             One page per RMF step (0 Prepare to 6 Monitor)
   controls/            SP 800-53 control pages, generated (see below)
-    ac/index.md        Family hub, generated
+    ac/index.md        Family hub, generated; links its family's row on the methods index
     ac/ac-2.md         One file per control, grouped by family
     baselines/         Low, Moderate, High and Privacy lists, generated
     coverage.mdx       Guidance and policy-clause status, built at build time
   templates/           Template pages, generated from templates/ (never edit by hand)
+  methods/index.md     Methods by family: NIST's implementation publications for each family, with versions and status (hand-written)
   methods/ssdf/        The SSDF (SP 800-218): a hand-written overview and one page per practice, generated (see below)
   devsecops/           DevSecOps: an overview and one page per topic, for teams that ship through a pipeline
   industries/          Industry guides (planned)

@@ -227,6 +227,8 @@ export default defineConfig({
 				{
 					label: 'Methods',
 					items: [
+						// METH-02: the methods index, NIST's implementation publications by family.
+						{ label: 'Methods by family', slug: 'methods' },
 						{
 							label: 'Secure Software Development Framework',
 							items: [{ label: 'Overview', slug: 'methods/ssdf' }, ...ssdfGroups],

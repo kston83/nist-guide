@@ -15,6 +15,8 @@
 		"http://localhost:4321/nist-guide/controls/ac/ac-2/",
 		"http://localhost:4321/nist-guide/controls/coverage/",
 		"http://localhost:4321/nist-guide/templates/policies/ac/",
+		"http://localhost:4321/nist-guide/methods/ssdf/",
+		"http://localhost:4321/nist-guide/methods/ssdf/po-1/",
 		"http://localhost:4321/nist-guide/devsecops/",
 		"http://localhost:4321/nist-guide/devsecops/change-management/",
 		"http://localhost:4321/nist-guide/industries/"

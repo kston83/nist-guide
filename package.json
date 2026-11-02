@@ -8,6 +8,7 @@
     "build": "npm run changelog && astro build && npm run check:guidance && npm run kit",
     "preview": "astro preview",
     "controls": "node scripts/import-oscal.mjs",
+    "ssdf": "node scripts/import-ssdf.mjs",
     "og-image": "node scripts/make-og-image.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:guidance": "node scripts/check-guidance.mjs",

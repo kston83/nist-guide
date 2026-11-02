@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { visit } from 'unist-util-visit';
 import { rehypeEnhancementTokens } from './src/lib/search-tokens.mjs';
@@ -100,6 +101,17 @@ const families = [
 	['sc', 'System and Communications Protection'], ['si', 'System and Information Integrity'],
 	['sr', 'Supply Chain Risk Management'],
 ];
+
+// SSDF practices by group (PRD SSDF-01), from the table npm run ssdf imports, so
+// the sidebar follows NIST's groups with no hand-kept list.
+const ssdf = JSON.parse(readFileSync(new URL('./src/data/ssdf.json', import.meta.url), 'utf8'));
+const ssdfGroups = ssdf.groups.map((g) => ({
+	label: `${g.name} (${g.id})`,
+	collapsed: true,
+	items: ssdf.practices
+		.filter((p) => p.group === g.id)
+		.map((p) => ({ slug: `methods/ssdf/${p.id.toLowerCase().replace('.', '-')}` })),
+}));
 
 export default defineConfig({
 	site: SITE_URL,
@@ -211,7 +223,16 @@ export default defineConfig({
 						{ label: 'Reports', collapsed: true, items: [{ autogenerate: { directory: 'templates/reports' } }] },
 					],
 				},
-				// PRD DSO-01: after Methods (Phase 4, not yet added) and before the AI guide.
+				// PRD 3.17: Methods, then DevSecOps (DSO-01), then the AI guide (Phase 5).
+				{
+					label: 'Methods',
+					items: [
+						{
+							label: 'Secure Software Development Framework',
+							items: [{ label: 'Overview', slug: 'methods/ssdf' }, ...ssdfGroups],
+						},
+					],
+				},
 				{ label: 'DevSecOps', items: [{ autogenerate: { directory: 'devsecops' } }] },
 				{ label: 'Industry guides', items: [{ autogenerate: { directory: 'industries' } }] },
 				{ label: 'Technology playbooks', items: [{ autogenerate: { directory: 'technology' } }] },

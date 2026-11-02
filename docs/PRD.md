@@ -1,6 +1,6 @@
 # RMF Field Guide: Product Requirements
 
-Version 3.18 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
+Version 3.19 · Oct 29, 2026 · @Kris · [Revision history](#revision-history)
 
 ## Summary
 
@@ -428,7 +428,7 @@ A guide within the guide: how an organization adopts and secures AI, and how an 
 
 | ID | Requirement | Priority | Acceptance criteria |
 | --- | --- | --- | --- |
-| NAV-01 | Search covers all pages, including control IDs like "AC-2(3)" and template titles | P1 | Searching an ID returns that control first; searching "incident response plan" returns the template first |
+| NAV-01 | Search covers all pages, including control IDs like "AC-2(3)" and template titles | P1 | Searching an ID returns that control first; searching a template's title, such as "incident response plan", returns the template within the first three results |
 | NAV-02 | Industry, technology and template indexes list published pages with a one-line summary | P2 | Generated from front matter; no hand-maintained lists |
 | NAV-03 | Tag filtering by industry, technology, template type and stage | P3 | A reader can list all `plan` templates, or all pages tagged `healthcare` |
 
@@ -794,3 +794,4 @@ None of these block Phase 1.
 | 3.16 | Oct 28, 2026 | Owner's Phase 3 review: Phase 3 approved; the SSDF source (Excel table), worksheet "Who decides" and FAR decisions recorded (Current state, SSDF-05, Open questions, Decided). No change in scope |
 | 3.17 | Oct 29, 2026 | Owner decisions (Phase 4 plan, #120): DevSecOps added as a third strand (Summary, Vision, Success measures, persona, Information architecture, Page types, front matter, DSO-01 to DSO-06, LINK-01, Sourcing, Copyright, Content backlog, Phase 4 and 7 rows, Non-goals, Decided). Phase 4 renamed "Methods, the SSDF and DevSecOps"; METH-03 batch 1 (SP 800-128, 800-137, 800-40, 800-161) stays in Phase 4 and batches 2 and 3 move to Phase 7. The NCCoE DevSecOps practice guide is cited as a draft; the DoD Activities & Tools Guidebook may be adapted. #162 review: topic 5 anchored to SP 800-37 Rev. 2 task P-5; DSO-03 states the missing `controls` or `description` check as a build failure; Phase order row renamed. Instructions for Claude Code and `CLAUDE.md` gain the DevSecOps source rule |
 | 3.18 | Oct 29, 2026 | DEPS-02, no change in scope: Astro 7.4 (Current state, Technical requirements and constraints) |
+| 3.19 | Oct 29, 2026 | Owner decision (#165 review): NAV-01's template title case is met when the template is within the first three results, not first, as IR-8 shares the Incident Response Plan's title and the two pages score within about 1% of each other |

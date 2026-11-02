@@ -119,6 +119,16 @@ export const collections = {
 				technologies: z.array(slug).optional(),
 				// Controls a page gives guidance on; feeds "Referenced by" (PRD LINK-01).
 				controls: z.array(controlId).optional(),
+				// Method and SSDF pages: the NIST publication the page presents, and the
+				// month its status was last checked (PRD front matter contract, SSDF-01).
+				source: z
+					.object({
+						id: z.string(),
+						version: z.string(),
+						status: z.enum(['final', 'draft']),
+						checked: z.string().regex(/^\d{4}-\d{2}$/, 'Write the month checked as YYYY-MM, such as "2026-10".'),
+					})
+					.optional(),
 			}),
 		}),
 	}),

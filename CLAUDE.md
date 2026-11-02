@@ -12,7 +12,7 @@ This file mirrors the "Instructions for Claude Code" section of [`docs/PRD.md`](
 
 - One requirement or one content item per branch and commit, with the ID in the message, for example `CTRL-01: preserve hand-set front matter` or `TPL-03: assemble family policies`.
 - `main` is protected: open a pull request; the Check workflow must pass before merge. The owner merges PRs; don't merge them yourself.
-- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls` and `npm run templates` produce no diff.
+- Before every commit: `npm test`, `npm run lint` and `npm run build` pass, the link check passes (`npm run check:links`), and `npm run controls`, `npm run ssdf` and `npm run templates` produce no diff.
 - Never edit between `<!-- nist:start -->` and `<!-- nist:end -->`. Change `scripts/import-oscal.mjs` instead, then regenerate. Never hand-edit generated template pages; change the source in `templates/`.
 - Keep progress in three files and update them at the end of each task. `PROGRESS.md` at the repo root is the working state: the current phase, its plan table, notes for the next session and open questions. Keep it under 40 KB (a test checks), and move history out of it. `docs/progress-log.md` is the log: one row per pull request, newest first (requirement ID, status, date, notes). `docs/sources.md` is the source registry and its verification notes. When a pull request merges, mark it merged in the plan table and the log.
 - Prefer small, reviewable changes over large rewrites. Do not rename folders or slugs; existing links depend on them.

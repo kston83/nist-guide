@@ -1,5 +1,6 @@
 # Domain dictionary for cspell (PRD QA-03): RMF, SP 800-53, SSDF and federal
 # program terms, plus project words. One per line, lines starting # ignored.
+ABAC
 airmf
 AODR
 ASVS
@@ -71,6 +72,7 @@ HSTS
 IAST
 IATT
 ICAM
+IDPS
 Interdomain
 Intune
 ISAC

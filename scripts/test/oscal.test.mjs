@@ -62,6 +62,10 @@ test('withdrawn controls get no page and are listed on the family page', () => {
 	assert.equal(version, '9.9.9');
 });
 
+test("the family page links its family's row on the methods index (METH-02)", () => {
+	assert.match(page('ac/index.md').body, /\[methods index\]\(\/methods\/#ac\)/);
+});
+
 test('withdrawn enhancements are listed, not rendered', () => {
 	const { body } = page('ac/ac-2.md');
 	assert.match(body, /### AC-2\(1\) Automated Account Management/);

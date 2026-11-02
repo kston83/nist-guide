@@ -4,7 +4,20 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { strToU8, zipSync } from 'fflate';
 import { mergeGenerated, END, GUIDE } from '../lib/generated.mjs';
-import { md, monthName, oscalId, parseSsdf, practiceSlug, SSDF_OWNED_KEYS, ssdfPages, updateOverview } from '../lib/ssdf.mjs';
+import {
+	compareIds,
+	controlLabel,
+	controlUrl,
+	md,
+	monthName,
+	oscalId,
+	parseSsdf,
+	practiceControls,
+	practiceSlug,
+	SSDF_OWNED_KEYS,
+	ssdfPages,
+	updateOverview,
+} from '../lib/ssdf.mjs';
 import { columnIndex, decodeXml, readWorkbook, sharedStrings, sheetRows } from '../lib/xlsx.mjs';
 
 // ---------- a minimal .xlsx ----------
@@ -160,23 +173,46 @@ test('one page per practice, plus the overview block', () => {
 	assert.match(po1.body, /<a id="po\.1\.1"><\/a>\n\n### PO\.1\.1\n\nIdentify and document all security requirements\./);
 	assert.match(po1.body, /^- \*\*Example 2:\*\* Review them at least annually\.$/m);
 	assert.match(po1.body, /\[Prepare the Organization \(PO\)\]\(\/methods\/ssdf\/#po\)/);
-	// SP 800-53 references are data only until SSDF-02 shows them.
-	assert.doesNotMatch(po1.body, /SA-8|BSIMM/);
+	// SSDF-02: each task's SP 800-53 references, linked to the control or enhancement; other references are not shown.
+	assert.match(po1.frontmatter, /^implements: \[sa-1, sa-8\.3, sr-3\]$/m);
+	assert.match(po1.body, /^## SP 800-53 references$/m);
+	assert.match(
+		po1.body,
+		/^\| \[PO\.1\.1\]\(#po\.1\.1\) \| \[SA-1\]\(\/controls\/sa\/sa-1\/\), \[SA-8\(3\)\]\(\/controls\/sa\/sa-8\/#sa-8\.3\), \[SR-3\]\(\/controls\/sr\/sr-3\/\) \|$/m,
+	);
+	assert.match(po1.body, /^\| \[PO\.1\.2\]\(#po\.1\.2\) \| None in NIST's table \|$/m);
+	assert.doesNotMatch(po1.body, /BSIMM|EO14028/);
+	assert.match(pages[1].frontmatter, /^implements: \[sa-10\]$/m);
 	const overview = pages[2];
 	assert.equal(overview.frontmatter, null);
 	assert.match(overview.body, /^### Respond to Vulnerabilities \(RV\)$/m);
 	assert.match(overview.body, /^\| \[PO\.1 Define Security Requirements\]\(\/methods\/ssdf\/po-1\/\) \| PO\.1\.1, PO\.1\.2 \|$/m);
 });
 
-test('a rerun keeps hand-set front matter and guidance on practice pages', () => {
+test('a rerun keeps hand-set front matter and guidance on practice pages, and rewrites implements', () => {
 	const [po1] = ssdfPages(parseSsdf(sheets(), CONTROLS), SOURCE);
 	const first = mergeGenerated(null, po1, SSDF_OWNED_KEYS);
+	// A hand-set implements is replaced by NIST's references: the generator owns it (SSDF-02).
 	const edited = first
-		.replace("  checked: '2026-10'\n---", "  checked: '2026-10'\nguidance: draft\nimplements: [sa-1]\n---")
+		.replace('implements: [sa-1, sa-8.3, sr-3]\n---', 'implements: [ac-2]\nguidance: draft\n---')
 		.replace(GUIDE, `${GUIDE}\n\n## How to apply it\n\nOur text.`);
+	assert.match(edited, /implements: \[ac-2\]\nguidance: draft\n---/);
 	const next = mergeGenerated(edited, { ...po1, frontmatter: po1.frontmatter.replace("'2026-10'", "'2026-11'") }, SSDF_OWNED_KEYS);
-	assert.match(next, /checked: '2026-11'\nguidance: draft\nimplements: \[sa-1\]\n---/);
+	assert.match(next, /checked: '2026-11'\nimplements: \[sa-1, sa-8\.3, sr-3\]\nguidance: draft\n---/);
+	assert.doesNotMatch(next, /ac-2/);
 	assert.ok(next.slice(next.indexOf(END)).includes('Our text.'));
+});
+
+test('control ids sort in catalog order, and a practice lists each cited control once', () => {
+	assert.deepEqual(['sr-3', 'sa-15', 'sa-8.23', 'sa-8', 'sa-8.3'].sort(compareIds), ['sa-8', 'sa-8.3', 'sa-8.23', 'sa-15', 'sr-3']);
+	assert.deepEqual(practiceControls({ tasks: [{ sp80053: ['sa-15', 'sa-8'] }, { sp80053: ['sa-8', 'sa-8.3'] }, { sp80053: [] }] }), [
+		'sa-8',
+		'sa-8.3',
+		'sa-15',
+	]);
+	assert.equal(controlLabel('sa-15.11'), 'SA-15(11)');
+	assert.equal(controlUrl('sa-15'), '/controls/sa/sa-15/');
+	assert.equal(controlUrl('sr-4.3'), '/controls/sr/sr-4/#sr-4.3');
 });
 
 test('escapes square brackets so bracketed NIST text cannot become a link', () => {

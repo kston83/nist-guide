@@ -112,7 +112,7 @@ SP 800-53 sets the requirement; the SSDF describes the development practice that
 - **[System and Services Acquisition (SA)](/controls/sa/)**, above all [SA-15](/controls/sa/sa-15/) (development process, standards and tools), [SA-11](/controls/sa/sa-11/) (developer testing and evaluation), [SA-8](/controls/sa/sa-8/) (security and privacy engineering principles) and [SA-10](/controls/sa/sa-10/) (developer configuration management).
 - **[Supply Chain Risk Management (SR)](/controls/sr/)**, such as [SR-3](/controls/sr/sr-3/) (supply chain controls and processes) and [SR-4](/controls/sr/sr-4/) (provenance).
 
-SA-10, SA-11 and SA-15 are written as requirements the organization places on "the developer of the system, system component, or system service". The SSDF gives you the practices to require, and the vocabulary to write them into an [SA-4](/controls/sa/sa-4/) acquisition requirement or a development standard. The task-by-task references will be shown on each practice page and on the control pages they cite in a later update.
+SA-10, SA-11 and SA-15 are written as requirements the organization places on "the developer of the system, system component, or system service". The SSDF gives you the practices to require, and the vocabulary to write them into an [SA-4](/controls/sa/sa-4/) acquisition requirement or a development standard. Each practice page lists its tasks' SP 800-53 references, and the page of each cited control lists the tasks that cite it under Methods.
 
 ## Version status
 

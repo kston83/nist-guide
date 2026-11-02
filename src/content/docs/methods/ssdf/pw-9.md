@@ -1,6 +1,6 @@
 ---
 title: 'PW.9 Configure Software to Have Secure Settings by Default'
-description: 'SSDF practice PW.9, Configure Software to Have Secure Settings by Default (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice PW.9, Configure Software to Have Secure Settings by Default (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'PW.9 Configure Software to Have Secure Settings by Default'
   order: 16
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-5, sa-8.23]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice PW.9 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice PW.9 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Produce Well-Secured Software (PW)](/methods/ssdf/#pw). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -53,6 +54,15 @@ Implement the default settings (or groups of default settings, if applicable), a
 - **Example 4:** Store the default configuration in a usable format and follow change control practices for modifying it (e.g., configuration-as-code).
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [PW.9.1](#pw.9.1) | None in NIST's table |
+| [PW.9.2](#pw.9.2) | [SA-5](/controls/sa/sa-5/), [SA-8(23)](/controls/sa/sa-8/#sa-8.23) |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

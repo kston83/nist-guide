@@ -1,6 +1,6 @@
 ---
 title: 'RV.2 Assess, Prioritize, and Remediate Vulnerabilities'
-description: 'SSDF practice RV.2, Assess, Prioritize, and Remediate Vulnerabilities (NIST SP 800-218, version 1.1): the practice, its tasks and NIST''s notional implementation examples.'
+description: 'SSDF practice RV.2, Assess, Prioritize, and Remediate Vulnerabilities (NIST SP 800-218, version 1.1): the practice, its tasks, NIST''s notional implementation examples and the SP 800-53 controls NIST maps them to.'
 sidebar:
   label: 'RV.2 Assess, Prioritize, and Remediate Vulnerabilities'
   order: 18
@@ -9,13 +9,14 @@ source:
   version: '1.1'
   status: final
   checked: '2026-10'
+implements: [sa-5, sa-10, sa-11, sa-15.7]
 ---
 
 <!-- nist:start -->
 <!-- markdownlint-disable -->
 <!-- Generated from the NIST SP 800-218, SSDF version 1.1 table (nist.sp.800-218.ssdf-table.xlsx). Edits between the nist markers are overwritten by npm run ssdf. -->
 
-Practice RV.2 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Respond to Vulnerabilities (RV)](/methods/ssdf/#rv). The practice, task and example text is NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
+Practice RV.2 of the [Secure Software Development Framework](/methods/ssdf/) (SSDF) version 1.1, in the group [Respond to Vulnerabilities (RV)](/methods/ssdf/#rv). The practice, task and example text and the SP 800-53 references are NIST's, from the table published with [SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final) (February 2022, final).
 
 ## Practice
 
@@ -55,6 +56,15 @@ Plan and implement risk responses for vulnerabilities.
 - **Example 5:** Update records of design decisions, risk responses, and approved exceptions as needed. See PW.1.2.
 
 </details>
+
+## SP 800-53 references
+
+NIST's table maps each task to SP 800-53 controls in the "SP80053" entries of its References column, which also maps tasks to other secure development documents (not listed here). Each control's page lists the tasks that cite it under Methods.
+
+| Task | SP 800-53 references |
+| --- | --- |
+| [RV.2.1](#rv.2.1) | [SA-10](/controls/sa/sa-10/), [SA-15(7)](/controls/sa/sa-15/#sa-15.7) |
+| [RV.2.2](#rv.2.2) | [SA-5](/controls/sa/sa-5/), [SA-10](/controls/sa/sa-10/), [SA-11](/controls/sa/sa-11/), [SA-15(7)](/controls/sa/sa-15/#sa-15.7) |
 <!-- markdownlint-restore -->
 <!-- nist:end -->
 

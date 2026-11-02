@@ -5,3 +5,5 @@ dist/
 .DS_Store
 src/content/docs/reference/changelog.md
 src/data/template-history.json
+.claude/settings.local.json
+.claude/worktrees/

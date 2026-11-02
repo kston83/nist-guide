@@ -21,6 +21,7 @@ The SSDF has its own pages in this guide, and control pages list its tasks under
 
 - **The main publications, not every one.** Each row lists the NIST publications an implementer of the family would use, not every publication that mentions the family.
 - **NIST's own link first.** Most rows are publications that SP 800-53 (release 5.2.0) cites in the references of the family's controls. A publication SP 800-53 does not cite is listed only where NIST links it to the family another way, such as the SSDF's own references to SA and SR controls, or where it is NIST's general guide for the topic; the last column says which.
+- **Architecture guides are not split by family.** SP 800-53 does not cite [SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), Zero Trust Architecture (final, August 2020), or the NCCoE practice guide that implements it, [SP 1800-35](https://csrc.nist.gov/pubs/sp/1800/35/final), Implementing a Zero Trust Architecture (final, June 2025). Both span the access control, identification and authentication, and communications protection families, so neither has a row.
 - **The current edition.** SP 800-53 often cites the edition current in 2020. The table gives the current one and notes the edition SP 800-53 cites, for example SP 800-61 Rev. 2 where Rev. 3 is now final.
 - **NIST's status.** Each status is from the publication's csrc.nist.gov page: final, with its date and what it supersedes, or a newer draft with its comment period, or a planning note. This guide follows the final version until NIST publishes the new one.
 
@@ -126,11 +127,12 @@ The SSDF has its own pages in this guide, and control pages list its tasks under
 
 ### Maintenance (MA)
 
-[Family overview](/controls/ma/). NIST cites SP 800-88 for the sanitization steps in MA-3 (maintenance equipment leaving the facility) and MA-4 (components removed for nonlocal maintenance).
+[Family overview](/controls/ma/). SP 800-53 cites no NIST guide written for maintenance as a whole. It cites SP 800-88 for the sanitization steps in MA-3 (maintenance equipment leaving the facility) and MA-4 (components removed for nonlocal maintenance), and NIST IR 8023 for replication devices such as copiers and printers in MA-2. MA-4 also cites FIPS 140-3 and the Digital Identity Guidelines for nonlocal maintenance sessions; they are listed under [SC](#sc) and [IA](#ia).
 
 | Publication | Title | Status | NIST's link to the family |
 | --- | --- | --- | --- |
 | [SP 800-88 Rev. 2](https://csrc.nist.gov/pubs/sp/800/88/r2/final) | Guidelines for Media Sanitization | Final, September 2025. Supersedes Rev. 1 (2014) | Cited by [MA-3](/controls/ma/ma-3/) and [MA-4](/controls/ma/ma-4/). SP 800-53 cites Rev. 1 |
+| [NIST IR 8023](https://csrc.nist.gov/pubs/ir/8023/final) | Risk Management for Replication Devices | Final, February 2015 | Cited by [MA-2](/controls/ma/ma-2/) |
 
 <a id="mp"></a>
 
@@ -197,12 +199,14 @@ The SSDF has its own pages in this guide, and control pages list its tasks under
 
 ### Personally Identifiable Information Processing and Transparency (PT)
 
-[Family overview](/controls/pt/). SP 800-53 cites neither publication in the PT controls. Both are NIST guides to privacy risk that apply across the privacy controls; the PT requirements themselves, such as system of records notices (PT-6), come from the Privacy Act and OMB guidance, covered on each control page.
+[Family overview](/controls/pt/). The PT requirements themselves, such as system of records notices (PT-6), come from the Privacy Act and OMB guidance, covered on each control page. In the PT controls SP 800-53 cites two NIST publications: the Digital Identity Guidelines and NIST IR 8112, on attribute metadata. The last two rows are NIST's broader guides to privacy risk, which no PT control cites.
 
 | Publication | Title | Status | NIST's link to the family |
 | --- | --- | --- | --- |
-| [NIST Privacy Framework 1.0 (CSWP 10)](https://csrc.nist.gov/pubs/cswp/10/nist-privacy-framework-version-10/final) | NIST Privacy Framework: A Tool for Improving Privacy Through Enterprise Risk Management, Version 1.0 | Final, January 16, 2020. [Version 1.1 (CSWP 40)](https://csrc.nist.gov/pubs/cswp/40/nist-privacy-framework-11/ipd) was an initial public draft on April 14, 2025; comments closed June 13, 2025, and no final has been published | Cited by no control |
-| [NIST IR 8062](https://csrc.nist.gov/pubs/ir/8062/final) | An Introduction to Privacy Engineering and Risk Management in Federal Systems | Final, January 2017 | Cited by no PT control |
+| [SP 800-63-4](https://csrc.nist.gov/pubs/sp/800/63/4/final) | Digital Identity Guidelines, with the volumes listed under [Identification and Authentication](#ia) | Final, July 2025, all four volumes. Supersedes the SP 800-63-3 suite | Cited by [PT-4](/controls/pt/pt-4/). SP 800-53 cites the SP 800-63-3 suite |
+| [NIST IR 8112](https://csrc.nist.gov/pubs/ir/8112/final) | Attribute Metadata: A Proposed Schema for Evaluating Federated Attributes | Final, January 2018 | Cited by [PT-2](/controls/pt/pt-2/) and [PT-3](/controls/pt/pt-3/) |
+| [NIST Privacy Framework 1.0 (CSWP 10)](https://csrc.nist.gov/pubs/cswp/10/nist-privacy-framework-version-10/final) | NIST Privacy Framework: A Tool for Improving Privacy Through Enterprise Risk Management, Version 1.0 | Final, January 16, 2020. [Version 1.1 (CSWP 40)](https://csrc.nist.gov/pubs/cswp/40/nist-privacy-framework-11/ipd) was an initial public draft on April 14, 2025; comments closed June 13, 2025, and no final has been published | Listed in SP 800-53's references, but cited by no control |
+| [NIST IR 8062](https://csrc.nist.gov/pubs/ir/8062/final) | An Introduction to Privacy Engineering and Risk Management in Federal Systems | Final, January 2017 | Cited by no PT control. SP 800-53 cites it in 12 controls in other families, among them [RA-3](/controls/ra/ra-3/), [PM-5](/controls/pm/pm-5/) and [SA-8](/controls/sa/sa-8/) |
 
 <a id="ra"></a>
 

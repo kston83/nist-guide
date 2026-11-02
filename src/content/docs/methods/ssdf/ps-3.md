@@ -43,7 +43,7 @@ Securely archive the necessary files and supporting data (e.g., integrity verifi
 
 ### PS.3.2
 
-Collect, safeguard, maintain, and share provenance data for all components of each software release (e.g., in a software bill of materials [SBOM]).
+Collect, safeguard, maintain, and share provenance data for all components of each software release (e.g., in a software bill of materials \[SBOM]).
 
 <details>
 <summary>Notional implementation examples for PS.3.2</summary>

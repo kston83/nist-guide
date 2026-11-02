@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { strToU8, zipSync } from 'fflate';
 import { mergeGenerated, END, GUIDE } from '../lib/generated.mjs';
-import { oscalId, parseSsdf, practiceSlug, SSDF_OWNED_KEYS, ssdfPages } from '../lib/ssdf.mjs';
+import { md, monthName, oscalId, parseSsdf, practiceSlug, SSDF_OWNED_KEYS, ssdfPages, updateOverview } from '../lib/ssdf.mjs';
 import { columnIndex, decodeXml, readWorkbook, sharedStrings, sheetRows } from '../lib/xlsx.mjs';
 
 // ---------- a minimal .xlsx ----------
@@ -177,4 +177,38 @@ test('a rerun keeps hand-set front matter and guidance on practice pages', () =>
 	const next = mergeGenerated(edited, { ...po1, frontmatter: po1.frontmatter.replace("'2026-10'", "'2026-11'") }, SSDF_OWNED_KEYS);
 	assert.match(next, /checked: '2026-11'\nguidance: draft\nimplements: \[sa-1\]\n---/);
 	assert.ok(next.slice(next.indexOf(END)).includes('Our text.'));
+});
+
+test('escapes square brackets so bracketed NIST text cannot become a link', () => {
+	assert.equal(md('third parties. [Formerly PW.3.1]'), 'third parties. \\[Formerly PW.3.1]');
+	const [po1] = ssdfPages(parseSsdf(sheets(), CONTROLS), SOURCE);
+	assert.match(po1.body, /^Communicate requirements to third parties\. \\\[Formerly PW\.3\.1\]$/m);
+});
+
+test('the overview takes its source front matter from SOURCE and fails on a stale "as of" date', () => {
+	const overview = [
+		'---',
+		'title: SSDF',
+		'source:',
+		"  id: 'SP 800-218'",
+		"  version: '1.1'",
+		'  status: final',
+		"  checked: '2026-10'",
+		'guidance: draft',
+		'---',
+		'',
+		'Status as of October 2026.',
+		'',
+		'As of October 2026:',
+		'',
+	].join('\n');
+	const same = updateOverview(overview, SOURCE);
+	assert.equal(same.text, overview);
+	assert.deepEqual(same.problems, []);
+	const next = updateOverview(overview, { ...SOURCE, checked: '2026-11' });
+	assert.match(next.text, /^ {2}checked: '2026-11'\nguidance: draft\n---$/m);
+	assert.deepEqual(next.problems, [
+		'says "as of October 2026" but SOURCE.checked is 2026-11; recheck the statuses it states and update the date',
+	]);
+	assert.equal(monthName('2026-01'), 'January 2026');
 });

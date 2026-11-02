@@ -2,6 +2,7 @@
 // NIST's SP 800-218 table (nist.sp.800-218.ssdf-table.xlsx), as read by
 // scripts/lib/xlsx.mjs. No file or network access, so npm test can run it on
 // a small fixture workbook.
+import { splitFrontmatter, topLevelEntries } from './generated.mjs';
 
 // The SSDF sheet's header row, as NIST publishes it; anything else stops the run.
 export const HEADER = ['Practices', 'Tasks', 'Notional Implementation Examples', 'References'];
@@ -13,9 +14,23 @@ export const SSDF_OWNED_KEYS = new Set(['title', 'description', 'sidebar', 'sour
 const clean = (s) => s.replace(/\r\n?/g, '\n').replace(/[ \t]+/g, ' ').trim();
 
 // NIST's text contains no Markdown syntax; escape the few characters that would
-// change its meaning if a later version did.
-const md = (s) => s.replace(/([\\`*_<])/g, '\\$1');
+// change its meaning if a later version did. "[" covers bracketed text such as
+// "[Formerly PW.3.1]", which would become a link if a definition ever matched it.
+export const md = (s) => s.replace(/([\\`*_<[])/g, '\\$1');
 const yaml = (s) => `'${String(s).replace(/'/g, "''")}'`;
+
+// The `source` front matter entry, the same on the practice pages and the overview.
+const sourceLines = (source) => [
+	'source:',
+	"  id: 'SP 800-218'",
+	`  version: ${yaml(source.version)}`,
+	`  status: ${source.status}`,
+	`  checked: ${yaml(source.checked)}`,
+];
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+/** "2026-10" -> "October 2026". */
+export const monthName = (checked) => `${MONTHS[Number(checked.slice(5, 7)) - 1]} ${checked.slice(0, 4)}`;
 
 /** "PO.1" -> "po-1", the page slug; "PO.1.2" -> "po.1.2", the task anchor. */
 export const practiceSlug = (id) => id.toLowerCase().replace('.', '-');
@@ -130,11 +145,7 @@ export function ssdfPages({ groups, practices }, source) {
 			'sidebar:',
 			`  label: ${yaml(title)}`,
 			`  order: ${i + 1}`,
-			'source:',
-			"  id: 'SP 800-218'",
-			`  version: ${yaml(source.version)}`,
-			`  status: ${source.status}`,
-			`  checked: ${yaml(source.checked)}`,
+			...sourceLines(source),
 			'---',
 		].join('\n');
 		const tasks = p.tasks.flatMap((t) => [
@@ -197,3 +208,28 @@ export function ssdfPages({ groups, practices }, source) {
 	return pages;
 }
 
+
+/**
+ * The overview after a run: it is hand-written, but its `source` front matter is
+ * rewritten from SOURCE, and every "as of <Month YYYY>" in it must be the month in
+ * `source.checked`, so a recheck cannot leave its status statements behind.
+ * The run fails on a stale date rather than rewriting hand-written text.
+ * @param {string} text the overview, after its nist block is regenerated
+ * @returns {{ text: string, problems: string[] }}
+ */
+export function updateOverview(text, source) {
+	const { yaml: fm, rest } = splitFrontmatter(text);
+	if (fm === null) return { text, problems: ['no front matter'] };
+	const entries = topLevelEntries(fm);
+	const lines = sourceLines(source);
+	if (!entries.some((e) => e.key === 'source')) entries.push({ key: 'source', lines });
+	const yaml = entries.flatMap((e) => (e.key === 'source' ? lines : e.lines)).join('\n');
+	const month = monthName(source.checked);
+	const stale = [...rest.matchAll(new RegExp(`\\bas of ((?:${MONTHS.join('|')}) \\d{4})`, 'gi'))]
+		.map((m) => m[1])
+		.filter((d) => d !== month);
+	const problems = [...new Set(stale)].map(
+		(d) => `says "as of ${d}" but SOURCE.checked is ${source.checked}; recheck the statuses it states and update the date`,
+	);
+	return { text: `---\n${yaml}\n---\n${rest}`, problems };
+}

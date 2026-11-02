@@ -14,7 +14,9 @@
  *                  description, sidebar, source). Other keys and everything
  *                  below the nist:end marker are kept, as on control pages.
  *   index.md       the overview, hand-written; only its nist block (the list of
- *                  groups and practices) is generated. The run fails if it is missing.
+ *                  groups and practices) and its `source` front matter are
+ *                  generated. The run fails if it is missing, or if an "as of
+ *                  <Month YYYY>" in it is not the month in SOURCE.checked.
  * and src/data/ssdf.json, the parsed table (groups, practices, tasks, and each
  * task's references, with its SP 800-53 references as control ids), committed so
  * the build needs no download.
@@ -28,7 +30,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { mergeGenerated, tailProblem } from './lib/generated.mjs';
-import { parseSsdf, SSDF_OWNED_KEYS, ssdfPages } from './lib/ssdf.mjs';
+import { parseSsdf, SSDF_OWNED_KEYS, ssdfPages, updateOverview } from './lib/ssdf.mjs';
 import { readWorkbook } from './lib/xlsx.mjs';
 
 const FILE = 'nist.sp.800-218.ssdf-table.xlsx';
@@ -41,7 +43,8 @@ const SOURCE = {
 	version: '1.1',
 	status: 'final',
 	published: 'February 2022',
-	// Month the publication's status was last checked at its landing page; update it with each recheck.
+	// Month the publication's status was last checked at its landing page; update it with each
+	// recheck, and the overview's "as of" dates with it (the run fails until they match).
 	checked: '2026-10',
 	landing: 'https://csrc.nist.gov/pubs/sp/800/218/final',
 	file: FILE,
@@ -91,8 +94,13 @@ for (const page of pages) {
 		existing = await fs.readFile(file, 'utf8');
 	} catch {}
 	if (existing === null && page.frontmatter === null) throw new Error(`${file} is missing; it is hand-written around its nist block.`);
-	const next = mergeGenerated(existing, page, SSDF_OWNED_KEYS);
+	let next = mergeGenerated(existing, page, SSDF_OWNED_KEYS);
 	if (next === null) throw new Error(`${file} has no nist markers.`);
+	if (page.frontmatter === null) {
+		const overview = updateOverview(next, SOURCE);
+		next = overview.text;
+		problems.push(...overview.problems.map((p) => `${file}: ${p}`));
+	}
 	const problem = tailProblem(next);
 	if (problem) problems.push(`${file}: ${problem}`);
 	if (next !== existing?.replace(/\r\n/g, '\n')) {

@@ -64,7 +64,7 @@ Identify and document all security requirements for organization-developed softw
 
 ### PO.1.3
 
-Communicate requirements to all third parties who will provide commercial software components to the organization for reuse by the organization’s own software. [Formerly PW.3.1]
+Communicate requirements to all third parties who will provide commercial software components to the organization for reuse by the organization’s own software. \[Formerly PW.3.1]
 
 <details>
 <summary>Notional implementation examples for PO.1.3</summary>

@@ -60,7 +60,7 @@ Track and maintain the software’s security requirements, risks, and design dec
 
 ### PW.1.3
 
-Where appropriate, build in support for using standardized security features and services (e.g., enabling software to integrate with existing log management, identity management, access control, and vulnerability management systems) instead of creating proprietary implementations of security features and services. [Formerly PW.4.3]
+Where appropriate, build in support for using standardized security features and services (e.g., enabling software to integrate with existing log management, identity management, access control, and vulnerability management systems) instead of creating proprietary implementations of security features and services. \[Formerly PW.4.3]
 
 <details>
 <summary>Notional implementation examples for PW.1.3</summary>

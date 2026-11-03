@@ -88,6 +88,12 @@ The authorization boundary includes {{fill:the components, networks and services
 
 Diagrams: {{fill:references to the current system, network architecture and data flow diagrams}}.
 
+The build and deployment pipeline that changes the system is {{fill:its name, or "not applicable" if the system has none}}. It is {{fill:inside this boundary, with its components in section 9; an enabling system, named with its authorization and the controls this system inherits from it; or an external system service, named with its authorization status}} (PL-2a.2, PL-2a.9). The pipeline identities, secrets and pipeline definitions this system owns are recorded in {{fill:the system's authentication record, for example Part B of the Identification and Authentication Standard}}.
+
+:::guidance
+[NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), section 2.4, says a system may be supported by enabling systems outside its authorization boundary, whose risk is managed within their own boundaries. A pipeline that can change production belongs in a boundary: this one if the system's team runs it, its own if a platform team runs it for many systems, or the provider's if it is a hosted service (SA-9). Whichever applies, the deployment identities, secrets and pipeline definitions this system creates stay with this system. The guide's [pipeline as part of the system boundary](/devsecops/pipeline-boundary/) page explains the choice.
+:::
+
 ## 8. Information exchanges
 
 :::guidance

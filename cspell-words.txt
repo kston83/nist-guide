@@ -100,11 +100,14 @@ OSCAL
 OSPS
 pandoc
 Paramify
+passwordless
+PBAC
 PPTP
 preapproved
 preproduction
 QUIC
 reapproves
+recertification
 redisclosure
 reimaging
 remediations
@@ -138,6 +141,7 @@ telework
 TSIG
 unpatchable
 unremediated
+unreviewed
 unvalidated
 USGCB
 WCAG

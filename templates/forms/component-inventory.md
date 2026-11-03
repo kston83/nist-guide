@@ -29,6 +29,7 @@ Keep one inventory for each system. It lists the components inside that system's
 - List every component within the system's authorization boundary: physical and virtual servers, end-user devices, network and security devices, storage, operating systems, firmware, software, container images, cloud resources and services the organization configures, and issued portable storage devices (CM-8a.1, a.2).
 - Record each component once, in this system only. A component shared by several systems belongs to the system whose owner is responsible for it, and the others reference it (CM-8a.3).
 - Record components at the level of detail needed to track and report on them, for example each server and laptop individually and each software product by version (CM-8a.4).
+- Record components that a pipeline or orchestrator creates and removes automatically, such as instances in a scaling group or containers that run for minutes, as one entry per group rather than per instance: the scaling group or deployment, its image digest, its size range and its owner. Keep the cloud provider's or orchestrator's event logs, so you can show what ran when, and state this granularity in the system's Configuration Management Plan (CM-8a.4).
 - Record {{param:cm-08_odp.01}} for each component (CM-8a.5).
 - Update the inventory as part of each installation, removal and system update, through the change request that makes it (CM-8(1)).
 - Review and update the whole inventory {{param:cm-08_odp.02}}, and record the review in section 5 (CM-8b).

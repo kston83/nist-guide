@@ -9,7 +9,7 @@ guidance: draft
 
 import SectionIndex from '../../../components/SectionIndex.astro';
 
-This section is for teams that build and run a system through a CI/CD pipeline and need it authorized under the RMF. It shows, one topic at a time, how the pipeline meets the controls and which of its outputs an assessor will accept. It covers vendor-neutral process and evidence, with the status of each source as of October 2026.
+This section is for teams that build and run a system through a CI/CD pipeline and need it authorized under the RMF. It shows, one topic at a time, how the pipeline meets the controls and which of its outputs an assessor will accept. It covers vendor-neutral process and evidence, with the status of each source and the month it was checked.
 
 DevSecOps covers the systems a team builds and runs, and the controls that the pipeline and infrastructure as code deliver. It does not cover how people, physical or governance controls are met, or purchased software the team neither builds nor runs. Platform settings, such as how to configure a particular cloud or Kubernetes service, belong in the [technology playbooks](/technology/).
 
@@ -55,11 +55,11 @@ No topic page is published yet.
 
 </SectionIndex>
 
-More topics follow in Phase 4: configuration baselines as code; scanner findings to risk decisions and the plan of action and milestones; the pipeline as part of the system boundary, with its secrets and machine identities; inheritance from a platform; and continuous monitoring from pipeline output.
+More topics follow in Phase 4: scanner findings to risk decisions and the plan of action and milestones; the pipeline as part of the system boundary, with its secrets and machine identities; inheritance from a platform; and continuous monitoring from pipeline output.
 
 ## Sources and their status
 
-Status as of October 2026. Each is rechecked at every kit release. OWASP text is licensed CC BY-SA 4.0, which does not allow it into this guide's pages or CC0 templates, so the pages cite OWASP names and IDs and explain them in the guide's own words.
+Status as of October 2026, except the DSOMM and FedRAMP rows, rechecked in November 2026. Each is rechecked at every kit release. OWASP text is licensed CC BY-SA 4.0, which does not allow it into this guide's pages or CC0 templates, so the pages cite OWASP names and IDs and explain them in the guide's own words.
 
 | Source | Version or edition | Status and date | License or reuse |
 | --- | --- | --- | --- |
@@ -73,10 +73,10 @@ Status as of October 2026. Each is rechecked at every kit release. OWASP text is
 | [NIST SP 800-218](https://csrc.nist.gov/pubs/sp/800/218/final), Secure Software Development Framework | SSDF 1.1 | Final, February 2022; SSDF 1.2 (Rev. 1) is an initial public draft, December 2025 | Public domain |
 | [NCCoE DevSecOps Practices](https://pages.nist.gov/nccoe-devsecops/) (SP 1800-44) | Live document | Draft: open for comment through November 9, 2026; cited only as a draft | Public domain |
 | [OWASP DevSecOps Guideline](https://owasp.org/www-project-devsecops-guideline/) | No version number | Incubator project | CC BY-SA 4.0: cite, do not copy |
-| [OWASP DevSecOps Maturity Model (DSOMM)](https://owasp.org/www-project-devsecops-maturity-model/) | Current model | Lab project | CC BY-SA content, GPL-3.0 data: cite, do not copy |
+| [OWASP DevSecOps Maturity Model (DSOMM)](https://owasp.org/www-project-devsecops-maturity-model/) | Data release 5.0.2, September 17, 2026 | Lab project | CC BY-SA content, GPL-3.0 data: cite, do not copy |
 | [OWASP Top 10 CI/CD Security Risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/) | CICD-SEC-1 to CICD-SEC-10 | Lab project | CC BY-SA 4.0: cite, do not copy |
 | [DoD Enterprise DevSecOps Activities & Tools Guidebook](https://dodcio.defense.gov/Portals/0/Documents/Library/DevSecOpsActivitesToolsGuidebook.pdf) | Version 2.5 | April 2025; cleared September 15, 2025 | Distribution Statement A: may be adapted with citation |
 | [NSA and CISA, Defending CI/CD Environments](https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF) | Version 1.0 | June 2023, TLP:CLEAR | U.S. government work: cite and summarize |
-| [FedRAMP Consolidated Rules for 2026](https://www.fedramp.gov/2026/) and the [rules repository](https://github.com/FedRAMP/rules) | Rules version 2026.10.13.01 | Optional early adoption from July 4, 2026; mandatory from January 1, 2027 ([timeline](https://www.fedramp.gov/2026/timeline/)); FedRAMP 20x in Phase 3 | No license file: cite IDs and titles as FedRAMP's; not imported |
+| [FedRAMP Consolidated Rules for 2026](https://www.fedramp.gov/2026/) and the [rules repository](https://github.com/FedRAMP/rules) | Rules version 2026.11.02.01 (as of November 2026); each topic page gives the version it read | Optional early adoption from July 4, 2026; mandatory from January 1, 2027 ([timeline](https://www.fedramp.gov/2026/timeline/)); FedRAMP 20x in Phase 3 | No license file: cite IDs and titles as FedRAMP's; not imported |
 
 FedRAMP applies to cloud services that seek FedRAMP Certification. Its Key Security Indicators and rules appear on these pages as a model of outcome-based evidence, always labelled as FedRAMP's. Most agency systems are authorized under the RMF outside FedRAMP.

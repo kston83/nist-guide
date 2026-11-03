@@ -108,6 +108,9 @@ reapproves
 redisclosure
 reimaging
 remediations
+rescans
+rescanned
+rescanning
 rescreening
 rlogin
 rulemaking
@@ -133,6 +136,7 @@ TAXII
 TDEA
 telework
 TSIG
+unpatchable
 unremediated
 unvalidated
 USGCB

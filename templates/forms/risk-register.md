@@ -21,7 +21,7 @@ The risk register is the running list of risks and what is being done about them
 - Add each risk identified in a risk assessment, and each risk raised by an assessment, monitoring, an audit or an incident (RA-3).
 - Rate likelihood, impact and exposure with the scales in the organization's risk management strategy, so risks can be compared across systems.
 - Record the response decided for each risk, in line with the organization's risk tolerance (RA-7).
-- Record who accepted a risk, when, and when the acceptance expires. Only an official the risk management strategy authorizes for that risk level may accept it.
+- Record who accepted a risk, when, and when the acceptance expires. A risk to an authorized system may be accepted only by its authorizing official, after consulting the roles the risk management strategy names for that risk level. An organization-level risk may be accepted only by an official the strategy authorizes for that level.
 - Review open risks {{fill:for example quarterly}}, and keep closed risks with their closure date.
 
 | Field | What to record |

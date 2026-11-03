@@ -104,7 +104,7 @@ This paragraph applies to High systems.
 - Each system owner shall determine whether system components have applicable security-relevant software and firmware updates installed, using <span class="tpl-field tpl-param">Fill in: automated mechanisms to determine if applicable security-relevant software and firmware updates are installed on system components <span class="tpl-typical">Typical: the patch management and vulnerability scanning tools</span></span>, <span class="tpl-field tpl-param">Fill in: the frequency at which to determine if applicable security-relevant software and firmware updates are installed on system components <span class="tpl-typical">Typical: at least weekly</span></span>. (SI-2(2))
 - Patch compliance reports from the patch management tools shall be checked against authenticated vulnerability scans, and differences resolved. (SI-2(2))
 - Components the tools cannot reach, such as appliances and embedded devices, shall be checked manually on the same schedule, with the check recorded. (SI-2(2))
-- An update is installed when a later scan or report shows the component at the fixed version. (SI-2c)
+- An update is installed when a later scan or report shows the component at the fixed version. For components built from images, it is installed when no running component still uses an image without it. (SI-2c)
 
 ### 8. Unsupported components
 
@@ -114,7 +114,7 @@ This paragraph applies to High systems.
 ### 9. Exceptions
 
 - A security-relevant update that cannot be installed within its time shall be entered in the system's plan of action and milestones, with a planned date and any compensating measures, before its installation time ends. (SI-2c)
-- An update that will not be installed shall be accepted only by an official the risk management strategy authorizes to accept risk at its level, with the compensating measures and an expiry date recorded. (RA-7)
+- An update that will not be installed shall be accepted only by the system's authorizing official, after consulting the roles the risk management strategy names for that risk level, with the compensating measures and an expiry date recorded in the risk register. (RA-7)
 - Exceptions shall be reviewed <span class="tpl-field tpl-fill">Fill in: for example quarterly</span> and at expiry. (RA-7)
 
 ### 10. Reporting

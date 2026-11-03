@@ -132,7 +132,7 @@ This paragraph applies to High systems.
 
 - Any deviation from the established settings for <span class="tpl-field tpl-param">Fill in: system components for which approval of deviations is needed <span class="tpl-typical">Typical: all system components</span></span> shall be identified, documented and approved, based on <span class="tpl-field tpl-param">Fill in: operational requirements necessitating approval of deviations <span class="tpl-typical">Typical: documented operational needs that the system owner approves and the security team reviews</span></span>. (CM-6c)
 - A deviation shall be requested through a change request, with the operational need, the risk and any compensating measures, reviewed by the security representative, and approved by the <span class="tpl-field tpl-org">System owner</span> before the setting is changed. (CM-6c)
-- A deviation that leaves a high-risk setting unmet, such as one the benchmark marks as most severe, shall also be accepted by an official the risk management strategy authorizes to accept risk at that level. (CM-6c, RA-7)
+- A deviation that leaves a high-risk setting unmet, such as one the benchmark marks as most severe, shall also be accepted by the system's authorizing official, after consulting the roles the risk management strategy names for that risk level, and recorded in the risk register. (CM-6c, RA-7)
 - Each approved deviation shall be entered in the system's deviation register in Part B and configured as an exception in the scanner, so compliance reports show it as approved rather than as a failure. (CM-6c)
 - Each deviation shall have an expiry or review date, and shall be reviewed at each baseline review, when the benchmark version changes, and when the component is upgraded. (CM-6c)
 

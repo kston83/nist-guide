@@ -24,6 +24,12 @@ The POA&M is where every known weakness lives until it is fixed or formally acce
 - Update the register {{param:ca-05_odp}}, using the findings of control assessments, independent audits or reviews, and continuous monitoring (CA-5b).
 - Keep closed items, with their completion date and evidence, so the history supports the next assessment.
 - When the {{org:system-owner}} proposes to accept a risk instead of fixing it, record the authorizing official's decision and its date in the item.
+- Where a vulnerability tracker records these fields for scanner findings, its open findings can be the register's items for known vulnerabilities. Export them into the register at each update, so the whole plan is in one place (CA-5(1)).
+- Record one item per vulnerability, listing every affected component, or the image that the affected components run, rather than one item per scan result.
+
+:::guidance
+A team that ships through a pipeline often has hundreds of open scanner findings, most within their remediation times. NIST's RA-7 discussion expects a plan of action and milestones entry whenever a mitigation cannot be completed immediately, so generate those entries from the tracker rather than copying them by hand. Findings that blocked a build and never deployed are not entries. See the [DevSecOps page on scanner findings](/devsecops/findings-to-poam/).
+:::
 
 | Field | What to record |
 | --- | --- |

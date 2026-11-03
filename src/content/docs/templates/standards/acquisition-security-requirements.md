@@ -211,7 +211,7 @@ Result: <span class="tpl-field tpl-fill">Fill in: approved to issue, approved wi
 ### 6. Deviations
 
 - A solicitation that leaves out a requirement in section 4 that applies shall be issued only with the <span class="tpl-field tpl-org">Chief Information Security Officer</span>'s written approval, recording the reason and any compensating measures. (SA-4)
-- A deviation that leaves a risk to the system shall be accepted by the official the risk management strategy authorizes to accept risk at its level, and tracked in the system's plan of action and milestones. (SA-4, RA-7)
+- A deviation that leaves a risk to the system shall be accepted only by the system's authorizing official, after consulting the roles the risk management strategy names for that risk level, and tracked in the system's plan of action and milestones. (SA-4, RA-7)
 
 <div class="tpl-federal">
 

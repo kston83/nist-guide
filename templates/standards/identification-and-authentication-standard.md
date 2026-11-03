@@ -2,7 +2,7 @@
 title: Identification and Authentication Standard
 type: standard
 description: The assurance levels, identifiers, authenticators, multi-factor and password rules, and service account, device and federation requirements (IA-2, IA-5), with each system's authentication record.
-controls: [ia-2, ia-2.1, ia-2.2, ia-2.8, ia-2.12, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-3, ia-4, ia-4.4, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ac-7]
+controls: [ia-2, ia-2.1, ia-2.2, ia-2.8, ia-2.12, ia-5, ia-5.1, ia-5.2, ia-5.6, ia-5.7, ia-3, ia-4, ia-4.4, ia-6, ia-7, ia-8, ia-8.1, ia-8.2, ia-8.4, ia-11, ia-12, ac-7]
 status: draft
 stage: core
 typical:
@@ -190,12 +190,19 @@ The password storage rule follows SP 800-63B-4 section 3.1.1.2: a suitable passw
 - Each service, application or workload account shall have a named owner, a recorded purpose and the least privilege it needs, and shall be listed in Part B section 20. (IA-2)
 - Service accounts shall not be used for interactive sign-in by people, and shall be blocked from it where the platform allows. (IA-2)
 - Systems shall prefer credentials that need no stored secret, such as workload identities issued by the platform, managed identities and short-lived tokens, and then certificates or keys held in a key management service. (IA-5g)
-- Secrets for services, such as passwords, API keys and tokens, shall be kept in the organization's secrets manager, never in source code, scripts, configuration files, container images or tickets. (IA-5g)
+- Secrets for services, such as passwords, API keys and tokens, shall be kept in the organization's secrets manager, never in source code, scripts, configuration files, container images or tickets. (IA-5g, IA-5(7))
 - Service secrets shall be changed as section 9 sets, when a person who knew them leaves, and at once when they are found exposed, such as in a code repository. (IA-5f)
 - {{org:security-operations}} shall alert on interactive or unexpected use of service accounts. (IA-2)
+- Each build and deployment pipeline shall use its own identities, separate for each environment it deploys to, and a production deployment identity shall be usable only by that pipeline. (IA-2)
+- Pipelines shall obtain credentials for cloud services, registries and production for each run, through workload identity federation or the platform's managed identity, wherever the target supports it. (IA-5g)
+- Secrets a pipeline needs shall be given at run time only to the jobs that use them, masked in job logs, and never given to jobs that run unreviewed code, such as merge requests from forks or outside contributors. (IA-5g)
+- Repositories shall be scanned for secrets on every push, with push protection where the platform allows, and repositories, build logs and container images shall be scanned on a schedule. (IA-5(7))
+- A secret found exposed shall be revoked in the system that issued it, not only removed from the repository's history, and reported as a possible incident. (IA-5d)
 
 :::guidance
 SP 800-63-4 section 1.1 says the guidelines do not explicitly address machine-to-machine authentication or access to programming interfaces on behalf of people, so this section is informed practice, written from IA-2 (which covers processes acting for users), IA-5 and IA-5(6). Service accounts with old, widely known passwords are among the most common findings, and leaked secrets in code repositories are a frequent cause of breaches. The encryption and key management standard sets how long keys and service secrets may be used; this section sets how they are owned and stored.
+
+The pipeline statements follow [NIST SP 800-204D](https://csrc.nist.gov/pubs/sp/800/204/d/final) (February 2024): workflows from outside contributors run without the ability to read secrets (section 5.1.2), and commits are scanned for secrets with push protection (section 5.1.4). NSA and CISA's [Defending CI/CD Environments](https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF) (June 2023) recommends the cloud's temporary credentials over stored ones for software-to-software authentication. IA-5(7), no embedded unencrypted static authenticators, is in no baseline; these statements meet it if the organization selects it. Record each pipeline identity in Part B section 20. The guide's [pipeline as part of the system boundary](/devsecops/pipeline-boundary/) page explains each statement and the evidence an assessor checks.
 :::
 
 ### 13. Devices

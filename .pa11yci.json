@@ -20,6 +20,8 @@
 		"http://localhost:4321/nist-guide/methods/ssdf/po-1/",
 		"http://localhost:4321/nist-guide/devsecops/",
 		"http://localhost:4321/nist-guide/devsecops/change-management/",
+		"http://localhost:4321/nist-guide/devsecops/configuration-baselines/",
+		"http://localhost:4321/nist-guide/devsecops/findings-to-poam/",
 		"http://localhost:4321/nist-guide/devsecops/pipeline-boundary/",
 		"http://localhost:4321/nist-guide/industries/"
 	]

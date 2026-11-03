@@ -161,7 +161,7 @@ Read against the conditions above, MAS-CSO-IIR is condition 1, KSI-PIY-GIV is co
 :::note[Federal systems]
 [OMB Circular A-130](https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A130/a130revised.pdf) defines the authorization boundary as "all components of an information system to be authorized for operation by an authorizing official", which "excludes separately authorized systems to which the information system is connected" (section 10.a). Appendix I, section 4.a, has agencies identify boundaries in accordance with SP 800-18 and SP 800-37. A pipeline the agency runs for one system is in that system's boundary; a shared pipeline is authorized on its own, and each system's plan records the connection. As of November 2026.
 
-For a hosted pipeline service with a FedRAMP Certification, FedRAMP's [Agency Use rules](https://www.fedramp.gov/2026/agencies/rules/agency-use/) say agencies must complete the Authorization to Operate process for systems that use it (AGU-USE-ABU), and must review the provider's Secure Configuration Guides and configure the relevant settings (AGU-USE-RSG). The certification covers the service. The identities, secrets and settings the agency creates in it stay part of the agency system's authorization. As of November 2026.
+A hosted pipeline service with a FedRAMP Certification is a separately authorized system, so under that definition it sits outside the agency system's boundary, and the agency system's plan records the connection to it. The certification covers the provider's service. The identities, secrets and settings the agency creates in it stay part of the agency system's authorization. As of November 2026.
 :::
 
 ## Common findings

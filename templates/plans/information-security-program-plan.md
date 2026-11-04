@@ -102,7 +102,7 @@ These arrangements describe how compliance is achieved (PM-1a.2).
 ## 7. Program management and common controls
 
 :::guidance
-This is the heart of the plan for an assessor. List every program management control with how it is met, then every common control that systems inherit. A system security plan can then mark those controls as inherited from this plan, and its assessors test them once here. Mark planned controls with a target date.
+This is the heart of the plan for an assessor. List every program management control with how it is met, then every common control that systems inherit. A system security plan can then mark those controls as inherited from this plan, and its assessors test them once here. Mark planned controls with a target date. Common controls are authorized before systems inherit them, and the authorization states the impact level they support ([NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), task P-5 and task R-4), so a system can check it may inherit them at its own level.
 :::
 
 ### Program management controls
@@ -139,9 +139,9 @@ The program management controls, their status and where each is carried out (PM-
 
 Controls that the organization provides once and systems inherit, fully or in part (PM-1a.1):
 
-| Control | Common control provider | Inherited by | Fully or partly | Status | Where documented |
+| Control | Common control provider | Inherited by | Fully or partly | Status and authorization | Where documented |
 | --- | --- | --- | --- | --- | --- |
-| {{fill:for example AT-2}} | {{fill:for example the security awareness team}} | {{fill:all systems, or named systems}} | {{fill:fully or partly}} | {{fill:in place or planned, with date}} | {{fill:document or record}} |
+| {{fill:for example AT-2}} | {{fill:for example the security awareness team}} | {{fill:all systems, or named systems}} | {{fill:fully or partly}} | {{fill:in place or planned, with date; the common control authorization, its date and the impact level it supports}} | {{fill:document or record}} |
 
 ## 8. Related plans, strategies and policies
 

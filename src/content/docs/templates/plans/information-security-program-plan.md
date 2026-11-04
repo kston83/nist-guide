@@ -130,7 +130,7 @@ These arrangements describe how compliance is achieved (PM-1a.2).
 ### 7. Program management and common controls
 
 :::note[Guidance]
-This is the heart of the plan for an assessor. List every program management control with how it is met, then every common control that systems inherit. A system security plan can then mark those controls as inherited from this plan, and its assessors test them once here. Mark planned controls with a target date.
+This is the heart of the plan for an assessor. List every program management control with how it is met, then every common control that systems inherit. A system security plan can then mark those controls as inherited from this plan, and its assessors test them once here. Mark planned controls with a target date. Common controls are authorized before systems inherit them, and the authorization states the impact level they support ([NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), task P-5 and task R-4), so a system can check it may inherit them at its own level.
 :::
 
 #### Program management controls
@@ -167,9 +167,9 @@ The program management controls, their status and where each is carried out (PM-
 
 Controls that the organization provides once and systems inherit, fully or in part (PM-1a.1):
 
-| Control | Common control provider | Inherited by | Fully or partly | Status | Where documented |
+| Control | Common control provider | Inherited by | Fully or partly | Status and authorization | Where documented |
 | --- | --- | --- | --- | --- | --- |
-| <span class="tpl-field tpl-fill">Fill in: for example AT-2</span> | <span class="tpl-field tpl-fill">Fill in: for example the security awareness team</span> | <span class="tpl-field tpl-fill">Fill in: all systems, or named systems</span> | <span class="tpl-field tpl-fill">Fill in: fully or partly</span> | <span class="tpl-field tpl-fill">Fill in: in place or planned, with date</span> | <span class="tpl-field tpl-fill">Fill in: document or record</span> |
+| <span class="tpl-field tpl-fill">Fill in: for example AT-2</span> | <span class="tpl-field tpl-fill">Fill in: for example the security awareness team</span> | <span class="tpl-field tpl-fill">Fill in: all systems, or named systems</span> | <span class="tpl-field tpl-fill">Fill in: fully or partly</span> | <span class="tpl-field tpl-fill">Fill in: in place or planned, with date; the common control authorization, its date and the impact level it supports</span> | <span class="tpl-field tpl-fill">Fill in: document or record</span> |
 
 ### 8. Related plans, strategies and policies
 

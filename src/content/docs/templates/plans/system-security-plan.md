@@ -152,11 +152,25 @@ For each control, the implementation detail records:
 | Field | Content |
 | --- | --- |
 | Implementation | How the control is or will be met, referencing policies, procedures and configurations (PL-2a.12) |
-| Responsibility | System-specific, common (inherited from a named provider) or hybrid |
+| Responsibility | System-specific, common (inherited from a provider in the table below) or hybrid; for a hybrid control, the part the provider implements and the part this system implements |
 | Implementation status | Planned, partially implemented or fully implemented |
 | Assessment status | Satisfied or other than satisfied, with the assessment date and report, and the POA&M item for anything other than satisfied (CA-5) |
 
 Control details: <span class="tpl-field tpl-fill">Fill in: the control-by-control implementation, here or as an attached export</span>.
+
+#### Inherited and hybrid controls
+
+:::note[Guidance]
+[NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), task S-4, says there is no requirement to give implementation details for inherited common controls; the plan identifies them, and for each hybrid control specifies the part the common control provider provides and the part the system implements. [SP 800-18 Rev. 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) (June 2026, sections 3.2 and 4.3.2) has the plan reference the source of each common control rather than copy it, and notes that controls inherited from a cloud service provider may need its customer responsibility matrix. Inherit only from a provider whose controls are authorized for inheritance, or from another system with a valid authorization to operate (SP 800-37 Appendix F, footnote 139). The guide's [inheritance from a platform](/devsecops/platform-inheritance/) page explains each column.
+:::
+
+This system inherits controls, in full or in part, from these providers (PL-2a.9, PL-2a.12):
+
+| Provider and what it provides | Kind and authorization | Controls inherited in full | Hybrid controls, with this system's part | Provider documents cited |
+| --- | --- | --- | --- | --- |
+| <span class="tpl-field tpl-fill">Fill in: provider, for example the organization's platform team or a cloud service, and the capability it provides</span> | <span class="tpl-field tpl-fill">Fill in: common controls with a common control authorization, another system with an authorization to operate, or an external system service with its authorization or attestation; its date, and its termination date or ongoing status</span> | <span class="tpl-field tpl-fill">Fill in: control IDs</span> | <span class="tpl-field tpl-fill">Fill in: control IDs, each with the part this system implements, including the customer responsibilities the provider sets</span> | <span class="tpl-field tpl-fill">Fill in: the provider's plan, customer responsibility matrix or secure configuration guidance, with its version or date</span> |
+
+The authorizing official accepted the use of these inherited controls on <span class="tpl-field tpl-fill">Fill in: date</span>, in <span class="tpl-field tpl-fill">Fill in: the authorization decision document, or a separate signed acceptance</span> (CA-6c.1). The system learns of changes to these providers' controls, authorizations and customer responsibilities through <span class="tpl-field tpl-fill">Fill in: for example the provider's release notes, monitoring reports and significant change notices</span>, and this plan is updated for those that affect it (PL-2d).
 
 Specific threats of concern to this system: <span class="tpl-field tpl-fill">Fill in: threats</span> (PL-2a.7). Risk determinations for security and privacy architecture and design decisions: <span class="tpl-field tpl-fill">Fill in: decisions and the risk accepted</span> (PL-2a.13).
 

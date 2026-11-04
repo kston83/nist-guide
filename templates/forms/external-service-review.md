@@ -93,7 +93,7 @@ Oversight and user roles:
 | Administrators | {{fill:team}} | {{fill:for example configuring the organization's settings and accounts in the service}} |
 | Users | {{fill:group}} | {{fill:for example using the service only for the approved purpose and information}} |
 
-- The {{org:system-owner}} shall record the oversight roles, the user roles and the shared responsibility matrix for the service, and show each control in the system security plan as inherited, shared or system-owned. (SA-9b)
+- The {{org:system-owner}} shall record the oversight roles, the user roles and the shared responsibility matrix for the service, and show each control in the system security plan as common (inherited), hybrid or system-specific. (SA-9b)
 
 ## 5. Functions, ports, protocols and services
 

@@ -139,7 +139,7 @@ export default defineConfig({
 		starlight({
 			title: 'RMF Field Guide',
 			description:
-				'A practical guide to applying the NIST Risk Management Framework and SP 800-53 controls to real systems.',
+				'Free guidance and ready-to-adopt templates for the NIST RMF and SP 800-53: what each control requires, how to meet it, and the evidence assessors check.',
 			favicon: '/favicon.svg',
 			// Social preview image for every page (PRD PRES-01). Starlight already sets
 			// og:title, og:description, og:site_name and twitter:card. Remake the image
@@ -148,7 +148,7 @@ export default defineConfig({
 				['og:image', OG_IMAGE],
 				['og:image:width', '1200'],
 				['og:image:height', '630'],
-				['og:image:alt', 'RMF Field Guide: applying the NIST Risk Management Framework and SP 800-53 to real systems'],
+				['og:image:alt', 'RMF Field Guide by Kristopher Stone: the NIST Risk Management Framework and SP 800-53, from requirement to evidence'],
 			]
 				.map(([property, content]) => ({ tag: 'meta', attrs: { property, content } }))
 				.concat({ tag: 'meta', attrs: { name: 'twitter:image', content: OG_IMAGE } })

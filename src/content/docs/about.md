@@ -3,7 +3,7 @@ title: About this guide
 description: Who this guide is for, how it is made, how it is organized, and how it is maintained. The guide is a research project, and most of its content is written by Claude Opus 5.5.
 ---
 
-The RMF Field Guide explains how to apply the NIST Risk Management Framework (RMF) and the SP 800-53 control catalog to real systems, from the first boundary diagram to ongoing authorization. It is written for system owners, information system security officers (ISSOs), assessors, authorizing officials and the consultants who support them.
+The RMF Field Guide takes the NIST Risk Management Framework (RMF) and the SP 800-53 control catalog from requirement to evidence. It explains what each step and control asks for and what assessors look for, from the first boundary diagram to ongoing authorization. Its free, ready-to-adopt templates give a program a starting point and a process it can repeat. It is written for security leads building a program, system owners, information system security officers (ISSOs), assessors, authorizing officials and the consultants who support them.
 
 ## How this guide is made
 

@@ -26,8 +26,8 @@ const ACCENT = '#4fb3a8'; // accent (dark theme)
 const SOFT = '#c6e9e4'; // accent-high (dark theme)
 
 const TITLE = 'RMF Field Guide';
-const TAGLINE = 'Applying the NIST Risk Management Framework\nand SP 800-53 to real systems';
-const URL = 'kston83.github.io/nist-guide';
+const TAGLINE = 'The NIST Risk Management Framework and\nSP 800-53, from requirement to evidence';
+const URL = 'By Kristopher Stone  ·  kston83.github.io/nist-guide';
 
 const fonts = 'node_modules/@fontsource';
 const SERIF = await woffToTtf(`${fonts}/source-serif-4/files/source-serif-4-latin-600-normal.woff`);

@@ -3,7 +3,7 @@ title: About this guide
 description: Who this guide is for, how it is made, how it is organized, and how it is maintained. The guide is a research project, and most of its content is written by Claude Opus 5.5.
 ---
 
-The RMF Field Guide explains how to apply the NIST Risk Management Framework (RMF) and the SP 800-53 control catalog to real systems, from the first boundary diagram to ongoing authorization. It is written for system owners, information system security officers (ISSOs), assessors, authorizing officials and the consultants who support them.
+The RMF Field Guide takes the NIST Risk Management Framework (RMF) and the SP 800-53 control catalog from requirement to evidence. It explains what each step and control asks for and what assessors look for, from the first boundary diagram to ongoing authorization. Its free, ready-to-adopt templates give a program a starting point and a process it can repeat. It is written for security leads building a program, system owners, information system security officers (ISSOs), assessors, authorizing officials and the consultants who support them.
 
 ## How this guide is made
 
@@ -24,14 +24,15 @@ This is an ongoing effort. The aim is for the guide to grow into a complete, dep
 The guide has five layers, from general to specific:
 
 1. **The framework.** The seven RMF steps from [SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), with the tasks, roles, outputs and pitfalls for each.
-2. **The controls.** Every SP 800-53 Rev. 5 control, generated from NIST's official machine-readable catalog, with practical guidance added over time.
-3. **Program templates.** Policies for every control family, plus the plans, standards, procedures and forms the controls call for, ready to fill in or modify.
+2. **The controls.** Every SP 800-53 Rev. 5 control, generated from NIST's official machine-readable catalog, with guidance on how to meet it and what assessors look for. Every Moderate-baseline control has guidance; more is added over time.
+3. **Program templates.** Policies for every control family, plus the plans, standards, procedures, forms and reports the controls call for, ready to fill in or modify, in Word and Markdown. [Build your program](/program/) puts them in order, stage by stage, from a first policy to a mature program.
 4. **Industries (planned).** How the framework and controls apply under sector rules such as HIPAA, NERC CIP, PCI DSS and CMMC.
 5. **Technologies (planned).** How specific controls are implemented and evidenced on specific platforms.
 
-Two further parts build on this:
+Three further parts build on this:
 
-- **Methods (planned).** Where NIST publishes how to meet a control, the control page will name it. The Secure Software Development Framework ([SSDF](https://csrc.nist.gov/pubs/sp/800/218/final)) comes first.
+- **Methods.** Where NIST publishes how to meet a control, the control page names it. The [methods index](/methods/) lists NIST's implementation guidance for each control family, and the Secure Software Development Framework ([SSDF](/methods/ssdf/)) has a page for each of its practices.
+- **DevSecOps.** For teams that ship through a CI/CD pipeline: how the pipeline meets the controls and produces the evidence an assessor checks, one topic per page. The [DevSecOps section](/devsecops/) has an overview and its first topic pages, with more to come.
 - **The AI RMF and AI security (planned).** A second guidebook, for the NIST AI Risk Management Framework: how to apply it, and how to adopt and secure AI, in any organization and in systems authorized under the RMF. It is built on NIST and OWASP guidance.
 
 The [roadmap](/reference/roadmap/) shows what is available now and what comes next.

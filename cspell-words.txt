@@ -146,3 +146,15 @@ unvalidated
 USGCB
 WCAG
 Xacta
+CINC
+CSSP
+FFRDC
+Fulcio
+NOASSERTION
+NTIA
+OHDF
+Rekor
+SARIF
+Sigstore
+WSTG
+XCCDF

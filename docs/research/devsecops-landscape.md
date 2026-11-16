@@ -2,6 +2,8 @@
 
 Research notes for the owner, not a site page and not a PRD change. The question (owner, 2026-10-09): the guide explains the RMF and SP 800-53 and ships the paperwork, but teams that build software in pipelines, and programs moving to FedRAMP 20x, need the step from "the control says" to "the pipeline does, and here is the evidence". Do public resources already bridge that, and where do they stop?
 
+**Update, 2026-11-16:** the companion note [`devsecops-path.md`](devsecops-path.md) asks how a team gets from zero automation to ongoing authorization using these resources, and its "Corrections to the landscape note and the registry" section supersedes this note where they differ (among them: FedRAMP does not require OSCAL of providers, CISA's 2026 SBOM minimum elements are final, ComplianceAsCode is BSD-3-Clause, and the CM slice under the KSI map idea is stale). This note is left as written, as a dated record.
+
 Everything below was checked at the source on 2026-10-09 unless marked otherwise; entries marked "2026-10-28" were rechecked or added during the owner's Phase 3 review, and [Update, 2026-10-28](#update-2026-10-28-validating-the-approach) records what changed. Treat statuses as "as of October 2026". Statements taken only from vendor or press articles are marked as such and are not to be cited on the site until checked at a primary source.
 
 ## The short answer

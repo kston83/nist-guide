@@ -23,6 +23,7 @@
 		"http://localhost:4321/nist-guide/devsecops/configuration-baselines/",
 		"http://localhost:4321/nist-guide/devsecops/findings-to-poam/",
 		"http://localhost:4321/nist-guide/devsecops/pipeline-boundary/",
+		"http://localhost:4321/nist-guide/devsecops/platform-inheritance/",
 		"http://localhost:4321/nist-guide/industries/"
 	]
 }

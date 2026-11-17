@@ -132,6 +132,16 @@ Control effectiveness is monitored <span class="tpl-field tpl-param">Fill in: fr
 Assessing a third of the controls each year means every control is assessed at least once in a three-year authorization period. Put volatile and critical controls, and any with open weaknesses, in every year's set. Inherited controls are assessed by their provider; list them with the provider as the assessor, so the table covers every control.
 :::
 
+These automated sources, such as scheduled scans, configuration checks and checks run by the deployment pipeline, produce monitoring results for the controls above. A result counts only while it is newer than its maximum age and covers the whole population listed. An older result, or one that misses part of the population, is a gap in monitoring and is reported as one (section 10).
+
+| Source | Controls and assessment objectives it informs | Population it must cover | How often it runs, and the maximum age of a result | Where results are kept, and for how long |
+| --- | --- | --- | --- | --- |
+| <span class="tpl-field tpl-fill">Fill in: for example the configuration compliance check, run after each deployment and nightly against the running system</span> | <span class="tpl-field tpl-fill">Fill in: for example CM-6b and CM-7a</span> | <span class="tpl-field tpl-fill">Fill in: for example every running component in the component inventory</span> | <span class="tpl-field tpl-fill">Fill in: for example nightly; 36 hours</span> | <span class="tpl-field tpl-fill">Fill in: for example the results store, where the pipeline can add records but not change or delete them; three years</span> |
+
+:::note[Guidance]
+[NIST SP 800-37 Rev. 2](https://csrc.nist.gov/pubs/sp/800/37/r2/final), Appendix F, notes that automated tools may not generate information "for every control or every part of a control", and that manual assessments cover the gaps: keep those controls in the schedule above. A check that runs only when the system is deployed says nothing about a period with no deployments, so schedule it against the running system too. Set each source's maximum age to its interval plus the time a run takes, so one missed run shows as a gap. Task M-4 says information needed for oversight and auditing "is not modified or destroyed", so keep results where the identities that write them cannot alter or delete them, for at least the assessment cycle above. The [continuous monitoring from pipeline output](/devsecops/continuous-monitoring/) page sets out the conditions for using pipeline output as monitoring evidence.
+:::
+
 #### 8. Independent assessment
 
 The ongoing assessments are carried out by <span class="tpl-field tpl-fill">Fill in: the assessor or team, for example the security office's continuous monitoring team or the third-party assessor that performs the yearly assessment</span>, who meet the independence the authorizing official set for the system under CA-2(1) (CA-7(1)). Data from the system's own tools may be used, but the system's administrators do not assess the results.
@@ -158,6 +168,8 @@ The <span class="tpl-field tpl-org">System owner</span> correlates and analyzes 
 | System security status | Metrics, trends, assessment results, open and past-due plan of action and milestones items, significant changes | <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the security status of the system is reported <span class="tpl-typical">Typical: the authorizing official and the Chief Information Security Officer</span></span> | <span class="tpl-field tpl-param">Fill in: frequency at which the security status of the system is reported <span class="tpl-typical">Typical: at least quarterly</span></span> (CA-7g) |
 | System privacy status | Privacy control results and privacy risks | <span class="tpl-field tpl-param">Fill in: personnel or roles to whom the privacy status of the system is reported <span class="tpl-typical">Typical: the authorizing official and the senior privacy official</span></span> | <span class="tpl-field tpl-param">Fill in: frequency at which the privacy status of the system is reported <span class="tpl-typical">Typical: at least quarterly</span></span> (CA-7g) |
 | Organization-wide status | The section 3 metrics across all systems, and common weaknesses | Part A recipients | Part A frequencies (PM-31f) |
+
+Each system report states, for each automated source in section 7, the time of its newest result and whether it covered its whole population, so a gap in monitoring is not read as a passing result.
 
 #### 11. Response
 

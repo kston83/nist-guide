@@ -113,7 +113,7 @@ OWASP, NSA and CISA, and DoD describe how pipeline teams do this work. OWASP tex
 
 An assessor tests these controls by tracing access in both directions. From production, take the identities that can change it and trace each to an owner, an approval and a review. From the pipeline, take a recent deployment and show which identity ran it, what it could reach, and where its credential came from.
 
-| Objective | Pipeline output that meets it | What the assessor checks |
+| Objective | Pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | PL-02a.02, a.09 | The plan's boundary section and diagram, naming the pipeline and where it sits; for an enabling system, its authorization and the interface | The pipeline that deploys production is in a boundary, and the diagram matches what runs |
 | CM-08a.01 to a.03 | Inventory entries for repositories, runners, registries and the secrets store, or a reference to the enabling system's inventory | Resources found in the cloud account or platform match the inventory |

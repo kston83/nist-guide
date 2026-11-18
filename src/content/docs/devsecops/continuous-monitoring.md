@@ -111,7 +111,7 @@ OWASP and DoD describe how pipeline teams do this work. OWASP text is licensed C
 
 An assessor tests CA-7 by following the strategy into the records. Pick a control the strategy says is monitored automatically, find its source, and check that results exist at the stated frequency, for the whole population, through the period under review.
 
-| Objective | Pipeline output that meets it | What the assessor checks |
+| Objective | Pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | CA-07[01], [02] | The system-level strategy, with its table of automated sources, approved and consistent with the organization-level strategy | Every source named exists and runs; every control has a source or a manual assessment |
 | CA-07a | Metric definitions with their data sources and thresholds; metric values computed from stored results | Values can be recomputed from the stored results |

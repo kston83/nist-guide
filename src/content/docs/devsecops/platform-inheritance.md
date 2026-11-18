@@ -101,7 +101,7 @@ OWASP and DoD describe how platform and delivery teams share this work. OWASP te
 
 An assessor tests inheritance by tracing claims in both directions. From the plan, take a control marked inherited or hybrid and follow it to the provider's authorization, the document cited and, for a hybrid, the system's own part. From the platform, take what it offers and check that the system uses it as the provider requires.
 
-| Objective | Platform or pipeline output that meets it | What the assessor checks |
+| Objective | Platform or pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | PL-02a.09 | The plan's provider table and boundary description, naming each platform and service | Every platform the system runs on or depends on is named |
 | PL-02a.12 | The control allocation: common, hybrid or system-specific, with the provider document cited and the system's part written | No control is claimed as inherited that the provider does not offer; every hybrid control has a system part |

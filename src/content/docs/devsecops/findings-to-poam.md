@@ -98,7 +98,7 @@ OWASP and DoD describe how pipeline teams do this work. OWASP text is licensed C
 
 An assessor tests these controls by sampling in both directions. From the running system, pick components and check that their current findings are in the tracker with a response and a date. From the tracker and the POA&M, pick closed findings and trace each to the merge request, the pipeline run and the deployment that removed it.
 
-| Objective | Pipeline output that meets it | What the assessor checks |
+| Objective | Pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | RA-05a | Scan results for each running artifact by digest, registry rescans, and a coverage report against the inventory | Every running component was scanned within the frequency, and again after new vulnerabilities were published |
 | RA-05(02) | Scanner run logs showing the vulnerability data version used | The data was updated before each scan |

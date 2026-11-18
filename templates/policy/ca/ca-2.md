@@ -23,7 +23,7 @@ CA-2 is the formal control assessment: an assessor tests whether each control is
 - For a system that processes personally identifiable information, the assessor shall also provide the results of the privacy control assessment to the {{org:privacy-official}}. (CA-2f)
 
 :::guidance
-Common controls are assessed once by the organization that provides them, and each system that inherits them reuses that assessment. Record each "other than satisfied" result in the system's plan of action and milestones (CA-5), unless the authorizing official accepts the risk (RA-7).
+Common controls are assessed separately, by assessors chosen by the common control provider or the organization, and each system that inherits them reuses that assessment rather than repeating it in the system-level assessment. They stay subject to ongoing assessment. Record each "other than satisfied" result in the system's plan of action and milestones (CA-5), unless the authorizing official accepts the risk (RA-7).
 :::
 
 :::federal

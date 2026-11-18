@@ -115,7 +115,7 @@ Control effectiveness is monitored {{param:ca-07_odp.02}}, and assessed at {{par
 | {{fill:control or group}} | {{fill:implementation}} | {{fill:automated tool, or manual assessment}} | {{fill:frequency}} | {{fill:year}} | {{fill:assessor}} |
 
 :::guidance
-Assessing a third of the controls each year means every control is assessed at least once in a three-year authorization period. Put volatile and critical controls, and any with open weaknesses, in every year's set. Inherited controls are assessed by their provider; list them with the provider as the assessor, so the table covers every control.
+Assessing a third of the controls each year means every control is assessed at least once in a three-year authorization period. Put volatile and critical controls, and any with open weaknesses, in every year's set. Inherited common controls are assessed separately from the system, by assessors chosen by the provider or the organization; list them with that assessor, so the table covers every control.
 :::
 
 These automated sources, such as scheduled scans, configuration checks and checks run by the deployment pipeline, produce monitoring results for the controls above. A result counts only while it is newer than its maximum age and covers the whole population listed. An older result, or one that misses part of the population, is a gap in monitoring and is reported as one (section 10).

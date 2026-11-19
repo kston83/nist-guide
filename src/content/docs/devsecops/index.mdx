@@ -9,7 +9,7 @@ guidance: draft
 
 import SectionIndex from '../../../components/SectionIndex.astro';
 
-This section is for teams that build and run a system through a CI/CD pipeline and need it authorized under the RMF. It shows, one topic at a time, how the pipeline meets the controls and which of its outputs an assessor will accept. It covers vendor-neutral process and evidence, with the status of each source and the month it was checked.
+This section is for teams that build and run a system through a CI/CD pipeline and need it authorized under the RMF. It shows, one topic at a time, how the pipeline meets the controls, which of its outputs support each SP 800-53A assessment objective, and what an assessor checks in that evidence to decide whether the objective is met. It covers vendor-neutral process and evidence, with the status of each source and the month it was checked.
 
 DevSecOps covers the systems a team builds and runs, and the controls that the pipeline and infrastructure as code deliver. It does not cover how people, physical or governance controls are met, or purchased software the team neither builds nor runs. Platform settings, such as how to configure a particular cloud or Kubernetes service, belong in the [technology playbooks](/technology/).
 
@@ -22,7 +22,7 @@ Every topic page follows the same chain, from the requirement down to the eviden
 | Requirement | The RMF and SP 800-53: the guide's [control pages](/controls/), with the SP 800-53A objectives that matter |
 | Structure | The NIST publication for the topic: SP 800-128 for change and configuration, SP 800-40 for findings and remediation, SP 800-204D for the pipeline, SP 800-137 for continuous monitoring, and for building software the SSDF, with the NCCoE's draft DevSecOps practice guide (SP 1800-44) |
 | Team practice | OWASP DevSecOps Guideline sections, DSOMM activities and the OWASP Top 10 CI/CD Security Risks, cited by name and ID; the DoD DevSecOps Activities & Tools Guidebook as the government cross-check |
-| Evidence | The SP 800-53A assessment objectives and methods (examine, interview, test), and the pipeline output that meets each; FedRAMP 20x Key Security Indicators as a labelled model |
+| Evidence | The SP 800-53A assessment objectives and methods (examine, interview, test), and the pipeline output that supports each; FedRAMP 20x Key Security Indicators as a labelled model |
 
 Where NIST settles a question, the page follows NIST. Where it does not, the page gives practice that should pass an assessment, and says so.
 

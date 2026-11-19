@@ -100,7 +100,7 @@ OWASP and DoD describe how pipeline teams do this work. OWASP text is licensed C
 
 An assessor tests CM-3 by sampling changes from the system and tracing each back to an approved record. With a pipeline class, the sample comes from deployment history, and the trace runs through version control.
 
-| Objective | Pipeline output that meets it | What the assessor checks |
+| Objective | Pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | CM-03a | The plan's change types and the pipeline class in Appendix B | The class names its conditions and exclusions |
 | CM-03b | The board's class approval and analysis; the merge approval on each change | Approver differs from author; approval came before deployment |

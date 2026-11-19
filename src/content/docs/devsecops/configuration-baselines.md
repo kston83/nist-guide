@@ -93,7 +93,7 @@ OWASP and DoD describe how pipeline teams do this work. OWASP text is licensed C
 
 An assessor tests these controls by sampling in both directions. From the running system, pick components and trace each to its definition in code, its baseline version and its benchmark. From the code, pick a baseline version and confirm that production matches it.
 
-| Objective | Pipeline output that meets it | What the assessor checks |
+| Objective | Pipeline output that supports it | What the assessor checks |
 | --- | --- | --- |
 | CM-02a | The tagged release, its approval record, and the plan's list of items held outside code | The release in production can be named; the outside-code list is short and each item is checked |
 | CM-02b | Merge history, and the record of the scheduled whole-baseline review | The review happened on schedule and looked at coverage, deviations and drift |
